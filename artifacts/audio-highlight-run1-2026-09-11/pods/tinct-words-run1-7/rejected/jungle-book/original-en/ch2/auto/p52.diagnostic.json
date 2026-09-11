@@ -1,0 +1,963 @@
+{
+  "complete": true,
+  "signature": "e578d0cfdd47b96b64f575467972a04b57499ba920b88b956dcb63b9a2306163",
+  "attempts": [
+    {
+      "asr_seconds": 0.15505822654813528,
+      "alignment_seconds": 8.037686347961426e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Haste! O haste! We--we may catch them yet!\" Baloo panted.",
+        "hotwords": "O, We--we, Baloo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Haste! O haste! We may catch them yet!\" Baloo panted.",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Haste!",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.468994140625
+            },
+            {
+              "text": " O",
+              "start": 0.93,
+              "end": 0.95,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " haste!",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " We",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " may",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " catch",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " yet",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "!\"",
+              "start": 2.33,
+              "end": 2.89,
+              "probability": 0.0989990234375
+            },
+            {
+              "text": " Baloo",
+              "start": 2.89,
+              "end": 3.05,
+              "probability": 0.134124755859375
+            },
+            {
+              "text": " panted.",
+              "start": 3.05,
+              "end": 3.37,
+              "probability": 0.767822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Haste!",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "O",
+          "start": 0.93,
+          "end": 0.95
+        },
+        {
+          "raw": "haste!",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "We",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "may",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "catch",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "them",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "yet",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "!\"",
+          "start": 2.33,
+          "end": 2.89
+        },
+        {
+          "raw": "Baloo",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "raw": "panted.",
+          "start": 3.05,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Haste!",
+        "O",
+        "haste!",
+        "We--we",
+        "may",
+        "catch",
+        "them",
+        "yet!\"",
+        "Baloo",
+        "panted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          10,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Haste!",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "O",
+          "start": 0.93,
+          "end": 0.95
+        },
+        {
+          "text": "haste!",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "We--we",
+          "start": 1.21,
+          "end": 1.36
+        },
+        {
+          "text": "may",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "catch",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "them",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "yet!\"",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "Baloo",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "text": "panted.",
+          "start": 3.05,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.1551695866510272
+    },
+    {
+      "asr_seconds": 0.17497807275503874,
+      "alignment_seconds": 7.401593029499054e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "O, We--we, Baloo"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Haste, O haste, we may catch them yet.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Haste,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.46905517578125
+            },
+            {
+              "text": " O",
+              "start": 0.93,
+              "end": 0.95,
+              "probability": 0.4052734375
+            },
+            {
+              "text": " haste,",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.69140625
+            },
+            {
+              "text": " we",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " may",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " catch",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " yet.",
+              "start": 2.07,
+              "end": 2.35,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " Baloo Panted.",
+          "start": 2.35,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Baloo",
+              "start": 2.35,
+              "end": 3.07,
+              "probability": 0.0289306640625
+            },
+            {
+              "text": " Panted.",
+              "start": 3.07,
+              "end": 3.41,
+              "probability": 0.36590576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Haste,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "O",
+          "start": 0.93,
+          "end": 0.95
+        },
+        {
+          "raw": "haste,",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "we",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "may",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "catch",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "them",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "yet.",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "raw": "Baloo",
+          "start": 2.35,
+          "end": 3.07
+        },
+        {
+          "raw": "Panted.",
+          "start": 3.07,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "\"Haste!",
+        "O",
+        "haste!",
+        "We--we",
+        "may",
+        "catch",
+        "them",
+        "yet!\"",
+        "Baloo",
+        "panted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          10,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Haste!",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "O",
+          "start": 0.93,
+          "end": 0.95
+        },
+        {
+          "text": "haste!",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "We--we",
+          "start": 1.21,
+          "end": 1.36
+        },
+        {
+          "text": "may",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "catch",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "them",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "yet!\"",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "text": "Baloo",
+          "start": 2.35,
+          "end": 3.07
+        },
+        {
+          "text": "panted.",
+          "start": 3.07,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.1750802155584097
+    },
+    {
+      "asr_seconds": 0.12639665976166725,
+      "alignment_seconds": 8.902605623006821e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Haste, oh haste, we may catch them yet.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Haste,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.468994140625
+            },
+            {
+              "text": " oh",
+              "start": 0.93,
+              "end": 0.95,
+              "probability": 0.546875
+            },
+            {
+              "text": " haste,",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.67578125
+            },
+            {
+              "text": " we",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.982421875
+            },
+            {
+              "text": " may",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " catch",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " yet.",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Ballo-panted.",
+          "start": 2.89,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Ballo",
+              "start": 2.89,
+              "end": 3.05,
+              "probability": 0.6265869140625
+            },
+            {
+              "text": "-panted.",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.8011067708333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Haste,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "oh",
+          "start": 0.93,
+          "end": 0.95
+        },
+        {
+          "raw": "haste,",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "we",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "may",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "catch",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "them",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "yet.",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "Ballo",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "raw": "-panted.",
+          "start": 3.05,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "\"Haste!",
+        "O",
+        "haste!",
+        "We--we",
+        "may",
+        "catch",
+        "them",
+        "yet!\"",
+        "Baloo",
+        "panted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Haste!",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "O",
+          "start": 0.75,
+          "end": 0.85
+        },
+        {
+          "text": "haste!",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "We--we",
+          "start": 1.21,
+          "end": 1.36
+        },
+        {
+          "text": "may",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "catch",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "them",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "yet!\"",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "Baloo",
+          "start": 2.33,
+          "end": 2.69
+        },
+        {
+          "text": "panted.",
+          "start": 3.05,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12651412840932608
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3490f97651a54684487be232d547a412b7c3b4309e6dd59a3d5f8d2ebf83267",
+  "selected_reasons": []
+}

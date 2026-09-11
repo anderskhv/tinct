@@ -1,0 +1,2098 @@
+{
+  "complete": true,
+  "signature": "e1aa07ccaff88a2e62181360f5c7ce4d428e711a1cedf5881992ef279eecd5c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2571732569485903,
+      "alignment_seconds": 0.00028125906828790903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. Tell not me; when the butt is out, we will drink water; not a drop before: therefore bear up, and board 'em. Servant-monster, drink to me.",
+        "hotwords": "Stephano, Tell, Servant-monster"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, Tell not me. When the butt is out, we will drink water, not a drop before, therefore",
+          "start": 0.05,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.498992919921875
+            },
+            {
+              "text": " Tell",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.01441192626953125
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " me.",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.984375
+            },
+            {
+              "text": " When",
+              "start": 2.37,
+              "end": 2.47,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " butt",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.36767578125
+            },
+            {
+              "text": " is",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " out,",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " we",
+              "start": 3.17,
+              "end": 3.25,
+              "probability": 0.92578125
+            },
+            {
+              "text": " will",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " drink",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " water,",
+              "start": 3.61,
+              "end": 3.95,
+              "probability": 0.978515625
+            },
+            {
+              "text": " not",
+              "start": 4.29,
+              "end": 4.39,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " a",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " drop",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " before,",
+              "start": 4.71,
+              "end": 5.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " therefore",
+              "start": 5.45,
+              "end": 5.65,
+              "probability": 0.96044921875
+            }
+          ]
+        },
+        {
+          "text": " bear up, and board him. Servant-monster, drink to me.",
+          "start": 5.65,
+          "end": 9.43,
+          "words": [
+            {
+              "text": " bear",
+              "start": 5.65,
+              "end": 6.05,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " up,",
+              "start": 6.05,
+              "end": 6.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 6.47,
+              "end": 6.55,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " board",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.42822265625
+            },
+            {
+              "text": " him.",
+              "start": 6.77,
+              "end": 7.07,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " Servant",
+              "start": 7.85,
+              "end": 8.15,
+              "probability": 0.936767578125
+            },
+            {
+              "text": "-monster,",
+              "start": 8.15,
+              "end": 8.49,
+              "probability": 0.23043441772460938
+            },
+            {
+              "text": " drink",
+              "start": 8.81,
+              "end": 8.97,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " to",
+              "start": 8.97,
+              "end": 9.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me.",
+              "start": 9.21,
+              "end": 9.43,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Tell",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "me.",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "When",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "butt",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "out,",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "we",
+          "start": 3.17,
+          "end": 3.25
+        },
+        {
+          "raw": "will",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "drink",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "water,",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "raw": "not",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "raw": "a",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "drop",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "before,",
+          "start": 4.71,
+          "end": 5.19
+        },
+        {
+          "raw": "therefore",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "raw": "bear",
+          "start": 5.65,
+          "end": 6.05
+        },
+        {
+          "raw": "up,",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "raw": "and",
+          "start": 6.47,
+          "end": 6.55
+        },
+        {
+          "raw": "board",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "him.",
+          "start": 6.77,
+          "end": 7.07
+        },
+        {
+          "raw": "Servant",
+          "start": 7.85,
+          "end": 8.15
+        },
+        {
+          "raw": "-monster,",
+          "start": 8.15,
+          "end": 8.49
+        },
+        {
+          "raw": "drink",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "raw": "to",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "raw": "me.",
+          "start": 9.21,
+          "end": 9.43
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Tell",
+        "not",
+        "me;",
+        "when",
+        "the",
+        "butt",
+        "is",
+        "out,",
+        "we",
+        "will",
+        "drink",
+        "water;",
+        "not",
+        "a",
+        "drop",
+        "before:",
+        "therefore",
+        "bear",
+        "up,",
+        "and",
+        "board",
+        "'em.",
+        "Servant-monster,",
+        "drink",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ],
+        [
+          "equal",
+          24,
+          27,
+          25,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Tell",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "me;",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "when",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "butt",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "is",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "out,",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "we",
+          "start": 3.17,
+          "end": 3.25
+        },
+        {
+          "text": "will",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "drink",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "text": "water;",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "text": "not",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "text": "a",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "drop",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "before:",
+          "start": 4.71,
+          "end": 5.19
+        },
+        {
+          "text": "therefore",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "text": "bear",
+          "start": 5.65,
+          "end": 6.05
+        },
+        {
+          "text": "up,",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "text": "and",
+          "start": 6.47,
+          "end": 6.55
+        },
+        {
+          "text": "board",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "'em.",
+          "start": 6.77,
+          "end": 7.79
+        },
+        {
+          "text": "Servant-monster,",
+          "start": 7.79,
+          "end": 8.3
+        },
+        {
+          "text": "drink",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "text": "to",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "text": "me.",
+          "start": 9.21,
+          "end": 9.43
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 28,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9259259259259259,
+      "rejection_reasons": [],
+      "seconds": 0.25765570194926113
+    },
+    {
+      "asr_seconds": 0.27209849492646754,
+      "alignment_seconds": 0.0002878890372812748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Stephano, Tell, Servant-monster"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Stephano, Tell not me, When the bud is out we will drink water,",
+          "start": 0.05,
+          "end": 3.97,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.498992919921875
+            },
+            {
+              "text": " Tell",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.01441192626953125
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " me,",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.984375
+            },
+            {
+              "text": " When",
+              "start": 2.37,
+              "end": 2.47,
+              "probability": 0.47412109375
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.98828125
+            },
+            {
+              "text": " bud",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.44873046875
+            },
+            {
+              "text": " is",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " out",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " we",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " will",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " drink",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " water,",
+              "start": 3.61,
+              "end": 3.97,
+              "probability": 0.9150390625
+            }
+          ]
+        },
+        {
+          "text": " Not a drop before, therefore bear up and board him.",
+          "start": 4.29,
+          "end": 7.07,
+          "words": [
+            {
+              "text": " Not",
+              "start": 4.29,
+              "end": 4.39,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " a",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " drop",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " before,",
+              "start": 4.71,
+              "end": 5.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " therefore",
+              "start": 5.43,
+              "end": 5.71,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " bear",
+              "start": 5.71,
+              "end": 6.05,
+              "probability": 0.83203125
+            },
+            {
+              "text": " up",
+              "start": 6.05,
+              "end": 6.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 6.33,
+              "end": 6.55,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " board",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " him.",
+              "start": 6.77,
+              "end": 7.07,
+              "probability": 0.6611328125
+            }
+          ]
+        },
+        {
+          "text": " Servant-monster, drink to me.",
+          "start": 7.85,
+          "end": 9.45,
+          "words": [
+            {
+              "text": " Servant",
+              "start": 7.85,
+              "end": 8.15,
+              "probability": 0.947265625
+            },
+            {
+              "text": "-monster,",
+              "start": 8.15,
+              "end": 8.49,
+              "probability": 0.24341583251953125
+            },
+            {
+              "text": " drink",
+              "start": 8.81,
+              "end": 8.97,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " to",
+              "start": 8.97,
+              "end": 9.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me.",
+              "start": 9.21,
+              "end": 9.45,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Tell",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "me,",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "When",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "bud",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "out",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "we",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "will",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "drink",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "water,",
+          "start": 3.61,
+          "end": 3.97
+        },
+        {
+          "raw": "Not",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "raw": "a",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "drop",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "before,",
+          "start": 4.71,
+          "end": 5.21
+        },
+        {
+          "raw": "therefore",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "raw": "bear",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "raw": "up",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "raw": "and",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "raw": "board",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "him.",
+          "start": 6.77,
+          "end": 7.07
+        },
+        {
+          "raw": "Servant",
+          "start": 7.85,
+          "end": 8.15
+        },
+        {
+          "raw": "-monster,",
+          "start": 8.15,
+          "end": 8.49
+        },
+        {
+          "raw": "drink",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "raw": "to",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "raw": "me.",
+          "start": 9.21,
+          "end": 9.45
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Tell",
+        "not",
+        "me;",
+        "when",
+        "the",
+        "butt",
+        "is",
+        "out,",
+        "we",
+        "will",
+        "drink",
+        "water;",
+        "not",
+        "a",
+        "drop",
+        "before:",
+        "therefore",
+        "bear",
+        "up,",
+        "and",
+        "board",
+        "'em.",
+        "Servant-monster,",
+        "drink",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          22,
+          7,
+          22
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ],
+        [
+          "equal",
+          24,
+          27,
+          25,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Tell",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "me;",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "when",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "butt",
+          "start": 2.59,
+          "end": 2.64
+        },
+        {
+          "text": "is",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "out,",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "we",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "will",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "drink",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "text": "water;",
+          "start": 3.61,
+          "end": 3.97
+        },
+        {
+          "text": "not",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "text": "a",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "drop",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "before:",
+          "start": 4.71,
+          "end": 5.21
+        },
+        {
+          "text": "therefore",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "text": "bear",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "text": "up,",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "text": "and",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "text": "board",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "'em.",
+          "start": 6.77,
+          "end": 7.79
+        },
+        {
+          "text": "Servant-monster,",
+          "start": 7.79,
+          "end": 8.3
+        },
+        {
+          "text": "drink",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "text": "to",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "text": "me.",
+          "start": 9.21,
+          "end": 9.45
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 28,
+        "matched_words": 24
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2725263489410281
+    },
+    {
+      "asr_seconds": 0.28781374904792756,
+      "alignment_seconds": 0.00029171002097427845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stefano, tell not me, when the butt is out we will drink water, not a drop before, therefore",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Stefano,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.770751953125
+            },
+            {
+              "text": " tell",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me,",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 2.37,
+              "end": 2.47,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " butt",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.41552734375
+            },
+            {
+              "text": " is",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " will",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " drink",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " water,",
+              "start": 3.61,
+              "end": 3.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 4.29,
+              "end": 4.39,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " a",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " drop",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before,",
+              "start": 4.71,
+              "end": 5.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " therefore",
+              "start": 5.45,
+              "end": 5.69,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " bear up and board him.",
+          "start": 5.69,
+          "end": 7.09,
+          "words": [
+            {
+              "text": " bear",
+              "start": 5.69,
+              "end": 6.05,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " up",
+              "start": 6.05,
+              "end": 6.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 6.33,
+              "end": 6.55,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " board",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.51220703125
+            },
+            {
+              "text": " him.",
+              "start": 6.77,
+              "end": 7.09,
+              "probability": 0.56494140625
+            }
+          ]
+        },
+        {
+          "text": " Servant monster, drink to me.",
+          "start": 7.89,
+          "end": 9.43,
+          "words": [
+            {
+              "text": " Servant",
+              "start": 7.89,
+              "end": 8.15,
+              "probability": 0.938232421875
+            },
+            {
+              "text": " monster,",
+              "start": 8.15,
+              "end": 8.51,
+              "probability": 0.572265625
+            },
+            {
+              "text": " drink",
+              "start": 8.81,
+              "end": 8.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.97,
+              "end": 9.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 9.21,
+              "end": 9.43,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stefano,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "tell",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "me,",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "when",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "butt",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "out",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "we",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "will",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "drink",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "water,",
+          "start": 3.61,
+          "end": 3.99
+        },
+        {
+          "raw": "not",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "raw": "a",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "drop",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "before,",
+          "start": 4.71,
+          "end": 5.21
+        },
+        {
+          "raw": "therefore",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "raw": "bear",
+          "start": 5.69,
+          "end": 6.05
+        },
+        {
+          "raw": "up",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "raw": "and",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "raw": "board",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "him.",
+          "start": 6.77,
+          "end": 7.09
+        },
+        {
+          "raw": "Servant",
+          "start": 7.89,
+          "end": 8.15
+        },
+        {
+          "raw": "monster,",
+          "start": 8.15,
+          "end": 8.51
+        },
+        {
+          "raw": "drink",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "raw": "to",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "raw": "me.",
+          "start": 9.21,
+          "end": 9.43
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Tell",
+        "not",
+        "me;",
+        "when",
+        "the",
+        "butt",
+        "is",
+        "out,",
+        "we",
+        "will",
+        "drink",
+        "water;",
+        "not",
+        "a",
+        "drop",
+        "before:",
+        "therefore",
+        "bear",
+        "up,",
+        "and",
+        "board",
+        "'em.",
+        "Servant-monster,",
+        "drink",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          22,
+          1,
+          22
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ],
+        [
+          "equal",
+          24,
+          27,
+          25,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          22,
+          24,
+          22,
+          25
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "Tell",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "me;",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "text": "when",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "butt",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "is",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "out,",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "we",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "will",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "drink",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "text": "water;",
+          "start": 3.61,
+          "end": 3.99
+        },
+        {
+          "text": "not",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "text": "a",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "drop",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "before:",
+          "start": 4.71,
+          "end": 5.21
+        },
+        {
+          "text": "therefore",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "text": "bear",
+          "start": 5.69,
+          "end": 6.05
+        },
+        {
+          "text": "up,",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "text": "and",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "text": "board",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "'em.",
+          "start": 6.77,
+          "end": 7.79
+        },
+        {
+          "text": "Servant-monster,",
+          "start": 7.79,
+          "end": 8.3
+        },
+        {
+          "text": "drink",
+          "start": 8.81,
+          "end": 8.97
+        },
+        {
+          "text": "to",
+          "start": 8.97,
+          "end": 9.21
+        },
+        {
+          "text": "me.",
+          "start": 9.21,
+          "end": 9.43
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 28,
+        "matched_words": 24
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2882452930789441
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "318107b02d2c22241e773c437c4c9a0632c25b82e3f3929d76e0c3b8a43b6fe9",
+  "selected_reasons": []
+}

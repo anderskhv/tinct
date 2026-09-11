@@ -1,0 +1,511 @@
+{
+  "complete": true,
+  "signature": "2e1ddbb76dd67f2fae4a4ff35fa1777486e5371b405534be1ce470375bbb74ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.16887855902314186,
+      "alignment_seconds": 0.00010804831981658936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bandar log, said the voice of Khayat last, can he stir foot or hand without my order. Speak.",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Bandar",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.54852294921875
+            },
+            {
+              "text": " log,",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " said",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " voice",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.943359375
+            },
+            {
+              "text": " of",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Khayat",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.5152180989583334
+            },
+            {
+              "text": " last,",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " can",
+              "start": 3.23,
+              "end": 3.29,
+              "probability": 0.54248046875
+            },
+            {
+              "text": " he",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.5390625
+            },
+            {
+              "text": " stir",
+              "start": 3.41,
+              "end": 3.63,
+              "probability": 0.98046875
+            },
+            {
+              "text": " foot",
+              "start": 3.63,
+              "end": 3.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " or",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hand",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " without",
+              "start": 4.35,
+              "end": 4.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " order.",
+              "start": 4.81,
+              "end": 5.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Speak.",
+              "start": 5.73,
+              "end": 5.89,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bandar",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "log,",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "said",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "voice",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "of",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "Khayat",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "last,",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "raw": "can",
+          "start": 3.23,
+          "end": 3.29
+        },
+        {
+          "raw": "he",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "stir",
+          "start": 3.41,
+          "end": 3.63
+        },
+        {
+          "raw": "foot",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "raw": "or",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "hand",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "raw": "without",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "raw": "my",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "order.",
+          "start": 4.81,
+          "end": 5.09
+        },
+        {
+          "raw": "Speak.",
+          "start": 5.73,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Bandar-log,\"",
+        "said",
+        "the",
+        "voice",
+        "of",
+        "Kaa",
+        "at",
+        "last,",
+        "\"can",
+        "ye",
+        "stir",
+        "foot",
+        "or",
+        "hand",
+        "without",
+        "my",
+        "order?",
+        "Speak!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ],
+        [
+          "replace",
+          5,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          18,
+          10,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Bandar-log,\"",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "said",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "the",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "voice",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "of",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "Kaa",
+          "start": 2.21,
+          "end": 2.27
+        },
+        {
+          "text": "at",
+          "start": 2.27,
+          "end": 2.3
+        },
+        {
+          "text": "last,",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "text": "\"can",
+          "start": 3.23,
+          "end": 3.29
+        },
+        {
+          "text": "ye",
+          "start": 3.29,
+          "end": 3.35
+        },
+        {
+          "text": "stir",
+          "start": 3.41,
+          "end": 3.63
+        },
+        {
+          "text": "foot",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "text": "or",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "hand",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "text": "without",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "text": "my",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "order?",
+          "start": 4.81,
+          "end": 5.09
+        },
+        {
+          "text": "Speak!\"",
+          "start": 5.73,
+          "end": 5.89
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16902955062687397
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fbba6a484cb10a15f258eeedf135cbf18620e16d7159b9eb6f94eb32935d0232",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

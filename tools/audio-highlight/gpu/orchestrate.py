@@ -193,13 +193,38 @@ def run(args) -> int:
         record["agentUpAt"] = now()
         save()
 
-        # 2. poll until done or deadline
+        # 2. poll until done or deadline. Snapshot the output tree periodically
+        #    so that a pod stopped from outside (another guard, a host failure)
+        #    loses at most a few minutes of completed chapters.
         last_phase = None
+        last_snapshot = time.time()
+        unreachable = 0
         while True:
             elapsed = (time.time() - started) / 60
             code, body = agent_get(base, token, "/status?log=8", timeout=30)
             status = json.loads(body) if code == 200 else {}
             phase = status.get("phase")
+            if code != 200:
+                unreachable += 1
+                pod = pod_get(pod_id)
+                if pod.get("desiredStatus") != "RUNNING":
+                    outcome = "pod-exited-externally"
+                    record["externalExit"] = pod.get("lastStatusChange")
+                    log(f"pod is {pod.get('desiredStatus')} ({pod.get('lastStatusChange')}); using last snapshot", sink)
+                    break
+                if unreachable >= 6:
+                    outcome = "agent-unreachable"
+                    log("status server unreachable for 6 polls; using last snapshot", sink)
+                    break
+            else:
+                unreachable = 0
+            if phase == "aligning" and time.time() - last_snapshot >= args.snapshot_seconds:
+                snap_code, snap = agent_get(base, token, "/tar?path=out&exclude=audio", timeout=300)
+                if snap_code == 200 and snap:
+                    (pod_dir / "out.snapshot.tar.gz").write_bytes(snap)
+                    record["lastSnapshotAt"] = now()
+                    log(f"snapshot {len(snap)} bytes", sink)
+                last_snapshot = time.time()
             if phase != last_phase:
                 log(f"phase {phase} at {elapsed:.1f} min; setup={json.dumps(status.get('setup', {}))[:300]}", sink)
                 last_phase = phase
@@ -231,6 +256,11 @@ def run(args) -> int:
                 tar.extractall(pod_dir)
             record["resultsFetched"] = True
             log(f"fetched out.tar.gz ({len(body)} bytes)", sink)
+        elif (pod_dir / "out.snapshot.tar.gz").exists():
+            with tarfile.open(pod_dir / "out.snapshot.tar.gz", "r:gz") as tar:
+                tar.extractall(pod_dir)
+            record["resultsFetched"] = "snapshot"
+            log(f"final fetch failed (HTTP {code}); extracted last snapshot from {record.get('lastSnapshotAt')}", sink)
         else:
             record["resultsFetched"] = False
             log(f"results fetch failed: HTTP {code}", sink)
@@ -271,6 +301,8 @@ def main() -> int:
     p.add_argument("--deadline-minutes", type=float, default=44.0,
                    help="collect and stop at this uptime, below the guard's 50")
     p.add_argument("--poll-seconds", type=int, default=30)
+    p.add_argument("--snapshot-seconds", type=int, default=240,
+                   help="while aligning, pull the output tree this often so an external stop loses little")
     s = sub.add_parser("stop")
     s.add_argument("pod_id")
     s.add_argument("--artifacts", required=True)

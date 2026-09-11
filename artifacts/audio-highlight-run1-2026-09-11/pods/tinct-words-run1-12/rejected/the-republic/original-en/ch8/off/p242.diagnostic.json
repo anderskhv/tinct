@@ -1,0 +1,545 @@
+{
+  "complete": true,
+  "signature": "596d811115abc2e1219c2349f09918d8248ed6a61c51326d4445e4ba2b735e7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20559719623997808,
+      "alignment_seconds": 0.00020510703325271606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The pleasure of eating is necessary in two ways.",
+          "start": 0.02,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " pleasure",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eating",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 1.16,
+              "end": 1.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " necessary",
+              "start": 1.46,
+              "end": 1.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " two",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " ways.",
+              "start": 2.5,
+              "end": 2.96,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " It does us good, and it is essential to the continuance of life.",
+          "start": 3.46,
+          "end": 6.8,
+          "words": [
+            {
+              "text": " It",
+              "start": 3.46,
+              "end": 3.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " does",
+              "start": 3.62,
+              "end": 3.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " us",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good,",
+              "start": 3.96,
+              "end": 4.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.74,
+              "end": 4.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 4.82,
+              "end": 4.9,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " is",
+              "start": 4.9,
+              "end": 5.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " essential",
+              "start": 5.02,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.4,
+              "end": 5.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.68,
+              "end": 5.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " continuance",
+              "start": 5.8,
+              "end": 6.4,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " of",
+              "start": 6.4,
+              "end": 6.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life.",
+              "start": 6.56,
+              "end": 6.8,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "pleasure",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "of",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "eating",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "is",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "raw": "necessary",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "two",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "ways.",
+          "start": 2.5,
+          "end": 2.96
+        },
+        {
+          "raw": "It",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "raw": "does",
+          "start": 3.62,
+          "end": 3.76
+        },
+        {
+          "raw": "us",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "good,",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.74,
+          "end": 4.82
+        },
+        {
+          "raw": "it",
+          "start": 4.82,
+          "end": 4.9
+        },
+        {
+          "raw": "is",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "raw": "essential",
+          "start": 5.02,
+          "end": 5.4
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "raw": "the",
+          "start": 5.68,
+          "end": 5.8
+        },
+        {
+          "raw": "continuance",
+          "start": 5.8,
+          "end": 6.4
+        },
+        {
+          "raw": "of",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "raw": "life.",
+          "start": 6.56,
+          "end": 6.8
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "pleasure",
+        "of",
+        "eating",
+        "is",
+        "necessary",
+        "in",
+        "two",
+        "ways;",
+        "it",
+        "does",
+        "us",
+        "good",
+        "and",
+        "it",
+        "is",
+        "essential",
+        "to",
+        "the",
+        "continuance",
+        "of",
+        "life?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "pleasure",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "of",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "text": "eating",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "is",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "text": "necessary",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "text": "in",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "two",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "ways;",
+          "start": 2.5,
+          "end": 2.96
+        },
+        {
+          "text": "it",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "text": "does",
+          "start": 3.62,
+          "end": 3.76
+        },
+        {
+          "text": "us",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "good",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.74,
+          "end": 4.82
+        },
+        {
+          "text": "it",
+          "start": 4.82,
+          "end": 4.9
+        },
+        {
+          "text": "is",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "text": "essential",
+          "start": 5.02,
+          "end": 5.4
+        },
+        {
+          "text": "to",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "text": "the",
+          "start": 5.68,
+          "end": 5.8
+        },
+        {
+          "text": "continuance",
+          "start": 5.8,
+          "end": 6.4
+        },
+        {
+          "text": "of",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "text": "life?",
+          "start": 6.56,
+          "end": 6.8
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20591299002990127
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "04f744a78a0959dbc0547d8f1f40bdcaa1ca7b31ef921a0d89ec7105f9c58b55",
+  "selected_reasons": []
+}

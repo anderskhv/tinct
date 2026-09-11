@@ -1,0 +1,533 @@
+{
+  "complete": true,
+  "signature": "29101fa4c672ba66f49528e32f52660a8aa89fd11a19e7ae0b1fe6f38a4c5657",
+  "attempts": [
+    {
+      "asr_seconds": 0.1781620103865862,
+      "alignment_seconds": 0.0001074858009815216,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He throw a rope. He is smaller than a picket pin. Little one, what is thy name?\" said",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.1024169921875
+            },
+            {
+              "text": " throw",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " a",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rope.",
+              "start": 0.93,
+              "end": 1.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " He",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " is",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " smaller",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " than",
+              "start": 2.13,
+              "end": 2.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " picket",
+              "start": 2.53,
+              "end": 2.79,
+              "probability": 0.980224609375
+            },
+            {
+              "text": " pin.",
+              "start": 2.79,
+              "end": 3.05,
+              "probability": 0.4013671875
+            },
+            {
+              "text": " Little",
+              "start": 3.65,
+              "end": 3.71,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " one,",
+              "start": 3.71,
+              "end": 4.01,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " what",
+              "start": 4.17,
+              "end": 4.19,
+              "probability": 0.986328125
+            },
+            {
+              "text": " is",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 4.33,
+              "end": 4.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " name?\"",
+              "start": 4.51,
+              "end": 5.37,
+              "probability": 0.7330322265625
+            },
+            {
+              "text": " said",
+              "start": 5.37,
+              "end": 5.49,
+              "probability": 0.95458984375
+            }
+          ]
+        },
+        {
+          "text": " Peterson Sahib.",
+          "start": 5.49,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " Peterson",
+              "start": 5.49,
+              "end": 5.95,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " Sahib.",
+              "start": 5.95,
+              "end": 6.51,
+              "probability": 0.8916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "throw",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "a",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "rope.",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "raw": "He",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "is",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "smaller",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "than",
+          "start": 2.13,
+          "end": 2.41
+        },
+        {
+          "raw": "a",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "picket",
+          "start": 2.53,
+          "end": 2.79
+        },
+        {
+          "raw": "pin.",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "raw": "Little",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "raw": "one,",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "raw": "what",
+          "start": 4.17,
+          "end": 4.19
+        },
+        {
+          "raw": "is",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "thy",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "raw": "name?\"",
+          "start": 4.51,
+          "end": 5.37
+        },
+        {
+          "raw": "said",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "raw": "Peterson",
+          "start": 5.49,
+          "end": 5.95
+        },
+        {
+          "raw": "Sahib.",
+          "start": 5.95,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "throw",
+        "a",
+        "rope?",
+        "He",
+        "is",
+        "smaller",
+        "than",
+        "a",
+        "picket-pin.",
+        "Little",
+        "one,",
+        "what",
+        "is",
+        "thy",
+        "name?\"",
+        "said",
+        "Petersen",
+        "Sahib."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          17,
+          11,
+          18
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ],
+        [
+          "equal",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "throw",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "a",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "rope?",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "text": "He",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "is",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "smaller",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "than",
+          "start": 2.13,
+          "end": 2.41
+        },
+        {
+          "text": "a",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "picket-pin.",
+          "start": 2.53,
+          "end": 3.09
+        },
+        {
+          "text": "Little",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "text": "one,",
+          "start": 3.71,
+          "end": 4.01
+        },
+        {
+          "text": "what",
+          "start": 4.17,
+          "end": 4.19
+        },
+        {
+          "text": "is",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "thy",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "text": "name?\"",
+          "start": 4.51,
+          "end": 5.37
+        },
+        {
+          "text": "said",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "text": "Petersen",
+          "start": 5.49,
+          "end": 5.72
+        },
+        {
+          "text": "Sahib.",
+          "start": 5.95,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.1783312549814582
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b474566ed52fef246569ff60c94e3b4907a622ce86c1d49dbc162ac6a89fbf98",
+  "selected_reasons": []
+}

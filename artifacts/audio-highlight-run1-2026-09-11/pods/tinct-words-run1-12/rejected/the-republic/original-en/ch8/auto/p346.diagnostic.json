@@ -1,0 +1,921 @@
+{
+  "complete": true,
+  "signature": "24e4d6e8437ae1b6da4a99d3ceee232f368a867b510dbc008ccda3a78dcf3ca6",
+  "attempts": [
+    {
+      "asr_seconds": 0.32829244202002883,
+      "alignment_seconds": 0.0002575148828327656,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The people are a third class, consisting of those who work with their own hands; they are not politicians, and have not much to live upon. This, when assembled, is the largest and most powerful class in a democracy.",
+        "hotwords": "This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The people are a third class, consisting of those who work with their own hands. They are not politicians, and have not much to live upon.",
+          "start": 0.02,
+          "end": 8.22,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " people",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " are",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " third",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.951171875
+            },
+            {
+              "text": " class,",
+              "start": 1.36,
+              "end": 1.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " consisting",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.64,
+              "end": 3.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " those",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " who",
+              "start": 3.16,
+              "end": 3.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " work",
+              "start": 3.38,
+              "end": 3.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hands.",
+              "start": 4.16,
+              "end": 4.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " They",
+              "start": 5.16,
+              "end": 5.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " are",
+              "start": 5.28,
+              "end": 5.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 5.38,
+              "end": 5.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " politicians,",
+              "start": 5.6,
+              "end": 6.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.7,
+              "end": 6.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 6.88,
+              "end": 7.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 7.04,
+              "end": 7.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 7.24,
+              "end": 7.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 7.46,
+              "end": 7.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " live",
+              "start": 7.68,
+              "end": 7.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " upon.",
+              "start": 7.84,
+              "end": 8.22,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " This, when assembled, is the largest and most powerful class in a democracy.",
+          "start": 9.12,
+          "end": 13.42,
+          "words": [
+            {
+              "text": " This,",
+              "start": 9.12,
+              "end": 9.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " when",
+              "start": 9.6,
+              "end": 9.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " assembled,",
+              "start": 9.76,
+              "end": 10.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 10.52,
+              "end": 10.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.68,
+              "end": 10.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " largest",
+              "start": 10.88,
+              "end": 11.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 11.24,
+              "end": 11.56,
+              "probability": 0.986328125
+            },
+            {
+              "text": " most",
+              "start": 11.56,
+              "end": 11.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " powerful",
+              "start": 11.82,
+              "end": 12.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " class",
+              "start": 12.28,
+              "end": 12.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 12.72,
+              "end": 12.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 12.96,
+              "end": 13.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " democracy.",
+              "start": 13.06,
+              "end": 13.42,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "people",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "are",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "a",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "third",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "class,",
+          "start": 1.36,
+          "end": 1.88
+        },
+        {
+          "raw": "consisting",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "raw": "those",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "who",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "raw": "work",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "raw": "with",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "their",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "own",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "hands.",
+          "start": 4.16,
+          "end": 4.68
+        },
+        {
+          "raw": "They",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "raw": "are",
+          "start": 5.28,
+          "end": 5.38
+        },
+        {
+          "raw": "not",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "raw": "politicians,",
+          "start": 5.6,
+          "end": 6.12
+        },
+        {
+          "raw": "and",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "raw": "have",
+          "start": 6.88,
+          "end": 7.04
+        },
+        {
+          "raw": "not",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "raw": "much",
+          "start": 7.24,
+          "end": 7.46
+        },
+        {
+          "raw": "to",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "raw": "live",
+          "start": 7.68,
+          "end": 7.84
+        },
+        {
+          "raw": "upon.",
+          "start": 7.84,
+          "end": 8.22
+        },
+        {
+          "raw": "This,",
+          "start": 9.12,
+          "end": 9.36
+        },
+        {
+          "raw": "when",
+          "start": 9.6,
+          "end": 9.76
+        },
+        {
+          "raw": "assembled,",
+          "start": 9.76,
+          "end": 10.22
+        },
+        {
+          "raw": "is",
+          "start": 10.52,
+          "end": 10.68
+        },
+        {
+          "raw": "the",
+          "start": 10.68,
+          "end": 10.88
+        },
+        {
+          "raw": "largest",
+          "start": 10.88,
+          "end": 11.24
+        },
+        {
+          "raw": "and",
+          "start": 11.24,
+          "end": 11.56
+        },
+        {
+          "raw": "most",
+          "start": 11.56,
+          "end": 11.82
+        },
+        {
+          "raw": "powerful",
+          "start": 11.82,
+          "end": 12.28
+        },
+        {
+          "raw": "class",
+          "start": 12.28,
+          "end": 12.72
+        },
+        {
+          "raw": "in",
+          "start": 12.72,
+          "end": 12.96
+        },
+        {
+          "raw": "a",
+          "start": 12.96,
+          "end": 13.06
+        },
+        {
+          "raw": "democracy.",
+          "start": 13.06,
+          "end": 13.42
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "people",
+        "are",
+        "a",
+        "third",
+        "class,",
+        "consisting",
+        "of",
+        "those",
+        "who",
+        "work",
+        "with",
+        "their",
+        "own",
+        "hands;",
+        "they",
+        "are",
+        "not",
+        "politicians,",
+        "and",
+        "have",
+        "not",
+        "much",
+        "to",
+        "live",
+        "upon.",
+        "This,",
+        "when",
+        "assembled,",
+        "is",
+        "the",
+        "largest",
+        "and",
+        "most",
+        "powerful",
+        "class",
+        "in",
+        "a",
+        "democracy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "people",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "are",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "a",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "third",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "class,",
+          "start": 1.36,
+          "end": 1.88
+        },
+        {
+          "text": "consisting",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "of",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "text": "those",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "who",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "text": "work",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "text": "with",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "their",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "text": "own",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "hands;",
+          "start": 4.16,
+          "end": 4.68
+        },
+        {
+          "text": "they",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "text": "are",
+          "start": 5.28,
+          "end": 5.38
+        },
+        {
+          "text": "not",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "text": "politicians,",
+          "start": 5.6,
+          "end": 6.12
+        },
+        {
+          "text": "and",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "text": "have",
+          "start": 6.88,
+          "end": 7.04
+        },
+        {
+          "text": "not",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "text": "much",
+          "start": 7.24,
+          "end": 7.46
+        },
+        {
+          "text": "to",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "text": "live",
+          "start": 7.68,
+          "end": 7.84
+        },
+        {
+          "text": "upon.",
+          "start": 7.84,
+          "end": 8.22
+        },
+        {
+          "text": "This,",
+          "start": 9.12,
+          "end": 9.36
+        },
+        {
+          "text": "when",
+          "start": 9.6,
+          "end": 9.76
+        },
+        {
+          "text": "assembled,",
+          "start": 9.76,
+          "end": 10.22
+        },
+        {
+          "text": "is",
+          "start": 10.52,
+          "end": 10.68
+        },
+        {
+          "text": "the",
+          "start": 10.68,
+          "end": 10.88
+        },
+        {
+          "text": "largest",
+          "start": 10.88,
+          "end": 11.24
+        },
+        {
+          "text": "and",
+          "start": 11.24,
+          "end": 11.56
+        },
+        {
+          "text": "most",
+          "start": 11.56,
+          "end": 11.82
+        },
+        {
+          "text": "powerful",
+          "start": 11.82,
+          "end": 12.28
+        },
+        {
+          "text": "class",
+          "start": 12.28,
+          "end": 12.72
+        },
+        {
+          "text": "in",
+          "start": 12.72,
+          "end": 12.96
+        },
+        {
+          "text": "a",
+          "start": 12.96,
+          "end": 13.06
+        },
+        {
+          "text": "democracy.",
+          "start": 13.06,
+          "end": 13.42
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 39
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32869579503312707
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be429bae752c6111322651a30680043a6531eb5385d289c05fec47f09ea7fbaf",
+  "selected_reasons": []
+}

@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "e3d6bfaac95e0dfd2835f6f9b4acff44a14feb04c3ce959dbe14d44ca8505f0a",
+  "attempts": [
+    {
+      "asr_seconds": 0.11374658194836229,
+      "alignment_seconds": 0.00011051399633288383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alonzo sleeps. Exit aerial.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Alonzo",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.8102213541666666
+            },
+            {
+              "text": " sleeps.",
+              "start": 0.89,
+              "end": 1.23,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Exit",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.982421875
+            },
+            {
+              "text": " aerial.",
+              "start": 1.89,
+              "end": 2.25,
+              "probability": 0.444580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonzo",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "sleeps.",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "raw": "Exit",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "aerial.",
+          "start": 1.89,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "[Alonso",
+        "sleeps.",
+        "Exit",
+        "Ariel]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Alonso",
+          "start": 0.0,
+          "end": 0.445
+        },
+        {
+          "text": "sleeps.",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "text": "Exit",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "Ariel]",
+          "start": 1.89,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11389779695309699
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e91c12ae2441147a6cb89c284331e5327e707197c23a73dee482e7c9ab463bf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,708 @@
+{
+  "complete": true,
+  "signature": "6956a8f08a9de4f90700f8cfec3cb6b53583839e04560ab34ea9c5e37c8abec2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19345977250486612,
+      "alignment_seconds": 0.00011418107897043228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The fool has had no more sense than to jump at a woodcutter's campfire, and has burned his feet,\" said Father Wolf with a grunt. \"Tabaqui is with him.\"",
+        "hotwords": "The, Father, Wolf, Tabaqui"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The fool has had no more sense than to jump at a woodcutter's campfire, and has burned",
+          "start": 0.02,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.4775390625
+            },
+            {
+              "text": " fool",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " has",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " had",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " no",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " more",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sense",
+              "start": 1.62,
+              "end": 1.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " than",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " jump",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " woodcutter's",
+              "start": 2.88,
+              "end": 3.48,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " campfire,",
+              "start": 3.48,
+              "end": 4.08,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " and",
+              "start": 4.5,
+              "end": 4.58,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " has",
+              "start": 4.58,
+              "end": 4.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " burned",
+              "start": 4.72,
+              "end": 5.0,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " his feet,\" said Father Wolf with a grunt.",
+          "start": 5.0,
+          "end": 7.42,
+          "words": [
+            {
+              "text": " his",
+              "start": 5.0,
+              "end": 5.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " feet,\"",
+              "start": 5.22,
+              "end": 5.94,
+              "probability": 0.8359375
+            },
+            {
+              "text": " said",
+              "start": 5.94,
+              "end": 6.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Father",
+              "start": 6.22,
+              "end": 6.56,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Wolf",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " with",
+              "start": 6.84,
+              "end": 7.08,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " a",
+              "start": 7.08,
+              "end": 7.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " grunt.",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Tabaqui is with him.",
+          "start": 8.18,
+          "end": 9.3,
+          "words": [
+            {
+              "text": " Tabaqui",
+              "start": 8.18,
+              "end": 8.7,
+              "probability": 0.4167060852050781
+            },
+            {
+              "text": " is",
+              "start": 8.7,
+              "end": 8.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 8.86,
+              "end": 9.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 9.04,
+              "end": 9.3,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "fool",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "has",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "had",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "no",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "more",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "sense",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "raw": "than",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "to",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "jump",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "at",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "a",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "woodcutter's",
+          "start": 2.88,
+          "end": 3.48
+        },
+        {
+          "raw": "campfire,",
+          "start": 3.48,
+          "end": 4.08
+        },
+        {
+          "raw": "and",
+          "start": 4.5,
+          "end": 4.58
+        },
+        {
+          "raw": "has",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "raw": "burned",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "raw": "his",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "raw": "feet,\"",
+          "start": 5.22,
+          "end": 5.94
+        },
+        {
+          "raw": "said",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "raw": "Father",
+          "start": 6.22,
+          "end": 6.56
+        },
+        {
+          "raw": "Wolf",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "raw": "with",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "raw": "a",
+          "start": 7.08,
+          "end": 7.18
+        },
+        {
+          "raw": "grunt.",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "Tabaqui",
+          "start": 8.18,
+          "end": 8.7
+        },
+        {
+          "raw": "is",
+          "start": 8.7,
+          "end": 8.86
+        },
+        {
+          "raw": "with",
+          "start": 8.86,
+          "end": 9.04
+        },
+        {
+          "raw": "him.",
+          "start": 9.04,
+          "end": 9.3
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "fool",
+        "has",
+        "had",
+        "no",
+        "more",
+        "sense",
+        "than",
+        "to",
+        "jump",
+        "at",
+        "a",
+        "woodcutter's",
+        "campfire,",
+        "and",
+        "has",
+        "burned",
+        "his",
+        "feet,\"",
+        "said",
+        "Father",
+        "Wolf",
+        "with",
+        "a",
+        "grunt.",
+        "\"Tabaqui",
+        "is",
+        "with",
+        "him.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "fool",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "has",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "had",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "no",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "more",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "sense",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "text": "than",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "to",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "jump",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "at",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "a",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "woodcutter's",
+          "start": 2.88,
+          "end": 3.48
+        },
+        {
+          "text": "campfire,",
+          "start": 3.48,
+          "end": 4.08
+        },
+        {
+          "text": "and",
+          "start": 4.5,
+          "end": 4.58
+        },
+        {
+          "text": "has",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "text": "burned",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "text": "his",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "text": "feet,\"",
+          "start": 5.22,
+          "end": 5.94
+        },
+        {
+          "text": "said",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "text": "Father",
+          "start": 6.22,
+          "end": 6.56
+        },
+        {
+          "text": "Wolf",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "text": "with",
+          "start": 6.84,
+          "end": 7.08
+        },
+        {
+          "text": "a",
+          "start": 7.08,
+          "end": 7.18
+        },
+        {
+          "text": "grunt.",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "\"Tabaqui",
+          "start": 8.18,
+          "end": 8.7
+        },
+        {
+          "text": "is",
+          "start": 8.7,
+          "end": 8.86
+        },
+        {
+          "text": "with",
+          "start": 8.86,
+          "end": 9.04
+        },
+        {
+          "text": "him.\"",
+          "start": 9.04,
+          "end": 9.3
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1936360402032733
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "569d095fc30e35044467b9b945d2e504cb831b7968ad3001403bfbafa01fe43d",
+  "selected_reasons": []
+}

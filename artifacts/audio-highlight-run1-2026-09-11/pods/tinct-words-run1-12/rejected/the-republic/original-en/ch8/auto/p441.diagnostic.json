@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "e75a6034836f6ef8e5a08040b1d2abdb9bc8e261f9b18fc03cbc9d90795c8b7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.18955789599567652,
+      "alignment_seconds": 0.00016520684584975243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Why, you do not mean to say that the tyrant will use violence? What! beat his father if he opposes him?",
+        "hotwords": "Why, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, you do not mean to say that the tyrant will use violence? What! beat his father if he opposes him?",
+          "start": 0.02,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " you",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " do",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " not",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " mean",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " say",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.974609375
+            },
+            {
+              "text": " tyrant",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " will",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " use",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " violence?",
+              "start": 2.78,
+              "end": 3.18,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " What!",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " beat",
+              "start": 4.7,
+              "end": 4.8,
+              "probability": 0.1124267578125
+            },
+            {
+              "text": " his",
+              "start": 4.8,
+              "end": 4.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " father",
+              "start": 4.98,
+              "end": 5.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " if",
+              "start": 5.22,
+              "end": 5.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " he",
+              "start": 5.46,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " opposes",
+              "start": 5.56,
+              "end": 5.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him?",
+              "start": 5.86,
+              "end": 6.22,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "you",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "do",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "not",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "mean",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "to",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "say",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "that",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "tyrant",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "will",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "use",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "violence?",
+          "start": 2.78,
+          "end": 3.18
+        },
+        {
+          "raw": "What!",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "beat",
+          "start": 4.7,
+          "end": 4.8
+        },
+        {
+          "raw": "his",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "raw": "father",
+          "start": 4.98,
+          "end": 5.22
+        },
+        {
+          "raw": "if",
+          "start": 5.22,
+          "end": 5.46
+        },
+        {
+          "raw": "he",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "raw": "opposes",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "raw": "him?",
+          "start": 5.86,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "Why,",
+        "you",
+        "do",
+        "not",
+        "mean",
+        "to",
+        "say",
+        "that",
+        "the",
+        "tyrant",
+        "will",
+        "use",
+        "violence?",
+        "What!",
+        "beat",
+        "his",
+        "father",
+        "if",
+        "he",
+        "opposes",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Why,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "you",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "do",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "not",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "mean",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "to",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "say",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "that",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "tyrant",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "will",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "use",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "violence?",
+          "start": 2.78,
+          "end": 3.18
+        },
+        {
+          "text": "What!",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "beat",
+          "start": 4.7,
+          "end": 4.8
+        },
+        {
+          "text": "his",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "text": "father",
+          "start": 4.98,
+          "end": 5.22
+        },
+        {
+          "text": "if",
+          "start": 5.22,
+          "end": 5.46
+        },
+        {
+          "text": "he",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "text": "opposes",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "text": "him?",
+          "start": 5.86,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18980870069935918
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "09cdce66b4d173b406c4b7da83bbbf6bb16b7d76bc49f61d8bbe9125e8727321",
+  "selected_reasons": []
+}

@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "bef029785b624e74adeb67b3f17a0b4d43f71b45c1d18ed65231a89f6c715b03",
+  "attempts": [
+    {
+      "asr_seconds": 0.13271681300830096,
+      "alignment_seconds": 0.00015240500215440989,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, and how does your content tender your own good fortune?",
+          "start": 0.14,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.14,
+              "end": 0.84,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " and",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " how",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " does",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " content",
+              "start": 2.02,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tender",
+              "start": 2.42,
+              "end": 2.72,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " your",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " own",
+              "start": 2.92,
+              "end": 3.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 3.08,
+              "end": 3.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fortune?",
+              "start": 3.3,
+              "end": 3.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "how",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "does",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "your",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "content",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "raw": "tender",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "raw": "your",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "own",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "raw": "good",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "raw": "fortune?",
+          "start": 3.3,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "And",
+        "how",
+        "does",
+        "your",
+        "content",
+        "Tender",
+        "your",
+        "own",
+        "good",
+        "fortune?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "text": "And",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "how",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "does",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "your",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "content",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "text": "Tender",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "text": "your",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "own",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "text": "good",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "text": "fortune?",
+          "start": 3.3,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1329496611142531
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4c8120e54bb9a64c7fc7b9ec8010528e7ac7a588b97d768672437fea6bf201d",
+  "selected_reasons": []
+}

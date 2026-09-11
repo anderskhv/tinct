@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "d372e5b33c1f7dc686b45f5392d96e6d2ce7c4dcab18db0be3d2322b29c579f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1331317590083927,
+      "alignment_seconds": 0.00013959500938653946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, do so, to ebb hereditary sloth instructs me.",
+          "start": 0.08,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " do",
+              "start": 1.3,
+              "end": 1.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " so,",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " ebb",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.8984375
+            },
+            {
+              "text": " hereditary",
+              "start": 2.52,
+              "end": 2.94,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " sloth",
+              "start": 2.94,
+              "end": 3.44,
+              "probability": 0.96484375
+            },
+            {
+              "text": " instructs",
+              "start": 3.44,
+              "end": 4.02,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " me.",
+              "start": 4.02,
+              "end": 4.2,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "do",
+          "start": 1.3,
+          "end": 1.56
+        },
+        {
+          "raw": "so,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "to",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "ebb",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "hereditary",
+          "start": 2.52,
+          "end": 2.94
+        },
+        {
+          "raw": "sloth",
+          "start": 2.94,
+          "end": 3.44
+        },
+        {
+          "raw": "instructs",
+          "start": 3.44,
+          "end": 4.02
+        },
+        {
+          "raw": "me.",
+          "start": 4.02,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Do",
+        "so:",
+        "to",
+        "ebb",
+        "Hereditary",
+        "sloth",
+        "instructs",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Do",
+          "start": 1.3,
+          "end": 1.56
+        },
+        {
+          "text": "so:",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "to",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "ebb",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "Hereditary",
+          "start": 2.52,
+          "end": 2.94
+        },
+        {
+          "text": "sloth",
+          "start": 2.94,
+          "end": 3.44
+        },
+        {
+          "text": "instructs",
+          "start": 3.44,
+          "end": 4.02
+        },
+        {
+          "text": "me.",
+          "start": 4.02,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13334183592814952
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b31a8d11d4433a4b29ed027e15aa4f38f561a52b064006984fa9a843c94cc76",
+  "selected_reasons": []
+}

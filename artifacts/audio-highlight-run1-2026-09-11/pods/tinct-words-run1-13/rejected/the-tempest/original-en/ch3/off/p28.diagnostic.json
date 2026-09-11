@@ -1,0 +1,183 @@
+{
+  "complete": true,
+  "signature": "973fffaec2aecdc4946711098955ff150f1c35894e7d2e54bda80199289450b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.09888225502800196,
+      "alignment_seconds": 0.00011457398068159819,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, he could not miss.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " he",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " could",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " miss.",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.60302734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "he",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "could",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "not",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "miss.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "He",
+        "could",
+        "not",
+        "miss't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "He",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "could",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "not",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "miss't.",
+          "start": 1.62,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09905382106080651
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0fb1be70971a56e0b7967074e0b81b7f0fe04901e313c2e5e86fe8f44f0a2544",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,873 @@
+{
+  "complete": true,
+  "signature": "88b8acb8828343c5f6868aafdc513350153c9400348e5e15a6cb89aec7f2c684",
+  "attempts": [
+    {
+      "asr_seconds": 0.2624850254505873,
+      "alignment_seconds": 0.0001353491097688675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, you men, you men!\" Matkah said, fanning herself with her hind flipper. \"Why can't you be sensible and settle your places quietly? You look as though you had been fighting with the Killer Whale.\"",
+        "hotwords": "Oh, Matkah, Why, Killer, Whale"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, you men, you men!\" Matkah said, fanning herself with her hind flipper.",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.07623291015625
+            },
+            {
+              "text": " you",
+              "start": 0.83,
+              "end": 0.87,
+              "probability": 0.98046875
+            },
+            {
+              "text": " men,",
+              "start": 0.87,
+              "end": 1.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 1.49,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " men",
+              "start": 1.55,
+              "end": 1.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "!\"",
+              "start": 1.93,
+              "end": 2.39,
+              "probability": 0.10137939453125
+            },
+            {
+              "text": " Matkah",
+              "start": 2.39,
+              "end": 2.77,
+              "probability": 0.5500895182291666
+            },
+            {
+              "text": " said,",
+              "start": 2.77,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fanning",
+              "start": 3.41,
+              "end": 3.77,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " herself",
+              "start": 3.77,
+              "end": 4.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 4.11,
+              "end": 4.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hind",
+              "start": 4.49,
+              "end": 4.79,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " flipper.",
+              "start": 4.79,
+              "end": 5.19,
+              "probability": 0.977783203125
+            }
+          ]
+        },
+        {
+          "text": " Why can't you be sensible and settle your places quietly? You look as though you had",
+          "start": 5.93,
+          "end": 10.05,
+          "words": [
+            {
+              "text": " Why",
+              "start": 5.93,
+              "end": 6.11,
+              "probability": 0.04718017578125
+            },
+            {
+              "text": " can't",
+              "start": 6.11,
+              "end": 6.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 6.37,
+              "end": 6.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 6.45,
+              "end": 6.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sensible",
+              "start": 6.61,
+              "end": 6.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.95,
+              "end": 7.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " settle",
+              "start": 7.27,
+              "end": 7.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 7.55,
+              "end": 7.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " places",
+              "start": 7.75,
+              "end": 8.09,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " quietly?",
+              "start": 8.09,
+              "end": 8.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " You",
+              "start": 9.25,
+              "end": 9.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " look",
+              "start": 9.35,
+              "end": 9.51,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " as",
+              "start": 9.51,
+              "end": 9.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " though",
+              "start": 9.65,
+              "end": 9.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 9.81,
+              "end": 9.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 9.97,
+              "end": 10.05,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " been fighting with the Killer Whale.",
+          "start": 10.05,
+          "end": 11.39,
+          "words": [
+            {
+              "text": " been",
+              "start": 10.05,
+              "end": 10.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fighting",
+              "start": 10.19,
+              "end": 10.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 10.51,
+              "end": 10.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.75,
+              "end": 10.87,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Killer",
+              "start": 10.87,
+              "end": 11.11,
+              "probability": 0.246826171875
+            },
+            {
+              "text": " Whale.",
+              "start": 11.11,
+              "end": 11.39,
+              "probability": 0.89453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "you",
+          "start": 0.83,
+          "end": 0.87
+        },
+        {
+          "raw": "men,",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "raw": "men",
+          "start": 1.55,
+          "end": 1.93
+        },
+        {
+          "raw": "!\"",
+          "start": 1.93,
+          "end": 2.39
+        },
+        {
+          "raw": "Matkah",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "raw": "said,",
+          "start": 2.77,
+          "end": 3.11
+        },
+        {
+          "raw": "fanning",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "raw": "herself",
+          "start": 3.77,
+          "end": 4.11
+        },
+        {
+          "raw": "with",
+          "start": 4.11,
+          "end": 4.33
+        },
+        {
+          "raw": "her",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "hind",
+          "start": 4.49,
+          "end": 4.79
+        },
+        {
+          "raw": "flipper.",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "raw": "Why",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "raw": "can't",
+          "start": 6.11,
+          "end": 6.37
+        },
+        {
+          "raw": "you",
+          "start": 6.37,
+          "end": 6.45
+        },
+        {
+          "raw": "be",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "raw": "sensible",
+          "start": 6.61,
+          "end": 6.95
+        },
+        {
+          "raw": "and",
+          "start": 6.95,
+          "end": 7.27
+        },
+        {
+          "raw": "settle",
+          "start": 7.27,
+          "end": 7.55
+        },
+        {
+          "raw": "your",
+          "start": 7.55,
+          "end": 7.75
+        },
+        {
+          "raw": "places",
+          "start": 7.75,
+          "end": 8.09
+        },
+        {
+          "raw": "quietly?",
+          "start": 8.09,
+          "end": 8.65
+        },
+        {
+          "raw": "You",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "raw": "look",
+          "start": 9.35,
+          "end": 9.51
+        },
+        {
+          "raw": "as",
+          "start": 9.51,
+          "end": 9.65
+        },
+        {
+          "raw": "though",
+          "start": 9.65,
+          "end": 9.81
+        },
+        {
+          "raw": "you",
+          "start": 9.81,
+          "end": 9.97
+        },
+        {
+          "raw": "had",
+          "start": 9.97,
+          "end": 10.05
+        },
+        {
+          "raw": "been",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "raw": "fighting",
+          "start": 10.19,
+          "end": 10.51
+        },
+        {
+          "raw": "with",
+          "start": 10.51,
+          "end": 10.75
+        },
+        {
+          "raw": "the",
+          "start": 10.75,
+          "end": 10.87
+        },
+        {
+          "raw": "Killer",
+          "start": 10.87,
+          "end": 11.11
+        },
+        {
+          "raw": "Whale.",
+          "start": 11.11,
+          "end": 11.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "you",
+        "men,",
+        "you",
+        "men!\"",
+        "Matkah",
+        "said,",
+        "fanning",
+        "herself",
+        "with",
+        "her",
+        "hind",
+        "flipper.",
+        "\"Why",
+        "can't",
+        "you",
+        "be",
+        "sensible",
+        "and",
+        "settle",
+        "your",
+        "places",
+        "quietly?",
+        "You",
+        "look",
+        "as",
+        "though",
+        "you",
+        "had",
+        "been",
+        "fighting",
+        "with",
+        "the",
+        "Killer",
+        "Whale.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          35,
+          6,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "you",
+          "start": 0.83,
+          "end": 0.87
+        },
+        {
+          "text": "men,",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "text": "you",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "text": "men!\"",
+          "start": 1.55,
+          "end": 1.93
+        },
+        {
+          "text": "Matkah",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "text": "said,",
+          "start": 2.77,
+          "end": 3.11
+        },
+        {
+          "text": "fanning",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "text": "herself",
+          "start": 3.77,
+          "end": 4.11
+        },
+        {
+          "text": "with",
+          "start": 4.11,
+          "end": 4.33
+        },
+        {
+          "text": "her",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "hind",
+          "start": 4.49,
+          "end": 4.79
+        },
+        {
+          "text": "flipper.",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "text": "\"Why",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "text": "can't",
+          "start": 6.11,
+          "end": 6.37
+        },
+        {
+          "text": "you",
+          "start": 6.37,
+          "end": 6.45
+        },
+        {
+          "text": "be",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "text": "sensible",
+          "start": 6.61,
+          "end": 6.95
+        },
+        {
+          "text": "and",
+          "start": 6.95,
+          "end": 7.27
+        },
+        {
+          "text": "settle",
+          "start": 7.27,
+          "end": 7.55
+        },
+        {
+          "text": "your",
+          "start": 7.55,
+          "end": 7.75
+        },
+        {
+          "text": "places",
+          "start": 7.75,
+          "end": 8.09
+        },
+        {
+          "text": "quietly?",
+          "start": 8.09,
+          "end": 8.65
+        },
+        {
+          "text": "You",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "text": "look",
+          "start": 9.35,
+          "end": 9.51
+        },
+        {
+          "text": "as",
+          "start": 9.51,
+          "end": 9.65
+        },
+        {
+          "text": "though",
+          "start": 9.65,
+          "end": 9.81
+        },
+        {
+          "text": "you",
+          "start": 9.81,
+          "end": 9.97
+        },
+        {
+          "text": "had",
+          "start": 9.97,
+          "end": 10.05
+        },
+        {
+          "text": "been",
+          "start": 10.05,
+          "end": 10.19
+        },
+        {
+          "text": "fighting",
+          "start": 10.19,
+          "end": 10.51
+        },
+        {
+          "text": "with",
+          "start": 10.51,
+          "end": 10.75
+        },
+        {
+          "text": "the",
+          "start": 10.75,
+          "end": 10.87
+        },
+        {
+          "text": "Killer",
+          "start": 10.87,
+          "end": 11.11
+        },
+        {
+          "text": "Whale.\"",
+          "start": 11.11,
+          "end": 11.39
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 36,
+        "matched_words": 35
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2626934079453349
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bd85e29aaf3d749a8144fd688ec45a8812f484e86c9a0f07e7f896e55adef8fa",
+  "selected_reasons": []
+}

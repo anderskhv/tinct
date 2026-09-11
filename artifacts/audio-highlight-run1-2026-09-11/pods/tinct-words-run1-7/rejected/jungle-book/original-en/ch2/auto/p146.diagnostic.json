@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "44b8b11a0625783f7249ad150035d0b3b2d922757932ef3cf96807952be8d004",
+  "attempts": [
+    {
+      "asr_seconds": 0.1075004767626524,
+      "alignment_seconds": 7.809046655893326e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The moon sets,\" he said. \"Is there yet light enough to see?\"",
+        "hotwords": "The, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The moon sets, he said. Is there yet light enough to see?",
+          "start": 0.02,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.345458984375
+            },
+            {
+              "text": " moon",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " sets,",
+              "start": 0.72,
+              "end": 1.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " said.",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Is",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " there",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yet",
+              "start": 2.62,
+              "end": 2.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " light",
+              "start": 2.8,
+              "end": 3.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " enough",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see?",
+              "start": 3.42,
+              "end": 3.68,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "moon",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "sets,",
+          "start": 0.72,
+          "end": 1.18
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "said.",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "raw": "Is",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "there",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "yet",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "raw": "light",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "raw": "enough",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "to",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "see?",
+          "start": 3.42,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "moon",
+        "sets,\"",
+        "he",
+        "said.",
+        "\"Is",
+        "there",
+        "yet",
+        "light",
+        "enough",
+        "to",
+        "see?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "moon",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "sets,\"",
+          "start": 0.72,
+          "end": 1.18
+        },
+        {
+          "text": "he",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "said.",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "text": "\"Is",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "there",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "yet",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "text": "light",
+          "start": 2.8,
+          "end": 3.02
+        },
+        {
+          "text": "enough",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "to",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "see?\"",
+          "start": 3.42,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10761479754000902
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f92c882e5b00e5a33e3c0f03b18133db8517858aeea5e2f7e37adbdf11b0cf7",
+  "selected_reasons": []
+}

@@ -1,0 +1,632 @@
+{
+  "complete": true,
+  "signature": "3626fbda852bd06d1b7254aec1686db5183691efccb4e7aae62e12b093b32f2e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1464068265631795,
+      "alignment_seconds": 6.115064024925232e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What's bridle-wise?\" said the young mule.",
+        "hotwords": "What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What's bridle-wise? said the young mule.",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " What's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.552154541015625
+            },
+            {
+              "text": " bridle",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.512847900390625
+            },
+            {
+              "text": "-wise?",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.6480712890625
+            },
+            {
+              "text": " said",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.908203125
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " young",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.962890625
+            },
+            {
+              "text": " mule.",
+              "start": 2.0,
+              "end": 2.38,
+              "probability": 0.956787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "bridle",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "-wise?",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "said",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "young",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "mule.",
+          "start": 2.0,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "\"What's",
+        "bridle-wise?\"",
+        "said",
+        "the",
+        "young",
+        "mule."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "bridle-wise?\"",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "text": "said",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "young",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "mule.",
+          "start": 2.0,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14649160020053387
+    },
+    {
+      "asr_seconds": 0.11721570882946253,
+      "alignment_seconds": 6.004050374031067e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Bridal wise said the young mule",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Bridal",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.48999422788619995
+            },
+            {
+              "text": " wise",
+              "start": 0.94,
+              "end": 1.24,
+              "probability": 0.2900390625
+            },
+            {
+              "text": " said",
+              "start": 1.24,
+              "end": 1.72,
+              "probability": 0.19775390625
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " young",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " mule",
+              "start": 2.0,
+              "end": 2.38,
+              "probability": 0.940673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bridal",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "wise",
+          "start": 0.94,
+          "end": 1.24
+        },
+        {
+          "raw": "said",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "young",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "mule",
+          "start": 2.0,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "\"What's",
+        "bridle-wise?\"",
+        "said",
+        "the",
+        "young",
+        "mule."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"What's",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "bridle-wise?\"",
+          "start": 0.62,
+          "end": 0.93
+        },
+        {
+          "text": "said",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "young",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "mule.",
+          "start": 2.0,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11729864031076431
+    },
+    {
+      "asr_seconds": 0.10355904791504145,
+      "alignment_seconds": 6.460119038820267e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What's bridal-wise, said the young mule.",
+          "start": 0.02,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " What's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.552154541015625
+            },
+            {
+              "text": " bridal",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.717041015625
+            },
+            {
+              "text": "-wise,",
+              "start": 0.94,
+              "end": 1.28,
+              "probability": 0.701416015625
+            },
+            {
+              "text": " said",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.986328125
+            },
+            {
+              "text": " young",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " mule.",
+              "start": 2.0,
+              "end": 2.34,
+              "probability": 0.967041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "bridal",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "-wise,",
+          "start": 0.94,
+          "end": 1.28
+        },
+        {
+          "raw": "said",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "young",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "mule.",
+          "start": 2.0,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "\"What's",
+        "bridle-wise?\"",
+        "said",
+        "the",
+        "young",
+        "mule."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "bridle-wise?\"",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "text": "said",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "young",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "mule.",
+          "start": 2.0,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10364644601941109
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "634528293de5ea7d5a2b7e8572a54d584faa32683d9ff190af8c7a8d5485a7fe",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

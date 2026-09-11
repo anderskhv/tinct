@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "46dd6245924335acc0284d7f7fc3d823ade8b4d37e52d4bb64b9250b3f150415",
+  "attempts": [
+    {
+      "asr_seconds": 0.09823412005789578,
+      "alignment_seconds": 0.00010226399172097445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, foul weather.",
+          "start": 0.08,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.693359375
+            },
+            {
+              "text": " foul",
+              "start": 1.46,
+              "end": 1.46,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " weather.",
+              "start": 1.46,
+              "end": 1.74,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "foul",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "raw": "weather.",
+          "start": 1.46,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Foul",
+        "weather?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Foul",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "text": "weather?",
+          "start": 1.46,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09837732603773475
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c9da87dda571dd5fa1b8268611ffc54023cded6ae9e9fcdf95661dad3b2f5dc",
+  "selected_reasons": []
+}

@@ -1,0 +1,7550 @@
+{
+  "complete": true,
+  "signature": "c3babce5a2154bdeeef9e005b589b6377b8a1f8b4073d84492df9237af020977",
+  "attempts": [
+    {
+      "asr_seconds": 0.5755354445427656,
+      "alignment_seconds": 0.00036868639290332794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There was a long hush, for no single wolf cared to fight Akela to the death. Then Shere Khan roared: \"Bah! What have we to do with this toothless fool? He is doomed to die! It is the man-cub who has lived too long. Free People, he was my meat from the first. Give him to me. I am weary of this man-wolf folly. He has troubled the jungle for ten seasons. Give me the man-cub, or I will hunt here always, and not give you one bone. He is a man, a man's child, and from the marrow of my bones I hate him!\"",
+        "hotwords": "There, Akela, Then, Shere, Khan, Bah, What, It, Free, People, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There was a long hush, for no single wolf cared to fight Akela to the death. Then Shere Khan roared,",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " was",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " long",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hush,",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " no",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " single",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wolf",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " cared",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " to",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fight",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Akela",
+              "start": 2.91,
+              "end": 3.27,
+              "probability": 0.47713279724121094
+            },
+            {
+              "text": " to",
+              "start": 3.27,
+              "end": 3.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " death.",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Then",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Shere",
+              "start": 4.51,
+              "end": 4.85,
+              "probability": 0.73046875
+            },
+            {
+              "text": " Khan",
+              "start": 4.85,
+              "end": 5.07,
+              "probability": 0.958984375
+            },
+            {
+              "text": " roared,",
+              "start": 5.07,
+              "end": 5.39,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Bah! What have we to do with this toothless fool? He is doomed to die. It is the man-cub",
+          "start": 6.15,
+          "end": 9.97,
+          "words": [
+            {
+              "text": " Bah!",
+              "start": 6.15,
+              "end": 6.21,
+              "probability": 0.04638671875
+            },
+            {
+              "text": " What",
+              "start": 6.37,
+              "end": 6.47,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " have",
+              "start": 6.47,
+              "end": 6.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " we",
+              "start": 6.55,
+              "end": 6.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 6.65,
+              "end": 6.75,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " do",
+              "start": 6.75,
+              "end": 6.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 6.87,
+              "end": 6.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 6.99,
+              "end": 7.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " toothless",
+              "start": 7.17,
+              "end": 7.57,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " fool?",
+              "start": 7.57,
+              "end": 7.87,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " He",
+              "start": 8.11,
+              "end": 8.23,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " is",
+              "start": 8.23,
+              "end": 8.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " doomed",
+              "start": 8.37,
+              "end": 8.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 8.57,
+              "end": 8.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " die.",
+              "start": 8.79,
+              "end": 9.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " It",
+              "start": 9.25,
+              "end": 9.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 9.35,
+              "end": 9.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.43,
+              "end": 9.57,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " man",
+              "start": 9.57,
+              "end": 9.77,
+              "probability": 0.8037109375
+            },
+            {
+              "text": "-cub",
+              "start": 9.77,
+              "end": 9.97,
+              "probability": 0.7667643229166666
+            }
+          ]
+        },
+        {
+          "text": " who has lived too long. Free People, he was my meat from the first. Give him to me. I",
+          "start": 9.97,
+          "end": 14.67,
+          "words": [
+            {
+              "text": " who",
+              "start": 9.97,
+              "end": 10.13,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " has",
+              "start": 10.13,
+              "end": 10.23,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " lived",
+              "start": 10.23,
+              "end": 10.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " too",
+              "start": 10.43,
+              "end": 10.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " long.",
+              "start": 10.65,
+              "end": 11.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Free",
+              "start": 11.51,
+              "end": 11.67,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " People,",
+              "start": 11.67,
+              "end": 11.99,
+              "probability": 0.0017261505126953125
+            },
+            {
+              "text": " he",
+              "start": 12.11,
+              "end": 12.15,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " was",
+              "start": 12.15,
+              "end": 12.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 12.25,
+              "end": 12.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " meat",
+              "start": 12.41,
+              "end": 12.57,
+              "probability": 0.951171875
+            },
+            {
+              "text": " from",
+              "start": 12.57,
+              "end": 12.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 12.75,
+              "end": 12.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " first.",
+              "start": 12.89,
+              "end": 13.13,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Give",
+              "start": 13.67,
+              "end": 13.77,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " him",
+              "start": 13.77,
+              "end": 13.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 13.91,
+              "end": 14.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 14.05,
+              "end": 14.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 14.55,
+              "end": 14.67,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " am weary of this man-wolf folly. He has troubled the jungle for ten seasons. Give me the man-cub,",
+          "start": 14.67,
+          "end": 19.67,
+          "words": [
+            {
+              "text": " am",
+              "start": 14.67,
+              "end": 14.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " weary",
+              "start": 14.75,
+              "end": 14.97,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " of",
+              "start": 14.97,
+              "end": 15.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 15.19,
+              "end": 15.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 15.33,
+              "end": 15.57,
+              "probability": 0.98779296875
+            },
+            {
+              "text": "-wolf",
+              "start": 15.57,
+              "end": 15.75,
+              "probability": 0.932861328125
+            },
+            {
+              "text": " folly.",
+              "start": 15.75,
+              "end": 16.05,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " He",
+              "start": 16.39,
+              "end": 16.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " has",
+              "start": 16.55,
+              "end": 16.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " troubled",
+              "start": 16.69,
+              "end": 16.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 16.89,
+              "end": 17.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " jungle",
+              "start": 17.11,
+              "end": 17.31,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " for",
+              "start": 17.31,
+              "end": 17.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ten",
+              "start": 17.61,
+              "end": 17.81,
+              "probability": 0.79296875
+            },
+            {
+              "text": " seasons.",
+              "start": 17.81,
+              "end": 18.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Give",
+              "start": 18.91,
+              "end": 19.03,
+              "probability": 0.990234375
+            },
+            {
+              "text": " me",
+              "start": 19.03,
+              "end": 19.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 19.15,
+              "end": 19.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 19.25,
+              "end": 19.45,
+              "probability": 0.96142578125
+            },
+            {
+              "text": "-cub,",
+              "start": 19.45,
+              "end": 19.67,
+              "probability": 0.9874674479166666
+            }
+          ]
+        },
+        {
+          "text": " or I will hunt here always, and not give you one bone. He is a man, a man's child, and",
+          "start": 19.83,
+          "end": 24.67,
+          "words": [
+            {
+              "text": " or",
+              "start": 19.83,
+              "end": 19.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 19.91,
+              "end": 20.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will",
+              "start": 20.03,
+              "end": 20.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hunt",
+              "start": 20.15,
+              "end": 20.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " here",
+              "start": 20.29,
+              "end": 20.47,
+              "probability": 0.98046875
+            },
+            {
+              "text": " always,",
+              "start": 20.47,
+              "end": 20.83,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 21.01,
+              "end": 21.09,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " not",
+              "start": 21.09,
+              "end": 21.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 21.25,
+              "end": 21.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 21.41,
+              "end": 21.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 21.57,
+              "end": 21.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bone.",
+              "start": 21.75,
+              "end": 22.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " He",
+              "start": 22.49,
+              "end": 22.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 22.67,
+              "end": 22.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 22.79,
+              "end": 22.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man,",
+              "start": 22.89,
+              "end": 23.15,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 23.37,
+              "end": 23.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " man's",
+              "start": 23.47,
+              "end": 23.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " child,",
+              "start": 23.87,
+              "end": 24.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 24.47,
+              "end": 24.67,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " from the marrow of my bones I hate him.\"",
+          "start": 24.67,
+          "end": 26.95,
+          "words": [
+            {
+              "text": " from",
+              "start": 24.67,
+              "end": 24.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 24.79,
+              "end": 24.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " marrow",
+              "start": 24.91,
+              "end": 25.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 25.09,
+              "end": 25.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 25.27,
+              "end": 25.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bones",
+              "start": 25.43,
+              "end": 25.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 25.67,
+              "end": 25.93,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " hate",
+              "start": 25.93,
+              "end": 26.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.\"",
+              "start": 26.11,
+              "end": 26.95,
+              "probability": 0.5279388427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "a",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "long",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "hush,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "for",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "no",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "single",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "wolf",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "cared",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "fight",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "Akela",
+          "start": 2.91,
+          "end": 3.27
+        },
+        {
+          "raw": "to",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "death.",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "raw": "Then",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "Shere",
+          "start": 4.51,
+          "end": 4.85
+        },
+        {
+          "raw": "Khan",
+          "start": 4.85,
+          "end": 5.07
+        },
+        {
+          "raw": "roared,",
+          "start": 5.07,
+          "end": 5.39
+        },
+        {
+          "raw": "Bah!",
+          "start": 6.15,
+          "end": 6.21
+        },
+        {
+          "raw": "What",
+          "start": 6.37,
+          "end": 6.47
+        },
+        {
+          "raw": "have",
+          "start": 6.47,
+          "end": 6.55
+        },
+        {
+          "raw": "we",
+          "start": 6.55,
+          "end": 6.65
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "raw": "do",
+          "start": 6.75,
+          "end": 6.87
+        },
+        {
+          "raw": "with",
+          "start": 6.87,
+          "end": 6.99
+        },
+        {
+          "raw": "this",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "raw": "toothless",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "raw": "fool?",
+          "start": 7.57,
+          "end": 7.87
+        },
+        {
+          "raw": "He",
+          "start": 8.11,
+          "end": 8.23
+        },
+        {
+          "raw": "is",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "raw": "doomed",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "raw": "to",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "raw": "die.",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "raw": "It",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "raw": "is",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "raw": "the",
+          "start": 9.43,
+          "end": 9.57
+        },
+        {
+          "raw": "man",
+          "start": 9.57,
+          "end": 9.77
+        },
+        {
+          "raw": "-cub",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "raw": "who",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "raw": "has",
+          "start": 10.13,
+          "end": 10.23
+        },
+        {
+          "raw": "lived",
+          "start": 10.23,
+          "end": 10.43
+        },
+        {
+          "raw": "too",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "raw": "long.",
+          "start": 10.65,
+          "end": 11.01
+        },
+        {
+          "raw": "Free",
+          "start": 11.51,
+          "end": 11.67
+        },
+        {
+          "raw": "People,",
+          "start": 11.67,
+          "end": 11.99
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.15
+        },
+        {
+          "raw": "was",
+          "start": 12.15,
+          "end": 12.25
+        },
+        {
+          "raw": "my",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "raw": "meat",
+          "start": 12.41,
+          "end": 12.57
+        },
+        {
+          "raw": "from",
+          "start": 12.57,
+          "end": 12.75
+        },
+        {
+          "raw": "the",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "raw": "first.",
+          "start": 12.89,
+          "end": 13.13
+        },
+        {
+          "raw": "Give",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "raw": "him",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "raw": "to",
+          "start": 13.91,
+          "end": 14.05
+        },
+        {
+          "raw": "me.",
+          "start": 14.05,
+          "end": 14.27
+        },
+        {
+          "raw": "I",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "raw": "am",
+          "start": 14.67,
+          "end": 14.75
+        },
+        {
+          "raw": "weary",
+          "start": 14.75,
+          "end": 14.97
+        },
+        {
+          "raw": "of",
+          "start": 14.97,
+          "end": 15.19
+        },
+        {
+          "raw": "this",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "raw": "man",
+          "start": 15.33,
+          "end": 15.57
+        },
+        {
+          "raw": "-wolf",
+          "start": 15.57,
+          "end": 15.75
+        },
+        {
+          "raw": "folly.",
+          "start": 15.75,
+          "end": 16.05
+        },
+        {
+          "raw": "He",
+          "start": 16.39,
+          "end": 16.55
+        },
+        {
+          "raw": "has",
+          "start": 16.55,
+          "end": 16.69
+        },
+        {
+          "raw": "troubled",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "raw": "the",
+          "start": 16.89,
+          "end": 17.11
+        },
+        {
+          "raw": "jungle",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "raw": "for",
+          "start": 17.31,
+          "end": 17.61
+        },
+        {
+          "raw": "ten",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "raw": "seasons.",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "raw": "Give",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "raw": "me",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "raw": "the",
+          "start": 19.15,
+          "end": 19.25
+        },
+        {
+          "raw": "man",
+          "start": 19.25,
+          "end": 19.45
+        },
+        {
+          "raw": "-cub,",
+          "start": 19.45,
+          "end": 19.67
+        },
+        {
+          "raw": "or",
+          "start": 19.83,
+          "end": 19.91
+        },
+        {
+          "raw": "I",
+          "start": 19.91,
+          "end": 20.03
+        },
+        {
+          "raw": "will",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "raw": "hunt",
+          "start": 20.15,
+          "end": 20.29
+        },
+        {
+          "raw": "here",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "raw": "always,",
+          "start": 20.47,
+          "end": 20.83
+        },
+        {
+          "raw": "and",
+          "start": 21.01,
+          "end": 21.09
+        },
+        {
+          "raw": "not",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "raw": "give",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "raw": "you",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "raw": "one",
+          "start": 21.57,
+          "end": 21.75
+        },
+        {
+          "raw": "bone.",
+          "start": 21.75,
+          "end": 22.01
+        },
+        {
+          "raw": "He",
+          "start": 22.49,
+          "end": 22.67
+        },
+        {
+          "raw": "is",
+          "start": 22.67,
+          "end": 22.79
+        },
+        {
+          "raw": "a",
+          "start": 22.79,
+          "end": 22.89
+        },
+        {
+          "raw": "man,",
+          "start": 22.89,
+          "end": 23.15
+        },
+        {
+          "raw": "a",
+          "start": 23.37,
+          "end": 23.47
+        },
+        {
+          "raw": "man's",
+          "start": 23.47,
+          "end": 23.87
+        },
+        {
+          "raw": "child,",
+          "start": 23.87,
+          "end": 24.13
+        },
+        {
+          "raw": "and",
+          "start": 24.47,
+          "end": 24.67
+        },
+        {
+          "raw": "from",
+          "start": 24.67,
+          "end": 24.79
+        },
+        {
+          "raw": "the",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "raw": "marrow",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "raw": "of",
+          "start": 25.09,
+          "end": 25.27
+        },
+        {
+          "raw": "my",
+          "start": 25.27,
+          "end": 25.43
+        },
+        {
+          "raw": "bones",
+          "start": 25.43,
+          "end": 25.67
+        },
+        {
+          "raw": "I",
+          "start": 25.67,
+          "end": 25.93
+        },
+        {
+          "raw": "hate",
+          "start": 25.93,
+          "end": 26.11
+        },
+        {
+          "raw": "him.\"",
+          "start": 26.11,
+          "end": 26.95
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "long",
+        "hush,",
+        "for",
+        "no",
+        "single",
+        "wolf",
+        "cared",
+        "to",
+        "fight",
+        "Akela",
+        "to",
+        "the",
+        "death.",
+        "Then",
+        "Shere",
+        "Khan",
+        "roared:",
+        "\"Bah!",
+        "What",
+        "have",
+        "we",
+        "to",
+        "do",
+        "with",
+        "this",
+        "toothless",
+        "fool?",
+        "He",
+        "is",
+        "doomed",
+        "to",
+        "die!",
+        "It",
+        "is",
+        "the",
+        "man-cub",
+        "who",
+        "has",
+        "lived",
+        "too",
+        "long.",
+        "Free",
+        "People,",
+        "he",
+        "was",
+        "my",
+        "meat",
+        "from",
+        "the",
+        "first.",
+        "Give",
+        "him",
+        "to",
+        "me.",
+        "I",
+        "am",
+        "weary",
+        "of",
+        "this",
+        "man-wolf",
+        "folly.",
+        "He",
+        "has",
+        "troubled",
+        "the",
+        "jungle",
+        "for",
+        "ten",
+        "seasons.",
+        "Give",
+        "me",
+        "the",
+        "man-cub,",
+        "or",
+        "I",
+        "will",
+        "hunt",
+        "here",
+        "always,",
+        "and",
+        "not",
+        "give",
+        "you",
+        "one",
+        "bone.",
+        "He",
+        "is",
+        "a",
+        "man,",
+        "a",
+        "man's",
+        "child,",
+        "and",
+        "from",
+        "the",
+        "marrow",
+        "of",
+        "my",
+        "bones",
+        "I",
+        "hate",
+        "him!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ],
+        [
+          "equal",
+          39,
+          62,
+          40,
+          63
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          65
+        ],
+        [
+          "equal",
+          63,
+          75,
+          65,
+          77
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          79
+        ],
+        [
+          "equal",
+          76,
+          105,
+          79,
+          108
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 107
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          65
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          79
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "a",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "long",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "hush,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "for",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "no",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "single",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "wolf",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "cared",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "to",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "fight",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "Akela",
+          "start": 2.91,
+          "end": 3.27
+        },
+        {
+          "text": "to",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "death.",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "text": "Then",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "Shere",
+          "start": 4.51,
+          "end": 4.85
+        },
+        {
+          "text": "Khan",
+          "start": 4.85,
+          "end": 5.07
+        },
+        {
+          "text": "roared:",
+          "start": 5.07,
+          "end": 5.39
+        },
+        {
+          "text": "\"Bah!",
+          "start": 6.15,
+          "end": 6.21
+        },
+        {
+          "text": "What",
+          "start": 6.37,
+          "end": 6.47
+        },
+        {
+          "text": "have",
+          "start": 6.47,
+          "end": 6.55
+        },
+        {
+          "text": "we",
+          "start": 6.55,
+          "end": 6.65
+        },
+        {
+          "text": "to",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "text": "do",
+          "start": 6.75,
+          "end": 6.87
+        },
+        {
+          "text": "with",
+          "start": 6.87,
+          "end": 6.99
+        },
+        {
+          "text": "this",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "text": "toothless",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "text": "fool?",
+          "start": 7.57,
+          "end": 7.87
+        },
+        {
+          "text": "He",
+          "start": 8.11,
+          "end": 8.23
+        },
+        {
+          "text": "is",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "text": "doomed",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "text": "to",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "text": "die!",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "text": "It",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "text": "is",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "text": "the",
+          "start": 9.43,
+          "end": 9.57
+        },
+        {
+          "text": "man-cub",
+          "start": 9.57,
+          "end": 9.77
+        },
+        {
+          "text": "who",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "text": "has",
+          "start": 10.13,
+          "end": 10.23
+        },
+        {
+          "text": "lived",
+          "start": 10.23,
+          "end": 10.43
+        },
+        {
+          "text": "too",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "text": "long.",
+          "start": 10.65,
+          "end": 11.01
+        },
+        {
+          "text": "Free",
+          "start": 11.51,
+          "end": 11.67
+        },
+        {
+          "text": "People,",
+          "start": 11.67,
+          "end": 11.99
+        },
+        {
+          "text": "he",
+          "start": 12.11,
+          "end": 12.15
+        },
+        {
+          "text": "was",
+          "start": 12.15,
+          "end": 12.25
+        },
+        {
+          "text": "my",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "text": "meat",
+          "start": 12.41,
+          "end": 12.57
+        },
+        {
+          "text": "from",
+          "start": 12.57,
+          "end": 12.75
+        },
+        {
+          "text": "the",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "text": "first.",
+          "start": 12.89,
+          "end": 13.13
+        },
+        {
+          "text": "Give",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "text": "him",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "text": "to",
+          "start": 13.91,
+          "end": 14.05
+        },
+        {
+          "text": "me.",
+          "start": 14.05,
+          "end": 14.27
+        },
+        {
+          "text": "I",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "text": "am",
+          "start": 14.67,
+          "end": 14.75
+        },
+        {
+          "text": "weary",
+          "start": 14.75,
+          "end": 14.97
+        },
+        {
+          "text": "of",
+          "start": 14.97,
+          "end": 15.19
+        },
+        {
+          "text": "this",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "text": "man-wolf",
+          "start": 15.33,
+          "end": 15.54
+        },
+        {
+          "text": "folly.",
+          "start": 15.75,
+          "end": 16.05
+        },
+        {
+          "text": "He",
+          "start": 16.39,
+          "end": 16.55
+        },
+        {
+          "text": "has",
+          "start": 16.55,
+          "end": 16.69
+        },
+        {
+          "text": "troubled",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "text": "the",
+          "start": 16.89,
+          "end": 17.11
+        },
+        {
+          "text": "jungle",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "text": "for",
+          "start": 17.31,
+          "end": 17.61
+        },
+        {
+          "text": "ten",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "text": "seasons.",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "text": "Give",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "text": "me",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "text": "the",
+          "start": 19.15,
+          "end": 19.25
+        },
+        {
+          "text": "man-cub,",
+          "start": 19.25,
+          "end": 19.54
+        },
+        {
+          "text": "or",
+          "start": 19.83,
+          "end": 19.91
+        },
+        {
+          "text": "I",
+          "start": 19.91,
+          "end": 20.03
+        },
+        {
+          "text": "will",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "text": "hunt",
+          "start": 20.15,
+          "end": 20.29
+        },
+        {
+          "text": "here",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "text": "always,",
+          "start": 20.47,
+          "end": 20.83
+        },
+        {
+          "text": "and",
+          "start": 21.01,
+          "end": 21.09
+        },
+        {
+          "text": "not",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "text": "give",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "text": "you",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "text": "one",
+          "start": 21.57,
+          "end": 21.75
+        },
+        {
+          "text": "bone.",
+          "start": 21.75,
+          "end": 22.01
+        },
+        {
+          "text": "He",
+          "start": 22.49,
+          "end": 22.67
+        },
+        {
+          "text": "is",
+          "start": 22.67,
+          "end": 22.79
+        },
+        {
+          "text": "a",
+          "start": 22.79,
+          "end": 22.89
+        },
+        {
+          "text": "man,",
+          "start": 22.89,
+          "end": 23.15
+        },
+        {
+          "text": "a",
+          "start": 23.37,
+          "end": 23.47
+        },
+        {
+          "text": "man's",
+          "start": 23.47,
+          "end": 23.87
+        },
+        {
+          "text": "child,",
+          "start": 23.87,
+          "end": 24.13
+        },
+        {
+          "text": "and",
+          "start": 24.47,
+          "end": 24.67
+        },
+        {
+          "text": "from",
+          "start": 24.67,
+          "end": 24.79
+        },
+        {
+          "text": "the",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "text": "marrow",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "text": "of",
+          "start": 25.09,
+          "end": 25.27
+        },
+        {
+          "text": "my",
+          "start": 25.27,
+          "end": 25.43
+        },
+        {
+          "text": "bones",
+          "start": 25.43,
+          "end": 25.67
+        },
+        {
+          "text": "I",
+          "start": 25.67,
+          "end": 25.93
+        },
+        {
+          "text": "hate",
+          "start": 25.93,
+          "end": 26.11
+        },
+        {
+          "text": "him!\"",
+          "start": 26.11,
+          "end": 26.95
+        }
+      ],
+      "stats": {
+        "expected_words": 105,
+        "heard_words": 108,
+        "matched_words": 102
+      },
+      "match_ratio": 0.9714285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.5760993985459208
+    },
+    {
+      "asr_seconds": 0.48716387152671814,
+      "alignment_seconds": 0.0003576725721359253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "There, Akela, Then, Shere, Khan, Bah, What, It, Free, People, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " There was a long hush, for no single wolf cared to fight Akela to the death. Then Shere,",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " was",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " long",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hush,",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " no",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " single",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wolf",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " cared",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " to",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fight",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Akela",
+              "start": 2.91,
+              "end": 3.27,
+              "probability": 0.47713279724121094
+            },
+            {
+              "text": " to",
+              "start": 3.27,
+              "end": 3.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " death.",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Then",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Shere,",
+              "start": 4.51,
+              "end": 4.85,
+              "probability": 0.73046875
+            }
+          ]
+        },
+        {
+          "text": " Khan roared, Bah, What have we to do with this toothless fool? He is doomed to die. It is the",
+          "start": 4.93,
+          "end": 9.57,
+          "words": [
+            {
+              "text": " Khan",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.55908203125
+            },
+            {
+              "text": " roared,",
+              "start": 5.07,
+              "end": 5.37,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Bah,",
+              "start": 6.15,
+              "end": 6.21,
+              "probability": 0.09307861328125
+            },
+            {
+              "text": " What",
+              "start": 6.37,
+              "end": 6.47,
+              "probability": 0.020263671875
+            },
+            {
+              "text": " have",
+              "start": 6.47,
+              "end": 6.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " we",
+              "start": 6.55,
+              "end": 6.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 6.65,
+              "end": 6.75,
+              "probability": 0.978515625
+            },
+            {
+              "text": " do",
+              "start": 6.75,
+              "end": 6.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 6.87,
+              "end": 6.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " this",
+              "start": 6.99,
+              "end": 7.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " toothless",
+              "start": 7.17,
+              "end": 7.57,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " fool?",
+              "start": 7.57,
+              "end": 7.85,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " He",
+              "start": 8.13,
+              "end": 8.23,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " is",
+              "start": 8.23,
+              "end": 8.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " doomed",
+              "start": 8.37,
+              "end": 8.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 8.57,
+              "end": 8.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die.",
+              "start": 8.79,
+              "end": 9.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " It",
+              "start": 9.27,
+              "end": 9.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 9.35,
+              "end": 9.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 9.43,
+              "end": 9.57,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " man-cub who has lived too long. Free people, he was my meat from the first. Give him to me.",
+          "start": 9.57,
+          "end": 14.27,
+          "words": [
+            {
+              "text": " man",
+              "start": 9.57,
+              "end": 9.77,
+              "probability": 0.81103515625
+            },
+            {
+              "text": "-cub",
+              "start": 9.77,
+              "end": 9.97,
+              "probability": 0.7443033854166666
+            },
+            {
+              "text": " who",
+              "start": 9.97,
+              "end": 10.13,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " has",
+              "start": 10.13,
+              "end": 10.23,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " lived",
+              "start": 10.23,
+              "end": 10.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " too",
+              "start": 10.43,
+              "end": 10.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " long.",
+              "start": 10.65,
+              "end": 11.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Free",
+              "start": 11.51,
+              "end": 11.67,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " people,",
+              "start": 11.67,
+              "end": 11.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 12.11,
+              "end": 12.15,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " was",
+              "start": 12.15,
+              "end": 12.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 12.25,
+              "end": 12.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " meat",
+              "start": 12.41,
+              "end": 12.57,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " from",
+              "start": 12.57,
+              "end": 12.75,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 12.75,
+              "end": 12.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " first.",
+              "start": 12.89,
+              "end": 13.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Give",
+              "start": 13.67,
+              "end": 13.77,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " him",
+              "start": 13.77,
+              "end": 13.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 13.91,
+              "end": 14.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 14.07,
+              "end": 14.27,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I am weary of this man-wolf folly. He has troubled the jungle for ten seasons. Give",
+          "start": 14.55,
+          "end": 19.03,
+          "words": [
+            {
+              "text": " I",
+              "start": 14.55,
+              "end": 14.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " am",
+              "start": 14.67,
+              "end": 14.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " weary",
+              "start": 14.75,
+              "end": 14.97,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " of",
+              "start": 14.97,
+              "end": 15.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 15.19,
+              "end": 15.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " man",
+              "start": 15.33,
+              "end": 15.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-wolf",
+              "start": 15.57,
+              "end": 15.77,
+              "probability": 0.919677734375
+            },
+            {
+              "text": " folly.",
+              "start": 15.77,
+              "end": 16.07,
+              "probability": 0.9765625
+            },
+            {
+              "text": " He",
+              "start": 16.39,
+              "end": 16.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 16.55,
+              "end": 16.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " troubled",
+              "start": 16.67,
+              "end": 16.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 16.89,
+              "end": 17.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " jungle",
+              "start": 17.11,
+              "end": 17.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for",
+              "start": 17.31,
+              "end": 17.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ten",
+              "start": 17.61,
+              "end": 17.81,
+              "probability": 0.8359375
+            },
+            {
+              "text": " seasons.",
+              "start": 17.81,
+              "end": 18.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Give",
+              "start": 18.91,
+              "end": 19.03,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " me the man-cub, or I will hunt here always and not give you one bone. He is a man,",
+          "start": 19.03,
+          "end": 23.15,
+          "words": [
+            {
+              "text": " me",
+              "start": 19.03,
+              "end": 19.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 19.15,
+              "end": 19.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " man",
+              "start": 19.25,
+              "end": 19.45,
+              "probability": 0.9775390625
+            },
+            {
+              "text": "-cub,",
+              "start": 19.45,
+              "end": 19.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " or",
+              "start": 19.81,
+              "end": 19.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 19.91,
+              "end": 20.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 20.03,
+              "end": 20.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hunt",
+              "start": 20.15,
+              "end": 20.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " here",
+              "start": 20.29,
+              "end": 20.47,
+              "probability": 0.974609375
+            },
+            {
+              "text": " always",
+              "start": 20.47,
+              "end": 20.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 20.83,
+              "end": 21.09,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " not",
+              "start": 21.09,
+              "end": 21.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 21.25,
+              "end": 21.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 21.41,
+              "end": 21.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 21.57,
+              "end": 21.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bone.",
+              "start": 21.75,
+              "end": 22.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 22.49,
+              "end": 22.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 22.67,
+              "end": 22.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 22.79,
+              "end": 22.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man,",
+              "start": 22.89,
+              "end": 23.15,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " a man's child, and from the marrow of my bones I hate him.",
+          "start": 23.37,
+          "end": 26.37,
+          "words": [
+            {
+              "text": " a",
+              "start": 23.37,
+              "end": 23.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " man's",
+              "start": 23.47,
+              "end": 23.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " child,",
+              "start": 23.85,
+              "end": 24.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 24.51,
+              "end": 24.67,
+              "probability": 0.984375
+            },
+            {
+              "text": " from",
+              "start": 24.67,
+              "end": 24.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 24.79,
+              "end": 24.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " marrow",
+              "start": 24.91,
+              "end": 25.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 25.09,
+              "end": 25.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 25.29,
+              "end": 25.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bones",
+              "start": 25.43,
+              "end": 25.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 25.67,
+              "end": 25.93,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " hate",
+              "start": 25.93,
+              "end": 26.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 26.11,
+              "end": 26.37,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "a",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "long",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "hush,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "for",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "no",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "single",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "wolf",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "cared",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "fight",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "Akela",
+          "start": 2.91,
+          "end": 3.27
+        },
+        {
+          "raw": "to",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "death.",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "raw": "Then",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "Shere,",
+          "start": 4.51,
+          "end": 4.85
+        },
+        {
+          "raw": "Khan",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "roared,",
+          "start": 5.07,
+          "end": 5.37
+        },
+        {
+          "raw": "Bah,",
+          "start": 6.15,
+          "end": 6.21
+        },
+        {
+          "raw": "What",
+          "start": 6.37,
+          "end": 6.47
+        },
+        {
+          "raw": "have",
+          "start": 6.47,
+          "end": 6.55
+        },
+        {
+          "raw": "we",
+          "start": 6.55,
+          "end": 6.65
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "raw": "do",
+          "start": 6.75,
+          "end": 6.87
+        },
+        {
+          "raw": "with",
+          "start": 6.87,
+          "end": 6.99
+        },
+        {
+          "raw": "this",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "raw": "toothless",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "raw": "fool?",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "raw": "He",
+          "start": 8.13,
+          "end": 8.23
+        },
+        {
+          "raw": "is",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "raw": "doomed",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "raw": "to",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "raw": "die.",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "raw": "It",
+          "start": 9.27,
+          "end": 9.35
+        },
+        {
+          "raw": "is",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "raw": "the",
+          "start": 9.43,
+          "end": 9.57
+        },
+        {
+          "raw": "man",
+          "start": 9.57,
+          "end": 9.77
+        },
+        {
+          "raw": "-cub",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "raw": "who",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "raw": "has",
+          "start": 10.13,
+          "end": 10.23
+        },
+        {
+          "raw": "lived",
+          "start": 10.23,
+          "end": 10.43
+        },
+        {
+          "raw": "too",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "raw": "long.",
+          "start": 10.65,
+          "end": 11.01
+        },
+        {
+          "raw": "Free",
+          "start": 11.51,
+          "end": 11.67
+        },
+        {
+          "raw": "people,",
+          "start": 11.67,
+          "end": 11.99
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.15
+        },
+        {
+          "raw": "was",
+          "start": 12.15,
+          "end": 12.25
+        },
+        {
+          "raw": "my",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "raw": "meat",
+          "start": 12.41,
+          "end": 12.57
+        },
+        {
+          "raw": "from",
+          "start": 12.57,
+          "end": 12.75
+        },
+        {
+          "raw": "the",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "raw": "first.",
+          "start": 12.89,
+          "end": 13.13
+        },
+        {
+          "raw": "Give",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "raw": "him",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "raw": "to",
+          "start": 13.91,
+          "end": 14.07
+        },
+        {
+          "raw": "me.",
+          "start": 14.07,
+          "end": 14.27
+        },
+        {
+          "raw": "I",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "raw": "am",
+          "start": 14.67,
+          "end": 14.75
+        },
+        {
+          "raw": "weary",
+          "start": 14.75,
+          "end": 14.97
+        },
+        {
+          "raw": "of",
+          "start": 14.97,
+          "end": 15.19
+        },
+        {
+          "raw": "this",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "raw": "man",
+          "start": 15.33,
+          "end": 15.57
+        },
+        {
+          "raw": "-wolf",
+          "start": 15.57,
+          "end": 15.77
+        },
+        {
+          "raw": "folly.",
+          "start": 15.77,
+          "end": 16.07
+        },
+        {
+          "raw": "He",
+          "start": 16.39,
+          "end": 16.55
+        },
+        {
+          "raw": "has",
+          "start": 16.55,
+          "end": 16.67
+        },
+        {
+          "raw": "troubled",
+          "start": 16.67,
+          "end": 16.89
+        },
+        {
+          "raw": "the",
+          "start": 16.89,
+          "end": 17.11
+        },
+        {
+          "raw": "jungle",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "raw": "for",
+          "start": 17.31,
+          "end": 17.61
+        },
+        {
+          "raw": "ten",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "raw": "seasons.",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "raw": "Give",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "raw": "me",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "raw": "the",
+          "start": 19.15,
+          "end": 19.25
+        },
+        {
+          "raw": "man",
+          "start": 19.25,
+          "end": 19.45
+        },
+        {
+          "raw": "-cub,",
+          "start": 19.45,
+          "end": 19.67
+        },
+        {
+          "raw": "or",
+          "start": 19.81,
+          "end": 19.91
+        },
+        {
+          "raw": "I",
+          "start": 19.91,
+          "end": 20.03
+        },
+        {
+          "raw": "will",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "raw": "hunt",
+          "start": 20.15,
+          "end": 20.29
+        },
+        {
+          "raw": "here",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "raw": "always",
+          "start": 20.47,
+          "end": 20.83
+        },
+        {
+          "raw": "and",
+          "start": 20.83,
+          "end": 21.09
+        },
+        {
+          "raw": "not",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "raw": "give",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "raw": "you",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "raw": "one",
+          "start": 21.57,
+          "end": 21.75
+        },
+        {
+          "raw": "bone.",
+          "start": 21.75,
+          "end": 22.03
+        },
+        {
+          "raw": "He",
+          "start": 22.49,
+          "end": 22.67
+        },
+        {
+          "raw": "is",
+          "start": 22.67,
+          "end": 22.79
+        },
+        {
+          "raw": "a",
+          "start": 22.79,
+          "end": 22.89
+        },
+        {
+          "raw": "man,",
+          "start": 22.89,
+          "end": 23.15
+        },
+        {
+          "raw": "a",
+          "start": 23.37,
+          "end": 23.47
+        },
+        {
+          "raw": "man's",
+          "start": 23.47,
+          "end": 23.85
+        },
+        {
+          "raw": "child,",
+          "start": 23.85,
+          "end": 24.13
+        },
+        {
+          "raw": "and",
+          "start": 24.51,
+          "end": 24.67
+        },
+        {
+          "raw": "from",
+          "start": 24.67,
+          "end": 24.79
+        },
+        {
+          "raw": "the",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "raw": "marrow",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "raw": "of",
+          "start": 25.09,
+          "end": 25.29
+        },
+        {
+          "raw": "my",
+          "start": 25.29,
+          "end": 25.43
+        },
+        {
+          "raw": "bones",
+          "start": 25.43,
+          "end": 25.67
+        },
+        {
+          "raw": "I",
+          "start": 25.67,
+          "end": 25.93
+        },
+        {
+          "raw": "hate",
+          "start": 25.93,
+          "end": 26.11
+        },
+        {
+          "raw": "him.",
+          "start": 26.11,
+          "end": 26.37
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "long",
+        "hush,",
+        "for",
+        "no",
+        "single",
+        "wolf",
+        "cared",
+        "to",
+        "fight",
+        "Akela",
+        "to",
+        "the",
+        "death.",
+        "Then",
+        "Shere",
+        "Khan",
+        "roared:",
+        "\"Bah!",
+        "What",
+        "have",
+        "we",
+        "to",
+        "do",
+        "with",
+        "this",
+        "toothless",
+        "fool?",
+        "He",
+        "is",
+        "doomed",
+        "to",
+        "die!",
+        "It",
+        "is",
+        "the",
+        "man-cub",
+        "who",
+        "has",
+        "lived",
+        "too",
+        "long.",
+        "Free",
+        "People,",
+        "he",
+        "was",
+        "my",
+        "meat",
+        "from",
+        "the",
+        "first.",
+        "Give",
+        "him",
+        "to",
+        "me.",
+        "I",
+        "am",
+        "weary",
+        "of",
+        "this",
+        "man-wolf",
+        "folly.",
+        "He",
+        "has",
+        "troubled",
+        "the",
+        "jungle",
+        "for",
+        "ten",
+        "seasons.",
+        "Give",
+        "me",
+        "the",
+        "man-cub,",
+        "or",
+        "I",
+        "will",
+        "hunt",
+        "here",
+        "always,",
+        "and",
+        "not",
+        "give",
+        "you",
+        "one",
+        "bone.",
+        "He",
+        "is",
+        "a",
+        "man,",
+        "a",
+        "man's",
+        "child,",
+        "and",
+        "from",
+        "the",
+        "marrow",
+        "of",
+        "my",
+        "bones",
+        "I",
+        "hate",
+        "him!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ],
+        [
+          "equal",
+          39,
+          62,
+          40,
+          63
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          65
+        ],
+        [
+          "equal",
+          63,
+          75,
+          65,
+          77
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          79
+        ],
+        [
+          "equal",
+          76,
+          105,
+          79,
+          108
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 107
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          65
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          79
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "a",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "long",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "hush,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "for",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "no",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "single",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "wolf",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "cared",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "to",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "fight",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "Akela",
+          "start": 2.91,
+          "end": 3.27
+        },
+        {
+          "text": "to",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "death.",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "text": "Then",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "Shere",
+          "start": 4.51,
+          "end": 4.85
+        },
+        {
+          "text": "Khan",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "roared:",
+          "start": 5.07,
+          "end": 5.37
+        },
+        {
+          "text": "\"Bah!",
+          "start": 6.15,
+          "end": 6.21
+        },
+        {
+          "text": "What",
+          "start": 6.37,
+          "end": 6.47
+        },
+        {
+          "text": "have",
+          "start": 6.47,
+          "end": 6.55
+        },
+        {
+          "text": "we",
+          "start": 6.55,
+          "end": 6.65
+        },
+        {
+          "text": "to",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "text": "do",
+          "start": 6.75,
+          "end": 6.87
+        },
+        {
+          "text": "with",
+          "start": 6.87,
+          "end": 6.99
+        },
+        {
+          "text": "this",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "text": "toothless",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "text": "fool?",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "text": "He",
+          "start": 8.13,
+          "end": 8.23
+        },
+        {
+          "text": "is",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "text": "doomed",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "text": "to",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "text": "die!",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "text": "It",
+          "start": 9.27,
+          "end": 9.35
+        },
+        {
+          "text": "is",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "text": "the",
+          "start": 9.43,
+          "end": 9.57
+        },
+        {
+          "text": "man-cub",
+          "start": 9.57,
+          "end": 9.77
+        },
+        {
+          "text": "who",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "text": "has",
+          "start": 10.13,
+          "end": 10.23
+        },
+        {
+          "text": "lived",
+          "start": 10.23,
+          "end": 10.43
+        },
+        {
+          "text": "too",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "text": "long.",
+          "start": 10.65,
+          "end": 11.01
+        },
+        {
+          "text": "Free",
+          "start": 11.51,
+          "end": 11.67
+        },
+        {
+          "text": "People,",
+          "start": 11.67,
+          "end": 11.99
+        },
+        {
+          "text": "he",
+          "start": 12.11,
+          "end": 12.15
+        },
+        {
+          "text": "was",
+          "start": 12.15,
+          "end": 12.25
+        },
+        {
+          "text": "my",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "text": "meat",
+          "start": 12.41,
+          "end": 12.57
+        },
+        {
+          "text": "from",
+          "start": 12.57,
+          "end": 12.75
+        },
+        {
+          "text": "the",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "text": "first.",
+          "start": 12.89,
+          "end": 13.13
+        },
+        {
+          "text": "Give",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "text": "him",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "text": "to",
+          "start": 13.91,
+          "end": 14.07
+        },
+        {
+          "text": "me.",
+          "start": 14.07,
+          "end": 14.27
+        },
+        {
+          "text": "I",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "text": "am",
+          "start": 14.67,
+          "end": 14.75
+        },
+        {
+          "text": "weary",
+          "start": 14.75,
+          "end": 14.97
+        },
+        {
+          "text": "of",
+          "start": 14.97,
+          "end": 15.19
+        },
+        {
+          "text": "this",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "text": "man-wolf",
+          "start": 15.33,
+          "end": 15.55
+        },
+        {
+          "text": "folly.",
+          "start": 15.77,
+          "end": 16.07
+        },
+        {
+          "text": "He",
+          "start": 16.39,
+          "end": 16.55
+        },
+        {
+          "text": "has",
+          "start": 16.55,
+          "end": 16.67
+        },
+        {
+          "text": "troubled",
+          "start": 16.67,
+          "end": 16.89
+        },
+        {
+          "text": "the",
+          "start": 16.89,
+          "end": 17.11
+        },
+        {
+          "text": "jungle",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "text": "for",
+          "start": 17.31,
+          "end": 17.61
+        },
+        {
+          "text": "ten",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "text": "seasons.",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "text": "Give",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "text": "me",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "text": "the",
+          "start": 19.15,
+          "end": 19.25
+        },
+        {
+          "text": "man-cub,",
+          "start": 19.25,
+          "end": 19.53
+        },
+        {
+          "text": "or",
+          "start": 19.81,
+          "end": 19.91
+        },
+        {
+          "text": "I",
+          "start": 19.91,
+          "end": 20.03
+        },
+        {
+          "text": "will",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "text": "hunt",
+          "start": 20.15,
+          "end": 20.29
+        },
+        {
+          "text": "here",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "text": "always,",
+          "start": 20.47,
+          "end": 20.83
+        },
+        {
+          "text": "and",
+          "start": 20.83,
+          "end": 21.09
+        },
+        {
+          "text": "not",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "text": "give",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "text": "you",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "text": "one",
+          "start": 21.57,
+          "end": 21.75
+        },
+        {
+          "text": "bone.",
+          "start": 21.75,
+          "end": 22.03
+        },
+        {
+          "text": "He",
+          "start": 22.49,
+          "end": 22.67
+        },
+        {
+          "text": "is",
+          "start": 22.67,
+          "end": 22.79
+        },
+        {
+          "text": "a",
+          "start": 22.79,
+          "end": 22.89
+        },
+        {
+          "text": "man,",
+          "start": 22.89,
+          "end": 23.15
+        },
+        {
+          "text": "a",
+          "start": 23.37,
+          "end": 23.47
+        },
+        {
+          "text": "man's",
+          "start": 23.47,
+          "end": 23.85
+        },
+        {
+          "text": "child,",
+          "start": 23.85,
+          "end": 24.13
+        },
+        {
+          "text": "and",
+          "start": 24.51,
+          "end": 24.67
+        },
+        {
+          "text": "from",
+          "start": 24.67,
+          "end": 24.79
+        },
+        {
+          "text": "the",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "text": "marrow",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "text": "of",
+          "start": 25.09,
+          "end": 25.29
+        },
+        {
+          "text": "my",
+          "start": 25.29,
+          "end": 25.43
+        },
+        {
+          "text": "bones",
+          "start": 25.43,
+          "end": 25.67
+        },
+        {
+          "text": "I",
+          "start": 25.67,
+          "end": 25.93
+        },
+        {
+          "text": "hate",
+          "start": 25.93,
+          "end": 26.11
+        },
+        {
+          "text": "him!\"",
+          "start": 26.11,
+          "end": 26.37
+        }
+      ],
+      "stats": {
+        "expected_words": 105,
+        "heard_words": 108,
+        "matched_words": 102
+      },
+      "match_ratio": 0.9714285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.48772346694022417
+    },
+    {
+      "asr_seconds": 0.5397565038874745,
+      "alignment_seconds": 0.0003856448456645012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There was a long hush, for no single wolf cared to fight Aikla to the death.",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " was",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " long",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hush,",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " no",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " single",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wolf",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " cared",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " to",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fight",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Aikla",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.632080078125
+            },
+            {
+              "text": " to",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " death.",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " Then Shere Khan roared,",
+          "start": 4.33,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Then",
+              "start": 4.33,
+              "end": 4.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Shere",
+              "start": 4.51,
+              "end": 4.85,
+              "probability": 0.728515625
+            },
+            {
+              "text": " Khan",
+              "start": 4.85,
+              "end": 5.07,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " roared,",
+              "start": 5.07,
+              "end": 5.39,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Baa, what have we to do with this toothless fool?",
+          "start": 6.15,
+          "end": 7.87,
+          "words": [
+            {
+              "text": " Baa,",
+              "start": 6.15,
+              "end": 6.25,
+              "probability": 0.433349609375
+            },
+            {
+              "text": " what",
+              "start": 6.35,
+              "end": 6.47,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " have",
+              "start": 6.47,
+              "end": 6.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " we",
+              "start": 6.57,
+              "end": 6.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 6.65,
+              "end": 6.75,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " do",
+              "start": 6.75,
+              "end": 6.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 6.87,
+              "end": 6.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 6.99,
+              "end": 7.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " toothless",
+              "start": 7.17,
+              "end": 7.57,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " fool?",
+              "start": 7.57,
+              "end": 7.87,
+              "probability": 0.9619140625
+            }
+          ]
+        },
+        {
+          "text": " He is doomed to die.",
+          "start": 8.11,
+          "end": 9.01,
+          "words": [
+            {
+              "text": " He",
+              "start": 8.11,
+              "end": 8.23,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " is",
+              "start": 8.23,
+              "end": 8.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " doomed",
+              "start": 8.37,
+              "end": 8.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.57,
+              "end": 8.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " die.",
+              "start": 8.79,
+              "end": 9.01,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " It is the man-cub who has lived too long.",
+          "start": 9.25,
+          "end": 10.99,
+          "words": [
+            {
+              "text": " It",
+              "start": 9.25,
+              "end": 9.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 9.35,
+              "end": 9.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.43,
+              "end": 9.57,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " man",
+              "start": 9.57,
+              "end": 9.77,
+              "probability": 0.8125
+            },
+            {
+              "text": "-cub",
+              "start": 9.77,
+              "end": 9.97,
+              "probability": 0.756591796875
+            },
+            {
+              "text": " who",
+              "start": 9.97,
+              "end": 10.13,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " has",
+              "start": 10.13,
+              "end": 10.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lived",
+              "start": 10.23,
+              "end": 10.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " too",
+              "start": 10.43,
+              "end": 10.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " long.",
+              "start": 10.65,
+              "end": 10.99,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Free people, he was my meat from the first.",
+          "start": 11.53,
+          "end": 13.13,
+          "words": [
+            {
+              "text": " Free",
+              "start": 11.53,
+              "end": 11.67,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " people,",
+              "start": 11.67,
+              "end": 11.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 12.09,
+              "end": 12.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 12.15,
+              "end": 12.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 12.25,
+              "end": 12.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " meat",
+              "start": 12.41,
+              "end": 12.57,
+              "probability": 0.962890625
+            },
+            {
+              "text": " from",
+              "start": 12.57,
+              "end": 12.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 12.75,
+              "end": 12.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " first.",
+              "start": 12.89,
+              "end": 13.13,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " Give him to me.",
+          "start": 13.67,
+          "end": 14.27,
+          "words": [
+            {
+              "text": " Give",
+              "start": 13.67,
+              "end": 13.77,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " him",
+              "start": 13.77,
+              "end": 13.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 13.91,
+              "end": 14.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 14.07,
+              "end": 14.27,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I am weary of this man-wolf folly.",
+          "start": 14.53,
+          "end": 16.05,
+          "words": [
+            {
+              "text": " I",
+              "start": 14.53,
+              "end": 14.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " am",
+              "start": 14.67,
+              "end": 14.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " weary",
+              "start": 14.75,
+              "end": 14.99,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 14.99,
+              "end": 15.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 15.19,
+              "end": 15.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 15.33,
+              "end": 15.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": "-wolf",
+              "start": 15.57,
+              "end": 15.77,
+              "probability": 0.938232421875
+            },
+            {
+              "text": " folly.",
+              "start": 15.77,
+              "end": 16.05,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " He has troubled the jungle for ten seasons.",
+          "start": 16.39,
+          "end": 18.23,
+          "words": [
+            {
+              "text": " He",
+              "start": 16.39,
+              "end": 16.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " has",
+              "start": 16.55,
+              "end": 16.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " troubled",
+              "start": 16.67,
+              "end": 16.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 16.89,
+              "end": 17.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " jungle",
+              "start": 17.11,
+              "end": 17.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 17.31,
+              "end": 17.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ten",
+              "start": 17.61,
+              "end": 17.81,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " seasons.",
+              "start": 17.81,
+              "end": 18.23,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Give me the man-cub, or I will hunt here always and not give you one bone.",
+          "start": 18.91,
+          "end": 22.03,
+          "words": [
+            {
+              "text": " Give",
+              "start": 18.91,
+              "end": 19.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " me",
+              "start": 19.03,
+              "end": 19.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 19.15,
+              "end": 19.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 19.25,
+              "end": 19.45,
+              "probability": 0.98095703125
+            },
+            {
+              "text": "-cub,",
+              "start": 19.45,
+              "end": 19.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " or",
+              "start": 19.81,
+              "end": 19.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 19.91,
+              "end": 20.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 20.03,
+              "end": 20.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hunt",
+              "start": 20.15,
+              "end": 20.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 20.29,
+              "end": 20.47,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " always",
+              "start": 20.47,
+              "end": 20.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 20.83,
+              "end": 21.09,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " not",
+              "start": 21.09,
+              "end": 21.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " give",
+              "start": 21.25,
+              "end": 21.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 21.41,
+              "end": 21.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 21.57,
+              "end": 21.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bone.",
+              "start": 21.75,
+              "end": 22.03,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " He is a man, a man's child, and from the marrow of my bones I hate him.",
+          "start": 22.49,
+          "end": 26.37,
+          "words": [
+            {
+              "text": " He",
+              "start": 22.49,
+              "end": 22.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 22.67,
+              "end": 22.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 22.79,
+              "end": 22.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man,",
+              "start": 22.89,
+              "end": 23.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 23.37,
+              "end": 23.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " man's",
+              "start": 23.47,
+              "end": 23.85,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " child,",
+              "start": 23.85,
+              "end": 24.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 24.47,
+              "end": 24.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " from",
+              "start": 24.67,
+              "end": 24.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 24.79,
+              "end": 24.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marrow",
+              "start": 24.91,
+              "end": 25.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 25.09,
+              "end": 25.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 25.27,
+              "end": 25.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bones",
+              "start": 25.43,
+              "end": 25.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 25.67,
+              "end": 25.93,
+              "probability": 0.697265625
+            },
+            {
+              "text": " hate",
+              "start": 25.93,
+              "end": 26.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 26.11,
+              "end": 26.37,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "a",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "long",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "hush,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "for",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "no",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "single",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "wolf",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "cared",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "fight",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "Aikla",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "death.",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "raw": "Then",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "raw": "Shere",
+          "start": 4.51,
+          "end": 4.85
+        },
+        {
+          "raw": "Khan",
+          "start": 4.85,
+          "end": 5.07
+        },
+        {
+          "raw": "roared,",
+          "start": 5.07,
+          "end": 5.39
+        },
+        {
+          "raw": "Baa,",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "raw": "what",
+          "start": 6.35,
+          "end": 6.47
+        },
+        {
+          "raw": "have",
+          "start": 6.47,
+          "end": 6.57
+        },
+        {
+          "raw": "we",
+          "start": 6.57,
+          "end": 6.65
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "raw": "do",
+          "start": 6.75,
+          "end": 6.87
+        },
+        {
+          "raw": "with",
+          "start": 6.87,
+          "end": 6.99
+        },
+        {
+          "raw": "this",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "raw": "toothless",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "raw": "fool?",
+          "start": 7.57,
+          "end": 7.87
+        },
+        {
+          "raw": "He",
+          "start": 8.11,
+          "end": 8.23
+        },
+        {
+          "raw": "is",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "raw": "doomed",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "raw": "to",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "raw": "die.",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "raw": "It",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "raw": "is",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "raw": "the",
+          "start": 9.43,
+          "end": 9.57
+        },
+        {
+          "raw": "man",
+          "start": 9.57,
+          "end": 9.77
+        },
+        {
+          "raw": "-cub",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "raw": "who",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "raw": "has",
+          "start": 10.13,
+          "end": 10.23
+        },
+        {
+          "raw": "lived",
+          "start": 10.23,
+          "end": 10.43
+        },
+        {
+          "raw": "too",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "raw": "long.",
+          "start": 10.65,
+          "end": 10.99
+        },
+        {
+          "raw": "Free",
+          "start": 11.53,
+          "end": 11.67
+        },
+        {
+          "raw": "people,",
+          "start": 11.67,
+          "end": 11.99
+        },
+        {
+          "raw": "he",
+          "start": 12.09,
+          "end": 12.15
+        },
+        {
+          "raw": "was",
+          "start": 12.15,
+          "end": 12.25
+        },
+        {
+          "raw": "my",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "raw": "meat",
+          "start": 12.41,
+          "end": 12.57
+        },
+        {
+          "raw": "from",
+          "start": 12.57,
+          "end": 12.75
+        },
+        {
+          "raw": "the",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "raw": "first.",
+          "start": 12.89,
+          "end": 13.13
+        },
+        {
+          "raw": "Give",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "raw": "him",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "raw": "to",
+          "start": 13.91,
+          "end": 14.07
+        },
+        {
+          "raw": "me.",
+          "start": 14.07,
+          "end": 14.27
+        },
+        {
+          "raw": "I",
+          "start": 14.53,
+          "end": 14.67
+        },
+        {
+          "raw": "am",
+          "start": 14.67,
+          "end": 14.75
+        },
+        {
+          "raw": "weary",
+          "start": 14.75,
+          "end": 14.99
+        },
+        {
+          "raw": "of",
+          "start": 14.99,
+          "end": 15.19
+        },
+        {
+          "raw": "this",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "raw": "man",
+          "start": 15.33,
+          "end": 15.57
+        },
+        {
+          "raw": "-wolf",
+          "start": 15.57,
+          "end": 15.77
+        },
+        {
+          "raw": "folly.",
+          "start": 15.77,
+          "end": 16.05
+        },
+        {
+          "raw": "He",
+          "start": 16.39,
+          "end": 16.55
+        },
+        {
+          "raw": "has",
+          "start": 16.55,
+          "end": 16.67
+        },
+        {
+          "raw": "troubled",
+          "start": 16.67,
+          "end": 16.89
+        },
+        {
+          "raw": "the",
+          "start": 16.89,
+          "end": 17.11
+        },
+        {
+          "raw": "jungle",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "raw": "for",
+          "start": 17.31,
+          "end": 17.61
+        },
+        {
+          "raw": "ten",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "raw": "seasons.",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "raw": "Give",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "raw": "me",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "raw": "the",
+          "start": 19.15,
+          "end": 19.25
+        },
+        {
+          "raw": "man",
+          "start": 19.25,
+          "end": 19.45
+        },
+        {
+          "raw": "-cub,",
+          "start": 19.45,
+          "end": 19.67
+        },
+        {
+          "raw": "or",
+          "start": 19.81,
+          "end": 19.91
+        },
+        {
+          "raw": "I",
+          "start": 19.91,
+          "end": 20.03
+        },
+        {
+          "raw": "will",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "raw": "hunt",
+          "start": 20.15,
+          "end": 20.29
+        },
+        {
+          "raw": "here",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "raw": "always",
+          "start": 20.47,
+          "end": 20.83
+        },
+        {
+          "raw": "and",
+          "start": 20.83,
+          "end": 21.09
+        },
+        {
+          "raw": "not",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "raw": "give",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "raw": "you",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "raw": "one",
+          "start": 21.57,
+          "end": 21.75
+        },
+        {
+          "raw": "bone.",
+          "start": 21.75,
+          "end": 22.03
+        },
+        {
+          "raw": "He",
+          "start": 22.49,
+          "end": 22.67
+        },
+        {
+          "raw": "is",
+          "start": 22.67,
+          "end": 22.79
+        },
+        {
+          "raw": "a",
+          "start": 22.79,
+          "end": 22.89
+        },
+        {
+          "raw": "man,",
+          "start": 22.89,
+          "end": 23.15
+        },
+        {
+          "raw": "a",
+          "start": 23.37,
+          "end": 23.47
+        },
+        {
+          "raw": "man's",
+          "start": 23.47,
+          "end": 23.85
+        },
+        {
+          "raw": "child,",
+          "start": 23.85,
+          "end": 24.13
+        },
+        {
+          "raw": "and",
+          "start": 24.47,
+          "end": 24.67
+        },
+        {
+          "raw": "from",
+          "start": 24.67,
+          "end": 24.79
+        },
+        {
+          "raw": "the",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "raw": "marrow",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "raw": "of",
+          "start": 25.09,
+          "end": 25.27
+        },
+        {
+          "raw": "my",
+          "start": 25.27,
+          "end": 25.43
+        },
+        {
+          "raw": "bones",
+          "start": 25.43,
+          "end": 25.67
+        },
+        {
+          "raw": "I",
+          "start": 25.67,
+          "end": 25.93
+        },
+        {
+          "raw": "hate",
+          "start": 25.93,
+          "end": 26.11
+        },
+        {
+          "raw": "him.",
+          "start": 26.11,
+          "end": 26.37
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "was",
+        "a",
+        "long",
+        "hush,",
+        "for",
+        "no",
+        "single",
+        "wolf",
+        "cared",
+        "to",
+        "fight",
+        "Akela",
+        "to",
+        "the",
+        "death.",
+        "Then",
+        "Shere",
+        "Khan",
+        "roared:",
+        "\"Bah!",
+        "What",
+        "have",
+        "we",
+        "to",
+        "do",
+        "with",
+        "this",
+        "toothless",
+        "fool?",
+        "He",
+        "is",
+        "doomed",
+        "to",
+        "die!",
+        "It",
+        "is",
+        "the",
+        "man-cub",
+        "who",
+        "has",
+        "lived",
+        "too",
+        "long.",
+        "Free",
+        "People,",
+        "he",
+        "was",
+        "my",
+        "meat",
+        "from",
+        "the",
+        "first.",
+        "Give",
+        "him",
+        "to",
+        "me.",
+        "I",
+        "am",
+        "weary",
+        "of",
+        "this",
+        "man-wolf",
+        "folly.",
+        "He",
+        "has",
+        "troubled",
+        "the",
+        "jungle",
+        "for",
+        "ten",
+        "seasons.",
+        "Give",
+        "me",
+        "the",
+        "man-cub,",
+        "or",
+        "I",
+        "will",
+        "hunt",
+        "here",
+        "always,",
+        "and",
+        "not",
+        "give",
+        "you",
+        "one",
+        "bone.",
+        "He",
+        "is",
+        "a",
+        "man,",
+        "a",
+        "man's",
+        "child,",
+        "and",
+        "from",
+        "the",
+        "marrow",
+        "of",
+        "my",
+        "bones",
+        "I",
+        "hate",
+        "him!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          20,
+          13,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          38,
+          21,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ],
+        [
+          "equal",
+          39,
+          62,
+          40,
+          63
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          65
+        ],
+        [
+          "equal",
+          63,
+          75,
+          65,
+          77
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          79
+        ],
+        [
+          "equal",
+          76,
+          105,
+          79,
+          108
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 107
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          65
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          79
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "a",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "long",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "hush,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "for",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "no",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "single",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "wolf",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "cared",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "to",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "fight",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "Akela",
+          "start": 2.91,
+          "end": 3.08
+        },
+        {
+          "text": "to",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "death.",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "text": "Then",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "text": "Shere",
+          "start": 4.51,
+          "end": 4.85
+        },
+        {
+          "text": "Khan",
+          "start": 4.85,
+          "end": 5.07
+        },
+        {
+          "text": "roared:",
+          "start": 5.07,
+          "end": 5.39
+        },
+        {
+          "text": "\"Bah!",
+          "start": 5.39,
+          "end": 5.87
+        },
+        {
+          "text": "What",
+          "start": 6.35,
+          "end": 6.47
+        },
+        {
+          "text": "have",
+          "start": 6.47,
+          "end": 6.57
+        },
+        {
+          "text": "we",
+          "start": 6.57,
+          "end": 6.65
+        },
+        {
+          "text": "to",
+          "start": 6.65,
+          "end": 6.75
+        },
+        {
+          "text": "do",
+          "start": 6.75,
+          "end": 6.87
+        },
+        {
+          "text": "with",
+          "start": 6.87,
+          "end": 6.99
+        },
+        {
+          "text": "this",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "text": "toothless",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "text": "fool?",
+          "start": 7.57,
+          "end": 7.87
+        },
+        {
+          "text": "He",
+          "start": 8.11,
+          "end": 8.23
+        },
+        {
+          "text": "is",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "text": "doomed",
+          "start": 8.37,
+          "end": 8.57
+        },
+        {
+          "text": "to",
+          "start": 8.57,
+          "end": 8.79
+        },
+        {
+          "text": "die!",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "text": "It",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "text": "is",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "text": "the",
+          "start": 9.43,
+          "end": 9.57
+        },
+        {
+          "text": "man-cub",
+          "start": 9.57,
+          "end": 9.77
+        },
+        {
+          "text": "who",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "text": "has",
+          "start": 10.13,
+          "end": 10.23
+        },
+        {
+          "text": "lived",
+          "start": 10.23,
+          "end": 10.43
+        },
+        {
+          "text": "too",
+          "start": 10.43,
+          "end": 10.65
+        },
+        {
+          "text": "long.",
+          "start": 10.65,
+          "end": 10.99
+        },
+        {
+          "text": "Free",
+          "start": 11.53,
+          "end": 11.67
+        },
+        {
+          "text": "People,",
+          "start": 11.67,
+          "end": 11.99
+        },
+        {
+          "text": "he",
+          "start": 12.09,
+          "end": 12.15
+        },
+        {
+          "text": "was",
+          "start": 12.15,
+          "end": 12.25
+        },
+        {
+          "text": "my",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "text": "meat",
+          "start": 12.41,
+          "end": 12.57
+        },
+        {
+          "text": "from",
+          "start": 12.57,
+          "end": 12.75
+        },
+        {
+          "text": "the",
+          "start": 12.75,
+          "end": 12.89
+        },
+        {
+          "text": "first.",
+          "start": 12.89,
+          "end": 13.13
+        },
+        {
+          "text": "Give",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "text": "him",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "text": "to",
+          "start": 13.91,
+          "end": 14.07
+        },
+        {
+          "text": "me.",
+          "start": 14.07,
+          "end": 14.27
+        },
+        {
+          "text": "I",
+          "start": 14.53,
+          "end": 14.67
+        },
+        {
+          "text": "am",
+          "start": 14.67,
+          "end": 14.75
+        },
+        {
+          "text": "weary",
+          "start": 14.75,
+          "end": 14.99
+        },
+        {
+          "text": "of",
+          "start": 14.99,
+          "end": 15.19
+        },
+        {
+          "text": "this",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "text": "man-wolf",
+          "start": 15.33,
+          "end": 15.55
+        },
+        {
+          "text": "folly.",
+          "start": 15.77,
+          "end": 16.05
+        },
+        {
+          "text": "He",
+          "start": 16.39,
+          "end": 16.55
+        },
+        {
+          "text": "has",
+          "start": 16.55,
+          "end": 16.67
+        },
+        {
+          "text": "troubled",
+          "start": 16.67,
+          "end": 16.89
+        },
+        {
+          "text": "the",
+          "start": 16.89,
+          "end": 17.11
+        },
+        {
+          "text": "jungle",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "text": "for",
+          "start": 17.31,
+          "end": 17.61
+        },
+        {
+          "text": "ten",
+          "start": 17.61,
+          "end": 17.81
+        },
+        {
+          "text": "seasons.",
+          "start": 17.81,
+          "end": 18.23
+        },
+        {
+          "text": "Give",
+          "start": 18.91,
+          "end": 19.03
+        },
+        {
+          "text": "me",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "text": "the",
+          "start": 19.15,
+          "end": 19.25
+        },
+        {
+          "text": "man-cub,",
+          "start": 19.25,
+          "end": 19.53
+        },
+        {
+          "text": "or",
+          "start": 19.81,
+          "end": 19.91
+        },
+        {
+          "text": "I",
+          "start": 19.91,
+          "end": 20.03
+        },
+        {
+          "text": "will",
+          "start": 20.03,
+          "end": 20.15
+        },
+        {
+          "text": "hunt",
+          "start": 20.15,
+          "end": 20.29
+        },
+        {
+          "text": "here",
+          "start": 20.29,
+          "end": 20.47
+        },
+        {
+          "text": "always,",
+          "start": 20.47,
+          "end": 20.83
+        },
+        {
+          "text": "and",
+          "start": 20.83,
+          "end": 21.09
+        },
+        {
+          "text": "not",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "text": "give",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "text": "you",
+          "start": 21.41,
+          "end": 21.57
+        },
+        {
+          "text": "one",
+          "start": 21.57,
+          "end": 21.75
+        },
+        {
+          "text": "bone.",
+          "start": 21.75,
+          "end": 22.03
+        },
+        {
+          "text": "He",
+          "start": 22.49,
+          "end": 22.67
+        },
+        {
+          "text": "is",
+          "start": 22.67,
+          "end": 22.79
+        },
+        {
+          "text": "a",
+          "start": 22.79,
+          "end": 22.89
+        },
+        {
+          "text": "man,",
+          "start": 22.89,
+          "end": 23.15
+        },
+        {
+          "text": "a",
+          "start": 23.37,
+          "end": 23.47
+        },
+        {
+          "text": "man's",
+          "start": 23.47,
+          "end": 23.85
+        },
+        {
+          "text": "child,",
+          "start": 23.85,
+          "end": 24.13
+        },
+        {
+          "text": "and",
+          "start": 24.47,
+          "end": 24.67
+        },
+        {
+          "text": "from",
+          "start": 24.67,
+          "end": 24.79
+        },
+        {
+          "text": "the",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "text": "marrow",
+          "start": 24.91,
+          "end": 25.09
+        },
+        {
+          "text": "of",
+          "start": 25.09,
+          "end": 25.27
+        },
+        {
+          "text": "my",
+          "start": 25.27,
+          "end": 25.43
+        },
+        {
+          "text": "bones",
+          "start": 25.43,
+          "end": 25.67
+        },
+        {
+          "text": "I",
+          "start": 25.67,
+          "end": 25.93
+        },
+        {
+          "text": "hate",
+          "start": 25.93,
+          "end": 26.11
+        },
+        {
+          "text": "him!\"",
+          "start": 26.11,
+          "end": 26.37
+        }
+      ],
+      "stats": {
+        "expected_words": 105,
+        "heard_words": 108,
+        "matched_words": 100
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.5403312435373664
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7fb505785ef62d3244c8b07bf4e0a731aa422df39944fd17839ec30785637a43",
+  "selected_reasons": []
+}

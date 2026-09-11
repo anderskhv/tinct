@@ -1,0 +1,1353 @@
+{
+  "complete": true,
+  "signature": "c146b32018f3e8aa81e0750cd885bd062568041ee5e93b16b7eb141e5812a5f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3152593756094575,
+      "alignment_seconds": 0.0001813191920518875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes,\" said Big Toomai, his driver, the son of Black Toomai who had taken him to Abyssinia, and grandson of Toomai of the Elephants who had seen him caught, \"there is nothing that the Black Snake fears except me. He has seen three generations of us feed him and groom him, and he will live to see four.\"",
+        "hotwords": "Yes, Big, Toomai, Black, Abyssinia, Elephants, Snake"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, said Big Toomai, his driver, the son of Black Toomai who had taken him to Abyssinia,",
+          "start": 0.05,
+          "end": 5.93,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.045623779296875
+            },
+            {
+              "text": " said",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Big",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Toomai,",
+              "start": 1.59,
+              "end": 2.07,
+              "probability": 0.2984212239583333
+            },
+            {
+              "text": " his",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " driver,",
+              "start": 2.51,
+              "end": 2.89,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " son",
+              "start": 3.55,
+              "end": 3.71,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " of",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Black",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Toomai",
+              "start": 4.09,
+              "end": 4.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " who",
+              "start": 4.57,
+              "end": 4.73,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " had",
+              "start": 4.73,
+              "end": 4.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " taken",
+              "start": 4.83,
+              "end": 5.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 5.03,
+              "end": 5.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 5.23,
+              "end": 5.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Abyssinia,",
+              "start": 5.41,
+              "end": 5.93,
+              "probability": 0.96875
+            }
+          ]
+        },
+        {
+          "text": " and grandson of Toomai of the Elephants who had seen him caught, there is nothing that",
+          "start": 6.47,
+          "end": 10.91,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.47,
+              "end": 6.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " grandson",
+              "start": 6.61,
+              "end": 7.03,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 7.03,
+              "end": 7.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Toomai",
+              "start": 7.33,
+              "end": 7.79,
+              "probability": 0.9920247395833334
+            },
+            {
+              "text": " of",
+              "start": 7.79,
+              "end": 7.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 7.89,
+              "end": 8.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Elephants",
+              "start": 8.01,
+              "end": 8.43,
+              "probability": 0.68402099609375
+            },
+            {
+              "text": " who",
+              "start": 8.43,
+              "end": 8.61,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " had",
+              "start": 8.61,
+              "end": 8.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " seen",
+              "start": 8.71,
+              "end": 8.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 8.93,
+              "end": 9.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caught,",
+              "start": 9.13,
+              "end": 9.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " there",
+              "start": 10.03,
+              "end": 10.23,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " is",
+              "start": 10.23,
+              "end": 10.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nothing",
+              "start": 10.37,
+              "end": 10.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 10.65,
+              "end": 10.91,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " the Black Snake fears except me. He has seen three generations of us feed him and groom",
+          "start": 10.91,
+          "end": 16.07,
+          "words": [
+            {
+              "text": " the",
+              "start": 10.91,
+              "end": 11.03,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Black",
+              "start": 11.03,
+              "end": 11.33,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " Snake",
+              "start": 11.33,
+              "end": 11.73,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fears",
+              "start": 11.73,
+              "end": 12.17,
+              "probability": 0.990234375
+            },
+            {
+              "text": " except",
+              "start": 12.17,
+              "end": 12.59,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " me.",
+              "start": 12.59,
+              "end": 12.91,
+              "probability": 0.978515625
+            },
+            {
+              "text": " He",
+              "start": 13.51,
+              "end": 13.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " has",
+              "start": 13.63,
+              "end": 13.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seen",
+              "start": 13.73,
+              "end": 13.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " three",
+              "start": 13.93,
+              "end": 14.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " generations",
+              "start": 14.27,
+              "end": 14.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 14.79,
+              "end": 15.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " us",
+              "start": 15.05,
+              "end": 15.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " feed",
+              "start": 15.21,
+              "end": 15.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 15.45,
+              "end": 15.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 15.67,
+              "end": 15.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " groom",
+              "start": 15.83,
+              "end": 16.07,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " him, and he will live to see four.\"",
+          "start": 16.07,
+          "end": 18.25,
+          "words": [
+            {
+              "text": " him,",
+              "start": 16.07,
+              "end": 16.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 16.67,
+              "end": 16.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 16.87,
+              "end": 17.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 17.03,
+              "end": 17.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " live",
+              "start": 17.19,
+              "end": 17.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 17.35,
+              "end": 17.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 17.57,
+              "end": 17.75,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " four.\"",
+              "start": 17.75,
+              "end": 18.25,
+              "probability": 0.607666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "said",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "Big",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "Toomai,",
+          "start": 1.59,
+          "end": 2.07
+        },
+        {
+          "raw": "his",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "driver,",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "son",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "Black",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "Toomai",
+          "start": 4.09,
+          "end": 4.57
+        },
+        {
+          "raw": "who",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "raw": "had",
+          "start": 4.73,
+          "end": 4.83
+        },
+        {
+          "raw": "taken",
+          "start": 4.83,
+          "end": 5.03
+        },
+        {
+          "raw": "him",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "raw": "to",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "raw": "Abyssinia,",
+          "start": 5.41,
+          "end": 5.93
+        },
+        {
+          "raw": "and",
+          "start": 6.47,
+          "end": 6.61
+        },
+        {
+          "raw": "grandson",
+          "start": 6.61,
+          "end": 7.03
+        },
+        {
+          "raw": "of",
+          "start": 7.03,
+          "end": 7.33
+        },
+        {
+          "raw": "Toomai",
+          "start": 7.33,
+          "end": 7.79
+        },
+        {
+          "raw": "of",
+          "start": 7.79,
+          "end": 7.89
+        },
+        {
+          "raw": "the",
+          "start": 7.89,
+          "end": 8.01
+        },
+        {
+          "raw": "Elephants",
+          "start": 8.01,
+          "end": 8.43
+        },
+        {
+          "raw": "who",
+          "start": 8.43,
+          "end": 8.61
+        },
+        {
+          "raw": "had",
+          "start": 8.61,
+          "end": 8.71
+        },
+        {
+          "raw": "seen",
+          "start": 8.71,
+          "end": 8.93
+        },
+        {
+          "raw": "him",
+          "start": 8.93,
+          "end": 9.13
+        },
+        {
+          "raw": "caught,",
+          "start": 9.13,
+          "end": 9.43
+        },
+        {
+          "raw": "there",
+          "start": 10.03,
+          "end": 10.23
+        },
+        {
+          "raw": "is",
+          "start": 10.23,
+          "end": 10.37
+        },
+        {
+          "raw": "nothing",
+          "start": 10.37,
+          "end": 10.65
+        },
+        {
+          "raw": "that",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "raw": "the",
+          "start": 10.91,
+          "end": 11.03
+        },
+        {
+          "raw": "Black",
+          "start": 11.03,
+          "end": 11.33
+        },
+        {
+          "raw": "Snake",
+          "start": 11.33,
+          "end": 11.73
+        },
+        {
+          "raw": "fears",
+          "start": 11.73,
+          "end": 12.17
+        },
+        {
+          "raw": "except",
+          "start": 12.17,
+          "end": 12.59
+        },
+        {
+          "raw": "me.",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "raw": "He",
+          "start": 13.51,
+          "end": 13.63
+        },
+        {
+          "raw": "has",
+          "start": 13.63,
+          "end": 13.73
+        },
+        {
+          "raw": "seen",
+          "start": 13.73,
+          "end": 13.93
+        },
+        {
+          "raw": "three",
+          "start": 13.93,
+          "end": 14.27
+        },
+        {
+          "raw": "generations",
+          "start": 14.27,
+          "end": 14.79
+        },
+        {
+          "raw": "of",
+          "start": 14.79,
+          "end": 15.05
+        },
+        {
+          "raw": "us",
+          "start": 15.05,
+          "end": 15.21
+        },
+        {
+          "raw": "feed",
+          "start": 15.21,
+          "end": 15.45
+        },
+        {
+          "raw": "him",
+          "start": 15.45,
+          "end": 15.67
+        },
+        {
+          "raw": "and",
+          "start": 15.67,
+          "end": 15.83
+        },
+        {
+          "raw": "groom",
+          "start": 15.83,
+          "end": 16.07
+        },
+        {
+          "raw": "him,",
+          "start": 16.07,
+          "end": 16.39
+        },
+        {
+          "raw": "and",
+          "start": 16.67,
+          "end": 16.87
+        },
+        {
+          "raw": "he",
+          "start": 16.87,
+          "end": 17.03
+        },
+        {
+          "raw": "will",
+          "start": 17.03,
+          "end": 17.19
+        },
+        {
+          "raw": "live",
+          "start": 17.19,
+          "end": 17.35
+        },
+        {
+          "raw": "to",
+          "start": 17.35,
+          "end": 17.57
+        },
+        {
+          "raw": "see",
+          "start": 17.57,
+          "end": 17.75
+        },
+        {
+          "raw": "four.\"",
+          "start": 17.75,
+          "end": 18.25
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,\"",
+        "said",
+        "Big",
+        "Toomai,",
+        "his",
+        "driver,",
+        "the",
+        "son",
+        "of",
+        "Black",
+        "Toomai",
+        "who",
+        "had",
+        "taken",
+        "him",
+        "to",
+        "Abyssinia,",
+        "and",
+        "grandson",
+        "of",
+        "Toomai",
+        "of",
+        "the",
+        "Elephants",
+        "who",
+        "had",
+        "seen",
+        "him",
+        "caught,",
+        "\"there",
+        "is",
+        "nothing",
+        "that",
+        "the",
+        "Black",
+        "Snake",
+        "fears",
+        "except",
+        "me.",
+        "He",
+        "has",
+        "seen",
+        "three",
+        "generations",
+        "of",
+        "us",
+        "feed",
+        "him",
+        "and",
+        "groom",
+        "him,",
+        "and",
+        "he",
+        "will",
+        "live",
+        "to",
+        "see",
+        "four.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          58,
+          0,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,\"",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "said",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "Big",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "Toomai,",
+          "start": 1.59,
+          "end": 2.07
+        },
+        {
+          "text": "his",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "driver,",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "text": "the",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "son",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "text": "of",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "Black",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "text": "Toomai",
+          "start": 4.09,
+          "end": 4.57
+        },
+        {
+          "text": "who",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "text": "had",
+          "start": 4.73,
+          "end": 4.83
+        },
+        {
+          "text": "taken",
+          "start": 4.83,
+          "end": 5.03
+        },
+        {
+          "text": "him",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "text": "to",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "text": "Abyssinia,",
+          "start": 5.41,
+          "end": 5.93
+        },
+        {
+          "text": "and",
+          "start": 6.47,
+          "end": 6.61
+        },
+        {
+          "text": "grandson",
+          "start": 6.61,
+          "end": 7.03
+        },
+        {
+          "text": "of",
+          "start": 7.03,
+          "end": 7.33
+        },
+        {
+          "text": "Toomai",
+          "start": 7.33,
+          "end": 7.79
+        },
+        {
+          "text": "of",
+          "start": 7.79,
+          "end": 7.89
+        },
+        {
+          "text": "the",
+          "start": 7.89,
+          "end": 8.01
+        },
+        {
+          "text": "Elephants",
+          "start": 8.01,
+          "end": 8.43
+        },
+        {
+          "text": "who",
+          "start": 8.43,
+          "end": 8.61
+        },
+        {
+          "text": "had",
+          "start": 8.61,
+          "end": 8.71
+        },
+        {
+          "text": "seen",
+          "start": 8.71,
+          "end": 8.93
+        },
+        {
+          "text": "him",
+          "start": 8.93,
+          "end": 9.13
+        },
+        {
+          "text": "caught,",
+          "start": 9.13,
+          "end": 9.43
+        },
+        {
+          "text": "\"there",
+          "start": 10.03,
+          "end": 10.23
+        },
+        {
+          "text": "is",
+          "start": 10.23,
+          "end": 10.37
+        },
+        {
+          "text": "nothing",
+          "start": 10.37,
+          "end": 10.65
+        },
+        {
+          "text": "that",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "text": "the",
+          "start": 10.91,
+          "end": 11.03
+        },
+        {
+          "text": "Black",
+          "start": 11.03,
+          "end": 11.33
+        },
+        {
+          "text": "Snake",
+          "start": 11.33,
+          "end": 11.73
+        },
+        {
+          "text": "fears",
+          "start": 11.73,
+          "end": 12.17
+        },
+        {
+          "text": "except",
+          "start": 12.17,
+          "end": 12.59
+        },
+        {
+          "text": "me.",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "text": "He",
+          "start": 13.51,
+          "end": 13.63
+        },
+        {
+          "text": "has",
+          "start": 13.63,
+          "end": 13.73
+        },
+        {
+          "text": "seen",
+          "start": 13.73,
+          "end": 13.93
+        },
+        {
+          "text": "three",
+          "start": 13.93,
+          "end": 14.27
+        },
+        {
+          "text": "generations",
+          "start": 14.27,
+          "end": 14.79
+        },
+        {
+          "text": "of",
+          "start": 14.79,
+          "end": 15.05
+        },
+        {
+          "text": "us",
+          "start": 15.05,
+          "end": 15.21
+        },
+        {
+          "text": "feed",
+          "start": 15.21,
+          "end": 15.45
+        },
+        {
+          "text": "him",
+          "start": 15.45,
+          "end": 15.67
+        },
+        {
+          "text": "and",
+          "start": 15.67,
+          "end": 15.83
+        },
+        {
+          "text": "groom",
+          "start": 15.83,
+          "end": 16.07
+        },
+        {
+          "text": "him,",
+          "start": 16.07,
+          "end": 16.39
+        },
+        {
+          "text": "and",
+          "start": 16.67,
+          "end": 16.87
+        },
+        {
+          "text": "he",
+          "start": 16.87,
+          "end": 17.03
+        },
+        {
+          "text": "will",
+          "start": 17.03,
+          "end": 17.19
+        },
+        {
+          "text": "live",
+          "start": 17.19,
+          "end": 17.35
+        },
+        {
+          "text": "to",
+          "start": 17.35,
+          "end": 17.57
+        },
+        {
+          "text": "see",
+          "start": 17.57,
+          "end": 17.75
+        },
+        {
+          "text": "four.\"",
+          "start": 17.75,
+          "end": 18.25
+        }
+      ],
+      "stats": {
+        "expected_words": 58,
+        "heard_words": 58,
+        "matched_words": 58
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31554616522043943
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d48bea5bf3bb4a912fae81cd341c87ec786f837024d207819528858a124e8570",
+  "selected_reasons": []
+}

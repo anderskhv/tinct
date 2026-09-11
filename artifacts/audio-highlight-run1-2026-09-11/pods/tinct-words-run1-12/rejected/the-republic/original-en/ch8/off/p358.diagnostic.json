@@ -1,0 +1,384 @@
+{
+  "complete": true,
+  "signature": "245a9054b98c93454e902c2b0183f52d46d3cc6ac60ff59e4f67a8db6fdbd1a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.15080028912052512,
+      "alignment_seconds": 0.00016301684081554413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The people have always some champion whom they set over them, and nurse into greatness.",
+          "start": 0.02,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " people",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " have",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " always",
+              "start": 0.98,
+              "end": 1.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " some",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " champion",
+              "start": 1.58,
+              "end": 2.02,
+              "probability": 0.916015625
+            },
+            {
+              "text": " whom",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " they",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " set",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " over",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them,",
+              "start": 2.88,
+              "end": 3.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " nurse",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " into",
+              "start": 3.92,
+              "end": 4.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " greatness.",
+              "start": 4.2,
+              "end": 4.62,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "people",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "have",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "always",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "raw": "some",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "champion",
+          "start": 1.58,
+          "end": 2.02
+        },
+        {
+          "raw": "whom",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "they",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "set",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "over",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "them,",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "raw": "and",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "nurse",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "into",
+          "start": 3.92,
+          "end": 4.2
+        },
+        {
+          "raw": "greatness.",
+          "start": 4.2,
+          "end": 4.62
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "people",
+        "have",
+        "always",
+        "some",
+        "champion",
+        "whom",
+        "they",
+        "set",
+        "over",
+        "them",
+        "and",
+        "nurse",
+        "into",
+        "greatness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "people",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "have",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "always",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "text": "some",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "champion",
+          "start": 1.58,
+          "end": 2.02
+        },
+        {
+          "text": "whom",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "they",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "set",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "over",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "them",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "text": "and",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "nurse",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "into",
+          "start": 3.92,
+          "end": 4.2
+        },
+        {
+          "text": "greatness.",
+          "start": 4.2,
+          "end": 4.62
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15106336399912834
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c61c74c49f1d1228515b00e035e4d59d6c37b62b2a0a49021445438b3da35f4",
+  "selected_reasons": []
+}

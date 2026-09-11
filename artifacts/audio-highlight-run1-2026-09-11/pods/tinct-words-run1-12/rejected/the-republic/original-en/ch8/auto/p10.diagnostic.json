@@ -1,0 +1,3060 @@
+{
+  "complete": true,
+  "signature": "ddde230ba820dae2912f1390c3d27b8ff70f6160829f7f51d063d987c93d7931",
+  "attempts": [
+    {
+      "asr_seconds": 1.0528385359793901,
+      "alignment_seconds": 0.0016427510417997837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That question, I said, is easily answered: the four governments of which I spoke, so far as they have distinct names, are, first, those of Crete and Sparta, which are generally applauded; what is termed oligarchy comes next; this is not equally approved, and is a form of government which teems with evils: thirdly, democracy, which naturally follows oligarchy, although very different: and lastly comes tyranny, great and famous, which differs from them all, and is the fourth and worst disorder of a State. I do not know, do you? of any other constitution which can be said to have a distinct character. There are lordships and principalities which are bought and sold, and some other intermediate forms of government. But these are nondescripts and may be found equally among Hellenes and among barbarians.",
+        "hotwords": "That, I, Crete, Sparta, State, There, But, Hellenes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That question, I said, is easily answered. The four governments of which I spoke,",
+          "start": 0.3,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.3,
+              "end": 0.58,
+              "probability": 0.759765625
+            },
+            {
+              "text": " question,",
+              "start": 0.58,
+              "end": 1.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said,",
+              "start": 1.24,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " easily",
+              "start": 1.82,
+              "end": 2.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " answered.",
+              "start": 2.2,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " The",
+              "start": 3.28,
+              "end": 3.4,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " four",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.95703125
+            },
+            {
+              "text": " governments",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " of",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " which",
+              "start": 4.16,
+              "end": 4.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 4.26,
+              "end": 4.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " spoke,",
+              "start": 4.42,
+              "end": 4.76,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " so far as they have distinct names, are, first, those of Crete and Sparta, which are generally",
+          "start": 5.04,
+          "end": 9.34,
+          "words": [
+            {
+              "text": " so",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " far",
+              "start": 5.18,
+              "end": 5.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 5.36,
+              "end": 5.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 5.52,
+              "end": 5.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 5.62,
+              "end": 5.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " distinct",
+              "start": 5.78,
+              "end": 6.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " names,",
+              "start": 6.1,
+              "end": 6.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are,",
+              "start": 6.8,
+              "end": 6.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " first,",
+              "start": 7.12,
+              "end": 7.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " those",
+              "start": 7.52,
+              "end": 7.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 7.62,
+              "end": 7.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Crete",
+              "start": 7.82,
+              "end": 8.08,
+              "probability": 0.944091796875
+            },
+            {
+              "text": " and",
+              "start": 8.08,
+              "end": 8.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Sparta,",
+              "start": 8.22,
+              "end": 8.64,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " which",
+              "start": 8.72,
+              "end": 8.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 8.82,
+              "end": 8.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " generally",
+              "start": 8.96,
+              "end": 9.34,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " applauded. What is termed oligarchy comes next. This is not equally approved, and is a form of",
+          "start": 9.34,
+          "end": 15.02,
+          "words": [
+            {
+              "text": " applauded.",
+              "start": 9.34,
+              "end": 9.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " What",
+              "start": 10.36,
+              "end": 10.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 10.54,
+              "end": 10.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " termed",
+              "start": 10.66,
+              "end": 10.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " oligarchy",
+              "start": 10.96,
+              "end": 11.44,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " comes",
+              "start": 11.44,
+              "end": 11.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " next.",
+              "start": 11.72,
+              "end": 12.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " This",
+              "start": 12.62,
+              "end": 12.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 12.84,
+              "end": 12.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 12.96,
+              "end": 13.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " equally",
+              "start": 13.18,
+              "end": 13.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " approved,",
+              "start": 13.52,
+              "end": 14.1,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 14.34,
+              "end": 14.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 14.48,
+              "end": 14.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 14.56,
+              "end": 14.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " form",
+              "start": 14.68,
+              "end": 14.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 14.82,
+              "end": 15.02,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " government which teems with evils. Thirdly, democracy, which naturally follows oligarchy,",
+          "start": 15.02,
+          "end": 20.08,
+          "words": [
+            {
+              "text": " government",
+              "start": 15.02,
+              "end": 15.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 15.28,
+              "end": 15.54,
+              "probability": 0.978515625
+            },
+            {
+              "text": " teems",
+              "start": 15.54,
+              "end": 15.88,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " with",
+              "start": 15.88,
+              "end": 16.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " evils.",
+              "start": 16.1,
+              "end": 16.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Thirdly,",
+              "start": 17.24,
+              "end": 17.6,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " democracy,",
+              "start": 17.92,
+              "end": 18.2,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " which",
+              "start": 18.48,
+              "end": 18.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " naturally",
+              "start": 18.64,
+              "end": 19.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " follows",
+              "start": 19.08,
+              "end": 19.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " oligarchy,",
+              "start": 19.48,
+              "end": 20.08,
+              "probability": 0.999267578125
+            }
+          ]
+        },
+        {
+          "text": " although very different, and lastly comes tyranny, great and famous, which differs from them all,",
+          "start": 20.18,
+          "end": 25.22,
+          "words": [
+            {
+              "text": " although",
+              "start": 20.18,
+              "end": 20.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " very",
+              "start": 20.34,
+              "end": 20.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " different,",
+              "start": 20.64,
+              "end": 21.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 21.44,
+              "end": 21.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " lastly",
+              "start": 21.7,
+              "end": 22.14,
+              "probability": 0.866943359375
+            },
+            {
+              "text": " comes",
+              "start": 22.14,
+              "end": 22.42,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " tyranny,",
+              "start": 22.42,
+              "end": 22.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " great",
+              "start": 23.04,
+              "end": 23.26,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 23.26,
+              "end": 23.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " famous,",
+              "start": 23.48,
+              "end": 23.78,
+              "probability": 1.0
+            },
+            {
+              "text": " which",
+              "start": 24.06,
+              "end": 24.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " differs",
+              "start": 24.22,
+              "end": 24.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 24.54,
+              "end": 24.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 24.78,
+              "end": 24.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all,",
+              "start": 24.94,
+              "end": 25.22,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " and is the fourth and worst disorder of a State. I do not know, do you? of any other constitution",
+          "start": 25.22,
+          "end": 31.6,
+          "words": [
+            {
+              "text": " and",
+              "start": 25.22,
+              "end": 25.62,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " is",
+              "start": 25.62,
+              "end": 25.72,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 25.72,
+              "end": 25.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fourth",
+              "start": 25.9,
+              "end": 26.18,
+              "probability": 0.9140625
+            },
+            {
+              "text": " and",
+              "start": 26.18,
+              "end": 26.42,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " worst",
+              "start": 26.42,
+              "end": 26.72,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " disorder",
+              "start": 26.72,
+              "end": 27.1,
+              "probability": 0.982421875
+            },
+            {
+              "text": " of",
+              "start": 27.1,
+              "end": 27.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 27.34,
+              "end": 27.44,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " State.",
+              "start": 27.44,
+              "end": 27.72,
+              "probability": 0.016387939453125
+            },
+            {
+              "text": " I",
+              "start": 28.78,
+              "end": 28.88,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " do",
+              "start": 28.88,
+              "end": 28.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 28.98,
+              "end": 29.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know,",
+              "start": 29.12,
+              "end": 29.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 29.56,
+              "end": 29.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you?",
+              "start": 29.68,
+              "end": 29.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 30.5,
+              "end": 30.62,
+              "probability": 0.05718994140625
+            },
+            {
+              "text": " any",
+              "start": 30.62,
+              "end": 30.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " other",
+              "start": 30.8,
+              "end": 31.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " constitution",
+              "start": 31.08,
+              "end": 31.6,
+              "probability": 0.3818359375
+            }
+          ]
+        },
+        {
+          "text": " which can be said to have a distinct character. There are lordships and principalities which",
+          "start": 31.6,
+          "end": 36.68,
+          "words": [
+            {
+              "text": " which",
+              "start": 31.6,
+              "end": 32.0,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " can",
+              "start": 32.0,
+              "end": 32.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 32.2,
+              "end": 32.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 32.34,
+              "end": 32.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 32.52,
+              "end": 32.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 32.68,
+              "end": 32.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 32.84,
+              "end": 32.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " distinct",
+              "start": 32.94,
+              "end": 33.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " character.",
+              "start": 33.32,
+              "end": 33.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " There",
+              "start": 34.54,
+              "end": 34.72,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " are",
+              "start": 34.72,
+              "end": 34.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lordships",
+              "start": 34.94,
+              "end": 35.42,
+              "probability": 0.888916015625
+            },
+            {
+              "text": " and",
+              "start": 35.42,
+              "end": 35.68,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " principalities",
+              "start": 35.68,
+              "end": 36.48,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " which",
+              "start": 36.48,
+              "end": 36.68,
+              "probability": 0.92822265625
+            }
+          ]
+        },
+        {
+          "text": " are bought and sold, and some other intermediate forms of government. But these are nondescripts",
+          "start": 36.68,
+          "end": 42.94,
+          "words": [
+            {
+              "text": " are",
+              "start": 36.68,
+              "end": 36.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bought",
+              "start": 36.84,
+              "end": 37.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 37.12,
+              "end": 37.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sold,",
+              "start": 37.38,
+              "end": 37.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 38.24,
+              "end": 38.4,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " some",
+              "start": 38.4,
+              "end": 38.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 38.6,
+              "end": 38.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " intermediate",
+              "start": 38.86,
+              "end": 39.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " forms",
+              "start": 39.32,
+              "end": 39.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 39.84,
+              "end": 40.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " government.",
+              "start": 40.14,
+              "end": 40.42,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " But",
+              "start": 41.12,
+              "end": 41.3,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " these",
+              "start": 41.3,
+              "end": 41.58,
+              "probability": 0.9765625
+            },
+            {
+              "text": " are",
+              "start": 41.58,
+              "end": 41.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nondescripts",
+              "start": 41.84,
+              "end": 42.94,
+              "probability": 0.9197998046875
+            }
+          ]
+        },
+        {
+          "text": " and may be found equally among Hellenes and among barbarians.",
+          "start": 42.94,
+          "end": 46.22,
+          "words": [
+            {
+              "text": " and",
+              "start": 42.94,
+              "end": 43.06,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " may",
+              "start": 43.06,
+              "end": 43.2,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " be",
+              "start": 43.2,
+              "end": 43.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " found",
+              "start": 43.4,
+              "end": 43.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " equally",
+              "start": 43.66,
+              "end": 44.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " among",
+              "start": 44.14,
+              "end": 44.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Hellenes",
+              "start": 44.42,
+              "end": 44.94,
+              "probability": 0.6251220703125
+            },
+            {
+              "text": " and",
+              "start": 44.94,
+              "end": 45.18,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " among",
+              "start": 45.18,
+              "end": 45.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " barbarians.",
+              "start": 45.42,
+              "end": 46.22,
+              "probability": 0.92138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.3,
+          "end": 0.58
+        },
+        {
+          "raw": "question,",
+          "start": 0.58,
+          "end": 1.0
+        },
+        {
+          "raw": "I",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "said,",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "easily",
+          "start": 1.82,
+          "end": 2.2
+        },
+        {
+          "raw": "answered.",
+          "start": 2.2,
+          "end": 2.7
+        },
+        {
+          "raw": "The",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "raw": "four",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "governments",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "raw": "of",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "which",
+          "start": 4.16,
+          "end": 4.26
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.42
+        },
+        {
+          "raw": "spoke,",
+          "start": 4.42,
+          "end": 4.76
+        },
+        {
+          "raw": "so",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "far",
+          "start": 5.18,
+          "end": 5.36
+        },
+        {
+          "raw": "as",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "raw": "they",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "raw": "have",
+          "start": 5.62,
+          "end": 5.78
+        },
+        {
+          "raw": "distinct",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "raw": "names,",
+          "start": 6.1,
+          "end": 6.54
+        },
+        {
+          "raw": "are,",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "raw": "first,",
+          "start": 7.12,
+          "end": 7.24
+        },
+        {
+          "raw": "those",
+          "start": 7.52,
+          "end": 7.62
+        },
+        {
+          "raw": "of",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "raw": "Crete",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "raw": "and",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "raw": "Sparta,",
+          "start": 8.22,
+          "end": 8.64
+        },
+        {
+          "raw": "which",
+          "start": 8.72,
+          "end": 8.82
+        },
+        {
+          "raw": "are",
+          "start": 8.82,
+          "end": 8.96
+        },
+        {
+          "raw": "generally",
+          "start": 8.96,
+          "end": 9.34
+        },
+        {
+          "raw": "applauded.",
+          "start": 9.34,
+          "end": 9.74
+        },
+        {
+          "raw": "What",
+          "start": 10.36,
+          "end": 10.54
+        },
+        {
+          "raw": "is",
+          "start": 10.54,
+          "end": 10.66
+        },
+        {
+          "raw": "termed",
+          "start": 10.66,
+          "end": 10.96
+        },
+        {
+          "raw": "oligarchy",
+          "start": 10.96,
+          "end": 11.44
+        },
+        {
+          "raw": "comes",
+          "start": 11.44,
+          "end": 11.72
+        },
+        {
+          "raw": "next.",
+          "start": 11.72,
+          "end": 12.2
+        },
+        {
+          "raw": "This",
+          "start": 12.62,
+          "end": 12.84
+        },
+        {
+          "raw": "is",
+          "start": 12.84,
+          "end": 12.96
+        },
+        {
+          "raw": "not",
+          "start": 12.96,
+          "end": 13.18
+        },
+        {
+          "raw": "equally",
+          "start": 13.18,
+          "end": 13.52
+        },
+        {
+          "raw": "approved,",
+          "start": 13.52,
+          "end": 14.1
+        },
+        {
+          "raw": "and",
+          "start": 14.34,
+          "end": 14.48
+        },
+        {
+          "raw": "is",
+          "start": 14.48,
+          "end": 14.56
+        },
+        {
+          "raw": "a",
+          "start": 14.56,
+          "end": 14.68
+        },
+        {
+          "raw": "form",
+          "start": 14.68,
+          "end": 14.82
+        },
+        {
+          "raw": "of",
+          "start": 14.82,
+          "end": 15.02
+        },
+        {
+          "raw": "government",
+          "start": 15.02,
+          "end": 15.28
+        },
+        {
+          "raw": "which",
+          "start": 15.28,
+          "end": 15.54
+        },
+        {
+          "raw": "teems",
+          "start": 15.54,
+          "end": 15.88
+        },
+        {
+          "raw": "with",
+          "start": 15.88,
+          "end": 16.1
+        },
+        {
+          "raw": "evils.",
+          "start": 16.1,
+          "end": 16.42
+        },
+        {
+          "raw": "Thirdly,",
+          "start": 17.24,
+          "end": 17.6
+        },
+        {
+          "raw": "democracy,",
+          "start": 17.92,
+          "end": 18.2
+        },
+        {
+          "raw": "which",
+          "start": 18.48,
+          "end": 18.64
+        },
+        {
+          "raw": "naturally",
+          "start": 18.64,
+          "end": 19.08
+        },
+        {
+          "raw": "follows",
+          "start": 19.08,
+          "end": 19.48
+        },
+        {
+          "raw": "oligarchy,",
+          "start": 19.48,
+          "end": 20.08
+        },
+        {
+          "raw": "although",
+          "start": 20.18,
+          "end": 20.34
+        },
+        {
+          "raw": "very",
+          "start": 20.34,
+          "end": 20.64
+        },
+        {
+          "raw": "different,",
+          "start": 20.64,
+          "end": 21.0
+        },
+        {
+          "raw": "and",
+          "start": 21.44,
+          "end": 21.7
+        },
+        {
+          "raw": "lastly",
+          "start": 21.7,
+          "end": 22.14
+        },
+        {
+          "raw": "comes",
+          "start": 22.14,
+          "end": 22.42
+        },
+        {
+          "raw": "tyranny,",
+          "start": 22.42,
+          "end": 22.78
+        },
+        {
+          "raw": "great",
+          "start": 23.04,
+          "end": 23.26
+        },
+        {
+          "raw": "and",
+          "start": 23.26,
+          "end": 23.48
+        },
+        {
+          "raw": "famous,",
+          "start": 23.48,
+          "end": 23.78
+        },
+        {
+          "raw": "which",
+          "start": 24.06,
+          "end": 24.22
+        },
+        {
+          "raw": "differs",
+          "start": 24.22,
+          "end": 24.54
+        },
+        {
+          "raw": "from",
+          "start": 24.54,
+          "end": 24.78
+        },
+        {
+          "raw": "them",
+          "start": 24.78,
+          "end": 24.94
+        },
+        {
+          "raw": "all,",
+          "start": 24.94,
+          "end": 25.22
+        },
+        {
+          "raw": "and",
+          "start": 25.22,
+          "end": 25.62
+        },
+        {
+          "raw": "is",
+          "start": 25.62,
+          "end": 25.72
+        },
+        {
+          "raw": "the",
+          "start": 25.72,
+          "end": 25.9
+        },
+        {
+          "raw": "fourth",
+          "start": 25.9,
+          "end": 26.18
+        },
+        {
+          "raw": "and",
+          "start": 26.18,
+          "end": 26.42
+        },
+        {
+          "raw": "worst",
+          "start": 26.42,
+          "end": 26.72
+        },
+        {
+          "raw": "disorder",
+          "start": 26.72,
+          "end": 27.1
+        },
+        {
+          "raw": "of",
+          "start": 27.1,
+          "end": 27.34
+        },
+        {
+          "raw": "a",
+          "start": 27.34,
+          "end": 27.44
+        },
+        {
+          "raw": "State.",
+          "start": 27.44,
+          "end": 27.72
+        },
+        {
+          "raw": "I",
+          "start": 28.78,
+          "end": 28.88
+        },
+        {
+          "raw": "do",
+          "start": 28.88,
+          "end": 28.98
+        },
+        {
+          "raw": "not",
+          "start": 28.98,
+          "end": 29.12
+        },
+        {
+          "raw": "know,",
+          "start": 29.12,
+          "end": 29.4
+        },
+        {
+          "raw": "do",
+          "start": 29.56,
+          "end": 29.68
+        },
+        {
+          "raw": "you?",
+          "start": 29.68,
+          "end": 29.98
+        },
+        {
+          "raw": "of",
+          "start": 30.5,
+          "end": 30.62
+        },
+        {
+          "raw": "any",
+          "start": 30.62,
+          "end": 30.8
+        },
+        {
+          "raw": "other",
+          "start": 30.8,
+          "end": 31.08
+        },
+        {
+          "raw": "constitution",
+          "start": 31.08,
+          "end": 31.6
+        },
+        {
+          "raw": "which",
+          "start": 31.6,
+          "end": 32.0
+        },
+        {
+          "raw": "can",
+          "start": 32.0,
+          "end": 32.2
+        },
+        {
+          "raw": "be",
+          "start": 32.2,
+          "end": 32.34
+        },
+        {
+          "raw": "said",
+          "start": 32.34,
+          "end": 32.52
+        },
+        {
+          "raw": "to",
+          "start": 32.52,
+          "end": 32.68
+        },
+        {
+          "raw": "have",
+          "start": 32.68,
+          "end": 32.84
+        },
+        {
+          "raw": "a",
+          "start": 32.84,
+          "end": 32.94
+        },
+        {
+          "raw": "distinct",
+          "start": 32.94,
+          "end": 33.32
+        },
+        {
+          "raw": "character.",
+          "start": 33.32,
+          "end": 33.92
+        },
+        {
+          "raw": "There",
+          "start": 34.54,
+          "end": 34.72
+        },
+        {
+          "raw": "are",
+          "start": 34.72,
+          "end": 34.94
+        },
+        {
+          "raw": "lordships",
+          "start": 34.94,
+          "end": 35.42
+        },
+        {
+          "raw": "and",
+          "start": 35.42,
+          "end": 35.68
+        },
+        {
+          "raw": "principalities",
+          "start": 35.68,
+          "end": 36.48
+        },
+        {
+          "raw": "which",
+          "start": 36.48,
+          "end": 36.68
+        },
+        {
+          "raw": "are",
+          "start": 36.68,
+          "end": 36.84
+        },
+        {
+          "raw": "bought",
+          "start": 36.84,
+          "end": 37.12
+        },
+        {
+          "raw": "and",
+          "start": 37.12,
+          "end": 37.38
+        },
+        {
+          "raw": "sold,",
+          "start": 37.38,
+          "end": 37.78
+        },
+        {
+          "raw": "and",
+          "start": 38.24,
+          "end": 38.4
+        },
+        {
+          "raw": "some",
+          "start": 38.4,
+          "end": 38.6
+        },
+        {
+          "raw": "other",
+          "start": 38.6,
+          "end": 38.86
+        },
+        {
+          "raw": "intermediate",
+          "start": 38.86,
+          "end": 39.32
+        },
+        {
+          "raw": "forms",
+          "start": 39.32,
+          "end": 39.84
+        },
+        {
+          "raw": "of",
+          "start": 39.84,
+          "end": 40.14
+        },
+        {
+          "raw": "government.",
+          "start": 40.14,
+          "end": 40.42
+        },
+        {
+          "raw": "But",
+          "start": 41.12,
+          "end": 41.3
+        },
+        {
+          "raw": "these",
+          "start": 41.3,
+          "end": 41.58
+        },
+        {
+          "raw": "are",
+          "start": 41.58,
+          "end": 41.84
+        },
+        {
+          "raw": "nondescripts",
+          "start": 41.84,
+          "end": 42.94
+        },
+        {
+          "raw": "and",
+          "start": 42.94,
+          "end": 43.06
+        },
+        {
+          "raw": "may",
+          "start": 43.06,
+          "end": 43.2
+        },
+        {
+          "raw": "be",
+          "start": 43.2,
+          "end": 43.4
+        },
+        {
+          "raw": "found",
+          "start": 43.4,
+          "end": 43.66
+        },
+        {
+          "raw": "equally",
+          "start": 43.66,
+          "end": 44.14
+        },
+        {
+          "raw": "among",
+          "start": 44.14,
+          "end": 44.42
+        },
+        {
+          "raw": "Hellenes",
+          "start": 44.42,
+          "end": 44.94
+        },
+        {
+          "raw": "and",
+          "start": 44.94,
+          "end": 45.18
+        },
+        {
+          "raw": "among",
+          "start": 45.18,
+          "end": 45.42
+        },
+        {
+          "raw": "barbarians.",
+          "start": 45.42,
+          "end": 46.22
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "question,",
+        "I",
+        "said,",
+        "is",
+        "easily",
+        "answered:",
+        "the",
+        "four",
+        "governments",
+        "of",
+        "which",
+        "I",
+        "spoke,",
+        "so",
+        "far",
+        "as",
+        "they",
+        "have",
+        "distinct",
+        "names,",
+        "are,",
+        "first,",
+        "those",
+        "of",
+        "Crete",
+        "and",
+        "Sparta,",
+        "which",
+        "are",
+        "generally",
+        "applauded;",
+        "what",
+        "is",
+        "termed",
+        "oligarchy",
+        "comes",
+        "next;",
+        "this",
+        "is",
+        "not",
+        "equally",
+        "approved,",
+        "and",
+        "is",
+        "a",
+        "form",
+        "of",
+        "government",
+        "which",
+        "teems",
+        "with",
+        "evils:",
+        "thirdly,",
+        "democracy,",
+        "which",
+        "naturally",
+        "follows",
+        "oligarchy,",
+        "although",
+        "very",
+        "different:",
+        "and",
+        "lastly",
+        "comes",
+        "tyranny,",
+        "great",
+        "and",
+        "famous,",
+        "which",
+        "differs",
+        "from",
+        "them",
+        "all,",
+        "and",
+        "is",
+        "the",
+        "fourth",
+        "and",
+        "worst",
+        "disorder",
+        "of",
+        "a",
+        "State.",
+        "I",
+        "do",
+        "not",
+        "know,",
+        "do",
+        "you?",
+        "of",
+        "any",
+        "other",
+        "constitution",
+        "which",
+        "can",
+        "be",
+        "said",
+        "to",
+        "have",
+        "a",
+        "distinct",
+        "character.",
+        "There",
+        "are",
+        "lordships",
+        "and",
+        "principalities",
+        "which",
+        "are",
+        "bought",
+        "and",
+        "sold,",
+        "and",
+        "some",
+        "other",
+        "intermediate",
+        "forms",
+        "of",
+        "government.",
+        "But",
+        "these",
+        "are",
+        "nondescripts",
+        "and",
+        "may",
+        "be",
+        "found",
+        "equally",
+        "among",
+        "Hellenes",
+        "and",
+        "among",
+        "barbarians."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          134,
+          0,
+          134
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 122,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 123,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 124,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 125,
+          "source": "observed",
+          "heard_index": 125
+        },
+        {
+          "index": 126,
+          "source": "observed",
+          "heard_index": 126
+        },
+        {
+          "index": 127,
+          "source": "observed",
+          "heard_index": 127
+        },
+        {
+          "index": 128,
+          "source": "observed",
+          "heard_index": 128
+        },
+        {
+          "index": 129,
+          "source": "observed",
+          "heard_index": 129
+        },
+        {
+          "index": 130,
+          "source": "observed",
+          "heard_index": 130
+        },
+        {
+          "index": 131,
+          "source": "observed",
+          "heard_index": 131
+        },
+        {
+          "index": 132,
+          "source": "observed",
+          "heard_index": 132
+        },
+        {
+          "index": 133,
+          "source": "observed",
+          "heard_index": 133
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.3,
+          "end": 0.58
+        },
+        {
+          "text": "question,",
+          "start": 0.58,
+          "end": 1.0
+        },
+        {
+          "text": "I",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "said,",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "text": "is",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "easily",
+          "start": 1.82,
+          "end": 2.2
+        },
+        {
+          "text": "answered:",
+          "start": 2.2,
+          "end": 2.7
+        },
+        {
+          "text": "the",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "text": "four",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "governments",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "text": "of",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "which",
+          "start": 4.16,
+          "end": 4.26
+        },
+        {
+          "text": "I",
+          "start": 4.26,
+          "end": 4.42
+        },
+        {
+          "text": "spoke,",
+          "start": 4.42,
+          "end": 4.76
+        },
+        {
+          "text": "so",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "far",
+          "start": 5.18,
+          "end": 5.36
+        },
+        {
+          "text": "as",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "text": "they",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "text": "have",
+          "start": 5.62,
+          "end": 5.78
+        },
+        {
+          "text": "distinct",
+          "start": 5.78,
+          "end": 6.1
+        },
+        {
+          "text": "names,",
+          "start": 6.1,
+          "end": 6.54
+        },
+        {
+          "text": "are,",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "text": "first,",
+          "start": 7.12,
+          "end": 7.24
+        },
+        {
+          "text": "those",
+          "start": 7.52,
+          "end": 7.62
+        },
+        {
+          "text": "of",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "text": "Crete",
+          "start": 7.82,
+          "end": 8.08
+        },
+        {
+          "text": "and",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "text": "Sparta,",
+          "start": 8.22,
+          "end": 8.64
+        },
+        {
+          "text": "which",
+          "start": 8.72,
+          "end": 8.82
+        },
+        {
+          "text": "are",
+          "start": 8.82,
+          "end": 8.96
+        },
+        {
+          "text": "generally",
+          "start": 8.96,
+          "end": 9.34
+        },
+        {
+          "text": "applauded;",
+          "start": 9.34,
+          "end": 9.74
+        },
+        {
+          "text": "what",
+          "start": 10.36,
+          "end": 10.54
+        },
+        {
+          "text": "is",
+          "start": 10.54,
+          "end": 10.66
+        },
+        {
+          "text": "termed",
+          "start": 10.66,
+          "end": 10.96
+        },
+        {
+          "text": "oligarchy",
+          "start": 10.96,
+          "end": 11.44
+        },
+        {
+          "text": "comes",
+          "start": 11.44,
+          "end": 11.72
+        },
+        {
+          "text": "next;",
+          "start": 11.72,
+          "end": 12.2
+        },
+        {
+          "text": "this",
+          "start": 12.62,
+          "end": 12.84
+        },
+        {
+          "text": "is",
+          "start": 12.84,
+          "end": 12.96
+        },
+        {
+          "text": "not",
+          "start": 12.96,
+          "end": 13.18
+        },
+        {
+          "text": "equally",
+          "start": 13.18,
+          "end": 13.52
+        },
+        {
+          "text": "approved,",
+          "start": 13.52,
+          "end": 14.1
+        },
+        {
+          "text": "and",
+          "start": 14.34,
+          "end": 14.48
+        },
+        {
+          "text": "is",
+          "start": 14.48,
+          "end": 14.56
+        },
+        {
+          "text": "a",
+          "start": 14.56,
+          "end": 14.68
+        },
+        {
+          "text": "form",
+          "start": 14.68,
+          "end": 14.82
+        },
+        {
+          "text": "of",
+          "start": 14.82,
+          "end": 15.02
+        },
+        {
+          "text": "government",
+          "start": 15.02,
+          "end": 15.28
+        },
+        {
+          "text": "which",
+          "start": 15.28,
+          "end": 15.54
+        },
+        {
+          "text": "teems",
+          "start": 15.54,
+          "end": 15.88
+        },
+        {
+          "text": "with",
+          "start": 15.88,
+          "end": 16.1
+        },
+        {
+          "text": "evils:",
+          "start": 16.1,
+          "end": 16.42
+        },
+        {
+          "text": "thirdly,",
+          "start": 17.24,
+          "end": 17.6
+        },
+        {
+          "text": "democracy,",
+          "start": 17.92,
+          "end": 18.2
+        },
+        {
+          "text": "which",
+          "start": 18.48,
+          "end": 18.64
+        },
+        {
+          "text": "naturally",
+          "start": 18.64,
+          "end": 19.08
+        },
+        {
+          "text": "follows",
+          "start": 19.08,
+          "end": 19.48
+        },
+        {
+          "text": "oligarchy,",
+          "start": 19.48,
+          "end": 20.08
+        },
+        {
+          "text": "although",
+          "start": 20.18,
+          "end": 20.34
+        },
+        {
+          "text": "very",
+          "start": 20.34,
+          "end": 20.64
+        },
+        {
+          "text": "different:",
+          "start": 20.64,
+          "end": 21.0
+        },
+        {
+          "text": "and",
+          "start": 21.44,
+          "end": 21.7
+        },
+        {
+          "text": "lastly",
+          "start": 21.7,
+          "end": 22.14
+        },
+        {
+          "text": "comes",
+          "start": 22.14,
+          "end": 22.42
+        },
+        {
+          "text": "tyranny,",
+          "start": 22.42,
+          "end": 22.78
+        },
+        {
+          "text": "great",
+          "start": 23.04,
+          "end": 23.26
+        },
+        {
+          "text": "and",
+          "start": 23.26,
+          "end": 23.48
+        },
+        {
+          "text": "famous,",
+          "start": 23.48,
+          "end": 23.78
+        },
+        {
+          "text": "which",
+          "start": 24.06,
+          "end": 24.22
+        },
+        {
+          "text": "differs",
+          "start": 24.22,
+          "end": 24.54
+        },
+        {
+          "text": "from",
+          "start": 24.54,
+          "end": 24.78
+        },
+        {
+          "text": "them",
+          "start": 24.78,
+          "end": 24.94
+        },
+        {
+          "text": "all,",
+          "start": 24.94,
+          "end": 25.22
+        },
+        {
+          "text": "and",
+          "start": 25.22,
+          "end": 25.62
+        },
+        {
+          "text": "is",
+          "start": 25.62,
+          "end": 25.72
+        },
+        {
+          "text": "the",
+          "start": 25.72,
+          "end": 25.9
+        },
+        {
+          "text": "fourth",
+          "start": 25.9,
+          "end": 26.18
+        },
+        {
+          "text": "and",
+          "start": 26.18,
+          "end": 26.42
+        },
+        {
+          "text": "worst",
+          "start": 26.42,
+          "end": 26.72
+        },
+        {
+          "text": "disorder",
+          "start": 26.72,
+          "end": 27.1
+        },
+        {
+          "text": "of",
+          "start": 27.1,
+          "end": 27.34
+        },
+        {
+          "text": "a",
+          "start": 27.34,
+          "end": 27.44
+        },
+        {
+          "text": "State.",
+          "start": 27.44,
+          "end": 27.72
+        },
+        {
+          "text": "I",
+          "start": 28.78,
+          "end": 28.88
+        },
+        {
+          "text": "do",
+          "start": 28.88,
+          "end": 28.98
+        },
+        {
+          "text": "not",
+          "start": 28.98,
+          "end": 29.12
+        },
+        {
+          "text": "know,",
+          "start": 29.12,
+          "end": 29.4
+        },
+        {
+          "text": "do",
+          "start": 29.56,
+          "end": 29.68
+        },
+        {
+          "text": "you?",
+          "start": 29.68,
+          "end": 29.98
+        },
+        {
+          "text": "of",
+          "start": 30.5,
+          "end": 30.62
+        },
+        {
+          "text": "any",
+          "start": 30.62,
+          "end": 30.8
+        },
+        {
+          "text": "other",
+          "start": 30.8,
+          "end": 31.08
+        },
+        {
+          "text": "constitution",
+          "start": 31.08,
+          "end": 31.6
+        },
+        {
+          "text": "which",
+          "start": 31.6,
+          "end": 32.0
+        },
+        {
+          "text": "can",
+          "start": 32.0,
+          "end": 32.2
+        },
+        {
+          "text": "be",
+          "start": 32.2,
+          "end": 32.34
+        },
+        {
+          "text": "said",
+          "start": 32.34,
+          "end": 32.52
+        },
+        {
+          "text": "to",
+          "start": 32.52,
+          "end": 32.68
+        },
+        {
+          "text": "have",
+          "start": 32.68,
+          "end": 32.84
+        },
+        {
+          "text": "a",
+          "start": 32.84,
+          "end": 32.94
+        },
+        {
+          "text": "distinct",
+          "start": 32.94,
+          "end": 33.32
+        },
+        {
+          "text": "character.",
+          "start": 33.32,
+          "end": 33.92
+        },
+        {
+          "text": "There",
+          "start": 34.54,
+          "end": 34.72
+        },
+        {
+          "text": "are",
+          "start": 34.72,
+          "end": 34.94
+        },
+        {
+          "text": "lordships",
+          "start": 34.94,
+          "end": 35.42
+        },
+        {
+          "text": "and",
+          "start": 35.42,
+          "end": 35.68
+        },
+        {
+          "text": "principalities",
+          "start": 35.68,
+          "end": 36.48
+        },
+        {
+          "text": "which",
+          "start": 36.48,
+          "end": 36.68
+        },
+        {
+          "text": "are",
+          "start": 36.68,
+          "end": 36.84
+        },
+        {
+          "text": "bought",
+          "start": 36.84,
+          "end": 37.12
+        },
+        {
+          "text": "and",
+          "start": 37.12,
+          "end": 37.38
+        },
+        {
+          "text": "sold,",
+          "start": 37.38,
+          "end": 37.78
+        },
+        {
+          "text": "and",
+          "start": 38.24,
+          "end": 38.4
+        },
+        {
+          "text": "some",
+          "start": 38.4,
+          "end": 38.6
+        },
+        {
+          "text": "other",
+          "start": 38.6,
+          "end": 38.86
+        },
+        {
+          "text": "intermediate",
+          "start": 38.86,
+          "end": 39.32
+        },
+        {
+          "text": "forms",
+          "start": 39.32,
+          "end": 39.84
+        },
+        {
+          "text": "of",
+          "start": 39.84,
+          "end": 40.14
+        },
+        {
+          "text": "government.",
+          "start": 40.14,
+          "end": 40.42
+        },
+        {
+          "text": "But",
+          "start": 41.12,
+          "end": 41.3
+        },
+        {
+          "text": "these",
+          "start": 41.3,
+          "end": 41.58
+        },
+        {
+          "text": "are",
+          "start": 41.58,
+          "end": 41.84
+        },
+        {
+          "text": "nondescripts",
+          "start": 41.84,
+          "end": 42.94
+        },
+        {
+          "text": "and",
+          "start": 42.94,
+          "end": 43.06
+        },
+        {
+          "text": "may",
+          "start": 43.06,
+          "end": 43.2
+        },
+        {
+          "text": "be",
+          "start": 43.2,
+          "end": 43.4
+        },
+        {
+          "text": "found",
+          "start": 43.4,
+          "end": 43.66
+        },
+        {
+          "text": "equally",
+          "start": 43.66,
+          "end": 44.14
+        },
+        {
+          "text": "among",
+          "start": 44.14,
+          "end": 44.42
+        },
+        {
+          "text": "Hellenes",
+          "start": 44.42,
+          "end": 44.94
+        },
+        {
+          "text": "and",
+          "start": 44.94,
+          "end": 45.18
+        },
+        {
+          "text": "among",
+          "start": 45.18,
+          "end": 45.42
+        },
+        {
+          "text": "barbarians.",
+          "start": 45.42,
+          "end": 46.22
+        }
+      ],
+      "stats": {
+        "expected_words": 134,
+        "heard_words": 134,
+        "matched_words": 134
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0554830390028656
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06aeee7f4b23ce326229822c31a414650e7715cf058e34177da813285b65fe9b",
+  "selected_reasons": []
+}

@@ -1,0 +1,223 @@
+{
+  "complete": true,
+  "signature": "464f54b46efcb36ff66cbc3536d9c476b7c6f5e6ee88c53b2caecc7ff5e27c61",
+  "attempts": [
+    {
+      "asr_seconds": 0.11591503699310124,
+      "alignment_seconds": 0.00013402407057583332,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stefano, mum then and no more, proceed.",
+          "start": 0.08,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Stefano,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.919677734375
+            },
+            {
+              "text": " mum",
+              "start": 1.54,
+              "end": 1.56,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " then",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " and",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " no",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more,",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " proceed.",
+              "start": 2.48,
+              "end": 2.76,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stefano,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "mum",
+          "start": 1.54,
+          "end": 1.56
+        },
+        {
+          "raw": "then",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "and",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "more,",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "raw": "proceed.",
+          "start": 2.48,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Mum,",
+        "then,",
+        "and",
+        "no",
+        "more.",
+        "Proceed."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.0,
+          "end": 0.77
+        },
+        {
+          "text": "Mum,",
+          "start": 1.54,
+          "end": 1.56
+        },
+        {
+          "text": "then,",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "text": "and",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "no",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "more.",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "text": "Proceed.",
+          "start": 2.48,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.11612051294650882
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64b3439d5b838bd8741e2a89ccff7da2592a0144f115b14635de2c5a1a9f1a0c",
+  "selected_reasons": []
+}

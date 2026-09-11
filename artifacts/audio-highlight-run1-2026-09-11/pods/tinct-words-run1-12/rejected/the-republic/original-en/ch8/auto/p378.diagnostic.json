@@ -1,0 +1,1156 @@
+{
+  "complete": true,
+  "signature": "97ea78bd8ba6ff277f236ba6b0af88e53ef413c8e8970ce22386a8e0922c9376",
+  "attempts": [
+    {
+      "asr_seconds": 2.5125873601064086,
+      "alignment_seconds": 0.0003415839746594429,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And when a man who is wealthy and is also accused of being an enemy of the people sees this, then, my friend, as the oracle said to Croesus,",
+        "hotwords": "Croesus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " to Croesus, to Croesus, to Croesus,",
+          "start": 0.05,
+          "end": 9.13,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.05,
+              "end": 1.21,
+              "probability": 0.0015668869018554688
+            },
+            {
+              "text": " Croesus,",
+              "start": 1.21,
+              "end": 1.87,
+              "probability": 0.665313720703125
+            },
+            {
+              "text": " to",
+              "start": 1.87,
+              "end": 2.33,
+              "probability": 0.01380157470703125
+            },
+            {
+              "text": " Croesus,",
+              "start": 2.33,
+              "end": 5.11,
+              "probability": 0.6779886881510416
+            },
+            {
+              "text": " to",
+              "start": 5.11,
+              "end": 5.77,
+              "probability": 0.591796875
+            },
+            {
+              "text": " Croesus,",
+              "start": 5.77,
+              "end": 9.13,
+              "probability": 0.9563802083333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "raw": "Croesus,",
+          "start": 1.21,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 1.87,
+          "end": 2.33
+        },
+        {
+          "raw": "Croesus,",
+          "start": 2.33,
+          "end": 5.11
+        },
+        {
+          "raw": "to",
+          "start": 5.11,
+          "end": 5.77
+        },
+        {
+          "raw": "Croesus,",
+          "start": 5.77,
+          "end": 9.13
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "when",
+        "a",
+        "man",
+        "who",
+        "is",
+        "wealthy",
+        "and",
+        "is",
+        "also",
+        "accused",
+        "of",
+        "being",
+        "an",
+        "enemy",
+        "of",
+        "the",
+        "people",
+        "sees",
+        "this,",
+        "then,",
+        "my",
+        "friend,",
+        "as",
+        "the",
+        "oracle",
+        "said",
+        "to",
+        "Croesus,"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          27,
+          0,
+          0
+        ],
+        [
+          "equal",
+          27,
+          29,
+          0,
+          2
+        ],
+        [
+          "insert",
+          29,
+          29,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          27,
+          0,
+          0
+        ],
+        [
+          "insert",
+          29,
+          29,
+          2,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "when",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "a",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "man",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "who",
+          "start": 0.047,
+          "end": 0.049
+        },
+        {
+          "text": "is",
+          "start": 0.049,
+          "end": 0.05
+        },
+        {
+          "text": "wealthy",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "and",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "is",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "also",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "accused",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "of",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "being",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "an",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "enemy",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "of",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "the",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "people",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "sees",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "this,",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "then,",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "my",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "friend,",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "as",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "the",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "oracle",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "said",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "to",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "text": "Croesus,",
+          "start": 1.21,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.06896551724137931,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.5129979318007827
+    },
+    {
+      "asr_seconds": 0.2342531867325306,
+      "alignment_seconds": 0.00019881641492247581,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Croesus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " And when a man who is wealthy and is also accused of being an enemy of the people sees this, then, my friend, as the oracle said to Croesus",
+          "start": 0.05,
+          "end": 8.99,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.484619140625
+            },
+            {
+              "text": " when",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.970703125
+            },
+            {
+              "text": " a",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " man",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " who",
+              "start": 0.97,
+              "end": 1.19,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " is",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wealthy",
+              "start": 1.33,
+              "end": 1.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.837890625
+            },
+            {
+              "text": " is",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " also",
+              "start": 2.15,
+              "end": 2.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " accused",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " being",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " enemy",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 3.71,
+              "end": 3.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.93,
+              "end": 4.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " people",
+              "start": 4.03,
+              "end": 4.29,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " sees",
+              "start": 4.29,
+              "end": 4.59,
+              "probability": 0.953125
+            },
+            {
+              "text": " this,",
+              "start": 4.59,
+              "end": 5.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then,",
+              "start": 5.49,
+              "end": 5.85,
+              "probability": 0.947265625
+            },
+            {
+              "text": " my",
+              "start": 6.33,
+              "end": 6.47,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " friend,",
+              "start": 6.47,
+              "end": 6.87,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " as",
+              "start": 7.29,
+              "end": 7.53,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 7.53,
+              "end": 7.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " oracle",
+              "start": 7.67,
+              "end": 8.07,
+              "probability": 0.832275390625
+            },
+            {
+              "text": " said",
+              "start": 8.07,
+              "end": 8.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 8.35,
+              "end": 8.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Croesus",
+              "start": 8.55,
+              "end": 8.99,
+              "probability": 0.8194173177083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "when",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "man",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "raw": "who",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "raw": "is",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "wealthy",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "is",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "also",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "raw": "accused",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "raw": "of",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "being",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "an",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "enemy",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "raw": "the",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "raw": "people",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "raw": "sees",
+          "start": 4.29,
+          "end": 4.59
+        },
+        {
+          "raw": "this,",
+          "start": 4.59,
+          "end": 5.09
+        },
+        {
+          "raw": "then,",
+          "start": 5.49,
+          "end": 5.85
+        },
+        {
+          "raw": "my",
+          "start": 6.33,
+          "end": 6.47
+        },
+        {
+          "raw": "friend,",
+          "start": 6.47,
+          "end": 6.87
+        },
+        {
+          "raw": "as",
+          "start": 7.29,
+          "end": 7.53
+        },
+        {
+          "raw": "the",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "raw": "oracle",
+          "start": 7.67,
+          "end": 8.07
+        },
+        {
+          "raw": "said",
+          "start": 8.07,
+          "end": 8.35
+        },
+        {
+          "raw": "to",
+          "start": 8.35,
+          "end": 8.55
+        },
+        {
+          "raw": "Croesus",
+          "start": 8.55,
+          "end": 8.99
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "when",
+        "a",
+        "man",
+        "who",
+        "is",
+        "wealthy",
+        "and",
+        "is",
+        "also",
+        "accused",
+        "of",
+        "being",
+        "an",
+        "enemy",
+        "of",
+        "the",
+        "people",
+        "sees",
+        "this,",
+        "then,",
+        "my",
+        "friend,",
+        "as",
+        "the",
+        "oracle",
+        "said",
+        "to",
+        "Croesus,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "when",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "a",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "man",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "text": "who",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "text": "is",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "wealthy",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "text": "and",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "is",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "also",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "text": "accused",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "text": "of",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "being",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "an",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "enemy",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "of",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "text": "the",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "text": "people",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "text": "sees",
+          "start": 4.29,
+          "end": 4.59
+        },
+        {
+          "text": "this,",
+          "start": 4.59,
+          "end": 5.09
+        },
+        {
+          "text": "then,",
+          "start": 5.49,
+          "end": 5.85
+        },
+        {
+          "text": "my",
+          "start": 6.33,
+          "end": 6.47
+        },
+        {
+          "text": "friend,",
+          "start": 6.47,
+          "end": 6.87
+        },
+        {
+          "text": "as",
+          "start": 7.29,
+          "end": 7.53
+        },
+        {
+          "text": "the",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "text": "oracle",
+          "start": 7.67,
+          "end": 8.07
+        },
+        {
+          "text": "said",
+          "start": 8.07,
+          "end": 8.35
+        },
+        {
+          "text": "to",
+          "start": 8.35,
+          "end": 8.55
+        },
+        {
+          "text": "Croesus,",
+          "start": 8.55,
+          "end": 8.99
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23456445056945086
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "8fd85bae19b46407f5fc87776d11e20233ce754cad9195647a557d7b86fa0e2c",
+  "selected_reasons": []
+}

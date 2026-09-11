@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "414d08be66b0325925d2f3e0f9ed6e3d241584aca726169e97be8f6d3fd08b37",
+  "attempts": [
+    {
+      "asr_seconds": 0.10329418198671192,
+      "alignment_seconds": 9.923300240188837e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. God save his majesty!",
+        "hotwords": "Sebastian, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, God save his majesty!",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.783203125
+            },
+            {
+              "text": " God",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.939453125
+            },
+            {
+              "text": " save",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " his",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.3994140625
+            },
+            {
+              "text": " majesty!",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.93408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "God",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "save",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "raw": "his",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "majesty!",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "God",
+        "save",
+        "his",
+        "majesty!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "God",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "save",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "text": "his",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "majesty!",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10343500599265099
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0089339c0e61e85602ed75b62c02168adb381782915aed76f9c9be4bd502dea5",
+  "selected_reasons": []
+}

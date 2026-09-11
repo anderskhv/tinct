@@ -1,0 +1,2208 @@
+{
+  "complete": true,
+  "signature": "9f6f9050420b31e58eb9f68549662839a8c3822b42f4a540dcfd7f3eda7534e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.21896966267377138,
+      "alignment_seconds": 0.00012518186122179031,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What I want to know,\" said the young mule, who had been quiet for a long time--\"what I want to know is, why we have to fight at all.\"",
+        "hotwords": "What, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What I want to know, said the young mule, who had been quiet for a long time, what I want to know is, why we have to fight at all.",
+          "start": 0.02,
+          "end": 7.46,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.0784912109375
+            },
+            {
+              "text": " I",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " want",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " to",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know,",
+              "start": 0.96,
+              "end": 1.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.982421875
+            },
+            {
+              "text": " young",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.9375
+            },
+            {
+              "text": " mule,",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.861572265625
+            },
+            {
+              "text": " who",
+              "start": 2.84,
+              "end": 2.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " had",
+              "start": 2.88,
+              "end": 2.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " been",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quiet",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " for",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 3.72,
+              "end": 3.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " long",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " time,",
+              "start": 4.04,
+              "end": 4.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 5.12,
+              "end": 5.18,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " I",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " want",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 5.56,
+              "end": 5.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is,",
+              "start": 5.7,
+              "end": 6.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " why",
+              "start": 6.16,
+              "end": 6.36,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " we",
+              "start": 6.36,
+              "end": 6.52,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " have",
+              "start": 6.52,
+              "end": 6.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 6.68,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fight",
+              "start": 6.84,
+              "end": 7.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.035003662109375
+            },
+            {
+              "text": " all.",
+              "start": 7.18,
+              "end": 7.46,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "want",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "to",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "know,",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "raw": "said",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "young",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "mule,",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "raw": "who",
+          "start": 2.84,
+          "end": 2.88
+        },
+        {
+          "raw": "had",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "raw": "been",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "quiet",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "for",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "a",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "raw": "long",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "time,",
+          "start": 4.04,
+          "end": 4.52
+        },
+        {
+          "raw": "what",
+          "start": 5.12,
+          "end": 5.18
+        },
+        {
+          "raw": "I",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "want",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "to",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "know",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "raw": "is,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "raw": "why",
+          "start": 6.16,
+          "end": 6.36
+        },
+        {
+          "raw": "we",
+          "start": 6.36,
+          "end": 6.52
+        },
+        {
+          "raw": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "raw": "to",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "raw": "fight",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "raw": "at",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "all.",
+          "start": 7.18,
+          "end": 7.46
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "I",
+        "want",
+        "to",
+        "know,\"",
+        "said",
+        "the",
+        "young",
+        "mule,",
+        "who",
+        "had",
+        "been",
+        "quiet",
+        "for",
+        "a",
+        "long",
+        "time--\"what",
+        "I",
+        "want",
+        "to",
+        "know",
+        "is,",
+        "why",
+        "we",
+        "have",
+        "to",
+        "fight",
+        "at",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          29,
+          18,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "want",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "to",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "know,\"",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "text": "said",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "young",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "mule,",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "who",
+          "start": 2.84,
+          "end": 2.88
+        },
+        {
+          "text": "had",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "text": "been",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "quiet",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "for",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "a",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "text": "long",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "time--\"what",
+          "start": 4.04,
+          "end": 4.61
+        },
+        {
+          "text": "I",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "want",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "to",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "know",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "text": "is,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "text": "why",
+          "start": 6.16,
+          "end": 6.36
+        },
+        {
+          "text": "we",
+          "start": 6.36,
+          "end": 6.52
+        },
+        {
+          "text": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "text": "to",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "fight",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "text": "at",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "text": "all.\"",
+          "start": 7.18,
+          "end": 7.46
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 30,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.2191558349877596
+    },
+    {
+      "asr_seconds": 0.2048726212233305,
+      "alignment_seconds": 0.0001363959163427353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " want to know, said the young mule, who had been quiet for a long time, what I want to",
+          "start": 0.02,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " want",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 5.602836608886719e-06
+            },
+            {
+              "text": " to",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " know,",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " said",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " young",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " mule,",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.865234375
+            },
+            {
+              "text": " who",
+              "start": 2.8,
+              "end": 2.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " had",
+              "start": 2.88,
+              "end": 2.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " been",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " quiet",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.986328125
+            },
+            {
+              "text": " for",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 3.72,
+              "end": 3.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " long",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " time,",
+              "start": 4.06,
+              "end": 4.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 5.08,
+              "end": 5.18,
+              "probability": 0.953125
+            },
+            {
+              "text": " I",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " want",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " know is why we have to fight it all.",
+          "start": 5.56,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " know",
+              "start": 5.56,
+              "end": 5.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 5.7,
+              "end": 6.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " why",
+              "start": 6.0,
+              "end": 6.34,
+              "probability": 0.814453125
+            },
+            {
+              "text": " we",
+              "start": 6.34,
+              "end": 6.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 6.52,
+              "end": 6.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 6.68,
+              "end": 6.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fight",
+              "start": 6.84,
+              "end": 7.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " all.",
+              "start": 7.18,
+              "end": 7.44,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "want",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "to",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "know,",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "young",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "mule,",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "raw": "who",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "raw": "had",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "raw": "been",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "quiet",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "for",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "a",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "raw": "long",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "time,",
+          "start": 4.06,
+          "end": 4.52
+        },
+        {
+          "raw": "what",
+          "start": 5.08,
+          "end": 5.18
+        },
+        {
+          "raw": "I",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "want",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "to",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "know",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "raw": "is",
+          "start": 5.7,
+          "end": 6.0
+        },
+        {
+          "raw": "why",
+          "start": 6.0,
+          "end": 6.34
+        },
+        {
+          "raw": "we",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "raw": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "raw": "to",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "raw": "fight",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "raw": "it",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "all.",
+          "start": 7.18,
+          "end": 7.44
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "I",
+        "want",
+        "to",
+        "know,\"",
+        "said",
+        "the",
+        "young",
+        "mule,",
+        "who",
+        "had",
+        "been",
+        "quiet",
+        "for",
+        "a",
+        "long",
+        "time--\"what",
+        "I",
+        "want",
+        "to",
+        "know",
+        "is,",
+        "why",
+        "we",
+        "have",
+        "to",
+        "fight",
+        "at",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          16,
+          0,
+          14
+        ],
+        [
+          "replace",
+          16,
+          17,
+          14,
+          16
+        ],
+        [
+          "equal",
+          17,
+          27,
+          16,
+          26
+        ],
+        [
+          "replace",
+          27,
+          28,
+          26,
+          27
+        ],
+        [
+          "equal",
+          28,
+          29,
+          27,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          16,
+          17,
+          14,
+          16
+        ],
+        [
+          "replace",
+          27,
+          28,
+          26,
+          27
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "I",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "want",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "to",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "know,\"",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "said",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "young",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "mule,",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "who",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "text": "had",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "text": "been",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "quiet",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "for",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "a",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "text": "long",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "text": "time--\"what",
+          "start": 4.06,
+          "end": 4.62
+        },
+        {
+          "text": "I",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "want",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "to",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "know",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "text": "is,",
+          "start": 5.7,
+          "end": 6.0
+        },
+        {
+          "text": "why",
+          "start": 6.0,
+          "end": 6.34
+        },
+        {
+          "text": "we",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "text": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "text": "to",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "fight",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "text": "at",
+          "start": 7.04,
+          "end": 7.11
+        },
+        {
+          "text": "all.\"",
+          "start": 7.18,
+          "end": 7.44
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 28,
+        "matched_words": 25
+      },
+      "match_ratio": 0.8620689655172413,
+      "rejection_reasons": [],
+      "seconds": 0.20506945252418518
+    },
+    {
+      "asr_seconds": 0.1991632841527462,
+      "alignment_seconds": 0.00013720616698265076,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What I want to know, said the young mule, who had been quiet for a long time, what I",
+          "start": 0.02,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.0784912109375
+            },
+            {
+              "text": " I",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " want",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " to",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know,",
+              "start": 0.96,
+              "end": 1.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.982421875
+            },
+            {
+              "text": " young",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.9375
+            },
+            {
+              "text": " mule,",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " who",
+              "start": 2.84,
+              "end": 2.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " had",
+              "start": 2.88,
+              "end": 2.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " been",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quiet",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " for",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 3.72,
+              "end": 3.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " long",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " time,",
+              "start": 4.04,
+              "end": 4.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 5.12,
+              "end": 5.18,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " I",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " want to know is why we have to fight it all.",
+          "start": 5.3,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " want",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 5.56,
+              "end": 5.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 5.7,
+              "end": 6.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " why",
+              "start": 6.0,
+              "end": 6.34,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " we",
+              "start": 6.34,
+              "end": 6.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 6.52,
+              "end": 6.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 6.68,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fight",
+              "start": 6.84,
+              "end": 7.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " all.",
+              "start": 7.18,
+              "end": 7.44,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "want",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "to",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "know,",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "raw": "said",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "young",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "mule,",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "raw": "who",
+          "start": 2.84,
+          "end": 2.88
+        },
+        {
+          "raw": "had",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "raw": "been",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "quiet",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "for",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "a",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "raw": "long",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "time,",
+          "start": 4.04,
+          "end": 4.52
+        },
+        {
+          "raw": "what",
+          "start": 5.12,
+          "end": 5.18
+        },
+        {
+          "raw": "I",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "want",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "to",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "know",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "raw": "is",
+          "start": 5.7,
+          "end": 6.0
+        },
+        {
+          "raw": "why",
+          "start": 6.0,
+          "end": 6.34
+        },
+        {
+          "raw": "we",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "raw": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "raw": "to",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "raw": "fight",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "raw": "it",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "all.",
+          "start": 7.18,
+          "end": 7.44
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "I",
+        "want",
+        "to",
+        "know,\"",
+        "said",
+        "the",
+        "young",
+        "mule,",
+        "who",
+        "had",
+        "been",
+        "quiet",
+        "for",
+        "a",
+        "long",
+        "time--\"what",
+        "I",
+        "want",
+        "to",
+        "know",
+        "is,",
+        "why",
+        "we",
+        "have",
+        "to",
+        "fight",
+        "at",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          27,
+          18,
+          28
+        ],
+        [
+          "replace",
+          27,
+          28,
+          28,
+          29
+        ],
+        [
+          "equal",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "replace",
+          27,
+          28,
+          28,
+          29
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "want",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "to",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "know,\"",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "text": "said",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "young",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "mule,",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "who",
+          "start": 2.84,
+          "end": 2.88
+        },
+        {
+          "text": "had",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "text": "been",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "quiet",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "for",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "a",
+          "start": 3.72,
+          "end": 3.86
+        },
+        {
+          "text": "long",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "time--\"what",
+          "start": 4.04,
+          "end": 4.61
+        },
+        {
+          "text": "I",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "want",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "to",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "know",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "text": "is,",
+          "start": 5.7,
+          "end": 6.0
+        },
+        {
+          "text": "why",
+          "start": 6.0,
+          "end": 6.34
+        },
+        {
+          "text": "we",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "text": "have",
+          "start": 6.52,
+          "end": 6.68
+        },
+        {
+          "text": "to",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "fight",
+          "start": 6.84,
+          "end": 7.04
+        },
+        {
+          "text": "at",
+          "start": 7.04,
+          "end": 7.11
+        },
+        {
+          "text": "all.\"",
+          "start": 7.18,
+          "end": 7.44
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 30,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9310344827586207,
+      "rejection_reasons": [],
+      "seconds": 0.19936140347272158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6853fe24104c492cf285d7c65f343059a472a482fe70d0077bb4859ccd2f664",
+  "selected_reasons": []
+}

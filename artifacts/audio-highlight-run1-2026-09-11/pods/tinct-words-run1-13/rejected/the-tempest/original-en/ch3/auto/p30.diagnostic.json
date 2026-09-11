@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "891933c8cb7a4a6e1810203471cfc7f3a030db95250535756727d5b5fe9dcbeb",
+  "attempts": [
+    {
+      "asr_seconds": 0.11750230204779655,
+      "alignment_seconds": 0.00011907401494681835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Temperance was a delicate wench.",
+        "hotwords": "Antonio, Temperance"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Temperance was a delicate wench.",
+          "start": 0.11,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Temperance",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.59844970703125
+            },
+            {
+              "text": " was",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " a",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " delicate",
+              "start": 2.17,
+              "end": 2.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wench.",
+              "start": 2.49,
+              "end": 2.97,
+              "probability": 0.887451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "Temperance",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "was",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "delicate",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "raw": "wench.",
+          "start": 2.49,
+          "end": 2.97
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Temperance",
+        "was",
+        "a",
+        "delicate",
+        "wench."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "Temperance",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "was",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "a",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "delicate",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "text": "wench.",
+          "start": 2.49,
+          "end": 2.97
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11767412896733731
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d36d122a68c1f6526a8c88c742f33b2e1caa32ea96142b6fa46112fb963a3590",
+  "selected_reasons": []
+}

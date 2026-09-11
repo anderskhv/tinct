@@ -1,0 +1,2167 @@
+{
+  "complete": true,
+  "signature": "03f7fb6f7409f5b8354a8372bf1dc186f8e7e4ee2a33b4f501368339052cd610",
+  "attempts": [
+    {
+      "asr_seconds": 0.18550051748752594,
+      "alignment_seconds": 0.00013490580022335052,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Now we are talking just like men! Let's pretend we are ... never mind, _Brother, thy tail hangs down behind!_ This is the way of the Monkey-kind.",
+        "hotwords": "Now, Let's, This, Monkey-kind"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now we are talking just like men! Let's pretend we are ... never mind, brother, thy tail hangs down behind! This is the way of the Monkey-kind.",
+          "start": 0.02,
+          "end": 8.98,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " we",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " are",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " talking",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " just",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.9765625
+            },
+            {
+              "text": " like",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " men!",
+              "start": 1.68,
+              "end": 2.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Let's",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " pretend",
+              "start": 2.74,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " are",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " ...",
+              "start": 3.6,
+              "end": 4.16,
+              "probability": 0.0007753372192382812
+            },
+            {
+              "text": " never",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.560546875
+            },
+            {
+              "text": " mind,",
+              "start": 4.32,
+              "end": 4.74,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " brother,",
+              "start": 5.06,
+              "end": 5.1,
+              "probability": 0.921875
+            },
+            {
+              "text": " thy",
+              "start": 5.4,
+              "end": 5.48,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " tail",
+              "start": 5.48,
+              "end": 5.82,
+              "probability": 0.57470703125
+            },
+            {
+              "text": " hangs",
+              "start": 5.82,
+              "end": 6.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " down",
+              "start": 6.12,
+              "end": 6.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " behind!",
+              "start": 6.44,
+              "end": 6.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " This",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " is",
+              "start": 7.66,
+              "end": 7.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " way",
+              "start": 7.98,
+              "end": 8.14,
+              "probability": 0.951171875
+            },
+            {
+              "text": " of",
+              "start": 8.14,
+              "end": 8.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 8.28,
+              "end": 8.4,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Monkey",
+              "start": 8.4,
+              "end": 8.64,
+              "probability": 0.1322021484375
+            },
+            {
+              "text": "-kind.",
+              "start": 8.64,
+              "end": 8.98,
+              "probability": 0.4722900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "we",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "are",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "talking",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "just",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "like",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "men!",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "raw": "Let's",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "pretend",
+          "start": 2.74,
+          "end": 3.04
+        },
+        {
+          "raw": "we",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "are",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "...",
+          "start": 3.6,
+          "end": 4.16
+        },
+        {
+          "raw": "never",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "mind,",
+          "start": 4.32,
+          "end": 4.74
+        },
+        {
+          "raw": "brother,",
+          "start": 5.06,
+          "end": 5.1
+        },
+        {
+          "raw": "thy",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "raw": "tail",
+          "start": 5.48,
+          "end": 5.82
+        },
+        {
+          "raw": "hangs",
+          "start": 5.82,
+          "end": 6.12
+        },
+        {
+          "raw": "down",
+          "start": 6.12,
+          "end": 6.44
+        },
+        {
+          "raw": "behind!",
+          "start": 6.44,
+          "end": 6.82
+        },
+        {
+          "raw": "This",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "is",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "raw": "the",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "way",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "raw": "of",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "raw": "the",
+          "start": 8.28,
+          "end": 8.4
+        },
+        {
+          "raw": "Monkey",
+          "start": 8.4,
+          "end": 8.64
+        },
+        {
+          "raw": "-kind.",
+          "start": 8.64,
+          "end": 8.98
+        }
+      ],
+      "expected_tokens": [
+        "Now",
+        "we",
+        "are",
+        "talking",
+        "just",
+        "like",
+        "men!",
+        "Let's",
+        "pretend",
+        "we",
+        "are",
+        "...",
+        "never",
+        "mind,",
+        "_Brother,",
+        "thy",
+        "tail",
+        "hangs",
+        "down",
+        "behind!_",
+        "This",
+        "is",
+        "the",
+        "way",
+        "of",
+        "the",
+        "Monkey-kind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          19,
+          15,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          26,
+          20,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          28
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Now",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "we",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "are",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "talking",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "just",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "like",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "men!",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "text": "Let's",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "pretend",
+          "start": 2.74,
+          "end": 3.04
+        },
+        {
+          "text": "we",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "are",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "...",
+          "start": 3.6,
+          "end": 4.16
+        },
+        {
+          "text": "never",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "mind,",
+          "start": 4.32,
+          "end": 4.74
+        },
+        {
+          "text": "_Brother,",
+          "start": 4.74,
+          "end": 5.07
+        },
+        {
+          "text": "thy",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "text": "tail",
+          "start": 5.48,
+          "end": 5.82
+        },
+        {
+          "text": "hangs",
+          "start": 5.82,
+          "end": 6.12
+        },
+        {
+          "text": "down",
+          "start": 6.12,
+          "end": 6.44
+        },
+        {
+          "text": "behind!_",
+          "start": 6.44,
+          "end": 6.99
+        },
+        {
+          "text": "This",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "is",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "text": "the",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "way",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "text": "of",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "text": "the",
+          "start": 8.28,
+          "end": 8.4
+        },
+        {
+          "text": "Monkey-kind.",
+          "start": 8.4,
+          "end": 8.69
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 28,
+        "matched_words": 24
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1856934977695346
+    },
+    {
+      "asr_seconds": 0.20697053335607052,
+      "alignment_seconds": 0.00013667065650224686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Now, Let's, This, Monkey-kind"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Now we are talking just like men. Let's pretend we are. Never mind, brother. Thy tail hangs down behind.",
+          "start": 0.02,
+          "end": 6.82,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " we",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " are",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " talking",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " just",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.9765625
+            },
+            {
+              "text": " like",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " men.",
+              "start": 1.68,
+              "end": 2.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Let's",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.974609375
+            },
+            {
+              "text": " pretend",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " we",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.953125
+            },
+            {
+              "text": " are.",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Never",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " mind,",
+              "start": 4.36,
+              "end": 4.74,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " brother.",
+              "start": 5.06,
+              "end": 5.1,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Thy",
+              "start": 5.4,
+              "end": 5.48,
+              "probability": 0.875
+            },
+            {
+              "text": " tail",
+              "start": 5.48,
+              "end": 5.8,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " hangs",
+              "start": 5.8,
+              "end": 6.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down",
+              "start": 6.1,
+              "end": 6.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " behind.",
+              "start": 6.42,
+              "end": 6.82,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " This is the way of the monkey-kind.",
+          "start": 7.54,
+          "end": 9.0,
+          "words": [
+            {
+              "text": " This",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 7.66,
+              "end": 7.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " way",
+              "start": 7.98,
+              "end": 8.14,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " of",
+              "start": 8.14,
+              "end": 8.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 8.28,
+              "end": 8.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " monkey",
+              "start": 8.4,
+              "end": 8.64,
+              "probability": 0.93212890625
+            },
+            {
+              "text": "-kind.",
+              "start": 8.64,
+              "end": 9.0,
+              "probability": 0.54205322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "we",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "are",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "talking",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "just",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "like",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "men.",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "raw": "Let's",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "pretend",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "raw": "we",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "are.",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "Never",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "mind,",
+          "start": 4.36,
+          "end": 4.74
+        },
+        {
+          "raw": "brother.",
+          "start": 5.06,
+          "end": 5.1
+        },
+        {
+          "raw": "Thy",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "raw": "tail",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "raw": "hangs",
+          "start": 5.8,
+          "end": 6.1
+        },
+        {
+          "raw": "down",
+          "start": 6.1,
+          "end": 6.42
+        },
+        {
+          "raw": "behind.",
+          "start": 6.42,
+          "end": 6.82
+        },
+        {
+          "raw": "This",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "is",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "raw": "the",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "way",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "raw": "of",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "raw": "the",
+          "start": 8.28,
+          "end": 8.4
+        },
+        {
+          "raw": "monkey",
+          "start": 8.4,
+          "end": 8.64
+        },
+        {
+          "raw": "-kind.",
+          "start": 8.64,
+          "end": 9.0
+        }
+      ],
+      "expected_tokens": [
+        "Now",
+        "we",
+        "are",
+        "talking",
+        "just",
+        "like",
+        "men!",
+        "Let's",
+        "pretend",
+        "we",
+        "are",
+        "...",
+        "never",
+        "mind,",
+        "_Brother,",
+        "thy",
+        "tail",
+        "hangs",
+        "down",
+        "behind!_",
+        "This",
+        "is",
+        "the",
+        "way",
+        "of",
+        "the",
+        "Monkey-kind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "delete",
+          11,
+          12,
+          11,
+          11
+        ],
+        [
+          "equal",
+          12,
+          14,
+          11,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "equal",
+          15,
+          19,
+          14,
+          18
+        ],
+        [
+          "replace",
+          19,
+          20,
+          18,
+          19
+        ],
+        [
+          "equal",
+          20,
+          26,
+          19,
+          25
+        ],
+        [
+          "replace",
+          26,
+          27,
+          25,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          11,
+          12,
+          11,
+          11
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "replace",
+          19,
+          20,
+          18,
+          19
+        ],
+        [
+          "replace",
+          26,
+          27,
+          25,
+          27
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Now",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "we",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "are",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "talking",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "just",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "like",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "men!",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "text": "Let's",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "pretend",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "text": "we",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "are",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "...",
+          "start": 3.6,
+          "end": 3.89
+        },
+        {
+          "text": "never",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "mind,",
+          "start": 4.36,
+          "end": 4.74
+        },
+        {
+          "text": "_Brother,",
+          "start": 4.74,
+          "end": 5.07
+        },
+        {
+          "text": "thy",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "text": "tail",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "text": "hangs",
+          "start": 5.8,
+          "end": 6.1
+        },
+        {
+          "text": "down",
+          "start": 6.1,
+          "end": 6.42
+        },
+        {
+          "text": "behind!_",
+          "start": 6.42,
+          "end": 6.98
+        },
+        {
+          "text": "This",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "is",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "text": "the",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "way",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "text": "of",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "text": "the",
+          "start": 8.28,
+          "end": 8.4
+        },
+        {
+          "text": "Monkey-kind.",
+          "start": 8.4,
+          "end": 8.7
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 23
+      },
+      "match_ratio": 0.8518518518518519,
+      "rejection_reasons": [],
+      "seconds": 0.207162881270051
+    },
+    {
+      "asr_seconds": 0.19635438825935125,
+      "alignment_seconds": 0.00014162156730890274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now we are talking just like men. Let's pretend we are. Never mind, brother. Thy tail hangs down behind.",
+          "start": 0.02,
+          "end": 6.82,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " we",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " are",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " talking",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " just",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.9765625
+            },
+            {
+              "text": " like",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " men.",
+              "start": 1.68,
+              "end": 2.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Let's",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.974609375
+            },
+            {
+              "text": " pretend",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " we",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.953125
+            },
+            {
+              "text": " are.",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Never",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " mind,",
+              "start": 4.36,
+              "end": 4.74,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " brother.",
+              "start": 5.06,
+              "end": 5.1,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Thy",
+              "start": 5.4,
+              "end": 5.48,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " tail",
+              "start": 5.48,
+              "end": 5.8,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " hangs",
+              "start": 5.8,
+              "end": 6.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down",
+              "start": 6.1,
+              "end": 6.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " behind.",
+              "start": 6.42,
+              "end": 6.82,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " This is the way of the monkey kind.",
+          "start": 7.54,
+          "end": 9.02,
+          "words": [
+            {
+              "text": " This",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 7.66,
+              "end": 7.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.84,
+              "end": 7.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " way",
+              "start": 7.98,
+              "end": 8.14,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " of",
+              "start": 8.14,
+              "end": 8.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 8.28,
+              "end": 8.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " monkey",
+              "start": 8.4,
+              "end": 8.64,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " kind.",
+              "start": 8.64,
+              "end": 9.02,
+              "probability": 0.75537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "we",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "are",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "talking",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "just",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "like",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "men.",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "raw": "Let's",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "pretend",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "raw": "we",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "are.",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "Never",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "mind,",
+          "start": 4.36,
+          "end": 4.74
+        },
+        {
+          "raw": "brother.",
+          "start": 5.06,
+          "end": 5.1
+        },
+        {
+          "raw": "Thy",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "raw": "tail",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "raw": "hangs",
+          "start": 5.8,
+          "end": 6.1
+        },
+        {
+          "raw": "down",
+          "start": 6.1,
+          "end": 6.42
+        },
+        {
+          "raw": "behind.",
+          "start": 6.42,
+          "end": 6.82
+        },
+        {
+          "raw": "This",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "is",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "raw": "the",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "raw": "way",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "raw": "of",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "raw": "the",
+          "start": 8.28,
+          "end": 8.4
+        },
+        {
+          "raw": "monkey",
+          "start": 8.4,
+          "end": 8.64
+        },
+        {
+          "raw": "kind.",
+          "start": 8.64,
+          "end": 9.02
+        }
+      ],
+      "expected_tokens": [
+        "Now",
+        "we",
+        "are",
+        "talking",
+        "just",
+        "like",
+        "men!",
+        "Let's",
+        "pretend",
+        "we",
+        "are",
+        "...",
+        "never",
+        "mind,",
+        "_Brother,",
+        "thy",
+        "tail",
+        "hangs",
+        "down",
+        "behind!_",
+        "This",
+        "is",
+        "the",
+        "way",
+        "of",
+        "the",
+        "Monkey-kind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "delete",
+          11,
+          12,
+          11,
+          11
+        ],
+        [
+          "equal",
+          12,
+          14,
+          11,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "equal",
+          15,
+          19,
+          14,
+          18
+        ],
+        [
+          "replace",
+          19,
+          20,
+          18,
+          19
+        ],
+        [
+          "equal",
+          20,
+          26,
+          19,
+          25
+        ],
+        [
+          "replace",
+          26,
+          27,
+          25,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          11,
+          12,
+          11,
+          11
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "replace",
+          19,
+          20,
+          18,
+          19
+        ],
+        [
+          "replace",
+          26,
+          27,
+          25,
+          27
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Now",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "we",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "are",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "talking",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "just",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "like",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "men!",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "text": "Let's",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "pretend",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "text": "we",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "are",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "...",
+          "start": 3.6,
+          "end": 3.89
+        },
+        {
+          "text": "never",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "mind,",
+          "start": 4.36,
+          "end": 4.74
+        },
+        {
+          "text": "_Brother,",
+          "start": 4.74,
+          "end": 5.07
+        },
+        {
+          "text": "thy",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "text": "tail",
+          "start": 5.48,
+          "end": 5.8
+        },
+        {
+          "text": "hangs",
+          "start": 5.8,
+          "end": 6.1
+        },
+        {
+          "text": "down",
+          "start": 6.1,
+          "end": 6.42
+        },
+        {
+          "text": "behind!_",
+          "start": 6.42,
+          "end": 6.98
+        },
+        {
+          "text": "This",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "is",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "text": "the",
+          "start": 7.84,
+          "end": 7.98
+        },
+        {
+          "text": "way",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "text": "of",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "text": "the",
+          "start": 8.28,
+          "end": 8.4
+        },
+        {
+          "text": "Monkey-kind.",
+          "start": 8.4,
+          "end": 8.71
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 23
+      },
+      "match_ratio": 0.8518518518518519,
+      "rejection_reasons": [],
+      "seconds": 0.19655483216047287
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "87b4b6f343d76c1dbc1e9b4897130d2e5061eaf8afa9906f0332ae69086dbc8c",
+  "selected_reasons": []
+}

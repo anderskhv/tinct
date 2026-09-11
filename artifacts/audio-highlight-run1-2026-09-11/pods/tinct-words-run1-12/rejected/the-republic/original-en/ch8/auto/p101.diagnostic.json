@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "1c2736bfd0ca100fba68bae591ed7c436a1a7b1699ddad0f096a4a99998b66b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21198999881744385,
+      "alignment_seconds": 0.0002468964084982872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nay, he said, the case of a city is the strongest of all, inasmuch as the rule of a city is the greatest and most difficult of all.",
+        "hotwords": "Nay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nay, he said, the case of a city is the strongest of all, inasmuch as the rule of a city is the greatest and most difficult of all.",
+          "start": 0.02,
+          "end": 8.16,
+          "words": [
+            {
+              "text": " Nay,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.5703125
+            },
+            {
+              "text": " he",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " said,",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.88,
+              "probability": 0.771484375
+            },
+            {
+              "text": " case",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " city",
+              "start": 2.36,
+              "end": 2.58,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " is",
+              "start": 2.58,
+              "end": 2.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " strongest",
+              "start": 3.0,
+              "end": 3.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.36,
+              "end": 3.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all,",
+              "start": 3.64,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inasmuch",
+              "start": 4.32,
+              "end": 4.82,
+              "probability": 0.9850260416666666
+            },
+            {
+              "text": " as",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 5.04,
+              "end": 5.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rule",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 5.44,
+              "end": 5.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 5.6,
+              "end": 5.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " city",
+              "start": 5.76,
+              "end": 5.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 5.96,
+              "end": 6.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.2,
+              "end": 6.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " greatest",
+              "start": 6.36,
+              "end": 6.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.72,
+              "end": 7.06,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " most",
+              "start": 7.06,
+              "end": 7.32,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " difficult",
+              "start": 7.32,
+              "end": 7.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 7.68,
+              "end": 7.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all.",
+              "start": 7.9,
+              "end": 8.16,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nay,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "he",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "said,",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "raw": "case",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "of",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "a",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "city",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "raw": "is",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "raw": "the",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "strongest",
+          "start": 3.0,
+          "end": 3.36
+        },
+        {
+          "raw": "of",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "raw": "all,",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "raw": "inasmuch",
+          "start": 4.32,
+          "end": 4.82
+        },
+        {
+          "raw": "as",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "the",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "raw": "rule",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "of",
+          "start": 5.44,
+          "end": 5.6
+        },
+        {
+          "raw": "a",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "raw": "city",
+          "start": 5.76,
+          "end": 5.96
+        },
+        {
+          "raw": "is",
+          "start": 5.96,
+          "end": 6.2
+        },
+        {
+          "raw": "the",
+          "start": 6.2,
+          "end": 6.36
+        },
+        {
+          "raw": "greatest",
+          "start": 6.36,
+          "end": 6.72
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 7.06
+        },
+        {
+          "raw": "most",
+          "start": 7.06,
+          "end": 7.32
+        },
+        {
+          "raw": "difficult",
+          "start": 7.32,
+          "end": 7.68
+        },
+        {
+          "raw": "of",
+          "start": 7.68,
+          "end": 7.9
+        },
+        {
+          "raw": "all.",
+          "start": 7.9,
+          "end": 8.16
+        }
+      ],
+      "expected_tokens": [
+        "Nay,",
+        "he",
+        "said,",
+        "the",
+        "case",
+        "of",
+        "a",
+        "city",
+        "is",
+        "the",
+        "strongest",
+        "of",
+        "all,",
+        "inasmuch",
+        "as",
+        "the",
+        "rule",
+        "of",
+        "a",
+        "city",
+        "is",
+        "the",
+        "greatest",
+        "and",
+        "most",
+        "difficult",
+        "of",
+        "all."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Nay,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "he",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "text": "said,",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "text": "case",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "of",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "a",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "city",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "text": "is",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "text": "the",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "strongest",
+          "start": 3.0,
+          "end": 3.36
+        },
+        {
+          "text": "of",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "text": "all,",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "text": "inasmuch",
+          "start": 4.32,
+          "end": 4.82
+        },
+        {
+          "text": "as",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "the",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "rule",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "of",
+          "start": 5.44,
+          "end": 5.6
+        },
+        {
+          "text": "a",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "text": "city",
+          "start": 5.76,
+          "end": 5.96
+        },
+        {
+          "text": "is",
+          "start": 5.96,
+          "end": 6.2
+        },
+        {
+          "text": "the",
+          "start": 6.2,
+          "end": 6.36
+        },
+        {
+          "text": "greatest",
+          "start": 6.36,
+          "end": 6.72
+        },
+        {
+          "text": "and",
+          "start": 6.72,
+          "end": 7.06
+        },
+        {
+          "text": "most",
+          "start": 7.06,
+          "end": 7.32
+        },
+        {
+          "text": "difficult",
+          "start": 7.32,
+          "end": 7.68
+        },
+        {
+          "text": "of",
+          "start": 7.68,
+          "end": 7.9
+        },
+        {
+          "text": "all.",
+          "start": 7.9,
+          "end": 8.16
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21238081203773618
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "69f3a0b775e2c70c4226d1ac310e9e8e37e77a3c22b92be4e5928895c5905566",
+  "selected_reasons": []
+}

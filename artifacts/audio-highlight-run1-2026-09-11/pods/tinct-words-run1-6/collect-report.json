@@ -1,0 +1,259 @@
+[
+ {
+  "key": "discourse-on-inequality/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9885048033500288,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/discourse-on-inequality/original-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9822645537400443,
+    "reasons": [
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 61,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/discourse-on-inequality/original-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9885048033500288
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9088541666666666,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.8923611111111112,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9970866715222141,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9883466860888566,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9970866715222141
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9898446833930705,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9841696535244923,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9898446833930705
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9824127507557021,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9796647430612806,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9824127507557021
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9799166350890489,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch5/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9766957180750284,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch5/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9799166350890489
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch6",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9818563789152025,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch6/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9778456837280367,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch6/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9818563789152025
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9809856422196352,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9722545595653861,
+    "reasons": [
+     {
+      "paragraph": 45,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 67,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9809856422196352
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.990108803165183,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch8/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9881305637982196,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-6/out/fear-and-trembling/original-en/ch8/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.990108803165183
+ },
+ {
+  "key": "heart-of-darkness/original-en/ch1",
+  "arms": {
+   "off": {
+    "status": "running",
+    "matchRatio": null,
+    "reasons": [],
+    "validationErrors": null,
+    "sidecar": null
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]

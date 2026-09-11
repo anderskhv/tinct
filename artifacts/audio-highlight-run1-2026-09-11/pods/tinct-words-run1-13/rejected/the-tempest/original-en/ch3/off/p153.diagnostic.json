@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "8f926ce1afd78812880f3ad864665bb949a4fc033d534c97006fa5d423eeb1bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.09976309794001281,
+      "alignment_seconds": 8.994305972009897e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " sings in Gonzalo's ear.",
+          "start": 0.11,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " sings",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.63671875
+            },
+            {
+              "text": " in",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Gonzalo's",
+              "start": 0.81,
+              "end": 1.33,
+              "probability": 0.9339192708333334
+            },
+            {
+              "text": " ear.",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "sings",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "Gonzalo's",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "raw": "ear.",
+          "start": 1.33,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "[Sings",
+        "in",
+        "Gonzalo's",
+        "ear]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Sings",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "in",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "Gonzalo's",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "text": "ear]",
+          "start": 1.33,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09989141300320625
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d699611ba51e4836fcfe639c685c2586d03bf0a4d7e273f036875d43522c84bc",
+  "selected_reasons": []
+}

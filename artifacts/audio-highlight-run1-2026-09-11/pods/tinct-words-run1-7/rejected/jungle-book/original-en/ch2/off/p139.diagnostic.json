@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "579de5204c7d147b7e7b238b42b9e6186c4aa82f9c40c7015631dec77c006699",
+  "attempts": [
+    {
+      "asr_seconds": 0.11629952676594257,
+      "alignment_seconds": 8.192658424377441e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mowgli turned and saw the Great Pythons head swaying a foot above his own.",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Mowgli",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.9671630859375
+            },
+            {
+              "text": " turned",
+              "start": 0.83,
+              "end": 1.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 1.15,
+              "end": 1.75,
+              "probability": 0.744140625
+            },
+            {
+              "text": " saw",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Great",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " Pythons",
+              "start": 2.27,
+              "end": 2.73,
+              "probability": 0.759521484375
+            },
+            {
+              "text": " head",
+              "start": 2.73,
+              "end": 3.01,
+              "probability": 0.53369140625
+            },
+            {
+              "text": " swaying",
+              "start": 3.01,
+              "end": 3.63,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " a",
+              "start": 3.63,
+              "end": 3.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " foot",
+              "start": 3.73,
+              "end": 3.93,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " above",
+              "start": 3.93,
+              "end": 4.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " own.",
+              "start": 4.39,
+              "end": 4.73,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mowgli",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "turned",
+          "start": 0.83,
+          "end": 1.15
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "raw": "saw",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "the",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "Great",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "Pythons",
+          "start": 2.27,
+          "end": 2.73
+        },
+        {
+          "raw": "head",
+          "start": 2.73,
+          "end": 3.01
+        },
+        {
+          "raw": "swaying",
+          "start": 3.01,
+          "end": 3.63
+        },
+        {
+          "raw": "a",
+          "start": 3.63,
+          "end": 3.73
+        },
+        {
+          "raw": "foot",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "raw": "above",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "raw": "his",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "own.",
+          "start": 4.39,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "Mowgli",
+        "turned",
+        "and",
+        "saw",
+        "the",
+        "great",
+        "Python's",
+        "head",
+        "swaying",
+        "a",
+        "foot",
+        "above",
+        "his",
+        "own."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Mowgli",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "turned",
+          "start": 0.83,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.15,
+          "end": 1.75
+        },
+        {
+          "text": "saw",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "the",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "great",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "Python's",
+          "start": 2.27,
+          "end": 2.73
+        },
+        {
+          "text": "head",
+          "start": 2.73,
+          "end": 3.01
+        },
+        {
+          "text": "swaying",
+          "start": 3.01,
+          "end": 3.63
+        },
+        {
+          "text": "a",
+          "start": 3.63,
+          "end": 3.73
+        },
+        {
+          "text": "foot",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "text": "above",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "text": "his",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "own.",
+          "start": 4.39,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11641856469213963
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "87c3cfade89b0964f230f9c1fea97af72d07f129b88097a446e3a08c259293a0",
+  "selected_reasons": []
+}

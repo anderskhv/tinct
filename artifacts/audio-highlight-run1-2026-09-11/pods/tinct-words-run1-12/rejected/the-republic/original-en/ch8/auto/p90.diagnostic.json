@@ -1,0 +1,883 @@
+{
+  "complete": true,
+  "signature": "b602f39c7b3167673ea3ac5414202eb491427990309866edef9b641bc0fa901e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3977099535986781,
+      "alignment_seconds": 0.0002234959974884987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And so at last, instead of loving contention and glory, men become lovers of trade and money; they honour and look up to the rich man, and make a ruler of him, and dishonour the poor man."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And so at last, instead of loving contention and glory, men become lovers of trade and money.",
+          "start": 0.08,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.642578125
+            },
+            {
+              "text": " so",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " at",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " last,",
+              "start": 0.86,
+              "end": 1.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " instead",
+              "start": 1.6,
+              "end": 1.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " loving",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " contention",
+              "start": 2.3,
+              "end": 2.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 2.78,
+              "end": 3.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " glory,",
+              "start": 3.18,
+              "end": 3.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " men",
+              "start": 4.24,
+              "end": 4.26,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " become",
+              "start": 4.26,
+              "end": 4.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lovers",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 4.96,
+              "end": 5.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trade",
+              "start": 5.24,
+              "end": 5.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 5.62,
+              "end": 5.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " money.",
+              "start": 5.9,
+              "end": 6.18,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " They honour and look up to the rich man, and make a ruler of him, and dishonour the poor",
+          "start": 6.78,
+          "end": 11.2,
+          "words": [
+            {
+              "text": " They",
+              "start": 6.78,
+              "end": 6.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " honour",
+              "start": 6.9,
+              "end": 7.16,
+              "probability": 0.0173797607421875
+            },
+            {
+              "text": " and",
+              "start": 7.16,
+              "end": 7.42,
+              "probability": 0.994140625
+            },
+            {
+              "text": " look",
+              "start": 7.42,
+              "end": 7.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 7.56,
+              "end": 7.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 7.72,
+              "end": 7.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 7.88,
+              "end": 8.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " rich",
+              "start": 8.0,
+              "end": 8.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " man,",
+              "start": 8.18,
+              "end": 8.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 8.86,
+              "end": 8.92,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " make",
+              "start": 8.92,
+              "end": 9.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 9.06,
+              "end": 9.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ruler",
+              "start": 9.22,
+              "end": 9.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 9.4,
+              "end": 9.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,",
+              "start": 9.68,
+              "end": 9.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 10.28,
+              "end": 10.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " dishonour",
+              "start": 10.4,
+              "end": 10.86,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " the",
+              "start": 10.86,
+              "end": 11.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " poor",
+              "start": 11.02,
+              "end": 11.2,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " man.",
+          "start": 11.2,
+          "end": 11.58,
+          "words": [
+            {
+              "text": " man.",
+              "start": 11.2,
+              "end": 11.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "so",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "at",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "last,",
+          "start": 0.86,
+          "end": 1.3
+        },
+        {
+          "raw": "instead",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "raw": "of",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "loving",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "contention",
+          "start": 2.3,
+          "end": 2.78
+        },
+        {
+          "raw": "and",
+          "start": 2.78,
+          "end": 3.18
+        },
+        {
+          "raw": "glory,",
+          "start": 3.18,
+          "end": 3.6
+        },
+        {
+          "raw": "men",
+          "start": 4.24,
+          "end": 4.26
+        },
+        {
+          "raw": "become",
+          "start": 4.26,
+          "end": 4.66
+        },
+        {
+          "raw": "lovers",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "raw": "of",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "raw": "trade",
+          "start": 5.24,
+          "end": 5.62
+        },
+        {
+          "raw": "and",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "raw": "money.",
+          "start": 5.9,
+          "end": 6.18
+        },
+        {
+          "raw": "They",
+          "start": 6.78,
+          "end": 6.9
+        },
+        {
+          "raw": "honour",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "raw": "and",
+          "start": 7.16,
+          "end": 7.42
+        },
+        {
+          "raw": "look",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "raw": "up",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "raw": "to",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "raw": "the",
+          "start": 7.88,
+          "end": 8.0
+        },
+        {
+          "raw": "rich",
+          "start": 8.0,
+          "end": 8.18
+        },
+        {
+          "raw": "man,",
+          "start": 8.18,
+          "end": 8.56
+        },
+        {
+          "raw": "and",
+          "start": 8.86,
+          "end": 8.92
+        },
+        {
+          "raw": "make",
+          "start": 8.92,
+          "end": 9.06
+        },
+        {
+          "raw": "a",
+          "start": 9.06,
+          "end": 9.22
+        },
+        {
+          "raw": "ruler",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "raw": "of",
+          "start": 9.4,
+          "end": 9.68
+        },
+        {
+          "raw": "him,",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "raw": "and",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "raw": "dishonour",
+          "start": 10.4,
+          "end": 10.86
+        },
+        {
+          "raw": "the",
+          "start": 10.86,
+          "end": 11.02
+        },
+        {
+          "raw": "poor",
+          "start": 11.02,
+          "end": 11.2
+        },
+        {
+          "raw": "man.",
+          "start": 11.2,
+          "end": 11.58
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "so",
+        "at",
+        "last,",
+        "instead",
+        "of",
+        "loving",
+        "contention",
+        "and",
+        "glory,",
+        "men",
+        "become",
+        "lovers",
+        "of",
+        "trade",
+        "and",
+        "money;",
+        "they",
+        "honour",
+        "and",
+        "look",
+        "up",
+        "to",
+        "the",
+        "rich",
+        "man,",
+        "and",
+        "make",
+        "a",
+        "ruler",
+        "of",
+        "him,",
+        "and",
+        "dishonour",
+        "the",
+        "poor",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "so",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "at",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "last,",
+          "start": 0.86,
+          "end": 1.3
+        },
+        {
+          "text": "instead",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "text": "of",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "loving",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "contention",
+          "start": 2.3,
+          "end": 2.78
+        },
+        {
+          "text": "and",
+          "start": 2.78,
+          "end": 3.18
+        },
+        {
+          "text": "glory,",
+          "start": 3.18,
+          "end": 3.6
+        },
+        {
+          "text": "men",
+          "start": 4.24,
+          "end": 4.26
+        },
+        {
+          "text": "become",
+          "start": 4.26,
+          "end": 4.66
+        },
+        {
+          "text": "lovers",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "text": "of",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "text": "trade",
+          "start": 5.24,
+          "end": 5.62
+        },
+        {
+          "text": "and",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "text": "money;",
+          "start": 5.9,
+          "end": 6.18
+        },
+        {
+          "text": "they",
+          "start": 6.78,
+          "end": 6.9
+        },
+        {
+          "text": "honour",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "text": "and",
+          "start": 7.16,
+          "end": 7.42
+        },
+        {
+          "text": "look",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "text": "up",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "text": "to",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "text": "the",
+          "start": 7.88,
+          "end": 8.0
+        },
+        {
+          "text": "rich",
+          "start": 8.0,
+          "end": 8.18
+        },
+        {
+          "text": "man,",
+          "start": 8.18,
+          "end": 8.56
+        },
+        {
+          "text": "and",
+          "start": 8.86,
+          "end": 8.92
+        },
+        {
+          "text": "make",
+          "start": 8.92,
+          "end": 9.06
+        },
+        {
+          "text": "a",
+          "start": 9.06,
+          "end": 9.22
+        },
+        {
+          "text": "ruler",
+          "start": 9.22,
+          "end": 9.4
+        },
+        {
+          "text": "of",
+          "start": 9.4,
+          "end": 9.68
+        },
+        {
+          "text": "him,",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "text": "and",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "text": "dishonour",
+          "start": 10.4,
+          "end": 10.86
+        },
+        {
+          "text": "the",
+          "start": 10.86,
+          "end": 11.02
+        },
+        {
+          "text": "poor",
+          "start": 11.02,
+          "end": 11.2
+        },
+        {
+          "text": "man.",
+          "start": 11.2,
+          "end": 11.58
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 37
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39805580768734217
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5092d7879006af892262dc8b166e2dab9834aa2e6d972605301221a8a7f0bb1",
+  "selected_reasons": []
+}

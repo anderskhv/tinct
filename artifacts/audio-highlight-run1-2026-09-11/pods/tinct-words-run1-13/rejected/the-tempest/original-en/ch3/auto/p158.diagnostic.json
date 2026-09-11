@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "51f5b55e6aa0b84be2cf34ce7f5cde0ad7912af8a1e735cae3ef3817d85e36bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.17906083399429917,
+      "alignment_seconds": 0.00016440695617347956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alonso. Why, how now? ho, awake! Why are you drawn? Wherefore this ghastly looking?",
+        "hotwords": "Alonso, Why, Wherefore"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alonso, Why, how now? ho, awake! Why are you drawn? Wherefore this ghastly looking?",
+          "start": 0.05,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Alonso,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.25634765625
+            },
+            {
+              "text": " Why,",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.0157318115234375
+            },
+            {
+              "text": " how",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " now?",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " ho,",
+              "start": 2.09,
+              "end": 2.15,
+              "probability": 0.046600341796875
+            },
+            {
+              "text": " awake!",
+              "start": 2.47,
+              "end": 2.47,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " Why",
+              "start": 2.77,
+              "end": 2.83,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " are",
+              "start": 2.83,
+              "end": 2.91,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " you",
+              "start": 2.91,
+              "end": 3.03,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " drawn?",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Wherefore",
+              "start": 3.65,
+              "end": 3.95,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " this",
+              "start": 3.95,
+              "end": 4.17,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " ghastly",
+              "start": 4.17,
+              "end": 4.71,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " looking?",
+              "start": 4.71,
+              "end": 4.93,
+              "probability": 0.8486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonso,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Why,",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "how",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "now?",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "ho,",
+          "start": 2.09,
+          "end": 2.15
+        },
+        {
+          "raw": "awake!",
+          "start": 2.47,
+          "end": 2.47
+        },
+        {
+          "raw": "Why",
+          "start": 2.77,
+          "end": 2.83
+        },
+        {
+          "raw": "are",
+          "start": 2.83,
+          "end": 2.91
+        },
+        {
+          "raw": "you",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "raw": "drawn?",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "Wherefore",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "raw": "this",
+          "start": 3.95,
+          "end": 4.17
+        },
+        {
+          "raw": "ghastly",
+          "start": 4.17,
+          "end": 4.71
+        },
+        {
+          "raw": "looking?",
+          "start": 4.71,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "Why,",
+        "how",
+        "now?",
+        "ho,",
+        "awake!",
+        "Why",
+        "are",
+        "you",
+        "drawn?",
+        "Wherefore",
+        "this",
+        "ghastly",
+        "looking?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Why,",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "how",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "now?",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "ho,",
+          "start": 2.09,
+          "end": 2.15
+        },
+        {
+          "text": "awake!",
+          "start": 2.47,
+          "end": 2.47
+        },
+        {
+          "text": "Why",
+          "start": 2.77,
+          "end": 2.83
+        },
+        {
+          "text": "are",
+          "start": 2.83,
+          "end": 2.91
+        },
+        {
+          "text": "you",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "text": "drawn?",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "Wherefore",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "text": "this",
+          "start": 3.95,
+          "end": 4.17
+        },
+        {
+          "text": "ghastly",
+          "start": 4.17,
+          "end": 4.71
+        },
+        {
+          "text": "looking?",
+          "start": 4.71,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17930323397740722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "29ddb3db61f8fef8eefafd9243bcbb1fb5cb798d1c28982fcd76f62e2bc46acc",
+  "selected_reasons": []
+}

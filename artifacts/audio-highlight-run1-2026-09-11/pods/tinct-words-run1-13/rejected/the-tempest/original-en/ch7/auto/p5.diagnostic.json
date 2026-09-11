@@ -1,0 +1,2093 @@
+{
+  "complete": true,
+  "signature": "81ffc06cbae5f015ae8d9bf1768bbe680f5de9a975f794d6024a80e348aadb18",
+  "attempts": [
+    {
+      "asr_seconds": 0.23685635696165264,
+      "alignment_seconds": 0.00043632101733237505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. [Aside to Sebastian] Let it be to-night; For, now they are oppress'd with travel, they Will not, nor cannot, use such vigilance As when they are fresh.",
+        "hotwords": "Antonio, Aside, Sebastian, Let, For, Will, As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Aside to Sebastian, Let it be to-night, For, now they are oppress'd with travel, they Will not, nor cannot, use such vigilance As when they are fresh.",
+          "start": 0.11,
+          "end": 9.47,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.1839599609375
+            },
+            {
+              "text": " Aside",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.0804443359375
+            },
+            {
+              "text": " to",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Sebastian,",
+              "start": 2.03,
+              "end": 2.53,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " Let",
+              "start": 3.03,
+              "end": 3.11,
+              "probability": 0.12548828125
+            },
+            {
+              "text": " it",
+              "start": 3.11,
+              "end": 3.19,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " be",
+              "start": 3.19,
+              "end": 3.33,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.59375
+            },
+            {
+              "text": "-night,",
+              "start": 3.47,
+              "end": 3.71,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " For,",
+              "start": 4.23,
+              "end": 4.37,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " now",
+              "start": 4.55,
+              "end": 4.57,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " they",
+              "start": 4.57,
+              "end": 4.73,
+              "probability": 0.54248046875
+            },
+            {
+              "text": " are",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " oppress'd",
+              "start": 4.87,
+              "end": 5.27,
+              "probability": 0.41302490234375
+            },
+            {
+              "text": " with",
+              "start": 5.27,
+              "end": 5.37,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " travel,",
+              "start": 5.37,
+              "end": 5.71,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " they",
+              "start": 6.03,
+              "end": 6.11,
+              "probability": 0.0782470703125
+            },
+            {
+              "text": " Will",
+              "start": 6.11,
+              "end": 6.27,
+              "probability": 0.007427215576171875
+            },
+            {
+              "text": " not,",
+              "start": 6.27,
+              "end": 6.61,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " nor",
+              "start": 6.75,
+              "end": 6.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " cannot,",
+              "start": 6.93,
+              "end": 7.21,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " use",
+              "start": 7.59,
+              "end": 7.79,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " such",
+              "start": 7.79,
+              "end": 8.03,
+              "probability": 0.9296875
+            },
+            {
+              "text": " vigilance",
+              "start": 8.03,
+              "end": 8.33,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " As",
+              "start": 8.33,
+              "end": 8.75,
+              "probability": 0.322265625
+            },
+            {
+              "text": " when",
+              "start": 8.75,
+              "end": 8.91,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " they",
+              "start": 8.91,
+              "end": 9.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " are",
+              "start": 9.03,
+              "end": 9.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fresh.",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "Aside",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "raw": "to",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 2.03,
+          "end": 2.53
+        },
+        {
+          "raw": "Let",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "raw": "it",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "raw": "be",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "raw": "to",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "-night,",
+          "start": 3.47,
+          "end": 3.71
+        },
+        {
+          "raw": "For,",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "raw": "now",
+          "start": 4.55,
+          "end": 4.57
+        },
+        {
+          "raw": "they",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "raw": "are",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "oppress'd",
+          "start": 4.87,
+          "end": 5.27
+        },
+        {
+          "raw": "with",
+          "start": 5.27,
+          "end": 5.37
+        },
+        {
+          "raw": "travel,",
+          "start": 5.37,
+          "end": 5.71
+        },
+        {
+          "raw": "they",
+          "start": 6.03,
+          "end": 6.11
+        },
+        {
+          "raw": "Will",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "raw": "not,",
+          "start": 6.27,
+          "end": 6.61
+        },
+        {
+          "raw": "nor",
+          "start": 6.75,
+          "end": 6.93
+        },
+        {
+          "raw": "cannot,",
+          "start": 6.93,
+          "end": 7.21
+        },
+        {
+          "raw": "use",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "raw": "such",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "raw": "vigilance",
+          "start": 8.03,
+          "end": 8.33
+        },
+        {
+          "raw": "As",
+          "start": 8.33,
+          "end": 8.75
+        },
+        {
+          "raw": "when",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "raw": "they",
+          "start": 8.91,
+          "end": 9.03
+        },
+        {
+          "raw": "are",
+          "start": 9.03,
+          "end": 9.19
+        },
+        {
+          "raw": "fresh.",
+          "start": 9.19,
+          "end": 9.47
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "[Aside",
+        "to",
+        "Sebastian]",
+        "Let",
+        "it",
+        "be",
+        "to-night;",
+        "For,",
+        "now",
+        "they",
+        "are",
+        "oppress'd",
+        "with",
+        "travel,",
+        "they",
+        "Will",
+        "not,",
+        "nor",
+        "cannot,",
+        "use",
+        "such",
+        "vigilance",
+        "As",
+        "when",
+        "they",
+        "are",
+        "fresh."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          28,
+          9,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "[Aside",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "text": "to",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "Sebastian]",
+          "start": 2.03,
+          "end": 2.53
+        },
+        {
+          "text": "Let",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "it",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "text": "be",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "to-night;",
+          "start": 3.33,
+          "end": 3.78
+        },
+        {
+          "text": "For,",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "text": "now",
+          "start": 4.55,
+          "end": 4.57
+        },
+        {
+          "text": "they",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "text": "are",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "oppress'd",
+          "start": 4.87,
+          "end": 5.27
+        },
+        {
+          "text": "with",
+          "start": 5.27,
+          "end": 5.37
+        },
+        {
+          "text": "travel,",
+          "start": 5.37,
+          "end": 5.71
+        },
+        {
+          "text": "they",
+          "start": 6.03,
+          "end": 6.11
+        },
+        {
+          "text": "Will",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "text": "not,",
+          "start": 6.27,
+          "end": 6.61
+        },
+        {
+          "text": "nor",
+          "start": 6.75,
+          "end": 6.93
+        },
+        {
+          "text": "cannot,",
+          "start": 6.93,
+          "end": 7.21
+        },
+        {
+          "text": "use",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "text": "such",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "text": "vigilance",
+          "start": 8.03,
+          "end": 8.33
+        },
+        {
+          "text": "As",
+          "start": 8.33,
+          "end": 8.75
+        },
+        {
+          "text": "when",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "text": "they",
+          "start": 8.91,
+          "end": 9.03
+        },
+        {
+          "text": "are",
+          "start": 9.03,
+          "end": 9.19
+        },
+        {
+          "text": "fresh.",
+          "start": 9.19,
+          "end": 9.47
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 29,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.23751787398941815
+    },
+    {
+      "asr_seconds": 0.2676199600100517,
+      "alignment_seconds": 0.0004443209618330002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Antonio, Aside, Sebastian, Let, For, Will, As"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Antonio, Aside to Sebastian, Let, It Be Tonight, For Now They Are Oppressed With Travel, They",
+          "start": 0.11,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.1839599609375
+            },
+            {
+              "text": " Aside",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.0804443359375
+            },
+            {
+              "text": " to",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Sebastian,",
+              "start": 2.03,
+              "end": 2.51,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " Let,",
+              "start": 3.03,
+              "end": 3.11,
+              "probability": 0.12548828125
+            },
+            {
+              "text": " It",
+              "start": 3.11,
+              "end": 3.19,
+              "probability": 0.23046875
+            },
+            {
+              "text": " Be",
+              "start": 3.19,
+              "end": 3.31,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " Tonight,",
+              "start": 3.31,
+              "end": 3.65,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " For",
+              "start": 4.25,
+              "end": 4.37,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Now",
+              "start": 4.37,
+              "end": 4.57,
+              "probability": 0.55712890625
+            },
+            {
+              "text": " They",
+              "start": 4.57,
+              "end": 4.73,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " Are",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Oppressed",
+              "start": 4.87,
+              "end": 5.15,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " With",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.83203125
+            },
+            {
+              "text": " Travel,",
+              "start": 5.39,
+              "end": 5.71,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " They",
+              "start": 6.07,
+              "end": 6.11,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " Will Not, Nor Cannot, Use Such Vigilance As When They Are Fresh.",
+          "start": 6.11,
+          "end": 9.47,
+          "words": [
+            {
+              "text": " Will",
+              "start": 6.11,
+              "end": 6.29,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Not,",
+              "start": 6.29,
+              "end": 6.61,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Nor",
+              "start": 6.79,
+              "end": 6.93,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Cannot,",
+              "start": 6.93,
+              "end": 7.25,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Use",
+              "start": 7.59,
+              "end": 7.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Such",
+              "start": 7.79,
+              "end": 8.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Vigilance",
+              "start": 8.03,
+              "end": 8.57,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " As",
+              "start": 8.57,
+              "end": 8.75,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " When",
+              "start": 8.75,
+              "end": 8.91,
+              "probability": 0.97265625
+            },
+            {
+              "text": " They",
+              "start": 8.91,
+              "end": 9.03,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Are",
+              "start": 9.03,
+              "end": 9.21,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Fresh.",
+              "start": 9.21,
+              "end": 9.47,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "Aside",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "raw": "to",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 2.03,
+          "end": 2.51
+        },
+        {
+          "raw": "Let,",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "raw": "It",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "raw": "Be",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "raw": "Tonight,",
+          "start": 3.31,
+          "end": 3.65
+        },
+        {
+          "raw": "For",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "raw": "Now",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "raw": "They",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "raw": "Are",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "Oppressed",
+          "start": 4.87,
+          "end": 5.15
+        },
+        {
+          "raw": "With",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "Travel,",
+          "start": 5.39,
+          "end": 5.71
+        },
+        {
+          "raw": "They",
+          "start": 6.07,
+          "end": 6.11
+        },
+        {
+          "raw": "Will",
+          "start": 6.11,
+          "end": 6.29
+        },
+        {
+          "raw": "Not,",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "raw": "Nor",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "raw": "Cannot,",
+          "start": 6.93,
+          "end": 7.25
+        },
+        {
+          "raw": "Use",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "raw": "Such",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "raw": "Vigilance",
+          "start": 8.03,
+          "end": 8.57
+        },
+        {
+          "raw": "As",
+          "start": 8.57,
+          "end": 8.75
+        },
+        {
+          "raw": "When",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "raw": "They",
+          "start": 8.91,
+          "end": 9.03
+        },
+        {
+          "raw": "Are",
+          "start": 9.03,
+          "end": 9.21
+        },
+        {
+          "raw": "Fresh.",
+          "start": 9.21,
+          "end": 9.47
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "[Aside",
+        "to",
+        "Sebastian]",
+        "Let",
+        "it",
+        "be",
+        "to-night;",
+        "For,",
+        "now",
+        "they",
+        "are",
+        "oppress'd",
+        "with",
+        "travel,",
+        "they",
+        "Will",
+        "not,",
+        "nor",
+        "cannot,",
+        "use",
+        "such",
+        "vigilance",
+        "As",
+        "when",
+        "they",
+        "are",
+        "fresh."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          28,
+          13,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "[Aside",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "text": "to",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "Sebastian]",
+          "start": 2.03,
+          "end": 2.51
+        },
+        {
+          "text": "Let",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "it",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "text": "be",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "text": "to-night;",
+          "start": 3.31,
+          "end": 3.65
+        },
+        {
+          "text": "For,",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "text": "now",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "text": "they",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "text": "are",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "oppress'd",
+          "start": 4.87,
+          "end": 5.01
+        },
+        {
+          "text": "with",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "text": "travel,",
+          "start": 5.39,
+          "end": 5.71
+        },
+        {
+          "text": "they",
+          "start": 6.07,
+          "end": 6.11
+        },
+        {
+          "text": "Will",
+          "start": 6.11,
+          "end": 6.29
+        },
+        {
+          "text": "not,",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "text": "nor",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "text": "cannot,",
+          "start": 6.93,
+          "end": 7.25
+        },
+        {
+          "text": "use",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "text": "such",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "text": "vigilance",
+          "start": 8.03,
+          "end": 8.57
+        },
+        {
+          "text": "As",
+          "start": 8.57,
+          "end": 8.75
+        },
+        {
+          "text": "when",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "text": "they",
+          "start": 8.91,
+          "end": 9.03
+        },
+        {
+          "text": "are",
+          "start": 9.03,
+          "end": 9.21
+        },
+        {
+          "text": "fresh.",
+          "start": 9.21,
+          "end": 9.47
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.2683050080668181
+    },
+    {
+      "asr_seconds": 0.25501235004048795,
+      "alignment_seconds": 0.00023845594841986895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, aside to Sebastian, let it be tonight.",
+          "start": 0.11,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.1839599609375
+            },
+            {
+              "text": " aside",
+              "start": 1.49,
+              "end": 1.85,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " to",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Sebastian,",
+              "start": 2.05,
+              "end": 2.47,
+              "probability": 0.92578125
+            },
+            {
+              "text": " let",
+              "start": 3.05,
+              "end": 3.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 3.11,
+              "end": 3.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 3.19,
+              "end": 3.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tonight.",
+              "start": 3.33,
+              "end": 3.67,
+              "probability": 0.339599609375
+            }
+          ]
+        },
+        {
+          "text": " For now they are oppressed with travel, they will not, nor cannot, use such vigilance as",
+          "start": 4.25,
+          "end": 8.75,
+          "words": [
+            {
+              "text": " For",
+              "start": 4.25,
+              "end": 4.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " now",
+              "start": 4.37,
+              "end": 4.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 4.57,
+              "end": 4.73,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " are",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " oppressed",
+              "start": 4.87,
+              "end": 5.15,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " with",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " travel,",
+              "start": 5.39,
+              "end": 5.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " they",
+              "start": 6.05,
+              "end": 6.11,
+              "probability": 0.974609375
+            },
+            {
+              "text": " will",
+              "start": 6.11,
+              "end": 6.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not,",
+              "start": 6.27,
+              "end": 6.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nor",
+              "start": 6.79,
+              "end": 6.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cannot,",
+              "start": 6.93,
+              "end": 7.25,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " use",
+              "start": 7.65,
+              "end": 7.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " such",
+              "start": 7.79,
+              "end": 8.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " vigilance",
+              "start": 8.03,
+              "end": 8.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 8.35,
+              "end": 8.75,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " when they are fresh.",
+          "start": 8.75,
+          "end": 9.47,
+          "words": [
+            {
+              "text": " when",
+              "start": 8.75,
+              "end": 8.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 8.91,
+              "end": 9.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 9.03,
+              "end": 9.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fresh.",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "aside",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "raw": "let",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "raw": "it",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "raw": "be",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "raw": "tonight.",
+          "start": 3.33,
+          "end": 3.67
+        },
+        {
+          "raw": "For",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "raw": "now",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "raw": "they",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "raw": "are",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "oppressed",
+          "start": 4.87,
+          "end": 5.15
+        },
+        {
+          "raw": "with",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "travel,",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "raw": "they",
+          "start": 6.05,
+          "end": 6.11
+        },
+        {
+          "raw": "will",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "raw": "not,",
+          "start": 6.27,
+          "end": 6.61
+        },
+        {
+          "raw": "nor",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "raw": "cannot,",
+          "start": 6.93,
+          "end": 7.25
+        },
+        {
+          "raw": "use",
+          "start": 7.65,
+          "end": 7.79
+        },
+        {
+          "raw": "such",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "raw": "vigilance",
+          "start": 8.03,
+          "end": 8.35
+        },
+        {
+          "raw": "as",
+          "start": 8.35,
+          "end": 8.75
+        },
+        {
+          "raw": "when",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "raw": "they",
+          "start": 8.91,
+          "end": 9.03
+        },
+        {
+          "raw": "are",
+          "start": 9.03,
+          "end": 9.19
+        },
+        {
+          "raw": "fresh.",
+          "start": 9.19,
+          "end": 9.47
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "[Aside",
+        "to",
+        "Sebastian]",
+        "Let",
+        "it",
+        "be",
+        "to-night;",
+        "For,",
+        "now",
+        "they",
+        "are",
+        "oppress'd",
+        "with",
+        "travel,",
+        "they",
+        "Will",
+        "not,",
+        "nor",
+        "cannot,",
+        "use",
+        "such",
+        "vigilance",
+        "As",
+        "when",
+        "they",
+        "are",
+        "fresh."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          28,
+          13,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "[Aside",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "text": "to",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "Sebastian]",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "text": "Let",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "text": "it",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "text": "be",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "to-night;",
+          "start": 3.33,
+          "end": 3.67
+        },
+        {
+          "text": "For,",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "text": "now",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "text": "they",
+          "start": 4.57,
+          "end": 4.73
+        },
+        {
+          "text": "are",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "oppress'd",
+          "start": 4.87,
+          "end": 5.01
+        },
+        {
+          "text": "with",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "text": "travel,",
+          "start": 5.39,
+          "end": 5.73
+        },
+        {
+          "text": "they",
+          "start": 6.05,
+          "end": 6.11
+        },
+        {
+          "text": "Will",
+          "start": 6.11,
+          "end": 6.27
+        },
+        {
+          "text": "not,",
+          "start": 6.27,
+          "end": 6.61
+        },
+        {
+          "text": "nor",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "text": "cannot,",
+          "start": 6.93,
+          "end": 7.25
+        },
+        {
+          "text": "use",
+          "start": 7.65,
+          "end": 7.79
+        },
+        {
+          "text": "such",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "text": "vigilance",
+          "start": 8.03,
+          "end": 8.35
+        },
+        {
+          "text": "As",
+          "start": 8.35,
+          "end": 8.75
+        },
+        {
+          "text": "when",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "text": "they",
+          "start": 8.91,
+          "end": 9.03
+        },
+        {
+          "text": "are",
+          "start": 9.03,
+          "end": 9.19
+        },
+        {
+          "text": "fresh.",
+          "start": 9.19,
+          "end": 9.47
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.2553653190843761
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c898bd5c9fd5b47ff2e30b30d870174aea520152fb9ce75851d01afe7c767111",
+  "selected_reasons": []
+}

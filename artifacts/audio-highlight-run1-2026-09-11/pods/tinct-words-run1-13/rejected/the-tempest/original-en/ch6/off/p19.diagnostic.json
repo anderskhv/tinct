@@ -1,0 +1,589 @@
+{
+  "complete": true,
+  "signature": "4a40b9d53ecb3e57c53fc2cda8cecec5c4dde0debbfc94992e3b13c857565e6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.24131727893836796,
+      "alignment_seconds": 0.00023036706261336803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caliban, as I told thee before, I am subject to a tyrant, a sorcerer, that by his cunning",
+          "start": 0.05,
+          "end": 6.25,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.42431640625
+            },
+            {
+              "text": " as",
+              "start": 1.21,
+              "end": 1.57,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " I",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " told",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thee",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " before,",
+              "start": 2.07,
+              "end": 2.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 2.69,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " am",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " subject",
+              "start": 2.87,
+              "end": 3.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.23,
+              "end": 3.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.51,
+              "end": 3.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tyrant,",
+              "start": 3.63,
+              "end": 3.95,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " a",
+              "start": 4.45,
+              "end": 4.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sorcerer,",
+              "start": 4.55,
+              "end": 4.97,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " that",
+              "start": 5.47,
+              "end": 5.59,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 5.59,
+              "end": 5.75,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " his",
+              "start": 5.75,
+              "end": 5.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cunning",
+              "start": 5.93,
+              "end": 6.25,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " hath cheated me of the island.",
+          "start": 6.25,
+          "end": 7.65,
+          "words": [
+            {
+              "text": " hath",
+              "start": 6.25,
+              "end": 6.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cheated",
+              "start": 6.47,
+              "end": 6.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me",
+              "start": 6.81,
+              "end": 7.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 7.05,
+              "end": 7.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 7.19,
+              "end": 7.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " island.",
+              "start": 7.29,
+              "end": 7.65,
+              "probability": 0.9150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "as",
+          "start": 1.21,
+          "end": 1.57
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "told",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "thee",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "before,",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "raw": "I",
+          "start": 2.69,
+          "end": 2.73
+        },
+        {
+          "raw": "am",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "subject",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "raw": "to",
+          "start": 3.23,
+          "end": 3.51
+        },
+        {
+          "raw": "a",
+          "start": 3.51,
+          "end": 3.63
+        },
+        {
+          "raw": "tyrant,",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "raw": "a",
+          "start": 4.45,
+          "end": 4.55
+        },
+        {
+          "raw": "sorcerer,",
+          "start": 4.55,
+          "end": 4.97
+        },
+        {
+          "raw": "that",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "raw": "by",
+          "start": 5.59,
+          "end": 5.75
+        },
+        {
+          "raw": "his",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "raw": "cunning",
+          "start": 5.93,
+          "end": 6.25
+        },
+        {
+          "raw": "hath",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "raw": "cheated",
+          "start": 6.47,
+          "end": 6.81
+        },
+        {
+          "raw": "me",
+          "start": 6.81,
+          "end": 7.05
+        },
+        {
+          "raw": "of",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "raw": "the",
+          "start": 7.19,
+          "end": 7.29
+        },
+        {
+          "raw": "island.",
+          "start": 7.29,
+          "end": 7.65
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "As",
+        "I",
+        "told",
+        "thee",
+        "before,",
+        "I",
+        "am",
+        "subject",
+        "to",
+        "a",
+        "tyrant,",
+        "a",
+        "sorcerer,",
+        "that",
+        "by",
+        "his",
+        "cunning",
+        "hath",
+        "cheated",
+        "me",
+        "of",
+        "the",
+        "island."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "As",
+          "start": 1.21,
+          "end": 1.57
+        },
+        {
+          "text": "I",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "told",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "thee",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "before,",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "text": "I",
+          "start": 2.69,
+          "end": 2.73
+        },
+        {
+          "text": "am",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "subject",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "text": "to",
+          "start": 3.23,
+          "end": 3.51
+        },
+        {
+          "text": "a",
+          "start": 3.51,
+          "end": 3.63
+        },
+        {
+          "text": "tyrant,",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "text": "a",
+          "start": 4.45,
+          "end": 4.55
+        },
+        {
+          "text": "sorcerer,",
+          "start": 4.55,
+          "end": 4.97
+        },
+        {
+          "text": "that",
+          "start": 5.47,
+          "end": 5.59
+        },
+        {
+          "text": "by",
+          "start": 5.59,
+          "end": 5.75
+        },
+        {
+          "text": "his",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "text": "cunning",
+          "start": 5.93,
+          "end": 6.25
+        },
+        {
+          "text": "hath",
+          "start": 6.25,
+          "end": 6.47
+        },
+        {
+          "text": "cheated",
+          "start": 6.47,
+          "end": 6.81
+        },
+        {
+          "text": "me",
+          "start": 6.81,
+          "end": 7.05
+        },
+        {
+          "text": "of",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "text": "the",
+          "start": 7.19,
+          "end": 7.29
+        },
+        {
+          "text": "island.",
+          "start": 7.29,
+          "end": 7.65
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2416941609699279
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9726af54fa242cb798d1102a433869300b8abc0ae373bbc5c045f6c1dc4d4d79",
+  "selected_reasons": []
+}

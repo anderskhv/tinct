@@ -1,0 +1,538 @@
+{
+  "complete": true,
+  "signature": "b0b8fa0ccfd3d49b0415fea93ce83cb081adad4e888f892710b649cf0ff27bdc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1724090757779777,
+      "alignment_seconds": 0.00020590703934431076,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He appears to me to be so. At any rate, money is highly valued by him as well as by the state.",
+          "start": 0.05,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " appears",
+              "start": 0.51,
+              "end": 0.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 0.83,
+              "end": 1.05,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " me",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " so.",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " At",
+              "start": 2.23,
+              "end": 2.31,
+              "probability": 0.990234375
+            },
+            {
+              "text": " any",
+              "start": 2.31,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rate,",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " money",
+              "start": 2.85,
+              "end": 2.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 2.93,
+              "end": 3.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " highly",
+              "start": 3.23,
+              "end": 3.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " valued",
+              "start": 3.55,
+              "end": 4.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " by",
+              "start": 4.03,
+              "end": 4.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 4.27,
+              "end": 4.51,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " as",
+              "start": 4.51,
+              "end": 4.71,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " well",
+              "start": 4.71,
+              "end": 4.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 4.91,
+              "end": 5.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 5.29,
+              "end": 5.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " state.",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.81494140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "appears",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "raw": "to",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "raw": "me",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "to",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "be",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "so.",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "At",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "raw": "any",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "raw": "rate,",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "money",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "raw": "is",
+          "start": 2.93,
+          "end": 3.23
+        },
+        {
+          "raw": "highly",
+          "start": 3.23,
+          "end": 3.55
+        },
+        {
+          "raw": "valued",
+          "start": 3.55,
+          "end": 4.03
+        },
+        {
+          "raw": "by",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "raw": "him",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "raw": "as",
+          "start": 4.51,
+          "end": 4.71
+        },
+        {
+          "raw": "well",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "raw": "as",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "raw": "by",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "the",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "raw": "state.",
+          "start": 5.41,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "appears",
+        "to",
+        "me",
+        "to",
+        "be",
+        "so;",
+        "at",
+        "any",
+        "rate",
+        "money",
+        "is",
+        "highly",
+        "valued",
+        "by",
+        "him",
+        "as",
+        "well",
+        "as",
+        "by",
+        "the",
+        "State."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "appears",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "text": "to",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "text": "me",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "to",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "be",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "so;",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "at",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "text": "any",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "text": "rate",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "money",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "text": "is",
+          "start": 2.93,
+          "end": 3.23
+        },
+        {
+          "text": "highly",
+          "start": 3.23,
+          "end": 3.55
+        },
+        {
+          "text": "valued",
+          "start": 3.55,
+          "end": 4.03
+        },
+        {
+          "text": "by",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "text": "him",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "text": "as",
+          "start": 4.51,
+          "end": 4.71
+        },
+        {
+          "text": "well",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "text": "as",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "text": "by",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "the",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "text": "State.",
+          "start": 5.41,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1727232807315886
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d6f7a29c60f1610c544d066415e6a71be77f11fd0b8772c139283a903c6ce9c2",
+  "selected_reasons": []
+}

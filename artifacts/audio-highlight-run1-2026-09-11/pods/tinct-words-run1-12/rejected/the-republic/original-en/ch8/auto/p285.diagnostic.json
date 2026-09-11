@@ -1,0 +1,236 @@
+{
+  "complete": true,
+  "signature": "f7b6722183124a7c4feff91bd519c2418ad6b53f0a6e1f5f80676f9e095321f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.11319568939507008,
+      "alignment_seconds": 0.00011090794578194618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Let that be his place, he said.",
+        "hotwords": "Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Let Let that be his place, he said.",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.3212890625
+            },
+            {
+              "text": " Let",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 1.1920928955078125e-07
+            },
+            {
+              "text": " that",
+              "start": 0.66,
+              "end": 0.68,
+              "probability": 0.5859375
+            },
+            {
+              "text": " be",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " his",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.9375
+            },
+            {
+              "text": " place,",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " said.",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Let",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "that",
+          "start": 0.66,
+          "end": 0.68
+        },
+        {
+          "raw": "be",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "place,",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "he",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "said.",
+          "start": 1.66,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "Let",
+        "that",
+        "be",
+        "his",
+        "place,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Let",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "that",
+          "start": 0.66,
+          "end": 0.68
+        },
+        {
+          "text": "be",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "his",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "place,",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "he",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "said.",
+          "start": 1.66,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11335941636934876
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "838804305d04a0c2a197d6065963cde1869c152ff2027ebd087de6f9a8669872",
+  "selected_reasons": []
+}

@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "686d5934a1a945f610812f1126db976024074c977b90e1b0de9b065a38c651e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.0944659193046391,
+      "alignment_seconds": 8.535897359251976e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " As we might expect.",
+          "start": 0.11,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.11,
+              "end": 0.57,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " we",
+              "start": 0.57,
+              "end": 0.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " might",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " expect.",
+              "start": 0.91,
+              "end": 1.31,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.11,
+          "end": 0.57
+        },
+        {
+          "raw": "we",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "raw": "might",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "expect.",
+          "start": 0.91,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "As",
+        "we",
+        "might",
+        "expect."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "As",
+          "start": 0.11,
+          "end": 0.57
+        },
+        {
+          "text": "we",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "text": "might",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "text": "expect.",
+          "start": 0.91,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09458597702905536
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fc707f3f58f1f26134d10449bc47a261f027ecfab40fd65ee13b00a65aa4b6f2",
+  "selected_reasons": []
+}

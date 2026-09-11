@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "eb2a2adff8f56c7d403dd4e9417e80d0aeb1d388a1dfbf8967408b1cd95220dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.08356918895151466,
+      "alignment_seconds": 7.109192665666342e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit above]",
+        "hotwords": "Exit"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit above",
+          "start": 0.08,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " above",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "above",
+          "start": 0.68,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "above]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "above]",
+          "start": 0.68,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08366794197354466
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1e06da769c610cd89df1b550220d0a6d391b307fde52cacb0f78e540bdc191c",
+  "selected_reasons": []
+}

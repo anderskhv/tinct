@@ -1,0 +1,3353 @@
+{
+  "complete": true,
+  "signature": "8d6aa6d427d65f7da10b1891484a47b3ca7477ca37955d0a6e8a75e53de0e58c",
+  "attempts": [
+    {
+      "asr_seconds": 0.8334130793809891,
+      "alignment_seconds": 0.00042635947465896606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A week later he and his army (nearly ten thousand holluschickie and old seals) went away north to the Sea Cow's tunnel, Kotick leading them, and the seals that stayed at Novastoshnah called them idiots. But next spring, when they all met off the fishing banks of the Pacific, Kotick's seals told such tales of the new beaches beyond Sea Cow's tunnel that more and more seals left Novastoshnah. Of course it was not all done at once, for the seals are not very clever, and they need a long time to turn things over in their minds, but year after year more seals went away from Novastoshnah, and Lukannon, and the other nurseries, to the quiet, sheltered beaches where Kotick sits all the summer through, getting bigger and fatter and stronger each year, while the holluschickie play around him, in that sea where no man comes.",
+        "hotwords": "Cow's, Kotick, Novastoshnah, Pacific, Kotick's, Lukannon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A week later he and his army, nearly ten thousand holluschickie and old seals, went away north",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.2841796875
+            },
+            {
+              "text": " week",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " later",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 0.99,
+              "end": 1.23,
+              "probability": 0.427001953125
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " army,",
+              "start": 1.53,
+              "end": 1.91,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " nearly",
+              "start": 2.65,
+              "end": 2.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ten",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.258056640625
+            },
+            {
+              "text": " thousand",
+              "start": 2.93,
+              "end": 3.39,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " holluschickie",
+              "start": 3.39,
+              "end": 3.99,
+              "probability": 0.2394536336263021
+            },
+            {
+              "text": " and",
+              "start": 3.99,
+              "end": 4.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " old",
+              "start": 4.15,
+              "end": 4.39,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " seals,",
+              "start": 4.39,
+              "end": 4.75,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " went",
+              "start": 5.37,
+              "end": 5.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " away",
+              "start": 5.47,
+              "end": 5.71,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " north",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.97216796875
+            }
+          ]
+        },
+        {
+          "text": " to the Sea Cow's tunnel, Kotick leading them, and the seals that stayed at Novastoshnah called",
+          "start": 5.91,
+          "end": 10.99,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.91,
+              "end": 6.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Sea",
+              "start": 6.25,
+              "end": 6.45,
+              "probability": 0.56787109375
+            },
+            {
+              "text": " Cow's",
+              "start": 6.45,
+              "end": 6.87,
+              "probability": 0.5147705078125
+            },
+            {
+              "text": " tunnel,",
+              "start": 6.87,
+              "end": 7.11,
+              "probability": 0.43798828125
+            },
+            {
+              "text": " Kotick",
+              "start": 7.73,
+              "end": 7.87,
+              "probability": 0.36232757568359375
+            },
+            {
+              "text": " leading",
+              "start": 7.87,
+              "end": 8.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them,",
+              "start": 8.13,
+              "end": 8.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 8.89,
+              "end": 9.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 9.03,
+              "end": 9.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seals",
+              "start": 9.17,
+              "end": 9.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 9.45,
+              "end": 9.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stayed",
+              "start": 9.69,
+              "end": 9.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 9.93,
+              "end": 10.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Novastoshnah",
+              "start": 10.11,
+              "end": 10.73,
+              "probability": 0.49677133560180664
+            },
+            {
+              "text": " called",
+              "start": 10.73,
+              "end": 10.99,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " them idiots. But next spring, when they all met off the fishing banks of the Pacific,",
+          "start": 10.99,
+          "end": 15.85,
+          "words": [
+            {
+              "text": " them",
+              "start": 10.99,
+              "end": 11.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " idiots.",
+              "start": 11.19,
+              "end": 11.55,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " But",
+              "start": 12.31,
+              "end": 12.53,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " next",
+              "start": 12.53,
+              "end": 12.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " spring,",
+              "start": 12.77,
+              "end": 13.17,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " when",
+              "start": 13.67,
+              "end": 13.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they",
+              "start": 13.77,
+              "end": 13.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 13.89,
+              "end": 14.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " met",
+              "start": 14.09,
+              "end": 14.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " off",
+              "start": 14.27,
+              "end": 14.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 14.45,
+              "end": 14.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fishing",
+              "start": 14.63,
+              "end": 14.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " banks",
+              "start": 14.89,
+              "end": 15.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 15.25,
+              "end": 15.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 15.43,
+              "end": 15.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Pacific,",
+              "start": 15.55,
+              "end": 15.85,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " Kotick's seals told such tales of the new beaches beyond Sea Cow's tunnel that more",
+          "start": 16.61,
+          "end": 21.25,
+          "words": [
+            {
+              "text": " Kotick's",
+              "start": 16.61,
+              "end": 16.89,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " seals",
+              "start": 16.89,
+              "end": 17.19,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " told",
+              "start": 17.19,
+              "end": 17.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " such",
+              "start": 17.53,
+              "end": 17.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tales",
+              "start": 17.85,
+              "end": 18.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 18.23,
+              "end": 18.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 18.43,
+              "end": 18.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " new",
+              "start": 18.51,
+              "end": 18.71,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " beaches",
+              "start": 18.71,
+              "end": 19.05,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " beyond",
+              "start": 19.05,
+              "end": 19.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Sea",
+              "start": 19.57,
+              "end": 19.97,
+              "probability": 0.96875
+            },
+            {
+              "text": " Cow's",
+              "start": 19.97,
+              "end": 20.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " tunnel",
+              "start": 20.45,
+              "end": 20.69,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " that",
+              "start": 20.69,
+              "end": 20.97,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " more",
+              "start": 20.97,
+              "end": 21.25,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " and more seals left Novastoshnah. Of course it was not all done at once, for the seals",
+          "start": 21.25,
+          "end": 26.57,
+          "words": [
+            {
+              "text": " and",
+              "start": 21.25,
+              "end": 21.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 21.41,
+              "end": 21.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seals",
+              "start": 21.63,
+              "end": 22.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " left",
+              "start": 22.01,
+              "end": 22.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Novastoshnah.",
+              "start": 22.35,
+              "end": 23.17,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " Of",
+              "start": 24.17,
+              "end": 24.29,
+              "probability": 0.974609375
+            },
+            {
+              "text": " course",
+              "start": 24.29,
+              "end": 24.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 24.47,
+              "end": 24.61,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " was",
+              "start": 24.61,
+              "end": 24.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 24.71,
+              "end": 24.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all",
+              "start": 24.87,
+              "end": 25.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " done",
+              "start": 25.07,
+              "end": 25.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 25.23,
+              "end": 25.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " once,",
+              "start": 25.37,
+              "end": 25.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 25.95,
+              "end": 26.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 26.17,
+              "end": 26.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " seals",
+              "start": 26.31,
+              "end": 26.57,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " are not very clever, and they need a long time to turn things over in their minds, but",
+          "start": 26.57,
+          "end": 31.53,
+          "words": [
+            {
+              "text": " are",
+              "start": 26.57,
+              "end": 26.69,
+              "probability": 0.3935546875
+            },
+            {
+              "text": " not",
+              "start": 26.69,
+              "end": 26.91,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " very",
+              "start": 26.91,
+              "end": 27.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clever,",
+              "start": 27.21,
+              "end": 27.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 27.91,
+              "end": 28.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 28.13,
+              "end": 28.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " need",
+              "start": 28.25,
+              "end": 28.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 28.41,
+              "end": 28.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " long",
+              "start": 28.57,
+              "end": 28.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " time",
+              "start": 28.79,
+              "end": 29.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 29.15,
+              "end": 29.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " turn",
+              "start": 29.37,
+              "end": 29.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " things",
+              "start": 29.59,
+              "end": 29.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " over",
+              "start": 29.85,
+              "end": 30.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 30.13,
+              "end": 30.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 30.29,
+              "end": 30.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " minds,",
+              "start": 30.41,
+              "end": 30.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " but",
+              "start": 31.19,
+              "end": 31.53,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " year after year more seals went away from Novastoshnah, and Lukannon, and the other nurseries, to",
+          "start": 31.53,
+          "end": 37.25,
+          "words": [
+            {
+              "text": " year",
+              "start": 31.53,
+              "end": 31.73,
+              "probability": 0.98828125
+            },
+            {
+              "text": " after",
+              "start": 31.73,
+              "end": 31.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " year",
+              "start": 31.97,
+              "end": 32.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 32.39,
+              "end": 32.73,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " seals",
+              "start": 32.73,
+              "end": 33.01,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " went",
+              "start": 33.01,
+              "end": 33.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " away",
+              "start": 33.29,
+              "end": 33.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " from",
+              "start": 33.49,
+              "end": 33.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Novastoshnah,",
+              "start": 33.69,
+              "end": 34.45,
+              "probability": 0.5007401704788208
+            },
+            {
+              "text": " and",
+              "start": 34.77,
+              "end": 34.89,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Lukannon,",
+              "start": 34.89,
+              "end": 35.27,
+              "probability": 0.0637969970703125
+            },
+            {
+              "text": " and",
+              "start": 35.65,
+              "end": 35.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 35.87,
+              "end": 35.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " other",
+              "start": 35.97,
+              "end": 36.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " nurseries,",
+              "start": 36.15,
+              "end": 36.61,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " to",
+              "start": 37.09,
+              "end": 37.25,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " the quiet, sheltered beaches where Kotick sits all the summer through, getting bigger",
+          "start": 37.25,
+          "end": 41.83,
+          "words": [
+            {
+              "text": " the",
+              "start": 37.25,
+              "end": 37.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quiet,",
+              "start": 37.39,
+              "end": 37.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sheltered",
+              "start": 38.01,
+              "end": 38.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " beaches",
+              "start": 38.35,
+              "end": 38.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " where",
+              "start": 38.75,
+              "end": 39.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Kotick",
+              "start": 39.07,
+              "end": 39.41,
+              "probability": 0.2785491943359375
+            },
+            {
+              "text": " sits",
+              "start": 39.41,
+              "end": 39.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 39.69,
+              "end": 39.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 39.95,
+              "end": 40.11,
+              "probability": 0.986328125
+            },
+            {
+              "text": " summer",
+              "start": 40.11,
+              "end": 40.35,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " through,",
+              "start": 40.35,
+              "end": 40.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " getting",
+              "start": 41.29,
+              "end": 41.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bigger",
+              "start": 41.51,
+              "end": 41.83,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " and fatter and stronger each year, while the holluschickie play around him, in that sea",
+          "start": 41.83,
+          "end": 46.65,
+          "words": [
+            {
+              "text": " and",
+              "start": 41.83,
+              "end": 42.13,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " fatter",
+              "start": 42.13,
+              "end": 42.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 42.45,
+              "end": 42.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " stronger",
+              "start": 42.67,
+              "end": 43.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " each",
+              "start": 43.05,
+              "end": 43.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " year,",
+              "start": 43.41,
+              "end": 43.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " while",
+              "start": 44.05,
+              "end": 44.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 44.19,
+              "end": 44.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " holluschickie",
+              "start": 44.33,
+              "end": 44.91,
+              "probability": 0.19878578186035156
+            },
+            {
+              "text": " play",
+              "start": 44.91,
+              "end": 45.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " around",
+              "start": 45.09,
+              "end": 45.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,",
+              "start": 45.39,
+              "end": 45.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 46.01,
+              "end": 46.21,
+              "probability": 0.955078125
+            },
+            {
+              "text": " that",
+              "start": 46.21,
+              "end": 46.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sea",
+              "start": 46.39,
+              "end": 46.65,
+              "probability": 0.90283203125
+            }
+          ]
+        },
+        {
+          "text": " where no man comes.",
+          "start": 46.65,
+          "end": 47.65,
+          "words": [
+            {
+              "text": " where",
+              "start": 46.65,
+              "end": 46.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " no",
+              "start": 46.83,
+              "end": 47.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " man",
+              "start": 47.03,
+              "end": 47.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " comes.",
+              "start": 47.29,
+              "end": 47.65,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "week",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "later",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "he",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "his",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "army,",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "raw": "nearly",
+          "start": 2.65,
+          "end": 2.65
+        },
+        {
+          "raw": "ten",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "thousand",
+          "start": 2.93,
+          "end": 3.39
+        },
+        {
+          "raw": "holluschickie",
+          "start": 3.39,
+          "end": 3.99
+        },
+        {
+          "raw": "and",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "raw": "old",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "raw": "seals,",
+          "start": 4.39,
+          "end": 4.75
+        },
+        {
+          "raw": "went",
+          "start": 5.37,
+          "end": 5.47
+        },
+        {
+          "raw": "away",
+          "start": 5.47,
+          "end": 5.71
+        },
+        {
+          "raw": "north",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "to",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "raw": "Sea",
+          "start": 6.25,
+          "end": 6.45
+        },
+        {
+          "raw": "Cow's",
+          "start": 6.45,
+          "end": 6.87
+        },
+        {
+          "raw": "tunnel,",
+          "start": 6.87,
+          "end": 7.11
+        },
+        {
+          "raw": "Kotick",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "raw": "leading",
+          "start": 7.87,
+          "end": 8.13
+        },
+        {
+          "raw": "them,",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "raw": "and",
+          "start": 8.89,
+          "end": 9.03
+        },
+        {
+          "raw": "the",
+          "start": 9.03,
+          "end": 9.17
+        },
+        {
+          "raw": "seals",
+          "start": 9.17,
+          "end": 9.45
+        },
+        {
+          "raw": "that",
+          "start": 9.45,
+          "end": 9.69
+        },
+        {
+          "raw": "stayed",
+          "start": 9.69,
+          "end": 9.93
+        },
+        {
+          "raw": "at",
+          "start": 9.93,
+          "end": 10.11
+        },
+        {
+          "raw": "Novastoshnah",
+          "start": 10.11,
+          "end": 10.73
+        },
+        {
+          "raw": "called",
+          "start": 10.73,
+          "end": 10.99
+        },
+        {
+          "raw": "them",
+          "start": 10.99,
+          "end": 11.19
+        },
+        {
+          "raw": "idiots.",
+          "start": 11.19,
+          "end": 11.55
+        },
+        {
+          "raw": "But",
+          "start": 12.31,
+          "end": 12.53
+        },
+        {
+          "raw": "next",
+          "start": 12.53,
+          "end": 12.77
+        },
+        {
+          "raw": "spring,",
+          "start": 12.77,
+          "end": 13.17
+        },
+        {
+          "raw": "when",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "raw": "they",
+          "start": 13.77,
+          "end": 13.89
+        },
+        {
+          "raw": "all",
+          "start": 13.89,
+          "end": 14.09
+        },
+        {
+          "raw": "met",
+          "start": 14.09,
+          "end": 14.27
+        },
+        {
+          "raw": "off",
+          "start": 14.27,
+          "end": 14.45
+        },
+        {
+          "raw": "the",
+          "start": 14.45,
+          "end": 14.63
+        },
+        {
+          "raw": "fishing",
+          "start": 14.63,
+          "end": 14.89
+        },
+        {
+          "raw": "banks",
+          "start": 14.89,
+          "end": 15.25
+        },
+        {
+          "raw": "of",
+          "start": 15.25,
+          "end": 15.43
+        },
+        {
+          "raw": "the",
+          "start": 15.43,
+          "end": 15.55
+        },
+        {
+          "raw": "Pacific,",
+          "start": 15.55,
+          "end": 15.85
+        },
+        {
+          "raw": "Kotick's",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "raw": "seals",
+          "start": 16.89,
+          "end": 17.19
+        },
+        {
+          "raw": "told",
+          "start": 17.19,
+          "end": 17.53
+        },
+        {
+          "raw": "such",
+          "start": 17.53,
+          "end": 17.85
+        },
+        {
+          "raw": "tales",
+          "start": 17.85,
+          "end": 18.23
+        },
+        {
+          "raw": "of",
+          "start": 18.23,
+          "end": 18.43
+        },
+        {
+          "raw": "the",
+          "start": 18.43,
+          "end": 18.51
+        },
+        {
+          "raw": "new",
+          "start": 18.51,
+          "end": 18.71
+        },
+        {
+          "raw": "beaches",
+          "start": 18.71,
+          "end": 19.05
+        },
+        {
+          "raw": "beyond",
+          "start": 19.05,
+          "end": 19.57
+        },
+        {
+          "raw": "Sea",
+          "start": 19.57,
+          "end": 19.97
+        },
+        {
+          "raw": "Cow's",
+          "start": 19.97,
+          "end": 20.45
+        },
+        {
+          "raw": "tunnel",
+          "start": 20.45,
+          "end": 20.69
+        },
+        {
+          "raw": "that",
+          "start": 20.69,
+          "end": 20.97
+        },
+        {
+          "raw": "more",
+          "start": 20.97,
+          "end": 21.25
+        },
+        {
+          "raw": "and",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "raw": "more",
+          "start": 21.41,
+          "end": 21.63
+        },
+        {
+          "raw": "seals",
+          "start": 21.63,
+          "end": 22.01
+        },
+        {
+          "raw": "left",
+          "start": 22.01,
+          "end": 22.35
+        },
+        {
+          "raw": "Novastoshnah.",
+          "start": 22.35,
+          "end": 23.17
+        },
+        {
+          "raw": "Of",
+          "start": 24.17,
+          "end": 24.29
+        },
+        {
+          "raw": "course",
+          "start": 24.29,
+          "end": 24.47
+        },
+        {
+          "raw": "it",
+          "start": 24.47,
+          "end": 24.61
+        },
+        {
+          "raw": "was",
+          "start": 24.61,
+          "end": 24.71
+        },
+        {
+          "raw": "not",
+          "start": 24.71,
+          "end": 24.87
+        },
+        {
+          "raw": "all",
+          "start": 24.87,
+          "end": 25.07
+        },
+        {
+          "raw": "done",
+          "start": 25.07,
+          "end": 25.23
+        },
+        {
+          "raw": "at",
+          "start": 25.23,
+          "end": 25.37
+        },
+        {
+          "raw": "once,",
+          "start": 25.37,
+          "end": 25.67
+        },
+        {
+          "raw": "for",
+          "start": 25.95,
+          "end": 26.17
+        },
+        {
+          "raw": "the",
+          "start": 26.17,
+          "end": 26.31
+        },
+        {
+          "raw": "seals",
+          "start": 26.31,
+          "end": 26.57
+        },
+        {
+          "raw": "are",
+          "start": 26.57,
+          "end": 26.69
+        },
+        {
+          "raw": "not",
+          "start": 26.69,
+          "end": 26.91
+        },
+        {
+          "raw": "very",
+          "start": 26.91,
+          "end": 27.21
+        },
+        {
+          "raw": "clever,",
+          "start": 27.21,
+          "end": 27.49
+        },
+        {
+          "raw": "and",
+          "start": 27.91,
+          "end": 28.13
+        },
+        {
+          "raw": "they",
+          "start": 28.13,
+          "end": 28.25
+        },
+        {
+          "raw": "need",
+          "start": 28.25,
+          "end": 28.41
+        },
+        {
+          "raw": "a",
+          "start": 28.41,
+          "end": 28.57
+        },
+        {
+          "raw": "long",
+          "start": 28.57,
+          "end": 28.79
+        },
+        {
+          "raw": "time",
+          "start": 28.79,
+          "end": 29.15
+        },
+        {
+          "raw": "to",
+          "start": 29.15,
+          "end": 29.37
+        },
+        {
+          "raw": "turn",
+          "start": 29.37,
+          "end": 29.59
+        },
+        {
+          "raw": "things",
+          "start": 29.59,
+          "end": 29.85
+        },
+        {
+          "raw": "over",
+          "start": 29.85,
+          "end": 30.13
+        },
+        {
+          "raw": "in",
+          "start": 30.13,
+          "end": 30.29
+        },
+        {
+          "raw": "their",
+          "start": 30.29,
+          "end": 30.41
+        },
+        {
+          "raw": "minds,",
+          "start": 30.41,
+          "end": 30.73
+        },
+        {
+          "raw": "but",
+          "start": 31.19,
+          "end": 31.53
+        },
+        {
+          "raw": "year",
+          "start": 31.53,
+          "end": 31.73
+        },
+        {
+          "raw": "after",
+          "start": 31.73,
+          "end": 31.97
+        },
+        {
+          "raw": "year",
+          "start": 31.97,
+          "end": 32.39
+        },
+        {
+          "raw": "more",
+          "start": 32.39,
+          "end": 32.73
+        },
+        {
+          "raw": "seals",
+          "start": 32.73,
+          "end": 33.01
+        },
+        {
+          "raw": "went",
+          "start": 33.01,
+          "end": 33.29
+        },
+        {
+          "raw": "away",
+          "start": 33.29,
+          "end": 33.49
+        },
+        {
+          "raw": "from",
+          "start": 33.49,
+          "end": 33.69
+        },
+        {
+          "raw": "Novastoshnah,",
+          "start": 33.69,
+          "end": 34.45
+        },
+        {
+          "raw": "and",
+          "start": 34.77,
+          "end": 34.89
+        },
+        {
+          "raw": "Lukannon,",
+          "start": 34.89,
+          "end": 35.27
+        },
+        {
+          "raw": "and",
+          "start": 35.65,
+          "end": 35.87
+        },
+        {
+          "raw": "the",
+          "start": 35.87,
+          "end": 35.97
+        },
+        {
+          "raw": "other",
+          "start": 35.97,
+          "end": 36.15
+        },
+        {
+          "raw": "nurseries,",
+          "start": 36.15,
+          "end": 36.61
+        },
+        {
+          "raw": "to",
+          "start": 37.09,
+          "end": 37.25
+        },
+        {
+          "raw": "the",
+          "start": 37.25,
+          "end": 37.39
+        },
+        {
+          "raw": "quiet,",
+          "start": 37.39,
+          "end": 37.77
+        },
+        {
+          "raw": "sheltered",
+          "start": 38.01,
+          "end": 38.35
+        },
+        {
+          "raw": "beaches",
+          "start": 38.35,
+          "end": 38.75
+        },
+        {
+          "raw": "where",
+          "start": 38.75,
+          "end": 39.07
+        },
+        {
+          "raw": "Kotick",
+          "start": 39.07,
+          "end": 39.41
+        },
+        {
+          "raw": "sits",
+          "start": 39.41,
+          "end": 39.69
+        },
+        {
+          "raw": "all",
+          "start": 39.69,
+          "end": 39.95
+        },
+        {
+          "raw": "the",
+          "start": 39.95,
+          "end": 40.11
+        },
+        {
+          "raw": "summer",
+          "start": 40.11,
+          "end": 40.35
+        },
+        {
+          "raw": "through,",
+          "start": 40.35,
+          "end": 40.71
+        },
+        {
+          "raw": "getting",
+          "start": 41.29,
+          "end": 41.51
+        },
+        {
+          "raw": "bigger",
+          "start": 41.51,
+          "end": 41.83
+        },
+        {
+          "raw": "and",
+          "start": 41.83,
+          "end": 42.13
+        },
+        {
+          "raw": "fatter",
+          "start": 42.13,
+          "end": 42.45
+        },
+        {
+          "raw": "and",
+          "start": 42.45,
+          "end": 42.67
+        },
+        {
+          "raw": "stronger",
+          "start": 42.67,
+          "end": 43.05
+        },
+        {
+          "raw": "each",
+          "start": 43.05,
+          "end": 43.41
+        },
+        {
+          "raw": "year,",
+          "start": 43.41,
+          "end": 43.75
+        },
+        {
+          "raw": "while",
+          "start": 44.05,
+          "end": 44.19
+        },
+        {
+          "raw": "the",
+          "start": 44.19,
+          "end": 44.33
+        },
+        {
+          "raw": "holluschickie",
+          "start": 44.33,
+          "end": 44.91
+        },
+        {
+          "raw": "play",
+          "start": 44.91,
+          "end": 45.09
+        },
+        {
+          "raw": "around",
+          "start": 45.09,
+          "end": 45.39
+        },
+        {
+          "raw": "him,",
+          "start": 45.39,
+          "end": 45.69
+        },
+        {
+          "raw": "in",
+          "start": 46.01,
+          "end": 46.21
+        },
+        {
+          "raw": "that",
+          "start": 46.21,
+          "end": 46.39
+        },
+        {
+          "raw": "sea",
+          "start": 46.39,
+          "end": 46.65
+        },
+        {
+          "raw": "where",
+          "start": 46.65,
+          "end": 46.83
+        },
+        {
+          "raw": "no",
+          "start": 46.83,
+          "end": 47.03
+        },
+        {
+          "raw": "man",
+          "start": 47.03,
+          "end": 47.29
+        },
+        {
+          "raw": "comes.",
+          "start": 47.29,
+          "end": 47.65
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "week",
+        "later",
+        "he",
+        "and",
+        "his",
+        "army",
+        "(nearly",
+        "ten",
+        "thousand",
+        "holluschickie",
+        "and",
+        "old",
+        "seals)",
+        "went",
+        "away",
+        "north",
+        "to",
+        "the",
+        "Sea",
+        "Cow's",
+        "tunnel,",
+        "Kotick",
+        "leading",
+        "them,",
+        "and",
+        "the",
+        "seals",
+        "that",
+        "stayed",
+        "at",
+        "Novastoshnah",
+        "called",
+        "them",
+        "idiots.",
+        "But",
+        "next",
+        "spring,",
+        "when",
+        "they",
+        "all",
+        "met",
+        "off",
+        "the",
+        "fishing",
+        "banks",
+        "of",
+        "the",
+        "Pacific,",
+        "Kotick's",
+        "seals",
+        "told",
+        "such",
+        "tales",
+        "of",
+        "the",
+        "new",
+        "beaches",
+        "beyond",
+        "Sea",
+        "Cow's",
+        "tunnel",
+        "that",
+        "more",
+        "and",
+        "more",
+        "seals",
+        "left",
+        "Novastoshnah.",
+        "Of",
+        "course",
+        "it",
+        "was",
+        "not",
+        "all",
+        "done",
+        "at",
+        "once,",
+        "for",
+        "the",
+        "seals",
+        "are",
+        "not",
+        "very",
+        "clever,",
+        "and",
+        "they",
+        "need",
+        "a",
+        "long",
+        "time",
+        "to",
+        "turn",
+        "things",
+        "over",
+        "in",
+        "their",
+        "minds,",
+        "but",
+        "year",
+        "after",
+        "year",
+        "more",
+        "seals",
+        "went",
+        "away",
+        "from",
+        "Novastoshnah,",
+        "and",
+        "Lukannon,",
+        "and",
+        "the",
+        "other",
+        "nurseries,",
+        "to",
+        "the",
+        "quiet,",
+        "sheltered",
+        "beaches",
+        "where",
+        "Kotick",
+        "sits",
+        "all",
+        "the",
+        "summer",
+        "through,",
+        "getting",
+        "bigger",
+        "and",
+        "fatter",
+        "and",
+        "stronger",
+        "each",
+        "year,",
+        "while",
+        "the",
+        "holluschickie",
+        "play",
+        "around",
+        "him,",
+        "in",
+        "that",
+        "sea",
+        "where",
+        "no",
+        "man",
+        "comes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          147,
+          0,
+          147
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 117,
+          "source": "observed",
+          "heard_index": 117
+        },
+        {
+          "index": 118,
+          "source": "observed",
+          "heard_index": 118
+        },
+        {
+          "index": 119,
+          "source": "observed",
+          "heard_index": 119
+        },
+        {
+          "index": 120,
+          "source": "observed",
+          "heard_index": 120
+        },
+        {
+          "index": 121,
+          "source": "observed",
+          "heard_index": 121
+        },
+        {
+          "index": 122,
+          "source": "observed",
+          "heard_index": 122
+        },
+        {
+          "index": 123,
+          "source": "observed",
+          "heard_index": 123
+        },
+        {
+          "index": 124,
+          "source": "observed",
+          "heard_index": 124
+        },
+        {
+          "index": 125,
+          "source": "observed",
+          "heard_index": 125
+        },
+        {
+          "index": 126,
+          "source": "observed",
+          "heard_index": 126
+        },
+        {
+          "index": 127,
+          "source": "observed",
+          "heard_index": 127
+        },
+        {
+          "index": 128,
+          "source": "observed",
+          "heard_index": 128
+        },
+        {
+          "index": 129,
+          "source": "observed",
+          "heard_index": 129
+        },
+        {
+          "index": 130,
+          "source": "observed",
+          "heard_index": 130
+        },
+        {
+          "index": 131,
+          "source": "observed",
+          "heard_index": 131
+        },
+        {
+          "index": 132,
+          "source": "observed",
+          "heard_index": 132
+        },
+        {
+          "index": 133,
+          "source": "observed",
+          "heard_index": 133
+        },
+        {
+          "index": 134,
+          "source": "observed",
+          "heard_index": 134
+        },
+        {
+          "index": 135,
+          "source": "observed",
+          "heard_index": 135
+        },
+        {
+          "index": 136,
+          "source": "observed",
+          "heard_index": 136
+        },
+        {
+          "index": 137,
+          "source": "observed",
+          "heard_index": 137
+        },
+        {
+          "index": 138,
+          "source": "observed",
+          "heard_index": 138
+        },
+        {
+          "index": 139,
+          "source": "observed",
+          "heard_index": 139
+        },
+        {
+          "index": 140,
+          "source": "observed",
+          "heard_index": 140
+        },
+        {
+          "index": 141,
+          "source": "observed",
+          "heard_index": 141
+        },
+        {
+          "index": 142,
+          "source": "observed",
+          "heard_index": 142
+        },
+        {
+          "index": 143,
+          "source": "observed",
+          "heard_index": 143
+        },
+        {
+          "index": 144,
+          "source": "observed",
+          "heard_index": 144
+        },
+        {
+          "index": 145,
+          "source": "observed",
+          "heard_index": 145
+        },
+        {
+          "index": 146,
+          "source": "observed",
+          "heard_index": 146
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "week",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "later",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "text": "he",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "his",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "army",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "text": "(nearly",
+          "start": 2.65,
+          "end": 2.65
+        },
+        {
+          "text": "ten",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "thousand",
+          "start": 2.93,
+          "end": 3.39
+        },
+        {
+          "text": "holluschickie",
+          "start": 3.39,
+          "end": 3.99
+        },
+        {
+          "text": "and",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "text": "old",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "text": "seals)",
+          "start": 4.39,
+          "end": 4.75
+        },
+        {
+          "text": "went",
+          "start": 5.37,
+          "end": 5.47
+        },
+        {
+          "text": "away",
+          "start": 5.47,
+          "end": 5.71
+        },
+        {
+          "text": "north",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "to",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "text": "Sea",
+          "start": 6.25,
+          "end": 6.45
+        },
+        {
+          "text": "Cow's",
+          "start": 6.45,
+          "end": 6.87
+        },
+        {
+          "text": "tunnel,",
+          "start": 6.87,
+          "end": 7.11
+        },
+        {
+          "text": "Kotick",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "text": "leading",
+          "start": 7.87,
+          "end": 8.13
+        },
+        {
+          "text": "them,",
+          "start": 8.13,
+          "end": 8.45
+        },
+        {
+          "text": "and",
+          "start": 8.89,
+          "end": 9.03
+        },
+        {
+          "text": "the",
+          "start": 9.03,
+          "end": 9.17
+        },
+        {
+          "text": "seals",
+          "start": 9.17,
+          "end": 9.45
+        },
+        {
+          "text": "that",
+          "start": 9.45,
+          "end": 9.69
+        },
+        {
+          "text": "stayed",
+          "start": 9.69,
+          "end": 9.93
+        },
+        {
+          "text": "at",
+          "start": 9.93,
+          "end": 10.11
+        },
+        {
+          "text": "Novastoshnah",
+          "start": 10.11,
+          "end": 10.73
+        },
+        {
+          "text": "called",
+          "start": 10.73,
+          "end": 10.99
+        },
+        {
+          "text": "them",
+          "start": 10.99,
+          "end": 11.19
+        },
+        {
+          "text": "idiots.",
+          "start": 11.19,
+          "end": 11.55
+        },
+        {
+          "text": "But",
+          "start": 12.31,
+          "end": 12.53
+        },
+        {
+          "text": "next",
+          "start": 12.53,
+          "end": 12.77
+        },
+        {
+          "text": "spring,",
+          "start": 12.77,
+          "end": 13.17
+        },
+        {
+          "text": "when",
+          "start": 13.67,
+          "end": 13.77
+        },
+        {
+          "text": "they",
+          "start": 13.77,
+          "end": 13.89
+        },
+        {
+          "text": "all",
+          "start": 13.89,
+          "end": 14.09
+        },
+        {
+          "text": "met",
+          "start": 14.09,
+          "end": 14.27
+        },
+        {
+          "text": "off",
+          "start": 14.27,
+          "end": 14.45
+        },
+        {
+          "text": "the",
+          "start": 14.45,
+          "end": 14.63
+        },
+        {
+          "text": "fishing",
+          "start": 14.63,
+          "end": 14.89
+        },
+        {
+          "text": "banks",
+          "start": 14.89,
+          "end": 15.25
+        },
+        {
+          "text": "of",
+          "start": 15.25,
+          "end": 15.43
+        },
+        {
+          "text": "the",
+          "start": 15.43,
+          "end": 15.55
+        },
+        {
+          "text": "Pacific,",
+          "start": 15.55,
+          "end": 15.85
+        },
+        {
+          "text": "Kotick's",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "text": "seals",
+          "start": 16.89,
+          "end": 17.19
+        },
+        {
+          "text": "told",
+          "start": 17.19,
+          "end": 17.53
+        },
+        {
+          "text": "such",
+          "start": 17.53,
+          "end": 17.85
+        },
+        {
+          "text": "tales",
+          "start": 17.85,
+          "end": 18.23
+        },
+        {
+          "text": "of",
+          "start": 18.23,
+          "end": 18.43
+        },
+        {
+          "text": "the",
+          "start": 18.43,
+          "end": 18.51
+        },
+        {
+          "text": "new",
+          "start": 18.51,
+          "end": 18.71
+        },
+        {
+          "text": "beaches",
+          "start": 18.71,
+          "end": 19.05
+        },
+        {
+          "text": "beyond",
+          "start": 19.05,
+          "end": 19.57
+        },
+        {
+          "text": "Sea",
+          "start": 19.57,
+          "end": 19.97
+        },
+        {
+          "text": "Cow's",
+          "start": 19.97,
+          "end": 20.45
+        },
+        {
+          "text": "tunnel",
+          "start": 20.45,
+          "end": 20.69
+        },
+        {
+          "text": "that",
+          "start": 20.69,
+          "end": 20.97
+        },
+        {
+          "text": "more",
+          "start": 20.97,
+          "end": 21.25
+        },
+        {
+          "text": "and",
+          "start": 21.25,
+          "end": 21.41
+        },
+        {
+          "text": "more",
+          "start": 21.41,
+          "end": 21.63
+        },
+        {
+          "text": "seals",
+          "start": 21.63,
+          "end": 22.01
+        },
+        {
+          "text": "left",
+          "start": 22.01,
+          "end": 22.35
+        },
+        {
+          "text": "Novastoshnah.",
+          "start": 22.35,
+          "end": 23.17
+        },
+        {
+          "text": "Of",
+          "start": 24.17,
+          "end": 24.29
+        },
+        {
+          "text": "course",
+          "start": 24.29,
+          "end": 24.47
+        },
+        {
+          "text": "it",
+          "start": 24.47,
+          "end": 24.61
+        },
+        {
+          "text": "was",
+          "start": 24.61,
+          "end": 24.71
+        },
+        {
+          "text": "not",
+          "start": 24.71,
+          "end": 24.87
+        },
+        {
+          "text": "all",
+          "start": 24.87,
+          "end": 25.07
+        },
+        {
+          "text": "done",
+          "start": 25.07,
+          "end": 25.23
+        },
+        {
+          "text": "at",
+          "start": 25.23,
+          "end": 25.37
+        },
+        {
+          "text": "once,",
+          "start": 25.37,
+          "end": 25.67
+        },
+        {
+          "text": "for",
+          "start": 25.95,
+          "end": 26.17
+        },
+        {
+          "text": "the",
+          "start": 26.17,
+          "end": 26.31
+        },
+        {
+          "text": "seals",
+          "start": 26.31,
+          "end": 26.57
+        },
+        {
+          "text": "are",
+          "start": 26.57,
+          "end": 26.69
+        },
+        {
+          "text": "not",
+          "start": 26.69,
+          "end": 26.91
+        },
+        {
+          "text": "very",
+          "start": 26.91,
+          "end": 27.21
+        },
+        {
+          "text": "clever,",
+          "start": 27.21,
+          "end": 27.49
+        },
+        {
+          "text": "and",
+          "start": 27.91,
+          "end": 28.13
+        },
+        {
+          "text": "they",
+          "start": 28.13,
+          "end": 28.25
+        },
+        {
+          "text": "need",
+          "start": 28.25,
+          "end": 28.41
+        },
+        {
+          "text": "a",
+          "start": 28.41,
+          "end": 28.57
+        },
+        {
+          "text": "long",
+          "start": 28.57,
+          "end": 28.79
+        },
+        {
+          "text": "time",
+          "start": 28.79,
+          "end": 29.15
+        },
+        {
+          "text": "to",
+          "start": 29.15,
+          "end": 29.37
+        },
+        {
+          "text": "turn",
+          "start": 29.37,
+          "end": 29.59
+        },
+        {
+          "text": "things",
+          "start": 29.59,
+          "end": 29.85
+        },
+        {
+          "text": "over",
+          "start": 29.85,
+          "end": 30.13
+        },
+        {
+          "text": "in",
+          "start": 30.13,
+          "end": 30.29
+        },
+        {
+          "text": "their",
+          "start": 30.29,
+          "end": 30.41
+        },
+        {
+          "text": "minds,",
+          "start": 30.41,
+          "end": 30.73
+        },
+        {
+          "text": "but",
+          "start": 31.19,
+          "end": 31.53
+        },
+        {
+          "text": "year",
+          "start": 31.53,
+          "end": 31.73
+        },
+        {
+          "text": "after",
+          "start": 31.73,
+          "end": 31.97
+        },
+        {
+          "text": "year",
+          "start": 31.97,
+          "end": 32.39
+        },
+        {
+          "text": "more",
+          "start": 32.39,
+          "end": 32.73
+        },
+        {
+          "text": "seals",
+          "start": 32.73,
+          "end": 33.01
+        },
+        {
+          "text": "went",
+          "start": 33.01,
+          "end": 33.29
+        },
+        {
+          "text": "away",
+          "start": 33.29,
+          "end": 33.49
+        },
+        {
+          "text": "from",
+          "start": 33.49,
+          "end": 33.69
+        },
+        {
+          "text": "Novastoshnah,",
+          "start": 33.69,
+          "end": 34.45
+        },
+        {
+          "text": "and",
+          "start": 34.77,
+          "end": 34.89
+        },
+        {
+          "text": "Lukannon,",
+          "start": 34.89,
+          "end": 35.27
+        },
+        {
+          "text": "and",
+          "start": 35.65,
+          "end": 35.87
+        },
+        {
+          "text": "the",
+          "start": 35.87,
+          "end": 35.97
+        },
+        {
+          "text": "other",
+          "start": 35.97,
+          "end": 36.15
+        },
+        {
+          "text": "nurseries,",
+          "start": 36.15,
+          "end": 36.61
+        },
+        {
+          "text": "to",
+          "start": 37.09,
+          "end": 37.25
+        },
+        {
+          "text": "the",
+          "start": 37.25,
+          "end": 37.39
+        },
+        {
+          "text": "quiet,",
+          "start": 37.39,
+          "end": 37.77
+        },
+        {
+          "text": "sheltered",
+          "start": 38.01,
+          "end": 38.35
+        },
+        {
+          "text": "beaches",
+          "start": 38.35,
+          "end": 38.75
+        },
+        {
+          "text": "where",
+          "start": 38.75,
+          "end": 39.07
+        },
+        {
+          "text": "Kotick",
+          "start": 39.07,
+          "end": 39.41
+        },
+        {
+          "text": "sits",
+          "start": 39.41,
+          "end": 39.69
+        },
+        {
+          "text": "all",
+          "start": 39.69,
+          "end": 39.95
+        },
+        {
+          "text": "the",
+          "start": 39.95,
+          "end": 40.11
+        },
+        {
+          "text": "summer",
+          "start": 40.11,
+          "end": 40.35
+        },
+        {
+          "text": "through,",
+          "start": 40.35,
+          "end": 40.71
+        },
+        {
+          "text": "getting",
+          "start": 41.29,
+          "end": 41.51
+        },
+        {
+          "text": "bigger",
+          "start": 41.51,
+          "end": 41.83
+        },
+        {
+          "text": "and",
+          "start": 41.83,
+          "end": 42.13
+        },
+        {
+          "text": "fatter",
+          "start": 42.13,
+          "end": 42.45
+        },
+        {
+          "text": "and",
+          "start": 42.45,
+          "end": 42.67
+        },
+        {
+          "text": "stronger",
+          "start": 42.67,
+          "end": 43.05
+        },
+        {
+          "text": "each",
+          "start": 43.05,
+          "end": 43.41
+        },
+        {
+          "text": "year,",
+          "start": 43.41,
+          "end": 43.75
+        },
+        {
+          "text": "while",
+          "start": 44.05,
+          "end": 44.19
+        },
+        {
+          "text": "the",
+          "start": 44.19,
+          "end": 44.33
+        },
+        {
+          "text": "holluschickie",
+          "start": 44.33,
+          "end": 44.91
+        },
+        {
+          "text": "play",
+          "start": 44.91,
+          "end": 45.09
+        },
+        {
+          "text": "around",
+          "start": 45.09,
+          "end": 45.39
+        },
+        {
+          "text": "him,",
+          "start": 45.39,
+          "end": 45.69
+        },
+        {
+          "text": "in",
+          "start": 46.01,
+          "end": 46.21
+        },
+        {
+          "text": "that",
+          "start": 46.21,
+          "end": 46.39
+        },
+        {
+          "text": "sea",
+          "start": 46.39,
+          "end": 46.65
+        },
+        {
+          "text": "where",
+          "start": 46.65,
+          "end": 46.83
+        },
+        {
+          "text": "no",
+          "start": 46.83,
+          "end": 47.03
+        },
+        {
+          "text": "man",
+          "start": 47.03,
+          "end": 47.29
+        },
+        {
+          "text": "comes.",
+          "start": 47.29,
+          "end": 47.65
+        }
+      ],
+      "stats": {
+        "expected_words": 147,
+        "heard_words": 147,
+        "matched_words": 147
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8340840889140964
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4a47cc5179421bf4e4d33f09481bbbbc3ad4f5ea53c9d0e4e15834fd9a6c589a",
+  "selected_reasons": []
+}

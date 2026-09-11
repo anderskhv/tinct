@@ -1,0 +1,167 @@
+[
+ {
+  "key": "the-republic/original-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9920034393809114,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-12/out/the-republic/original-en/ch10/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9819432502149613,
+    "reasons": [
+     {
+      "paragraph": 71,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 219,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 270,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-12/out/the-republic/original-en/ch10/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9920034393809114
+ },
+ {
+  "key": "the-republic/original-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9896377645912674,
+    "reasons": [
+     {
+      "paragraph": 161,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     }
+    ],
+    "validationErrors": [
+     "paragraph 161: words missing or empty"
+    ],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-12/out/the-republic/original-en/ch8/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.978832698609512,
+    "reasons": [
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 55,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 69,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 79,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 137,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 161,
+      "reasons": [
+       "observed_alignment_below_85_percent",
+       "no_timed_words"
+      ]
+     },
+     {
+      "paragraph": 205,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 209,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 291,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [
+     "paragraph 161: words missing or empty"
+    ],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-12/out/the-republic/original-en/ch8/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "the-republic/original-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9963050050386295,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-12/out/the-republic/original-en/ch9/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9856678983316538,
+    "reasons": [
+     {
+      "paragraph": 202,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 372,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-12/out/the-republic/original-en/ch9/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9963050050386295
+ }
+]

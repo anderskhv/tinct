@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "3698f57d4dbe67508abbfccd86a4d9bcb1c2520d31272ebdfa7906e65ed935dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.24572368804365396,
+      "alignment_seconds": 0.000232635997235775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. That shall be by and by: I remember the story.",
+        "hotwords": "Stephano, That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, That shall be by and by. I remember the story.",
+          "start": 0.08,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.49329376220703125
+            },
+            {
+              "text": " That",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.01702880859375
+            },
+            {
+              "text": " shall",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " be",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " by",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " and",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " by.",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " I",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " remember",
+              "start": 2.82,
+              "end": 3.08,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " story.",
+              "start": 3.28,
+              "end": 3.58,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "That",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "shall",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "be",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "by",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "by.",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "remember",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "raw": "the",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "story.",
+          "start": 3.28,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "That",
+        "shall",
+        "be",
+        "by",
+        "and",
+        "by:",
+        "I",
+        "remember",
+        "the",
+        "story."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "That",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "shall",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "be",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "by",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "and",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "by:",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "I",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "remember",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "text": "the",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "story.",
+          "start": 3.28,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24606576701626182
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5a5c6874f882b7d8bcbd64b29cfdc053c3a2597eefd47b845a452c88fa8d4c9",
+  "selected_reasons": []
+}

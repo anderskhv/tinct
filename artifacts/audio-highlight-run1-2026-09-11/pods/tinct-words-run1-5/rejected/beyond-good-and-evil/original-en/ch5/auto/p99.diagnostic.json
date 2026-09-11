@@ -1,0 +1,1310 @@
+{
+  "complete": true,
+  "signature": "4a75192d17f8a16e6e8571bb8e26e3e0b1cd6db069eec7bf153810669dbd0834",
+  "attempts": [
+    {
+      "asr_seconds": 0.20105664432048798,
+      "alignment_seconds": 9.336322546005249e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "162. \"Our fellow-creature is not our neighbour, but our neighbour's neighbour\":--so thinks every nation."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 162. Our fellow-creature is not our neighbour, but our neighbour's neighbour-so thinks every nation.",
+          "start": 0.02,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " 162.",
+              "start": 0.02,
+              "end": 1.08,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " Our",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.8359375
+            },
+            {
+              "text": " fellow",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": "-creature",
+              "start": 2.56,
+              "end": 2.96,
+              "probability": 0.6706644694010416
+            },
+            {
+              "text": " is",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " our",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " neighbour,",
+              "start": 3.48,
+              "end": 3.74,
+              "probability": 0.21240234375
+            },
+            {
+              "text": " but",
+              "start": 3.98,
+              "end": 4.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " our",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " neighbour's",
+              "start": 4.24,
+              "end": 4.68,
+              "probability": 0.927734375
+            },
+            {
+              "text": " neighbour",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.93408203125
+            },
+            {
+              "text": "-so",
+              "start": 4.96,
+              "end": 5.6,
+              "probability": 0.37688255310058594
+            },
+            {
+              "text": " thinks",
+              "start": 5.6,
+              "end": 5.88,
+              "probability": 0.71875
+            },
+            {
+              "text": " every",
+              "start": 5.88,
+              "end": 6.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " nation.",
+              "start": 6.2,
+              "end": 6.58,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "162.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "raw": "Our",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "fellow",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "-creature",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "raw": "is",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "our",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "neighbour,",
+          "start": 3.48,
+          "end": 3.74
+        },
+        {
+          "raw": "but",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "raw": "our",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "neighbour's",
+          "start": 4.24,
+          "end": 4.68
+        },
+        {
+          "raw": "neighbour",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "-so",
+          "start": 4.96,
+          "end": 5.6
+        },
+        {
+          "raw": "thinks",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "raw": "every",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "raw": "nation.",
+          "start": 6.2,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "162.",
+        "\"Our",
+        "fellow-creature",
+        "is",
+        "not",
+        "our",
+        "neighbour,",
+        "but",
+        "our",
+        "neighbour's",
+        "neighbour\":--so",
+        "thinks",
+        "every",
+        "nation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          10,
+          4,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          14,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "162.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "text": "\"Our",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "fellow-creature",
+          "start": 2.3,
+          "end": 2.63
+        },
+        {
+          "text": "is",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "our",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "neighbour,",
+          "start": 3.48,
+          "end": 3.74
+        },
+        {
+          "text": "but",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "text": "our",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "neighbour's",
+          "start": 4.24,
+          "end": 4.68
+        },
+        {
+          "text": "neighbour\":--so",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "text": "thinks",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "text": "every",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "text": "nation.",
+          "start": 6.2,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.20118430256843567
+    },
+    {
+      "asr_seconds": 0.17357882857322693,
+      "alignment_seconds": 9.667128324508667e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 162. Our fellow creature is not our neighbor, but our neighbor's neighbor, so thinks every nation.",
+          "start": 0.02,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " 162.",
+              "start": 0.02,
+              "end": 1.08,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " Our",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.8359375
+            },
+            {
+              "text": " fellow",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " creature",
+              "start": 2.56,
+              "end": 2.84,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " is",
+              "start": 2.84,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " our",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " neighbor,",
+              "start": 3.48,
+              "end": 3.72,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " but",
+              "start": 3.96,
+              "end": 4.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " our",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " neighbor's",
+              "start": 4.22,
+              "end": 4.66,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " neighbor,",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " so",
+              "start": 5.3,
+              "end": 5.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thinks",
+              "start": 5.6,
+              "end": 5.88,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " every",
+              "start": 5.88,
+              "end": 6.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nation.",
+              "start": 6.2,
+              "end": 6.58,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "162.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "raw": "Our",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "fellow",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "creature",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "raw": "is",
+          "start": 2.84,
+          "end": 3.12
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "our",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "neighbor,",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "raw": "but",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "raw": "our",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "neighbor's",
+          "start": 4.22,
+          "end": 4.66
+        },
+        {
+          "raw": "neighbor,",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "raw": "so",
+          "start": 5.3,
+          "end": 5.6
+        },
+        {
+          "raw": "thinks",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "raw": "every",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "raw": "nation.",
+          "start": 6.2,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "162.",
+        "\"Our",
+        "fellow-creature",
+        "is",
+        "not",
+        "our",
+        "neighbour,",
+        "but",
+        "our",
+        "neighbour's",
+        "neighbour\":--so",
+        "thinks",
+        "every",
+        "nation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          9,
+          11,
+          10,
+          13
+        ],
+        [
+          "equal",
+          11,
+          14,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          11,
+          10,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "162.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "text": "\"Our",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "fellow-creature",
+          "start": 2.3,
+          "end": 2.57
+        },
+        {
+          "text": "is",
+          "start": 2.84,
+          "end": 3.12
+        },
+        {
+          "text": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "our",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "neighbour,",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "text": "but",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "text": "our",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "neighbour's",
+          "start": 4.22,
+          "end": 4.91
+        },
+        {
+          "text": "neighbour\":--so",
+          "start": 4.91,
+          "end": 5.255
+        },
+        {
+          "text": "thinks",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "text": "every",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "text": "nation.",
+          "start": 6.2,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 16,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17370831966400146
+    },
+    {
+      "asr_seconds": 0.12769871205091476,
+      "alignment_seconds": 9.834766387939453e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 162. Our fellow creature is not our neighbor, but our neighbor's neighbor, so thinks every nation.",
+          "start": 0.02,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " 162.",
+              "start": 0.02,
+              "end": 1.08,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " Our",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.8359375
+            },
+            {
+              "text": " fellow",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " creature",
+              "start": 2.56,
+              "end": 2.84,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " is",
+              "start": 2.84,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " our",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " neighbor,",
+              "start": 3.48,
+              "end": 3.72,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " but",
+              "start": 3.96,
+              "end": 4.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " our",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " neighbor's",
+              "start": 4.22,
+              "end": 4.66,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " neighbor,",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " so",
+              "start": 5.3,
+              "end": 5.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thinks",
+              "start": 5.6,
+              "end": 5.88,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " every",
+              "start": 5.88,
+              "end": 6.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nation.",
+              "start": 6.2,
+              "end": 6.58,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "162.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "raw": "Our",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "fellow",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "creature",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "raw": "is",
+          "start": 2.84,
+          "end": 3.12
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "our",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "neighbor,",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "raw": "but",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "raw": "our",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "neighbor's",
+          "start": 4.22,
+          "end": 4.66
+        },
+        {
+          "raw": "neighbor,",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "raw": "so",
+          "start": 5.3,
+          "end": 5.6
+        },
+        {
+          "raw": "thinks",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "raw": "every",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "raw": "nation.",
+          "start": 6.2,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "162.",
+        "\"Our",
+        "fellow-creature",
+        "is",
+        "not",
+        "our",
+        "neighbour,",
+        "but",
+        "our",
+        "neighbour's",
+        "neighbour\":--so",
+        "thinks",
+        "every",
+        "nation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          9,
+          11,
+          10,
+          13
+        ],
+        [
+          "equal",
+          11,
+          14,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          11,
+          10,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "162.",
+          "start": 0.02,
+          "end": 1.08
+        },
+        {
+          "text": "\"Our",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "fellow-creature",
+          "start": 2.3,
+          "end": 2.57
+        },
+        {
+          "text": "is",
+          "start": 2.84,
+          "end": 3.12
+        },
+        {
+          "text": "not",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "our",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "neighbour,",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "text": "but",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "text": "our",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "neighbour's",
+          "start": 4.22,
+          "end": 4.91
+        },
+        {
+          "text": "neighbour\":--so",
+          "start": 4.91,
+          "end": 5.255
+        },
+        {
+          "text": "thinks",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "text": "every",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "text": "nation.",
+          "start": 6.2,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 16,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1278320699930191
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1bf331f78ac6e535aa469766da20f838153e1ff3caa9d601e9a4670cee00e57e",
+  "selected_reasons": []
+}

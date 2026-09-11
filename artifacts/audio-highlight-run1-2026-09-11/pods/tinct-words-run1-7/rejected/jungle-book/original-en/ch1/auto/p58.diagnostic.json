@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "22c251a7bc348e9b09e281525fe6b5390525da9722557a6d16a8f47650140730",
+  "attempts": [
+    {
+      "asr_seconds": 0.2038296377286315,
+      "alignment_seconds": 0.00010923109948635101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Good! Good!\" said the young wolves, who are always hungry. \"Listen to Bagheera. The cub can be bought for a price. It is the Law.\"",
+        "hotwords": "Good, Listen, Bagheera, It, Law"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good, Good! said the young wolves, who are always hungry. Listen to Bagheera. The cub can be bought for a price. It is the Law.",
+          "start": 0.02,
+          "end": 7.64,
+          "words": [
+            {
+              "text": " Good,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.0263214111328125
+            },
+            {
+              "text": " Good!",
+              "start": 0.92,
+              "end": 1.18,
+              "probability": 0.017669677734375
+            },
+            {
+              "text": " said",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.958984375
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " young",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " wolves,",
+              "start": 2.04,
+              "end": 2.38,
+              "probability": 0.876953125
+            },
+            {
+              "text": " who",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " are",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " always",
+              "start": 2.74,
+              "end": 3.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hungry.",
+              "start": 3.06,
+              "end": 3.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Listen",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " to",
+              "start": 4.42,
+              "end": 4.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Bagheera.",
+              "start": 4.64,
+              "end": 5.12,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " The",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " cub",
+              "start": 5.64,
+              "end": 5.78,
+              "probability": 0.865234375
+            },
+            {
+              "text": " can",
+              "start": 5.78,
+              "end": 5.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 5.98,
+              "end": 6.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bought",
+              "start": 6.1,
+              "end": 6.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 6.3,
+              "end": 6.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 6.48,
+              "end": 6.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " price.",
+              "start": 6.6,
+              "end": 6.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " It",
+              "start": 7.06,
+              "end": 7.1,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " is",
+              "start": 7.1,
+              "end": 7.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Law.",
+              "start": 7.38,
+              "end": 7.64,
+              "probability": 0.021881103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Good!",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "young",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "wolves,",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "raw": "who",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "are",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "always",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "raw": "hungry.",
+          "start": 3.06,
+          "end": 3.46
+        },
+        {
+          "raw": "Listen",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "to",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "raw": "Bagheera.",
+          "start": 4.64,
+          "end": 5.12
+        },
+        {
+          "raw": "The",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "cub",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "raw": "can",
+          "start": 5.78,
+          "end": 5.98
+        },
+        {
+          "raw": "be",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "raw": "bought",
+          "start": 6.1,
+          "end": 6.3
+        },
+        {
+          "raw": "for",
+          "start": 6.3,
+          "end": 6.48
+        },
+        {
+          "raw": "a",
+          "start": 6.48,
+          "end": 6.6
+        },
+        {
+          "raw": "price.",
+          "start": 6.6,
+          "end": 6.82
+        },
+        {
+          "raw": "It",
+          "start": 7.06,
+          "end": 7.1
+        },
+        {
+          "raw": "is",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "raw": "the",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "Law.",
+          "start": 7.38,
+          "end": 7.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Good!",
+        "Good!\"",
+        "said",
+        "the",
+        "young",
+        "wolves,",
+        "who",
+        "are",
+        "always",
+        "hungry.",
+        "\"Listen",
+        "to",
+        "Bagheera.",
+        "The",
+        "cub",
+        "can",
+        "be",
+        "bought",
+        "for",
+        "a",
+        "price.",
+        "It",
+        "is",
+        "the",
+        "Law.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Good!",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Good!\"",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "text": "said",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "young",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "wolves,",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "text": "who",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "are",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "always",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "text": "hungry.",
+          "start": 3.06,
+          "end": 3.46
+        },
+        {
+          "text": "\"Listen",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "to",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "text": "Bagheera.",
+          "start": 4.64,
+          "end": 5.12
+        },
+        {
+          "text": "The",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "cub",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "text": "can",
+          "start": 5.78,
+          "end": 5.98
+        },
+        {
+          "text": "be",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "text": "bought",
+          "start": 6.1,
+          "end": 6.3
+        },
+        {
+          "text": "for",
+          "start": 6.3,
+          "end": 6.48
+        },
+        {
+          "text": "a",
+          "start": 6.48,
+          "end": 6.6
+        },
+        {
+          "text": "price.",
+          "start": 6.6,
+          "end": 6.82
+        },
+        {
+          "text": "It",
+          "start": 7.06,
+          "end": 7.1
+        },
+        {
+          "text": "is",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "text": "the",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "Law.\"",
+          "start": 7.38,
+          "end": 7.64
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20399147737771273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e83ca47e600975f8f6e8ff3454f4f2dc620bc8a0efa18c518c86c3dbf1f73dd",
+  "selected_reasons": []
+}

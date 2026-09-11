@@ -1,0 +1,648 @@
+{
+  "complete": true,
+  "signature": "5d7e2822cc609380a0c6ab4063f3b96f225a17bf461e9545cdb9ccf7afeec561",
+  "attempts": [
+    {
+      "asr_seconds": 0.19779615942388773,
+      "alignment_seconds": 0.00020299572497606277,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is nothing. It is nothing. The boy held the master word. I could have done no less and ran circled up again to his roost",
+          "start": 0.05,
+          "end": 7.95,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.623046875
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.986328125
+            },
+            {
+              "text": " nothing.",
+              "start": 0.65,
+              "end": 1.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " It",
+              "start": 1.41,
+              "end": 1.45,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nothing.",
+              "start": 1.59,
+              "end": 1.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " The",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.982421875
+            },
+            {
+              "text": " boy",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " held",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " master",
+              "start": 3.25,
+              "end": 3.63,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " word.",
+              "start": 3.63,
+              "end": 3.93,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " I",
+              "start": 4.45,
+              "end": 4.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " could",
+              "start": 4.51,
+              "end": 4.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 4.61,
+              "end": 4.73,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " done",
+              "start": 4.73,
+              "end": 4.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 4.91,
+              "end": 5.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " less",
+              "start": 5.13,
+              "end": 5.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.47,
+              "end": 6.07,
+              "probability": 0.307861328125
+            },
+            {
+              "text": " ran",
+              "start": 6.07,
+              "end": 6.31,
+              "probability": 0.748046875
+            },
+            {
+              "text": " circled",
+              "start": 6.31,
+              "end": 6.73,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " up",
+              "start": 6.73,
+              "end": 6.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " again",
+              "start": 6.95,
+              "end": 7.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 7.19,
+              "end": 7.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 7.37,
+              "end": 7.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " roost",
+              "start": 7.49,
+              "end": 7.95,
+              "probability": 0.996826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "nothing.",
+          "start": 0.65,
+          "end": 1.01
+        },
+        {
+          "raw": "It",
+          "start": 1.41,
+          "end": 1.45
+        },
+        {
+          "raw": "is",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "nothing.",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "raw": "The",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "boy",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "held",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "raw": "the",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "master",
+          "start": 3.25,
+          "end": 3.63
+        },
+        {
+          "raw": "word.",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "raw": "I",
+          "start": 4.45,
+          "end": 4.51
+        },
+        {
+          "raw": "could",
+          "start": 4.51,
+          "end": 4.61
+        },
+        {
+          "raw": "have",
+          "start": 4.61,
+          "end": 4.73
+        },
+        {
+          "raw": "done",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "raw": "no",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "raw": "less",
+          "start": 5.13,
+          "end": 5.47
+        },
+        {
+          "raw": "and",
+          "start": 5.47,
+          "end": 6.07
+        },
+        {
+          "raw": "ran",
+          "start": 6.07,
+          "end": 6.31
+        },
+        {
+          "raw": "circled",
+          "start": 6.31,
+          "end": 6.73
+        },
+        {
+          "raw": "up",
+          "start": 6.73,
+          "end": 6.95
+        },
+        {
+          "raw": "again",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "raw": "to",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "raw": "his",
+          "start": 7.37,
+          "end": 7.49
+        },
+        {
+          "raw": "roost",
+          "start": 7.49,
+          "end": 7.95
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "nothing.",
+        "It",
+        "is",
+        "nothing.",
+        "The",
+        "boy",
+        "held",
+        "the",
+        "Master",
+        "Word.",
+        "I",
+        "could",
+        "have",
+        "done",
+        "no",
+        "less,\"",
+        "and",
+        "Rann",
+        "circled",
+        "up",
+        "again",
+        "to",
+        "his",
+        "roost."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          26,
+          20,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "nothing.",
+          "start": 0.65,
+          "end": 1.01
+        },
+        {
+          "text": "It",
+          "start": 1.41,
+          "end": 1.45
+        },
+        {
+          "text": "is",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "nothing.",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "text": "The",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "boy",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "held",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "text": "the",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "Master",
+          "start": 3.25,
+          "end": 3.63
+        },
+        {
+          "text": "Word.",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "text": "I",
+          "start": 4.45,
+          "end": 4.51
+        },
+        {
+          "text": "could",
+          "start": 4.51,
+          "end": 4.61
+        },
+        {
+          "text": "have",
+          "start": 4.61,
+          "end": 4.73
+        },
+        {
+          "text": "done",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "text": "no",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "text": "less,\"",
+          "start": 5.13,
+          "end": 5.47
+        },
+        {
+          "text": "and",
+          "start": 5.47,
+          "end": 6.07
+        },
+        {
+          "text": "Rann",
+          "start": 6.07,
+          "end": 6.19
+        },
+        {
+          "text": "circled",
+          "start": 6.31,
+          "end": 6.73
+        },
+        {
+          "text": "up",
+          "start": 6.73,
+          "end": 6.95
+        },
+        {
+          "text": "again",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "text": "to",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "text": "his",
+          "start": 7.37,
+          "end": 7.49
+        },
+        {
+          "text": "roost.",
+          "start": 7.49,
+          "end": 7.95
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.19811744894832373
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "927af2e70dbbb96f21ab444f7bbdb99e264459059b5c585e9746f776fa285b5f",
+  "selected_reasons": []
+}

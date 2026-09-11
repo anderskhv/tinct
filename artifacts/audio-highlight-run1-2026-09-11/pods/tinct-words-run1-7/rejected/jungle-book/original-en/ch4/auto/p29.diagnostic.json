@@ -1,0 +1,1896 @@
+{
+  "complete": true,
+  "signature": "141c14149367e3bf0313ce9b4ac5afb94d46ea26bbce159306c4a2e8f6bffa56",
+  "attempts": [
+    {
+      "asr_seconds": 0.39365826919674873,
+      "alignment_seconds": 0.00024372991174459457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They set out together across the Pacific, and Matkah showed Kotick how to sleep on his back with his flippers tucked down by his side and his little nose just out of the water. No cradle is so comfortable as the long, rocking swell of the Pacific. When Kotick felt his skin tingle all over, Matkah told him he was learning the \"feel of the water,\" and that tingly, prickly feelings meant bad weather coming, and he must swim hard and get away.",
+        "hotwords": "They, Pacific, Matkah, Kotick, No, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They set out together across the Pacific, and Matkah showed Kotick how to sleep on his back with his flippers tucked down by his side and his little nose just out of the water.",
+          "start": 0.05,
+          "end": 8.91,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " set",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.962890625
+            },
+            {
+              "text": " out",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " together",
+              "start": 0.87,
+              "end": 1.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " across",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Pacific,",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " and",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Matkah",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.36366907755533856
+            },
+            {
+              "text": " showed",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kotick",
+              "start": 3.39,
+              "end": 3.75,
+              "probability": 0.652099609375
+            },
+            {
+              "text": " how",
+              "start": 3.75,
+              "end": 3.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sleep",
+              "start": 4.05,
+              "end": 4.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 4.43,
+              "end": 4.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back",
+              "start": 4.57,
+              "end": 4.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 4.81,
+              "end": 4.97,
+              "probability": 0.982421875
+            },
+            {
+              "text": " his",
+              "start": 4.97,
+              "end": 5.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " flippers",
+              "start": 5.13,
+              "end": 5.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tucked",
+              "start": 5.49,
+              "end": 5.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " down",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 6.05,
+              "end": 6.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 6.25,
+              "end": 6.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " side",
+              "start": 6.43,
+              "end": 6.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 6.79,
+              "end": 7.31,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " his",
+              "start": 7.31,
+              "end": 7.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " little",
+              "start": 7.43,
+              "end": 7.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nose",
+              "start": 7.65,
+              "end": 8.01,
+              "probability": 1.0
+            },
+            {
+              "text": " just",
+              "start": 8.01,
+              "end": 8.25,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " out",
+              "start": 8.25,
+              "end": 8.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 8.43,
+              "end": 8.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 8.55,
+              "end": 8.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " water.",
+              "start": 8.63,
+              "end": 8.91,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " No cradle is so comfortable as the long, rocking swell of the Pacific. When Kotick felt his skin tingle all over, Matkah told him he was learning the feel of the water,",
+          "start": 9.63,
+          "end": 19.13,
+          "words": [
+            {
+              "text": " No",
+              "start": 9.63,
+              "end": 9.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " cradle",
+              "start": 9.83,
+              "end": 10.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 10.17,
+              "end": 10.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 10.39,
+              "end": 10.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " comfortable",
+              "start": 10.59,
+              "end": 10.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 10.97,
+              "end": 11.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 11.29,
+              "end": 11.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " long,",
+              "start": 11.49,
+              "end": 11.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rocking",
+              "start": 12.15,
+              "end": 12.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " swell",
+              "start": 12.37,
+              "end": 12.73,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 12.73,
+              "end": 12.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 12.95,
+              "end": 13.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Pacific.",
+              "start": 13.07,
+              "end": 13.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " When",
+              "start": 14.17,
+              "end": 14.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Kotick",
+              "start": 14.31,
+              "end": 14.63,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " felt",
+              "start": 14.63,
+              "end": 14.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 14.85,
+              "end": 15.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " skin",
+              "start": 15.05,
+              "end": 15.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tingle",
+              "start": 15.39,
+              "end": 15.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " all",
+              "start": 15.71,
+              "end": 16.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " over,",
+              "start": 16.01,
+              "end": 16.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Matkah",
+              "start": 16.77,
+              "end": 17.13,
+              "probability": 0.9962565104166666
+            },
+            {
+              "text": " told",
+              "start": 17.13,
+              "end": 17.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 17.35,
+              "end": 17.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 17.55,
+              "end": 17.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " was",
+              "start": 17.67,
+              "end": 17.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " learning",
+              "start": 17.81,
+              "end": 18.05,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 18.05,
+              "end": 18.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " feel",
+              "start": 18.29,
+              "end": 18.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 18.49,
+              "end": 18.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 18.67,
+              "end": 18.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " water,",
+              "start": 18.79,
+              "end": 19.13,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " and that tingly, prickly feelings meant bad weather coming, and he must swim hard and get away.",
+          "start": 19.61,
+          "end": 25.19,
+          "words": [
+            {
+              "text": " and",
+              "start": 19.61,
+              "end": 19.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 19.89,
+              "end": 20.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tingly,",
+              "start": 20.07,
+              "end": 20.47,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " prickly",
+              "start": 21.05,
+              "end": 21.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feelings",
+              "start": 21.33,
+              "end": 21.79,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " meant",
+              "start": 21.79,
+              "end": 22.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bad",
+              "start": 22.09,
+              "end": 22.47,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " weather",
+              "start": 22.47,
+              "end": 22.69,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " coming,",
+              "start": 22.69,
+              "end": 23.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 23.49,
+              "end": 23.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 23.67,
+              "end": 23.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " must",
+              "start": 23.77,
+              "end": 23.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " swim",
+              "start": 23.97,
+              "end": 24.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hard",
+              "start": 24.29,
+              "end": 24.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 24.59,
+              "end": 24.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " get",
+              "start": 24.79,
+              "end": 24.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away.",
+              "start": 24.91,
+              "end": 25.19,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "set",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "out",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "together",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "raw": "across",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "Pacific,",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "Matkah",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "showed",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "Kotick",
+          "start": 3.39,
+          "end": 3.75
+        },
+        {
+          "raw": "how",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "raw": "to",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "sleep",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "raw": "on",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "his",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "raw": "back",
+          "start": 4.57,
+          "end": 4.81
+        },
+        {
+          "raw": "with",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "raw": "his",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "raw": "flippers",
+          "start": 5.13,
+          "end": 5.49
+        },
+        {
+          "raw": "tucked",
+          "start": 5.49,
+          "end": 5.75
+        },
+        {
+          "raw": "down",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "raw": "by",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "raw": "his",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "raw": "side",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "raw": "and",
+          "start": 6.79,
+          "end": 7.31
+        },
+        {
+          "raw": "his",
+          "start": 7.31,
+          "end": 7.43
+        },
+        {
+          "raw": "little",
+          "start": 7.43,
+          "end": 7.65
+        },
+        {
+          "raw": "nose",
+          "start": 7.65,
+          "end": 8.01
+        },
+        {
+          "raw": "just",
+          "start": 8.01,
+          "end": 8.25
+        },
+        {
+          "raw": "out",
+          "start": 8.25,
+          "end": 8.43
+        },
+        {
+          "raw": "of",
+          "start": 8.43,
+          "end": 8.55
+        },
+        {
+          "raw": "the",
+          "start": 8.55,
+          "end": 8.63
+        },
+        {
+          "raw": "water.",
+          "start": 8.63,
+          "end": 8.91
+        },
+        {
+          "raw": "No",
+          "start": 9.63,
+          "end": 9.83
+        },
+        {
+          "raw": "cradle",
+          "start": 9.83,
+          "end": 10.17
+        },
+        {
+          "raw": "is",
+          "start": 10.17,
+          "end": 10.39
+        },
+        {
+          "raw": "so",
+          "start": 10.39,
+          "end": 10.59
+        },
+        {
+          "raw": "comfortable",
+          "start": 10.59,
+          "end": 10.97
+        },
+        {
+          "raw": "as",
+          "start": 10.97,
+          "end": 11.29
+        },
+        {
+          "raw": "the",
+          "start": 11.29,
+          "end": 11.49
+        },
+        {
+          "raw": "long,",
+          "start": 11.49,
+          "end": 11.83
+        },
+        {
+          "raw": "rocking",
+          "start": 12.15,
+          "end": 12.37
+        },
+        {
+          "raw": "swell",
+          "start": 12.37,
+          "end": 12.73
+        },
+        {
+          "raw": "of",
+          "start": 12.73,
+          "end": 12.95
+        },
+        {
+          "raw": "the",
+          "start": 12.95,
+          "end": 13.07
+        },
+        {
+          "raw": "Pacific.",
+          "start": 13.07,
+          "end": 13.41
+        },
+        {
+          "raw": "When",
+          "start": 14.17,
+          "end": 14.31
+        },
+        {
+          "raw": "Kotick",
+          "start": 14.31,
+          "end": 14.63
+        },
+        {
+          "raw": "felt",
+          "start": 14.63,
+          "end": 14.85
+        },
+        {
+          "raw": "his",
+          "start": 14.85,
+          "end": 15.05
+        },
+        {
+          "raw": "skin",
+          "start": 15.05,
+          "end": 15.39
+        },
+        {
+          "raw": "tingle",
+          "start": 15.39,
+          "end": 15.71
+        },
+        {
+          "raw": "all",
+          "start": 15.71,
+          "end": 16.01
+        },
+        {
+          "raw": "over,",
+          "start": 16.01,
+          "end": 16.35
+        },
+        {
+          "raw": "Matkah",
+          "start": 16.77,
+          "end": 17.13
+        },
+        {
+          "raw": "told",
+          "start": 17.13,
+          "end": 17.35
+        },
+        {
+          "raw": "him",
+          "start": 17.35,
+          "end": 17.55
+        },
+        {
+          "raw": "he",
+          "start": 17.55,
+          "end": 17.67
+        },
+        {
+          "raw": "was",
+          "start": 17.67,
+          "end": 17.81
+        },
+        {
+          "raw": "learning",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "raw": "the",
+          "start": 18.05,
+          "end": 18.29
+        },
+        {
+          "raw": "feel",
+          "start": 18.29,
+          "end": 18.49
+        },
+        {
+          "raw": "of",
+          "start": 18.49,
+          "end": 18.67
+        },
+        {
+          "raw": "the",
+          "start": 18.67,
+          "end": 18.79
+        },
+        {
+          "raw": "water,",
+          "start": 18.79,
+          "end": 19.13
+        },
+        {
+          "raw": "and",
+          "start": 19.61,
+          "end": 19.89
+        },
+        {
+          "raw": "that",
+          "start": 19.89,
+          "end": 20.07
+        },
+        {
+          "raw": "tingly,",
+          "start": 20.07,
+          "end": 20.47
+        },
+        {
+          "raw": "prickly",
+          "start": 21.05,
+          "end": 21.33
+        },
+        {
+          "raw": "feelings",
+          "start": 21.33,
+          "end": 21.79
+        },
+        {
+          "raw": "meant",
+          "start": 21.79,
+          "end": 22.09
+        },
+        {
+          "raw": "bad",
+          "start": 22.09,
+          "end": 22.47
+        },
+        {
+          "raw": "weather",
+          "start": 22.47,
+          "end": 22.69
+        },
+        {
+          "raw": "coming,",
+          "start": 22.69,
+          "end": 23.05
+        },
+        {
+          "raw": "and",
+          "start": 23.49,
+          "end": 23.67
+        },
+        {
+          "raw": "he",
+          "start": 23.67,
+          "end": 23.77
+        },
+        {
+          "raw": "must",
+          "start": 23.77,
+          "end": 23.97
+        },
+        {
+          "raw": "swim",
+          "start": 23.97,
+          "end": 24.29
+        },
+        {
+          "raw": "hard",
+          "start": 24.29,
+          "end": 24.59
+        },
+        {
+          "raw": "and",
+          "start": 24.59,
+          "end": 24.79
+        },
+        {
+          "raw": "get",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "raw": "away.",
+          "start": 24.91,
+          "end": 25.19
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "set",
+        "out",
+        "together",
+        "across",
+        "the",
+        "Pacific,",
+        "and",
+        "Matkah",
+        "showed",
+        "Kotick",
+        "how",
+        "to",
+        "sleep",
+        "on",
+        "his",
+        "back",
+        "with",
+        "his",
+        "flippers",
+        "tucked",
+        "down",
+        "by",
+        "his",
+        "side",
+        "and",
+        "his",
+        "little",
+        "nose",
+        "just",
+        "out",
+        "of",
+        "the",
+        "water.",
+        "No",
+        "cradle",
+        "is",
+        "so",
+        "comfortable",
+        "as",
+        "the",
+        "long,",
+        "rocking",
+        "swell",
+        "of",
+        "the",
+        "Pacific.",
+        "When",
+        "Kotick",
+        "felt",
+        "his",
+        "skin",
+        "tingle",
+        "all",
+        "over,",
+        "Matkah",
+        "told",
+        "him",
+        "he",
+        "was",
+        "learning",
+        "the",
+        "\"feel",
+        "of",
+        "the",
+        "water,\"",
+        "and",
+        "that",
+        "tingly,",
+        "prickly",
+        "feelings",
+        "meant",
+        "bad",
+        "weather",
+        "coming,",
+        "and",
+        "he",
+        "must",
+        "swim",
+        "hard",
+        "and",
+        "get",
+        "away."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          83,
+          0,
+          83
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "set",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "out",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "together",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "text": "across",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "text": "the",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "Pacific,",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "Matkah",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "showed",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "Kotick",
+          "start": 3.39,
+          "end": 3.75
+        },
+        {
+          "text": "how",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "text": "to",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "sleep",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "text": "on",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "text": "his",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "text": "back",
+          "start": 4.57,
+          "end": 4.81
+        },
+        {
+          "text": "with",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "text": "his",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "text": "flippers",
+          "start": 5.13,
+          "end": 5.49
+        },
+        {
+          "text": "tucked",
+          "start": 5.49,
+          "end": 5.75
+        },
+        {
+          "text": "down",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "text": "by",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "text": "his",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "text": "side",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "text": "and",
+          "start": 6.79,
+          "end": 7.31
+        },
+        {
+          "text": "his",
+          "start": 7.31,
+          "end": 7.43
+        },
+        {
+          "text": "little",
+          "start": 7.43,
+          "end": 7.65
+        },
+        {
+          "text": "nose",
+          "start": 7.65,
+          "end": 8.01
+        },
+        {
+          "text": "just",
+          "start": 8.01,
+          "end": 8.25
+        },
+        {
+          "text": "out",
+          "start": 8.25,
+          "end": 8.43
+        },
+        {
+          "text": "of",
+          "start": 8.43,
+          "end": 8.55
+        },
+        {
+          "text": "the",
+          "start": 8.55,
+          "end": 8.63
+        },
+        {
+          "text": "water.",
+          "start": 8.63,
+          "end": 8.91
+        },
+        {
+          "text": "No",
+          "start": 9.63,
+          "end": 9.83
+        },
+        {
+          "text": "cradle",
+          "start": 9.83,
+          "end": 10.17
+        },
+        {
+          "text": "is",
+          "start": 10.17,
+          "end": 10.39
+        },
+        {
+          "text": "so",
+          "start": 10.39,
+          "end": 10.59
+        },
+        {
+          "text": "comfortable",
+          "start": 10.59,
+          "end": 10.97
+        },
+        {
+          "text": "as",
+          "start": 10.97,
+          "end": 11.29
+        },
+        {
+          "text": "the",
+          "start": 11.29,
+          "end": 11.49
+        },
+        {
+          "text": "long,",
+          "start": 11.49,
+          "end": 11.83
+        },
+        {
+          "text": "rocking",
+          "start": 12.15,
+          "end": 12.37
+        },
+        {
+          "text": "swell",
+          "start": 12.37,
+          "end": 12.73
+        },
+        {
+          "text": "of",
+          "start": 12.73,
+          "end": 12.95
+        },
+        {
+          "text": "the",
+          "start": 12.95,
+          "end": 13.07
+        },
+        {
+          "text": "Pacific.",
+          "start": 13.07,
+          "end": 13.41
+        },
+        {
+          "text": "When",
+          "start": 14.17,
+          "end": 14.31
+        },
+        {
+          "text": "Kotick",
+          "start": 14.31,
+          "end": 14.63
+        },
+        {
+          "text": "felt",
+          "start": 14.63,
+          "end": 14.85
+        },
+        {
+          "text": "his",
+          "start": 14.85,
+          "end": 15.05
+        },
+        {
+          "text": "skin",
+          "start": 15.05,
+          "end": 15.39
+        },
+        {
+          "text": "tingle",
+          "start": 15.39,
+          "end": 15.71
+        },
+        {
+          "text": "all",
+          "start": 15.71,
+          "end": 16.01
+        },
+        {
+          "text": "over,",
+          "start": 16.01,
+          "end": 16.35
+        },
+        {
+          "text": "Matkah",
+          "start": 16.77,
+          "end": 17.13
+        },
+        {
+          "text": "told",
+          "start": 17.13,
+          "end": 17.35
+        },
+        {
+          "text": "him",
+          "start": 17.35,
+          "end": 17.55
+        },
+        {
+          "text": "he",
+          "start": 17.55,
+          "end": 17.67
+        },
+        {
+          "text": "was",
+          "start": 17.67,
+          "end": 17.81
+        },
+        {
+          "text": "learning",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "text": "the",
+          "start": 18.05,
+          "end": 18.29
+        },
+        {
+          "text": "\"feel",
+          "start": 18.29,
+          "end": 18.49
+        },
+        {
+          "text": "of",
+          "start": 18.49,
+          "end": 18.67
+        },
+        {
+          "text": "the",
+          "start": 18.67,
+          "end": 18.79
+        },
+        {
+          "text": "water,\"",
+          "start": 18.79,
+          "end": 19.13
+        },
+        {
+          "text": "and",
+          "start": 19.61,
+          "end": 19.89
+        },
+        {
+          "text": "that",
+          "start": 19.89,
+          "end": 20.07
+        },
+        {
+          "text": "tingly,",
+          "start": 20.07,
+          "end": 20.47
+        },
+        {
+          "text": "prickly",
+          "start": 21.05,
+          "end": 21.33
+        },
+        {
+          "text": "feelings",
+          "start": 21.33,
+          "end": 21.79
+        },
+        {
+          "text": "meant",
+          "start": 21.79,
+          "end": 22.09
+        },
+        {
+          "text": "bad",
+          "start": 22.09,
+          "end": 22.47
+        },
+        {
+          "text": "weather",
+          "start": 22.47,
+          "end": 22.69
+        },
+        {
+          "text": "coming,",
+          "start": 22.69,
+          "end": 23.05
+        },
+        {
+          "text": "and",
+          "start": 23.49,
+          "end": 23.67
+        },
+        {
+          "text": "he",
+          "start": 23.67,
+          "end": 23.77
+        },
+        {
+          "text": "must",
+          "start": 23.77,
+          "end": 23.97
+        },
+        {
+          "text": "swim",
+          "start": 23.97,
+          "end": 24.29
+        },
+        {
+          "text": "hard",
+          "start": 24.29,
+          "end": 24.59
+        },
+        {
+          "text": "and",
+          "start": 24.59,
+          "end": 24.79
+        },
+        {
+          "text": "get",
+          "start": 24.79,
+          "end": 24.91
+        },
+        {
+          "text": "away.",
+          "start": 24.91,
+          "end": 25.19
+        }
+      ],
+      "stats": {
+        "expected_words": 83,
+        "heard_words": 83,
+        "matched_words": 83
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3940523760393262
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9ba102932e5770646937bda7cac67fba163b0414c3ba94f4254a8e3ba2d5ef46",
+  "selected_reasons": []
+}

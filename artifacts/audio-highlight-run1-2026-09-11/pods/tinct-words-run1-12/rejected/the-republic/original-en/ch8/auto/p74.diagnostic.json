@@ -1,0 +1,539 @@
+{
+  "complete": true,
+  "signature": "7452e27f573d43993494d3a26e8c8dcec312bbb613bcad559aaecad8cdb33a51",
+  "attempts": [
+    {
+      "asr_seconds": 0.18697288213297725,
+      "alignment_seconds": 0.00016622710973024368,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A government resting on a valuation of property, in which the rich have power and the poor man is deprived of it."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A government resting on a valuation of property, in which the rich have power and the poor man is deprived of it.",
+          "start": 0.05,
+          "end": 6.89,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.256591796875
+            },
+            {
+              "text": " government",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.9453125
+            },
+            {
+              "text": " resting",
+              "start": 0.81,
+              "end": 1.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " on",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 1.57,
+              "end": 1.65,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " valuation",
+              "start": 1.65,
+              "end": 2.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 2.11,
+              "end": 2.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " property,",
+              "start": 2.49,
+              "end": 2.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 3.25,
+              "end": 3.57,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " which",
+              "start": 3.57,
+              "end": 3.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.73,
+              "end": 3.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " rich",
+              "start": 3.91,
+              "end": 4.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 4.07,
+              "end": 4.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " power",
+              "start": 4.33,
+              "end": 4.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.71,
+              "end": 5.27,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " the",
+              "start": 5.27,
+              "end": 5.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " poor",
+              "start": 5.37,
+              "end": 5.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " man",
+              "start": 5.59,
+              "end": 5.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 5.87,
+              "end": 6.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deprived",
+              "start": 6.07,
+              "end": 6.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "government",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "resting",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "raw": "on",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "raw": "valuation",
+          "start": 1.65,
+          "end": 2.11
+        },
+        {
+          "raw": "of",
+          "start": 2.11,
+          "end": 2.49
+        },
+        {
+          "raw": "property,",
+          "start": 2.49,
+          "end": 2.93
+        },
+        {
+          "raw": "in",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "raw": "which",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "raw": "the",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "raw": "rich",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "raw": "have",
+          "start": 4.07,
+          "end": 4.33
+        },
+        {
+          "raw": "power",
+          "start": 4.33,
+          "end": 4.71
+        },
+        {
+          "raw": "and",
+          "start": 4.71,
+          "end": 5.27
+        },
+        {
+          "raw": "the",
+          "start": 5.27,
+          "end": 5.37
+        },
+        {
+          "raw": "poor",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "raw": "man",
+          "start": 5.59,
+          "end": 5.87
+        },
+        {
+          "raw": "is",
+          "start": 5.87,
+          "end": 6.07
+        },
+        {
+          "raw": "deprived",
+          "start": 6.07,
+          "end": 6.45
+        },
+        {
+          "raw": "of",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "raw": "it.",
+          "start": 6.71,
+          "end": 6.89
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "government",
+        "resting",
+        "on",
+        "a",
+        "valuation",
+        "of",
+        "property,",
+        "in",
+        "which",
+        "the",
+        "rich",
+        "have",
+        "power",
+        "and",
+        "the",
+        "poor",
+        "man",
+        "is",
+        "deprived",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "government",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "resting",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "text": "on",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "a",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "text": "valuation",
+          "start": 1.65,
+          "end": 2.11
+        },
+        {
+          "text": "of",
+          "start": 2.11,
+          "end": 2.49
+        },
+        {
+          "text": "property,",
+          "start": 2.49,
+          "end": 2.93
+        },
+        {
+          "text": "in",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "text": "which",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "text": "the",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "text": "rich",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "text": "have",
+          "start": 4.07,
+          "end": 4.33
+        },
+        {
+          "text": "power",
+          "start": 4.33,
+          "end": 4.71
+        },
+        {
+          "text": "and",
+          "start": 4.71,
+          "end": 5.27
+        },
+        {
+          "text": "the",
+          "start": 5.27,
+          "end": 5.37
+        },
+        {
+          "text": "poor",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "text": "man",
+          "start": 5.59,
+          "end": 5.87
+        },
+        {
+          "text": "is",
+          "start": 5.87,
+          "end": 6.07
+        },
+        {
+          "text": "deprived",
+          "start": 6.07,
+          "end": 6.45
+        },
+        {
+          "text": "of",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "text": "it.",
+          "start": 6.71,
+          "end": 6.89
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1872536870650947
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a8b178c2f074b9181c6a36e420fb8677b5a3683dcf2f56b10a02b2d60971a6aa",
+  "selected_reasons": []
+}

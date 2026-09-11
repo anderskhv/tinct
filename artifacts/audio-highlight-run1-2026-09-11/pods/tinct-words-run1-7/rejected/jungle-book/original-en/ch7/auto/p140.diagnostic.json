@@ -1,0 +1,7274 @@
+{
+  "complete": true,
+  "signature": "bcffb0ccb4f0cc30ec02d3d200d8ee4de2e230ab597f8293744c98ac393d7b0a",
+  "attempts": [
+    {
+      "asr_seconds": 0.44129843823611736,
+      "alignment_seconds": 0.00032890401780605316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The rain began to fall again, and for a while it was too misty to see what the troops were doing. They had made a big half circle across the plain, and were spreading out into a line. That line grew and grew and grew till it was three-quarters of a mile long from wing to wing--one solid wall of men, horses, and guns. Then it came on straight toward the Viceroy and the Amir, and as it got nearer the ground began to shake, like the deck of a steamer when the engines are going fast.",
+        "hotwords": "They, That, Then, Viceroy, Amir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The rain began to fall again, and for a while it was too misty to see what the troops were doing.",
+          "start": 0.02,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " rain",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " began",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fall",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again,",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " while",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " was",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " misty",
+              "start": 3.18,
+              "end": 3.58,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " to",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " troops",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " were",
+              "start": 4.28,
+              "end": 4.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " doing.",
+              "start": 4.5,
+              "end": 4.8,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " They had made a big half circle across the plain, and were spreading out into a line.",
+          "start": 5.42,
+          "end": 9.36,
+          "words": [
+            {
+              "text": " They",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " had",
+              "start": 5.56,
+              "end": 5.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " made",
+              "start": 5.66,
+              "end": 5.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 5.76,
+              "end": 5.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " big",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " half",
+              "start": 6.04,
+              "end": 6.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " circle",
+              "start": 6.28,
+              "end": 6.58,
+              "probability": 0.5947265625
+            },
+            {
+              "text": " across",
+              "start": 6.58,
+              "end": 6.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.92,
+              "end": 7.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " plain,",
+              "start": 7.16,
+              "end": 7.46,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " and",
+              "start": 7.88,
+              "end": 8.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 8.06,
+              "end": 8.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " spreading",
+              "start": 8.16,
+              "end": 8.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " out",
+              "start": 8.44,
+              "end": 8.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 8.88,
+              "end": 9.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " line.",
+              "start": 9.06,
+              "end": 9.36,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " That line grew and grew and grew till it was three-quarters of a mile long from wing to wing-one solid wall of men, horses, and guns.",
+          "start": 10.02,
+          "end": 17.32,
+          "words": [
+            {
+              "text": " That",
+              "start": 10.02,
+              "end": 10.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " line",
+              "start": 10.24,
+              "end": 10.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " grew",
+              "start": 10.48,
+              "end": 10.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 10.8,
+              "end": 11.06,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " grew",
+              "start": 11.06,
+              "end": 11.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 11.34,
+              "end": 11.54,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " grew",
+              "start": 11.54,
+              "end": 11.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " till",
+              "start": 11.86,
+              "end": 12.02,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " it",
+              "start": 12.02,
+              "end": 12.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 12.14,
+              "end": 12.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " three",
+              "start": 12.26,
+              "end": 12.48,
+              "probability": 0.93505859375
+            },
+            {
+              "text": "-quarters",
+              "start": 12.48,
+              "end": 12.8,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " of",
+              "start": 12.8,
+              "end": 13.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 13.02,
+              "end": 13.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " mile",
+              "start": 13.12,
+              "end": 13.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " long",
+              "start": 13.38,
+              "end": 13.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " from",
+              "start": 13.66,
+              "end": 13.92,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " wing",
+              "start": 13.92,
+              "end": 14.18,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 14.18,
+              "end": 14.46,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " wing",
+              "start": 14.46,
+              "end": 14.64,
+              "probability": 0.98388671875
+            },
+            {
+              "text": "-one",
+              "start": 14.64,
+              "end": 14.84,
+              "probability": 0.59185791015625
+            },
+            {
+              "text": " solid",
+              "start": 14.84,
+              "end": 15.28,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " wall",
+              "start": 15.28,
+              "end": 15.54,
+              "probability": 0.955078125
+            },
+            {
+              "text": " of",
+              "start": 15.54,
+              "end": 15.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " men,",
+              "start": 15.7,
+              "end": 15.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " horses,",
+              "start": 16.4,
+              "end": 16.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 16.96,
+              "end": 17.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guns.",
+              "start": 17.02,
+              "end": 17.32,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Then it came on straight toward the Viceroy and the Amir, and as it got nearer the ground began to shake, like the deck of a steamer when the engines are going fast.",
+          "start": 18.16,
+          "end": 26.32,
+          "words": [
+            {
+              "text": " Then",
+              "start": 18.16,
+              "end": 18.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 18.3,
+              "end": 18.42,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " came",
+              "start": 18.42,
+              "end": 18.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 18.56,
+              "end": 18.76,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " straight",
+              "start": 18.76,
+              "end": 19.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " toward",
+              "start": 19.08,
+              "end": 19.38,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " the",
+              "start": 19.38,
+              "end": 19.56,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Viceroy",
+              "start": 19.56,
+              "end": 20.04,
+              "probability": 0.8616536458333334
+            },
+            {
+              "text": " and",
+              "start": 20.04,
+              "end": 20.24,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 20.24,
+              "end": 20.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Amir,",
+              "start": 20.36,
+              "end": 20.58,
+              "probability": 0.2802734375
+            },
+            {
+              "text": " and",
+              "start": 21.08,
+              "end": 21.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 21.32,
+              "end": 21.42,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 21.42,
+              "end": 21.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " got",
+              "start": 21.54,
+              "end": 21.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nearer",
+              "start": 21.68,
+              "end": 21.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 21.94,
+              "end": 22.16,
+              "probability": 0.806640625
+            },
+            {
+              "text": " ground",
+              "start": 22.16,
+              "end": 22.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " began",
+              "start": 22.5,
+              "end": 22.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 22.8,
+              "end": 23.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shake,",
+              "start": 23.0,
+              "end": 23.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " like",
+              "start": 23.7,
+              "end": 23.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 23.84,
+              "end": 24.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deck",
+              "start": 24.02,
+              "end": 24.2,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 24.2,
+              "end": 24.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 24.34,
+              "end": 24.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " steamer",
+              "start": 24.44,
+              "end": 24.84,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " when",
+              "start": 24.84,
+              "end": 25.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 25.04,
+              "end": 25.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " engines",
+              "start": 25.16,
+              "end": 25.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 25.48,
+              "end": 25.7,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " going",
+              "start": 25.7,
+              "end": 25.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fast.",
+              "start": 25.92,
+              "end": 26.32,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "rain",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "began",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "fall",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "again,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "for",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "while",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "it",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "was",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "too",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "misty",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "raw": "to",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "see",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "what",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "troops",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "were",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "raw": "doing.",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "raw": "They",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "had",
+          "start": 5.56,
+          "end": 5.66
+        },
+        {
+          "raw": "made",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "raw": "a",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "raw": "big",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "half",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "raw": "circle",
+          "start": 6.28,
+          "end": 6.58
+        },
+        {
+          "raw": "across",
+          "start": 6.58,
+          "end": 6.92
+        },
+        {
+          "raw": "the",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "raw": "plain,",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "raw": "and",
+          "start": 7.88,
+          "end": 8.06
+        },
+        {
+          "raw": "were",
+          "start": 8.06,
+          "end": 8.16
+        },
+        {
+          "raw": "spreading",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "raw": "out",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "raw": "into",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "raw": "line.",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "raw": "That",
+          "start": 10.02,
+          "end": 10.24
+        },
+        {
+          "raw": "line",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "raw": "grew",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "raw": "and",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "raw": "grew",
+          "start": 11.06,
+          "end": 11.34
+        },
+        {
+          "raw": "and",
+          "start": 11.34,
+          "end": 11.54
+        },
+        {
+          "raw": "grew",
+          "start": 11.54,
+          "end": 11.86
+        },
+        {
+          "raw": "till",
+          "start": 11.86,
+          "end": 12.02
+        },
+        {
+          "raw": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "raw": "was",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "raw": "three",
+          "start": 12.26,
+          "end": 12.48
+        },
+        {
+          "raw": "-quarters",
+          "start": 12.48,
+          "end": 12.8
+        },
+        {
+          "raw": "of",
+          "start": 12.8,
+          "end": 13.02
+        },
+        {
+          "raw": "a",
+          "start": 13.02,
+          "end": 13.12
+        },
+        {
+          "raw": "mile",
+          "start": 13.12,
+          "end": 13.38
+        },
+        {
+          "raw": "long",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "raw": "from",
+          "start": 13.66,
+          "end": 13.92
+        },
+        {
+          "raw": "wing",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "raw": "to",
+          "start": 14.18,
+          "end": 14.46
+        },
+        {
+          "raw": "wing",
+          "start": 14.46,
+          "end": 14.64
+        },
+        {
+          "raw": "-one",
+          "start": 14.64,
+          "end": 14.84
+        },
+        {
+          "raw": "solid",
+          "start": 14.84,
+          "end": 15.28
+        },
+        {
+          "raw": "wall",
+          "start": 15.28,
+          "end": 15.54
+        },
+        {
+          "raw": "of",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "raw": "men,",
+          "start": 15.7,
+          "end": 15.96
+        },
+        {
+          "raw": "horses,",
+          "start": 16.4,
+          "end": 16.62
+        },
+        {
+          "raw": "and",
+          "start": 16.96,
+          "end": 17.02
+        },
+        {
+          "raw": "guns.",
+          "start": 17.02,
+          "end": 17.32
+        },
+        {
+          "raw": "Then",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "raw": "it",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "raw": "came",
+          "start": 18.42,
+          "end": 18.56
+        },
+        {
+          "raw": "on",
+          "start": 18.56,
+          "end": 18.76
+        },
+        {
+          "raw": "straight",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "raw": "toward",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "raw": "the",
+          "start": 19.38,
+          "end": 19.56
+        },
+        {
+          "raw": "Viceroy",
+          "start": 19.56,
+          "end": 20.04
+        },
+        {
+          "raw": "and",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "raw": "the",
+          "start": 20.24,
+          "end": 20.36
+        },
+        {
+          "raw": "Amir,",
+          "start": 20.36,
+          "end": 20.58
+        },
+        {
+          "raw": "and",
+          "start": 21.08,
+          "end": 21.32
+        },
+        {
+          "raw": "as",
+          "start": 21.32,
+          "end": 21.42
+        },
+        {
+          "raw": "it",
+          "start": 21.42,
+          "end": 21.54
+        },
+        {
+          "raw": "got",
+          "start": 21.54,
+          "end": 21.68
+        },
+        {
+          "raw": "nearer",
+          "start": 21.68,
+          "end": 21.94
+        },
+        {
+          "raw": "the",
+          "start": 21.94,
+          "end": 22.16
+        },
+        {
+          "raw": "ground",
+          "start": 22.16,
+          "end": 22.5
+        },
+        {
+          "raw": "began",
+          "start": 22.5,
+          "end": 22.8
+        },
+        {
+          "raw": "to",
+          "start": 22.8,
+          "end": 23.0
+        },
+        {
+          "raw": "shake,",
+          "start": 23.0,
+          "end": 23.24
+        },
+        {
+          "raw": "like",
+          "start": 23.7,
+          "end": 23.84
+        },
+        {
+          "raw": "the",
+          "start": 23.84,
+          "end": 24.02
+        },
+        {
+          "raw": "deck",
+          "start": 24.02,
+          "end": 24.2
+        },
+        {
+          "raw": "of",
+          "start": 24.2,
+          "end": 24.34
+        },
+        {
+          "raw": "a",
+          "start": 24.34,
+          "end": 24.44
+        },
+        {
+          "raw": "steamer",
+          "start": 24.44,
+          "end": 24.84
+        },
+        {
+          "raw": "when",
+          "start": 24.84,
+          "end": 25.04
+        },
+        {
+          "raw": "the",
+          "start": 25.04,
+          "end": 25.16
+        },
+        {
+          "raw": "engines",
+          "start": 25.16,
+          "end": 25.48
+        },
+        {
+          "raw": "are",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "raw": "going",
+          "start": 25.7,
+          "end": 25.92
+        },
+        {
+          "raw": "fast.",
+          "start": 25.92,
+          "end": 26.32
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "rain",
+        "began",
+        "to",
+        "fall",
+        "again,",
+        "and",
+        "for",
+        "a",
+        "while",
+        "it",
+        "was",
+        "too",
+        "misty",
+        "to",
+        "see",
+        "what",
+        "the",
+        "troops",
+        "were",
+        "doing.",
+        "They",
+        "had",
+        "made",
+        "a",
+        "big",
+        "half",
+        "circle",
+        "across",
+        "the",
+        "plain,",
+        "and",
+        "were",
+        "spreading",
+        "out",
+        "into",
+        "a",
+        "line.",
+        "That",
+        "line",
+        "grew",
+        "and",
+        "grew",
+        "and",
+        "grew",
+        "till",
+        "it",
+        "was",
+        "three-quarters",
+        "of",
+        "a",
+        "mile",
+        "long",
+        "from",
+        "wing",
+        "to",
+        "wing--one",
+        "solid",
+        "wall",
+        "of",
+        "men,",
+        "horses,",
+        "and",
+        "guns.",
+        "Then",
+        "it",
+        "came",
+        "on",
+        "straight",
+        "toward",
+        "the",
+        "Viceroy",
+        "and",
+        "the",
+        "Amir,",
+        "and",
+        "as",
+        "it",
+        "got",
+        "nearer",
+        "the",
+        "ground",
+        "began",
+        "to",
+        "shake,",
+        "like",
+        "the",
+        "deck",
+        "of",
+        "a",
+        "steamer",
+        "when",
+        "the",
+        "engines",
+        "are",
+        "going",
+        "fast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "equal",
+          49,
+          56,
+          50,
+          57
+        ],
+        [
+          "replace",
+          56,
+          57,
+          57,
+          59
+        ],
+        [
+          "equal",
+          57,
+          97,
+          59,
+          99
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 98
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "replace",
+          56,
+          57,
+          57,
+          59
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "rain",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "began",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "fall",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "again,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "for",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "while",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "it",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "was",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "too",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "misty",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "text": "to",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "see",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "what",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "troops",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "were",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "text": "doing.",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "text": "They",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "had",
+          "start": 5.56,
+          "end": 5.66
+        },
+        {
+          "text": "made",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "text": "a",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "text": "big",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "half",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "text": "circle",
+          "start": 6.28,
+          "end": 6.58
+        },
+        {
+          "text": "across",
+          "start": 6.58,
+          "end": 6.92
+        },
+        {
+          "text": "the",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "text": "plain,",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "text": "and",
+          "start": 7.88,
+          "end": 8.06
+        },
+        {
+          "text": "were",
+          "start": 8.06,
+          "end": 8.16
+        },
+        {
+          "text": "spreading",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "text": "out",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "text": "into",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "text": "line.",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "text": "That",
+          "start": 10.02,
+          "end": 10.24
+        },
+        {
+          "text": "line",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "text": "grew",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "text": "and",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "text": "grew",
+          "start": 11.06,
+          "end": 11.34
+        },
+        {
+          "text": "and",
+          "start": 11.34,
+          "end": 11.54
+        },
+        {
+          "text": "grew",
+          "start": 11.54,
+          "end": 11.86
+        },
+        {
+          "text": "till",
+          "start": 11.86,
+          "end": 12.02
+        },
+        {
+          "text": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "text": "was",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "text": "three-quarters",
+          "start": 12.26,
+          "end": 12.53
+        },
+        {
+          "text": "of",
+          "start": 12.8,
+          "end": 13.02
+        },
+        {
+          "text": "a",
+          "start": 13.02,
+          "end": 13.12
+        },
+        {
+          "text": "mile",
+          "start": 13.12,
+          "end": 13.38
+        },
+        {
+          "text": "long",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "text": "from",
+          "start": 13.66,
+          "end": 13.92
+        },
+        {
+          "text": "wing",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "text": "to",
+          "start": 14.18,
+          "end": 14.46
+        },
+        {
+          "text": "wing--one",
+          "start": 14.46,
+          "end": 14.65
+        },
+        {
+          "text": "solid",
+          "start": 14.84,
+          "end": 15.28
+        },
+        {
+          "text": "wall",
+          "start": 15.28,
+          "end": 15.54
+        },
+        {
+          "text": "of",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "text": "men,",
+          "start": 15.7,
+          "end": 15.96
+        },
+        {
+          "text": "horses,",
+          "start": 16.4,
+          "end": 16.62
+        },
+        {
+          "text": "and",
+          "start": 16.96,
+          "end": 17.02
+        },
+        {
+          "text": "guns.",
+          "start": 17.02,
+          "end": 17.32
+        },
+        {
+          "text": "Then",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "text": "it",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "text": "came",
+          "start": 18.42,
+          "end": 18.56
+        },
+        {
+          "text": "on",
+          "start": 18.56,
+          "end": 18.76
+        },
+        {
+          "text": "straight",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "text": "toward",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "text": "the",
+          "start": 19.38,
+          "end": 19.56
+        },
+        {
+          "text": "Viceroy",
+          "start": 19.56,
+          "end": 20.04
+        },
+        {
+          "text": "and",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "text": "the",
+          "start": 20.24,
+          "end": 20.36
+        },
+        {
+          "text": "Amir,",
+          "start": 20.36,
+          "end": 20.58
+        },
+        {
+          "text": "and",
+          "start": 21.08,
+          "end": 21.32
+        },
+        {
+          "text": "as",
+          "start": 21.32,
+          "end": 21.42
+        },
+        {
+          "text": "it",
+          "start": 21.42,
+          "end": 21.54
+        },
+        {
+          "text": "got",
+          "start": 21.54,
+          "end": 21.68
+        },
+        {
+          "text": "nearer",
+          "start": 21.68,
+          "end": 21.94
+        },
+        {
+          "text": "the",
+          "start": 21.94,
+          "end": 22.16
+        },
+        {
+          "text": "ground",
+          "start": 22.16,
+          "end": 22.5
+        },
+        {
+          "text": "began",
+          "start": 22.5,
+          "end": 22.8
+        },
+        {
+          "text": "to",
+          "start": 22.8,
+          "end": 23.0
+        },
+        {
+          "text": "shake,",
+          "start": 23.0,
+          "end": 23.24
+        },
+        {
+          "text": "like",
+          "start": 23.7,
+          "end": 23.84
+        },
+        {
+          "text": "the",
+          "start": 23.84,
+          "end": 24.02
+        },
+        {
+          "text": "deck",
+          "start": 24.02,
+          "end": 24.2
+        },
+        {
+          "text": "of",
+          "start": 24.2,
+          "end": 24.34
+        },
+        {
+          "text": "a",
+          "start": 24.34,
+          "end": 24.44
+        },
+        {
+          "text": "steamer",
+          "start": 24.44,
+          "end": 24.84
+        },
+        {
+          "text": "when",
+          "start": 24.84,
+          "end": 25.04
+        },
+        {
+          "text": "the",
+          "start": 25.04,
+          "end": 25.16
+        },
+        {
+          "text": "engines",
+          "start": 25.16,
+          "end": 25.48
+        },
+        {
+          "text": "are",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "text": "going",
+          "start": 25.7,
+          "end": 25.92
+        },
+        {
+          "text": "fast.",
+          "start": 25.92,
+          "end": 26.32
+        }
+      ],
+      "stats": {
+        "expected_words": 97,
+        "heard_words": 99,
+        "matched_words": 95
+      },
+      "match_ratio": 0.979381443298969,
+      "rejection_reasons": [],
+      "seconds": 0.44181040301918983
+    },
+    {
+      "asr_seconds": 0.42861318308860064,
+      "alignment_seconds": 0.0003204876556992531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "They, That, Then, Viceroy, Amir"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The rain began to fall again, and for a while it was too misty to see what the troops were doing.",
+          "start": 0.02,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " rain",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " began",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fall",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again,",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " while",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " was",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " misty",
+              "start": 3.18,
+              "end": 3.58,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " to",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " troops",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " were",
+              "start": 4.28,
+              "end": 4.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " doing.",
+              "start": 4.5,
+              "end": 4.8,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " They had made a big half circle across the plain, and were spreading out into a line.",
+          "start": 5.42,
+          "end": 9.36,
+          "words": [
+            {
+              "text": " They",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " had",
+              "start": 5.56,
+              "end": 5.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " made",
+              "start": 5.66,
+              "end": 5.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 5.76,
+              "end": 5.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " big",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " half",
+              "start": 6.04,
+              "end": 6.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " circle",
+              "start": 6.28,
+              "end": 6.58,
+              "probability": 0.5947265625
+            },
+            {
+              "text": " across",
+              "start": 6.58,
+              "end": 6.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.92,
+              "end": 7.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " plain,",
+              "start": 7.16,
+              "end": 7.46,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " and",
+              "start": 7.88,
+              "end": 8.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 8.06,
+              "end": 8.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " spreading",
+              "start": 8.16,
+              "end": 8.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " out",
+              "start": 8.44,
+              "end": 8.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 8.88,
+              "end": 9.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " line.",
+              "start": 9.06,
+              "end": 9.36,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " That line grew and grew and grew till it was three quarters of a mile long from wing to wing one solid wall of men, horses and guns.",
+          "start": 10.02,
+          "end": 17.32,
+          "words": [
+            {
+              "text": " That",
+              "start": 10.02,
+              "end": 10.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " line",
+              "start": 10.24,
+              "end": 10.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " grew",
+              "start": 10.48,
+              "end": 10.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 10.8,
+              "end": 11.06,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " grew",
+              "start": 11.06,
+              "end": 11.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 11.34,
+              "end": 11.54,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " grew",
+              "start": 11.54,
+              "end": 11.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " till",
+              "start": 11.86,
+              "end": 12.02,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " it",
+              "start": 12.02,
+              "end": 12.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 12.14,
+              "end": 12.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " three",
+              "start": 12.26,
+              "end": 12.48,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " quarters",
+              "start": 12.48,
+              "end": 12.8,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " of",
+              "start": 12.8,
+              "end": 13.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 13.02,
+              "end": 13.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mile",
+              "start": 13.12,
+              "end": 13.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " long",
+              "start": 13.38,
+              "end": 13.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " from",
+              "start": 13.66,
+              "end": 13.92,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " wing",
+              "start": 13.92,
+              "end": 14.18,
+              "probability": 0.94921875
+            },
+            {
+              "text": " to",
+              "start": 14.18,
+              "end": 14.46,
+              "probability": 0.962890625
+            },
+            {
+              "text": " wing",
+              "start": 14.46,
+              "end": 14.64,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " one",
+              "start": 14.64,
+              "end": 14.84,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " solid",
+              "start": 14.84,
+              "end": 15.26,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " wall",
+              "start": 15.26,
+              "end": 15.54,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " of",
+              "start": 15.54,
+              "end": 15.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " men,",
+              "start": 15.7,
+              "end": 15.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " horses",
+              "start": 16.4,
+              "end": 16.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 16.6,
+              "end": 17.02,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " guns.",
+              "start": 17.02,
+              "end": 17.32,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Then it came on straight toward the Viceroy and the Amir, and as it got nearer the ground began to shake, like the deck of a steamer when the engines are going fast.",
+          "start": 18.16,
+          "end": 26.32,
+          "words": [
+            {
+              "text": " Then",
+              "start": 18.16,
+              "end": 18.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it",
+              "start": 18.3,
+              "end": 18.42,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " came",
+              "start": 18.42,
+              "end": 18.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 18.56,
+              "end": 18.76,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " straight",
+              "start": 18.76,
+              "end": 19.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " toward",
+              "start": 19.08,
+              "end": 19.38,
+              "probability": 0.87109375
+            },
+            {
+              "text": " the",
+              "start": 19.38,
+              "end": 19.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Viceroy",
+              "start": 19.56,
+              "end": 20.06,
+              "probability": 0.8497721354166666
+            },
+            {
+              "text": " and",
+              "start": 20.06,
+              "end": 20.24,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 20.24,
+              "end": 20.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Amir,",
+              "start": 20.36,
+              "end": 20.58,
+              "probability": 0.322021484375
+            },
+            {
+              "text": " and",
+              "start": 21.1,
+              "end": 21.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 21.32,
+              "end": 21.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 21.42,
+              "end": 21.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " got",
+              "start": 21.54,
+              "end": 21.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nearer",
+              "start": 21.66,
+              "end": 21.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 21.94,
+              "end": 22.16,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " ground",
+              "start": 22.16,
+              "end": 22.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " began",
+              "start": 22.5,
+              "end": 22.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 22.78,
+              "end": 23.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shake,",
+              "start": 23.0,
+              "end": 23.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " like",
+              "start": 23.7,
+              "end": 23.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 23.84,
+              "end": 24.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deck",
+              "start": 24.02,
+              "end": 24.2,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 24.2,
+              "end": 24.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 24.36,
+              "end": 24.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " steamer",
+              "start": 24.44,
+              "end": 24.86,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " when",
+              "start": 24.86,
+              "end": 25.04,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 25.04,
+              "end": 25.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " engines",
+              "start": 25.16,
+              "end": 25.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 25.48,
+              "end": 25.7,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " going",
+              "start": 25.7,
+              "end": 25.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fast.",
+              "start": 25.92,
+              "end": 26.32,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "rain",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "began",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "fall",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "again,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "for",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "while",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "it",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "was",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "too",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "misty",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "raw": "to",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "see",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "what",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "troops",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "were",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "raw": "doing.",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "raw": "They",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "had",
+          "start": 5.56,
+          "end": 5.66
+        },
+        {
+          "raw": "made",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "raw": "a",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "raw": "big",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "half",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "raw": "circle",
+          "start": 6.28,
+          "end": 6.58
+        },
+        {
+          "raw": "across",
+          "start": 6.58,
+          "end": 6.92
+        },
+        {
+          "raw": "the",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "raw": "plain,",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "raw": "and",
+          "start": 7.88,
+          "end": 8.06
+        },
+        {
+          "raw": "were",
+          "start": 8.06,
+          "end": 8.16
+        },
+        {
+          "raw": "spreading",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "raw": "out",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "raw": "into",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "raw": "line.",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "raw": "That",
+          "start": 10.02,
+          "end": 10.24
+        },
+        {
+          "raw": "line",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "raw": "grew",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "raw": "and",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "raw": "grew",
+          "start": 11.06,
+          "end": 11.34
+        },
+        {
+          "raw": "and",
+          "start": 11.34,
+          "end": 11.54
+        },
+        {
+          "raw": "grew",
+          "start": 11.54,
+          "end": 11.86
+        },
+        {
+          "raw": "till",
+          "start": 11.86,
+          "end": 12.02
+        },
+        {
+          "raw": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "raw": "was",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "raw": "three",
+          "start": 12.26,
+          "end": 12.48
+        },
+        {
+          "raw": "quarters",
+          "start": 12.48,
+          "end": 12.8
+        },
+        {
+          "raw": "of",
+          "start": 12.8,
+          "end": 13.02
+        },
+        {
+          "raw": "a",
+          "start": 13.02,
+          "end": 13.12
+        },
+        {
+          "raw": "mile",
+          "start": 13.12,
+          "end": 13.38
+        },
+        {
+          "raw": "long",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "raw": "from",
+          "start": 13.66,
+          "end": 13.92
+        },
+        {
+          "raw": "wing",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "raw": "to",
+          "start": 14.18,
+          "end": 14.46
+        },
+        {
+          "raw": "wing",
+          "start": 14.46,
+          "end": 14.64
+        },
+        {
+          "raw": "one",
+          "start": 14.64,
+          "end": 14.84
+        },
+        {
+          "raw": "solid",
+          "start": 14.84,
+          "end": 15.26
+        },
+        {
+          "raw": "wall",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "raw": "of",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "raw": "men,",
+          "start": 15.7,
+          "end": 15.96
+        },
+        {
+          "raw": "horses",
+          "start": 16.4,
+          "end": 16.6
+        },
+        {
+          "raw": "and",
+          "start": 16.6,
+          "end": 17.02
+        },
+        {
+          "raw": "guns.",
+          "start": 17.02,
+          "end": 17.32
+        },
+        {
+          "raw": "Then",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "raw": "it",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "raw": "came",
+          "start": 18.42,
+          "end": 18.56
+        },
+        {
+          "raw": "on",
+          "start": 18.56,
+          "end": 18.76
+        },
+        {
+          "raw": "straight",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "raw": "toward",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "raw": "the",
+          "start": 19.38,
+          "end": 19.56
+        },
+        {
+          "raw": "Viceroy",
+          "start": 19.56,
+          "end": 20.06
+        },
+        {
+          "raw": "and",
+          "start": 20.06,
+          "end": 20.24
+        },
+        {
+          "raw": "the",
+          "start": 20.24,
+          "end": 20.36
+        },
+        {
+          "raw": "Amir,",
+          "start": 20.36,
+          "end": 20.58
+        },
+        {
+          "raw": "and",
+          "start": 21.1,
+          "end": 21.32
+        },
+        {
+          "raw": "as",
+          "start": 21.32,
+          "end": 21.42
+        },
+        {
+          "raw": "it",
+          "start": 21.42,
+          "end": 21.54
+        },
+        {
+          "raw": "got",
+          "start": 21.54,
+          "end": 21.66
+        },
+        {
+          "raw": "nearer",
+          "start": 21.66,
+          "end": 21.94
+        },
+        {
+          "raw": "the",
+          "start": 21.94,
+          "end": 22.16
+        },
+        {
+          "raw": "ground",
+          "start": 22.16,
+          "end": 22.5
+        },
+        {
+          "raw": "began",
+          "start": 22.5,
+          "end": 22.78
+        },
+        {
+          "raw": "to",
+          "start": 22.78,
+          "end": 23.0
+        },
+        {
+          "raw": "shake,",
+          "start": 23.0,
+          "end": 23.24
+        },
+        {
+          "raw": "like",
+          "start": 23.7,
+          "end": 23.84
+        },
+        {
+          "raw": "the",
+          "start": 23.84,
+          "end": 24.02
+        },
+        {
+          "raw": "deck",
+          "start": 24.02,
+          "end": 24.2
+        },
+        {
+          "raw": "of",
+          "start": 24.2,
+          "end": 24.36
+        },
+        {
+          "raw": "a",
+          "start": 24.36,
+          "end": 24.44
+        },
+        {
+          "raw": "steamer",
+          "start": 24.44,
+          "end": 24.86
+        },
+        {
+          "raw": "when",
+          "start": 24.86,
+          "end": 25.04
+        },
+        {
+          "raw": "the",
+          "start": 25.04,
+          "end": 25.16
+        },
+        {
+          "raw": "engines",
+          "start": 25.16,
+          "end": 25.48
+        },
+        {
+          "raw": "are",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "raw": "going",
+          "start": 25.7,
+          "end": 25.92
+        },
+        {
+          "raw": "fast.",
+          "start": 25.92,
+          "end": 26.32
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "rain",
+        "began",
+        "to",
+        "fall",
+        "again,",
+        "and",
+        "for",
+        "a",
+        "while",
+        "it",
+        "was",
+        "too",
+        "misty",
+        "to",
+        "see",
+        "what",
+        "the",
+        "troops",
+        "were",
+        "doing.",
+        "They",
+        "had",
+        "made",
+        "a",
+        "big",
+        "half",
+        "circle",
+        "across",
+        "the",
+        "plain,",
+        "and",
+        "were",
+        "spreading",
+        "out",
+        "into",
+        "a",
+        "line.",
+        "That",
+        "line",
+        "grew",
+        "and",
+        "grew",
+        "and",
+        "grew",
+        "till",
+        "it",
+        "was",
+        "three-quarters",
+        "of",
+        "a",
+        "mile",
+        "long",
+        "from",
+        "wing",
+        "to",
+        "wing--one",
+        "solid",
+        "wall",
+        "of",
+        "men,",
+        "horses,",
+        "and",
+        "guns.",
+        "Then",
+        "it",
+        "came",
+        "on",
+        "straight",
+        "toward",
+        "the",
+        "Viceroy",
+        "and",
+        "the",
+        "Amir,",
+        "and",
+        "as",
+        "it",
+        "got",
+        "nearer",
+        "the",
+        "ground",
+        "began",
+        "to",
+        "shake,",
+        "like",
+        "the",
+        "deck",
+        "of",
+        "a",
+        "steamer",
+        "when",
+        "the",
+        "engines",
+        "are",
+        "going",
+        "fast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "equal",
+          49,
+          56,
+          50,
+          57
+        ],
+        [
+          "replace",
+          56,
+          57,
+          57,
+          59
+        ],
+        [
+          "equal",
+          57,
+          97,
+          59,
+          99
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 98
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "replace",
+          56,
+          57,
+          57,
+          59
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "rain",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "began",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "fall",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "again,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "for",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "while",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "it",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "was",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "too",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "misty",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "text": "to",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "see",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "what",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "troops",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "were",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "text": "doing.",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "text": "They",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "had",
+          "start": 5.56,
+          "end": 5.66
+        },
+        {
+          "text": "made",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "text": "a",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "text": "big",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "half",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "text": "circle",
+          "start": 6.28,
+          "end": 6.58
+        },
+        {
+          "text": "across",
+          "start": 6.58,
+          "end": 6.92
+        },
+        {
+          "text": "the",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "text": "plain,",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "text": "and",
+          "start": 7.88,
+          "end": 8.06
+        },
+        {
+          "text": "were",
+          "start": 8.06,
+          "end": 8.16
+        },
+        {
+          "text": "spreading",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "text": "out",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "text": "into",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "text": "line.",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "text": "That",
+          "start": 10.02,
+          "end": 10.24
+        },
+        {
+          "text": "line",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "text": "grew",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "text": "and",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "text": "grew",
+          "start": 11.06,
+          "end": 11.34
+        },
+        {
+          "text": "and",
+          "start": 11.34,
+          "end": 11.54
+        },
+        {
+          "text": "grew",
+          "start": 11.54,
+          "end": 11.86
+        },
+        {
+          "text": "till",
+          "start": 11.86,
+          "end": 12.02
+        },
+        {
+          "text": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "text": "was",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "text": "three-quarters",
+          "start": 12.26,
+          "end": 12.53
+        },
+        {
+          "text": "of",
+          "start": 12.8,
+          "end": 13.02
+        },
+        {
+          "text": "a",
+          "start": 13.02,
+          "end": 13.12
+        },
+        {
+          "text": "mile",
+          "start": 13.12,
+          "end": 13.38
+        },
+        {
+          "text": "long",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "text": "from",
+          "start": 13.66,
+          "end": 13.92
+        },
+        {
+          "text": "wing",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "text": "to",
+          "start": 14.18,
+          "end": 14.46
+        },
+        {
+          "text": "wing--one",
+          "start": 14.46,
+          "end": 14.65
+        },
+        {
+          "text": "solid",
+          "start": 14.84,
+          "end": 15.26
+        },
+        {
+          "text": "wall",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "text": "of",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "text": "men,",
+          "start": 15.7,
+          "end": 15.96
+        },
+        {
+          "text": "horses,",
+          "start": 16.4,
+          "end": 16.6
+        },
+        {
+          "text": "and",
+          "start": 16.6,
+          "end": 17.02
+        },
+        {
+          "text": "guns.",
+          "start": 17.02,
+          "end": 17.32
+        },
+        {
+          "text": "Then",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "text": "it",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "text": "came",
+          "start": 18.42,
+          "end": 18.56
+        },
+        {
+          "text": "on",
+          "start": 18.56,
+          "end": 18.76
+        },
+        {
+          "text": "straight",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "text": "toward",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "text": "the",
+          "start": 19.38,
+          "end": 19.56
+        },
+        {
+          "text": "Viceroy",
+          "start": 19.56,
+          "end": 20.06
+        },
+        {
+          "text": "and",
+          "start": 20.06,
+          "end": 20.24
+        },
+        {
+          "text": "the",
+          "start": 20.24,
+          "end": 20.36
+        },
+        {
+          "text": "Amir,",
+          "start": 20.36,
+          "end": 20.58
+        },
+        {
+          "text": "and",
+          "start": 21.1,
+          "end": 21.32
+        },
+        {
+          "text": "as",
+          "start": 21.32,
+          "end": 21.42
+        },
+        {
+          "text": "it",
+          "start": 21.42,
+          "end": 21.54
+        },
+        {
+          "text": "got",
+          "start": 21.54,
+          "end": 21.66
+        },
+        {
+          "text": "nearer",
+          "start": 21.66,
+          "end": 21.94
+        },
+        {
+          "text": "the",
+          "start": 21.94,
+          "end": 22.16
+        },
+        {
+          "text": "ground",
+          "start": 22.16,
+          "end": 22.5
+        },
+        {
+          "text": "began",
+          "start": 22.5,
+          "end": 22.78
+        },
+        {
+          "text": "to",
+          "start": 22.78,
+          "end": 23.0
+        },
+        {
+          "text": "shake,",
+          "start": 23.0,
+          "end": 23.24
+        },
+        {
+          "text": "like",
+          "start": 23.7,
+          "end": 23.84
+        },
+        {
+          "text": "the",
+          "start": 23.84,
+          "end": 24.02
+        },
+        {
+          "text": "deck",
+          "start": 24.02,
+          "end": 24.2
+        },
+        {
+          "text": "of",
+          "start": 24.2,
+          "end": 24.36
+        },
+        {
+          "text": "a",
+          "start": 24.36,
+          "end": 24.44
+        },
+        {
+          "text": "steamer",
+          "start": 24.44,
+          "end": 24.86
+        },
+        {
+          "text": "when",
+          "start": 24.86,
+          "end": 25.04
+        },
+        {
+          "text": "the",
+          "start": 25.04,
+          "end": 25.16
+        },
+        {
+          "text": "engines",
+          "start": 25.16,
+          "end": 25.48
+        },
+        {
+          "text": "are",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "text": "going",
+          "start": 25.7,
+          "end": 25.92
+        },
+        {
+          "text": "fast.",
+          "start": 25.92,
+          "end": 26.32
+        }
+      ],
+      "stats": {
+        "expected_words": 97,
+        "heard_words": 99,
+        "matched_words": 95
+      },
+      "match_ratio": 0.979381443298969,
+      "rejection_reasons": [],
+      "seconds": 0.4291160209104419
+    },
+    {
+      "asr_seconds": 0.6960249813273549,
+      "alignment_seconds": 0.00038506556302309036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The rain began to fall again, and for a while it was too misty to see what the troops were",
+          "start": 0.02,
+          "end": 4.5,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " rain",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " began",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fall",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again,",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " while",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " was",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " misty",
+              "start": 3.18,
+              "end": 3.58,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " to",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " troops",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " were",
+              "start": 4.28,
+              "end": 4.5,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " doing.",
+          "start": 4.5,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " doing.",
+              "start": 4.5,
+              "end": 4.8,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " They had made a big half-circle across the plain, and were spreading out into a line.",
+          "start": 5.42,
+          "end": 9.36,
+          "words": [
+            {
+              "text": " They",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " had",
+              "start": 5.56,
+              "end": 5.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " made",
+              "start": 5.66,
+              "end": 5.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 5.76,
+              "end": 5.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " big",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " half",
+              "start": 6.04,
+              "end": 6.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": "-circle",
+              "start": 6.28,
+              "end": 6.56,
+              "probability": 0.6990966796875
+            },
+            {
+              "text": " across",
+              "start": 6.56,
+              "end": 6.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.92,
+              "end": 7.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " plain,",
+              "start": 7.16,
+              "end": 7.46,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " and",
+              "start": 7.86,
+              "end": 8.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 8.06,
+              "end": 8.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " spreading",
+              "start": 8.16,
+              "end": 8.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " out",
+              "start": 8.44,
+              "end": 8.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 8.88,
+              "end": 9.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " line.",
+              "start": 9.06,
+              "end": 9.36,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " That line grew and grew and grew till it was three-quarters of a mile long from wing to",
+          "start": 10.04,
+          "end": 14.46,
+          "words": [
+            {
+              "text": " That",
+              "start": 10.04,
+              "end": 10.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " line",
+              "start": 10.24,
+              "end": 10.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " grew",
+              "start": 10.48,
+              "end": 10.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 10.8,
+              "end": 11.06,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " grew",
+              "start": 11.06,
+              "end": 11.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.34,
+              "end": 11.54,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " grew",
+              "start": 11.54,
+              "end": 11.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " till",
+              "start": 11.86,
+              "end": 12.02,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " it",
+              "start": 12.02,
+              "end": 12.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 12.14,
+              "end": 12.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " three",
+              "start": 12.26,
+              "end": 12.48,
+              "probability": 0.94775390625
+            },
+            {
+              "text": "-quarters",
+              "start": 12.48,
+              "end": 12.8,
+              "probability": 0.810546875
+            },
+            {
+              "text": " of",
+              "start": 12.8,
+              "end": 13.02,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 13.02,
+              "end": 13.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mile",
+              "start": 13.14,
+              "end": 13.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " long",
+              "start": 13.38,
+              "end": 13.66,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " from",
+              "start": 13.66,
+              "end": 13.92,
+              "probability": 0.984375
+            },
+            {
+              "text": " wing",
+              "start": 13.92,
+              "end": 14.2,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " to",
+              "start": 14.2,
+              "end": 14.46,
+              "probability": 0.9287109375
+            }
+          ]
+        },
+        {
+          "text": " wing one solid wall of men, horses, and guns.",
+          "start": 14.46,
+          "end": 17.32,
+          "words": [
+            {
+              "text": " wing",
+              "start": 14.46,
+              "end": 14.64,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " one",
+              "start": 14.64,
+              "end": 14.84,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " solid",
+              "start": 14.84,
+              "end": 15.26,
+              "probability": 0.7578125
+            },
+            {
+              "text": " wall",
+              "start": 15.26,
+              "end": 15.54,
+              "probability": 0.947265625
+            },
+            {
+              "text": " of",
+              "start": 15.54,
+              "end": 15.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " men,",
+              "start": 15.7,
+              "end": 15.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " horses,",
+              "start": 16.4,
+              "end": 16.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 16.96,
+              "end": 17.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " guns.",
+              "start": 17.02,
+              "end": 17.32,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Then it came on straight toward the Viceroy and the Amir, and as it got nearer the ground",
+          "start": 18.16,
+          "end": 22.5,
+          "words": [
+            {
+              "text": " Then",
+              "start": 18.16,
+              "end": 18.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 18.3,
+              "end": 18.42,
+              "probability": 0.974609375
+            },
+            {
+              "text": " came",
+              "start": 18.42,
+              "end": 18.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 18.56,
+              "end": 18.76,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " straight",
+              "start": 18.76,
+              "end": 19.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " toward",
+              "start": 19.08,
+              "end": 19.38,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " the",
+              "start": 19.38,
+              "end": 19.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Viceroy",
+              "start": 19.56,
+              "end": 20.04,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " and",
+              "start": 20.04,
+              "end": 20.24,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 20.24,
+              "end": 20.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Amir,",
+              "start": 20.36,
+              "end": 20.58,
+              "probability": 0.28759765625
+            },
+            {
+              "text": " and",
+              "start": 21.08,
+              "end": 21.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 21.32,
+              "end": 21.42,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 21.42,
+              "end": 21.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " got",
+              "start": 21.54,
+              "end": 21.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nearer",
+              "start": 21.68,
+              "end": 21.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 21.94,
+              "end": 22.16,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " ground",
+              "start": 22.16,
+              "end": 22.5,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " began to shake, like the deck of a steamer when the engines are going fast.",
+          "start": 22.5,
+          "end": 26.32,
+          "words": [
+            {
+              "text": " began",
+              "start": 22.5,
+              "end": 22.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 22.8,
+              "end": 23.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shake,",
+              "start": 23.0,
+              "end": 23.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " like",
+              "start": 23.7,
+              "end": 23.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 23.84,
+              "end": 24.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deck",
+              "start": 24.02,
+              "end": 24.2,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 24.2,
+              "end": 24.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 24.34,
+              "end": 24.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " steamer",
+              "start": 24.44,
+              "end": 24.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " when",
+              "start": 24.84,
+              "end": 25.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 25.04,
+              "end": 25.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " engines",
+              "start": 25.16,
+              "end": 25.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 25.48,
+              "end": 25.7,
+              "probability": 0.931640625
+            },
+            {
+              "text": " going",
+              "start": 25.7,
+              "end": 25.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fast.",
+              "start": 25.92,
+              "end": 26.32,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " The rain began to shake and grew till it was three-quarters of a mile from wing to wing",
+          "start": 26.32,
+          "end": 26.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 26.32,
+              "end": 26.88,
+              "probability": 0.0094451904296875
+            },
+            {
+              "text": " rain",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.00018703937530517578
+            },
+            {
+              "text": " began",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.0017871856689453125
+            },
+            {
+              "text": " to",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.1697998046875
+            },
+            {
+              "text": " shake",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.0006761550903320312
+            },
+            {
+              "text": " and",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.08502197265625
+            },
+            {
+              "text": " grew",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.00018310546875
+            },
+            {
+              "text": " till",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.0004367828369140625
+            },
+            {
+              "text": " it",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.00824737548828125
+            },
+            {
+              "text": " was",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.1378173828125
+            },
+            {
+              "text": " three",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.0001571178436279297
+            },
+            {
+              "text": "-quarters",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.01490020751953125
+            },
+            {
+              "text": " of",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.32666015625
+            },
+            {
+              "text": " a",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.042999267578125
+            },
+            {
+              "text": " mile",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.1402587890625
+            },
+            {
+              "text": " from",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.08917236328125
+            },
+            {
+              "text": " wing",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 1.519918441772461e-05
+            },
+            {
+              "text": " to",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.0894775390625
+            },
+            {
+              "text": " wing",
+              "start": 26.88,
+              "end": 26.88,
+              "probability": 0.31640625
+            }
+          ]
+        },
+        {
+          "text": " The rain began to shake and grew till it was three-quarters of a mile from wing to wing",
+          "start": 26.88,
+          "end": 27.0,
+          "words": [
+            {
+              "text": " The",
+              "start": 26.88,
+              "end": 27.0,
+              "probability": 0.28662109375
+            },
+            {
+              "text": " rain",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.188720703125
+            },
+            {
+              "text": " began",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.03662109375
+            },
+            {
+              "text": " to",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " shake",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.365966796875
+            },
+            {
+              "text": " and",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " grew",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " till",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " it",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " was",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " three",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.71533203125
+            },
+            {
+              "text": "-quarters",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.776123046875
+            },
+            {
+              "text": " of",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.966796875
+            },
+            {
+              "text": " a",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " mile",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " from",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " wing",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " to",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " wing",
+              "start": 27.0,
+              "end": 27.0,
+              "probability": 0.79150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "rain",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "began",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "fall",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "again,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "for",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "while",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "it",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "was",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "too",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "misty",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "raw": "to",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "see",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "what",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "troops",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "were",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "raw": "doing.",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "raw": "They",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "had",
+          "start": 5.56,
+          "end": 5.66
+        },
+        {
+          "raw": "made",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "raw": "a",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "raw": "big",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "half",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "raw": "-circle",
+          "start": 6.28,
+          "end": 6.56
+        },
+        {
+          "raw": "across",
+          "start": 6.56,
+          "end": 6.92
+        },
+        {
+          "raw": "the",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "raw": "plain,",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "raw": "and",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "raw": "were",
+          "start": 8.06,
+          "end": 8.16
+        },
+        {
+          "raw": "spreading",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "raw": "out",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "raw": "into",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "raw": "line.",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "raw": "That",
+          "start": 10.04,
+          "end": 10.24
+        },
+        {
+          "raw": "line",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "raw": "grew",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "raw": "and",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "raw": "grew",
+          "start": 11.06,
+          "end": 11.34
+        },
+        {
+          "raw": "and",
+          "start": 11.34,
+          "end": 11.54
+        },
+        {
+          "raw": "grew",
+          "start": 11.54,
+          "end": 11.86
+        },
+        {
+          "raw": "till",
+          "start": 11.86,
+          "end": 12.02
+        },
+        {
+          "raw": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "raw": "was",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "raw": "three",
+          "start": 12.26,
+          "end": 12.48
+        },
+        {
+          "raw": "-quarters",
+          "start": 12.48,
+          "end": 12.8
+        },
+        {
+          "raw": "of",
+          "start": 12.8,
+          "end": 13.02
+        },
+        {
+          "raw": "a",
+          "start": 13.02,
+          "end": 13.14
+        },
+        {
+          "raw": "mile",
+          "start": 13.14,
+          "end": 13.38
+        },
+        {
+          "raw": "long",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "raw": "from",
+          "start": 13.66,
+          "end": 13.92
+        },
+        {
+          "raw": "wing",
+          "start": 13.92,
+          "end": 14.2
+        },
+        {
+          "raw": "to",
+          "start": 14.2,
+          "end": 14.46
+        },
+        {
+          "raw": "wing",
+          "start": 14.46,
+          "end": 14.64
+        },
+        {
+          "raw": "one",
+          "start": 14.64,
+          "end": 14.84
+        },
+        {
+          "raw": "solid",
+          "start": 14.84,
+          "end": 15.26
+        },
+        {
+          "raw": "wall",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "raw": "of",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "raw": "men,",
+          "start": 15.7,
+          "end": 15.96
+        },
+        {
+          "raw": "horses,",
+          "start": 16.4,
+          "end": 16.62
+        },
+        {
+          "raw": "and",
+          "start": 16.96,
+          "end": 17.02
+        },
+        {
+          "raw": "guns.",
+          "start": 17.02,
+          "end": 17.32
+        },
+        {
+          "raw": "Then",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "raw": "it",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "raw": "came",
+          "start": 18.42,
+          "end": 18.56
+        },
+        {
+          "raw": "on",
+          "start": 18.56,
+          "end": 18.76
+        },
+        {
+          "raw": "straight",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "raw": "toward",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "raw": "the",
+          "start": 19.38,
+          "end": 19.56
+        },
+        {
+          "raw": "Viceroy",
+          "start": 19.56,
+          "end": 20.04
+        },
+        {
+          "raw": "and",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "raw": "the",
+          "start": 20.24,
+          "end": 20.36
+        },
+        {
+          "raw": "Amir,",
+          "start": 20.36,
+          "end": 20.58
+        },
+        {
+          "raw": "and",
+          "start": 21.08,
+          "end": 21.32
+        },
+        {
+          "raw": "as",
+          "start": 21.32,
+          "end": 21.42
+        },
+        {
+          "raw": "it",
+          "start": 21.42,
+          "end": 21.54
+        },
+        {
+          "raw": "got",
+          "start": 21.54,
+          "end": 21.68
+        },
+        {
+          "raw": "nearer",
+          "start": 21.68,
+          "end": 21.94
+        },
+        {
+          "raw": "the",
+          "start": 21.94,
+          "end": 22.16
+        },
+        {
+          "raw": "ground",
+          "start": 22.16,
+          "end": 22.5
+        },
+        {
+          "raw": "began",
+          "start": 22.5,
+          "end": 22.8
+        },
+        {
+          "raw": "to",
+          "start": 22.8,
+          "end": 23.0
+        },
+        {
+          "raw": "shake,",
+          "start": 23.0,
+          "end": 23.24
+        },
+        {
+          "raw": "like",
+          "start": 23.7,
+          "end": 23.84
+        },
+        {
+          "raw": "the",
+          "start": 23.84,
+          "end": 24.02
+        },
+        {
+          "raw": "deck",
+          "start": 24.02,
+          "end": 24.2
+        },
+        {
+          "raw": "of",
+          "start": 24.2,
+          "end": 24.34
+        },
+        {
+          "raw": "a",
+          "start": 24.34,
+          "end": 24.44
+        },
+        {
+          "raw": "steamer",
+          "start": 24.44,
+          "end": 24.84
+        },
+        {
+          "raw": "when",
+          "start": 24.84,
+          "end": 25.04
+        },
+        {
+          "raw": "the",
+          "start": 25.04,
+          "end": 25.16
+        },
+        {
+          "raw": "engines",
+          "start": 25.16,
+          "end": 25.48
+        },
+        {
+          "raw": "are",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "raw": "going",
+          "start": 25.7,
+          "end": 25.92
+        },
+        {
+          "raw": "fast.",
+          "start": 25.92,
+          "end": 26.32
+        },
+        {
+          "raw": "The",
+          "start": 26.32,
+          "end": 26.88
+        },
+        {
+          "raw": "rain",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "began",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "to",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "shake",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "and",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "grew",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "till",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "it",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "was",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "three",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "-quarters",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "of",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "a",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "mile",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "from",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "wing",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "to",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "wing",
+          "start": 26.88,
+          "end": 26.88
+        },
+        {
+          "raw": "The",
+          "start": 26.88,
+          "end": 27.0
+        },
+        {
+          "raw": "rain",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "began",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "to",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "shake",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "and",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "grew",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "till",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "it",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "was",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "three",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "-quarters",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "of",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "a",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "mile",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "from",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "wing",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "to",
+          "start": 27.0,
+          "end": 27.0
+        },
+        {
+          "raw": "wing",
+          "start": 27.0,
+          "end": 27.0
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "rain",
+        "began",
+        "to",
+        "fall",
+        "again,",
+        "and",
+        "for",
+        "a",
+        "while",
+        "it",
+        "was",
+        "too",
+        "misty",
+        "to",
+        "see",
+        "what",
+        "the",
+        "troops",
+        "were",
+        "doing.",
+        "They",
+        "had",
+        "made",
+        "a",
+        "big",
+        "half",
+        "circle",
+        "across",
+        "the",
+        "plain,",
+        "and",
+        "were",
+        "spreading",
+        "out",
+        "into",
+        "a",
+        "line.",
+        "That",
+        "line",
+        "grew",
+        "and",
+        "grew",
+        "and",
+        "grew",
+        "till",
+        "it",
+        "was",
+        "three-quarters",
+        "of",
+        "a",
+        "mile",
+        "long",
+        "from",
+        "wing",
+        "to",
+        "wing--one",
+        "solid",
+        "wall",
+        "of",
+        "men,",
+        "horses,",
+        "and",
+        "guns.",
+        "Then",
+        "it",
+        "came",
+        "on",
+        "straight",
+        "toward",
+        "the",
+        "Viceroy",
+        "and",
+        "the",
+        "Amir,",
+        "and",
+        "as",
+        "it",
+        "got",
+        "nearer",
+        "the",
+        "ground",
+        "began",
+        "to",
+        "shake,",
+        "like",
+        "the",
+        "deck",
+        "of",
+        "a",
+        "steamer",
+        "when",
+        "the",
+        "engines",
+        "are",
+        "going",
+        "fast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "equal",
+          49,
+          56,
+          50,
+          57
+        ],
+        [
+          "replace",
+          56,
+          57,
+          57,
+          59
+        ],
+        [
+          "equal",
+          57,
+          97,
+          59,
+          99
+        ],
+        [
+          "insert",
+          97,
+          97,
+          99,
+          137
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 98
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "replace",
+          56,
+          57,
+          57,
+          59
+        ],
+        [
+          "insert",
+          97,
+          97,
+          99,
+          137
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "rain",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "began",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "to",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "fall",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "again,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "for",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "while",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "it",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "was",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "too",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "misty",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "text": "to",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "see",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "what",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "the",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "troops",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "were",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "text": "doing.",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "text": "They",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "had",
+          "start": 5.56,
+          "end": 5.66
+        },
+        {
+          "text": "made",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "text": "a",
+          "start": 5.76,
+          "end": 5.9
+        },
+        {
+          "text": "big",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "half",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "text": "circle",
+          "start": 6.28,
+          "end": 6.56
+        },
+        {
+          "text": "across",
+          "start": 6.56,
+          "end": 6.92
+        },
+        {
+          "text": "the",
+          "start": 6.92,
+          "end": 7.16
+        },
+        {
+          "text": "plain,",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "text": "and",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "text": "were",
+          "start": 8.06,
+          "end": 8.16
+        },
+        {
+          "text": "spreading",
+          "start": 8.16,
+          "end": 8.44
+        },
+        {
+          "text": "out",
+          "start": 8.44,
+          "end": 8.68
+        },
+        {
+          "text": "into",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "text": "line.",
+          "start": 9.06,
+          "end": 9.36
+        },
+        {
+          "text": "That",
+          "start": 10.04,
+          "end": 10.24
+        },
+        {
+          "text": "line",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "text": "grew",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "text": "and",
+          "start": 10.8,
+          "end": 11.06
+        },
+        {
+          "text": "grew",
+          "start": 11.06,
+          "end": 11.34
+        },
+        {
+          "text": "and",
+          "start": 11.34,
+          "end": 11.54
+        },
+        {
+          "text": "grew",
+          "start": 11.54,
+          "end": 11.86
+        },
+        {
+          "text": "till",
+          "start": 11.86,
+          "end": 12.02
+        },
+        {
+          "text": "it",
+          "start": 12.02,
+          "end": 12.14
+        },
+        {
+          "text": "was",
+          "start": 12.14,
+          "end": 12.26
+        },
+        {
+          "text": "three-quarters",
+          "start": 12.26,
+          "end": 12.53
+        },
+        {
+          "text": "of",
+          "start": 12.8,
+          "end": 13.02
+        },
+        {
+          "text": "a",
+          "start": 13.02,
+          "end": 13.14
+        },
+        {
+          "text": "mile",
+          "start": 13.14,
+          "end": 13.38
+        },
+        {
+          "text": "long",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "text": "from",
+          "start": 13.66,
+          "end": 13.92
+        },
+        {
+          "text": "wing",
+          "start": 13.92,
+          "end": 14.2
+        },
+        {
+          "text": "to",
+          "start": 14.2,
+          "end": 14.46
+        },
+        {
+          "text": "wing--one",
+          "start": 14.46,
+          "end": 14.65
+        },
+        {
+          "text": "solid",
+          "start": 14.84,
+          "end": 15.26
+        },
+        {
+          "text": "wall",
+          "start": 15.26,
+          "end": 15.54
+        },
+        {
+          "text": "of",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "text": "men,",
+          "start": 15.7,
+          "end": 15.96
+        },
+        {
+          "text": "horses,",
+          "start": 16.4,
+          "end": 16.62
+        },
+        {
+          "text": "and",
+          "start": 16.96,
+          "end": 17.02
+        },
+        {
+          "text": "guns.",
+          "start": 17.02,
+          "end": 17.32
+        },
+        {
+          "text": "Then",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "text": "it",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "text": "came",
+          "start": 18.42,
+          "end": 18.56
+        },
+        {
+          "text": "on",
+          "start": 18.56,
+          "end": 18.76
+        },
+        {
+          "text": "straight",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "text": "toward",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "text": "the",
+          "start": 19.38,
+          "end": 19.56
+        },
+        {
+          "text": "Viceroy",
+          "start": 19.56,
+          "end": 20.04
+        },
+        {
+          "text": "and",
+          "start": 20.04,
+          "end": 20.24
+        },
+        {
+          "text": "the",
+          "start": 20.24,
+          "end": 20.36
+        },
+        {
+          "text": "Amir,",
+          "start": 20.36,
+          "end": 20.58
+        },
+        {
+          "text": "and",
+          "start": 21.08,
+          "end": 21.32
+        },
+        {
+          "text": "as",
+          "start": 21.32,
+          "end": 21.42
+        },
+        {
+          "text": "it",
+          "start": 21.42,
+          "end": 21.54
+        },
+        {
+          "text": "got",
+          "start": 21.54,
+          "end": 21.68
+        },
+        {
+          "text": "nearer",
+          "start": 21.68,
+          "end": 21.94
+        },
+        {
+          "text": "the",
+          "start": 21.94,
+          "end": 22.16
+        },
+        {
+          "text": "ground",
+          "start": 22.16,
+          "end": 22.5
+        },
+        {
+          "text": "began",
+          "start": 22.5,
+          "end": 22.8
+        },
+        {
+          "text": "to",
+          "start": 22.8,
+          "end": 23.0
+        },
+        {
+          "text": "shake,",
+          "start": 23.0,
+          "end": 23.24
+        },
+        {
+          "text": "like",
+          "start": 23.7,
+          "end": 23.84
+        },
+        {
+          "text": "the",
+          "start": 23.84,
+          "end": 24.02
+        },
+        {
+          "text": "deck",
+          "start": 24.02,
+          "end": 24.2
+        },
+        {
+          "text": "of",
+          "start": 24.2,
+          "end": 24.34
+        },
+        {
+          "text": "a",
+          "start": 24.34,
+          "end": 24.44
+        },
+        {
+          "text": "steamer",
+          "start": 24.44,
+          "end": 24.84
+        },
+        {
+          "text": "when",
+          "start": 24.84,
+          "end": 25.04
+        },
+        {
+          "text": "the",
+          "start": 25.04,
+          "end": 25.16
+        },
+        {
+          "text": "engines",
+          "start": 25.16,
+          "end": 25.48
+        },
+        {
+          "text": "are",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "text": "going",
+          "start": 25.7,
+          "end": 25.92
+        },
+        {
+          "text": "fast.",
+          "start": 25.92,
+          "end": 26.32
+        }
+      ],
+      "stats": {
+        "expected_words": 97,
+        "heard_words": 137,
+        "matched_words": 95
+      },
+      "match_ratio": 0.979381443298969,
+      "rejection_reasons": [],
+      "seconds": 0.6966541651636362
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77b9a9dac04096f46f579a7bbe26d866bf9f3e5279678dbe74c5c8c1c4223a57",
+  "selected_reasons": []
+}

@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "e81582df59c6a6fe628224763322631ce7fd79e6481dfa601a327ca7d8f14594",
+  "attempts": [
+    {
+      "asr_seconds": 0.08954750106204301,
+      "alignment_seconds": 7.775297854095697e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.593017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt]",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08964742498937994
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "663c4596384b0b5155b6ff6e2325c36275b7ccbe4ff3d90506674dae03673998",
+  "selected_reasons": []
+}

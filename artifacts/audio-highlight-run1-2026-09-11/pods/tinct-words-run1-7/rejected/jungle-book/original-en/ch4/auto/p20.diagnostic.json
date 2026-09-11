@@ -1,0 +1,1177 @@
+{
+  "complete": true,
+  "signature": "6f894364375bfc19512b3a8e86afcf6ab14e30e0b3b88da70370e5844182d28f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11385269835591316,
+      "alignment_seconds": 0.00011702720075845718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You mustn't swim till you're six weeks old, Or your head will be sunk by your heels; And summer gales and Killer Whales Are bad for baby seals.",
+        "hotwords": "You, Or, Killer, Whales, Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You, Or, Killer, Whales, Are bad for baby seals.",
+          "start": 0.05,
+          "end": 8.57,
+          "words": [
+            {
+              "text": " You,",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " Or,",
+              "start": 0.53,
+              "end": 2.25,
+              "probability": 1.8596649169921875e-05
+            },
+            {
+              "text": " Killer,",
+              "start": 3.45,
+              "end": 5.89,
+              "probability": 7.152557373046875e-07
+            },
+            {
+              "text": " Whales,",
+              "start": 6.19,
+              "end": 7.27,
+              "probability": 0.5303192138671875
+            },
+            {
+              "text": " Are",
+              "start": 7.35,
+              "end": 7.35,
+              "probability": 0.0556640625
+            },
+            {
+              "text": " bad",
+              "start": 7.35,
+              "end": 7.65,
+              "probability": 0.0145111083984375
+            },
+            {
+              "text": " for",
+              "start": 7.65,
+              "end": 7.89,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " baby",
+              "start": 7.89,
+              "end": 8.19,
+              "probability": 0.72265625
+            },
+            {
+              "text": " seals.",
+              "start": 8.19,
+              "end": 8.57,
+              "probability": 0.93212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You,",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Or,",
+          "start": 0.53,
+          "end": 2.25
+        },
+        {
+          "raw": "Killer,",
+          "start": 3.45,
+          "end": 5.89
+        },
+        {
+          "raw": "Whales,",
+          "start": 6.19,
+          "end": 7.27
+        },
+        {
+          "raw": "Are",
+          "start": 7.35,
+          "end": 7.35
+        },
+        {
+          "raw": "bad",
+          "start": 7.35,
+          "end": 7.65
+        },
+        {
+          "raw": "for",
+          "start": 7.65,
+          "end": 7.89
+        },
+        {
+          "raw": "baby",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "raw": "seals.",
+          "start": 8.19,
+          "end": 8.57
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "mustn't",
+        "swim",
+        "till",
+        "you're",
+        "six",
+        "weeks",
+        "old,",
+        "Or",
+        "your",
+        "head",
+        "will",
+        "be",
+        "sunk",
+        "by",
+        "your",
+        "heels;",
+        "And",
+        "summer",
+        "gales",
+        "and",
+        "Killer",
+        "Whales",
+        "Are",
+        "bad",
+        "for",
+        "baby",
+        "seals."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          8,
+          1,
+          1
+        ],
+        [
+          "equal",
+          8,
+          9,
+          1,
+          2
+        ],
+        [
+          "delete",
+          9,
+          21,
+          2,
+          2
+        ],
+        [
+          "equal",
+          21,
+          28,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          8,
+          1,
+          1
+        ],
+        [
+          "delete",
+          9,
+          21,
+          2,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "mustn't",
+          "start": 0.51,
+          "end": 0.52
+        },
+        {
+          "text": "swim",
+          "start": 0.52,
+          "end": 0.525
+        },
+        {
+          "text": "till",
+          "start": 0.525,
+          "end": 0.528
+        },
+        {
+          "text": "you're",
+          "start": 0.528,
+          "end": 0.529
+        },
+        {
+          "text": "six",
+          "start": 0.529,
+          "end": 0.53
+        },
+        {
+          "text": "weeks",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "text": "old,",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "text": "Or",
+          "start": 0.53,
+          "end": 2.25
+        },
+        {
+          "text": "your",
+          "start": 2.25,
+          "end": 2.85
+        },
+        {
+          "text": "head",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "text": "will",
+          "start": 3.15,
+          "end": 3.3
+        },
+        {
+          "text": "be",
+          "start": 3.3,
+          "end": 3.375
+        },
+        {
+          "text": "sunk",
+          "start": 3.375,
+          "end": 3.413
+        },
+        {
+          "text": "by",
+          "start": 3.413,
+          "end": 3.431
+        },
+        {
+          "text": "your",
+          "start": 3.431,
+          "end": 3.441
+        },
+        {
+          "text": "heels;",
+          "start": 3.441,
+          "end": 3.446
+        },
+        {
+          "text": "And",
+          "start": 3.446,
+          "end": 3.448
+        },
+        {
+          "text": "summer",
+          "start": 3.448,
+          "end": 3.449
+        },
+        {
+          "text": "gales",
+          "start": 3.449,
+          "end": 3.45
+        },
+        {
+          "text": "and",
+          "start": 3.45,
+          "end": 3.45
+        },
+        {
+          "text": "Killer",
+          "start": 3.45,
+          "end": 5.89
+        },
+        {
+          "text": "Whales",
+          "start": 6.19,
+          "end": 7.27
+        },
+        {
+          "text": "Are",
+          "start": 7.35,
+          "end": 7.35
+        },
+        {
+          "text": "bad",
+          "start": 7.35,
+          "end": 7.65
+        },
+        {
+          "text": "for",
+          "start": 7.65,
+          "end": 7.89
+        },
+        {
+          "text": "baby",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "text": "seals.",
+          "start": 8.19,
+          "end": 8.57
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 0.32142857142857145,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1139978738501668
+    },
+    {
+      "asr_seconds": 0.18237858172506094,
+      "alignment_seconds": 0.00011635292321443558,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "You, Or, Killer, Whales, Are"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You Mustn't Swim Till You're Six Weeks Old, Or Your Head Will Be Sunk By Your Heels,",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " Mustn't",
+              "start": 0.51,
+              "end": 0.99,
+              "probability": 0.6651196479797363
+            },
+            {
+              "text": " Swim",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " Till",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.421630859375
+            },
+            {
+              "text": " You're",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " Six",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.44580078125
+            },
+            {
+              "text": " Weeks",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Old,",
+              "start": 2.09,
+              "end": 2.45,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Or",
+              "start": 3.01,
+              "end": 3.07,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " Your",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Head",
+              "start": 3.25,
+              "end": 3.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Will",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Be",
+              "start": 3.59,
+              "end": 3.77,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Sunk",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " By",
+              "start": 3.99,
+              "end": 4.23,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Your",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Heels,",
+              "start": 4.41,
+              "end": 4.85,
+              "probability": 0.970458984375
+            }
+          ]
+        },
+        {
+          "text": " And Summer Gales And Killer Whales Are Bad For Baby Seals.",
+          "start": 5.41,
+          "end": 8.71,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.41,
+              "end": 5.53,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Summer",
+              "start": 5.53,
+              "end": 5.87,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Gales",
+              "start": 5.87,
+              "end": 6.23,
+              "probability": 0.917724609375
+            },
+            {
+              "text": " And",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.65234375
+            },
+            {
+              "text": " Killer",
+              "start": 6.51,
+              "end": 6.81,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Whales",
+              "start": 6.81,
+              "end": 7.21,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Are",
+              "start": 7.21,
+              "end": 7.39,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Bad",
+              "start": 7.39,
+              "end": 7.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " For",
+              "start": 7.63,
+              "end": 7.89,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Baby",
+              "start": 7.89,
+              "end": 8.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Seals.",
+              "start": 8.19,
+              "end": 8.71,
+              "probability": 0.938232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Mustn't",
+          "start": 0.51,
+          "end": 0.99
+        },
+        {
+          "raw": "Swim",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "Till",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "You're",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "Six",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "Weeks",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "Old,",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "raw": "Or",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "raw": "Your",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "Head",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "raw": "Will",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "Be",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "raw": "Sunk",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "By",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "raw": "Your",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "Heels,",
+          "start": 4.41,
+          "end": 4.85
+        },
+        {
+          "raw": "And",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "raw": "Summer",
+          "start": 5.53,
+          "end": 5.87
+        },
+        {
+          "raw": "Gales",
+          "start": 5.87,
+          "end": 6.23
+        },
+        {
+          "raw": "And",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "raw": "Killer",
+          "start": 6.51,
+          "end": 6.81
+        },
+        {
+          "raw": "Whales",
+          "start": 6.81,
+          "end": 7.21
+        },
+        {
+          "raw": "Are",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "raw": "Bad",
+          "start": 7.39,
+          "end": 7.63
+        },
+        {
+          "raw": "For",
+          "start": 7.63,
+          "end": 7.89
+        },
+        {
+          "raw": "Baby",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "raw": "Seals.",
+          "start": 8.19,
+          "end": 8.71
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "mustn't",
+        "swim",
+        "till",
+        "you're",
+        "six",
+        "weeks",
+        "old,",
+        "Or",
+        "your",
+        "head",
+        "will",
+        "be",
+        "sunk",
+        "by",
+        "your",
+        "heels;",
+        "And",
+        "summer",
+        "gales",
+        "and",
+        "Killer",
+        "Whales",
+        "Are",
+        "bad",
+        "for",
+        "baby",
+        "seals."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "mustn't",
+          "start": 0.51,
+          "end": 0.99
+        },
+        {
+          "text": "swim",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "till",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "you're",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "six",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "weeks",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "old,",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "text": "Or",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "text": "your",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "head",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "text": "will",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "be",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "text": "sunk",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "by",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "text": "your",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "heels;",
+          "start": 4.41,
+          "end": 4.85
+        },
+        {
+          "text": "And",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "text": "summer",
+          "start": 5.53,
+          "end": 5.87
+        },
+        {
+          "text": "gales",
+          "start": 5.87,
+          "end": 6.23
+        },
+        {
+          "text": "and",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "text": "Killer",
+          "start": 6.51,
+          "end": 6.81
+        },
+        {
+          "text": "Whales",
+          "start": 6.81,
+          "end": 7.21
+        },
+        {
+          "text": "Are",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "text": "bad",
+          "start": 7.39,
+          "end": 7.63
+        },
+        {
+          "text": "for",
+          "start": 7.63,
+          "end": 7.89
+        },
+        {
+          "text": "baby",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "text": "seals.",
+          "start": 8.19,
+          "end": 8.71
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18255405500531197
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "aefbfca1b288ecd5a3ba8e73e6a6e9f20cca77e63ac5b32b7f4f88b1aebd10c6",
+  "selected_reasons": []
+}

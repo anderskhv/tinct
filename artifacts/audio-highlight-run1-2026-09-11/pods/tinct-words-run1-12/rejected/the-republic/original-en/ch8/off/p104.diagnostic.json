@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "978dfa7549d998072764230ffb5ca89cdbb78ec4ea20549265dfe6c5f4ad7830",
+  "attempts": [
+    {
+      "asr_seconds": 0.11576927313581109,
+      "alignment_seconds": 0.00012584775686264038,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And here is another defect, which is quite as bad.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.828125
+            },
+            {
+              "text": " here",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " another",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " defect,",
+              "start": 1.28,
+              "end": 1.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " which",
+              "start": 2.06,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quite",
+              "start": 2.28,
+              "end": 2.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bad.",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "here",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "is",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "raw": "another",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "defect,",
+          "start": 1.28,
+          "end": 1.76
+        },
+        {
+          "raw": "which",
+          "start": 2.06,
+          "end": 2.12
+        },
+        {
+          "raw": "is",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "quite",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "raw": "as",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "bad.",
+          "start": 2.64,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "here",
+        "is",
+        "another",
+        "defect",
+        "which",
+        "is",
+        "quite",
+        "as",
+        "bad."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "here",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "is",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "text": "another",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "defect",
+          "start": 1.28,
+          "end": 1.76
+        },
+        {
+          "text": "which",
+          "start": 2.06,
+          "end": 2.12
+        },
+        {
+          "text": "is",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "quite",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "text": "as",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "bad.",
+          "start": 2.64,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11594720976427197
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e20394e75a482afea85b5d45b48e78dab078c8d4df9388d0f9edbfc92024d819",
+  "selected_reasons": []
+}

@@ -1,0 +1,891 @@
+{
+  "complete": true,
+  "signature": "8ced4831aa445a057b3cb84e7971459dfec7f5bf6f0578f38fa3495df01eaf38",
+  "attempts": [
+    {
+      "asr_seconds": 0.35370729165151715,
+      "alignment_seconds": 0.0002160361036658287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then, like a wrestler, he replied, you must put yourself again in the same position; and let me ask the same questions, and do you give me the same answer which you were about to give me then."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then, like a wrestler, he replied, you must put yourself again in the same position, and let me ask the same questions, and do you give me the same answer which you were about to give me then.",
+          "start": 0.05,
+          "end": 10.85,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.295654296875
+            },
+            {
+              "text": " like",
+              "start": 0.79,
+              "end": 0.87,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " a",
+              "start": 0.87,
+              "end": 1.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wrestler,",
+              "start": 1.05,
+              "end": 1.47,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " he",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " replied,",
+              "start": 1.81,
+              "end": 2.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.448486328125
+            },
+            {
+              "text": " must",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " put",
+              "start": 3.07,
+              "end": 3.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " yourself",
+              "start": 3.27,
+              "end": 3.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " again",
+              "start": 3.59,
+              "end": 3.95,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " in",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.11,
+              "end": 4.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " position,",
+              "start": 4.47,
+              "end": 4.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 5.53,
+              "end": 5.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " let",
+              "start": 5.61,
+              "end": 5.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 5.77,
+              "end": 5.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ask",
+              "start": 5.89,
+              "end": 6.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.19,
+              "end": 6.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " same",
+              "start": 6.41,
+              "end": 6.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " questions,",
+              "start": 6.67,
+              "end": 7.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 7.81,
+              "end": 7.89,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " do",
+              "start": 7.89,
+              "end": 8.01,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " you",
+              "start": 8.01,
+              "end": 8.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " give",
+              "start": 8.11,
+              "end": 8.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 8.21,
+              "end": 8.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 8.37,
+              "end": 8.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " same",
+              "start": 8.53,
+              "end": 8.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " answer",
+              "start": 8.81,
+              "end": 9.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 9.23,
+              "end": 9.47,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " you",
+              "start": 9.47,
+              "end": 9.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " were",
+              "start": 9.65,
+              "end": 9.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " about",
+              "start": 9.79,
+              "end": 10.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 10.05,
+              "end": 10.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 10.25,
+              "end": 10.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 10.39,
+              "end": 10.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " then.",
+              "start": 10.57,
+              "end": 10.85,
+              "probability": 0.8955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "like",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "raw": "a",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "raw": "wrestler,",
+          "start": 1.05,
+          "end": 1.47
+        },
+        {
+          "raw": "he",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "replied,",
+          "start": 1.81,
+          "end": 2.23
+        },
+        {
+          "raw": "you",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "must",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "put",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "raw": "yourself",
+          "start": 3.27,
+          "end": 3.59
+        },
+        {
+          "raw": "again",
+          "start": 3.59,
+          "end": 3.95
+        },
+        {
+          "raw": "in",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "the",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "raw": "same",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "position,",
+          "start": 4.47,
+          "end": 4.97
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.61
+        },
+        {
+          "raw": "let",
+          "start": 5.61,
+          "end": 5.77
+        },
+        {
+          "raw": "me",
+          "start": 5.77,
+          "end": 5.89
+        },
+        {
+          "raw": "ask",
+          "start": 5.89,
+          "end": 6.19
+        },
+        {
+          "raw": "the",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "raw": "same",
+          "start": 6.41,
+          "end": 6.67
+        },
+        {
+          "raw": "questions,",
+          "start": 6.67,
+          "end": 7.17
+        },
+        {
+          "raw": "and",
+          "start": 7.81,
+          "end": 7.89
+        },
+        {
+          "raw": "do",
+          "start": 7.89,
+          "end": 8.01
+        },
+        {
+          "raw": "you",
+          "start": 8.01,
+          "end": 8.11
+        },
+        {
+          "raw": "give",
+          "start": 8.11,
+          "end": 8.21
+        },
+        {
+          "raw": "me",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "raw": "the",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "raw": "same",
+          "start": 8.53,
+          "end": 8.81
+        },
+        {
+          "raw": "answer",
+          "start": 8.81,
+          "end": 9.23
+        },
+        {
+          "raw": "which",
+          "start": 9.23,
+          "end": 9.47
+        },
+        {
+          "raw": "you",
+          "start": 9.47,
+          "end": 9.65
+        },
+        {
+          "raw": "were",
+          "start": 9.65,
+          "end": 9.79
+        },
+        {
+          "raw": "about",
+          "start": 9.79,
+          "end": 10.05
+        },
+        {
+          "raw": "to",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "raw": "give",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "raw": "me",
+          "start": 10.39,
+          "end": 10.57
+        },
+        {
+          "raw": "then.",
+          "start": 10.57,
+          "end": 10.85
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "like",
+        "a",
+        "wrestler,",
+        "he",
+        "replied,",
+        "you",
+        "must",
+        "put",
+        "yourself",
+        "again",
+        "in",
+        "the",
+        "same",
+        "position;",
+        "and",
+        "let",
+        "me",
+        "ask",
+        "the",
+        "same",
+        "questions,",
+        "and",
+        "do",
+        "you",
+        "give",
+        "me",
+        "the",
+        "same",
+        "answer",
+        "which",
+        "you",
+        "were",
+        "about",
+        "to",
+        "give",
+        "me",
+        "then."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "like",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "text": "a",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "text": "wrestler,",
+          "start": 1.05,
+          "end": 1.47
+        },
+        {
+          "text": "he",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "replied,",
+          "start": 1.81,
+          "end": 2.23
+        },
+        {
+          "text": "you",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "must",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "put",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "text": "yourself",
+          "start": 3.27,
+          "end": 3.59
+        },
+        {
+          "text": "again",
+          "start": 3.59,
+          "end": 3.95
+        },
+        {
+          "text": "in",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "the",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "text": "same",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "position;",
+          "start": 4.47,
+          "end": 4.97
+        },
+        {
+          "text": "and",
+          "start": 5.53,
+          "end": 5.61
+        },
+        {
+          "text": "let",
+          "start": 5.61,
+          "end": 5.77
+        },
+        {
+          "text": "me",
+          "start": 5.77,
+          "end": 5.89
+        },
+        {
+          "text": "ask",
+          "start": 5.89,
+          "end": 6.19
+        },
+        {
+          "text": "the",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "text": "same",
+          "start": 6.41,
+          "end": 6.67
+        },
+        {
+          "text": "questions,",
+          "start": 6.67,
+          "end": 7.17
+        },
+        {
+          "text": "and",
+          "start": 7.81,
+          "end": 7.89
+        },
+        {
+          "text": "do",
+          "start": 7.89,
+          "end": 8.01
+        },
+        {
+          "text": "you",
+          "start": 8.01,
+          "end": 8.11
+        },
+        {
+          "text": "give",
+          "start": 8.11,
+          "end": 8.21
+        },
+        {
+          "text": "me",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "text": "the",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "text": "same",
+          "start": 8.53,
+          "end": 8.81
+        },
+        {
+          "text": "answer",
+          "start": 8.81,
+          "end": 9.23
+        },
+        {
+          "text": "which",
+          "start": 9.23,
+          "end": 9.47
+        },
+        {
+          "text": "you",
+          "start": 9.47,
+          "end": 9.65
+        },
+        {
+          "text": "were",
+          "start": 9.65,
+          "end": 9.79
+        },
+        {
+          "text": "about",
+          "start": 9.79,
+          "end": 10.05
+        },
+        {
+          "text": "to",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "text": "give",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "text": "me",
+          "start": 10.39,
+          "end": 10.57
+        },
+        {
+          "text": "then.",
+          "start": 10.57,
+          "end": 10.85
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 38,
+        "matched_words": 38
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35404477594420314
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "804de57d3d3194809f487112fd5ff2b492da99862bb75a9d13f16c84e3dbc762",
+  "selected_reasons": []
+}

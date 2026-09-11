@@ -1,0 +1,563 @@
+{
+  "complete": true,
+  "signature": "9ffdc900783f4475b4da3658020dfe0c96282f273314dcbc24820f67fc57c789",
+  "attempts": [
+    {
+      "asr_seconds": 0.17440904304385185,
+      "alignment_seconds": 0.00011593196541070938,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nobody answered and the true force said to change the conversation.",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Nobody",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " answered",
+              "start": 0.69,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.21,
+              "end": 1.69,
+              "probability": 0.483154296875
+            },
+            {
+              "text": " the",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " true",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " force",
+              "start": 2.03,
+              "end": 2.29,
+              "probability": 0.17138671875
+            },
+            {
+              "text": " said",
+              "start": 2.29,
+              "end": 2.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.986328125
+            },
+            {
+              "text": " change",
+              "start": 2.89,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " conversation.",
+              "start": 3.39,
+              "end": 3.95,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Where's that little dog?",
+          "start": 4.63,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Where's",
+              "start": 4.63,
+              "end": 4.91,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " that",
+              "start": 4.91,
+              "end": 5.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " little",
+              "start": 5.09,
+              "end": 5.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dog?",
+              "start": 5.33,
+              "end": 5.73,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " A dog means a man somewhere about.",
+          "start": 6.29,
+          "end": 8.19,
+          "words": [
+            {
+              "text": " A",
+              "start": 6.29,
+              "end": 6.37,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " dog",
+              "start": 6.37,
+              "end": 6.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " means",
+              "start": 6.67,
+              "end": 6.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 6.95,
+              "end": 7.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " man",
+              "start": 7.11,
+              "end": 7.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " somewhere",
+              "start": 7.33,
+              "end": 7.83,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " about.",
+              "start": 7.83,
+              "end": 8.19,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nobody",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "answered",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.69
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "true",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "force",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "raw": "said",
+          "start": 2.29,
+          "end": 2.65
+        },
+        {
+          "raw": "to",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "change",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "conversation.",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "raw": "Where's",
+          "start": 4.63,
+          "end": 4.91
+        },
+        {
+          "raw": "that",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "raw": "little",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "raw": "dog?",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "raw": "A",
+          "start": 6.29,
+          "end": 6.37
+        },
+        {
+          "raw": "dog",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "raw": "means",
+          "start": 6.67,
+          "end": 6.95
+        },
+        {
+          "raw": "a",
+          "start": 6.95,
+          "end": 7.11
+        },
+        {
+          "raw": "man",
+          "start": 7.11,
+          "end": 7.33
+        },
+        {
+          "raw": "somewhere",
+          "start": 7.33,
+          "end": 7.83
+        },
+        {
+          "raw": "about.",
+          "start": 7.83,
+          "end": 8.19
+        }
+      ],
+      "expected_tokens": [
+        "Nobody",
+        "answered,",
+        "and",
+        "the",
+        "troop-horse",
+        "said,",
+        "to",
+        "change",
+        "the",
+        "conversation,",
+        "\"Where's",
+        "that",
+        "little",
+        "dog?",
+        "A",
+        "dog",
+        "means",
+        "a",
+        "man",
+        "somewhere",
+        "about.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          21,
+          6,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Nobody",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "answered,",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.21,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "troop-horse",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "text": "said,",
+          "start": 2.29,
+          "end": 2.65
+        },
+        {
+          "text": "to",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "change",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "text": "the",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "text": "conversation,",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "text": "\"Where's",
+          "start": 4.63,
+          "end": 4.91
+        },
+        {
+          "text": "that",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "text": "little",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "text": "dog?",
+          "start": 5.33,
+          "end": 5.73
+        },
+        {
+          "text": "A",
+          "start": 6.29,
+          "end": 6.37
+        },
+        {
+          "text": "dog",
+          "start": 6.37,
+          "end": 6.67
+        },
+        {
+          "text": "means",
+          "start": 6.67,
+          "end": 6.95
+        },
+        {
+          "text": "a",
+          "start": 6.95,
+          "end": 7.11
+        },
+        {
+          "text": "man",
+          "start": 7.11,
+          "end": 7.33
+        },
+        {
+          "text": "somewhere",
+          "start": 7.33,
+          "end": 7.83
+        },
+        {
+          "text": "about.\"",
+          "start": 7.83,
+          "end": 8.19
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.17457845248281956
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fb2e54a46d029de52126653451b27c92efb9310db601f50b92cefdf03515b764",
+  "selected_reasons": []
+}

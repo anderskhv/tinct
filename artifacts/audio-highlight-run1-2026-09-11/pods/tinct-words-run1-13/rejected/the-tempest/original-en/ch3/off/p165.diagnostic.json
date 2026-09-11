@@ -1,0 +1,377 @@
+{
+  "complete": true,
+  "signature": "02ee0465938c56075009b6f07527a08d474c49e5252db0edde068dc9b549ee25",
+  "attempts": [
+    {
+      "asr_seconds": 0.1579540380043909,
+      "alignment_seconds": 0.00018748699221760035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alonzo, lead off this ground, and let's make further search for my poor son.",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Alonzo,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.8131510416666666
+            },
+            {
+              "text": " lead",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.9453125
+            },
+            {
+              "text": " off",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.990234375
+            },
+            {
+              "text": " this",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ground,",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.95,
+              "end": 2.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " let's",
+              "start": 2.97,
+              "end": 3.19,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " make",
+              "start": 3.19,
+              "end": 3.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " further",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " search",
+              "start": 3.55,
+              "end": 3.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.986328125
+            },
+            {
+              "text": " poor",
+              "start": 4.25,
+              "end": 4.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " son.",
+              "start": 4.43,
+              "end": 4.75,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonzo,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "lead",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "off",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "this",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "ground,",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 2.97
+        },
+        {
+          "raw": "let's",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "raw": "make",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "raw": "further",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "search",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "raw": "for",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "my",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "poor",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "raw": "son.",
+          "start": 4.43,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "Lead",
+        "off",
+        "this",
+        "ground;",
+        "and",
+        "let's",
+        "make",
+        "further",
+        "search",
+        "For",
+        "my",
+        "poor",
+        "son."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          14,
+          1,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "Lead",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "off",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "this",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "ground;",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "and",
+          "start": 2.95,
+          "end": 2.97
+        },
+        {
+          "text": "let's",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "text": "make",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "text": "further",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "search",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "text": "For",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "text": "my",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "poor",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "text": "son.",
+          "start": 4.43,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.15824786899611354
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "adfc773d7c33dc40693cf7c3673d000f71942b6d01f07e069d0aaf10147c3c7d",
+  "selected_reasons": []
+}

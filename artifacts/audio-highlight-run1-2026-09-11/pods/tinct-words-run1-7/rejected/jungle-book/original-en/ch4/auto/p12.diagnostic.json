@@ -1,0 +1,906 @@
+{
+  "complete": true,
+  "signature": "037079cdc88dc55982353b993384c3b08a3488fcfa3b72737d07b74d25aaf74a",
+  "attempts": [
+    {
+      "asr_seconds": 0.22037852555513382,
+      "alignment_seconds": 0.000131167471408844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I haven't been doing anything but fight since the middle of May. The beach is disgracefully crowded this season. I've met at least a hundred seals from Lukannon Beach, house hunting. Why can't people stay where they belong?\"",
+        "hotwords": "I, May, I've, Lukannon, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I haven't been doing anything but fight since the middle of May. The beach is disgracefully",
+          "start": 0.05,
+          "end": 5.11,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " haven't",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " been",
+              "start": 0.77,
+              "end": 0.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " doing",
+              "start": 0.91,
+              "end": 1.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anything",
+              "start": 1.11,
+              "end": 1.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " fight",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " since",
+              "start": 2.13,
+              "end": 2.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " middle",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " May.",
+              "start": 2.93,
+              "end": 3.17,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " The",
+              "start": 3.79,
+              "end": 3.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " beach",
+              "start": 3.89,
+              "end": 4.11,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " is",
+              "start": 4.11,
+              "end": 4.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " disgracefully",
+              "start": 4.33,
+              "end": 5.11,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " crowded this season. I've met at least a hundred seals from Lukannon Beach, house hunting. Why",
+          "start": 5.11,
+          "end": 11.15,
+          "words": [
+            {
+              "text": " crowded",
+              "start": 5.11,
+              "end": 5.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 5.43,
+              "end": 5.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " season.",
+              "start": 5.75,
+              "end": 6.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I've",
+              "start": 6.77,
+              "end": 6.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " met",
+              "start": 6.89,
+              "end": 7.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 7.03,
+              "end": 7.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " least",
+              "start": 7.13,
+              "end": 7.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 7.27,
+              "end": 7.41,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " hundred",
+              "start": 7.41,
+              "end": 7.69,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " seals",
+              "start": 7.69,
+              "end": 8.13,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " from",
+              "start": 8.13,
+              "end": 8.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Lukannon",
+              "start": 8.51,
+              "end": 8.99,
+              "probability": 0.249542236328125
+            },
+            {
+              "text": " Beach,",
+              "start": 8.99,
+              "end": 9.37,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " house",
+              "start": 9.75,
+              "end": 9.89,
+              "probability": 0.90625
+            },
+            {
+              "text": " hunting.",
+              "start": 9.89,
+              "end": 10.33,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " Why",
+              "start": 11.01,
+              "end": 11.15,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " can't people stay where they belong?",
+          "start": 11.15,
+          "end": 12.65,
+          "words": [
+            {
+              "text": " can't",
+              "start": 11.15,
+              "end": 11.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " people",
+              "start": 11.49,
+              "end": 11.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stay",
+              "start": 11.67,
+              "end": 11.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 11.97,
+              "end": 12.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 12.13,
+              "end": 12.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " belong?",
+              "start": 12.27,
+              "end": 12.65,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "haven't",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "been",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "raw": "doing",
+          "start": 0.91,
+          "end": 1.11
+        },
+        {
+          "raw": "anything",
+          "start": 1.11,
+          "end": 1.59
+        },
+        {
+          "raw": "but",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "fight",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "raw": "since",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "raw": "the",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "middle",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "May.",
+          "start": 2.93,
+          "end": 3.17
+        },
+        {
+          "raw": "The",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "raw": "beach",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "raw": "is",
+          "start": 4.11,
+          "end": 4.33
+        },
+        {
+          "raw": "disgracefully",
+          "start": 4.33,
+          "end": 5.11
+        },
+        {
+          "raw": "crowded",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "raw": "this",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "raw": "season.",
+          "start": 5.75,
+          "end": 6.11
+        },
+        {
+          "raw": "I've",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "raw": "met",
+          "start": 6.89,
+          "end": 7.03
+        },
+        {
+          "raw": "at",
+          "start": 7.03,
+          "end": 7.13
+        },
+        {
+          "raw": "least",
+          "start": 7.13,
+          "end": 7.27
+        },
+        {
+          "raw": "a",
+          "start": 7.27,
+          "end": 7.41
+        },
+        {
+          "raw": "hundred",
+          "start": 7.41,
+          "end": 7.69
+        },
+        {
+          "raw": "seals",
+          "start": 7.69,
+          "end": 8.13
+        },
+        {
+          "raw": "from",
+          "start": 8.13,
+          "end": 8.51
+        },
+        {
+          "raw": "Lukannon",
+          "start": 8.51,
+          "end": 8.99
+        },
+        {
+          "raw": "Beach,",
+          "start": 8.99,
+          "end": 9.37
+        },
+        {
+          "raw": "house",
+          "start": 9.75,
+          "end": 9.89
+        },
+        {
+          "raw": "hunting.",
+          "start": 9.89,
+          "end": 10.33
+        },
+        {
+          "raw": "Why",
+          "start": 11.01,
+          "end": 11.15
+        },
+        {
+          "raw": "can't",
+          "start": 11.15,
+          "end": 11.49
+        },
+        {
+          "raw": "people",
+          "start": 11.49,
+          "end": 11.67
+        },
+        {
+          "raw": "stay",
+          "start": 11.67,
+          "end": 11.97
+        },
+        {
+          "raw": "where",
+          "start": 11.97,
+          "end": 12.13
+        },
+        {
+          "raw": "they",
+          "start": 12.13,
+          "end": 12.27
+        },
+        {
+          "raw": "belong?",
+          "start": 12.27,
+          "end": 12.65
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "haven't",
+        "been",
+        "doing",
+        "anything",
+        "but",
+        "fight",
+        "since",
+        "the",
+        "middle",
+        "of",
+        "May.",
+        "The",
+        "beach",
+        "is",
+        "disgracefully",
+        "crowded",
+        "this",
+        "season.",
+        "I've",
+        "met",
+        "at",
+        "least",
+        "a",
+        "hundred",
+        "seals",
+        "from",
+        "Lukannon",
+        "Beach,",
+        "house",
+        "hunting.",
+        "Why",
+        "can't",
+        "people",
+        "stay",
+        "where",
+        "they",
+        "belong?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "haven't",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "been",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "text": "doing",
+          "start": 0.91,
+          "end": 1.11
+        },
+        {
+          "text": "anything",
+          "start": 1.11,
+          "end": 1.59
+        },
+        {
+          "text": "but",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "fight",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "text": "since",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "text": "the",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "middle",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "of",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "May.",
+          "start": 2.93,
+          "end": 3.17
+        },
+        {
+          "text": "The",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "text": "beach",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "text": "is",
+          "start": 4.11,
+          "end": 4.33
+        },
+        {
+          "text": "disgracefully",
+          "start": 4.33,
+          "end": 5.11
+        },
+        {
+          "text": "crowded",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "text": "this",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "text": "season.",
+          "start": 5.75,
+          "end": 6.11
+        },
+        {
+          "text": "I've",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "text": "met",
+          "start": 6.89,
+          "end": 7.03
+        },
+        {
+          "text": "at",
+          "start": 7.03,
+          "end": 7.13
+        },
+        {
+          "text": "least",
+          "start": 7.13,
+          "end": 7.27
+        },
+        {
+          "text": "a",
+          "start": 7.27,
+          "end": 7.41
+        },
+        {
+          "text": "hundred",
+          "start": 7.41,
+          "end": 7.69
+        },
+        {
+          "text": "seals",
+          "start": 7.69,
+          "end": 8.13
+        },
+        {
+          "text": "from",
+          "start": 8.13,
+          "end": 8.51
+        },
+        {
+          "text": "Lukannon",
+          "start": 8.51,
+          "end": 8.99
+        },
+        {
+          "text": "Beach,",
+          "start": 8.99,
+          "end": 9.37
+        },
+        {
+          "text": "house",
+          "start": 9.75,
+          "end": 9.89
+        },
+        {
+          "text": "hunting.",
+          "start": 9.89,
+          "end": 10.33
+        },
+        {
+          "text": "Why",
+          "start": 11.01,
+          "end": 11.15
+        },
+        {
+          "text": "can't",
+          "start": 11.15,
+          "end": 11.49
+        },
+        {
+          "text": "people",
+          "start": 11.49,
+          "end": 11.67
+        },
+        {
+          "text": "stay",
+          "start": 11.67,
+          "end": 11.97
+        },
+        {
+          "text": "where",
+          "start": 11.97,
+          "end": 12.13
+        },
+        {
+          "text": "they",
+          "start": 12.13,
+          "end": 12.27
+        },
+        {
+          "text": "belong?\"",
+          "start": 12.27,
+          "end": 12.65
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 38,
+        "matched_words": 38
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22060287930071354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cdc5f2f6b88dacac821172ed493e6aba8954d7f9389f4cd7396a6c2f0f50c190",
+  "selected_reasons": []
+}

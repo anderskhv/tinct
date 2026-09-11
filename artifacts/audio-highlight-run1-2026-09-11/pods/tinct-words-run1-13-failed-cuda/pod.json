@@ -1,0 +1,55 @@
+{
+ "name": "tinct-words-run1-13",
+ "commit": "a3780bee4a0683ed3968478e442bfbd2f861173e",
+ "batch": 7,
+ "createdAt": "2026-09-11T13:18:35Z",
+ "maxSeconds": 2100,
+ "arms": "off auto",
+ "computeType": "float16",
+ "podId": "2xyxo79cgn82hs",
+ "gpu": null,
+ "costPerHr": 0.22,
+ "image": null,
+ "cloud": "COMMUNITY",
+ "agentUpAt": "2026-09-11T13:19:10Z",
+ "jobOutcome": "failed",
+ "finalStatus": {
+  "phase": "failed",
+  "uptime_seconds": 61.7,
+  "setup": {
+   "versions": {
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "av": "18.1.0"
+   },
+   "commit": "a3780bee4a0683ed3968478e442bfbd2f861173e",
+   "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+   "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_cupti/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_nvrtc/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cudnn/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cufft/lib:/usr/local/lib/python3.11/dist-packages/nvidia/curand/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusolver/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusparse/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nccl/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvjitlink/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvtx/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+   "gpu": "NVIDIA GeForce RTX 3090, 24576 MiB, 580.178.04",
+   "cuda_probe": "cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n"
+  },
+  "job": {
+   "error": "RuntimeError: cuda probe failed: cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n",
+   "traceback": "Traceback (most recent call last):\n  File \"/workspace/run/pod_job.py\", line 155, in job\n    tools = setup()\n            ^^^^^^^\n  File \"/workspace/run/pod_job.py\", line 142, in setup\n    raise RuntimeError(\"cuda probe failed: \" + (probe.stdout + probe.stderr)[-2000:])\nRuntimeError: cuda probe failed: cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n\n",
+   "finished": 1789132771.7897396
+  },
+  "log": [
+   "[13:18:39] read-only status server on 8000; run root /workspace/run; commit a3780bee4a0683ed3968478e442bfbd2f861173e",
+   "[13:19:31] job failed: RuntimeError: cuda probe failed: cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n",
+   "[13:19:31] job finished with phase failed"
+  ],
+  "progress": {
+   "arm_chapters_passed": 0,
+   "arm_chapters_rejected": 0,
+   "arm_chapters_running": 0
+  }
+ },
+ "resultsFetched": false,
+ "uptimeMinutes": 1.1,
+ "estimatedCost": 0.004,
+ "stopRequestedAt": "2026-09-11T13:19:44Z",
+ "statusAfterStop": "EXITED",
+ "stoppedAt": "2026-09-11T13:19:45Z",
+ "terminatedAt": "2026-09-11T13:19:46Z",
+ "terminateHttp": 204
+}

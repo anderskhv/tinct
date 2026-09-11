@@ -1,0 +1,545 @@
+{
+  "complete": true,
+  "signature": "a5c4928fd33fba8bc5ed527cf6b7d1729f0283f33036d19dd0cd0bacc9b2af7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.21573417796753347,
+      "alignment_seconds": 0.0002307369140908122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caliban, I thank my noble lord.",
+          "start": 0.02,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Caliban,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.524169921875
+            },
+            {
+              "text": " I",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thank",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " noble",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.955078125
+            },
+            {
+              "text": " lord.",
+              "start": 2.16,
+              "end": 2.52,
+              "probability": 0.72509765625
+            }
+          ]
+        },
+        {
+          "text": " Wilt thou be pleased to harken once again to the suit I made to thee?",
+          "start": 3.26,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " Wilt",
+              "start": 3.26,
+              "end": 3.36,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " thou",
+              "start": 3.36,
+              "end": 3.58,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " be",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pleased",
+              "start": 3.78,
+              "end": 4.04,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " to",
+              "start": 4.04,
+              "end": 4.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " harken",
+              "start": 4.26,
+              "end": 4.58,
+              "probability": 0.8671875
+            },
+            {
+              "text": " once",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " again",
+              "start": 4.76,
+              "end": 5.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 5.06,
+              "end": 5.26,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 5.26,
+              "end": 5.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " suit",
+              "start": 5.36,
+              "end": 5.62,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 5.62,
+              "end": 5.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " made",
+              "start": 5.84,
+              "end": 6.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 6.04,
+              "end": 6.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thee?",
+              "start": 6.2,
+              "end": 6.4,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caliban,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "thank",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "my",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "noble",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "lord.",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "raw": "Wilt",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "raw": "thou",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "raw": "be",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "pleased",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "raw": "to",
+          "start": 4.04,
+          "end": 4.26
+        },
+        {
+          "raw": "harken",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "raw": "once",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "again",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "raw": "to",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "raw": "the",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "raw": "suit",
+          "start": 5.36,
+          "end": 5.62
+        },
+        {
+          "raw": "I",
+          "start": 5.62,
+          "end": 5.84
+        },
+        {
+          "raw": "made",
+          "start": 5.84,
+          "end": 6.04
+        },
+        {
+          "raw": "to",
+          "start": 6.04,
+          "end": 6.2
+        },
+        {
+          "raw": "thee?",
+          "start": 6.2,
+          "end": 6.4
+        }
+      ],
+      "expected_tokens": [
+        "Caliban.",
+        "I",
+        "thank",
+        "my",
+        "noble",
+        "lord.",
+        "Wilt",
+        "thou",
+        "be",
+        "pleased",
+        "to",
+        "hearken",
+        "once",
+        "again",
+        "to",
+        "the",
+        "suit",
+        "I",
+        "made",
+        "to",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          21,
+          12,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Caliban.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "thank",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "my",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "noble",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "lord.",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "text": "Wilt",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "text": "thou",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "text": "be",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "pleased",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "text": "to",
+          "start": 4.04,
+          "end": 4.26
+        },
+        {
+          "text": "hearken",
+          "start": 4.26,
+          "end": 4.42
+        },
+        {
+          "text": "once",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "again",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "text": "to",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "text": "the",
+          "start": 5.26,
+          "end": 5.36
+        },
+        {
+          "text": "suit",
+          "start": 5.36,
+          "end": 5.62
+        },
+        {
+          "text": "I",
+          "start": 5.62,
+          "end": 5.84
+        },
+        {
+          "text": "made",
+          "start": 5.84,
+          "end": 6.04
+        },
+        {
+          "text": "to",
+          "start": 6.04,
+          "end": 6.2
+        },
+        {
+          "text": "thee?",
+          "start": 6.2,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.21608459891285747
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79ea21d61d871071fe999c6d5654b710d5e139cc8ae1b1fcb01e5ef5efd34efc",
+  "selected_reasons": []
+}

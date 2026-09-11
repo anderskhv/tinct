@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "9e681db158496dbcc852a17b3c41ec70da815df9d299a30aca8b7244655d8b92",
+  "attempts": [
+    {
+      "asr_seconds": 0.12468988192267716,
+      "alignment_seconds": 0.00012200500350445509,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Adrian. Uninhabitable and almost inaccessible,--",
+        "hotwords": "Adrian, Uninhabitable"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Adrian, Uninhabitable and almost inaccessible.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Adrian,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " Uninhabitable",
+              "start": 1.41,
+              "end": 2.07,
+              "probability": 0.7158079147338867
+            },
+            {
+              "text": " and",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " almost",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " inaccessible.",
+              "start": 2.55,
+              "end": 3.17,
+              "probability": 0.84716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adrian,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Uninhabitable",
+          "start": 1.41,
+          "end": 2.07
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "almost",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "raw": "inaccessible.",
+          "start": 2.55,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Adrian.",
+        "Uninhabitable",
+        "and",
+        "almost",
+        "inaccessible,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Adrian.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Uninhabitable",
+          "start": 1.41,
+          "end": 2.07
+        },
+        {
+          "text": "and",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "almost",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "inaccessible,--",
+          "start": 2.55,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12485643790569156
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41dca3f377be42a25e8b85df76e90287112471e7876cb96c17dc6854cd75fa43",
+  "selected_reasons": []
+}

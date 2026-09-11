@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "0644fb0468e01ee9b6b2b45abfa8f0b1063c42fb35bffabfd786758ba3ee6471",
+  "attempts": [
+    {
+      "asr_seconds": 0.16387045290321112,
+      "alignment_seconds": 0.00014049396850168705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stephano. Flout 'em and scout 'em And scout 'em and flout 'em Thought is free.",
+        "hotwords": "Stephano, Thought"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stephano, Flout'em and scout'em And scout'em and flout'em Thought is free.",
+          "start": 0.52,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Stephano,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.49904632568359375
+            },
+            {
+              "text": " Flout",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.36865234375
+            },
+            {
+              "text": "'em",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.515472412109375
+            },
+            {
+              "text": " and",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.892578125
+            },
+            {
+              "text": " scout",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.0204620361328125
+            },
+            {
+              "text": "'em",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.878662109375
+            },
+            {
+              "text": " And",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.0146026611328125
+            },
+            {
+              "text": " scout",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.88134765625
+            },
+            {
+              "text": "'em",
+              "start": 2.72,
+              "end": 2.9,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " and",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " flout",
+              "start": 3.04,
+              "end": 3.28,
+              "probability": 0.85107421875
+            },
+            {
+              "text": "'em",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Thought",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.1236572265625
+            },
+            {
+              "text": " is",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " free.",
+              "start": 3.82,
+              "end": 4.12,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephano,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "Flout",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "'em",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "and",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "scout",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "'em",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "And",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "scout",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "'em",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "raw": "and",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "flout",
+          "start": 3.04,
+          "end": 3.28
+        },
+        {
+          "raw": "'em",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "Thought",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "is",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "free.",
+          "start": 3.82,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "Stephano.",
+        "Flout",
+        "'em",
+        "and",
+        "scout",
+        "'em",
+        "And",
+        "scout",
+        "'em",
+        "and",
+        "flout",
+        "'em",
+        "Thought",
+        "is",
+        "free."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Stephano.",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "Flout",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "text": "'em",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "and",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "scout",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "'em",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "And",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "scout",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "'em",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "and",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "flout",
+          "start": 3.04,
+          "end": 3.28
+        },
+        {
+          "text": "'em",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "Thought",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "is",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "free.",
+          "start": 3.82,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16407939896453172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "73ca41fbc2892bcf65c0068e1ba7c0f803df9a7efe1b4ce1574ffe297f2527da",
+  "selected_reasons": []
+}

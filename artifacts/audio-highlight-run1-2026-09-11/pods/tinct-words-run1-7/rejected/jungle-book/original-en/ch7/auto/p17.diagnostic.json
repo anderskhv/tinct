@@ -1,0 +1,3670 @@
+{
+  "complete": true,
+  "signature": "fba88f65418812e1eb83fb2dbcce6f4cace330db11e841d7199652a6db975f10",
+  "attempts": [
+    {
+      "asr_seconds": 0.3403490586206317,
+      "alignment_seconds": 0.00019040703773498535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sit down,\" said the mule, \"or you'll snap your long stick-legs between the guns.\" He cocked one ear and listened. \"Bullocks!\" he said. \"Gun bullocks. On my word, you and your friends have waked the camp very thoroughly. It takes a good deal of prodding to put up a gun-bullock.\"",
+        "hotwords": "Sit, Gun, On, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sit down,\" said the mule, \"'or you'll snap your long stick-legs between the guns.'\" He cocked one ear and listened.",
+          "start": 0.11,
+          "end": 7.03,
+          "words": [
+            {
+              "text": " Sit",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.128173828125
+            },
+            {
+              "text": " down,\"",
+              "start": 0.61,
+              "end": 1.19,
+              "probability": 0.7025146484375
+            },
+            {
+              "text": " said",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9765625
+            },
+            {
+              "text": " mule,",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.818115234375
+            },
+            {
+              "text": " \"'or",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.41913795471191406
+            },
+            {
+              "text": " you'll",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " snap",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " your",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " long",
+              "start": 3.05,
+              "end": 3.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " stick",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.61279296875
+            },
+            {
+              "text": "-legs",
+              "start": 3.61,
+              "end": 4.03,
+              "probability": 0.6700261433919271
+            },
+            {
+              "text": " between",
+              "start": 4.03,
+              "end": 4.25,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 4.25,
+              "end": 4.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " guns.'\"",
+              "start": 4.43,
+              "end": 5.15,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " He",
+              "start": 5.15,
+              "end": 5.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " cocked",
+              "start": 5.61,
+              "end": 5.91,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " one",
+              "start": 5.91,
+              "end": 6.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ear",
+              "start": 6.17,
+              "end": 6.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 6.47,
+              "end": 6.71,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " listened.",
+              "start": 6.71,
+              "end": 7.03,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Bullocks, he said. Gun bullocks. On my word, you and your friends have waked the camp very thoroughly.",
+          "start": 7.77,
+          "end": 13.67,
+          "words": [
+            {
+              "text": " Bullocks,",
+              "start": 7.77,
+              "end": 8.21,
+              "probability": 0.4933152198791504
+            },
+            {
+              "text": " he",
+              "start": 8.53,
+              "end": 8.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said.",
+              "start": 8.73,
+              "end": 9.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Gun",
+              "start": 9.43,
+              "end": 9.61,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " bullocks.",
+              "start": 9.61,
+              "end": 10.13,
+              "probability": 0.606201171875
+            },
+            {
+              "text": " On",
+              "start": 10.51,
+              "end": 10.61,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " my",
+              "start": 10.61,
+              "end": 10.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " word,",
+              "start": 10.79,
+              "end": 11.11,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 11.27,
+              "end": 11.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 11.39,
+              "end": 11.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 11.53,
+              "end": 11.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " friends",
+              "start": 11.69,
+              "end": 11.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 11.95,
+              "end": 12.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " waked",
+              "start": 12.19,
+              "end": 12.41,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " the",
+              "start": 12.41,
+              "end": 12.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " camp",
+              "start": 12.55,
+              "end": 12.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " very",
+              "start": 12.81,
+              "end": 13.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thoroughly.",
+              "start": 13.17,
+              "end": 13.67,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " It takes a good deal of prodding to put up a gun-bullock.",
+          "start": 14.25,
+          "end": 16.77,
+          "words": [
+            {
+              "text": " It",
+              "start": 14.25,
+              "end": 14.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " takes",
+              "start": 14.37,
+              "end": 14.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 14.55,
+              "end": 14.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 14.71,
+              "end": 14.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deal",
+              "start": 14.87,
+              "end": 15.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.07,
+              "end": 15.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " prodding",
+              "start": 15.21,
+              "end": 15.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 15.55,
+              "end": 15.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " put",
+              "start": 15.73,
+              "end": 15.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 15.85,
+              "end": 15.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 15.97,
+              "end": 16.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gun",
+              "start": 16.11,
+              "end": 16.29,
+              "probability": 0.96484375
+            },
+            {
+              "text": "-bullock.",
+              "start": 16.29,
+              "end": 16.77,
+              "probability": 0.65692138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sit",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "down,\"",
+          "start": 0.61,
+          "end": 1.19
+        },
+        {
+          "raw": "said",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "mule,",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "\"'or",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "you'll",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "snap",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "long",
+          "start": 3.05,
+          "end": 3.33
+        },
+        {
+          "raw": "stick",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "-legs",
+          "start": 3.61,
+          "end": 4.03
+        },
+        {
+          "raw": "between",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "raw": "guns.'\"",
+          "start": 4.43,
+          "end": 5.15
+        },
+        {
+          "raw": "He",
+          "start": 5.15,
+          "end": 5.61
+        },
+        {
+          "raw": "cocked",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "raw": "one",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "raw": "ear",
+          "start": 6.17,
+          "end": 6.47
+        },
+        {
+          "raw": "and",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "raw": "listened.",
+          "start": 6.71,
+          "end": 7.03
+        },
+        {
+          "raw": "Bullocks,",
+          "start": 7.77,
+          "end": 8.21
+        },
+        {
+          "raw": "he",
+          "start": 8.53,
+          "end": 8.73
+        },
+        {
+          "raw": "said.",
+          "start": 8.73,
+          "end": 9.01
+        },
+        {
+          "raw": "Gun",
+          "start": 9.43,
+          "end": 9.61
+        },
+        {
+          "raw": "bullocks.",
+          "start": 9.61,
+          "end": 10.13
+        },
+        {
+          "raw": "On",
+          "start": 10.51,
+          "end": 10.61
+        },
+        {
+          "raw": "my",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "raw": "word,",
+          "start": 10.79,
+          "end": 11.11
+        },
+        {
+          "raw": "you",
+          "start": 11.27,
+          "end": 11.39
+        },
+        {
+          "raw": "and",
+          "start": 11.39,
+          "end": 11.53
+        },
+        {
+          "raw": "your",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "raw": "friends",
+          "start": 11.69,
+          "end": 11.95
+        },
+        {
+          "raw": "have",
+          "start": 11.95,
+          "end": 12.19
+        },
+        {
+          "raw": "waked",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "raw": "the",
+          "start": 12.41,
+          "end": 12.55
+        },
+        {
+          "raw": "camp",
+          "start": 12.55,
+          "end": 12.81
+        },
+        {
+          "raw": "very",
+          "start": 12.81,
+          "end": 13.17
+        },
+        {
+          "raw": "thoroughly.",
+          "start": 13.17,
+          "end": 13.67
+        },
+        {
+          "raw": "It",
+          "start": 14.25,
+          "end": 14.37
+        },
+        {
+          "raw": "takes",
+          "start": 14.37,
+          "end": 14.55
+        },
+        {
+          "raw": "a",
+          "start": 14.55,
+          "end": 14.71
+        },
+        {
+          "raw": "good",
+          "start": 14.71,
+          "end": 14.87
+        },
+        {
+          "raw": "deal",
+          "start": 14.87,
+          "end": 15.07
+        },
+        {
+          "raw": "of",
+          "start": 15.07,
+          "end": 15.21
+        },
+        {
+          "raw": "prodding",
+          "start": 15.21,
+          "end": 15.55
+        },
+        {
+          "raw": "to",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "raw": "put",
+          "start": 15.73,
+          "end": 15.85
+        },
+        {
+          "raw": "up",
+          "start": 15.85,
+          "end": 15.97
+        },
+        {
+          "raw": "a",
+          "start": 15.97,
+          "end": 16.11
+        },
+        {
+          "raw": "gun",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "raw": "-bullock.",
+          "start": 16.29,
+          "end": 16.77
+        }
+      ],
+      "expected_tokens": [
+        "\"Sit",
+        "down,\"",
+        "said",
+        "the",
+        "mule,",
+        "\"or",
+        "you'll",
+        "snap",
+        "your",
+        "long",
+        "stick-legs",
+        "between",
+        "the",
+        "guns.\"",
+        "He",
+        "cocked",
+        "one",
+        "ear",
+        "and",
+        "listened.",
+        "\"Bullocks!\"",
+        "he",
+        "said.",
+        "\"Gun",
+        "bullocks.",
+        "On",
+        "my",
+        "word,",
+        "you",
+        "and",
+        "your",
+        "friends",
+        "have",
+        "waked",
+        "the",
+        "camp",
+        "very",
+        "thoroughly.",
+        "It",
+        "takes",
+        "a",
+        "good",
+        "deal",
+        "of",
+        "prodding",
+        "to",
+        "put",
+        "up",
+        "a",
+        "gun-bullock.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          49,
+          12,
+          50
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          52
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Sit",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "down,\"",
+          "start": 0.61,
+          "end": 1.19
+        },
+        {
+          "text": "said",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "mule,",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "\"or",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "you'll",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "snap",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "your",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "long",
+          "start": 3.05,
+          "end": 3.33
+        },
+        {
+          "text": "stick-legs",
+          "start": 3.33,
+          "end": 3.68
+        },
+        {
+          "text": "between",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "text": "guns.\"",
+          "start": 4.43,
+          "end": 5.15
+        },
+        {
+          "text": "He",
+          "start": 5.15,
+          "end": 5.61
+        },
+        {
+          "text": "cocked",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "text": "one",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "text": "ear",
+          "start": 6.17,
+          "end": 6.47
+        },
+        {
+          "text": "and",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "text": "listened.",
+          "start": 6.71,
+          "end": 7.03
+        },
+        {
+          "text": "\"Bullocks!\"",
+          "start": 7.77,
+          "end": 8.21
+        },
+        {
+          "text": "he",
+          "start": 8.53,
+          "end": 8.73
+        },
+        {
+          "text": "said.",
+          "start": 8.73,
+          "end": 9.01
+        },
+        {
+          "text": "\"Gun",
+          "start": 9.43,
+          "end": 9.61
+        },
+        {
+          "text": "bullocks.",
+          "start": 9.61,
+          "end": 10.13
+        },
+        {
+          "text": "On",
+          "start": 10.51,
+          "end": 10.61
+        },
+        {
+          "text": "my",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "text": "word,",
+          "start": 10.79,
+          "end": 11.11
+        },
+        {
+          "text": "you",
+          "start": 11.27,
+          "end": 11.39
+        },
+        {
+          "text": "and",
+          "start": 11.39,
+          "end": 11.53
+        },
+        {
+          "text": "your",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "text": "friends",
+          "start": 11.69,
+          "end": 11.95
+        },
+        {
+          "text": "have",
+          "start": 11.95,
+          "end": 12.19
+        },
+        {
+          "text": "waked",
+          "start": 12.19,
+          "end": 12.41
+        },
+        {
+          "text": "the",
+          "start": 12.41,
+          "end": 12.55
+        },
+        {
+          "text": "camp",
+          "start": 12.55,
+          "end": 12.81
+        },
+        {
+          "text": "very",
+          "start": 12.81,
+          "end": 13.17
+        },
+        {
+          "text": "thoroughly.",
+          "start": 13.17,
+          "end": 13.67
+        },
+        {
+          "text": "It",
+          "start": 14.25,
+          "end": 14.37
+        },
+        {
+          "text": "takes",
+          "start": 14.37,
+          "end": 14.55
+        },
+        {
+          "text": "a",
+          "start": 14.55,
+          "end": 14.71
+        },
+        {
+          "text": "good",
+          "start": 14.71,
+          "end": 14.87
+        },
+        {
+          "text": "deal",
+          "start": 14.87,
+          "end": 15.07
+        },
+        {
+          "text": "of",
+          "start": 15.07,
+          "end": 15.21
+        },
+        {
+          "text": "prodding",
+          "start": 15.21,
+          "end": 15.55
+        },
+        {
+          "text": "to",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "text": "put",
+          "start": 15.73,
+          "end": 15.85
+        },
+        {
+          "text": "up",
+          "start": 15.85,
+          "end": 15.97
+        },
+        {
+          "text": "a",
+          "start": 15.97,
+          "end": 16.11
+        },
+        {
+          "text": "gun-bullock.\"",
+          "start": 16.11,
+          "end": 16.44
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 52,
+        "matched_words": 48
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.340640589594841
+    },
+    {
+      "asr_seconds": 0.2936554467305541,
+      "alignment_seconds": 0.00018407590687274933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sit, Gun, On, It"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sit down, said the mule, or you'll snap your long stick legs between the guns. He cocked one ear and listened.",
+          "start": 0.11,
+          "end": 7.03,
+          "words": [
+            {
+              "text": " Sit",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.128173828125
+            },
+            {
+              "text": " down,",
+              "start": 0.61,
+              "end": 1.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said",
+              "start": 1.21,
+              "end": 1.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " mule,",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.838623046875
+            },
+            {
+              "text": " or",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you'll",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " snap",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " long",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stick",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " legs",
+              "start": 3.61,
+              "end": 3.93,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " between",
+              "start": 3.93,
+              "end": 4.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.25,
+              "end": 4.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " guns.",
+              "start": 4.43,
+              "end": 4.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " He",
+              "start": 5.39,
+              "end": 5.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cocked",
+              "start": 5.61,
+              "end": 5.91,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " one",
+              "start": 5.91,
+              "end": 6.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ear",
+              "start": 6.17,
+              "end": 6.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 6.47,
+              "end": 6.71,
+              "probability": 0.962890625
+            },
+            {
+              "text": " listened.",
+              "start": 6.71,
+              "end": 7.03,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " Bullocks, he said. Gun Bullocks. On my word, you and your friends have waked the camp very thoroughly.",
+          "start": 7.91,
+          "end": 13.67,
+          "words": [
+            {
+              "text": " Bullocks,",
+              "start": 7.91,
+              "end": 8.21,
+              "probability": 0.875244140625
+            },
+            {
+              "text": " he",
+              "start": 8.55,
+              "end": 8.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " said.",
+              "start": 8.73,
+              "end": 9.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Gun",
+              "start": 9.53,
+              "end": 9.61,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Bullocks.",
+              "start": 9.61,
+              "end": 10.09,
+              "probability": 0.7379150390625
+            },
+            {
+              "text": " On",
+              "start": 10.53,
+              "end": 10.61,
+              "probability": 0.98828125
+            },
+            {
+              "text": " my",
+              "start": 10.61,
+              "end": 10.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " word,",
+              "start": 10.79,
+              "end": 11.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 11.27,
+              "end": 11.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 11.41,
+              "end": 11.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 11.53,
+              "end": 11.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " friends",
+              "start": 11.69,
+              "end": 11.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 11.95,
+              "end": 12.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " waked",
+              "start": 12.17,
+              "end": 12.41,
+              "probability": 0.911376953125
+            },
+            {
+              "text": " the",
+              "start": 12.41,
+              "end": 12.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " camp",
+              "start": 12.55,
+              "end": 12.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " very",
+              "start": 12.81,
+              "end": 13.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thoroughly.",
+              "start": 13.17,
+              "end": 13.67,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " It takes a good deal of prodding to put up a Gun Bullock.",
+          "start": 14.25,
+          "end": 16.77,
+          "words": [
+            {
+              "text": " It",
+              "start": 14.25,
+              "end": 14.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " takes",
+              "start": 14.37,
+              "end": 14.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 14.55,
+              "end": 14.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 14.71,
+              "end": 14.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deal",
+              "start": 14.87,
+              "end": 15.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.09,
+              "end": 15.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " prodding",
+              "start": 15.21,
+              "end": 15.55,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " to",
+              "start": 15.55,
+              "end": 15.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " put",
+              "start": 15.73,
+              "end": 15.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 15.85,
+              "end": 15.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 15.97,
+              "end": 16.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Gun",
+              "start": 16.11,
+              "end": 16.29,
+              "probability": 0.482177734375
+            },
+            {
+              "text": " Bullock.",
+              "start": 16.29,
+              "end": 16.77,
+              "probability": 0.980224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sit",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "down,",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "raw": "said",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "mule,",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "or",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "you'll",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "snap",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "long",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "raw": "stick",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "legs",
+          "start": 3.61,
+          "end": 3.93
+        },
+        {
+          "raw": "between",
+          "start": 3.93,
+          "end": 4.25
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "raw": "guns.",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "raw": "He",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "raw": "cocked",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "raw": "one",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "raw": "ear",
+          "start": 6.17,
+          "end": 6.47
+        },
+        {
+          "raw": "and",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "raw": "listened.",
+          "start": 6.71,
+          "end": 7.03
+        },
+        {
+          "raw": "Bullocks,",
+          "start": 7.91,
+          "end": 8.21
+        },
+        {
+          "raw": "he",
+          "start": 8.55,
+          "end": 8.73
+        },
+        {
+          "raw": "said.",
+          "start": 8.73,
+          "end": 9.01
+        },
+        {
+          "raw": "Gun",
+          "start": 9.53,
+          "end": 9.61
+        },
+        {
+          "raw": "Bullocks.",
+          "start": 9.61,
+          "end": 10.09
+        },
+        {
+          "raw": "On",
+          "start": 10.53,
+          "end": 10.61
+        },
+        {
+          "raw": "my",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "raw": "word,",
+          "start": 10.79,
+          "end": 11.11
+        },
+        {
+          "raw": "you",
+          "start": 11.27,
+          "end": 11.41
+        },
+        {
+          "raw": "and",
+          "start": 11.41,
+          "end": 11.53
+        },
+        {
+          "raw": "your",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "raw": "friends",
+          "start": 11.69,
+          "end": 11.95
+        },
+        {
+          "raw": "have",
+          "start": 11.95,
+          "end": 12.17
+        },
+        {
+          "raw": "waked",
+          "start": 12.17,
+          "end": 12.41
+        },
+        {
+          "raw": "the",
+          "start": 12.41,
+          "end": 12.55
+        },
+        {
+          "raw": "camp",
+          "start": 12.55,
+          "end": 12.81
+        },
+        {
+          "raw": "very",
+          "start": 12.81,
+          "end": 13.17
+        },
+        {
+          "raw": "thoroughly.",
+          "start": 13.17,
+          "end": 13.67
+        },
+        {
+          "raw": "It",
+          "start": 14.25,
+          "end": 14.37
+        },
+        {
+          "raw": "takes",
+          "start": 14.37,
+          "end": 14.55
+        },
+        {
+          "raw": "a",
+          "start": 14.55,
+          "end": 14.71
+        },
+        {
+          "raw": "good",
+          "start": 14.71,
+          "end": 14.87
+        },
+        {
+          "raw": "deal",
+          "start": 14.87,
+          "end": 15.09
+        },
+        {
+          "raw": "of",
+          "start": 15.09,
+          "end": 15.21
+        },
+        {
+          "raw": "prodding",
+          "start": 15.21,
+          "end": 15.55
+        },
+        {
+          "raw": "to",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "raw": "put",
+          "start": 15.73,
+          "end": 15.85
+        },
+        {
+          "raw": "up",
+          "start": 15.85,
+          "end": 15.97
+        },
+        {
+          "raw": "a",
+          "start": 15.97,
+          "end": 16.11
+        },
+        {
+          "raw": "Gun",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "raw": "Bullock.",
+          "start": 16.29,
+          "end": 16.77
+        }
+      ],
+      "expected_tokens": [
+        "\"Sit",
+        "down,\"",
+        "said",
+        "the",
+        "mule,",
+        "\"or",
+        "you'll",
+        "snap",
+        "your",
+        "long",
+        "stick-legs",
+        "between",
+        "the",
+        "guns.\"",
+        "He",
+        "cocked",
+        "one",
+        "ear",
+        "and",
+        "listened.",
+        "\"Bullocks!\"",
+        "he",
+        "said.",
+        "\"Gun",
+        "bullocks.",
+        "On",
+        "my",
+        "word,",
+        "you",
+        "and",
+        "your",
+        "friends",
+        "have",
+        "waked",
+        "the",
+        "camp",
+        "very",
+        "thoroughly.",
+        "It",
+        "takes",
+        "a",
+        "good",
+        "deal",
+        "of",
+        "prodding",
+        "to",
+        "put",
+        "up",
+        "a",
+        "gun-bullock.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          49,
+          12,
+          50
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          52
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Sit",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "down,\"",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "text": "said",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "mule,",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "\"or",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "you'll",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "snap",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "your",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "long",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "text": "stick-legs",
+          "start": 3.33,
+          "end": 3.63
+        },
+        {
+          "text": "between",
+          "start": 3.93,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "text": "guns.\"",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "text": "He",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "text": "cocked",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "text": "one",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "text": "ear",
+          "start": 6.17,
+          "end": 6.47
+        },
+        {
+          "text": "and",
+          "start": 6.47,
+          "end": 6.71
+        },
+        {
+          "text": "listened.",
+          "start": 6.71,
+          "end": 7.03
+        },
+        {
+          "text": "\"Bullocks!\"",
+          "start": 7.91,
+          "end": 8.21
+        },
+        {
+          "text": "he",
+          "start": 8.55,
+          "end": 8.73
+        },
+        {
+          "text": "said.",
+          "start": 8.73,
+          "end": 9.01
+        },
+        {
+          "text": "\"Gun",
+          "start": 9.53,
+          "end": 9.61
+        },
+        {
+          "text": "bullocks.",
+          "start": 9.61,
+          "end": 10.09
+        },
+        {
+          "text": "On",
+          "start": 10.53,
+          "end": 10.61
+        },
+        {
+          "text": "my",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "text": "word,",
+          "start": 10.79,
+          "end": 11.11
+        },
+        {
+          "text": "you",
+          "start": 11.27,
+          "end": 11.41
+        },
+        {
+          "text": "and",
+          "start": 11.41,
+          "end": 11.53
+        },
+        {
+          "text": "your",
+          "start": 11.53,
+          "end": 11.69
+        },
+        {
+          "text": "friends",
+          "start": 11.69,
+          "end": 11.95
+        },
+        {
+          "text": "have",
+          "start": 11.95,
+          "end": 12.17
+        },
+        {
+          "text": "waked",
+          "start": 12.17,
+          "end": 12.41
+        },
+        {
+          "text": "the",
+          "start": 12.41,
+          "end": 12.55
+        },
+        {
+          "text": "camp",
+          "start": 12.55,
+          "end": 12.81
+        },
+        {
+          "text": "very",
+          "start": 12.81,
+          "end": 13.17
+        },
+        {
+          "text": "thoroughly.",
+          "start": 13.17,
+          "end": 13.67
+        },
+        {
+          "text": "It",
+          "start": 14.25,
+          "end": 14.37
+        },
+        {
+          "text": "takes",
+          "start": 14.37,
+          "end": 14.55
+        },
+        {
+          "text": "a",
+          "start": 14.55,
+          "end": 14.71
+        },
+        {
+          "text": "good",
+          "start": 14.71,
+          "end": 14.87
+        },
+        {
+          "text": "deal",
+          "start": 14.87,
+          "end": 15.09
+        },
+        {
+          "text": "of",
+          "start": 15.09,
+          "end": 15.21
+        },
+        {
+          "text": "prodding",
+          "start": 15.21,
+          "end": 15.55
+        },
+        {
+          "text": "to",
+          "start": 15.55,
+          "end": 15.73
+        },
+        {
+          "text": "put",
+          "start": 15.73,
+          "end": 15.85
+        },
+        {
+          "text": "up",
+          "start": 15.85,
+          "end": 15.97
+        },
+        {
+          "text": "a",
+          "start": 15.97,
+          "end": 16.11
+        },
+        {
+          "text": "gun-bullock.\"",
+          "start": 16.11,
+          "end": 16.44
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 52,
+        "matched_words": 48
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.29394203424453735
+    },
+    {
+      "asr_seconds": 0.2886220244690776,
+      "alignment_seconds": 0.0001762155443429947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sit down said the mule or you'll snap your long stick legs between the guns",
+          "start": 0.11,
+          "end": 4.81,
+          "words": [
+            {
+              "text": " Sit",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.1265869140625
+            },
+            {
+              "text": " down",
+              "start": 0.61,
+              "end": 1.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said",
+              "start": 1.07,
+              "end": 1.41,
+              "probability": 0.3076171875
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " mule",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.93359375
+            },
+            {
+              "text": " or",
+              "start": 1.85,
+              "end": 2.29,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " you'll",
+              "start": 2.29,
+              "end": 2.57,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " snap",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " long",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stick",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " legs",
+              "start": 3.61,
+              "end": 3.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " between",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 4.25,
+              "end": 4.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " guns",
+              "start": 4.43,
+              "end": 4.81,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " He cocked one ear and listened",
+          "start": 4.81,
+          "end": 7.19,
+          "words": [
+            {
+              "text": " He",
+              "start": 4.81,
+              "end": 5.61,
+              "probability": 0.3056640625
+            },
+            {
+              "text": " cocked",
+              "start": 5.61,
+              "end": 5.91,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " one",
+              "start": 5.91,
+              "end": 6.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ear",
+              "start": 6.17,
+              "end": 6.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 6.49,
+              "end": 6.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " listened",
+              "start": 6.69,
+              "end": 7.19,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " Bullocks he said gun Bullocks on my word you and your friends have waked the camp very thoroughly",
+          "start": 7.19,
+          "end": 13.69,
+          "words": [
+            {
+              "text": " Bullocks",
+              "start": 7.19,
+              "end": 8.25,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " he",
+              "start": 8.25,
+              "end": 8.73,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " said",
+              "start": 8.73,
+              "end": 9.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gun",
+              "start": 9.03,
+              "end": 9.59,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Bullocks",
+              "start": 9.59,
+              "end": 10.15,
+              "probability": 0.749267578125
+            },
+            {
+              "text": " on",
+              "start": 10.15,
+              "end": 10.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 10.61,
+              "end": 10.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " word",
+              "start": 10.79,
+              "end": 11.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 11.07,
+              "end": 11.39,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " and",
+              "start": 11.39,
+              "end": 11.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 11.51,
+              "end": 11.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " friends",
+              "start": 11.67,
+              "end": 11.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 11.97,
+              "end": 12.17,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " waked",
+              "start": 12.17,
+              "end": 12.41,
+              "probability": 0.788330078125
+            },
+            {
+              "text": " the",
+              "start": 12.41,
+              "end": 12.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " camp",
+              "start": 12.53,
+              "end": 12.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " very",
+              "start": 12.81,
+              "end": 13.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " thoroughly",
+              "start": 13.19,
+              "end": 13.69,
+              "probability": 0.9072265625
+            }
+          ]
+        },
+        {
+          "text": " It takes a good deal of prodding to put up a gun Bullock",
+          "start": 13.69,
+          "end": 16.79,
+          "words": [
+            {
+              "text": " It",
+              "start": 13.69,
+              "end": 14.35,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " takes",
+              "start": 14.35,
+              "end": 14.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 14.55,
+              "end": 14.69,
+              "probability": 1.0
+            },
+            {
+              "text": " good",
+              "start": 14.69,
+              "end": 14.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " deal",
+              "start": 14.87,
+              "end": 15.07,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 15.07,
+              "end": 15.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " prodding",
+              "start": 15.23,
+              "end": 15.53,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 15.53,
+              "end": 15.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " put",
+              "start": 15.71,
+              "end": 15.85,
+              "probability": 1.0
+            },
+            {
+              "text": " up",
+              "start": 15.85,
+              "end": 15.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 15.97,
+              "end": 16.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gun",
+              "start": 16.09,
+              "end": 16.31,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Bullock",
+              "start": 16.31,
+              "end": 16.79,
+              "probability": 0.965087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sit",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "down",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "raw": "said",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "mule",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "raw": "or",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "raw": "you'll",
+          "start": 2.29,
+          "end": 2.57
+        },
+        {
+          "raw": "snap",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "long",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "raw": "stick",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "legs",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "raw": "between",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "the",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "raw": "guns",
+          "start": 4.43,
+          "end": 4.81
+        },
+        {
+          "raw": "He",
+          "start": 4.81,
+          "end": 5.61
+        },
+        {
+          "raw": "cocked",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "raw": "one",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "raw": "ear",
+          "start": 6.17,
+          "end": 6.49
+        },
+        {
+          "raw": "and",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "raw": "listened",
+          "start": 6.69,
+          "end": 7.19
+        },
+        {
+          "raw": "Bullocks",
+          "start": 7.19,
+          "end": 8.25
+        },
+        {
+          "raw": "he",
+          "start": 8.25,
+          "end": 8.73
+        },
+        {
+          "raw": "said",
+          "start": 8.73,
+          "end": 9.03
+        },
+        {
+          "raw": "gun",
+          "start": 9.03,
+          "end": 9.59
+        },
+        {
+          "raw": "Bullocks",
+          "start": 9.59,
+          "end": 10.15
+        },
+        {
+          "raw": "on",
+          "start": 10.15,
+          "end": 10.61
+        },
+        {
+          "raw": "my",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "raw": "word",
+          "start": 10.79,
+          "end": 11.07
+        },
+        {
+          "raw": "you",
+          "start": 11.07,
+          "end": 11.39
+        },
+        {
+          "raw": "and",
+          "start": 11.39,
+          "end": 11.51
+        },
+        {
+          "raw": "your",
+          "start": 11.51,
+          "end": 11.67
+        },
+        {
+          "raw": "friends",
+          "start": 11.67,
+          "end": 11.97
+        },
+        {
+          "raw": "have",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "raw": "waked",
+          "start": 12.17,
+          "end": 12.41
+        },
+        {
+          "raw": "the",
+          "start": 12.41,
+          "end": 12.53
+        },
+        {
+          "raw": "camp",
+          "start": 12.53,
+          "end": 12.81
+        },
+        {
+          "raw": "very",
+          "start": 12.81,
+          "end": 13.19
+        },
+        {
+          "raw": "thoroughly",
+          "start": 13.19,
+          "end": 13.69
+        },
+        {
+          "raw": "It",
+          "start": 13.69,
+          "end": 14.35
+        },
+        {
+          "raw": "takes",
+          "start": 14.35,
+          "end": 14.55
+        },
+        {
+          "raw": "a",
+          "start": 14.55,
+          "end": 14.69
+        },
+        {
+          "raw": "good",
+          "start": 14.69,
+          "end": 14.87
+        },
+        {
+          "raw": "deal",
+          "start": 14.87,
+          "end": 15.07
+        },
+        {
+          "raw": "of",
+          "start": 15.07,
+          "end": 15.23
+        },
+        {
+          "raw": "prodding",
+          "start": 15.23,
+          "end": 15.53
+        },
+        {
+          "raw": "to",
+          "start": 15.53,
+          "end": 15.71
+        },
+        {
+          "raw": "put",
+          "start": 15.71,
+          "end": 15.85
+        },
+        {
+          "raw": "up",
+          "start": 15.85,
+          "end": 15.97
+        },
+        {
+          "raw": "a",
+          "start": 15.97,
+          "end": 16.09
+        },
+        {
+          "raw": "gun",
+          "start": 16.09,
+          "end": 16.31
+        },
+        {
+          "raw": "Bullock",
+          "start": 16.31,
+          "end": 16.79
+        }
+      ],
+      "expected_tokens": [
+        "\"Sit",
+        "down,\"",
+        "said",
+        "the",
+        "mule,",
+        "\"or",
+        "you'll",
+        "snap",
+        "your",
+        "long",
+        "stick-legs",
+        "between",
+        "the",
+        "guns.\"",
+        "He",
+        "cocked",
+        "one",
+        "ear",
+        "and",
+        "listened.",
+        "\"Bullocks!\"",
+        "he",
+        "said.",
+        "\"Gun",
+        "bullocks.",
+        "On",
+        "my",
+        "word,",
+        "you",
+        "and",
+        "your",
+        "friends",
+        "have",
+        "waked",
+        "the",
+        "camp",
+        "very",
+        "thoroughly.",
+        "It",
+        "takes",
+        "a",
+        "good",
+        "deal",
+        "of",
+        "prodding",
+        "to",
+        "put",
+        "up",
+        "a",
+        "gun-bullock.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          49,
+          12,
+          50
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          49,
+          50,
+          50,
+          52
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Sit",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "down,\"",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "text": "said",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "mule,",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "\"or",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "text": "you'll",
+          "start": 2.29,
+          "end": 2.57
+        },
+        {
+          "text": "snap",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "your",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "long",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "text": "stick-legs",
+          "start": 3.33,
+          "end": 3.64
+        },
+        {
+          "text": "between",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "text": "the",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "text": "guns.\"",
+          "start": 4.43,
+          "end": 4.81
+        },
+        {
+          "text": "He",
+          "start": 4.81,
+          "end": 5.61
+        },
+        {
+          "text": "cocked",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "text": "one",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "text": "ear",
+          "start": 6.17,
+          "end": 6.49
+        },
+        {
+          "text": "and",
+          "start": 6.49,
+          "end": 6.69
+        },
+        {
+          "text": "listened.",
+          "start": 6.69,
+          "end": 7.19
+        },
+        {
+          "text": "\"Bullocks!\"",
+          "start": 7.19,
+          "end": 8.25
+        },
+        {
+          "text": "he",
+          "start": 8.25,
+          "end": 8.73
+        },
+        {
+          "text": "said.",
+          "start": 8.73,
+          "end": 9.03
+        },
+        {
+          "text": "\"Gun",
+          "start": 9.03,
+          "end": 9.59
+        },
+        {
+          "text": "bullocks.",
+          "start": 9.59,
+          "end": 10.15
+        },
+        {
+          "text": "On",
+          "start": 10.15,
+          "end": 10.61
+        },
+        {
+          "text": "my",
+          "start": 10.61,
+          "end": 10.79
+        },
+        {
+          "text": "word,",
+          "start": 10.79,
+          "end": 11.07
+        },
+        {
+          "text": "you",
+          "start": 11.07,
+          "end": 11.39
+        },
+        {
+          "text": "and",
+          "start": 11.39,
+          "end": 11.51
+        },
+        {
+          "text": "your",
+          "start": 11.51,
+          "end": 11.67
+        },
+        {
+          "text": "friends",
+          "start": 11.67,
+          "end": 11.97
+        },
+        {
+          "text": "have",
+          "start": 11.97,
+          "end": 12.17
+        },
+        {
+          "text": "waked",
+          "start": 12.17,
+          "end": 12.41
+        },
+        {
+          "text": "the",
+          "start": 12.41,
+          "end": 12.53
+        },
+        {
+          "text": "camp",
+          "start": 12.53,
+          "end": 12.81
+        },
+        {
+          "text": "very",
+          "start": 12.81,
+          "end": 13.19
+        },
+        {
+          "text": "thoroughly.",
+          "start": 13.19,
+          "end": 13.69
+        },
+        {
+          "text": "It",
+          "start": 13.69,
+          "end": 14.35
+        },
+        {
+          "text": "takes",
+          "start": 14.35,
+          "end": 14.55
+        },
+        {
+          "text": "a",
+          "start": 14.55,
+          "end": 14.69
+        },
+        {
+          "text": "good",
+          "start": 14.69,
+          "end": 14.87
+        },
+        {
+          "text": "deal",
+          "start": 14.87,
+          "end": 15.07
+        },
+        {
+          "text": "of",
+          "start": 15.07,
+          "end": 15.23
+        },
+        {
+          "text": "prodding",
+          "start": 15.23,
+          "end": 15.53
+        },
+        {
+          "text": "to",
+          "start": 15.53,
+          "end": 15.71
+        },
+        {
+          "text": "put",
+          "start": 15.71,
+          "end": 15.85
+        },
+        {
+          "text": "up",
+          "start": 15.85,
+          "end": 15.97
+        },
+        {
+          "text": "a",
+          "start": 15.97,
+          "end": 16.09
+        },
+        {
+          "text": "gun-bullock.\"",
+          "start": 16.09,
+          "end": 16.44
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 52,
+        "matched_words": 48
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.28889587614685297
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3838c3156cae321b85112856df5df682dc995920f31ba3132d49479176f6b0bb",
+  "selected_reasons": []
+}

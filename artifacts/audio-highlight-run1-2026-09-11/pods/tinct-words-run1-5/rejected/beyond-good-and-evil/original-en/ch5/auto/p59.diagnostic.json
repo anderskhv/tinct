@@ -1,0 +1,1707 @@
+{
+  "complete": true,
+  "signature": "1ec1c52d2b68244ac810ca5e57bae880622b87470ecc5efe0c28d94141fecc36",
+  "attempts": [
+    {
+      "asr_seconds": 0.18368294835090637,
+      "alignment_seconds": 0.00010459870100021362,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "122. To rejoice on account of praise is in many cases merely politeness of heart--and the very opposite of vanity of spirit.",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To rejoice on account of praise is in many cases merely politeness of heart and the very opposite of vanity of spirit.",
+          "start": 1.44,
+          "end": 9.04,
+          "words": [
+            {
+              "text": " To",
+              "start": 1.44,
+              "end": 2.04,
+              "probability": 0.073486328125
+            },
+            {
+              "text": " rejoice",
+              "start": 2.04,
+              "end": 2.64,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " on",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " account",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.8203125
+            },
+            {
+              "text": " of",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " praise",
+              "start": 3.36,
+              "end": 3.62,
+              "probability": 0.9765625
+            },
+            {
+              "text": " is",
+              "start": 3.62,
+              "end": 4.16,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " in",
+              "start": 4.16,
+              "end": 4.3,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " many",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cases",
+              "start": 4.48,
+              "end": 4.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " merely",
+              "start": 4.9,
+              "end": 5.24,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " politeness",
+              "start": 5.24,
+              "end": 5.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heart",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.892578125
+            },
+            {
+              "text": " and",
+              "start": 6.26,
+              "end": 6.56,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " the",
+              "start": 6.56,
+              "end": 7.1,
+              "probability": 0.5009765625
+            },
+            {
+              "text": " very",
+              "start": 7.1,
+              "end": 7.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " opposite",
+              "start": 7.4,
+              "end": 7.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 7.78,
+              "end": 8.08,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " vanity",
+              "start": 8.08,
+              "end": 8.44,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " of",
+              "start": 8.44,
+              "end": 8.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " spirit.",
+              "start": 8.74,
+              "end": 9.04,
+              "probability": 0.7001953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 1.44,
+          "end": 2.04
+        },
+        {
+          "raw": "rejoice",
+          "start": 2.04,
+          "end": 2.64
+        },
+        {
+          "raw": "on",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "account",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "praise",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "raw": "is",
+          "start": 3.62,
+          "end": 4.16
+        },
+        {
+          "raw": "in",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "raw": "many",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "cases",
+          "start": 4.48,
+          "end": 4.9
+        },
+        {
+          "raw": "merely",
+          "start": 4.9,
+          "end": 5.24
+        },
+        {
+          "raw": "politeness",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "raw": "of",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "heart",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "and",
+          "start": 6.26,
+          "end": 6.56
+        },
+        {
+          "raw": "the",
+          "start": 6.56,
+          "end": 7.1
+        },
+        {
+          "raw": "very",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "raw": "opposite",
+          "start": 7.4,
+          "end": 7.78
+        },
+        {
+          "raw": "of",
+          "start": 7.78,
+          "end": 8.08
+        },
+        {
+          "raw": "vanity",
+          "start": 8.08,
+          "end": 8.44
+        },
+        {
+          "raw": "of",
+          "start": 8.44,
+          "end": 8.74
+        },
+        {
+          "raw": "spirit.",
+          "start": 8.74,
+          "end": 9.04
+        }
+      ],
+      "expected_tokens": [
+        "122.",
+        "To",
+        "rejoice",
+        "on",
+        "account",
+        "of",
+        "praise",
+        "is",
+        "in",
+        "many",
+        "cases",
+        "merely",
+        "politeness",
+        "of",
+        "heart--and",
+        "the",
+        "very",
+        "opposite",
+        "of",
+        "vanity",
+        "of",
+        "spirit."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          14,
+          0,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          15
+        ],
+        [
+          "equal",
+          15,
+          22,
+          15,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "122.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "To",
+          "start": 1.44,
+          "end": 2.04
+        },
+        {
+          "text": "rejoice",
+          "start": 2.04,
+          "end": 2.64
+        },
+        {
+          "text": "on",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "account",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "text": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "praise",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "text": "is",
+          "start": 3.62,
+          "end": 4.16
+        },
+        {
+          "text": "in",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "text": "many",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "cases",
+          "start": 4.48,
+          "end": 4.9
+        },
+        {
+          "text": "merely",
+          "start": 4.9,
+          "end": 5.24
+        },
+        {
+          "text": "politeness",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "text": "of",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "heart--and",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "text": "the",
+          "start": 6.56,
+          "end": 7.1
+        },
+        {
+          "text": "very",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "text": "opposite",
+          "start": 7.4,
+          "end": 7.78
+        },
+        {
+          "text": "of",
+          "start": 7.78,
+          "end": 8.08
+        },
+        {
+          "text": "vanity",
+          "start": 8.08,
+          "end": 8.44
+        },
+        {
+          "text": "of",
+          "start": 8.44,
+          "end": 8.74
+        },
+        {
+          "text": "spirit.",
+          "start": 8.74,
+          "end": 9.04
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.18382901698350906
+    },
+    {
+      "asr_seconds": 0.19223561137914658,
+      "alignment_seconds": 0.00017552077770233154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "To"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Rejoice on account of praise is in many cases merely politeness of heart and the very opposite of vanity of spirit",
+          "start": 2.12,
+          "end": 9.14,
+          "words": [
+            {
+              "text": " Rejoice",
+              "start": 2.12,
+              "end": 2.72,
+              "probability": 0.4616274833679199
+            },
+            {
+              "text": " on",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.219970703125
+            },
+            {
+              "text": " account",
+              "start": 2.88,
+              "end": 3.16,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " of",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " praise",
+              "start": 3.36,
+              "end": 3.64,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " is",
+              "start": 3.64,
+              "end": 4.16,
+              "probability": 0.544921875
+            },
+            {
+              "text": " in",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " many",
+              "start": 4.28,
+              "end": 4.5,
+              "probability": 0.984375
+            },
+            {
+              "text": " cases",
+              "start": 4.5,
+              "end": 4.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " merely",
+              "start": 4.88,
+              "end": 5.24,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " politeness",
+              "start": 5.24,
+              "end": 5.92,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " of",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " heart",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " and",
+              "start": 6.26,
+              "end": 6.56,
+              "probability": 0.875
+            },
+            {
+              "text": " the",
+              "start": 6.56,
+              "end": 7.1,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " very",
+              "start": 7.1,
+              "end": 7.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " opposite",
+              "start": 7.4,
+              "end": 7.8,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 7.8,
+              "end": 8.08,
+              "probability": 0.98046875
+            },
+            {
+              "text": " vanity",
+              "start": 8.08,
+              "end": 8.46,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " of",
+              "start": 8.46,
+              "end": 8.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " spirit",
+              "start": 8.72,
+              "end": 9.14,
+              "probability": 0.84033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rejoice",
+          "start": 2.12,
+          "end": 2.72
+        },
+        {
+          "raw": "on",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "account",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "praise",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "raw": "is",
+          "start": 3.64,
+          "end": 4.16
+        },
+        {
+          "raw": "in",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "many",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "raw": "cases",
+          "start": 4.5,
+          "end": 4.88
+        },
+        {
+          "raw": "merely",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "raw": "politeness",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "raw": "of",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "heart",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "and",
+          "start": 6.26,
+          "end": 6.56
+        },
+        {
+          "raw": "the",
+          "start": 6.56,
+          "end": 7.1
+        },
+        {
+          "raw": "very",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "raw": "opposite",
+          "start": 7.4,
+          "end": 7.8
+        },
+        {
+          "raw": "of",
+          "start": 7.8,
+          "end": 8.08
+        },
+        {
+          "raw": "vanity",
+          "start": 8.08,
+          "end": 8.46
+        },
+        {
+          "raw": "of",
+          "start": 8.46,
+          "end": 8.72
+        },
+        {
+          "raw": "spirit",
+          "start": 8.72,
+          "end": 9.14
+        }
+      ],
+      "expected_tokens": [
+        "122.",
+        "To",
+        "rejoice",
+        "on",
+        "account",
+        "of",
+        "praise",
+        "is",
+        "in",
+        "many",
+        "cases",
+        "merely",
+        "politeness",
+        "of",
+        "heart--and",
+        "the",
+        "very",
+        "opposite",
+        "of",
+        "vanity",
+        "of",
+        "spirit."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          14,
+          0,
+          12
+        ],
+        [
+          "replace",
+          14,
+          15,
+          12,
+          14
+        ],
+        [
+          "equal",
+          15,
+          22,
+          14,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          14,
+          15,
+          12,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "122.",
+          "start": 0.0,
+          "end": 1.06
+        },
+        {
+          "text": "To",
+          "start": 1.06,
+          "end": 1.59
+        },
+        {
+          "text": "rejoice",
+          "start": 2.12,
+          "end": 2.72
+        },
+        {
+          "text": "on",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "account",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "text": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "praise",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "text": "is",
+          "start": 3.64,
+          "end": 4.16
+        },
+        {
+          "text": "in",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "many",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "text": "cases",
+          "start": 4.5,
+          "end": 4.88
+        },
+        {
+          "text": "merely",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "text": "politeness",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "text": "of",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "heart--and",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "text": "the",
+          "start": 6.56,
+          "end": 7.1
+        },
+        {
+          "text": "very",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "text": "opposite",
+          "start": 7.4,
+          "end": 7.8
+        },
+        {
+          "text": "of",
+          "start": 7.8,
+          "end": 8.08
+        },
+        {
+          "text": "vanity",
+          "start": 8.08,
+          "end": 8.46
+        },
+        {
+          "text": "of",
+          "start": 8.46,
+          "end": 8.72
+        },
+        {
+          "text": "spirit.",
+          "start": 8.72,
+          "end": 9.14
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.8636363636363636,
+      "rejection_reasons": [],
+      "seconds": 0.192452073097229
+    },
+    {
+      "asr_seconds": 0.20166685432195663,
+      "alignment_seconds": 0.00010129809379577637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 122.",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " 122.",
+              "start": 0.02,
+              "end": 1.14,
+              "probability": 0.432861328125
+            }
+          ]
+        },
+        {
+          "text": " To rejoice on account of praise is in many cases merely politeness of heart and, the",
+          "start": 2.08,
+          "end": 7.12,
+          "words": [
+            {
+              "text": " To",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " rejoice",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " on",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " account",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.876953125
+            },
+            {
+              "text": " of",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " praise",
+              "start": 3.36,
+              "end": 3.62,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 3.62,
+              "end": 4.16,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " in",
+              "start": 4.16,
+              "end": 4.3,
+              "probability": 0.7421875
+            },
+            {
+              "text": " many",
+              "start": 4.3,
+              "end": 4.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cases",
+              "start": 4.5,
+              "end": 4.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " merely",
+              "start": 4.9,
+              "end": 5.24,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " politeness",
+              "start": 5.24,
+              "end": 5.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heart",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " and,",
+              "start": 6.26,
+              "end": 6.54,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " the",
+              "start": 6.96,
+              "end": 7.12,
+              "probability": 0.97119140625
+            }
+          ]
+        },
+        {
+          "text": " very opposite of vanity of spirit.",
+          "start": 7.12,
+          "end": 9.06,
+          "words": [
+            {
+              "text": " very",
+              "start": 7.12,
+              "end": 7.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " opposite",
+              "start": 7.4,
+              "end": 7.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 7.78,
+              "end": 8.1,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " vanity",
+              "start": 8.1,
+              "end": 8.42,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " of",
+              "start": 8.42,
+              "end": 8.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " spirit.",
+              "start": 8.76,
+              "end": 9.06,
+              "probability": 0.6806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "122.",
+          "start": 0.02,
+          "end": 1.14
+        },
+        {
+          "raw": "To",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "rejoice",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "on",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "account",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "praise",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "raw": "is",
+          "start": 3.62,
+          "end": 4.16
+        },
+        {
+          "raw": "in",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "raw": "many",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "raw": "cases",
+          "start": 4.5,
+          "end": 4.9
+        },
+        {
+          "raw": "merely",
+          "start": 4.9,
+          "end": 5.24
+        },
+        {
+          "raw": "politeness",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "raw": "of",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "heart",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "and,",
+          "start": 6.26,
+          "end": 6.54
+        },
+        {
+          "raw": "the",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "raw": "very",
+          "start": 7.12,
+          "end": 7.4
+        },
+        {
+          "raw": "opposite",
+          "start": 7.4,
+          "end": 7.78
+        },
+        {
+          "raw": "of",
+          "start": 7.78,
+          "end": 8.1
+        },
+        {
+          "raw": "vanity",
+          "start": 8.1,
+          "end": 8.42
+        },
+        {
+          "raw": "of",
+          "start": 8.42,
+          "end": 8.76
+        },
+        {
+          "raw": "spirit.",
+          "start": 8.76,
+          "end": 9.06
+        }
+      ],
+      "expected_tokens": [
+        "122.",
+        "To",
+        "rejoice",
+        "on",
+        "account",
+        "of",
+        "praise",
+        "is",
+        "in",
+        "many",
+        "cases",
+        "merely",
+        "politeness",
+        "of",
+        "heart--and",
+        "the",
+        "very",
+        "opposite",
+        "of",
+        "vanity",
+        "of",
+        "spirit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          22,
+          16,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "122.",
+          "start": 0.02,
+          "end": 1.14
+        },
+        {
+          "text": "To",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "rejoice",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "on",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "account",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "text": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "praise",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "text": "is",
+          "start": 3.62,
+          "end": 4.16
+        },
+        {
+          "text": "in",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "text": "many",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "text": "cases",
+          "start": 4.5,
+          "end": 4.9
+        },
+        {
+          "text": "merely",
+          "start": 4.9,
+          "end": 5.24
+        },
+        {
+          "text": "politeness",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "text": "of",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "heart--and",
+          "start": 6.08,
+          "end": 6.52
+        },
+        {
+          "text": "the",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "text": "very",
+          "start": 7.12,
+          "end": 7.4
+        },
+        {
+          "text": "opposite",
+          "start": 7.4,
+          "end": 7.78
+        },
+        {
+          "text": "of",
+          "start": 7.78,
+          "end": 8.1
+        },
+        {
+          "text": "vanity",
+          "start": 8.1,
+          "end": 8.42
+        },
+        {
+          "text": "of",
+          "start": 8.42,
+          "end": 8.76
+        },
+        {
+          "text": "spirit.",
+          "start": 8.76,
+          "end": 9.06
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.2018141746520996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e3fa1c31846edd6e386c3f05c083f1fe9f44c6f3bfefd981e36d9a19430af94",
+  "selected_reasons": []
+}

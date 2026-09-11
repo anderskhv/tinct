@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "2e986f677c6c8800bfe1ba1e90e1446820fafce45f32be6a3c1497bbce9bd2f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1520527722314,
+      "alignment_seconds": 7.75577500462532e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We don't but we have to pull the guns said the Bullocks",
+          "start": 0.02,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.3515625
+            },
+            {
+              "text": " don't",
+              "start": 0.54,
+              "end": 0.96,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " but",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " we",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pull",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " guns",
+              "start": 1.86,
+              "end": 2.28,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " said",
+              "start": 2.28,
+              "end": 2.8,
+              "probability": 0.5458984375
+            },
+            {
+              "text": " the",
+              "start": 2.8,
+              "end": 2.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Bullocks",
+              "start": 2.94,
+              "end": 3.32,
+              "probability": 0.6611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "don't",
+          "start": 0.54,
+          "end": 0.96
+        },
+        {
+          "raw": "but",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "we",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "have",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "to",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "pull",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "guns",
+          "start": 1.86,
+          "end": 2.28
+        },
+        {
+          "raw": "said",
+          "start": 2.28,
+          "end": 2.8
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "raw": "Bullocks",
+          "start": 2.94,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "don't,",
+        "but",
+        "we",
+        "have",
+        "to",
+        "pull",
+        "the",
+        "guns,\"",
+        "said",
+        "the",
+        "bullocks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "don't,",
+          "start": 0.54,
+          "end": 0.96
+        },
+        {
+          "text": "but",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "we",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "have",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "to",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "pull",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "guns,\"",
+          "start": 1.86,
+          "end": 2.28
+        },
+        {
+          "text": "said",
+          "start": 2.28,
+          "end": 2.8
+        },
+        {
+          "text": "the",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "text": "bullocks.",
+          "start": 2.94,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1521656820550561
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e1ede1bbc862070a5fbf9168c1ebd4a705d9843c2ed0f8ceac0c3ce1d675806f",
+  "selected_reasons": []
+}

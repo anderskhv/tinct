@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "45530187ee328bab61543f04803218661e2d0eab1770ac43a2dd454fc8102475",
+  "attempts": [
+    {
+      "asr_seconds": 0.13503061421215534,
+      "alignment_seconds": 0.00014271726831793785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes; and is not this true of the government of anything?",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, and is not this true of the government of anything?",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " is",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " not",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " true",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " government",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " of",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " anything?",
+              "start": 2.85,
+              "end": 3.19,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "is",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "not",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "this",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "true",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "the",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "government",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "of",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "anything?",
+          "start": 2.85,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Yes;",
+        "and",
+        "is",
+        "not",
+        "this",
+        "true",
+        "of",
+        "the",
+        "government",
+        "of",
+        "anything?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes;",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "and",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "is",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "not",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "this",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "true",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "of",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "the",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "government",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "of",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "anything?",
+          "start": 2.85,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13524543028324842
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37778f20615a76d3d615246683b22c26cf1beca08c40380f78abeecb18e93155",
+  "selected_reasons": []
+}

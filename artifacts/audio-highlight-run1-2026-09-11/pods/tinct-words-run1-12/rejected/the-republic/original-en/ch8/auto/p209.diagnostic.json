@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "00ebf42b027b3111f5578a9469f83bab0e45affca7406109ca94effe004cbd91",
+  "attempts": [
+    {
+      "asr_seconds": 0.0971105508506298,
+      "alignment_seconds": 7.278937846422195e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There will.",
+        "hotwords": "There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There will.",
+          "start": 0.05,
+          "end": 0.79,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.041595458984375
+            },
+            {
+              "text": " will.",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.89599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "will.",
+          "start": 0.55,
+          "end": 0.79
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "will.",
+          "start": 0.55,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09720939910039306
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a8604eaf6c40ca977c1e0f7e8b47f4a89bf4fcd3fe99eb2efc65514f1dd24ea",
+  "selected_reasons": []
+}

@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "d97109591f8e7e0f513e1d0271daa825cbd78bce935d5585a91a8823b624d546",
+  "attempts": [
+    {
+      "asr_seconds": 0.1061699710553512,
+      "alignment_seconds": 0.00011113390792161226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. What, art thou waking?",
+        "hotwords": "Sebastian, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, What art thou waking?",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.50390625
+            },
+            {
+              "text": " What",
+              "start": 1.44,
+              "end": 1.5,
+              "probability": 0.06219482421875
+            },
+            {
+              "text": " art",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " thou",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " waking?",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.87841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "What",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "raw": "art",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "thou",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "waking?",
+          "start": 1.92,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "What,",
+        "art",
+        "thou",
+        "waking?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "What,",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "text": "art",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "thou",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "waking?",
+          "start": 1.92,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10632605606224388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b04a7372d7727b94ee1504a42263ebe34c2f262017362f4f2df28c10ae3d0ab0",
+  "selected_reasons": []
+}

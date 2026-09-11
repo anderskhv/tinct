@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "e1dc4d698f8ac12950bf6dc37103ae48b2b744f80d32c50b38507f0344353b62",
+  "attempts": [
+    {
+      "asr_seconds": 0.11453720647841692,
+      "alignment_seconds": 8.569285273551941e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Wake up!\" barked Kotick, for the gulls were making a great noise.",
+        "hotwords": "Wake, Kotick"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Wake up! barked Kotick, for the gulls were making a great noise.",
+          "start": 0.02,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Wake",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.295654296875
+            },
+            {
+              "text": " up!",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " barked",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.58270263671875
+            },
+            {
+              "text": " Kotick,",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.627197265625
+            },
+            {
+              "text": " for",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " gulls",
+              "start": 2.36,
+              "end": 2.68,
+              "probability": 0.829345703125
+            },
+            {
+              "text": " were",
+              "start": 2.68,
+              "end": 2.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " making",
+              "start": 2.78,
+              "end": 2.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " great",
+              "start": 3.14,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " noise.",
+              "start": 3.3,
+              "end": 3.76,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wake",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "up!",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "barked",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "Kotick,",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "for",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "gulls",
+          "start": 2.36,
+          "end": 2.68
+        },
+        {
+          "raw": "were",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "raw": "making",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "raw": "a",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "great",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "raw": "noise.",
+          "start": 3.3,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "\"Wake",
+        "up!\"",
+        "barked",
+        "Kotick,",
+        "for",
+        "the",
+        "gulls",
+        "were",
+        "making",
+        "a",
+        "great",
+        "noise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Wake",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "up!\"",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "barked",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "Kotick,",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "for",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "gulls",
+          "start": 2.36,
+          "end": 2.68
+        },
+        {
+          "text": "were",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "text": "making",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "text": "a",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "great",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "text": "noise.",
+          "start": 3.3,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11465881299227476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bae2479600c7d717fa230fd92c663c17b8eb59c4d34fb93af33a8f76ed6e3f64",
+  "selected_reasons": []
+}

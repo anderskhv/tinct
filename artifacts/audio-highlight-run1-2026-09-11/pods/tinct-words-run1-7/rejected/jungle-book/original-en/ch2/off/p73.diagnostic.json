@@ -1,0 +1,336 @@
+{
+  "complete": true,
+  "signature": "aa04c0b94c3ea54ae21f261cc000ad1badab25f83a4284986cd4c53c21c52502",
+  "attempts": [
+    {
+      "asr_seconds": 0.168648942373693,
+      "alignment_seconds": 8.082762360572815e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " S-S-S-S-S, have they ever called me that?",
+          "start": 0.11,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " S",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.0911865234375
+            },
+            {
+              "text": "-S",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.536865234375
+            },
+            {
+              "text": "-S",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.995361328125
+            },
+            {
+              "text": "-S",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": "-S,",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " have",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.8125
+            },
+            {
+              "text": " they",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ever",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " called",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " me",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that?",
+              "start": 2.35,
+              "end": 2.69,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " Said Ka.",
+          "start": 3.13,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Said",
+              "start": 3.13,
+              "end": 3.19,
+              "probability": 0.2421875
+            },
+            {
+              "text": " Ka.",
+              "start": 3.19,
+              "end": 3.45,
+              "probability": 0.1658935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "S",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "-S",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "-S",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "-S",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "-S,",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "have",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "they",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "ever",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "called",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "me",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "that?",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "raw": "Said",
+          "start": 3.13,
+          "end": 3.19
+        },
+        {
+          "raw": "Ka.",
+          "start": 3.19,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "\"Sssss!",
+        "Have",
+        "they",
+        "ever",
+        "called",
+        "me",
+        "that?\"",
+        "said",
+        "Kaa."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ],
+        [
+          "equal",
+          1,
+          8,
+          5,
+          12
+        ],
+        [
+          "replace",
+          8,
+          9,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          12,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Sssss!",
+          "start": 0.0,
+          "end": 0.755
+        },
+        {
+          "text": "Have",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "they",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "ever",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "called",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "me",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "that?\"",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "text": "said",
+          "start": 3.13,
+          "end": 3.19
+        },
+        {
+          "text": "Kaa.",
+          "start": 3.19,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 13,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16876811813563108
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6ce41ff5dad3700b0a61b85bf46c092e4b7d2f5f897c158217d7fbbc3ad3284",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

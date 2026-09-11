@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "46c33e5b3483afc3af93ae7aa1e670be035291ab48b873efd63da6acf59d7f83",
+  "attempts": [
+    {
+      "asr_seconds": 0.10358837095554918,
+      "alignment_seconds": 9.188405238091946e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alonzo, pretty piece.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Alonzo,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " pretty",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " piece.",
+              "start": 1.39,
+              "end": 1.75,
+              "probability": 0.67431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonzo,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "pretty",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "piece.",
+          "start": 1.39,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "Prithee,",
+        "peace."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.0,
+          "end": 0.875
+        },
+        {
+          "text": "Prithee,",
+          "start": 0.875,
+          "end": 1.312
+        },
+        {
+          "text": "peace.",
+          "start": 1.312,
+          "end": 1.531
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10371587600093335
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d9f7c19a184af47846e4bdc1c38502ac687a52d6d37e115b9b4a1eac5cc9dbc5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

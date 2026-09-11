@@ -1,0 +1,2811 @@
+{
+  "complete": true,
+  "signature": "7f73d3892042d9f2efb7d12b9ced2e9a7cd759a4596781fc0ecad6033e596237",
+  "attempts": [
+    {
+      "asr_seconds": 0.40944022685289383,
+      "alignment_seconds": 0.0001494958996772766,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "80. A thing that is explained ceases to concern us--What did the God mean who gave the advice, \"Know thyself!\" Did it perhaps imply \"Cease to be concerned about thyself! become objective!\"--And Socrates?--And the \"scientific man\"?",
+        "hotwords": "A, God, Know, Cease, Socrates?--And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 80. A thing that is explained ceases to concern us-What did the God mean who gave the advice,",
+          "start": 0.02,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " 80.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.42041015625
+            },
+            {
+              "text": " A",
+              "start": 1.04,
+              "end": 1.04,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " thing",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " that",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " explained",
+              "start": 1.52,
+              "end": 2.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ceases",
+              "start": 2.08,
+              "end": 2.44,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " to",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " concern",
+              "start": 2.76,
+              "end": 3.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " us",
+              "start": 3.14,
+              "end": 3.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": "-What",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.03751945495605469
+            },
+            {
+              "text": " did",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " God",
+              "start": 3.84,
+              "end": 4.1,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " mean",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " who",
+              "start": 4.36,
+              "end": 4.6,
+              "probability": 0.30517578125
+            },
+            {
+              "text": " gave",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " advice,",
+              "start": 4.98,
+              "end": 5.36,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " Know thyself! Did it perhaps imply, Cease to be concerned about thyself! become objective!\"",
+          "start": 5.36,
+          "end": 12.26,
+          "words": [
+            {
+              "text": " Know",
+              "start": 5.36,
+              "end": 6.08,
+              "probability": 0.07476806640625
+            },
+            {
+              "text": " thyself!",
+              "start": 6.08,
+              "end": 6.7,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Did",
+              "start": 7.18,
+              "end": 7.34,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " it",
+              "start": 7.34,
+              "end": 7.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " perhaps",
+              "start": 7.46,
+              "end": 7.72,
+              "probability": 0.9296875
+            },
+            {
+              "text": " imply,",
+              "start": 7.72,
+              "end": 8.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Cease",
+              "start": 8.76,
+              "end": 8.94,
+              "probability": 0.526092529296875
+            },
+            {
+              "text": " to",
+              "start": 8.94,
+              "end": 9.06,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " be",
+              "start": 9.06,
+              "end": 9.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " concerned",
+              "start": 9.2,
+              "end": 9.6,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " about",
+              "start": 9.6,
+              "end": 9.92,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " thyself!",
+              "start": 9.92,
+              "end": 10.5,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " become",
+              "start": 11.02,
+              "end": 11.22,
+              "probability": 0.034942626953125
+            },
+            {
+              "text": " objective",
+              "start": 11.22,
+              "end": 11.82,
+              "probability": 0.9111328125
+            },
+            {
+              "text": "!\"",
+              "start": 11.82,
+              "end": 12.26,
+              "probability": 0.031219482421875
+            }
+          ]
+        },
+        {
+          "text": " And Socrates? And the scientific man?",
+          "start": 12.56,
+          "end": 14.78,
+          "words": [
+            {
+              "text": " And",
+              "start": 12.56,
+              "end": 12.68,
+              "probability": 0.1502685546875
+            },
+            {
+              "text": " Socrates?",
+              "start": 12.68,
+              "end": 13.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " And",
+              "start": 13.68,
+              "end": 13.76,
+              "probability": 0.3056640625
+            },
+            {
+              "text": " the",
+              "start": 13.76,
+              "end": 13.9,
+              "probability": 0.783203125
+            },
+            {
+              "text": " scientific",
+              "start": 13.9,
+              "end": 14.3,
+              "probability": 0.410400390625
+            },
+            {
+              "text": " man?",
+              "start": 14.3,
+              "end": 14.78,
+              "probability": 0.96044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "80.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "A",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "raw": "thing",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "that",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "explained",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "raw": "ceases",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "raw": "concern",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "raw": "us",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "raw": "-What",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "did",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "God",
+          "start": 3.84,
+          "end": 4.1
+        },
+        {
+          "raw": "mean",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "who",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "raw": "gave",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "the",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "advice,",
+          "start": 4.98,
+          "end": 5.36
+        },
+        {
+          "raw": "Know",
+          "start": 5.36,
+          "end": 6.08
+        },
+        {
+          "raw": "thyself!",
+          "start": 6.08,
+          "end": 6.7
+        },
+        {
+          "raw": "Did",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "raw": "it",
+          "start": 7.34,
+          "end": 7.46
+        },
+        {
+          "raw": "perhaps",
+          "start": 7.46,
+          "end": 7.72
+        },
+        {
+          "raw": "imply,",
+          "start": 7.72,
+          "end": 8.26
+        },
+        {
+          "raw": "Cease",
+          "start": 8.76,
+          "end": 8.94
+        },
+        {
+          "raw": "to",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "raw": "be",
+          "start": 9.06,
+          "end": 9.2
+        },
+        {
+          "raw": "concerned",
+          "start": 9.2,
+          "end": 9.6
+        },
+        {
+          "raw": "about",
+          "start": 9.6,
+          "end": 9.92
+        },
+        {
+          "raw": "thyself!",
+          "start": 9.92,
+          "end": 10.5
+        },
+        {
+          "raw": "become",
+          "start": 11.02,
+          "end": 11.22
+        },
+        {
+          "raw": "objective",
+          "start": 11.22,
+          "end": 11.82
+        },
+        {
+          "raw": "!\"",
+          "start": 11.82,
+          "end": 12.26
+        },
+        {
+          "raw": "And",
+          "start": 12.56,
+          "end": 12.68
+        },
+        {
+          "raw": "Socrates?",
+          "start": 12.68,
+          "end": 13.16
+        },
+        {
+          "raw": "And",
+          "start": 13.68,
+          "end": 13.76
+        },
+        {
+          "raw": "the",
+          "start": 13.76,
+          "end": 13.9
+        },
+        {
+          "raw": "scientific",
+          "start": 13.9,
+          "end": 14.3
+        },
+        {
+          "raw": "man?",
+          "start": 14.3,
+          "end": 14.78
+        }
+      ],
+      "expected_tokens": [
+        "80.",
+        "A",
+        "thing",
+        "that",
+        "is",
+        "explained",
+        "ceases",
+        "to",
+        "concern",
+        "us--What",
+        "did",
+        "the",
+        "God",
+        "mean",
+        "who",
+        "gave",
+        "the",
+        "advice,",
+        "\"Know",
+        "thyself!\"",
+        "Did",
+        "it",
+        "perhaps",
+        "imply",
+        "\"Cease",
+        "to",
+        "be",
+        "concerned",
+        "about",
+        "thyself!",
+        "become",
+        "objective!\"--And",
+        "Socrates?--And",
+        "the",
+        "\"scientific",
+        "man\"?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          31,
+          11,
+          32
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          37
+        ],
+        [
+          "equal",
+          33,
+          36,
+          37,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          37
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "80.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "A",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "text": "thing",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "that",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "explained",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "text": "ceases",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "text": "to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "text": "concern",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "text": "us--What",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "did",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "God",
+          "start": 3.84,
+          "end": 4.1
+        },
+        {
+          "text": "mean",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "text": "who",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "text": "gave",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "text": "the",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "advice,",
+          "start": 4.98,
+          "end": 5.36
+        },
+        {
+          "text": "\"Know",
+          "start": 5.36,
+          "end": 6.08
+        },
+        {
+          "text": "thyself!\"",
+          "start": 6.08,
+          "end": 6.7
+        },
+        {
+          "text": "Did",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "text": "it",
+          "start": 7.34,
+          "end": 7.46
+        },
+        {
+          "text": "perhaps",
+          "start": 7.46,
+          "end": 7.72
+        },
+        {
+          "text": "imply",
+          "start": 7.72,
+          "end": 8.26
+        },
+        {
+          "text": "\"Cease",
+          "start": 8.76,
+          "end": 8.94
+        },
+        {
+          "text": "to",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "text": "be",
+          "start": 9.06,
+          "end": 9.2
+        },
+        {
+          "text": "concerned",
+          "start": 9.2,
+          "end": 9.6
+        },
+        {
+          "text": "about",
+          "start": 9.6,
+          "end": 9.92
+        },
+        {
+          "text": "thyself!",
+          "start": 9.92,
+          "end": 10.5
+        },
+        {
+          "text": "become",
+          "start": 11.02,
+          "end": 11.22
+        },
+        {
+          "text": "objective!\"--And",
+          "start": 11.22,
+          "end": 12.49
+        },
+        {
+          "text": "Socrates?--And",
+          "start": 12.49,
+          "end": 13.125
+        },
+        {
+          "text": "the",
+          "start": 13.76,
+          "end": 13.9
+        },
+        {
+          "text": "\"scientific",
+          "start": 13.9,
+          "end": 14.3
+        },
+        {
+          "text": "man\"?",
+          "start": 14.3,
+          "end": 14.78
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 40,
+        "matched_words": 33
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.40965738892555237
+    },
+    {
+      "asr_seconds": 0.25792472064495087,
+      "alignment_seconds": 0.00014480948448181152,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "A, God, Know, Cease, Socrates?--And"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 80, a thing that is explained ceases to concern us what did the God mean who gave the advice know thyself",
+          "start": 0.02,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " 80,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.4208984375
+            },
+            {
+              "text": " a",
+              "start": 0.96,
+              "end": 1.02,
+              "probability": 0.7890625
+            },
+            {
+              "text": " thing",
+              "start": 1.02,
+              "end": 1.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " explained",
+              "start": 1.52,
+              "end": 2.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ceases",
+              "start": 2.08,
+              "end": 2.44,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " to",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " concern",
+              "start": 2.76,
+              "end": 3.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " us",
+              "start": 3.14,
+              "end": 3.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " what",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " did",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " God",
+              "start": 3.84,
+              "end": 4.1,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " mean",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " who",
+              "start": 4.36,
+              "end": 4.6,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " gave",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " advice",
+              "start": 4.98,
+              "end": 5.36,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " know",
+              "start": 5.36,
+              "end": 6.08,
+              "probability": 0.055999755859375
+            },
+            {
+              "text": " thyself",
+              "start": 6.08,
+              "end": 6.72,
+              "probability": 0.989990234375
+            }
+          ]
+        },
+        {
+          "text": " did it perhaps imply cease to be concerned about thyself become objective and",
+          "start": 6.72,
+          "end": 12.19,
+          "words": [
+            {
+              "text": " did",
+              "start": 6.72,
+              "end": 7.32,
+              "probability": 0.391357421875
+            },
+            {
+              "text": " it",
+              "start": 7.32,
+              "end": 7.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " perhaps",
+              "start": 7.44,
+              "end": 7.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " imply",
+              "start": 7.7,
+              "end": 8.26,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cease",
+              "start": 8.26,
+              "end": 8.84,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " to",
+              "start": 8.84,
+              "end": 9.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 9.06,
+              "end": 9.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " concerned",
+              "start": 9.18,
+              "end": 9.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 9.62,
+              "end": 9.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thyself",
+              "start": 9.92,
+              "end": 10.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " become",
+              "start": 10.6,
+              "end": 11.2,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " objective",
+              "start": 11.2,
+              "end": 11.88,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " and",
+              "start": 11.88,
+              "end": 12.19,
+              "probability": 0.9580078125
+            }
+          ]
+        },
+        {
+          "text": " Socrates and the scientific man",
+          "start": 12.7,
+          "end": 14.82,
+          "words": [
+            {
+              "text": " Socrates",
+              "start": 12.7,
+              "end": 13.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 13.18,
+              "end": 13.76,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 13.76,
+              "end": 13.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " scientific",
+              "start": 13.88,
+              "end": 14.32,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " man",
+              "start": 14.32,
+              "end": 14.82,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "80,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "a",
+          "start": 0.96,
+          "end": 1.02
+        },
+        {
+          "raw": "thing",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "raw": "that",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "explained",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "raw": "ceases",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "raw": "concern",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "raw": "us",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "raw": "what",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "did",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "God",
+          "start": 3.84,
+          "end": 4.1
+        },
+        {
+          "raw": "mean",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "who",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "raw": "gave",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "the",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "advice",
+          "start": 4.98,
+          "end": 5.36
+        },
+        {
+          "raw": "know",
+          "start": 5.36,
+          "end": 6.08
+        },
+        {
+          "raw": "thyself",
+          "start": 6.08,
+          "end": 6.72
+        },
+        {
+          "raw": "did",
+          "start": 6.72,
+          "end": 7.32
+        },
+        {
+          "raw": "it",
+          "start": 7.32,
+          "end": 7.44
+        },
+        {
+          "raw": "perhaps",
+          "start": 7.44,
+          "end": 7.7
+        },
+        {
+          "raw": "imply",
+          "start": 7.7,
+          "end": 8.26
+        },
+        {
+          "raw": "cease",
+          "start": 8.26,
+          "end": 8.84
+        },
+        {
+          "raw": "to",
+          "start": 8.84,
+          "end": 9.06
+        },
+        {
+          "raw": "be",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "raw": "concerned",
+          "start": 9.18,
+          "end": 9.62
+        },
+        {
+          "raw": "about",
+          "start": 9.62,
+          "end": 9.92
+        },
+        {
+          "raw": "thyself",
+          "start": 9.92,
+          "end": 10.6
+        },
+        {
+          "raw": "become",
+          "start": 10.6,
+          "end": 11.2
+        },
+        {
+          "raw": "objective",
+          "start": 11.2,
+          "end": 11.88
+        },
+        {
+          "raw": "and",
+          "start": 11.88,
+          "end": 12.19
+        },
+        {
+          "raw": "Socrates",
+          "start": 12.7,
+          "end": 13.18
+        },
+        {
+          "raw": "and",
+          "start": 13.18,
+          "end": 13.76
+        },
+        {
+          "raw": "the",
+          "start": 13.76,
+          "end": 13.88
+        },
+        {
+          "raw": "scientific",
+          "start": 13.88,
+          "end": 14.32
+        },
+        {
+          "raw": "man",
+          "start": 14.32,
+          "end": 14.82
+        }
+      ],
+      "expected_tokens": [
+        "80.",
+        "A",
+        "thing",
+        "that",
+        "is",
+        "explained",
+        "ceases",
+        "to",
+        "concern",
+        "us--What",
+        "did",
+        "the",
+        "God",
+        "mean",
+        "who",
+        "gave",
+        "the",
+        "advice,",
+        "\"Know",
+        "thyself!\"",
+        "Did",
+        "it",
+        "perhaps",
+        "imply",
+        "\"Cease",
+        "to",
+        "be",
+        "concerned",
+        "about",
+        "thyself!",
+        "become",
+        "objective!\"--And",
+        "Socrates?--And",
+        "the",
+        "\"scientific",
+        "man\"?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          31,
+          11,
+          32
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          36
+        ],
+        [
+          "equal",
+          33,
+          36,
+          36,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          36
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "80.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "A",
+          "start": 0.96,
+          "end": 1.02
+        },
+        {
+          "text": "thing",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "text": "that",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "explained",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "text": "ceases",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "text": "to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "text": "concern",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "text": "us--What",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "did",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "God",
+          "start": 3.84,
+          "end": 4.1
+        },
+        {
+          "text": "mean",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "text": "who",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "text": "gave",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "text": "the",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "advice,",
+          "start": 4.98,
+          "end": 5.36
+        },
+        {
+          "text": "\"Know",
+          "start": 5.36,
+          "end": 6.08
+        },
+        {
+          "text": "thyself!\"",
+          "start": 6.08,
+          "end": 6.72
+        },
+        {
+          "text": "Did",
+          "start": 6.72,
+          "end": 7.32
+        },
+        {
+          "text": "it",
+          "start": 7.32,
+          "end": 7.44
+        },
+        {
+          "text": "perhaps",
+          "start": 7.44,
+          "end": 7.7
+        },
+        {
+          "text": "imply",
+          "start": 7.7,
+          "end": 8.26
+        },
+        {
+          "text": "\"Cease",
+          "start": 8.26,
+          "end": 8.84
+        },
+        {
+          "text": "to",
+          "start": 8.84,
+          "end": 9.06
+        },
+        {
+          "text": "be",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "text": "concerned",
+          "start": 9.18,
+          "end": 9.62
+        },
+        {
+          "text": "about",
+          "start": 9.62,
+          "end": 9.92
+        },
+        {
+          "text": "thyself!",
+          "start": 9.92,
+          "end": 10.6
+        },
+        {
+          "text": "become",
+          "start": 10.6,
+          "end": 11.2
+        },
+        {
+          "text": "objective!\"--And",
+          "start": 11.2,
+          "end": 12.48
+        },
+        {
+          "text": "Socrates?--And",
+          "start": 12.48,
+          "end": 13.12
+        },
+        {
+          "text": "the",
+          "start": 13.76,
+          "end": 13.88
+        },
+        {
+          "text": "\"scientific",
+          "start": 13.88,
+          "end": 14.32
+        },
+        {
+          "text": "man\"?",
+          "start": 14.32,
+          "end": 14.82
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 39,
+        "matched_words": 33
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.25813479721546173
+    },
+    {
+      "asr_seconds": 0.30096743255853653,
+      "alignment_seconds": 0.00014857947826385498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 80, a thing that is explained ceases to concern us what did the God mean who gave the advice.",
+          "start": 0.02,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " 80,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.419921875
+            },
+            {
+              "text": " a",
+              "start": 0.96,
+              "end": 1.02,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " thing",
+              "start": 1.02,
+              "end": 1.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " explained",
+              "start": 1.52,
+              "end": 2.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ceases",
+              "start": 2.08,
+              "end": 2.44,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " to",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " concern",
+              "start": 2.76,
+              "end": 3.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " us",
+              "start": 3.14,
+              "end": 3.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " what",
+              "start": 3.4,
+              "end": 3.58,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " did",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " God",
+              "start": 3.84,
+              "end": 4.1,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " mean",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " who",
+              "start": 4.36,
+              "end": 4.6,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " gave",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " advice.",
+              "start": 4.98,
+              "end": 5.36,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " Know thyself.",
+          "start": 5.98,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Know",
+              "start": 5.98,
+              "end": 6.1,
+              "probability": 0.796875
+            },
+            {
+              "text": " thyself.",
+              "start": 6.1,
+              "end": 6.66,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Did it perhaps imply, cease to be concerned about thyself, become objective, and Socrates",
+          "start": 7.24,
+          "end": 13.22,
+          "words": [
+            {
+              "text": " Did",
+              "start": 7.24,
+              "end": 7.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 7.34,
+              "end": 7.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " perhaps",
+              "start": 7.46,
+              "end": 7.7,
+              "probability": 0.970703125
+            },
+            {
+              "text": " imply,",
+              "start": 7.7,
+              "end": 8.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cease",
+              "start": 8.78,
+              "end": 8.84,
+              "probability": 0.970703125
+            },
+            {
+              "text": " to",
+              "start": 8.84,
+              "end": 9.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 9.06,
+              "end": 9.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " concerned",
+              "start": 9.18,
+              "end": 9.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 9.62,
+              "end": 9.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thyself,",
+              "start": 9.9,
+              "end": 10.52,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " become",
+              "start": 11.0,
+              "end": 11.22,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " objective,",
+              "start": 11.22,
+              "end": 11.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 12.58,
+              "end": 12.7,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Socrates",
+              "start": 12.7,
+              "end": 13.22,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " and the scientific man?",
+          "start": 13.22,
+          "end": 14.8,
+          "words": [
+            {
+              "text": " and",
+              "start": 13.22,
+              "end": 13.76,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " the",
+              "start": 13.76,
+              "end": 13.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " scientific",
+              "start": 13.9,
+              "end": 14.32,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " man?",
+              "start": 14.32,
+              "end": 14.8,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "80,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "a",
+          "start": 0.96,
+          "end": 1.02
+        },
+        {
+          "raw": "thing",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "raw": "that",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "explained",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "raw": "ceases",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "raw": "concern",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "raw": "us",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "raw": "what",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "raw": "did",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "God",
+          "start": 3.84,
+          "end": 4.1
+        },
+        {
+          "raw": "mean",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "who",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "raw": "gave",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "the",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "advice.",
+          "start": 4.98,
+          "end": 5.36
+        },
+        {
+          "raw": "Know",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "raw": "thyself.",
+          "start": 6.1,
+          "end": 6.66
+        },
+        {
+          "raw": "Did",
+          "start": 7.24,
+          "end": 7.34
+        },
+        {
+          "raw": "it",
+          "start": 7.34,
+          "end": 7.46
+        },
+        {
+          "raw": "perhaps",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "raw": "imply,",
+          "start": 7.7,
+          "end": 8.26
+        },
+        {
+          "raw": "cease",
+          "start": 8.78,
+          "end": 8.84
+        },
+        {
+          "raw": "to",
+          "start": 8.84,
+          "end": 9.06
+        },
+        {
+          "raw": "be",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "raw": "concerned",
+          "start": 9.18,
+          "end": 9.62
+        },
+        {
+          "raw": "about",
+          "start": 9.62,
+          "end": 9.9
+        },
+        {
+          "raw": "thyself,",
+          "start": 9.9,
+          "end": 10.52
+        },
+        {
+          "raw": "become",
+          "start": 11.0,
+          "end": 11.22
+        },
+        {
+          "raw": "objective,",
+          "start": 11.22,
+          "end": 11.84
+        },
+        {
+          "raw": "and",
+          "start": 12.58,
+          "end": 12.7
+        },
+        {
+          "raw": "Socrates",
+          "start": 12.7,
+          "end": 13.22
+        },
+        {
+          "raw": "and",
+          "start": 13.22,
+          "end": 13.76
+        },
+        {
+          "raw": "the",
+          "start": 13.76,
+          "end": 13.9
+        },
+        {
+          "raw": "scientific",
+          "start": 13.9,
+          "end": 14.32
+        },
+        {
+          "raw": "man?",
+          "start": 14.32,
+          "end": 14.8
+        }
+      ],
+      "expected_tokens": [
+        "80.",
+        "A",
+        "thing",
+        "that",
+        "is",
+        "explained",
+        "ceases",
+        "to",
+        "concern",
+        "us--What",
+        "did",
+        "the",
+        "God",
+        "mean",
+        "who",
+        "gave",
+        "the",
+        "advice,",
+        "\"Know",
+        "thyself!\"",
+        "Did",
+        "it",
+        "perhaps",
+        "imply",
+        "\"Cease",
+        "to",
+        "be",
+        "concerned",
+        "about",
+        "thyself!",
+        "become",
+        "objective!\"--And",
+        "Socrates?--And",
+        "the",
+        "\"scientific",
+        "man\"?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          31,
+          11,
+          32
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          36
+        ],
+        [
+          "equal",
+          33,
+          36,
+          36,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "replace",
+          31,
+          33,
+          32,
+          36
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "80.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "A",
+          "start": 0.96,
+          "end": 1.02
+        },
+        {
+          "text": "thing",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "text": "that",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "is",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "explained",
+          "start": 1.52,
+          "end": 2.08
+        },
+        {
+          "text": "ceases",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "text": "to",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "text": "concern",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "text": "us--What",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "did",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "God",
+          "start": 3.84,
+          "end": 4.1
+        },
+        {
+          "text": "mean",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "text": "who",
+          "start": 4.36,
+          "end": 4.6
+        },
+        {
+          "text": "gave",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "text": "the",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "advice,",
+          "start": 4.98,
+          "end": 5.36
+        },
+        {
+          "text": "\"Know",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "text": "thyself!\"",
+          "start": 6.1,
+          "end": 6.66
+        },
+        {
+          "text": "Did",
+          "start": 7.24,
+          "end": 7.34
+        },
+        {
+          "text": "it",
+          "start": 7.34,
+          "end": 7.46
+        },
+        {
+          "text": "perhaps",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "text": "imply",
+          "start": 7.7,
+          "end": 8.26
+        },
+        {
+          "text": "\"Cease",
+          "start": 8.78,
+          "end": 8.84
+        },
+        {
+          "text": "to",
+          "start": 8.84,
+          "end": 9.06
+        },
+        {
+          "text": "be",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "text": "concerned",
+          "start": 9.18,
+          "end": 9.62
+        },
+        {
+          "text": "about",
+          "start": 9.62,
+          "end": 9.9
+        },
+        {
+          "text": "thyself!",
+          "start": 9.9,
+          "end": 10.52
+        },
+        {
+          "text": "become",
+          "start": 11.0,
+          "end": 11.22
+        },
+        {
+          "text": "objective!\"--And",
+          "start": 11.22,
+          "end": 12.49
+        },
+        {
+          "text": "Socrates?--And",
+          "start": 12.49,
+          "end": 13.125
+        },
+        {
+          "text": "the",
+          "start": 13.76,
+          "end": 13.9
+        },
+        {
+          "text": "\"scientific",
+          "start": 13.9,
+          "end": 14.32
+        },
+        {
+          "text": "man\"?",
+          "start": 14.32,
+          "end": 14.8
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 39,
+        "matched_words": 33
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.3011835068464279
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6cd56d896c6a00a318757fddef5cd3c7eddfcf2b3757aa9ca36cf0b7b1ceea73",
+  "selected_reasons": []
+}

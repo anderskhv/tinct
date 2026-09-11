@@ -1,0 +1,1184 @@
+{
+  "complete": true,
+  "signature": "2b13e0fdf30fd760fcf99c0ce8fc081c01da874ef54fbce5289bc35be1ae3844",
+  "attempts": [
+    {
+      "asr_seconds": 0.16624498087912798,
+      "alignment_seconds": 8.68532806634903e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I will call Mowgli and he shall say them--if he will. Come, Little Brother!\"",
+        "hotwords": "I, Mowgli, Come, Little, Brother"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I will call Mowgli and he shall say them if he will.",
+          "start": 0.08,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.705078125
+            },
+            {
+              "text": " will",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " call",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mowgli",
+              "start": 0.86,
+              "end": 1.28,
+              "probability": 0.9705810546875
+            },
+            {
+              "text": " and",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " he",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shall",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " say",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.978515625
+            },
+            {
+              "text": " them",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.9453125
+            },
+            {
+              "text": " he",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will.",
+              "start": 2.44,
+              "end": 2.72,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Come, Little Brother!",
+          "start": 2.72,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 2.72,
+              "end": 3.42,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " Little",
+              "start": 3.6,
+              "end": 3.7,
+              "probability": 0.054718017578125
+            },
+            {
+              "text": " Brother!",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "will",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "call",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "Mowgli",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "raw": "and",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "he",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "shall",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "say",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "them",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "if",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "he",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "will.",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "raw": "Come,",
+          "start": 2.72,
+          "end": 3.42
+        },
+        {
+          "raw": "Little",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "raw": "Brother!",
+          "start": 3.7,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will",
+        "call",
+        "Mowgli",
+        "and",
+        "he",
+        "shall",
+        "say",
+        "them--if",
+        "he",
+        "will.",
+        "Come,",
+        "Little",
+        "Brother!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          14,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "will",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "call",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "Mowgli",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "text": "and",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "he",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "shall",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "say",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "them--if",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "he",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "will.",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "text": "Come,",
+          "start": 2.72,
+          "end": 3.42
+        },
+        {
+          "text": "Little",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "Brother!\"",
+          "start": 3.7,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.1663702679798007
+    },
+    {
+      "asr_seconds": 0.13685507327318192,
+      "alignment_seconds": 8.686259388923645e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Mowgli, Come, Little, Brother"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I will call Mowgli, and he shall say them if he will. Come, little brother.",
+          "start": 0.08,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.705078125
+            },
+            {
+              "text": " will",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " call",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mowgli,",
+              "start": 0.86,
+              "end": 1.28,
+              "probability": 0.9705810546875
+            },
+            {
+              "text": " and",
+              "start": 1.48,
+              "end": 1.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shall",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " say",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " them",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " he",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will.",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Come,",
+              "start": 3.24,
+              "end": 3.42,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " little",
+              "start": 3.6,
+              "end": 3.7,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " brother.",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "will",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "call",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "Mowgli,",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "raw": "he",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "shall",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "say",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "them",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "if",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "he",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "will.",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "Come,",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "raw": "little",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "raw": "brother.",
+          "start": 3.7,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will",
+        "call",
+        "Mowgli",
+        "and",
+        "he",
+        "shall",
+        "say",
+        "them--if",
+        "he",
+        "will.",
+        "Come,",
+        "Little",
+        "Brother!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          14,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "will",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "call",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "Mowgli",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "text": "and",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "text": "he",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "shall",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "say",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "them--if",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "he",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "will.",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "Come,",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "text": "Little",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "Brother!\"",
+          "start": 3.7,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.13697893358767033
+    },
+    {
+      "asr_seconds": 0.1271228166297078,
+      "alignment_seconds": 9.366590529680252e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I will call Mowgli, and he shall say them if he will.",
+          "start": 0.08,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.705078125
+            },
+            {
+              "text": " will",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " call",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mowgli,",
+              "start": 0.86,
+              "end": 1.28,
+              "probability": 0.9705810546875
+            },
+            {
+              "text": " and",
+              "start": 1.48,
+              "end": 1.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shall",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " say",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " them",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " he",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will.",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Come, little brother.\"",
+          "start": 3.24,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 3.24,
+              "end": 3.42,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " little",
+              "start": 3.6,
+              "end": 3.7,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " brother.\"",
+              "start": 3.7,
+              "end": 4.2,
+              "probability": 0.774658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "will",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "call",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "Mowgli,",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "raw": "he",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "shall",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "say",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "them",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "if",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "he",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "will.",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "Come,",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "raw": "little",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "raw": "brother.\"",
+          "start": 3.7,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will",
+        "call",
+        "Mowgli",
+        "and",
+        "he",
+        "shall",
+        "say",
+        "them--if",
+        "he",
+        "will.",
+        "Come,",
+        "Little",
+        "Brother!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          14,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "will",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "call",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "Mowgli",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "text": "and",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "text": "he",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "shall",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "say",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "them--if",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "he",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "will.",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "Come,",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "text": "Little",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "Brother!\"",
+          "start": 3.7,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.12725381087511778
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "648286723f70f6eb11643e93e127bc36001e60b343369686662014a2ba685309",
+  "selected_reasons": []
+}

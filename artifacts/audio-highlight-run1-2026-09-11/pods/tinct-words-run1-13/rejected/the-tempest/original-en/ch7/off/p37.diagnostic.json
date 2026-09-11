@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "538b6f8490e478d3c621e82aa05f308214ba78cda29c534591568a174d185004",
+  "attempts": [
+    {
+      "asr_seconds": 0.10434298100881279,
+      "alignment_seconds": 0.00014954397920519114,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Adrian, follow, I pray you.",
+          "start": 0.02,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Adrian,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.630859375
+            },
+            {
+              "text": " follow,",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " I",
+              "start": 1.4,
+              "end": 1.46,
+              "probability": 0.986328125
+            },
+            {
+              "text": " pray",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you.",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adrian,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "follow,",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "raw": "pray",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "you.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Adrian.",
+        "Follow,",
+        "I",
+        "pray",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Adrian.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Follow,",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "I",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "pray",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "you.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10455650591757149
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f4f0768bc5594d31a82ae8922a083204a188453c7df81edb03dfb18208635a9",
+  "selected_reasons": []
+}

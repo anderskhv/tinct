@@ -1,0 +1,267 @@
+{
+  "complete": true,
+  "signature": "a5d1bcb440a14d201f4165b75bad08b5d9e86b08d726b159db3ad09948014d11",
+  "attempts": [
+    {
+      "asr_seconds": 0.13690203009173274,
+      "alignment_seconds": 0.00013555295299738646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alonzo, what harmony is this, my good friend's hark?",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Alonzo,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.7677408854166666
+            },
+            {
+              "text": " what",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " harmony",
+              "start": 1.37,
+              "end": 1.63,
+              "probability": 0.98828125
+            },
+            {
+              "text": " is",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this,",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 2.57,
+              "end": 2.65,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " good",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.98828125
+            },
+            {
+              "text": " friend's",
+              "start": 2.81,
+              "end": 3.35,
+              "probability": 0.796875
+            },
+            {
+              "text": " hark?",
+              "start": 3.35,
+              "end": 3.49,
+              "probability": 0.915771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonzo,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "harmony",
+          "start": 1.37,
+          "end": 1.63
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "this,",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "raw": "my",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "raw": "good",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "friend's",
+          "start": 2.81,
+          "end": 3.35
+        },
+        {
+          "raw": "hark?",
+          "start": 3.35,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "What",
+        "harmony",
+        "is",
+        "this?",
+        "My",
+        "good",
+        "friends,",
+        "hark!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "What",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "harmony",
+          "start": 1.37,
+          "end": 1.63
+        },
+        {
+          "text": "is",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "this?",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "text": "My",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "text": "good",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "friends,",
+          "start": 2.81,
+          "end": 3.35
+        },
+        {
+          "text": "hark!",
+          "start": 3.35,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.13709741504862905
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06cc1087ba65aeb5c94bd4ad5392fdfdec3263bae223f5aa2838ae37f93ba53a",
+  "selected_reasons": []
+}

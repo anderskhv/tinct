@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "signature": "de67fbeda8c928ecadfd2cd9c89b92c72e89ca60d74847bf63487121d0d905aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.12000404600985348,
+      "alignment_seconds": 0.0001294650137424469,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, what a strange drowsiness possesses them.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " what",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " a",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " strange",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " drowsiness",
+              "start": 2.0,
+              "end": 2.58,
+              "probability": 0.9864908854166666
+            },
+            {
+              "text": " possesses",
+              "start": 2.58,
+              "end": 2.94,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " them.",
+              "start": 2.94,
+              "end": 3.32,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "a",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "strange",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "drowsiness",
+          "start": 2.0,
+          "end": 2.58
+        },
+        {
+          "raw": "possesses",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "raw": "them.",
+          "start": 2.94,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "What",
+        "a",
+        "strange",
+        "drowsiness",
+        "possesses",
+        "them!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "What",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "a",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "strange",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "drowsiness",
+          "start": 2.0,
+          "end": 2.58
+        },
+        {
+          "text": "possesses",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "text": "them!",
+          "start": 2.94,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12020807294175029
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca18b46a04171a034331b21bbafac533012792d4287a6b9c124a4ba1a3558efd",
+  "selected_reasons": []
+}

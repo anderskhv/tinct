@@ -1,0 +1,387 @@
+{
+  "complete": true,
+  "signature": "a4b15100ef05383d1e926125fda550a58000c672d1bbfc64c06d23d0e255ded6",
+  "attempts": [
+    {
+      "asr_seconds": 0.14204129669815302,
+      "alignment_seconds": 9.452737867832184e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mowgli, said Balu, thou hast been talking with the Bandar Log the Monkey People.",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Mowgli,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.795623779296875
+            },
+            {
+              "text": " said",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Balu,",
+              "start": 1.51,
+              "end": 1.97,
+              "probability": 0.54296875
+            },
+            {
+              "text": " thou",
+              "start": 2.53,
+              "end": 2.57,
+              "probability": 0.798828125
+            },
+            {
+              "text": " hast",
+              "start": 2.57,
+              "end": 2.83,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " been",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " talking",
+              "start": 3.03,
+              "end": 3.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " with",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.984375
+            },
+            {
+              "text": " Bandar",
+              "start": 3.67,
+              "end": 4.03,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " Log",
+              "start": 4.03,
+              "end": 4.21,
+              "probability": 0.454345703125
+            },
+            {
+              "text": " the",
+              "start": 4.21,
+              "end": 4.43,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " Monkey",
+              "start": 4.43,
+              "end": 4.69,
+              "probability": 0.59130859375
+            },
+            {
+              "text": " People.",
+              "start": 4.69,
+              "end": 5.05,
+              "probability": 0.6767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mowgli,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "said",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "Balu,",
+          "start": 1.51,
+          "end": 1.97
+        },
+        {
+          "raw": "thou",
+          "start": 2.53,
+          "end": 2.57
+        },
+        {
+          "raw": "hast",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "raw": "been",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "talking",
+          "start": 3.03,
+          "end": 3.35
+        },
+        {
+          "raw": "with",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "the",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "Bandar",
+          "start": 3.67,
+          "end": 4.03
+        },
+        {
+          "raw": "Log",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "raw": "the",
+          "start": 4.21,
+          "end": 4.43
+        },
+        {
+          "raw": "Monkey",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "raw": "People.",
+          "start": 4.69,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Mowgli,\"",
+        "said",
+        "Baloo,",
+        "\"thou",
+        "hast",
+        "been",
+        "talking",
+        "with",
+        "the",
+        "Bandar-log--the",
+        "Monkey",
+        "People.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          12
+        ],
+        [
+          "equal",
+          10,
+          12,
+          12,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Mowgli,\"",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "said",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "Baloo,",
+          "start": 1.51,
+          "end": 2.02
+        },
+        {
+          "text": "\"thou",
+          "start": 2.53,
+          "end": 2.57
+        },
+        {
+          "text": "hast",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "text": "been",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "talking",
+          "start": 3.03,
+          "end": 3.35
+        },
+        {
+          "text": "with",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "the",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "Bandar-log--the",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "text": "Monkey",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "text": "People.\"",
+          "start": 4.69,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14217487629503012
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "21c7fa8ded91a4831e3e0b28776c52c0f9d15dcfe525a7ac0294ef042f5b5de9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

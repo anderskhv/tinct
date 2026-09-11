@@ -1,0 +1,811 @@
+{
+  "complete": true,
+  "signature": "105d341277d98cfceab4c38ab492fb7668b51fd55366ace92b89a9d1af85cc74",
+  "attempts": [
+    {
+      "asr_seconds": 0.1814401289448142,
+      "alignment_seconds": 0.00012532807886600494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You could put a whole regiment of Dicks on my back without making me feel any better. I know just enough to be uncomfortable, and not enough to go on in spite of it.\"",
+        "hotwords": "You, Dicks, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You could put a whole regiment of Dicks on my back without making me feel any better.",
+          "start": 0.02,
+          "end": 4.28,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " could",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " put",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whole",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " regiment",
+              "start": 1.26,
+              "end": 1.58,
+              "probability": 0.409912109375
+            },
+            {
+              "text": " of",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dicks",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.429779052734375
+            },
+            {
+              "text": " on",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " back",
+              "start": 2.42,
+              "end": 2.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " without",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " making",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feel",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " any",
+              "start": 3.78,
+              "end": 4.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " better.",
+              "start": 4.0,
+              "end": 4.28,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I know just enough to be uncomfortable, and not enough to go on in spite of it.",
+          "start": 4.74,
+          "end": 9.04,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " know",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " just",
+              "start": 5.18,
+              "end": 5.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " enough",
+              "start": 5.38,
+              "end": 5.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 5.64,
+              "end": 5.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 5.84,
+              "end": 5.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " uncomfortable,",
+              "start": 5.98,
+              "end": 6.52,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " and",
+              "start": 6.88,
+              "end": 7.24,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " not",
+              "start": 7.24,
+              "end": 7.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enough",
+              "start": 7.42,
+              "end": 7.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 7.62,
+              "end": 7.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 7.82,
+              "end": 7.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 7.94,
+              "end": 8.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 8.22,
+              "end": 8.42,
+              "probability": 0.984375
+            },
+            {
+              "text": " spite",
+              "start": 8.42,
+              "end": 8.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 8.68,
+              "end": 8.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 8.86,
+              "end": 9.04,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "could",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "put",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "whole",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "regiment",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "Dicks",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "on",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "my",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "back",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "raw": "without",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "raw": "making",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "raw": "me",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "raw": "feel",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "any",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "raw": "better.",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "raw": "I",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "know",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "just",
+          "start": 5.18,
+          "end": 5.38
+        },
+        {
+          "raw": "enough",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "raw": "to",
+          "start": 5.64,
+          "end": 5.84
+        },
+        {
+          "raw": "be",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "raw": "uncomfortable,",
+          "start": 5.98,
+          "end": 6.52
+        },
+        {
+          "raw": "and",
+          "start": 6.88,
+          "end": 7.24
+        },
+        {
+          "raw": "not",
+          "start": 7.24,
+          "end": 7.42
+        },
+        {
+          "raw": "enough",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "raw": "to",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "raw": "go",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "raw": "on",
+          "start": 7.94,
+          "end": 8.22
+        },
+        {
+          "raw": "in",
+          "start": 8.22,
+          "end": 8.42
+        },
+        {
+          "raw": "spite",
+          "start": 8.42,
+          "end": 8.68
+        },
+        {
+          "raw": "of",
+          "start": 8.68,
+          "end": 8.86
+        },
+        {
+          "raw": "it.",
+          "start": 8.86,
+          "end": 9.04
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "could",
+        "put",
+        "a",
+        "whole",
+        "regiment",
+        "of",
+        "Dicks",
+        "on",
+        "my",
+        "back",
+        "without",
+        "making",
+        "me",
+        "feel",
+        "any",
+        "better.",
+        "I",
+        "know",
+        "just",
+        "enough",
+        "to",
+        "be",
+        "uncomfortable,",
+        "and",
+        "not",
+        "enough",
+        "to",
+        "go",
+        "on",
+        "in",
+        "spite",
+        "of",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "could",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "put",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "a",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "whole",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "regiment",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "text": "of",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "Dicks",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "on",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "my",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "back",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "text": "without",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "text": "making",
+          "start": 3.04,
+          "end": 3.32
+        },
+        {
+          "text": "me",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "text": "feel",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "any",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "text": "better.",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "text": "I",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "know",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "just",
+          "start": 5.18,
+          "end": 5.38
+        },
+        {
+          "text": "enough",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "text": "to",
+          "start": 5.64,
+          "end": 5.84
+        },
+        {
+          "text": "be",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "text": "uncomfortable,",
+          "start": 5.98,
+          "end": 6.52
+        },
+        {
+          "text": "and",
+          "start": 6.88,
+          "end": 7.24
+        },
+        {
+          "text": "not",
+          "start": 7.24,
+          "end": 7.42
+        },
+        {
+          "text": "enough",
+          "start": 7.42,
+          "end": 7.62
+        },
+        {
+          "text": "to",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "text": "go",
+          "start": 7.82,
+          "end": 7.94
+        },
+        {
+          "text": "on",
+          "start": 7.94,
+          "end": 8.22
+        },
+        {
+          "text": "in",
+          "start": 8.22,
+          "end": 8.42
+        },
+        {
+          "text": "spite",
+          "start": 8.42,
+          "end": 8.68
+        },
+        {
+          "text": "of",
+          "start": 8.68,
+          "end": 8.86
+        },
+        {
+          "text": "it.\"",
+          "start": 8.86,
+          "end": 9.04
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18163171876221895
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c83865e4d62c680d113ff11d4e7a396332bb6f31a5311e04f5d1aa83ccbf6b37",
+  "selected_reasons": []
+}

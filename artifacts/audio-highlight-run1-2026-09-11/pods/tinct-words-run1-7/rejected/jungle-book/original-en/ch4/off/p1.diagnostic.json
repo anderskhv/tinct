@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "ce2995ca4465cb2c431620139853c601b0ea5a78d1452d68271e5451cdb28d56",
+  "attempts": [
+    {
+      "asr_seconds": 0.08215051051229239,
+      "alignment_seconds": 5.193892866373062e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Seal Lullaby",
+          "start": 0.08,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " Seal",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.1923828125
+            },
+            {
+              "text": " Lullaby",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.8556315104166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seal",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Lullaby",
+          "start": 0.64,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "Seal",
+        "Lullaby"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Seal",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Lullaby",
+          "start": 0.64,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08222384192049503
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "22d9d0ac9bf190ca28f519a7945f192c84250d1bb63d33522bb07637a1a8dca4",
+  "selected_reasons": []
+}

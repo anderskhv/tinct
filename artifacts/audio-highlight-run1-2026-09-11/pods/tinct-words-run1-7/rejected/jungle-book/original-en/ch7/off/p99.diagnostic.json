@@ -1,0 +1,377 @@
+{
+  "complete": true,
+  "signature": "672a71b1b4af1ea41221687048863cc6e5c7817967b5df10fc8dde80aab5fc78",
+  "attempts": [
+    {
+      "asr_seconds": 0.12030988372862339,
+      "alignment_seconds": 8.493755012750626e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " H is H said the troop horse. I think I understand what two tails means",
+          "start": 0.08,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " H",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.25341796875
+            },
+            {
+              "text": " is",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " H",
+              "start": 0.8,
+              "end": 1.16,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " said",
+              "start": 1.16,
+              "end": 1.6,
+              "probability": 0.1649169921875
+            },
+            {
+              "text": " the",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " troop",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " horse.",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " think",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " understand",
+              "start": 3.18,
+              "end": 3.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " two",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.939453125
+            },
+            {
+              "text": " tails",
+              "start": 3.98,
+              "end": 4.28,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " means",
+              "start": 4.28,
+              "end": 4.8,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "H",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "is",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "H",
+          "start": 0.8,
+          "end": 1.16
+        },
+        {
+          "raw": "said",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "troop",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "horse.",
+          "start": 1.94,
+          "end": 2.24
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "think",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "I",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "understand",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "raw": "what",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "two",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "tails",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "raw": "means",
+          "start": 4.28,
+          "end": 4.8
+        }
+      ],
+      "expected_tokens": [
+        "\"H'sh!\"",
+        "said",
+        "the",
+        "troop",
+        "horse.",
+        "\"I",
+        "think",
+        "I",
+        "understand",
+        "what",
+        "Two",
+        "Tails",
+        "means.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          13,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"H'sh!\"",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "said",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "troop",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "horse.",
+          "start": 1.94,
+          "end": 2.24
+        },
+        {
+          "text": "\"I",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "think",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "I",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "understand",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "text": "what",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "Two",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "text": "Tails",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "text": "means.\"",
+          "start": 4.28,
+          "end": 4.8
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.12043228559195995
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "34d6eddebb7252a391c996ba9559ebdbdb9ff993253d093ededf13399ac34052",
+  "selected_reasons": []
+}

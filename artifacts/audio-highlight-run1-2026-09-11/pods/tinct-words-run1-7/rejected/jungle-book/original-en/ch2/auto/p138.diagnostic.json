@@ -1,0 +1,2968 @@
+{
+  "complete": true,
+  "signature": "229b680a132ecbd8300d2480f978298850aaba6addb558e4fe59d6a9966482b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2885594181716442,
+      "alignment_seconds": 0.00015105493366718292,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Of that we shall judge later,\" said Bagheera, in a dry voice that Mowgli did not at all like. \"But here is Kaa to whom we owe the battle and thou owest thy life. Thank him according to our customs, Mowgli.\"",
+        "hotwords": "Of, Bagheera, Mowgli, But, Kaa, Thank"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of that we shall judge later,\" said Bagheera, in a dry voice that Mowgli did not at all like.",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.1387939453125
+            },
+            {
+              "text": " that",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " we",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " shall",
+              "start": 0.89,
+              "end": 1.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " judge",
+              "start": 1.13,
+              "end": 1.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " later,\"",
+              "start": 1.41,
+              "end": 2.15,
+              "probability": 0.874755859375
+            },
+            {
+              "text": " said",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Bagheera,",
+              "start": 2.45,
+              "end": 2.99,
+              "probability": 0.9664713541666666
+            },
+            {
+              "text": " in",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.982421875
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dry",
+              "start": 3.59,
+              "end": 3.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " voice",
+              "start": 3.83,
+              "end": 4.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 4.25,
+              "end": 4.51,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Mowgli",
+              "start": 4.51,
+              "end": 4.91,
+              "probability": 0.9559326171875
+            },
+            {
+              "text": " did",
+              "start": 4.91,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 5.15,
+              "end": 5.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 5.33,
+              "end": 5.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " like.",
+              "start": 5.63,
+              "end": 5.89,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " But here is Kaa to whom we owe the battle and thou oest thy life. Thank him according to our customs, Mowgli.",
+          "start": 6.55,
+          "end": 12.69,
+          "words": [
+            {
+              "text": " But",
+              "start": 6.55,
+              "end": 6.69,
+              "probability": 0.07818603515625
+            },
+            {
+              "text": " here",
+              "start": 6.69,
+              "end": 6.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 6.95,
+              "end": 7.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Kaa",
+              "start": 7.19,
+              "end": 7.45,
+              "probability": 0.1038360595703125
+            },
+            {
+              "text": " to",
+              "start": 7.45,
+              "end": 7.59,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " whom",
+              "start": 7.59,
+              "end": 7.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " we",
+              "start": 7.81,
+              "end": 8.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " owe",
+              "start": 8.01,
+              "end": 8.21,
+              "probability": 0.90234375
+            },
+            {
+              "text": " the",
+              "start": 8.21,
+              "end": 8.37,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " battle",
+              "start": 8.37,
+              "end": 8.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 8.69,
+              "end": 8.95,
+              "probability": 0.7578125
+            },
+            {
+              "text": " thou",
+              "start": 8.95,
+              "end": 9.13,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " oest",
+              "start": 9.13,
+              "end": 9.59,
+              "probability": 0.378662109375
+            },
+            {
+              "text": " thy",
+              "start": 9.59,
+              "end": 9.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " life.",
+              "start": 9.79,
+              "end": 10.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Thank",
+              "start": 10.73,
+              "end": 10.85,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " him",
+              "start": 10.85,
+              "end": 10.99,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " according",
+              "start": 10.99,
+              "end": 11.29,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " to",
+              "start": 11.29,
+              "end": 11.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 11.57,
+              "end": 11.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " customs,",
+              "start": 11.67,
+              "end": 12.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Mowgli.",
+              "start": 12.39,
+              "end": 12.69,
+              "probability": 0.997802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "that",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "we",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "shall",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "raw": "judge",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "raw": "later,\"",
+          "start": 1.41,
+          "end": 2.15
+        },
+        {
+          "raw": "said",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "Bagheera,",
+          "start": 2.45,
+          "end": 2.99
+        },
+        {
+          "raw": "in",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "raw": "dry",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "raw": "voice",
+          "start": 3.83,
+          "end": 4.25
+        },
+        {
+          "raw": "that",
+          "start": 4.25,
+          "end": 4.51
+        },
+        {
+          "raw": "Mowgli",
+          "start": 4.51,
+          "end": 4.91
+        },
+        {
+          "raw": "did",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "raw": "not",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "raw": "at",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "raw": "all",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "like.",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "raw": "But",
+          "start": 6.55,
+          "end": 6.69
+        },
+        {
+          "raw": "here",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "raw": "is",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "raw": "Kaa",
+          "start": 7.19,
+          "end": 7.45
+        },
+        {
+          "raw": "to",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "raw": "whom",
+          "start": 7.59,
+          "end": 7.81
+        },
+        {
+          "raw": "we",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "raw": "owe",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "raw": "the",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "raw": "battle",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "raw": "and",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "raw": "thou",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "raw": "oest",
+          "start": 9.13,
+          "end": 9.59
+        },
+        {
+          "raw": "thy",
+          "start": 9.59,
+          "end": 9.79
+        },
+        {
+          "raw": "life.",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "raw": "Thank",
+          "start": 10.73,
+          "end": 10.85
+        },
+        {
+          "raw": "him",
+          "start": 10.85,
+          "end": 10.99
+        },
+        {
+          "raw": "according",
+          "start": 10.99,
+          "end": 11.29
+        },
+        {
+          "raw": "to",
+          "start": 11.29,
+          "end": 11.57
+        },
+        {
+          "raw": "our",
+          "start": 11.57,
+          "end": 11.67
+        },
+        {
+          "raw": "customs,",
+          "start": 11.67,
+          "end": 12.03
+        },
+        {
+          "raw": "Mowgli.",
+          "start": 12.39,
+          "end": 12.69
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "that",
+        "we",
+        "shall",
+        "judge",
+        "later,\"",
+        "said",
+        "Bagheera,",
+        "in",
+        "a",
+        "dry",
+        "voice",
+        "that",
+        "Mowgli",
+        "did",
+        "not",
+        "at",
+        "all",
+        "like.",
+        "\"But",
+        "here",
+        "is",
+        "Kaa",
+        "to",
+        "whom",
+        "we",
+        "owe",
+        "the",
+        "battle",
+        "and",
+        "thou",
+        "owest",
+        "thy",
+        "life.",
+        "Thank",
+        "him",
+        "according",
+        "to",
+        "our",
+        "customs,",
+        "Mowgli.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ],
+        [
+          "equal",
+          32,
+          41,
+          32,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "that",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "we",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "shall",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "text": "judge",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "text": "later,\"",
+          "start": 1.41,
+          "end": 2.15
+        },
+        {
+          "text": "said",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "text": "Bagheera,",
+          "start": 2.45,
+          "end": 2.99
+        },
+        {
+          "text": "in",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "text": "dry",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "text": "voice",
+          "start": 3.83,
+          "end": 4.25
+        },
+        {
+          "text": "that",
+          "start": 4.25,
+          "end": 4.51
+        },
+        {
+          "text": "Mowgli",
+          "start": 4.51,
+          "end": 4.91
+        },
+        {
+          "text": "did",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "text": "not",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "text": "at",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "text": "all",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "like.",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "text": "\"But",
+          "start": 6.55,
+          "end": 6.69
+        },
+        {
+          "text": "here",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "text": "is",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "text": "Kaa",
+          "start": 7.19,
+          "end": 7.45
+        },
+        {
+          "text": "to",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "text": "whom",
+          "start": 7.59,
+          "end": 7.81
+        },
+        {
+          "text": "we",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "text": "owe",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "text": "the",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "text": "battle",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "text": "and",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "text": "thou",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "text": "owest",
+          "start": 9.13,
+          "end": 9.36
+        },
+        {
+          "text": "thy",
+          "start": 9.59,
+          "end": 9.79
+        },
+        {
+          "text": "life.",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "text": "Thank",
+          "start": 10.73,
+          "end": 10.85
+        },
+        {
+          "text": "him",
+          "start": 10.85,
+          "end": 10.99
+        },
+        {
+          "text": "according",
+          "start": 10.99,
+          "end": 11.29
+        },
+        {
+          "text": "to",
+          "start": 11.29,
+          "end": 11.57
+        },
+        {
+          "text": "our",
+          "start": 11.57,
+          "end": 11.67
+        },
+        {
+          "text": "customs,",
+          "start": 11.67,
+          "end": 12.03
+        },
+        {
+          "text": "Mowgli.\"",
+          "start": 12.39,
+          "end": 12.69
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.28879100643098354
+    },
+    {
+      "asr_seconds": 0.3031950695440173,
+      "alignment_seconds": 0.00014876481145620346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Of, Bagheera, Mowgli, But, Kaa, Thank"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Of that we shall judge later, said Bagheera, In a dry voice that Mowgli did not at all",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.1387939453125
+            },
+            {
+              "text": " that",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " we",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " shall",
+              "start": 0.89,
+              "end": 1.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " judge",
+              "start": 1.13,
+              "end": 1.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " later,",
+              "start": 1.41,
+              "end": 1.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " said",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Bagheera,",
+              "start": 2.45,
+              "end": 2.97,
+              "probability": 0.96484375
+            },
+            {
+              "text": " In",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.012786865234375
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dry",
+              "start": 3.59,
+              "end": 3.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " voice",
+              "start": 3.83,
+              "end": 4.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 4.23,
+              "end": 4.49,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Mowgli",
+              "start": 4.49,
+              "end": 4.93,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " did",
+              "start": 4.93,
+              "end": 5.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " not",
+              "start": 5.13,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 5.33,
+              "end": 5.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " all",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " like.",
+          "start": 5.63,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " like.",
+              "start": 5.63,
+              "end": 5.89,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " But here is Kaa to whom we owe the battle, And thou oweest thy life.",
+          "start": 6.59,
+          "end": 10.11,
+          "words": [
+            {
+              "text": " But",
+              "start": 6.59,
+              "end": 6.69,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " here",
+              "start": 6.69,
+              "end": 6.95,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " is",
+              "start": 6.95,
+              "end": 7.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Kaa",
+              "start": 7.19,
+              "end": 7.45,
+              "probability": 0.106719970703125
+            },
+            {
+              "text": " to",
+              "start": 7.45,
+              "end": 7.59,
+              "probability": 0.953125
+            },
+            {
+              "text": " whom",
+              "start": 7.59,
+              "end": 7.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " we",
+              "start": 7.81,
+              "end": 8.01,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " owe",
+              "start": 8.01,
+              "end": 8.21,
+              "probability": 0.888671875
+            },
+            {
+              "text": " the",
+              "start": 8.21,
+              "end": 8.37,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " battle,",
+              "start": 8.37,
+              "end": 8.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " And",
+              "start": 8.89,
+              "end": 8.95,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " thou",
+              "start": 8.95,
+              "end": 9.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " oweest",
+              "start": 9.13,
+              "end": 9.59,
+              "probability": 0.560546875
+            },
+            {
+              "text": " thy",
+              "start": 9.59,
+              "end": 9.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " life.",
+              "start": 9.79,
+              "end": 10.11,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Thank him according to our customs, Mowgli.",
+          "start": 10.75,
+          "end": 12.69,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 10.75,
+              "end": 10.85,
+              "probability": 0.943359375
+            },
+            {
+              "text": " him",
+              "start": 10.85,
+              "end": 10.99,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " according",
+              "start": 10.99,
+              "end": 11.27,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " to",
+              "start": 11.27,
+              "end": 11.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " our",
+              "start": 11.57,
+              "end": 11.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " customs,",
+              "start": 11.67,
+              "end": 12.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Mowgli.",
+              "start": 12.39,
+              "end": 12.69,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "that",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "we",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "shall",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "raw": "judge",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "raw": "later,",
+          "start": 1.41,
+          "end": 1.91
+        },
+        {
+          "raw": "said",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "Bagheera,",
+          "start": 2.45,
+          "end": 2.97
+        },
+        {
+          "raw": "In",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "raw": "dry",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "raw": "voice",
+          "start": 3.83,
+          "end": 4.23
+        },
+        {
+          "raw": "that",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "raw": "Mowgli",
+          "start": 4.49,
+          "end": 4.93
+        },
+        {
+          "raw": "did",
+          "start": 4.93,
+          "end": 5.13
+        },
+        {
+          "raw": "not",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "raw": "at",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "raw": "all",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "like.",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "raw": "But",
+          "start": 6.59,
+          "end": 6.69
+        },
+        {
+          "raw": "here",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "raw": "is",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "raw": "Kaa",
+          "start": 7.19,
+          "end": 7.45
+        },
+        {
+          "raw": "to",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "raw": "whom",
+          "start": 7.59,
+          "end": 7.81
+        },
+        {
+          "raw": "we",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "raw": "owe",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "raw": "the",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "raw": "battle,",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "raw": "And",
+          "start": 8.89,
+          "end": 8.95
+        },
+        {
+          "raw": "thou",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "raw": "oweest",
+          "start": 9.13,
+          "end": 9.59
+        },
+        {
+          "raw": "thy",
+          "start": 9.59,
+          "end": 9.79
+        },
+        {
+          "raw": "life.",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "raw": "Thank",
+          "start": 10.75,
+          "end": 10.85
+        },
+        {
+          "raw": "him",
+          "start": 10.85,
+          "end": 10.99
+        },
+        {
+          "raw": "according",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "raw": "to",
+          "start": 11.27,
+          "end": 11.57
+        },
+        {
+          "raw": "our",
+          "start": 11.57,
+          "end": 11.67
+        },
+        {
+          "raw": "customs,",
+          "start": 11.67,
+          "end": 12.03
+        },
+        {
+          "raw": "Mowgli.",
+          "start": 12.39,
+          "end": 12.69
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "that",
+        "we",
+        "shall",
+        "judge",
+        "later,\"",
+        "said",
+        "Bagheera,",
+        "in",
+        "a",
+        "dry",
+        "voice",
+        "that",
+        "Mowgli",
+        "did",
+        "not",
+        "at",
+        "all",
+        "like.",
+        "\"But",
+        "here",
+        "is",
+        "Kaa",
+        "to",
+        "whom",
+        "we",
+        "owe",
+        "the",
+        "battle",
+        "and",
+        "thou",
+        "owest",
+        "thy",
+        "life.",
+        "Thank",
+        "him",
+        "according",
+        "to",
+        "our",
+        "customs,",
+        "Mowgli.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ],
+        [
+          "equal",
+          32,
+          41,
+          32,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          31,
+          32,
+          31,
+          32
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "that",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "we",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "shall",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "text": "judge",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "text": "later,\"",
+          "start": 1.41,
+          "end": 1.91
+        },
+        {
+          "text": "said",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "text": "Bagheera,",
+          "start": 2.45,
+          "end": 2.97
+        },
+        {
+          "text": "in",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "text": "dry",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "text": "voice",
+          "start": 3.83,
+          "end": 4.23
+        },
+        {
+          "text": "that",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "text": "Mowgli",
+          "start": 4.49,
+          "end": 4.93
+        },
+        {
+          "text": "did",
+          "start": 4.93,
+          "end": 5.13
+        },
+        {
+          "text": "not",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "text": "at",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "text": "all",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "like.",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "text": "\"But",
+          "start": 6.59,
+          "end": 6.69
+        },
+        {
+          "text": "here",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "text": "is",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "text": "Kaa",
+          "start": 7.19,
+          "end": 7.45
+        },
+        {
+          "text": "to",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "text": "whom",
+          "start": 7.59,
+          "end": 7.81
+        },
+        {
+          "text": "we",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "text": "owe",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "text": "the",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "text": "battle",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "text": "and",
+          "start": 8.89,
+          "end": 8.95
+        },
+        {
+          "text": "thou",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "text": "owest",
+          "start": 9.13,
+          "end": 9.36
+        },
+        {
+          "text": "thy",
+          "start": 9.59,
+          "end": 9.79
+        },
+        {
+          "text": "life.",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "text": "Thank",
+          "start": 10.75,
+          "end": 10.85
+        },
+        {
+          "text": "him",
+          "start": 10.85,
+          "end": 10.99
+        },
+        {
+          "text": "according",
+          "start": 10.99,
+          "end": 11.27
+        },
+        {
+          "text": "to",
+          "start": 11.27,
+          "end": 11.57
+        },
+        {
+          "text": "our",
+          "start": 11.57,
+          "end": 11.67
+        },
+        {
+          "text": "customs,",
+          "start": 11.67,
+          "end": 12.03
+        },
+        {
+          "text": "Mowgli.\"",
+          "start": 12.39,
+          "end": 12.69
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.3034218633547425
+    },
+    {
+      "asr_seconds": 0.4230113886296749,
+      "alignment_seconds": 0.00015343353152275085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Of that we shall judge later,\" said Bagheera, in a dry voice that Mowgli did not at all",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.138916015625
+            },
+            {
+              "text": " that",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " we",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " shall",
+              "start": 0.89,
+              "end": 1.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " judge",
+              "start": 1.13,
+              "end": 1.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " later,\"",
+              "start": 1.41,
+              "end": 2.15,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " said",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Bagheera,",
+              "start": 2.45,
+              "end": 2.99,
+              "probability": 0.9664713541666666
+            },
+            {
+              "text": " in",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.982421875
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dry",
+              "start": 3.59,
+              "end": 3.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " voice",
+              "start": 3.83,
+              "end": 4.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 4.25,
+              "end": 4.51,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Mowgli",
+              "start": 4.51,
+              "end": 4.91,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " did",
+              "start": 4.91,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 5.15,
+              "end": 5.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 5.33,
+              "end": 5.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " like.",
+          "start": 5.63,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " like.",
+              "start": 5.63,
+              "end": 5.89,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " But here is Ka to whom we owe the battle and thou owest thy life.",
+          "start": 5.89,
+          "end": 10.11,
+          "words": [
+            {
+              "text": " But",
+              "start": 5.89,
+              "end": 6.69,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " here",
+              "start": 6.69,
+              "end": 6.95,
+              "probability": 0.986328125
+            },
+            {
+              "text": " is",
+              "start": 6.95,
+              "end": 7.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Ka",
+              "start": 7.17,
+              "end": 7.39,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " to",
+              "start": 7.39,
+              "end": 7.61,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " whom",
+              "start": 7.61,
+              "end": 7.81,
+              "probability": 0.96875
+            },
+            {
+              "text": " we",
+              "start": 7.81,
+              "end": 8.01,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " owe",
+              "start": 8.01,
+              "end": 8.21,
+              "probability": 0.892578125
+            },
+            {
+              "text": " the",
+              "start": 8.21,
+              "end": 8.37,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " battle",
+              "start": 8.37,
+              "end": 8.69,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 8.69,
+              "end": 8.95,
+              "probability": 0.426513671875
+            },
+            {
+              "text": " thou",
+              "start": 8.95,
+              "end": 9.13,
+              "probability": 0.978515625
+            },
+            {
+              "text": " owest",
+              "start": 9.13,
+              "end": 9.59,
+              "probability": 0.53106689453125
+            },
+            {
+              "text": " thy",
+              "start": 9.59,
+              "end": 9.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " life.",
+              "start": 9.79,
+              "end": 10.11,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " Thank him according to our customs, Mowgli.",
+          "start": 10.73,
+          "end": 12.67,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 10.73,
+              "end": 10.83,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " him",
+              "start": 10.83,
+              "end": 10.99,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " according",
+              "start": 10.99,
+              "end": 11.29,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " to",
+              "start": 11.29,
+              "end": 11.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 11.57,
+              "end": 11.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " customs,",
+              "start": 11.67,
+              "end": 12.07,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Mowgli.",
+              "start": 12.39,
+              "end": 12.67,
+              "probability": 0.9749755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "that",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "we",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "shall",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "raw": "judge",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "raw": "later,\"",
+          "start": 1.41,
+          "end": 2.15
+        },
+        {
+          "raw": "said",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "Bagheera,",
+          "start": 2.45,
+          "end": 2.99
+        },
+        {
+          "raw": "in",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "raw": "dry",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "raw": "voice",
+          "start": 3.83,
+          "end": 4.25
+        },
+        {
+          "raw": "that",
+          "start": 4.25,
+          "end": 4.51
+        },
+        {
+          "raw": "Mowgli",
+          "start": 4.51,
+          "end": 4.91
+        },
+        {
+          "raw": "did",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "raw": "not",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "raw": "at",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "raw": "all",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "like.",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "raw": "But",
+          "start": 5.89,
+          "end": 6.69
+        },
+        {
+          "raw": "here",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "raw": "is",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "raw": "Ka",
+          "start": 7.17,
+          "end": 7.39
+        },
+        {
+          "raw": "to",
+          "start": 7.39,
+          "end": 7.61
+        },
+        {
+          "raw": "whom",
+          "start": 7.61,
+          "end": 7.81
+        },
+        {
+          "raw": "we",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "raw": "owe",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "raw": "the",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "raw": "battle",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "raw": "and",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "raw": "thou",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "raw": "owest",
+          "start": 9.13,
+          "end": 9.59
+        },
+        {
+          "raw": "thy",
+          "start": 9.59,
+          "end": 9.79
+        },
+        {
+          "raw": "life.",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "raw": "Thank",
+          "start": 10.73,
+          "end": 10.83
+        },
+        {
+          "raw": "him",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "raw": "according",
+          "start": 10.99,
+          "end": 11.29
+        },
+        {
+          "raw": "to",
+          "start": 11.29,
+          "end": 11.57
+        },
+        {
+          "raw": "our",
+          "start": 11.57,
+          "end": 11.67
+        },
+        {
+          "raw": "customs,",
+          "start": 11.67,
+          "end": 12.07
+        },
+        {
+          "raw": "Mowgli.",
+          "start": 12.39,
+          "end": 12.67
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "that",
+        "we",
+        "shall",
+        "judge",
+        "later,\"",
+        "said",
+        "Bagheera,",
+        "in",
+        "a",
+        "dry",
+        "voice",
+        "that",
+        "Mowgli",
+        "did",
+        "not",
+        "at",
+        "all",
+        "like.",
+        "\"But",
+        "here",
+        "is",
+        "Kaa",
+        "to",
+        "whom",
+        "we",
+        "owe",
+        "the",
+        "battle",
+        "and",
+        "thou",
+        "owest",
+        "thy",
+        "life.",
+        "Thank",
+        "him",
+        "according",
+        "to",
+        "our",
+        "customs,",
+        "Mowgli.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          41,
+          23,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "that",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "we",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "shall",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "text": "judge",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "text": "later,\"",
+          "start": 1.41,
+          "end": 2.15
+        },
+        {
+          "text": "said",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "text": "Bagheera,",
+          "start": 2.45,
+          "end": 2.99
+        },
+        {
+          "text": "in",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "text": "dry",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "text": "voice",
+          "start": 3.83,
+          "end": 4.25
+        },
+        {
+          "text": "that",
+          "start": 4.25,
+          "end": 4.51
+        },
+        {
+          "text": "Mowgli",
+          "start": 4.51,
+          "end": 4.91
+        },
+        {
+          "text": "did",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "text": "not",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "text": "at",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "text": "all",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "like.",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "text": "\"But",
+          "start": 5.89,
+          "end": 6.69
+        },
+        {
+          "text": "here",
+          "start": 6.69,
+          "end": 6.95
+        },
+        {
+          "text": "is",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "text": "Kaa",
+          "start": 7.17,
+          "end": 7.28
+        },
+        {
+          "text": "to",
+          "start": 7.39,
+          "end": 7.61
+        },
+        {
+          "text": "whom",
+          "start": 7.61,
+          "end": 7.81
+        },
+        {
+          "text": "we",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "text": "owe",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "text": "the",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "text": "battle",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "text": "and",
+          "start": 8.69,
+          "end": 8.95
+        },
+        {
+          "text": "thou",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "text": "owest",
+          "start": 9.13,
+          "end": 9.59
+        },
+        {
+          "text": "thy",
+          "start": 9.59,
+          "end": 9.79
+        },
+        {
+          "text": "life.",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "text": "Thank",
+          "start": 10.73,
+          "end": 10.83
+        },
+        {
+          "text": "him",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "text": "according",
+          "start": 10.99,
+          "end": 11.29
+        },
+        {
+          "text": "to",
+          "start": 11.29,
+          "end": 11.57
+        },
+        {
+          "text": "our",
+          "start": 11.57,
+          "end": 11.67
+        },
+        {
+          "text": "customs,",
+          "start": 11.67,
+          "end": 12.07
+        },
+        {
+          "text": "Mowgli.\"",
+          "start": 12.39,
+          "end": 12.67
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.42324552964419127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d91162ab75daabad03845f1ce6faab997c9814b1e325b93b7871406061a9b30c",
+  "selected_reasons": []
+}

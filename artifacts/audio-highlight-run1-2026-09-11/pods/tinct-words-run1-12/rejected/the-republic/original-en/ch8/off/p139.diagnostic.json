@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "7e86989ddcdbe106deca552bb115cfaaf733bf89ada4c22455df9ef6aeba708f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08866685396060348,
+      "alignment_seconds": 6.853928789496422e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nothing more likely.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Nothing",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.5927734375
+            },
+            {
+              "text": " more",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " likely.",
+              "start": 0.88,
+              "end": 1.22,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "more",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "likely.",
+          "start": 0.88,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "Nothing",
+        "more",
+        "likely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Nothing",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "more",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "likely.",
+          "start": 0.88,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08877006219699979
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "70ec690b0926693d6d96484101dd55af7d32b01f0a18f5489cc8cefc017655a1",
+  "selected_reasons": []
+}

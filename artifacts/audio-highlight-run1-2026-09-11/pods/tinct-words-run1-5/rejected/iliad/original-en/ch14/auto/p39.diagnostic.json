@@ -1,0 +1,544 @@
+{
+  "complete": true,
+  "signature": "24ffe3b3e0053dfd7ace4e8e6c9dda4c9337281464ba03ecf619bd4e3debbe92",
+  "attempts": [
+    {
+      "asr_seconds": 0.1853666752576828,
+      "alignment_seconds": 8.750706911087036e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "As he spoke fear fell upon them, and every man looked round about to see whither he might fly for safety.",
+        "hotwords": "As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As As he spoke fear fell upon them, and every man looked round about to see whither he might fly for safety.",
+          "start": 0.08,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " As",
+              "start": 0.54,
+              "end": 0.6,
+              "probability": 7.152557373046875e-07
+            },
+            {
+              "text": " he",
+              "start": 0.6,
+              "end": 0.68,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " spoke",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " fear",
+              "start": 0.94,
+              "end": 1.28,
+              "probability": 0.728515625
+            },
+            {
+              "text": " fell",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " upon",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " them,",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 2.6,
+              "end": 2.66,
+              "probability": 0.822265625
+            },
+            {
+              "text": " every",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " man",
+              "start": 2.94,
+              "end": 3.26,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " looked",
+              "start": 3.26,
+              "end": 3.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " round",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " about",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " to",
+              "start": 4.06,
+              "end": 4.26,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " see",
+              "start": 4.26,
+              "end": 4.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whither",
+              "start": 4.44,
+              "end": 4.68,
+              "probability": 0.703857421875
+            },
+            {
+              "text": " he",
+              "start": 4.68,
+              "end": 4.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " might",
+              "start": 4.86,
+              "end": 5.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fly",
+              "start": 5.02,
+              "end": 5.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " for",
+              "start": 5.36,
+              "end": 5.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " safety.",
+              "start": 5.64,
+              "end": 6.0,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "As",
+          "start": 0.54,
+          "end": 0.6
+        },
+        {
+          "raw": "he",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "raw": "spoke",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "fear",
+          "start": 0.94,
+          "end": 1.28
+        },
+        {
+          "raw": "fell",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "upon",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "them,",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "and",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "raw": "every",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "raw": "man",
+          "start": 2.94,
+          "end": 3.26
+        },
+        {
+          "raw": "looked",
+          "start": 3.26,
+          "end": 3.5
+        },
+        {
+          "raw": "round",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "about",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "raw": "to",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "raw": "see",
+          "start": 4.26,
+          "end": 4.44
+        },
+        {
+          "raw": "whither",
+          "start": 4.44,
+          "end": 4.68
+        },
+        {
+          "raw": "he",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "raw": "might",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "raw": "fly",
+          "start": 5.02,
+          "end": 5.36
+        },
+        {
+          "raw": "for",
+          "start": 5.36,
+          "end": 5.64
+        },
+        {
+          "raw": "safety.",
+          "start": 5.64,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "As",
+        "he",
+        "spoke",
+        "fear",
+        "fell",
+        "upon",
+        "them,",
+        "and",
+        "every",
+        "man",
+        "looked",
+        "round",
+        "about",
+        "to",
+        "see",
+        "whither",
+        "he",
+        "might",
+        "fly",
+        "for",
+        "safety."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          21,
+          1,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "As",
+          "start": 0.54,
+          "end": 0.6
+        },
+        {
+          "text": "he",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "text": "spoke",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "fear",
+          "start": 0.94,
+          "end": 1.28
+        },
+        {
+          "text": "fell",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "upon",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "them,",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "and",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "text": "every",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "text": "man",
+          "start": 2.94,
+          "end": 3.26
+        },
+        {
+          "text": "looked",
+          "start": 3.26,
+          "end": 3.5
+        },
+        {
+          "text": "round",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "about",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "text": "to",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "text": "see",
+          "start": 4.26,
+          "end": 4.44
+        },
+        {
+          "text": "whither",
+          "start": 4.44,
+          "end": 4.68
+        },
+        {
+          "text": "he",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "text": "might",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "text": "fly",
+          "start": 5.02,
+          "end": 5.36
+        },
+        {
+          "text": "for",
+          "start": 5.36,
+          "end": 5.64
+        },
+        {
+          "text": "safety.",
+          "start": 5.64,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18549615144729614
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "81a1a5690d216c0f9fff188934d91ba1bf0dfce9f80f61777496913f7b794e89",
+  "selected_reasons": []
+}

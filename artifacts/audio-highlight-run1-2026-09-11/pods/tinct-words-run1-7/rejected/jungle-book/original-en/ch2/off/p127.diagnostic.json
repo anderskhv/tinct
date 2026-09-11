@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "03e9777f8799b9a4538bb9a58bc6dc3d99de5b2db8127010de9ab22d9bc1cb65",
+  "attempts": [
+    {
+      "asr_seconds": 0.13548729196190834,
+      "alignment_seconds": 9.904522448778152e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I may have cried out in the battle,\" Bekira answered.",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.195556640625
+            },
+            {
+              "text": " may",
+              "start": 0.58,
+              "end": 0.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " have",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cried",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " battle,\"",
+              "start": 1.4,
+              "end": 2.18,
+              "probability": 0.75
+            },
+            {
+              "text": " Bekira",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.498291015625
+            },
+            {
+              "text": " answered.",
+              "start": 2.42,
+              "end": 2.86,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Ballew, art thou hurt?",
+          "start": 3.56,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " Ballew,",
+              "start": 3.56,
+              "end": 4.0,
+              "probability": 0.46966552734375
+            },
+            {
+              "text": " art",
+              "start": 4.14,
+              "end": 4.24,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " thou",
+              "start": 4.24,
+              "end": 4.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hurt?",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "may",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "raw": "have",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "cried",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "out",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "in",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "battle,\"",
+          "start": 1.4,
+          "end": 2.18
+        },
+        {
+          "raw": "Bekira",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "raw": "answered.",
+          "start": 2.42,
+          "end": 2.86
+        },
+        {
+          "raw": "Ballew,",
+          "start": 3.56,
+          "end": 4.0
+        },
+        {
+          "raw": "art",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "raw": "thou",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "raw": "hurt?",
+          "start": 4.46,
+          "end": 4.7
+        }
+      ],
+      "expected_tokens": [
+        "\"I--I",
+        "may",
+        "have",
+        "cried",
+        "out",
+        "in",
+        "the",
+        "battle,\"",
+        "Bagheera",
+        "answered.",
+        "\"Baloo,",
+        "art",
+        "thou",
+        "hurt?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          14,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I--I",
+          "start": 0.0,
+          "end": 0.29
+        },
+        {
+          "text": "may",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "text": "have",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "text": "cried",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "out",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "text": "in",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "battle,\"",
+          "start": 1.4,
+          "end": 2.18
+        },
+        {
+          "text": "Bagheera",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "answered.",
+          "start": 2.42,
+          "end": 2.86
+        },
+        {
+          "text": "\"Baloo,",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "text": "art",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "text": "thou",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "text": "hurt?",
+          "start": 4.46,
+          "end": 4.7
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1356217572465539
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "99572c64cc7967e47bc81eb405ec990c31d24b10faefe72c28a3b35b7d108d4e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

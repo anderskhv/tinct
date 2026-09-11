@@ -1,0 +1,451 @@
+{
+  "complete": true,
+  "signature": "42e5cf7845373990e36ea0a668d24643e23ff230d8eb9b69d8903eb2c8711ab9",
+  "attempts": [
+    {
+      "asr_seconds": 0.18111222237348557,
+      "alignment_seconds": 8.258223533630371e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "166. One may indeed lie with the mouth; but with the accompanying grimace one nevertheless tells the truth."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 166. One may indeed lie with the mouth, but with the accompanying grimace one nevertheless tells the truth.",
+          "start": 0.63,
+          "end": 7.67,
+          "words": [
+            {
+              "text": " 166.",
+              "start": 0.63,
+              "end": 1.15,
+              "probability": 0.798828125
+            },
+            {
+              "text": " One",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " may",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " indeed",
+              "start": 2.69,
+              "end": 3.01,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " lie",
+              "start": 3.01,
+              "end": 3.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.55,
+              "end": 3.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mouth,",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " but",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.9765625
+            },
+            {
+              "text": " with",
+              "start": 4.57,
+              "end": 4.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 4.71,
+              "end": 4.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " accompanying",
+              "start": 4.85,
+              "end": 5.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " grimace",
+              "start": 5.35,
+              "end": 5.93,
+              "probability": 0.843505859375
+            },
+            {
+              "text": " one",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " nevertheless",
+              "start": 6.17,
+              "end": 6.61,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " tells",
+              "start": 6.61,
+              "end": 7.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 7.15,
+              "end": 7.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " truth.",
+              "start": 7.41,
+              "end": 7.67,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "166.",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "raw": "One",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "may",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "indeed",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "raw": "lie",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "raw": "with",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "raw": "mouth,",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "raw": "but",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "with",
+          "start": 4.57,
+          "end": 4.71
+        },
+        {
+          "raw": "the",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "raw": "accompanying",
+          "start": 4.85,
+          "end": 5.35
+        },
+        {
+          "raw": "grimace",
+          "start": 5.35,
+          "end": 5.93
+        },
+        {
+          "raw": "one",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "nevertheless",
+          "start": 6.17,
+          "end": 6.61
+        },
+        {
+          "raw": "tells",
+          "start": 6.61,
+          "end": 7.15
+        },
+        {
+          "raw": "the",
+          "start": 7.15,
+          "end": 7.41
+        },
+        {
+          "raw": "truth.",
+          "start": 7.41,
+          "end": 7.67
+        }
+      ],
+      "expected_tokens": [
+        "166.",
+        "One",
+        "may",
+        "indeed",
+        "lie",
+        "with",
+        "the",
+        "mouth;",
+        "but",
+        "with",
+        "the",
+        "accompanying",
+        "grimace",
+        "one",
+        "nevertheless",
+        "tells",
+        "the",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "166.",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "text": "One",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "may",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "indeed",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "text": "lie",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "text": "with",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "the",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "text": "mouth;",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "text": "but",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "with",
+          "start": 4.57,
+          "end": 4.71
+        },
+        {
+          "text": "the",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "text": "accompanying",
+          "start": 4.85,
+          "end": 5.35
+        },
+        {
+          "text": "grimace",
+          "start": 5.35,
+          "end": 5.93
+        },
+        {
+          "text": "one",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "nevertheless",
+          "start": 6.17,
+          "end": 6.61
+        },
+        {
+          "text": "tells",
+          "start": 6.61,
+          "end": 7.15
+        },
+        {
+          "text": "the",
+          "start": 7.15,
+          "end": 7.41
+        },
+        {
+          "text": "truth.",
+          "start": 7.41,
+          "end": 7.67
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.181233249604702
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "26b2ce19abdd47d4550d9e989b2e0b9cf2dbb7a3e4f0dad069b12b8ac3ff670e",
+  "selected_reasons": []
+}

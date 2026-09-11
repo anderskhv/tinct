@@ -1,0 +1,474 @@
+{
+  "complete": true,
+  "signature": "28c236ed239c3067fc795d83d0b9d25b67b9c3b36210ac04e94fcec2304871f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1895949220051989,
+      "alignment_seconds": 0.00019733805675059557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ariel. Prospero my lord shall know what I have done: So, king, go safely on to seek thy son.",
+        "hotwords": "Ariel, Prospero, I, So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ariel, Prospero my lord shall know what I have done. So, king, go safely on to seek thy son.",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.533203125
+            },
+            {
+              "text": " Prospero",
+              "start": 1.33,
+              "end": 1.71,
+              "probability": 0.657470703125
+            },
+            {
+              "text": " my",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " lord",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.724609375
+            },
+            {
+              "text": " shall",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " know",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " I",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " have",
+              "start": 2.73,
+              "end": 2.83,
+              "probability": 0.990234375
+            },
+            {
+              "text": " done.",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " So,",
+              "start": 3.71,
+              "end": 3.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " king,",
+              "start": 4.03,
+              "end": 4.09,
+              "probability": 0.283203125
+            },
+            {
+              "text": " go",
+              "start": 4.59,
+              "end": 4.63,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " safely",
+              "start": 4.63,
+              "end": 4.93,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " on",
+              "start": 4.93,
+              "end": 5.25,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " to",
+              "start": 5.25,
+              "end": 5.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " seek",
+              "start": 5.43,
+              "end": 5.59,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " thy",
+              "start": 5.59,
+              "end": 5.79,
+              "probability": 0.94140625
+            },
+            {
+              "text": " son.",
+              "start": 5.79,
+              "end": 6.11,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Prospero",
+          "start": 1.33,
+          "end": 1.71
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "lord",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "shall",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "know",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "what",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "I",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "have",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "raw": "done.",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "raw": "So,",
+          "start": 3.71,
+          "end": 3.77
+        },
+        {
+          "raw": "king,",
+          "start": 4.03,
+          "end": 4.09
+        },
+        {
+          "raw": "go",
+          "start": 4.59,
+          "end": 4.63
+        },
+        {
+          "raw": "safely",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "raw": "on",
+          "start": 4.93,
+          "end": 5.25
+        },
+        {
+          "raw": "to",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "raw": "seek",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "raw": "thy",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "raw": "son.",
+          "start": 5.79,
+          "end": 6.11
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "Prospero",
+        "my",
+        "lord",
+        "shall",
+        "know",
+        "what",
+        "I",
+        "have",
+        "done:",
+        "So,",
+        "king,",
+        "go",
+        "safely",
+        "on",
+        "to",
+        "seek",
+        "thy",
+        "son."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Prospero",
+          "start": 1.33,
+          "end": 1.71
+        },
+        {
+          "text": "my",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "lord",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "shall",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "know",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "what",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "I",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "have",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "text": "done:",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "text": "So,",
+          "start": 3.71,
+          "end": 3.77
+        },
+        {
+          "text": "king,",
+          "start": 4.03,
+          "end": 4.09
+        },
+        {
+          "text": "go",
+          "start": 4.59,
+          "end": 4.63
+        },
+        {
+          "text": "safely",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "text": "on",
+          "start": 4.93,
+          "end": 5.25
+        },
+        {
+          "text": "to",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "text": "seek",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "text": "thy",
+          "start": 5.59,
+          "end": 5.79
+        },
+        {
+          "text": "son.",
+          "start": 5.79,
+          "end": 6.11
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1898916739737615
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f7482a95171c0700bc0957e5e8db26ab4a233fe8d1c01075496b2d86075849f",
+  "selected_reasons": []
+}

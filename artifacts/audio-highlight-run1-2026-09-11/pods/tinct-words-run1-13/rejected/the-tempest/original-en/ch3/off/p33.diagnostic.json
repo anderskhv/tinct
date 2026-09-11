@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "babacd00d5a1cce515183a9250754c649dad1aff4d7699daa0a4725f664aad3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1148545240284875,
+      "alignment_seconds": 0.00013323489110916853,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, as if it had lungs and rotten ones.",
+          "start": 0.08,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " as",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " if",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " had",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " lungs",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " and",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rotten",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ones.",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "as",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "if",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "it",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "had",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "lungs",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "rotten",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "ones.",
+          "start": 2.72,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "As",
+        "if",
+        "it",
+        "had",
+        "lungs",
+        "and",
+        "rotten",
+        "ones."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "As",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "if",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "it",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "text": "had",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "lungs",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "and",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "text": "rotten",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "ones.",
+          "start": 2.72,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11505615105852485
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "940544ffadb68fd2d64981b9b8039ea84a7f3bea61a6f68b0bd4f7c2b83b1956",
+  "selected_reasons": []
+}

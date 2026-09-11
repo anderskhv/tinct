@@ -1,0 +1,945 @@
+{
+  "complete": true,
+  "signature": "541b086f29bc83599a0b7e13285ae55332913b7d2d33b4bade792f27625c4e06",
+  "attempts": [
+    {
+      "asr_seconds": 0.16834551992360502,
+      "alignment_seconds": 0.00015357392840087414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. But one fiend at a time, I'll fight their legions o'er.",
+        "hotwords": "Sebastian, But, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, But one fiend at a time, I'll fight their legions o'er.",
+          "start": 0.58,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.5224609375
+            },
+            {
+              "text": " But",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.0201568603515625
+            },
+            {
+              "text": " one",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.947265625
+            },
+            {
+              "text": " fiend",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " at",
+              "start": 2.18,
+              "end": 2.26,
+              "probability": 0.982421875
+            },
+            {
+              "text": " a",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " time,",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I'll",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " fight",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " their",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.978515625
+            },
+            {
+              "text": " legions",
+              "start": 3.42,
+              "end": 3.72,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " o",
+              "start": 3.72,
+              "end": 4.04,
+              "probability": 0.81689453125
+            },
+            {
+              "text": "'er.",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.881103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "But",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "one",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "fiend",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "raw": "at",
+          "start": 2.18,
+          "end": 2.26
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "time,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "I'll",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "fight",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "their",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "legions",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "raw": "o",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "raw": "'er.",
+          "start": 4.04,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "But",
+        "one",
+        "fiend",
+        "at",
+        "a",
+        "time,",
+        "I'll",
+        "fight",
+        "their",
+        "legions",
+        "o'er."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "But",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "one",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "fiend",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "text": "at",
+          "start": 2.18,
+          "end": 2.26
+        },
+        {
+          "text": "a",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "time,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "I'll",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "fight",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "their",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "legions",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "text": "o'er.",
+          "start": 3.72,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.16857825592160225
+    },
+    {
+      "asr_seconds": 0.10932827205397189,
+      "alignment_seconds": 0.0001426431117579341,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sebastian, But, I'll"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " fight their legions o'er.",
+          "start": 1.92,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " fight",
+              "start": 1.92,
+              "end": 2.66,
+              "probability": 7.152557373046875e-07
+            },
+            {
+              "text": " their",
+              "start": 2.66,
+              "end": 3.4,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " legions",
+              "start": 3.4,
+              "end": 3.72,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " o",
+              "start": 3.72,
+              "end": 4.04,
+              "probability": 0.76220703125
+            },
+            {
+              "text": "'er.",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.894775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "fight",
+          "start": 1.92,
+          "end": 2.66
+        },
+        {
+          "raw": "their",
+          "start": 2.66,
+          "end": 3.4
+        },
+        {
+          "raw": "legions",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "raw": "o",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "raw": "'er.",
+          "start": 4.04,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "But",
+        "one",
+        "fiend",
+        "at",
+        "a",
+        "time,",
+        "I'll",
+        "fight",
+        "their",
+        "legions",
+        "o'er."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "equal",
+          8,
+          11,
+          0,
+          3
+        ],
+        [
+          "replace",
+          11,
+          12,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "replace",
+          11,
+          12,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.0,
+          "end": 0.96
+        },
+        {
+          "text": "But",
+          "start": 0.96,
+          "end": 1.44
+        },
+        {
+          "text": "one",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "fiend",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "at",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "text": "a",
+          "start": 1.86,
+          "end": 1.89
+        },
+        {
+          "text": "time,",
+          "start": 1.89,
+          "end": 1.905
+        },
+        {
+          "text": "I'll",
+          "start": 1.905,
+          "end": 1.913
+        },
+        {
+          "text": "fight",
+          "start": 1.92,
+          "end": 2.66
+        },
+        {
+          "text": "their",
+          "start": 2.66,
+          "end": 3.4
+        },
+        {
+          "text": "legions",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "text": "o'er.",
+          "start": 3.72,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1095118960365653
+    },
+    {
+      "asr_seconds": 0.15565573901403695,
+      "alignment_seconds": 0.00017511507030576468,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, but one fiend at a time, I'll fight their legions o'er.",
+          "start": 0.54,
+          "end": 4.16,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.54,
+              "end": 0.98,
+              "probability": 0.5224609375
+            },
+            {
+              "text": " but",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " one",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.97265625
+            },
+            {
+              "text": " fiend",
+              "start": 1.86,
+              "end": 2.16,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " at",
+              "start": 2.16,
+              "end": 2.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " time,",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I'll",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " fight",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " legions",
+              "start": 3.42,
+              "end": 3.72,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " o",
+              "start": 3.72,
+              "end": 4.04,
+              "probability": 0.68798828125
+            },
+            {
+              "text": "'er.",
+              "start": 4.04,
+              "end": 4.16,
+              "probability": 0.87451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "raw": "but",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "one",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "fiend",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "raw": "at",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "time,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "I'll",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "fight",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "their",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "legions",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "raw": "o",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "raw": "'er.",
+          "start": 4.04,
+          "end": 4.16
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "But",
+        "one",
+        "fiend",
+        "at",
+        "a",
+        "time,",
+        "I'll",
+        "fight",
+        "their",
+        "legions",
+        "o'er."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "text": "But",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "one",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "fiend",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "text": "at",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "text": "a",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "time,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "I'll",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "fight",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "their",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "legions",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "text": "o'er.",
+          "start": 3.72,
+          "end": 3.94
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.15592242602724582
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc97c8068f632ad012e3c15b1ab917342b83c56b104079c5fc0e6ec7f12a0d4e",
+  "selected_reasons": []
+}

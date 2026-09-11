@@ -1,0 +1,150 @@
+{
+  "complete": true,
+  "signature": "8cf020626bcfcba4d0e5cd8f6fdbd12a50e315cc984ed27508282554e9e96e7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.0966422010678798,
+      "alignment_seconds": 9.476300328969955e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, the cock role.",
+          "start": 0.11,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " the",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " cock",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " role.",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.1617431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "cock",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "role.",
+          "start": 1.55,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "The",
+        "cockerel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "The",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "cockerel.",
+          "start": 1.35,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0967784560052678
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b86de3d534aa445356fd7e0ffcc942215b11587003d242db4bd83b9406ea6df9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

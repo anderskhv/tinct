@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "2c6fc2d22508fbbecc851bc8f34ae66412b374eb3d31519394ce16bd135b4107",
+  "attempts": [
+    {
+      "asr_seconds": 0.10093533899635077,
+      "alignment_seconds": 6.852671504020691e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " By the broken lock that freed me, I am sure little brother.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.830078125
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " broken",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lock",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " that",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " freed",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me,",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.3,
+              "end": 2.36,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " am",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sure",
+              "start": 2.48,
+              "end": 2.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " little",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " brother.",
+              "start": 3.02,
+              "end": 3.36,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "broken",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "lock",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "that",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "freed",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "me,",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.36
+        },
+        {
+          "raw": "am",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "sure",
+          "start": 2.48,
+          "end": 2.78
+        },
+        {
+          "raw": "little",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "brother.",
+          "start": 3.02,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "\"By",
+        "the",
+        "Broken",
+        "Lock",
+        "that",
+        "freed",
+        "me,",
+        "I",
+        "am",
+        "sure,",
+        "Little",
+        "Brother.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"By",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "Broken",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "Lock",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "that",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "freed",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "me,",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "I",
+          "start": 2.3,
+          "end": 2.36
+        },
+        {
+          "text": "am",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "sure,",
+          "start": 2.48,
+          "end": 2.78
+        },
+        {
+          "text": "Little",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "Brother.\"",
+          "start": 3.02,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10103608760982752
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "083ec27afdc91166cef2b157f2c55d74a274ca7ccb88ebfd2af5293c70580dbc",
+  "selected_reasons": []
+}

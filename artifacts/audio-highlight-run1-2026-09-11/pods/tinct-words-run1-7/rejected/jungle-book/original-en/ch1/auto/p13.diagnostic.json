@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "067618f7a452cb41c004c908cc6fe8c536fc93c439f8280dc5bd3d5b0e1b07bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.12382190767675638,
+      "alignment_seconds": 9.4548799097538e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Out!\" snapped Father Wolf. \"Out and hunt with thy master. Thou hast done harm enough for one night.\"",
+        "hotwords": "Out, Father, Wolf, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Out! snapped Father Wolf. Out and hunt with thy master. Thou hast done harm enough for one night.",
+          "start": 0.18,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " Out!",
+              "start": 0.18,
+              "end": 0.7,
+              "probability": 0.173828125
+            },
+            {
+              "text": " snapped",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.892578125
+            },
+            {
+              "text": " Father",
+              "start": 1.36,
+              "end": 1.74,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " Wolf.",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Out",
+              "start": 2.74,
+              "end": 2.86,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " and",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.890625
+            },
+            {
+              "text": " hunt",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " with",
+              "start": 3.22,
+              "end": 3.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thy",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " master.",
+              "start": 3.52,
+              "end": 3.96,
+              "probability": 0.888671875
+            },
+            {
+              "text": " Thou",
+              "start": 4.42,
+              "end": 4.48,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " hast",
+              "start": 4.48,
+              "end": 4.74,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " done",
+              "start": 4.74,
+              "end": 5.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " harm",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.939453125
+            },
+            {
+              "text": " enough",
+              "start": 5.26,
+              "end": 5.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 5.46,
+              "end": 5.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " one",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " night.",
+              "start": 5.88,
+              "end": 6.18,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Out!",
+          "start": 0.18,
+          "end": 0.7
+        },
+        {
+          "raw": "snapped",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "Father",
+          "start": 1.36,
+          "end": 1.74
+        },
+        {
+          "raw": "Wolf.",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "Out",
+          "start": 2.74,
+          "end": 2.86
+        },
+        {
+          "raw": "and",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "raw": "hunt",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "with",
+          "start": 3.22,
+          "end": 3.38
+        },
+        {
+          "raw": "thy",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "master.",
+          "start": 3.52,
+          "end": 3.96
+        },
+        {
+          "raw": "Thou",
+          "start": 4.42,
+          "end": 4.48
+        },
+        {
+          "raw": "hast",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "raw": "done",
+          "start": 4.74,
+          "end": 5.02
+        },
+        {
+          "raw": "harm",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "enough",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "raw": "for",
+          "start": 5.46,
+          "end": 5.68
+        },
+        {
+          "raw": "one",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "raw": "night.",
+          "start": 5.88,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Out!\"",
+        "snapped",
+        "Father",
+        "Wolf.",
+        "\"Out",
+        "and",
+        "hunt",
+        "with",
+        "thy",
+        "master.",
+        "Thou",
+        "hast",
+        "done",
+        "harm",
+        "enough",
+        "for",
+        "one",
+        "night.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Out!\"",
+          "start": 0.18,
+          "end": 0.7
+        },
+        {
+          "text": "snapped",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "Father",
+          "start": 1.36,
+          "end": 1.74
+        },
+        {
+          "text": "Wolf.",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "\"Out",
+          "start": 2.74,
+          "end": 2.86
+        },
+        {
+          "text": "and",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "text": "hunt",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "with",
+          "start": 3.22,
+          "end": 3.38
+        },
+        {
+          "text": "thy",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "master.",
+          "start": 3.52,
+          "end": 3.96
+        },
+        {
+          "text": "Thou",
+          "start": 4.42,
+          "end": 4.48
+        },
+        {
+          "text": "hast",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "text": "done",
+          "start": 4.74,
+          "end": 5.02
+        },
+        {
+          "text": "harm",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "enough",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "text": "for",
+          "start": 5.46,
+          "end": 5.68
+        },
+        {
+          "text": "one",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "text": "night.\"",
+          "start": 5.88,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12395856250077486
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "967f480e641d96827b28bc3d3440f3fe79d9444bacf5a803ad7529555ca58bf1",
+  "selected_reasons": []
+}

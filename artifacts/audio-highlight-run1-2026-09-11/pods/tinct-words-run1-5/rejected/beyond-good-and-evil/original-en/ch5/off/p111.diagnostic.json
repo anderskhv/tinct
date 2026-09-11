@@ -1,0 +1,657 @@
+{
+  "complete": true,
+  "signature": "c06df394fcdd498072e5d922ca9f5e9f07ceb9ede79ad1b431e0fbe9ae74a8f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.22484132647514343,
+      "alignment_seconds": 0.00012166798114776611,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 174. Ye Utilitarian Z. 2. Love the Util only as a vehicle for your inclination, Z. 2. Really",
+          "start": 0.05,
+          "end": 8.77,
+          "words": [
+            {
+              "text": " 174.",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.49560546875
+            },
+            {
+              "text": " Ye",
+              "start": 2.35,
+              "end": 2.37,
+              "probability": 0.64453125
+            },
+            {
+              "text": " Utilitarian",
+              "start": 2.37,
+              "end": 3.07,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " Z.",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " 2.",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.58203125
+            },
+            {
+              "text": " Love",
+              "start": 4.45,
+              "end": 4.55,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " the",
+              "start": 4.55,
+              "end": 4.79,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Util",
+              "start": 4.79,
+              "end": 5.07,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " only",
+              "start": 5.07,
+              "end": 5.35,
+              "probability": 0.923828125
+            },
+            {
+              "text": " as",
+              "start": 5.35,
+              "end": 5.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 5.59,
+              "end": 5.73,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " vehicle",
+              "start": 5.73,
+              "end": 5.95,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " for",
+              "start": 5.95,
+              "end": 6.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 6.27,
+              "end": 6.43,
+              "probability": 0.990234375
+            },
+            {
+              "text": " inclination,",
+              "start": 6.43,
+              "end": 6.81,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Z.",
+              "start": 7.31,
+              "end": 7.31,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " 2.",
+              "start": 7.67,
+              "end": 8.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Really",
+              "start": 8.57,
+              "end": 8.77,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " find the noise of its wheels insupportable.",
+          "start": 8.77,
+          "end": 11.07,
+          "words": [
+            {
+              "text": " find",
+              "start": 8.77,
+              "end": 9.11,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " the",
+              "start": 9.11,
+              "end": 9.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " noise",
+              "start": 9.27,
+              "end": 9.49,
+              "probability": 0.9765625
+            },
+            {
+              "text": " of",
+              "start": 9.49,
+              "end": 9.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " its",
+              "start": 9.71,
+              "end": 9.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wheels",
+              "start": 9.83,
+              "end": 10.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " insupportable.",
+              "start": 10.17,
+              "end": 11.07,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "174.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "Ye",
+          "start": 2.35,
+          "end": 2.37
+        },
+        {
+          "raw": "Utilitarian",
+          "start": 2.37,
+          "end": 3.07
+        },
+        {
+          "raw": "Z.",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "2.",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "Love",
+          "start": 4.45,
+          "end": 4.55
+        },
+        {
+          "raw": "the",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "raw": "Util",
+          "start": 4.79,
+          "end": 5.07
+        },
+        {
+          "raw": "only",
+          "start": 5.07,
+          "end": 5.35
+        },
+        {
+          "raw": "as",
+          "start": 5.35,
+          "end": 5.59
+        },
+        {
+          "raw": "a",
+          "start": 5.59,
+          "end": 5.73
+        },
+        {
+          "raw": "vehicle",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "raw": "for",
+          "start": 5.95,
+          "end": 6.27
+        },
+        {
+          "raw": "your",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "raw": "inclination,",
+          "start": 6.43,
+          "end": 6.81
+        },
+        {
+          "raw": "Z.",
+          "start": 7.31,
+          "end": 7.31
+        },
+        {
+          "raw": "2.",
+          "start": 7.67,
+          "end": 8.13
+        },
+        {
+          "raw": "Really",
+          "start": 8.57,
+          "end": 8.77
+        },
+        {
+          "raw": "find",
+          "start": 8.77,
+          "end": 9.11
+        },
+        {
+          "raw": "the",
+          "start": 9.11,
+          "end": 9.27
+        },
+        {
+          "raw": "noise",
+          "start": 9.27,
+          "end": 9.49
+        },
+        {
+          "raw": "of",
+          "start": 9.49,
+          "end": 9.71
+        },
+        {
+          "raw": "its",
+          "start": 9.71,
+          "end": 9.83
+        },
+        {
+          "raw": "wheels",
+          "start": 9.83,
+          "end": 10.17
+        },
+        {
+          "raw": "insupportable.",
+          "start": 10.17,
+          "end": 11.07
+        }
+      ],
+      "expected_tokens": [
+        "174.",
+        "Ye",
+        "Utilitarians--ye,",
+        "too,",
+        "love",
+        "the",
+        "Utile",
+        "only",
+        "as",
+        "a",
+        "Vehicle",
+        "for",
+        "your",
+        "inclinations,--ye,",
+        "too,",
+        "really",
+        "find",
+        "the",
+        "noise",
+        "of",
+        "its",
+        "wheels",
+        "insupportable!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          13,
+          8,
+          14
+        ],
+        [
+          "replace",
+          13,
+          15,
+          14,
+          17
+        ],
+        [
+          "equal",
+          15,
+          23,
+          17,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          13,
+          15,
+          14,
+          17
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "174.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "Ye",
+          "start": 2.35,
+          "end": 2.37
+        },
+        {
+          "text": "Utilitarians--ye,",
+          "start": 2.37,
+          "end": 3.41
+        },
+        {
+          "text": "too,",
+          "start": 3.41,
+          "end": 3.93
+        },
+        {
+          "text": "love",
+          "start": 4.45,
+          "end": 4.55
+        },
+        {
+          "text": "the",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "text": "Utile",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "text": "only",
+          "start": 5.07,
+          "end": 5.35
+        },
+        {
+          "text": "as",
+          "start": 5.35,
+          "end": 5.59
+        },
+        {
+          "text": "a",
+          "start": 5.59,
+          "end": 5.73
+        },
+        {
+          "text": "Vehicle",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "text": "for",
+          "start": 5.95,
+          "end": 6.27
+        },
+        {
+          "text": "your",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "text": "inclinations,--ye,",
+          "start": 6.43,
+          "end": 7.5
+        },
+        {
+          "text": "too,",
+          "start": 7.5,
+          "end": 8.035
+        },
+        {
+          "text": "really",
+          "start": 8.57,
+          "end": 8.77
+        },
+        {
+          "text": "find",
+          "start": 8.77,
+          "end": 9.11
+        },
+        {
+          "text": "the",
+          "start": 9.11,
+          "end": 9.27
+        },
+        {
+          "text": "noise",
+          "start": 9.27,
+          "end": 9.49
+        },
+        {
+          "text": "of",
+          "start": 9.49,
+          "end": 9.71
+        },
+        {
+          "text": "its",
+          "start": 9.71,
+          "end": 9.83
+        },
+        {
+          "text": "wheels",
+          "start": 9.83,
+          "end": 10.17
+        },
+        {
+          "text": "insupportable!",
+          "start": 10.17,
+          "end": 11.07
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 25,
+        "matched_words": 18
+      },
+      "match_ratio": 0.782608695652174,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22501086443662643
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "35e0b9b3ccb644c5809c58990d1ae4ef692ed227ce1b465e4c1104b4087811ae",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

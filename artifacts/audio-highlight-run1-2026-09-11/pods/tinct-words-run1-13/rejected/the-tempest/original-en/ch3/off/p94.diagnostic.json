@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "23ad630974586a5acc90fd9b96aee2f9c7775e1f6d535a6f7da46151e9709693",
+  "attempts": [
+    {
+      "asr_seconds": 0.12856346694752574,
+      "alignment_seconds": 0.00013586506247520447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, none man all idle, whores and knaves.",
+          "start": 0.11,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.89453125
+            },
+            {
+              "text": " none",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.26220703125
+            },
+            {
+              "text": " man",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " all",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.791015625
+            },
+            {
+              "text": " idle,",
+              "start": 2.05,
+              "end": 2.37,
+              "probability": 0.84375
+            },
+            {
+              "text": " whores",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " and",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " knaves.",
+              "start": 3.19,
+              "end": 3.63,
+              "probability": 0.884033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "none",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "man",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "raw": "all",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "idle,",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "raw": "whores",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "and",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "knaves.",
+          "start": 3.19,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "None,",
+        "man;",
+        "all",
+        "idle:",
+        "whores",
+        "and",
+        "knaves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "None,",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "man;",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "text": "all",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "idle:",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "text": "whores",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "and",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "knaves.",
+          "start": 3.19,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12875986495055258
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "128da1e50c76b6b188de00ae39b107c44dbd32bc8b5427cd8deda3985d08e44d",
+  "selected_reasons": []
+}

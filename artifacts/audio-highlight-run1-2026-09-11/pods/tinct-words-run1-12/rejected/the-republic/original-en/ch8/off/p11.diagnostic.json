@@ -1,0 +1,413 @@
+{
+  "complete": true,
+  "signature": "78e2359e9cb10f7edcd01b715da411af2a1a80e6b57e94d0c50e3cd15254f298",
+  "attempts": [
+    {
+      "asr_seconds": 0.18576270388439298,
+      "alignment_seconds": 0.0002070167101919651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, he replied.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.1484375
+            },
+            {
+              "text": " he",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " replied.",
+              "start": 1.05,
+              "end": 1.47,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " We certainly hear of many curious forms of government which exist among them.",
+          "start": 2.03,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " We",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " certainly",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hear",
+              "start": 2.43,
+              "end": 2.77,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " of",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " many",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " curious",
+              "start": 3.11,
+              "end": 3.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forms",
+              "start": 3.55,
+              "end": 3.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " government",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " which",
+              "start": 4.45,
+              "end": 4.79,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " exist",
+              "start": 4.79,
+              "end": 5.17,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " among",
+              "start": 5.17,
+              "end": 5.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 5.53,
+              "end": 5.83,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "he",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "replied.",
+          "start": 1.05,
+          "end": 1.47
+        },
+        {
+          "raw": "We",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "certainly",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "hear",
+          "start": 2.43,
+          "end": 2.77
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "many",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "curious",
+          "start": 3.11,
+          "end": 3.55
+        },
+        {
+          "raw": "forms",
+          "start": 3.55,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "raw": "government",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "which",
+          "start": 4.45,
+          "end": 4.79
+        },
+        {
+          "raw": "exist",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "raw": "among",
+          "start": 5.17,
+          "end": 5.53
+        },
+        {
+          "raw": "them.",
+          "start": 5.53,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "replied,",
+        "we",
+        "certainly",
+        "hear",
+        "of",
+        "many",
+        "curious",
+        "forms",
+        "of",
+        "government",
+        "which",
+        "exist",
+        "among",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "he",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "replied,",
+          "start": 1.05,
+          "end": 1.47
+        },
+        {
+          "text": "we",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "certainly",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "hear",
+          "start": 2.43,
+          "end": 2.77
+        },
+        {
+          "text": "of",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "many",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "curious",
+          "start": 3.11,
+          "end": 3.55
+        },
+        {
+          "text": "forms",
+          "start": 3.55,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "text": "government",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "text": "which",
+          "start": 4.45,
+          "end": 4.79
+        },
+        {
+          "text": "exist",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "text": "among",
+          "start": 5.17,
+          "end": 5.53
+        },
+        {
+          "text": "them.",
+          "start": 5.53,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1860555992461741
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "421045578bd5f94c53c71f579d77c34de3e78e3142aab7d4fc24a98b6a6fa302",
+  "selected_reasons": []
+}

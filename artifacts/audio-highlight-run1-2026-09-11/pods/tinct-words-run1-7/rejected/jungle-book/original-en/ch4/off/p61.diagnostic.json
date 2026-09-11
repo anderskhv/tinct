@@ -1,0 +1,519 @@
+{
+  "complete": true,
+  "signature": "5f5205f897144dc24eb10ec125626c9fce147f00f699abc5262711331092be91",
+  "attempts": [
+    {
+      "asr_seconds": 0.20665466506034136,
+      "alignment_seconds": 0.00010093022137880325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Go and ask see cow said see bitch if he is living still he'll be able to tell you",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.326416015625
+            },
+            {
+              "text": " and",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.94921875
+            },
+            {
+              "text": " ask",
+              "start": 0.73,
+              "end": 1.03,
+              "probability": 0.9765625
+            },
+            {
+              "text": " see",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.1201171875
+            },
+            {
+              "text": " cow",
+              "start": 1.23,
+              "end": 1.61,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " said",
+              "start": 1.61,
+              "end": 2.09,
+              "probability": 0.8984375
+            },
+            {
+              "text": " see",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.33935546875
+            },
+            {
+              "text": " bitch",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " if",
+              "start": 2.63,
+              "end": 3.27,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " he",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " living",
+              "start": 3.55,
+              "end": 3.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " still",
+              "start": 3.79,
+              "end": 4.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he'll",
+              "start": 4.17,
+              "end": 4.47,
+              "probability": 0.955078125
+            },
+            {
+              "text": " be",
+              "start": 4.47,
+              "end": 4.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " able",
+              "start": 4.59,
+              "end": 4.75,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 1.0
+            },
+            {
+              "text": " tell",
+              "start": 4.89,
+              "end": 5.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 5.07,
+              "end": 5.39,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "and",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "ask",
+          "start": 0.73,
+          "end": 1.03
+        },
+        {
+          "raw": "see",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "cow",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "raw": "said",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "raw": "see",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "bitch",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "if",
+          "start": 2.63,
+          "end": 3.27
+        },
+        {
+          "raw": "he",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "is",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "living",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "raw": "still",
+          "start": 3.79,
+          "end": 4.17
+        },
+        {
+          "raw": "he'll",
+          "start": 4.17,
+          "end": 4.47
+        },
+        {
+          "raw": "be",
+          "start": 4.47,
+          "end": 4.59
+        },
+        {
+          "raw": "able",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "raw": "to",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "tell",
+          "start": 4.89,
+          "end": 5.07
+        },
+        {
+          "raw": "you",
+          "start": 5.07,
+          "end": 5.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "and",
+        "ask",
+        "Sea",
+        "Cow,\"",
+        "said",
+        "Sea",
+        "Vitch.",
+        "\"If",
+        "he",
+        "is",
+        "living",
+        "still,",
+        "he'll",
+        "be",
+        "able",
+        "to",
+        "tell",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          8
+        ],
+        [
+          "equal",
+          8,
+          19,
+          8,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "and",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "ask",
+          "start": 0.73,
+          "end": 1.03
+        },
+        {
+          "text": "Sea",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "text": "Cow,\"",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "text": "said",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "text": "Sea",
+          "start": 2.09,
+          "end": 2.36
+        },
+        {
+          "text": "Vitch.",
+          "start": 2.36,
+          "end": 2.495
+        },
+        {
+          "text": "\"If",
+          "start": 2.63,
+          "end": 3.27
+        },
+        {
+          "text": "he",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "is",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "living",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "text": "still,",
+          "start": 3.79,
+          "end": 4.17
+        },
+        {
+          "text": "he'll",
+          "start": 4.17,
+          "end": 4.47
+        },
+        {
+          "text": "be",
+          "start": 4.47,
+          "end": 4.59
+        },
+        {
+          "text": "able",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "text": "to",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "tell",
+          "start": 4.89,
+          "end": 5.07
+        },
+        {
+          "text": "you.\"",
+          "start": 5.07,
+          "end": 5.39
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2068006508052349
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7288d3f3728f15b5ec0990fc132aa7ac1568bf985017f69f163b8c7e88585f02",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

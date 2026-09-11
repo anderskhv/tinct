@@ -1,0 +1,1666 @@
+{
+  "complete": true,
+  "signature": "ec6d0d044170afc9347bbc94aa0c107af3ecfc452330bb8bb8cb56ac101261e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.15936407446861267,
+      "alignment_seconds": 0.00011200457811355591,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "165. In Sight Of Every Party.--A shepherd has always need of a bell-wether--or he has himself to be a wether occasionally.",
+        "hotwords": "In, Sight, Every, Party.--A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In Sight Of Every Party.--A shepherd has always need of a bell-wether-or he has himself to be a wether occasionally.",
+          "start": 1.64,
+          "end": 8.22,
+          "words": [
+            {
+              "text": " In",
+              "start": 1.64,
+              "end": 2.16,
+              "probability": 0.033477783203125
+            },
+            {
+              "text": " Sight",
+              "start": 2.16,
+              "end": 2.68,
+              "probability": 0.0003905296325683594
+            },
+            {
+              "text": " Of",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.07025146484375
+            },
+            {
+              "text": " Every",
+              "start": 2.82,
+              "end": 3.14,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Party.--A",
+              "start": 3.14,
+              "end": 3.74,
+              "probability": 0.3290608922640483
+            },
+            {
+              "text": " shepherd",
+              "start": 3.74,
+              "end": 4.06,
+              "probability": 0.007793426513671875
+            },
+            {
+              "text": " has",
+              "start": 4.06,
+              "end": 4.32,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " always",
+              "start": 4.32,
+              "end": 4.66,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " need",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " of",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 5.1,
+              "end": 5.2,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " bell",
+              "start": 5.2,
+              "end": 5.34,
+              "probability": 0.88037109375
+            },
+            {
+              "text": "-wether",
+              "start": 5.34,
+              "end": 5.6,
+              "probability": 0.4139862060546875
+            },
+            {
+              "text": "-or",
+              "start": 5.6,
+              "end": 5.82,
+              "probability": 0.461395263671875
+            },
+            {
+              "text": " he",
+              "start": 5.82,
+              "end": 6.34,
+              "probability": 0.039306640625
+            },
+            {
+              "text": " has",
+              "start": 6.34,
+              "end": 6.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " himself",
+              "start": 6.52,
+              "end": 6.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 6.88,
+              "end": 7.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 7.1,
+              "end": 7.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " wether",
+              "start": 7.38,
+              "end": 7.62,
+              "probability": 0.4412212371826172
+            },
+            {
+              "text": " occasionally.",
+              "start": 7.62,
+              "end": 8.22,
+              "probability": 0.80517578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 1.64,
+          "end": 2.16
+        },
+        {
+          "raw": "Sight",
+          "start": 2.16,
+          "end": 2.68
+        },
+        {
+          "raw": "Of",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "Every",
+          "start": 2.82,
+          "end": 3.14
+        },
+        {
+          "raw": "Party.--A",
+          "start": 3.14,
+          "end": 3.74
+        },
+        {
+          "raw": "shepherd",
+          "start": 3.74,
+          "end": 4.06
+        },
+        {
+          "raw": "has",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "raw": "always",
+          "start": 4.32,
+          "end": 4.66
+        },
+        {
+          "raw": "need",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "raw": "of",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "a",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "raw": "bell",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "raw": "-wether",
+          "start": 5.34,
+          "end": 5.6
+        },
+        {
+          "raw": "-or",
+          "start": 5.6,
+          "end": 5.82
+        },
+        {
+          "raw": "he",
+          "start": 5.82,
+          "end": 6.34
+        },
+        {
+          "raw": "has",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "raw": "himself",
+          "start": 6.52,
+          "end": 6.88
+        },
+        {
+          "raw": "to",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "raw": "be",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "raw": "a",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "wether",
+          "start": 7.38,
+          "end": 7.62
+        },
+        {
+          "raw": "occasionally.",
+          "start": 7.62,
+          "end": 8.22
+        }
+      ],
+      "expected_tokens": [
+        "165.",
+        "In",
+        "Sight",
+        "Of",
+        "Every",
+        "Party.--A",
+        "shepherd",
+        "has",
+        "always",
+        "need",
+        "of",
+        "a",
+        "bell-wether--or",
+        "he",
+        "has",
+        "himself",
+        "to",
+        "be",
+        "a",
+        "wether",
+        "occasionally."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          12,
+          0,
+          11
+        ],
+        [
+          "replace",
+          12,
+          13,
+          11,
+          14
+        ],
+        [
+          "equal",
+          13,
+          21,
+          14,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          12,
+          13,
+          11,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "165.",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "text": "In",
+          "start": 1.64,
+          "end": 2.16
+        },
+        {
+          "text": "Sight",
+          "start": 2.16,
+          "end": 2.68
+        },
+        {
+          "text": "Of",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "Every",
+          "start": 2.82,
+          "end": 3.14
+        },
+        {
+          "text": "Party.--A",
+          "start": 3.14,
+          "end": 3.74
+        },
+        {
+          "text": "shepherd",
+          "start": 3.74,
+          "end": 4.06
+        },
+        {
+          "text": "has",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "text": "always",
+          "start": 4.32,
+          "end": 4.66
+        },
+        {
+          "text": "need",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "text": "of",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "a",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "text": "bell-wether--or",
+          "start": 5.2,
+          "end": 5.51
+        },
+        {
+          "text": "he",
+          "start": 5.82,
+          "end": 6.34
+        },
+        {
+          "text": "has",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "text": "himself",
+          "start": 6.52,
+          "end": 6.88
+        },
+        {
+          "text": "to",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "text": "be",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "text": "a",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "wether",
+          "start": 7.38,
+          "end": 7.62
+        },
+        {
+          "text": "occasionally.",
+          "start": 7.62,
+          "end": 8.22
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.1595202535390854
+    },
+    {
+      "asr_seconds": 0.17292755842208862,
+      "alignment_seconds": 0.00010357797145843506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "In, Sight, Every, Party.--A"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Shepherd has always need of a bellwether ore, he has himself to be a weather occasionally.",
+          "start": 3.16,
+          "end": 8.26,
+          "words": [
+            {
+              "text": " Shepherd",
+              "start": 3.16,
+              "end": 3.72,
+              "probability": 3.5762786865234375e-07
+            },
+            {
+              "text": " has",
+              "start": 3.72,
+              "end": 4.28,
+              "probability": 0.1641845703125
+            },
+            {
+              "text": " always",
+              "start": 4.28,
+              "end": 4.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " need",
+              "start": 4.66,
+              "end": 4.98,
+              "probability": 0.9375
+            },
+            {
+              "text": " of",
+              "start": 4.98,
+              "end": 5.1,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " a",
+              "start": 5.1,
+              "end": 5.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " bellwether",
+              "start": 5.2,
+              "end": 5.62,
+              "probability": 0.7809244791666666
+            },
+            {
+              "text": " ore,",
+              "start": 5.62,
+              "end": 5.86,
+              "probability": 0.4921875
+            },
+            {
+              "text": " he",
+              "start": 6.28,
+              "end": 6.34,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " has",
+              "start": 6.34,
+              "end": 6.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " himself",
+              "start": 6.52,
+              "end": 6.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 6.88,
+              "end": 7.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 7.1,
+              "end": 7.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " weather",
+              "start": 7.38,
+              "end": 7.58,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " occasionally.",
+              "start": 7.58,
+              "end": 8.26,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shepherd",
+          "start": 3.16,
+          "end": 3.72
+        },
+        {
+          "raw": "has",
+          "start": 3.72,
+          "end": 4.28
+        },
+        {
+          "raw": "always",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "raw": "need",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "raw": "of",
+          "start": 4.98,
+          "end": 5.1
+        },
+        {
+          "raw": "a",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "raw": "bellwether",
+          "start": 5.2,
+          "end": 5.62
+        },
+        {
+          "raw": "ore,",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "raw": "he",
+          "start": 6.28,
+          "end": 6.34
+        },
+        {
+          "raw": "has",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "raw": "himself",
+          "start": 6.52,
+          "end": 6.88
+        },
+        {
+          "raw": "to",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "raw": "be",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "raw": "a",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "weather",
+          "start": 7.38,
+          "end": 7.58
+        },
+        {
+          "raw": "occasionally.",
+          "start": 7.58,
+          "end": 8.26
+        }
+      ],
+      "expected_tokens": [
+        "165.",
+        "In",
+        "Sight",
+        "Of",
+        "Every",
+        "Party.--A",
+        "shepherd",
+        "has",
+        "always",
+        "need",
+        "of",
+        "a",
+        "bell-wether--or",
+        "he",
+        "has",
+        "himself",
+        "to",
+        "be",
+        "a",
+        "wether",
+        "occasionally."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          "equal",
+          6,
+          12,
+          0,
+          6
+        ],
+        [
+          "replace",
+          12,
+          13,
+          6,
+          8
+        ],
+        [
+          "equal",
+          13,
+          19,
+          8,
+          14
+        ],
+        [
+          "replace",
+          19,
+          20,
+          14,
+          15
+        ],
+        [
+          "equal",
+          20,
+          21,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          "replace",
+          12,
+          13,
+          6,
+          8
+        ],
+        [
+          "replace",
+          19,
+          20,
+          14,
+          15
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "165.",
+          "start": 0.0,
+          "end": 1.58
+        },
+        {
+          "text": "In",
+          "start": 1.58,
+          "end": 2.37
+        },
+        {
+          "text": "Sight",
+          "start": 2.37,
+          "end": 2.765
+        },
+        {
+          "text": "Of",
+          "start": 2.765,
+          "end": 2.963
+        },
+        {
+          "text": "Every",
+          "start": 2.963,
+          "end": 3.062
+        },
+        {
+          "text": "Party.--A",
+          "start": 3.062,
+          "end": 3.111
+        },
+        {
+          "text": "shepherd",
+          "start": 3.16,
+          "end": 3.72
+        },
+        {
+          "text": "has",
+          "start": 3.72,
+          "end": 4.28
+        },
+        {
+          "text": "always",
+          "start": 4.28,
+          "end": 4.66
+        },
+        {
+          "text": "need",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "text": "of",
+          "start": 4.98,
+          "end": 5.1
+        },
+        {
+          "text": "a",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "text": "bell-wether--or",
+          "start": 5.2,
+          "end": 5.74
+        },
+        {
+          "text": "he",
+          "start": 6.28,
+          "end": 6.34
+        },
+        {
+          "text": "has",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "text": "himself",
+          "start": 6.52,
+          "end": 6.88
+        },
+        {
+          "text": "to",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "text": "be",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "text": "a",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "wether",
+          "start": 7.38,
+          "end": 7.48
+        },
+        {
+          "text": "occasionally.",
+          "start": 7.58,
+          "end": 8.26
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.6190476190476191,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17307094484567642
+    },
+    {
+      "asr_seconds": 0.20216414332389832,
+      "alignment_seconds": 0.00012174248695373535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 165. In sight of every partier Shepherd has always need of a bellwether ore, he has himself",
+          "start": 0.6,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " 165.",
+              "start": 0.6,
+              "end": 1.16,
+              "probability": 0.71484375
+            },
+            {
+              "text": " In",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " sight",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " every",
+              "start": 2.84,
+              "end": 3.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " partier",
+              "start": 3.14,
+              "end": 3.68,
+              "probability": 0.708251953125
+            },
+            {
+              "text": " Shepherd",
+              "start": 3.68,
+              "end": 4.0,
+              "probability": 0.2174072265625
+            },
+            {
+              "text": " has",
+              "start": 4.0,
+              "end": 4.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " always",
+              "start": 4.32,
+              "end": 4.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " need",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.97265625
+            },
+            {
+              "text": " of",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 5.1,
+              "end": 5.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bellwether",
+              "start": 5.2,
+              "end": 5.62,
+              "probability": 0.7857259114583334
+            },
+            {
+              "text": " ore,",
+              "start": 5.62,
+              "end": 5.84,
+              "probability": 0.477294921875
+            },
+            {
+              "text": " he",
+              "start": 6.26,
+              "end": 6.34,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " has",
+              "start": 6.34,
+              "end": 6.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " himself",
+              "start": 6.52,
+              "end": 6.88,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " to be a weather occasionally.",
+          "start": 6.88,
+          "end": 8.2,
+          "words": [
+            {
+              "text": " to",
+              "start": 6.88,
+              "end": 7.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 7.1,
+              "end": 7.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.984375
+            },
+            {
+              "text": " weather",
+              "start": 7.38,
+              "end": 7.56,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " occasionally.",
+              "start": 7.56,
+              "end": 8.2,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "165.",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "raw": "In",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "sight",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "every",
+          "start": 2.84,
+          "end": 3.14
+        },
+        {
+          "raw": "partier",
+          "start": 3.14,
+          "end": 3.68
+        },
+        {
+          "raw": "Shepherd",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "raw": "has",
+          "start": 4.0,
+          "end": 4.32
+        },
+        {
+          "raw": "always",
+          "start": 4.32,
+          "end": 4.68
+        },
+        {
+          "raw": "need",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "of",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "a",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "raw": "bellwether",
+          "start": 5.2,
+          "end": 5.62
+        },
+        {
+          "raw": "ore,",
+          "start": 5.62,
+          "end": 5.84
+        },
+        {
+          "raw": "he",
+          "start": 6.26,
+          "end": 6.34
+        },
+        {
+          "raw": "has",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "raw": "himself",
+          "start": 6.52,
+          "end": 6.88
+        },
+        {
+          "raw": "to",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "raw": "be",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "raw": "a",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "weather",
+          "start": 7.38,
+          "end": 7.56
+        },
+        {
+          "raw": "occasionally.",
+          "start": 7.56,
+          "end": 8.2
+        }
+      ],
+      "expected_tokens": [
+        "165.",
+        "In",
+        "Sight",
+        "Of",
+        "Every",
+        "Party.--A",
+        "shepherd",
+        "has",
+        "always",
+        "need",
+        "of",
+        "a",
+        "bell-wether--or",
+        "he",
+        "has",
+        "himself",
+        "to",
+        "be",
+        "a",
+        "wether",
+        "occasionally."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          12,
+          6,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          19,
+          14,
+          20
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ],
+        [
+          "equal",
+          20,
+          21,
+          21,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "165.",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "text": "In",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "text": "Sight",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "text": "Of",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "Every",
+          "start": 2.84,
+          "end": 3.14
+        },
+        {
+          "text": "Party.--A",
+          "start": 3.14,
+          "end": 3.41
+        },
+        {
+          "text": "shepherd",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "text": "has",
+          "start": 4.0,
+          "end": 4.32
+        },
+        {
+          "text": "always",
+          "start": 4.32,
+          "end": 4.68
+        },
+        {
+          "text": "need",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "text": "of",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "a",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "text": "bell-wether--or",
+          "start": 5.2,
+          "end": 5.73
+        },
+        {
+          "text": "he",
+          "start": 6.26,
+          "end": 6.34
+        },
+        {
+          "text": "has",
+          "start": 6.34,
+          "end": 6.52
+        },
+        {
+          "text": "himself",
+          "start": 6.52,
+          "end": 6.88
+        },
+        {
+          "text": "to",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "text": "be",
+          "start": 7.1,
+          "end": 7.22
+        },
+        {
+          "text": "a",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "wether",
+          "start": 7.38,
+          "end": 7.47
+        },
+        {
+          "text": "occasionally.",
+          "start": 7.56,
+          "end": 8.2
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.20232831686735153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ca916b499c78ec42d1438eb0fab5b62e95abf15026da0d3dcf219750760846c",
+  "selected_reasons": []
+}

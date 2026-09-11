@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "570961e060aa148c85f8e08c03098d513dd4111cfc4bd5c6ab0f50b16578b4f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13241256098262966,
+      "alignment_seconds": 0.0001491950824856758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All sleep, except Alonzo, Sebastian, and Antonio.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " sleep,",
+              "start": 0.61,
+              "end": 0.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " except",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alonzo,",
+              "start": 1.39,
+              "end": 1.93,
+              "probability": 0.7286783854166666
+            },
+            {
+              "text": " Sebastian,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 2.91,
+              "end": 2.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Antonio.",
+              "start": 2.95,
+              "end": 3.33,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "sleep,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "raw": "except",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "Alonzo,",
+          "start": 1.39,
+          "end": 1.93
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 2.95
+        },
+        {
+          "raw": "Antonio.",
+          "start": 2.95,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "[All",
+        "sleep",
+        "except",
+        "Alonso,",
+        "Sebastian,",
+        "and",
+        "Antonio]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[All",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "sleep",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "text": "except",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "Alonso,",
+          "start": 1.39,
+          "end": 1.94
+        },
+        {
+          "text": "Sebastian,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "text": "and",
+          "start": 2.91,
+          "end": 2.95
+        },
+        {
+          "text": "Antonio]",
+          "start": 2.95,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.13262298901099712
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "debe7ec6c83efc6549d165b594f8f7a5bbc3f2dee379a296312822d3278530bc",
+  "selected_reasons": []
+}

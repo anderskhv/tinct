@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "9d07d1fe90d3013ed3b0ce24955a7f0616f27e27d9efabd98012e3fa800777c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.22607011999934912,
+      "alignment_seconds": 0.0001621259143576026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, who in this kind of merry fooling",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " who",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " in",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " this",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kind",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " merry",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " fooling",
+              "start": 2.45,
+              "end": 2.97,
+              "probability": 0.973388671875
+            }
+          ]
+        },
+        {
+          "text": " am nothing to you, so you may continue and laugh at nothing still?",
+          "start": 2.97,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " am",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.27197265625
+            },
+            {
+              "text": " nothing",
+              "start": 3.07,
+              "end": 3.37,
+              "probability": 0.90625
+            },
+            {
+              "text": " to",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 3.61,
+              "end": 3.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 4.21,
+              "end": 4.41,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 4.41,
+              "end": 4.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " may",
+              "start": 4.53,
+              "end": 4.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " continue",
+              "start": 4.67,
+              "end": 5.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.11,
+              "end": 5.43,
+              "probability": 0.982421875
+            },
+            {
+              "text": " laugh",
+              "start": 5.43,
+              "end": 5.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 5.67,
+              "end": 5.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nothing",
+              "start": 5.85,
+              "end": 6.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " still?",
+              "start": 6.15,
+              "end": 6.51,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "who",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "in",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "this",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "kind",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "of",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "merry",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "fooling",
+          "start": 2.45,
+          "end": 2.97
+        },
+        {
+          "raw": "am",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "nothing",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "raw": "you,",
+          "start": 3.61,
+          "end": 3.87
+        },
+        {
+          "raw": "so",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "raw": "you",
+          "start": 4.41,
+          "end": 4.53
+        },
+        {
+          "raw": "may",
+          "start": 4.53,
+          "end": 4.67
+        },
+        {
+          "raw": "continue",
+          "start": 4.67,
+          "end": 5.11
+        },
+        {
+          "raw": "and",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "raw": "laugh",
+          "start": 5.43,
+          "end": 5.67
+        },
+        {
+          "raw": "at",
+          "start": 5.67,
+          "end": 5.85
+        },
+        {
+          "raw": "nothing",
+          "start": 5.85,
+          "end": 6.15
+        },
+        {
+          "raw": "still?",
+          "start": 6.15,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Who",
+        "in",
+        "this",
+        "kind",
+        "of",
+        "merry",
+        "fooling",
+        "am",
+        "nothing",
+        "to",
+        "you:",
+        "so",
+        "you",
+        "may",
+        "continue",
+        "and",
+        "laugh",
+        "at",
+        "nothing",
+        "still."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Who",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "in",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "this",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "kind",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "of",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "merry",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "fooling",
+          "start": 2.45,
+          "end": 2.97
+        },
+        {
+          "text": "am",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "nothing",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "text": "to",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "you:",
+          "start": 3.61,
+          "end": 3.87
+        },
+        {
+          "text": "so",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "text": "you",
+          "start": 4.41,
+          "end": 4.53
+        },
+        {
+          "text": "may",
+          "start": 4.53,
+          "end": 4.67
+        },
+        {
+          "text": "continue",
+          "start": 4.67,
+          "end": 5.11
+        },
+        {
+          "text": "and",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "text": "laugh",
+          "start": 5.43,
+          "end": 5.67
+        },
+        {
+          "text": "at",
+          "start": 5.67,
+          "end": 5.85
+        },
+        {
+          "text": "nothing",
+          "start": 5.85,
+          "end": 6.15
+        },
+        {
+          "text": "still.",
+          "start": 6.15,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2263245399808511
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc8040d6072c0a8d894f27cae3ca0aa683036cf8456e8c9206c350ac84901dff",
+  "selected_reasons": []
+}

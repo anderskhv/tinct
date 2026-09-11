@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "9fe369782da4f1994eabfdfc164ed4b959655e65d0dbfee34354af08f7d6f720",
+  "attempts": [
+    {
+      "asr_seconds": 0.11953794793225825,
+      "alignment_seconds": 0.00012039497960358858,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, when I wore it at your daughter's marriage.",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.837890625
+            },
+            {
+              "text": " when",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.958984375
+            },
+            {
+              "text": " I",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " wore",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 1.91,
+              "end": 1.97,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " your",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " daughter's",
+              "start": 2.09,
+              "end": 2.51,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " marriage.",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "when",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "I",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "wore",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "at",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "raw": "your",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "daughter's",
+          "start": 2.09,
+          "end": 2.51
+        },
+        {
+          "raw": "marriage.",
+          "start": 2.51,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "When",
+        "I",
+        "wore",
+        "it",
+        "at",
+        "your",
+        "daughter's",
+        "marriage?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "When",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "I",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "wore",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "it",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "at",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "text": "your",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "daughter's",
+          "start": 2.09,
+          "end": 2.51
+        },
+        {
+          "text": "marriage?",
+          "start": 2.51,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11971617490053177
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d1d706ced10dcad9ba1d964d2536a45d071ffa721bc011a4bcf4bda50f22f115",
+  "selected_reasons": []
+}

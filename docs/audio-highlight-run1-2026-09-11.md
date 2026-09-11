@@ -6,23 +6,61 @@ is the running report; it is rewritten at every push. Evidence lives in
 `artifacts/audio-highlight-run1-2026-09-11/`. The tables at the bottom are
 generated from that directory by `tools/audio-highlight/gpu/run_summary.py`.
 
-## Status at this push — 3: batches 1–4 published, pods 5–7 running
+## Status at this push — 4: 120 chapters published; the guard on `main` is killing pods
 
-- **75 chapters published and verified** on production R2; **6 editions
-  complete**: Crito, Meditations, Phaedrus, Symposium, U.S. Founding
-  Documents, Utilitarianism.
-- Pods 1–4 done and terminated; estimated spend so far **$0.40** of $25
-  (four pods on RTX A4500 at $0.19/hr, plus $0.01 for a pod that failed
-  its CUDA probe in 1.4 minutes and was terminated).
-- 16 chapters failed the 0.85 gate on both arms and are not published.
-  7 chapters were cut off by the worker's time cap in the plays batch and are
-  re-queued as `batch-13-leftovers.json`. 2 chapters were dropped before
-  alignment for a missing paragraph recording (repair class).
-- Pods 5, 6 and 7 running batches 5–7. Guard loop enforcing every 5 minutes;
-  `runpod_guard.py` was patched on this branch so it reads uptime from
-  `lastStartedAt` (the REST pod list has no runtime block, so before the
-  patch a running pod read as zero minutes and the 50-minute deadline could
-  never fire). Test added.
+- **120 chapters published and verified**; **8 editions complete**: Crito,
+  Discourse on Inequality, Meditations, On Liberty, Phaedrus, Symposium,
+  U.S. Founding Documents, Utilitarianism.
+- Estimated spend **$1.11** of $25 across 16 pods (13 batches, three
+  relaunches). Every pod that finished was stopped and terminated.
+- 31 chapters failed the gate on both arms; 4 dropped for a missing
+  paragraph recording; 22 chapters still open and running now on pods
+  14–16 (The Republic, Paradise Lost, The Aeneid, Heart of Darkness,
+  Genealogy of Morals).
+
+### Blocker for the coordinator: the guard on `main` stops every running pod
+
+At 13:56:23 UTC a `workflow_dispatch` of `audio-gpu-guard` (run
+`34607185546`) ran from `main` at `28891ab3` — a commit pushed by the
+coordinator's session that makes the guard **stop any RUNNING pod whose
+uptime it cannot measure**. Its uptime fallback parses `lastStartedAt` with
+`datetime.fromisoformat`, and RunPod returns
+`2026-09-11 12:35:42.57 +0000 UTC`, which `fromisoformat` rejects. So every
+running pod reads as "unmeasurable" and the run's log says exactly that:
+
+```
+STOP ku0brnal1c6hzc tinct-words-run1-11: uptime is unmeasurable, so neither the deadline nor the envelope can be enforced for it
+STOP qh5dt0ws5o448i tinct-words-run1-9: uptime is unmeasurable, so neither the deadline nor the envelope can be enforced for it
+```
+
+Both pods were 27 and 38 minutes into their batches, within every limit, and
+because this run's pods keep no volume their partial results died with them
+(batch 9 and batch 11, ~16 audio hours of work, now re-queued on pods 15 and
+14). The same workflow runs on a five-minute schedule from `main`, so **any
+pod launched by anyone is at risk until `main`'s parser is fixed**. This
+session cannot merge to `main`.
+
+The fix is on this branch already (`tools/audio-highlight/runpod_guard.py`,
+`seconds_since()`, commit `7376511c`): it parses RunPod's actual stamp and has
+a test pinned to that exact format. Merging this branch — or porting that
+parser into `main`'s `_age_seconds` — makes the `main` guard measure uptime
+correctly and stop only what it should. Until then, please do not dispatch the
+guard while `tinct-words-run1-*` pods are running.
+
+Mitigation taken here without changing the rules: `orchestrate.py` now
+snapshots each pod's output tree every four minutes while aligning, and if a
+pod is stopped from outside it extracts the last snapshot instead of losing
+the batch. Chapters cut mid-way are simply re-queued.
+
+### Other operational notes
+
+- Two hosts (an RTX 4090 and an RTX 3090, both on driver 580.x) reported zero
+  CUDA devices to ctranslate2; the job's probe failed them in about a minute
+  for about $0.01 each and the batches were relaunched on A4500-class hosts.
+- One host spent 16 minutes in `pip install`; a second one on the same batch
+  was stopped at 12 minutes and relaunched.
+- Three prose batches hit the 2,100 s worker cap with a few chapters left;
+  those chapters are in the open set now running.
 
 ### What the rejections look like
 
@@ -163,9 +201,9 @@ in full for rejected chapters.
 
 ### Next
 
-1. Harvest and publish batches 5–7 as each pod finishes; push.
-2. Launch batches 8–12 and the leftovers batch, three pods at a time.
-3. Final push with the guard's closing `status`.
+1. Harvest and publish pods 14–16; re-queue anything cut off; one more round
+   if needed.
+2. Final push with the guard's closing `status` and the billing cross-check.
 
 ## Pods
 
@@ -175,14 +213,25 @@ in full for rejected chapters.
 | tinct-words-run1-2 | `5ji31k7j0db2vq` | NVIDIA RTX A4500 | 0.19 | 12:35:37 | 13:15:13 | 39.5 | done-with-errors | 0.13 |
 | tinct-words-run1-3 | `lli7qxhiig3qrw` | NVIDIA RTX A4500 | 0.19 | 12:35:39 | 13:11:40 | 35.9 | done | 0.11 |
 | tinct-words-run1-4 | `dsrtidan8r3ju1` | NVIDIA RTX A4500 | 0.19 | 12:35:41 | 13:09:04 | 33.3 | done | 0.11 |
-| tinct-words-run1-5 | `ewn71l34h2zdaa` | ? | 0.19 | 13:12:19 |  |  |  | 0.00 |
-| tinct-words-run1-6 | `44vq3tivfgioyl` | ? | 0.22 | 13:12:22 |  |  |  | 0.00 |
+| tinct-words-run1-5 | `ewn71l34h2zdaa` | NVIDIA RTX A4500 | 0.19 | 13:12:19 | 13:46:49 | 34.4 | done | 0.11 |
+| tinct-words-run1-6 | `44vq3tivfgioyl` | NVIDIA GeForce RTX 3090 | 0.22 | 13:12:22 | 13:50:07 | 37.7 | done-with-errors | 0.14 |
 | tinct-words-run1-7 | `f93pwrhxtctc66` | NVIDIA GeForce RTX 4090 | 0.34 | 13:15:20 | 13:16:47 | 1.4 | failed | 0.01 |
-| tinct-words-run1-7 | `y58l6eo16iu3hk` | ? | 0.19 | 13:17:14 |  |  |  | 0.00 |
+| tinct-words-run1-7 | `y58l6eo16iu3hk` | NVIDIA RTX A4500 | 0.19 | 13:17:14 | 13:54:30 | 37.2 | done | 0.12 |
+| tinct-words-run1-8 | `xxgsezt160x3mg` | NVIDIA RTX 4000 Ada Generation | 0.2 | 13:18:25 | 13:50:11 | 31.7 | done | 0.11 |
+| tinct-words-run1-9 | `qh5dt0ws5o448i` | ? | 0.2 | 13:18:27 |  |  |  | 0.00 |
+| tinct-words-run1-10 | `ggg4xioxgq77gu` | NVIDIA GeForce RTX 3090 | 0.22 | 13:18:29 | 13:55:58 | 37.4 | done-with-errors | 0.14 |
+| tinct-words-run1-11 | `2lw1gufmsu7h1q` | ? | 0.22 | 13:18:31 |  |  |  | 0.00 |
+| tinct-words-run1-12 | `8m3fs26kpahsjw` | NVIDIA GeForce RTX 3090 | 0.22 | 13:18:33 | 13:36:49 | 18.2 | done | 0.07 |
+| tinct-words-run1-13 | `2xyxo79cgn82hs` | NVIDIA GeForce RTX 3090 | 0.22 | 13:18:35 | 13:19:46 | 1.1 | failed | 0.00 |
+| tinct-words-run1-11 | `ku0brnal1c6hzc` | ? | 0.22 | 13:30:59 |  |  |  | 0.00 |
+| tinct-words-run1-13 | `tn89pfz0m3gxi0` | NVIDIA GeForce RTX 3090 | 0.22 | 13:31:01 | 13:40:21 | 9.3 | done | 0.03 |
+| tinct-words-run1-14 | `j00rf2bd2rruex` | ? | 0.19 | 14:00:59 |  |  |  | 0.00 |
+| tinct-words-run1-15 | `09vju8q0a71jnb` | ? | 0.19 | 14:01:01 |  |  |  | 0.00 |
+| tinct-words-run1-16 | `fzfb3hb8zrc410` | ? | 0.19 | 14:01:03 |  |  |  | 0.00 |
 
-Estimated spend across pods (costPerHr × uptime): **$0.40**.
+Estimated spend across pods (costPerHr × uptime): **$1.11**.
 
-## Published and verified — 75 chapters
+## Published and verified — 120 chapters
 
 | edition | ch | SHA-256 | bytes | at (UTC) |
 | --- | --- | --- | --- | --- |
@@ -261,6 +310,51 @@ Estimated spend across pods (costPerHr × uptime): **$0.40**.
 | `second-treatise/original-en` | 11 | `06bd607ec49868b5080bb1368717fc4fce8ea8cccddd588f705e7e3ed0a6b321` | 294096 | 13:16:10 |
 | `symposium/original-en` | 1 | `fe0836b1d8bf86a5ab5f742909f7912ef2b123ab2d37592e6ff44d065d6ccbae` | 188556 | 13:16:13 |
 | `symposium/original-en` | 7 | `680b35b22f588256640b7454e384c9473e2ba60c92b872d44f904c07e4c43785` | 1009406 | 13:16:15 |
+| `the-republic/original-en` | 10 | `cdd09482bd64448b136b4b41de3a9f656267ee4e55cf8c13c3551a4e4d687700` | 1192308 | 13:37:15 |
+| `the-republic/original-en` | 9 | `eda6d570141b771661927dadac74ab7ef1c0e0b750890ef5a88b8cf33af7c345` | 949068 | 13:37:19 |
+| `the-tempest/original-en` | 4 | `7d528a51f76b982b269e0d8ae4a017c51842644e9242b3d89cfeab3e6864b9f3` | 167474 | 13:40:22 |
+| `the-tempest/original-en` | 5 | `445ebedf3446c61ae9d3920e9ce7a5344738ffaa0fd1409d173255e2ed9e0cf7` | 88432 | 13:40:25 |
+| `the-tempest/original-en` | 8 | `6a6b3aeaa50b5e69c26705fd91e62038f2bccea6efc2bf65c126fe0ba0888d38` | 233863 | 13:40:27 |
+| `the-tempest/original-en` | 9 | `644467d813fc892ce12cda54774360d32e4f54f19b3f9eff6cd1f167456baf3d` | 290684 | 13:40:30 |
+| `beyond-good-and-evil/original-en` | 1 | `c1b8d3b673df9d74c8bfcbd1dcbb49ae2753ed97b54428ebfab8c2354c388ef9` | 68675 | 13:47:03 |
+| `beyond-good-and-evil/original-en` | 10 | `23c4279b023d6c89b0de3a712065aad81696e975ceef63f4f7586199be7d5903` | 1014942 | 13:47:06 |
+| `beyond-good-and-evil/original-en` | 11 | `440e7df704ff34da9c2e5f9ce299de1501087747e05878ef3a2c8796233f10e1` | 62069 | 13:47:12 |
+| `beyond-good-and-evil/original-en` | 3 | `251dd943e0e8ea4c81860b6366a259072dea0570df6234b330be89e4194e3288` | 655696 | 13:47:14 |
+| `beyond-good-and-evil/original-en` | 8 | `2d3046e565cb21fbd5d378f9b875e94c0c97bb3736297910c932b3f9f0dd63e3` | 766230 | 13:47:16 |
+| `descartes-meditations/original-en` | 9 | `c2cc815c241fcad1531c6d1cca4448735ebd1f68b86dbc7b760c86703484459a` | 650217 | 13:47:18 |
+| `discourse-on-inequality/original-en` | 1 | `995c4c236c50e0f73bd9e7c230d6568b64ea91039d9ac13bc59cd2e14116fe03` | 407802 | 13:47:21 |
+| `discourse-on-inequality/original-en` | 2 | `57a4204e8a39896d13bf1af24b42aa8223ce9e2d3ec5035a7fe225fd78f5a642` | 325394 | 13:47:24 |
+| `discourse-on-inequality/original-en` | 3 | `df4b347359fd46b03576899d6c23372cbf7ab6ac61eee3845fb6c021f6a8474a` | 1172014 | 13:47:26 |
+| `iliad/original-en` | 13 | `d64e2d75658c538a4157511c4aba8d224ba48fc402594a651696a23103f0a009` | 815256 | 13:47:29 |
+| `iliad/original-en` | 17 | `9148db8e74a661a6e926d50b8c06d900b1bc960a286cdc2cb7203840592d6482` | 708385 | 13:47:32 |
+| `iliad/original-en` | 24 | `b808f63ae19c5e217ab55ebee3d7c6fcee2db2929a33100b8c3acaa5e34dfbc0` | 809948 | 13:47:34 |
+| `iliad/original-en` | 6 | `cb8c20ca0f62f208845bb3ff6d3e46640ef8fd11a332121e36331c56ab839173` | 483808 | 13:47:37 |
+| `discourse-on-inequality/original-en` | 4 | `9e9769dee52455db6c83d174b56b675ea325e6d46a0ca174de3a6397c48ca320` | 1192424 | 13:50:10 |
+| `fear-and-trembling/original-en` | 2 | `1f425ddf1b0f2492ebf1b83b1fcae705c966a5bb94581636cdcff2f6d5091815` | 135059 | 13:50:14 |
+| `fear-and-trembling/original-en` | 3 | `ac8d1ce969bf787f18c0504dda755e01239314c7beb8f870e3990db64bbabe11` | 326947 | 13:50:16 |
+| `fear-and-trembling/original-en` | 4 | `0ee9037cab511a0e30684eadab10802c34f76a0fdf1c8504e494eecacc6335d0` | 1065646 | 13:50:19 |
+| `fear-and-trembling/original-en` | 5 | `df1e965f753454bd66cde76955cbffb321febe4d7b108e346368e732a89f58d6` | 516656 | 13:50:22 |
+| `fear-and-trembling/original-en` | 6 | `56125e47ad95c43017799d44bd17e15869404f0442eaffe9257fb33a1df60320` | 511390 | 13:50:24 |
+| `fear-and-trembling/original-en` | 7 | `2f754ae012eda402618741e1e879d8b3031757b6e0c65048b5b4570433d2c495` | 1515459 | 13:50:28 |
+| `fear-and-trembling/original-en` | 8 | `4154b97a59579fb6051c3940c1327a2debd6d222b314da6b786e30915387db87` | 99132 | 13:50:30 |
+| `nicomachean-ethics/original-en` | 2 | `0ef1ec479c2bf319fa41d339baa557787c5af268a6805b0b9a9d18ca8bb64ba3` | 635048 | 13:50:33 |
+| `nicomachean-ethics/original-en` | 3 | `b7ea588c3989ae8fde9e30de95d6a90867203ba60c5c533301b4549e0dd9e91a` | 1029973 | 13:50:37 |
+| `nicomachean-ethics/original-en` | 5 | `adff39691479209f789f07af6d077d032916e61fc37264b3673240761c040188` | 1026267 | 13:50:40 |
+| `peloponnesian-war/original-en` | 11 | `930b1323d01f0743f6ade203d07a67419d3732c7f167dfb057e26a455552a774` | 599674 | 13:50:43 |
+| `peloponnesian-war/original-en` | 15 | `a4c740f04ef2874954c70efee7ef4cd203f8a5f0652cd8d75fc3974f9efd387f` | 543529 | 13:50:46 |
+| `peloponnesian-war/original-en` | 23 | `62a2352ee8d6daf005d748fd6cd3142a5021d6d1f4859b607cbc5979d9b9570d` | 957060 | 13:50:48 |
+| `peloponnesian-war/original-en` | 5 | `27f1bcca044d673b2acfb9d654384d55d928f611f84dd9935ae5d7e1af9a69e6` | 752823 | 13:50:51 |
+| `jungle-book/original-en` | 3 | `a61713e2605f2cb99462d2b05cb82107a873414ddfb017a7618558701625b68d` | 693326 | 13:54:54 |
+| `on-liberty/original-en` | 1 | `21eb63ef3a97435a56cc814e90d1094011a4b97ab9ca8f473b3a28771f6b2c02` | 568713 | 13:54:57 |
+| `on-liberty/original-en` | 2 | `bf65675306772e26f1d93669b2ad0171e23537bca59cf04c4eb460da1fe3735e` | 1588906 | 13:55:00 |
+| `on-liberty/original-en` | 3 | `cbc4a9992d26dadd72226fc7b30628d93500357fd7198801e4d7f700ac175fa9` | 764998 | 13:55:03 |
+| `on-liberty/original-en` | 4 | `debb7732aaa9858c6df6ef83cb09d5a033b1c376942aecdd7ba1eda2ed365227` | 771244 | 13:55:06 |
+| `on-liberty/original-en` | 5 | `c3bc3c63d8c7ca18ffc05eee555bb4399160d2dff8d5714273bd27cac7a501a3` | 917376 | 13:55:09 |
+| `paradise-lost/original-en` | 10 | `dcdf9c55bdcdb132f6996dc247d2386511e8f67a9aa4f72c191446c94365adef` | 830436 | 13:56:13 |
+| `paradise-lost/original-en` | 9 | `0efc24863f1984f234f23b8b12c6773045b7a991eeab8132df502ab14534bc8e` | 903462 | 13:56:16 |
+| `the-aeneid/original-en` | 1 | `2017b21c394e44566cc3d4ef87482d4bc7ec654783612de6d17e0c25759ef001` | 817771 | 13:56:19 |
+| `the-aeneid/original-en` | 10 | `f833c333c5db8346c8ed7509ae2aa33374ff62d9320a8dc7f6d3f151f7710d2c` | 1004392 | 13:56:21 |
+| `the-aeneid/original-en` | 12 | `0016d9691c97c015f9b96781c9fb418df2ad78cfe780907efa0ba320ddbf89e6` | 1061539 | 13:56:24 |
 
 33 journal entries are re-runs that found the object already published and were skipped (the uploader never overwrites).
 
@@ -268,6 +362,11 @@ Estimated spend across pods (costPerHr × uptime): **$0.40**.
 
 - `communist-manifesto/original-en/ch3` (tinct-words-run1-1) — paragraphs [19]: below 0.85 on every arm; not published
 - `notes-from-underground/original-en/ch17` (tinct-words-run1-1) — paragraphs [19, 22, 24, 28, 41, 42]: below 0.85 on every arm; not published
+- `paradise-lost/original-en/ch11` (tinct-words-run1-10) — paragraphs [19, 58]: below 0.85 on every arm; not published
+- `the-republic/original-en/ch8` (tinct-words-run1-12) — paragraphs [16, 55, 69, 79, 137, 161, 205, 209, 291]: below 0.85 on every arm; not published
+- `the-tempest/original-en/ch3` (tinct-words-run1-13) — paragraphs [2, 8, 14, 19, 28, 31, 34, 52, 55, 56, 62, 67, 73, 75, 77, 80, 85, 86, 93, 98, 101, 104, 106, 107, 115, 116, 124, 127, 131, 137, 149, 151, 161, 163, 167]: below 0.85 on every arm; not published
+- `the-tempest/original-en/ch6` (tinct-words-run1-13) — paragraphs [0, 7, 9, 14, 18, 20, 26, 30, 35, 37, 41, 43, 45, 51, 56, 58, 59, 62, 65, 71, 72]: below 0.85 on every arm; not published
+- `the-tempest/original-en/ch7` (tinct-words-run1-13) — paragraphs [9, 17, 18, 20, 25, 31]: below 0.85 on every arm; not published
 - `medea/original-en/ch4` (tinct-words-run1-2) — paragraphs [17, 25, 26, 28, 36, 40, 41, 44, 46, 54, 56, 58, 61, 62, 63, 64, 68, 75, 76]: below 0.85 on every arm; not published
 - `medea/original-en/ch7` (tinct-words-run1-2) — paragraphs [2, 10, 12, 13, 16, 25, 29, 38, 46, 58, 59]: below 0.85 on every arm; not published
 - `midsummer/original-en/ch2` (tinct-words-run1-2) — paragraphs [5, 9, 13, 15, 16, 20, 37]: below 0.85 on every arm; not published
@@ -282,38 +381,64 @@ Estimated spend across pods (costPerHr × uptime): **$0.40**.
 - `jekyll-and-hyde/original-en/ch2` (tinct-words-run1-3) — paragraphs [10, 47, 48]: below 0.85 on every arm; not published
 - `phaedo/original-en/ch1` (tinct-words-run1-4) — paragraphs [1, 6, 14, 16, 17, 18, 19, 21, 22, 31, 43, 45]: below 0.85 on every arm; not published
 - `phaedo/original-en/ch7` (tinct-words-run1-4) — paragraphs [6, 40, 42, 104, 125, 130, 138, 141, 164, 202]: below 0.85 on every arm; not published
+- `beyond-good-and-evil/original-en/ch5` (tinct-words-run1-5) — paragraphs [10, 19, 79, 84, 99, 111, 122]: below 0.85 on every arm; not published
+- `iliad/original-en/ch14` (tinct-words-run1-5) — paragraphs [33, 34, 35]: below 0.85 on every arm; not published
+- `fear-and-trembling/original-en/ch1` (tinct-words-run1-6) — paragraphs [1, 4]: below 0.85 on every arm; not published
+- `jungle-book/original-en/ch1` (tinct-words-run1-7) — paragraphs [17, 22, 118, 149, 153]: below 0.85 on every arm; not published
+- `jungle-book/original-en/ch2` (tinct-words-run1-7) — paragraphs [6, 17, 26, 38, 52, 73, 88, 90, 92, 99, 105, 126, 127, 129, 147, 151, 155, 157, 164, 167, 175]: below 0.85 on every arm; not published
+- `jungle-book/original-en/ch4` (tinct-words-run1-7) — paragraphs [9, 17, 46, 61, 62, 68, 107, 114]: below 0.85 on every arm; not published
+- `jungle-book/original-en/ch6` (tinct-words-run1-7) — paragraphs [18, 20, 26, 58]: below 0.85 on every arm; not published
+- `jungle-book/original-en/ch7` (tinct-words-run1-7) — paragraphs [12, 35, 115, 126, 153]: below 0.85 on every arm; not published
+- `genealogy-of-morals/original-en/ch1` (tinct-words-run1-8) — paragraphs [10]: below 0.85 on every arm; not published
+- `nicomachean-ethics/original-en/ch1` (tinct-words-run1-8) — paragraphs [78]: below 0.85 on every arm; not published
 
 ## Chapters cut off by the worker time cap and re-queued
 
+- `the-aeneid/original-en/ch3` (tinct-words-run1-10) — not a rejection; re-run in the leftovers batch
 - `the-tempest/original-en/ch3` (tinct-words-run1-2) — not a rejection; re-run in the leftovers batch
+- `heart-of-darkness/original-en/ch1` (tinct-words-run1-6) — not a rejection; re-run in the leftovers batch
 
 ## Chapters dropped before alignment (repair class)
 
 - `confessions/original-en/ch2` (tinct-words-run1-3) — p10.mp3 HTTP 404
 - `descartes-meditations/original-en/ch6` (tinct-words-run1-4) — p6.mp3 HTTP 404
+- `peloponnesian-war/original-en/ch16` (tinct-words-run1-8) — p59.mp3 HTTP 404
+- `peloponnesian-war/original-en/ch24` (tinct-words-run1-8) — p1.mp3 HTTP 404
 
-## Editions completed this run — 6
+## Editions completed this run — 8
 
 - `crito/original-en` — 3/3 chapters timed (3 added this run)
+- `discourse-on-inequality/original-en` — 4/4 chapters timed (4 added this run)
 - `meditations/original-en` — 12/12 chapters timed (2 added this run)
+- `on-liberty/original-en` — 5/5 chapters timed (5 added this run)
 - `phaedrus/original-en` — 6/6 chapters timed (6 added this run)
 - `symposium/original-en` — 8/8 chapters timed (2 added this run)
 - `us-founding-documents/original-en` — 4/4 chapters timed (4 added this run)
 - `utilitarianism/original-en` — 5/5 chapters timed (5 added this run)
 
-## Editions advanced but not complete — 14
+## Editions advanced but not complete — 24
 
 - `bacchae/original-en` — 3/11 timed (1 added; 0 queued chapters still open)
+- `beyond-good-and-evil/original-en` — 10/11 timed (5 added; 1 queued chapters still open)
 - `confessions/original-en` — 12/13 timed (2 added; 1 queued chapters still open)
-- `descartes-meditations/original-en` — 7/9 timed (7 added; 2 queued chapters still open)
+- `descartes-meditations/original-en` — 8/9 timed (8 added; 1 queued chapters still open)
+- `fear-and-trembling/original-en` — 7/8 timed (7 added; 1 queued chapters still open)
 - `frankenstein/original-en` — 23/28 timed (4 added; 0 queued chapters still open)
 - `frederick-douglass/original-en` — 10/12 timed (1 added; 0 queued chapters still open)
 - `hume-enquiry/original-en` — 16/19 timed (4 added; 2 queued chapters still open)
+- `iliad/original-en` — 23/24 timed (4 added; 1 queued chapters still open)
 - `jekyll-and-hyde/original-en` — 7/10 timed (7 added; 2 queued chapters still open)
+- `jungle-book/original-en` — 1/7 timed (1 added; 5 queued chapters still open)
 - `medea/original-en` — 2/7 timed (1 added; 2 queued chapters still open)
 - `midsummer/original-en` — 6/9 timed (6 added; 1 queued chapters still open)
+- `nicomachean-ethics/original-en` — 7/10 timed (3 added; 1 queued chapters still open)
 - `notes-from-underground/original-en` — 19/21 timed (1 added; 1 queued chapters still open)
 - `odyssey/original-en` — 23/24 timed (4 added; 1 queued chapters still open)
 - `oedipus-at-colonus/original-en` — 9/11 timed (7 added; 1 queued chapters still open)
+- `paradise-lost/original-en` — 6/12 timed (2 added; 6 queued chapters still open)
+- `peloponnesian-war/original-en` — 24/26 timed (4 added; 2 queued chapters still open)
 - `phaedo/original-en` — 7/9 timed (7 added; 2 queued chapters still open)
 - `second-treatise/original-en` — 18/19 timed (1 added; 1 queued chapters still open)
+- `the-aeneid/original-en` — 8/12 timed (3 added; 4 queued chapters still open)
+- `the-republic/original-en` — 2/10 timed (2 added; 8 queued chapters still open)
+- `the-tempest/original-en` — 5/10 timed (4 added; 5 queued chapters still open)

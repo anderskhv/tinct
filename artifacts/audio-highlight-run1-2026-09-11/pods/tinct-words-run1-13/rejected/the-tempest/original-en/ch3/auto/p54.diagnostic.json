@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "ec499461a0eda7c5f872b1d737e57a86beb07b0726daa8b150a3a0aef2174e78",
+  "attempts": [
+    {
+      "asr_seconds": 0.18752342311199754,
+      "alignment_seconds": 0.00020891695749014616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Adrian. 'Widow Dido' said you? you make me study of that: she was of Carthage, not of Tunis.",
+        "hotwords": "Adrian, Widow, Dido, Carthage, Tunis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Adrian. Widow Dido said you? you make me study of that. she was of Carthage, not of Tunis.",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Adrian.",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.17578125
+            },
+            {
+              "text": " Widow",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " Dido",
+              "start": 1.63,
+              "end": 2.11,
+              "probability": 0.862548828125
+            },
+            {
+              "text": " said",
+              "start": 2.11,
+              "end": 2.33,
+              "probability": 0.94921875
+            },
+            {
+              "text": " you?",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.974609375
+            },
+            {
+              "text": " you",
+              "start": 2.91,
+              "end": 3.03,
+              "probability": 0.023895263671875
+            },
+            {
+              "text": " make",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.9921875
+            },
+            {
+              "text": " me",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " study",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that.",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " she",
+              "start": 4.33,
+              "end": 4.43,
+              "probability": 0.1651611328125
+            },
+            {
+              "text": " was",
+              "start": 4.43,
+              "end": 4.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.55,
+              "end": 4.69,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Carthage,",
+              "start": 4.69,
+              "end": 5.17,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " not",
+              "start": 5.29,
+              "end": 5.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 5.35,
+              "end": 5.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Tunis.",
+              "start": 5.47,
+              "end": 5.79,
+              "probability": 0.91357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adrian.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Widow",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "Dido",
+          "start": 1.63,
+          "end": 2.11
+        },
+        {
+          "raw": "said",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "raw": "you?",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "you",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "raw": "make",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "me",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "raw": "study",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "of",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "that.",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "she",
+          "start": 4.33,
+          "end": 4.43
+        },
+        {
+          "raw": "was",
+          "start": 4.43,
+          "end": 4.55
+        },
+        {
+          "raw": "of",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "raw": "Carthage,",
+          "start": 4.69,
+          "end": 5.17
+        },
+        {
+          "raw": "not",
+          "start": 5.29,
+          "end": 5.35
+        },
+        {
+          "raw": "of",
+          "start": 5.35,
+          "end": 5.47
+        },
+        {
+          "raw": "Tunis.",
+          "start": 5.47,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "Adrian.",
+        "'Widow",
+        "Dido'",
+        "said",
+        "you?",
+        "you",
+        "make",
+        "me",
+        "study",
+        "of",
+        "that:",
+        "she",
+        "was",
+        "of",
+        "Carthage,",
+        "not",
+        "of",
+        "Tunis."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Adrian.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "'Widow",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "Dido'",
+          "start": 1.63,
+          "end": 2.11
+        },
+        {
+          "text": "said",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "text": "you?",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "you",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "text": "make",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "me",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "text": "study",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "of",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "that:",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "she",
+          "start": 4.33,
+          "end": 4.43
+        },
+        {
+          "text": "was",
+          "start": 4.43,
+          "end": 4.55
+        },
+        {
+          "text": "of",
+          "start": 4.55,
+          "end": 4.69
+        },
+        {
+          "text": "Carthage,",
+          "start": 4.69,
+          "end": 5.17
+        },
+        {
+          "text": "not",
+          "start": 5.29,
+          "end": 5.35
+        },
+        {
+          "text": "of",
+          "start": 5.35,
+          "end": 5.47
+        },
+        {
+          "text": "Tunis.",
+          "start": 5.47,
+          "end": 5.79
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1878489530645311
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c721839a8259604a29031a2de38513e6005e54c6861e3a7e7d302d5ded6dbe7",
+  "selected_reasons": []
+}

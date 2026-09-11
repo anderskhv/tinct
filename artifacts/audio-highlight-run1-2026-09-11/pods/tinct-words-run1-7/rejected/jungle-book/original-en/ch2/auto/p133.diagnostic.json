@@ -1,0 +1,6084 @@
+{
+  "complete": true,
+  "signature": "5be190c812f6b23b94d7941725cc6b57e823f23131fc4a782fd5978e3ee4bf58",
+  "attempts": [
+    {
+      "asr_seconds": 0.4797781566157937,
+      "alignment_seconds": 0.00028760358691215515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kaa looked carefully till he found a discolored crack in the marble tracery showing a weak spot, made two or three light taps with his head to get the distance, and then lifting up six feet of his body clear of the ground, sent home half a dozen full-power smashing blows, nose-first. The screen-work broke and fell away in a cloud of dust and rubbish, and Mowgli leaped through the opening and flung himself between Baloo and Bagheera--an arm around each big neck.",
+        "hotwords": "Kaa, Mowgli, Baloo, Bagheera--an"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kaa looked carefully till he found a discolored crack in the marble tracery showing a weak spot,",
+          "start": 0.05,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Kaa",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.111053466796875
+            },
+            {
+              "text": " looked",
+              "start": 0.57,
+              "end": 0.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " carefully",
+              "start": 0.79,
+              "end": 1.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " till",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " he",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " found",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " discolored",
+              "start": 1.99,
+              "end": 2.47,
+              "probability": 0.9661458333333334
+            },
+            {
+              "text": " crack",
+              "start": 2.47,
+              "end": 2.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " marble",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " tracery",
+              "start": 3.35,
+              "end": 3.91,
+              "probability": 0.9720052083333334
+            },
+            {
+              "text": " showing",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " a",
+              "start": 4.19,
+              "end": 4.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " weak",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " spot,",
+              "start": 4.57,
+              "end": 5.07,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " made two or three light taps with his head to get the distance, and then lifting up six feet of his body clear of the ground,",
+          "start": 5.43,
+          "end": 11.35,
+          "words": [
+            {
+              "text": " made",
+              "start": 5.43,
+              "end": 5.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " two",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " or",
+              "start": 5.97,
+              "end": 6.09,
+              "probability": 0.984375
+            },
+            {
+              "text": " three",
+              "start": 6.09,
+              "end": 6.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " light",
+              "start": 6.37,
+              "end": 6.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " taps",
+              "start": 6.59,
+              "end": 6.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 6.91,
+              "end": 7.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 7.09,
+              "end": 7.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head",
+              "start": 7.23,
+              "end": 7.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 7.35,
+              "end": 7.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " get",
+              "start": 7.49,
+              "end": 7.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 7.57,
+              "end": 7.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distance,",
+              "start": 7.71,
+              "end": 8.05,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 8.57,
+              "end": 8.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " then",
+              "start": 8.81,
+              "end": 8.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lifting",
+              "start": 8.95,
+              "end": 9.21,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " up",
+              "start": 9.21,
+              "end": 9.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " six",
+              "start": 9.41,
+              "end": 9.63,
+              "probability": 0.912109375
+            },
+            {
+              "text": " feet",
+              "start": 9.63,
+              "end": 9.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 9.87,
+              "end": 10.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 10.01,
+              "end": 10.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " body",
+              "start": 10.13,
+              "end": 10.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " clear",
+              "start": 10.43,
+              "end": 10.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 10.71,
+              "end": 10.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 10.89,
+              "end": 10.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ground,",
+              "start": 10.99,
+              "end": 11.35,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " sent home half a dozen full-power smashing blows, nose-first.",
+          "start": 11.81,
+          "end": 15.61,
+          "words": [
+            {
+              "text": " sent",
+              "start": 11.81,
+              "end": 12.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " home",
+              "start": 12.03,
+              "end": 12.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " half",
+              "start": 12.31,
+              "end": 12.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 12.57,
+              "end": 12.73,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " dozen",
+              "start": 12.73,
+              "end": 12.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " full",
+              "start": 12.91,
+              "end": 13.23,
+              "probability": 0.98193359375
+            },
+            {
+              "text": "-power",
+              "start": 13.23,
+              "end": 13.55,
+              "probability": 0.7218017578125
+            },
+            {
+              "text": " smashing",
+              "start": 13.55,
+              "end": 14.07,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " blows,",
+              "start": 14.07,
+              "end": 14.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " nose",
+              "start": 15.07,
+              "end": 15.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": "-first.",
+              "start": 15.29,
+              "end": 15.61,
+              "probability": 0.5584716796875
+            }
+          ]
+        },
+        {
+          "text": " The screen-work broke and fell away in a cloud of dust and rubbish, and Mowgli leaped through the opening and flung himself between Baloo and Bagheera-an arm around each big neck.",
+          "start": 16.43,
+          "end": 25.87,
+          "words": [
+            {
+              "text": " The",
+              "start": 16.43,
+              "end": 16.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " screen",
+              "start": 16.57,
+              "end": 16.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": "-work",
+              "start": 16.83,
+              "end": 17.01,
+              "probability": 0.541961669921875
+            },
+            {
+              "text": " broke",
+              "start": 17.01,
+              "end": 17.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 17.29,
+              "end": 17.55,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fell",
+              "start": 17.55,
+              "end": 17.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 17.71,
+              "end": 17.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 17.99,
+              "end": 18.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 18.17,
+              "end": 18.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cloud",
+              "start": 18.33,
+              "end": 18.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 18.53,
+              "end": 18.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dust",
+              "start": 18.77,
+              "end": 19.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 19.07,
+              "end": 19.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rubbish,",
+              "start": 19.35,
+              "end": 19.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 20.19,
+              "end": 20.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mowgli",
+              "start": 20.33,
+              "end": 20.65,
+              "probability": 0.9493408203125
+            },
+            {
+              "text": " leaped",
+              "start": 20.65,
+              "end": 20.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " through",
+              "start": 20.93,
+              "end": 21.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 21.09,
+              "end": 21.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " opening",
+              "start": 21.25,
+              "end": 21.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 21.65,
+              "end": 22.07,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " flung",
+              "start": 22.07,
+              "end": 22.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 22.27,
+              "end": 22.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " between",
+              "start": 22.67,
+              "end": 23.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Baloo",
+              "start": 23.09,
+              "end": 23.53,
+              "probability": 0.441162109375
+            },
+            {
+              "text": " and",
+              "start": 23.53,
+              "end": 23.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Bagheera",
+              "start": 23.69,
+              "end": 24.17,
+              "probability": 0.270111083984375
+            },
+            {
+              "text": "-an",
+              "start": 24.17,
+              "end": 24.33,
+              "probability": 0.443206787109375
+            },
+            {
+              "text": " arm",
+              "start": 24.33,
+              "end": 24.59,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " around",
+              "start": 24.59,
+              "end": 24.95,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " each",
+              "start": 24.95,
+              "end": 25.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " big",
+              "start": 25.31,
+              "end": 25.59,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " neck.",
+              "start": 25.59,
+              "end": 25.87,
+              "probability": 0.78515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kaa",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "looked",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "raw": "carefully",
+          "start": 0.79,
+          "end": 1.29
+        },
+        {
+          "raw": "till",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "he",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "found",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "discolored",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "raw": "crack",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "raw": "in",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "marble",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "tracery",
+          "start": 3.35,
+          "end": 3.91
+        },
+        {
+          "raw": "showing",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "a",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "raw": "weak",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "spot,",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "raw": "made",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "raw": "two",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "or",
+          "start": 5.97,
+          "end": 6.09
+        },
+        {
+          "raw": "three",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "raw": "light",
+          "start": 6.37,
+          "end": 6.59
+        },
+        {
+          "raw": "taps",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "raw": "with",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "raw": "his",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "raw": "head",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "raw": "to",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "raw": "get",
+          "start": 7.49,
+          "end": 7.57
+        },
+        {
+          "raw": "the",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "raw": "distance,",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "raw": "and",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "raw": "then",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "raw": "lifting",
+          "start": 8.95,
+          "end": 9.21
+        },
+        {
+          "raw": "up",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "raw": "six",
+          "start": 9.41,
+          "end": 9.63
+        },
+        {
+          "raw": "feet",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "raw": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "raw": "his",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "raw": "body",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "raw": "clear",
+          "start": 10.43,
+          "end": 10.71
+        },
+        {
+          "raw": "of",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "raw": "the",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "raw": "ground,",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "raw": "sent",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "raw": "home",
+          "start": 12.03,
+          "end": 12.31
+        },
+        {
+          "raw": "half",
+          "start": 12.31,
+          "end": 12.57
+        },
+        {
+          "raw": "a",
+          "start": 12.57,
+          "end": 12.73
+        },
+        {
+          "raw": "dozen",
+          "start": 12.73,
+          "end": 12.91
+        },
+        {
+          "raw": "full",
+          "start": 12.91,
+          "end": 13.23
+        },
+        {
+          "raw": "-power",
+          "start": 13.23,
+          "end": 13.55
+        },
+        {
+          "raw": "smashing",
+          "start": 13.55,
+          "end": 14.07
+        },
+        {
+          "raw": "blows,",
+          "start": 14.07,
+          "end": 14.43
+        },
+        {
+          "raw": "nose",
+          "start": 15.07,
+          "end": 15.29
+        },
+        {
+          "raw": "-first.",
+          "start": 15.29,
+          "end": 15.61
+        },
+        {
+          "raw": "The",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "raw": "screen",
+          "start": 16.57,
+          "end": 16.83
+        },
+        {
+          "raw": "-work",
+          "start": 16.83,
+          "end": 17.01
+        },
+        {
+          "raw": "broke",
+          "start": 17.01,
+          "end": 17.29
+        },
+        {
+          "raw": "and",
+          "start": 17.29,
+          "end": 17.55
+        },
+        {
+          "raw": "fell",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "raw": "away",
+          "start": 17.71,
+          "end": 17.99
+        },
+        {
+          "raw": "in",
+          "start": 17.99,
+          "end": 18.17
+        },
+        {
+          "raw": "a",
+          "start": 18.17,
+          "end": 18.33
+        },
+        {
+          "raw": "cloud",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "raw": "of",
+          "start": 18.53,
+          "end": 18.77
+        },
+        {
+          "raw": "dust",
+          "start": 18.77,
+          "end": 19.07
+        },
+        {
+          "raw": "and",
+          "start": 19.07,
+          "end": 19.35
+        },
+        {
+          "raw": "rubbish,",
+          "start": 19.35,
+          "end": 19.71
+        },
+        {
+          "raw": "and",
+          "start": 20.19,
+          "end": 20.33
+        },
+        {
+          "raw": "Mowgli",
+          "start": 20.33,
+          "end": 20.65
+        },
+        {
+          "raw": "leaped",
+          "start": 20.65,
+          "end": 20.93
+        },
+        {
+          "raw": "through",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "raw": "the",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "raw": "opening",
+          "start": 21.25,
+          "end": 21.65
+        },
+        {
+          "raw": "and",
+          "start": 21.65,
+          "end": 22.07
+        },
+        {
+          "raw": "flung",
+          "start": 22.07,
+          "end": 22.27
+        },
+        {
+          "raw": "himself",
+          "start": 22.27,
+          "end": 22.67
+        },
+        {
+          "raw": "between",
+          "start": 22.67,
+          "end": 23.09
+        },
+        {
+          "raw": "Baloo",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "raw": "and",
+          "start": 23.53,
+          "end": 23.69
+        },
+        {
+          "raw": "Bagheera",
+          "start": 23.69,
+          "end": 24.17
+        },
+        {
+          "raw": "-an",
+          "start": 24.17,
+          "end": 24.33
+        },
+        {
+          "raw": "arm",
+          "start": 24.33,
+          "end": 24.59
+        },
+        {
+          "raw": "around",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "raw": "each",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "raw": "big",
+          "start": 25.31,
+          "end": 25.59
+        },
+        {
+          "raw": "neck.",
+          "start": 25.59,
+          "end": 25.87
+        }
+      ],
+      "expected_tokens": [
+        "Kaa",
+        "looked",
+        "carefully",
+        "till",
+        "he",
+        "found",
+        "a",
+        "discolored",
+        "crack",
+        "in",
+        "the",
+        "marble",
+        "tracery",
+        "showing",
+        "a",
+        "weak",
+        "spot,",
+        "made",
+        "two",
+        "or",
+        "three",
+        "light",
+        "taps",
+        "with",
+        "his",
+        "head",
+        "to",
+        "get",
+        "the",
+        "distance,",
+        "and",
+        "then",
+        "lifting",
+        "up",
+        "six",
+        "feet",
+        "of",
+        "his",
+        "body",
+        "clear",
+        "of",
+        "the",
+        "ground,",
+        "sent",
+        "home",
+        "half",
+        "a",
+        "dozen",
+        "full-power",
+        "smashing",
+        "blows,",
+        "nose-first.",
+        "The",
+        "screen-work",
+        "broke",
+        "and",
+        "fell",
+        "away",
+        "in",
+        "a",
+        "cloud",
+        "of",
+        "dust",
+        "and",
+        "rubbish,",
+        "and",
+        "Mowgli",
+        "leaped",
+        "through",
+        "the",
+        "opening",
+        "and",
+        "flung",
+        "himself",
+        "between",
+        "Baloo",
+        "and",
+        "Bagheera--an",
+        "arm",
+        "around",
+        "each",
+        "big",
+        "neck."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "equal",
+          49,
+          51,
+          50,
+          52
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          54
+        ],
+        [
+          "equal",
+          52,
+          53,
+          54,
+          55
+        ],
+        [
+          "replace",
+          53,
+          54,
+          55,
+          57
+        ],
+        [
+          "equal",
+          54,
+          77,
+          57,
+          80
+        ],
+        [
+          "replace",
+          77,
+          78,
+          80,
+          82
+        ],
+        [
+          "equal",
+          78,
+          83,
+          82,
+          87
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 86
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          54
+        ],
+        [
+          "replace",
+          53,
+          54,
+          55,
+          57
+        ],
+        [
+          "replace",
+          77,
+          78,
+          80,
+          82
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Kaa",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "looked",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "text": "carefully",
+          "start": 0.79,
+          "end": 1.29
+        },
+        {
+          "text": "till",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "he",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "found",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "discolored",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "text": "crack",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "text": "in",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "marble",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "tracery",
+          "start": 3.35,
+          "end": 3.91
+        },
+        {
+          "text": "showing",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "a",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "text": "weak",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "spot,",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "text": "made",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "text": "two",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "or",
+          "start": 5.97,
+          "end": 6.09
+        },
+        {
+          "text": "three",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "text": "light",
+          "start": 6.37,
+          "end": 6.59
+        },
+        {
+          "text": "taps",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "text": "with",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "text": "his",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "text": "head",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "text": "to",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "text": "get",
+          "start": 7.49,
+          "end": 7.57
+        },
+        {
+          "text": "the",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "text": "distance,",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "text": "and",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "text": "then",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "text": "lifting",
+          "start": 8.95,
+          "end": 9.21
+        },
+        {
+          "text": "up",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "text": "six",
+          "start": 9.41,
+          "end": 9.63
+        },
+        {
+          "text": "feet",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "text": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "text": "his",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "text": "body",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "text": "clear",
+          "start": 10.43,
+          "end": 10.71
+        },
+        {
+          "text": "of",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "text": "the",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "text": "ground,",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "text": "sent",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "text": "home",
+          "start": 12.03,
+          "end": 12.31
+        },
+        {
+          "text": "half",
+          "start": 12.31,
+          "end": 12.57
+        },
+        {
+          "text": "a",
+          "start": 12.57,
+          "end": 12.73
+        },
+        {
+          "text": "dozen",
+          "start": 12.73,
+          "end": 12.91
+        },
+        {
+          "text": "full-power",
+          "start": 12.91,
+          "end": 13.23
+        },
+        {
+          "text": "smashing",
+          "start": 13.55,
+          "end": 14.07
+        },
+        {
+          "text": "blows,",
+          "start": 14.07,
+          "end": 14.43
+        },
+        {
+          "text": "nose-first.",
+          "start": 14.43,
+          "end": 15.43
+        },
+        {
+          "text": "The",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "text": "screen-work",
+          "start": 16.57,
+          "end": 16.79
+        },
+        {
+          "text": "broke",
+          "start": 17.01,
+          "end": 17.29
+        },
+        {
+          "text": "and",
+          "start": 17.29,
+          "end": 17.55
+        },
+        {
+          "text": "fell",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "text": "away",
+          "start": 17.71,
+          "end": 17.99
+        },
+        {
+          "text": "in",
+          "start": 17.99,
+          "end": 18.17
+        },
+        {
+          "text": "a",
+          "start": 18.17,
+          "end": 18.33
+        },
+        {
+          "text": "cloud",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "text": "of",
+          "start": 18.53,
+          "end": 18.77
+        },
+        {
+          "text": "dust",
+          "start": 18.77,
+          "end": 19.07
+        },
+        {
+          "text": "and",
+          "start": 19.07,
+          "end": 19.35
+        },
+        {
+          "text": "rubbish,",
+          "start": 19.35,
+          "end": 19.71
+        },
+        {
+          "text": "and",
+          "start": 20.19,
+          "end": 20.33
+        },
+        {
+          "text": "Mowgli",
+          "start": 20.33,
+          "end": 20.65
+        },
+        {
+          "text": "leaped",
+          "start": 20.65,
+          "end": 20.93
+        },
+        {
+          "text": "through",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "text": "the",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "text": "opening",
+          "start": 21.25,
+          "end": 21.65
+        },
+        {
+          "text": "and",
+          "start": 21.65,
+          "end": 22.07
+        },
+        {
+          "text": "flung",
+          "start": 22.07,
+          "end": 22.27
+        },
+        {
+          "text": "himself",
+          "start": 22.27,
+          "end": 22.67
+        },
+        {
+          "text": "between",
+          "start": 22.67,
+          "end": 23.09
+        },
+        {
+          "text": "Baloo",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "text": "and",
+          "start": 23.53,
+          "end": 23.69
+        },
+        {
+          "text": "Bagheera--an",
+          "start": 23.69,
+          "end": 24.01
+        },
+        {
+          "text": "arm",
+          "start": 24.33,
+          "end": 24.59
+        },
+        {
+          "text": "around",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "text": "each",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "text": "big",
+          "start": 25.31,
+          "end": 25.59
+        },
+        {
+          "text": "neck.",
+          "start": 25.59,
+          "end": 25.87
+        }
+      ],
+      "stats": {
+        "expected_words": 83,
+        "heard_words": 87,
+        "matched_words": 79
+      },
+      "match_ratio": 0.9518072289156626,
+      "rejection_reasons": [],
+      "seconds": 0.4802289716899395
+    },
+    {
+      "asr_seconds": 0.4151492826640606,
+      "alignment_seconds": 0.0002836715430021286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Kaa, Mowgli, Baloo, Bagheera--an"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Kaa looked carefully till he found a discolored crack in the marble tracery showing a weak spot,",
+          "start": 0.05,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Kaa",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.111053466796875
+            },
+            {
+              "text": " looked",
+              "start": 0.57,
+              "end": 0.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " carefully",
+              "start": 0.79,
+              "end": 1.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " till",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " he",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " found",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " discolored",
+              "start": 1.99,
+              "end": 2.47,
+              "probability": 0.9661458333333334
+            },
+            {
+              "text": " crack",
+              "start": 2.47,
+              "end": 2.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " marble",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " tracery",
+              "start": 3.35,
+              "end": 3.91,
+              "probability": 0.9720052083333334
+            },
+            {
+              "text": " showing",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " a",
+              "start": 4.19,
+              "end": 4.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " weak",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " spot,",
+              "start": 4.57,
+              "end": 5.07,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " made two or three light taps with his head to get the distance, and then lifting up six feet of his body clear of the ground,",
+          "start": 5.43,
+          "end": 11.35,
+          "words": [
+            {
+              "text": " made",
+              "start": 5.43,
+              "end": 5.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " two",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " or",
+              "start": 5.97,
+              "end": 6.09,
+              "probability": 0.984375
+            },
+            {
+              "text": " three",
+              "start": 6.09,
+              "end": 6.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " light",
+              "start": 6.37,
+              "end": 6.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " taps",
+              "start": 6.59,
+              "end": 6.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 6.91,
+              "end": 7.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 7.09,
+              "end": 7.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head",
+              "start": 7.23,
+              "end": 7.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 7.35,
+              "end": 7.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " get",
+              "start": 7.49,
+              "end": 7.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 7.57,
+              "end": 7.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distance,",
+              "start": 7.71,
+              "end": 8.05,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 8.57,
+              "end": 8.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " then",
+              "start": 8.81,
+              "end": 8.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lifting",
+              "start": 8.95,
+              "end": 9.21,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " up",
+              "start": 9.21,
+              "end": 9.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " six",
+              "start": 9.41,
+              "end": 9.63,
+              "probability": 0.912109375
+            },
+            {
+              "text": " feet",
+              "start": 9.63,
+              "end": 9.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 9.87,
+              "end": 10.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 10.01,
+              "end": 10.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " body",
+              "start": 10.13,
+              "end": 10.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " clear",
+              "start": 10.43,
+              "end": 10.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 10.71,
+              "end": 10.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 10.89,
+              "end": 10.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ground,",
+              "start": 10.99,
+              "end": 11.35,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " sent home half a dozen full-power smashing blows, nose first.",
+          "start": 11.81,
+          "end": 15.63,
+          "words": [
+            {
+              "text": " sent",
+              "start": 11.81,
+              "end": 12.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " home",
+              "start": 12.03,
+              "end": 12.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " half",
+              "start": 12.31,
+              "end": 12.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 12.57,
+              "end": 12.73,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " dozen",
+              "start": 12.73,
+              "end": 12.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " full",
+              "start": 12.91,
+              "end": 13.23,
+              "probability": 0.98193359375
+            },
+            {
+              "text": "-power",
+              "start": 13.23,
+              "end": 13.55,
+              "probability": 0.7218017578125
+            },
+            {
+              "text": " smashing",
+              "start": 13.55,
+              "end": 14.07,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " blows,",
+              "start": 14.07,
+              "end": 14.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " nose",
+              "start": 15.07,
+              "end": 15.27,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " first.",
+              "start": 15.27,
+              "end": 15.63,
+              "probability": 0.875
+            }
+          ]
+        },
+        {
+          "text": " The screen work broke and fell away in a cloud of dust and rubbish, and Mowgli leaped through the opening and flung himself between",
+          "start": 16.39,
+          "end": 23.09,
+          "words": [
+            {
+              "text": " The",
+              "start": 16.39,
+              "end": 16.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " screen",
+              "start": 16.57,
+              "end": 16.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " work",
+              "start": 16.83,
+              "end": 17.01,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " broke",
+              "start": 17.01,
+              "end": 17.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 17.29,
+              "end": 17.55,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " fell",
+              "start": 17.55,
+              "end": 17.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 17.71,
+              "end": 17.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 17.99,
+              "end": 18.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 18.17,
+              "end": 18.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cloud",
+              "start": 18.31,
+              "end": 18.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 18.53,
+              "end": 18.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dust",
+              "start": 18.77,
+              "end": 19.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 19.07,
+              "end": 19.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rubbish,",
+              "start": 19.35,
+              "end": 19.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 20.19,
+              "end": 20.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mowgli",
+              "start": 20.33,
+              "end": 20.65,
+              "probability": 0.951171875
+            },
+            {
+              "text": " leaped",
+              "start": 20.65,
+              "end": 20.93,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " through",
+              "start": 20.93,
+              "end": 21.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 21.09,
+              "end": 21.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " opening",
+              "start": 21.25,
+              "end": 21.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 21.65,
+              "end": 22.07,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " flung",
+              "start": 22.07,
+              "end": 22.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 22.27,
+              "end": 22.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " between",
+              "start": 22.67,
+              "end": 23.09,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Baloo and Bagheerian arm around each big neck.",
+          "start": 23.09,
+          "end": 25.87,
+          "words": [
+            {
+              "text": " Baloo",
+              "start": 23.09,
+              "end": 23.53,
+              "probability": 0.42901611328125
+            },
+            {
+              "text": " and",
+              "start": 23.53,
+              "end": 23.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Bagheerian",
+              "start": 23.69,
+              "end": 24.31,
+              "probability": 0.359222412109375
+            },
+            {
+              "text": " arm",
+              "start": 24.31,
+              "end": 24.59,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " around",
+              "start": 24.59,
+              "end": 24.95,
+              "probability": 0.982421875
+            },
+            {
+              "text": " each",
+              "start": 24.95,
+              "end": 25.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " big",
+              "start": 25.31,
+              "end": 25.59,
+              "probability": 0.912109375
+            },
+            {
+              "text": " neck.",
+              "start": 25.59,
+              "end": 25.87,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kaa",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "looked",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "raw": "carefully",
+          "start": 0.79,
+          "end": 1.29
+        },
+        {
+          "raw": "till",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "he",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "found",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "discolored",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "raw": "crack",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "raw": "in",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "marble",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "tracery",
+          "start": 3.35,
+          "end": 3.91
+        },
+        {
+          "raw": "showing",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "a",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "raw": "weak",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "spot,",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "raw": "made",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "raw": "two",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "or",
+          "start": 5.97,
+          "end": 6.09
+        },
+        {
+          "raw": "three",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "raw": "light",
+          "start": 6.37,
+          "end": 6.59
+        },
+        {
+          "raw": "taps",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "raw": "with",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "raw": "his",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "raw": "head",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "raw": "to",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "raw": "get",
+          "start": 7.49,
+          "end": 7.57
+        },
+        {
+          "raw": "the",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "raw": "distance,",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "raw": "and",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "raw": "then",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "raw": "lifting",
+          "start": 8.95,
+          "end": 9.21
+        },
+        {
+          "raw": "up",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "raw": "six",
+          "start": 9.41,
+          "end": 9.63
+        },
+        {
+          "raw": "feet",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "raw": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "raw": "his",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "raw": "body",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "raw": "clear",
+          "start": 10.43,
+          "end": 10.71
+        },
+        {
+          "raw": "of",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "raw": "the",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "raw": "ground,",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "raw": "sent",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "raw": "home",
+          "start": 12.03,
+          "end": 12.31
+        },
+        {
+          "raw": "half",
+          "start": 12.31,
+          "end": 12.57
+        },
+        {
+          "raw": "a",
+          "start": 12.57,
+          "end": 12.73
+        },
+        {
+          "raw": "dozen",
+          "start": 12.73,
+          "end": 12.91
+        },
+        {
+          "raw": "full",
+          "start": 12.91,
+          "end": 13.23
+        },
+        {
+          "raw": "-power",
+          "start": 13.23,
+          "end": 13.55
+        },
+        {
+          "raw": "smashing",
+          "start": 13.55,
+          "end": 14.07
+        },
+        {
+          "raw": "blows,",
+          "start": 14.07,
+          "end": 14.43
+        },
+        {
+          "raw": "nose",
+          "start": 15.07,
+          "end": 15.27
+        },
+        {
+          "raw": "first.",
+          "start": 15.27,
+          "end": 15.63
+        },
+        {
+          "raw": "The",
+          "start": 16.39,
+          "end": 16.57
+        },
+        {
+          "raw": "screen",
+          "start": 16.57,
+          "end": 16.83
+        },
+        {
+          "raw": "work",
+          "start": 16.83,
+          "end": 17.01
+        },
+        {
+          "raw": "broke",
+          "start": 17.01,
+          "end": 17.29
+        },
+        {
+          "raw": "and",
+          "start": 17.29,
+          "end": 17.55
+        },
+        {
+          "raw": "fell",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "raw": "away",
+          "start": 17.71,
+          "end": 17.99
+        },
+        {
+          "raw": "in",
+          "start": 17.99,
+          "end": 18.17
+        },
+        {
+          "raw": "a",
+          "start": 18.17,
+          "end": 18.31
+        },
+        {
+          "raw": "cloud",
+          "start": 18.31,
+          "end": 18.53
+        },
+        {
+          "raw": "of",
+          "start": 18.53,
+          "end": 18.77
+        },
+        {
+          "raw": "dust",
+          "start": 18.77,
+          "end": 19.07
+        },
+        {
+          "raw": "and",
+          "start": 19.07,
+          "end": 19.35
+        },
+        {
+          "raw": "rubbish,",
+          "start": 19.35,
+          "end": 19.71
+        },
+        {
+          "raw": "and",
+          "start": 20.19,
+          "end": 20.33
+        },
+        {
+          "raw": "Mowgli",
+          "start": 20.33,
+          "end": 20.65
+        },
+        {
+          "raw": "leaped",
+          "start": 20.65,
+          "end": 20.93
+        },
+        {
+          "raw": "through",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "raw": "the",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "raw": "opening",
+          "start": 21.25,
+          "end": 21.65
+        },
+        {
+          "raw": "and",
+          "start": 21.65,
+          "end": 22.07
+        },
+        {
+          "raw": "flung",
+          "start": 22.07,
+          "end": 22.27
+        },
+        {
+          "raw": "himself",
+          "start": 22.27,
+          "end": 22.67
+        },
+        {
+          "raw": "between",
+          "start": 22.67,
+          "end": 23.09
+        },
+        {
+          "raw": "Baloo",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "raw": "and",
+          "start": 23.53,
+          "end": 23.69
+        },
+        {
+          "raw": "Bagheerian",
+          "start": 23.69,
+          "end": 24.31
+        },
+        {
+          "raw": "arm",
+          "start": 24.31,
+          "end": 24.59
+        },
+        {
+          "raw": "around",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "raw": "each",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "raw": "big",
+          "start": 25.31,
+          "end": 25.59
+        },
+        {
+          "raw": "neck.",
+          "start": 25.59,
+          "end": 25.87
+        }
+      ],
+      "expected_tokens": [
+        "Kaa",
+        "looked",
+        "carefully",
+        "till",
+        "he",
+        "found",
+        "a",
+        "discolored",
+        "crack",
+        "in",
+        "the",
+        "marble",
+        "tracery",
+        "showing",
+        "a",
+        "weak",
+        "spot,",
+        "made",
+        "two",
+        "or",
+        "three",
+        "light",
+        "taps",
+        "with",
+        "his",
+        "head",
+        "to",
+        "get",
+        "the",
+        "distance,",
+        "and",
+        "then",
+        "lifting",
+        "up",
+        "six",
+        "feet",
+        "of",
+        "his",
+        "body",
+        "clear",
+        "of",
+        "the",
+        "ground,",
+        "sent",
+        "home",
+        "half",
+        "a",
+        "dozen",
+        "full-power",
+        "smashing",
+        "blows,",
+        "nose-first.",
+        "The",
+        "screen-work",
+        "broke",
+        "and",
+        "fell",
+        "away",
+        "in",
+        "a",
+        "cloud",
+        "of",
+        "dust",
+        "and",
+        "rubbish,",
+        "and",
+        "Mowgli",
+        "leaped",
+        "through",
+        "the",
+        "opening",
+        "and",
+        "flung",
+        "himself",
+        "between",
+        "Baloo",
+        "and",
+        "Bagheera--an",
+        "arm",
+        "around",
+        "each",
+        "big",
+        "neck."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "equal",
+          49,
+          51,
+          50,
+          52
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          54
+        ],
+        [
+          "equal",
+          52,
+          53,
+          54,
+          55
+        ],
+        [
+          "replace",
+          53,
+          54,
+          55,
+          57
+        ],
+        [
+          "equal",
+          54,
+          77,
+          57,
+          80
+        ],
+        [
+          "replace",
+          77,
+          78,
+          80,
+          81
+        ],
+        [
+          "equal",
+          78,
+          83,
+          81,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          54
+        ],
+        [
+          "replace",
+          53,
+          54,
+          55,
+          57
+        ],
+        [
+          "replace",
+          77,
+          78,
+          80,
+          81
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Kaa",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "looked",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "text": "carefully",
+          "start": 0.79,
+          "end": 1.29
+        },
+        {
+          "text": "till",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "he",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "found",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "discolored",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "text": "crack",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "text": "in",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "marble",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "tracery",
+          "start": 3.35,
+          "end": 3.91
+        },
+        {
+          "text": "showing",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "a",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "text": "weak",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "spot,",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "text": "made",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "text": "two",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "or",
+          "start": 5.97,
+          "end": 6.09
+        },
+        {
+          "text": "three",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "text": "light",
+          "start": 6.37,
+          "end": 6.59
+        },
+        {
+          "text": "taps",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "text": "with",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "text": "his",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "text": "head",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "text": "to",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "text": "get",
+          "start": 7.49,
+          "end": 7.57
+        },
+        {
+          "text": "the",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "text": "distance,",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "text": "and",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "text": "then",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "text": "lifting",
+          "start": 8.95,
+          "end": 9.21
+        },
+        {
+          "text": "up",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "text": "six",
+          "start": 9.41,
+          "end": 9.63
+        },
+        {
+          "text": "feet",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "text": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "text": "his",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "text": "body",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "text": "clear",
+          "start": 10.43,
+          "end": 10.71
+        },
+        {
+          "text": "of",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "text": "the",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "text": "ground,",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "text": "sent",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "text": "home",
+          "start": 12.03,
+          "end": 12.31
+        },
+        {
+          "text": "half",
+          "start": 12.31,
+          "end": 12.57
+        },
+        {
+          "text": "a",
+          "start": 12.57,
+          "end": 12.73
+        },
+        {
+          "text": "dozen",
+          "start": 12.73,
+          "end": 12.91
+        },
+        {
+          "text": "full-power",
+          "start": 12.91,
+          "end": 13.23
+        },
+        {
+          "text": "smashing",
+          "start": 13.55,
+          "end": 14.07
+        },
+        {
+          "text": "blows,",
+          "start": 14.07,
+          "end": 14.43
+        },
+        {
+          "text": "nose-first.",
+          "start": 14.43,
+          "end": 15.41
+        },
+        {
+          "text": "The",
+          "start": 16.39,
+          "end": 16.57
+        },
+        {
+          "text": "screen-work",
+          "start": 16.57,
+          "end": 16.79
+        },
+        {
+          "text": "broke",
+          "start": 17.01,
+          "end": 17.29
+        },
+        {
+          "text": "and",
+          "start": 17.29,
+          "end": 17.55
+        },
+        {
+          "text": "fell",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "text": "away",
+          "start": 17.71,
+          "end": 17.99
+        },
+        {
+          "text": "in",
+          "start": 17.99,
+          "end": 18.17
+        },
+        {
+          "text": "a",
+          "start": 18.17,
+          "end": 18.31
+        },
+        {
+          "text": "cloud",
+          "start": 18.31,
+          "end": 18.53
+        },
+        {
+          "text": "of",
+          "start": 18.53,
+          "end": 18.77
+        },
+        {
+          "text": "dust",
+          "start": 18.77,
+          "end": 19.07
+        },
+        {
+          "text": "and",
+          "start": 19.07,
+          "end": 19.35
+        },
+        {
+          "text": "rubbish,",
+          "start": 19.35,
+          "end": 19.71
+        },
+        {
+          "text": "and",
+          "start": 20.19,
+          "end": 20.33
+        },
+        {
+          "text": "Mowgli",
+          "start": 20.33,
+          "end": 20.65
+        },
+        {
+          "text": "leaped",
+          "start": 20.65,
+          "end": 20.93
+        },
+        {
+          "text": "through",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "text": "the",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "text": "opening",
+          "start": 21.25,
+          "end": 21.65
+        },
+        {
+          "text": "and",
+          "start": 21.65,
+          "end": 22.07
+        },
+        {
+          "text": "flung",
+          "start": 22.07,
+          "end": 22.27
+        },
+        {
+          "text": "himself",
+          "start": 22.27,
+          "end": 22.67
+        },
+        {
+          "text": "between",
+          "start": 22.67,
+          "end": 23.09
+        },
+        {
+          "text": "Baloo",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "text": "and",
+          "start": 23.53,
+          "end": 23.69
+        },
+        {
+          "text": "Bagheera--an",
+          "start": 23.69,
+          "end": 24.0
+        },
+        {
+          "text": "arm",
+          "start": 24.31,
+          "end": 24.59
+        },
+        {
+          "text": "around",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "text": "each",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "text": "big",
+          "start": 25.31,
+          "end": 25.59
+        },
+        {
+          "text": "neck.",
+          "start": 25.59,
+          "end": 25.87
+        }
+      ],
+      "stats": {
+        "expected_words": 83,
+        "heard_words": 86,
+        "matched_words": 79
+      },
+      "match_ratio": 0.9518072289156626,
+      "rejection_reasons": [],
+      "seconds": 0.4155864706262946
+    },
+    {
+      "asr_seconds": 0.46388392243534327,
+      "alignment_seconds": 0.0002891961485147476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ka looked carefully till he found a discolored crack in the marble tracery showing a weak spot,",
+          "start": 0.05,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Ka",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.33154296875
+            },
+            {
+              "text": " looked",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " carefully",
+              "start": 0.79,
+              "end": 1.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " till",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.85546875
+            },
+            {
+              "text": " he",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " found",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " discolored",
+              "start": 1.99,
+              "end": 2.47,
+              "probability": 0.9651692708333334
+            },
+            {
+              "text": " crack",
+              "start": 2.47,
+              "end": 2.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " marble",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tracery",
+              "start": 3.35,
+              "end": 3.91,
+              "probability": 0.9718424479166666
+            },
+            {
+              "text": " showing",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " a",
+              "start": 4.19,
+              "end": 4.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " weak",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " spot,",
+              "start": 4.57,
+              "end": 5.07,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " made two or three light taps with his head to get the distance,",
+          "start": 5.43,
+          "end": 8.05,
+          "words": [
+            {
+              "text": " made",
+              "start": 5.43,
+              "end": 5.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " two",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " or",
+              "start": 5.97,
+              "end": 6.09,
+              "probability": 0.986328125
+            },
+            {
+              "text": " three",
+              "start": 6.09,
+              "end": 6.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " light",
+              "start": 6.37,
+              "end": 6.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " taps",
+              "start": 6.59,
+              "end": 6.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 6.91,
+              "end": 7.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 7.09,
+              "end": 7.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head",
+              "start": 7.23,
+              "end": 7.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 7.35,
+              "end": 7.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " get",
+              "start": 7.49,
+              "end": 7.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 7.57,
+              "end": 7.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distance,",
+              "start": 7.71,
+              "end": 8.05,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " and then lifting up six feet of his body clear of the ground,",
+          "start": 8.57,
+          "end": 11.35,
+          "words": [
+            {
+              "text": " and",
+              "start": 8.57,
+              "end": 8.81,
+              "probability": 0.990234375
+            },
+            {
+              "text": " then",
+              "start": 8.81,
+              "end": 8.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lifting",
+              "start": 8.95,
+              "end": 9.21,
+              "probability": 0.837890625
+            },
+            {
+              "text": " up",
+              "start": 9.21,
+              "end": 9.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " six",
+              "start": 9.41,
+              "end": 9.63,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " feet",
+              "start": 9.63,
+              "end": 9.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 9.87,
+              "end": 10.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 10.01,
+              "end": 10.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " body",
+              "start": 10.13,
+              "end": 10.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " clear",
+              "start": 10.43,
+              "end": 10.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 10.71,
+              "end": 10.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 10.89,
+              "end": 10.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ground,",
+              "start": 10.99,
+              "end": 11.35,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " sent home half a dozen full-power smashing blows.",
+          "start": 11.81,
+          "end": 14.43,
+          "words": [
+            {
+              "text": " sent",
+              "start": 11.81,
+              "end": 12.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " home",
+              "start": 12.03,
+              "end": 12.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " half",
+              "start": 12.31,
+              "end": 12.57,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 12.57,
+              "end": 12.73,
+              "probability": 0.9375
+            },
+            {
+              "text": " dozen",
+              "start": 12.73,
+              "end": 12.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " full",
+              "start": 12.91,
+              "end": 13.23,
+              "probability": 0.9814453125
+            },
+            {
+              "text": "-power",
+              "start": 13.23,
+              "end": 13.55,
+              "probability": 0.714111328125
+            },
+            {
+              "text": " smashing",
+              "start": 13.55,
+              "end": 14.07,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " blows.",
+              "start": 14.07,
+              "end": 14.43,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Nose first.",
+          "start": 15.21,
+          "end": 15.63,
+          "words": [
+            {
+              "text": " Nose",
+              "start": 15.21,
+              "end": 15.27,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " first.",
+              "start": 15.27,
+              "end": 15.63,
+              "probability": 0.92529296875
+            }
+          ]
+        },
+        {
+          "text": " The screenwork broke and fell away in a cloud of dust and rubbish,",
+          "start": 16.39,
+          "end": 19.71,
+          "words": [
+            {
+              "text": " The",
+              "start": 16.39,
+              "end": 16.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " screenwork",
+              "start": 16.57,
+              "end": 17.01,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " broke",
+              "start": 17.01,
+              "end": 17.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 17.29,
+              "end": 17.55,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " fell",
+              "start": 17.55,
+              "end": 17.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 17.71,
+              "end": 17.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 17.99,
+              "end": 18.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 18.17,
+              "end": 18.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cloud",
+              "start": 18.33,
+              "end": 18.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 18.53,
+              "end": 18.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dust",
+              "start": 18.77,
+              "end": 19.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 19.07,
+              "end": 19.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rubbish,",
+              "start": 19.35,
+              "end": 19.71,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " and Mowgli leaped through the opening and flung himself between Balu and Bagherian arm around each big neck.",
+          "start": 20.19,
+          "end": 25.87,
+          "words": [
+            {
+              "text": " and",
+              "start": 20.19,
+              "end": 20.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mowgli",
+              "start": 20.33,
+              "end": 20.65,
+              "probability": 0.9556884765625
+            },
+            {
+              "text": " leaped",
+              "start": 20.65,
+              "end": 20.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " through",
+              "start": 20.93,
+              "end": 21.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 21.09,
+              "end": 21.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " opening",
+              "start": 21.25,
+              "end": 21.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 21.65,
+              "end": 22.07,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " flung",
+              "start": 22.07,
+              "end": 22.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 22.27,
+              "end": 22.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " between",
+              "start": 22.65,
+              "end": 23.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Balu",
+              "start": 23.09,
+              "end": 23.53,
+              "probability": 0.701171875
+            },
+            {
+              "text": " and",
+              "start": 23.53,
+              "end": 23.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Bagherian",
+              "start": 23.69,
+              "end": 24.29,
+              "probability": 0.6110026041666666
+            },
+            {
+              "text": " arm",
+              "start": 24.29,
+              "end": 24.59,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " around",
+              "start": 24.59,
+              "end": 24.95,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " each",
+              "start": 24.95,
+              "end": 25.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " big",
+              "start": 25.31,
+              "end": 25.59,
+              "probability": 0.9140625
+            },
+            {
+              "text": " neck.",
+              "start": 25.59,
+              "end": 25.87,
+              "probability": 0.89892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ka",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "looked",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "carefully",
+          "start": 0.79,
+          "end": 1.29
+        },
+        {
+          "raw": "till",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "he",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "found",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "discolored",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "raw": "crack",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "raw": "in",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "marble",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "tracery",
+          "start": 3.35,
+          "end": 3.91
+        },
+        {
+          "raw": "showing",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "a",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "raw": "weak",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "spot,",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "raw": "made",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "raw": "two",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "or",
+          "start": 5.97,
+          "end": 6.09
+        },
+        {
+          "raw": "three",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "raw": "light",
+          "start": 6.37,
+          "end": 6.59
+        },
+        {
+          "raw": "taps",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "raw": "with",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "raw": "his",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "raw": "head",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "raw": "to",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "raw": "get",
+          "start": 7.49,
+          "end": 7.57
+        },
+        {
+          "raw": "the",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "raw": "distance,",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "raw": "and",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "raw": "then",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "raw": "lifting",
+          "start": 8.95,
+          "end": 9.21
+        },
+        {
+          "raw": "up",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "raw": "six",
+          "start": 9.41,
+          "end": 9.63
+        },
+        {
+          "raw": "feet",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "raw": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "raw": "his",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "raw": "body",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "raw": "clear",
+          "start": 10.43,
+          "end": 10.71
+        },
+        {
+          "raw": "of",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "raw": "the",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "raw": "ground,",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "raw": "sent",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "raw": "home",
+          "start": 12.03,
+          "end": 12.31
+        },
+        {
+          "raw": "half",
+          "start": 12.31,
+          "end": 12.57
+        },
+        {
+          "raw": "a",
+          "start": 12.57,
+          "end": 12.73
+        },
+        {
+          "raw": "dozen",
+          "start": 12.73,
+          "end": 12.91
+        },
+        {
+          "raw": "full",
+          "start": 12.91,
+          "end": 13.23
+        },
+        {
+          "raw": "-power",
+          "start": 13.23,
+          "end": 13.55
+        },
+        {
+          "raw": "smashing",
+          "start": 13.55,
+          "end": 14.07
+        },
+        {
+          "raw": "blows.",
+          "start": 14.07,
+          "end": 14.43
+        },
+        {
+          "raw": "Nose",
+          "start": 15.21,
+          "end": 15.27
+        },
+        {
+          "raw": "first.",
+          "start": 15.27,
+          "end": 15.63
+        },
+        {
+          "raw": "The",
+          "start": 16.39,
+          "end": 16.57
+        },
+        {
+          "raw": "screenwork",
+          "start": 16.57,
+          "end": 17.01
+        },
+        {
+          "raw": "broke",
+          "start": 17.01,
+          "end": 17.29
+        },
+        {
+          "raw": "and",
+          "start": 17.29,
+          "end": 17.55
+        },
+        {
+          "raw": "fell",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "raw": "away",
+          "start": 17.71,
+          "end": 17.99
+        },
+        {
+          "raw": "in",
+          "start": 17.99,
+          "end": 18.17
+        },
+        {
+          "raw": "a",
+          "start": 18.17,
+          "end": 18.33
+        },
+        {
+          "raw": "cloud",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "raw": "of",
+          "start": 18.53,
+          "end": 18.77
+        },
+        {
+          "raw": "dust",
+          "start": 18.77,
+          "end": 19.07
+        },
+        {
+          "raw": "and",
+          "start": 19.07,
+          "end": 19.35
+        },
+        {
+          "raw": "rubbish,",
+          "start": 19.35,
+          "end": 19.71
+        },
+        {
+          "raw": "and",
+          "start": 20.19,
+          "end": 20.33
+        },
+        {
+          "raw": "Mowgli",
+          "start": 20.33,
+          "end": 20.65
+        },
+        {
+          "raw": "leaped",
+          "start": 20.65,
+          "end": 20.93
+        },
+        {
+          "raw": "through",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "raw": "the",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "raw": "opening",
+          "start": 21.25,
+          "end": 21.65
+        },
+        {
+          "raw": "and",
+          "start": 21.65,
+          "end": 22.07
+        },
+        {
+          "raw": "flung",
+          "start": 22.07,
+          "end": 22.27
+        },
+        {
+          "raw": "himself",
+          "start": 22.27,
+          "end": 22.65
+        },
+        {
+          "raw": "between",
+          "start": 22.65,
+          "end": 23.09
+        },
+        {
+          "raw": "Balu",
+          "start": 23.09,
+          "end": 23.53
+        },
+        {
+          "raw": "and",
+          "start": 23.53,
+          "end": 23.69
+        },
+        {
+          "raw": "Bagherian",
+          "start": 23.69,
+          "end": 24.29
+        },
+        {
+          "raw": "arm",
+          "start": 24.29,
+          "end": 24.59
+        },
+        {
+          "raw": "around",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "raw": "each",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "raw": "big",
+          "start": 25.31,
+          "end": 25.59
+        },
+        {
+          "raw": "neck.",
+          "start": 25.59,
+          "end": 25.87
+        }
+      ],
+      "expected_tokens": [
+        "Kaa",
+        "looked",
+        "carefully",
+        "till",
+        "he",
+        "found",
+        "a",
+        "discolored",
+        "crack",
+        "in",
+        "the",
+        "marble",
+        "tracery",
+        "showing",
+        "a",
+        "weak",
+        "spot,",
+        "made",
+        "two",
+        "or",
+        "three",
+        "light",
+        "taps",
+        "with",
+        "his",
+        "head",
+        "to",
+        "get",
+        "the",
+        "distance,",
+        "and",
+        "then",
+        "lifting",
+        "up",
+        "six",
+        "feet",
+        "of",
+        "his",
+        "body",
+        "clear",
+        "of",
+        "the",
+        "ground,",
+        "sent",
+        "home",
+        "half",
+        "a",
+        "dozen",
+        "full-power",
+        "smashing",
+        "blows,",
+        "nose-first.",
+        "The",
+        "screen-work",
+        "broke",
+        "and",
+        "fell",
+        "away",
+        "in",
+        "a",
+        "cloud",
+        "of",
+        "dust",
+        "and",
+        "rubbish,",
+        "and",
+        "Mowgli",
+        "leaped",
+        "through",
+        "the",
+        "opening",
+        "and",
+        "flung",
+        "himself",
+        "between",
+        "Baloo",
+        "and",
+        "Bagheera--an",
+        "arm",
+        "around",
+        "each",
+        "big",
+        "neck."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          48,
+          1,
+          48
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "equal",
+          49,
+          51,
+          50,
+          52
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          54
+        ],
+        [
+          "equal",
+          52,
+          75,
+          54,
+          77
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          78
+        ],
+        [
+          "equal",
+          76,
+          77,
+          78,
+          79
+        ],
+        [
+          "replace",
+          77,
+          78,
+          79,
+          80
+        ],
+        [
+          "equal",
+          78,
+          83,
+          80,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          50
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          54
+        ],
+        [
+          "replace",
+          75,
+          76,
+          77,
+          78
+        ],
+        [
+          "replace",
+          77,
+          78,
+          79,
+          80
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Kaa",
+          "start": 0.0,
+          "end": 0.275
+        },
+        {
+          "text": "looked",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "carefully",
+          "start": 0.79,
+          "end": 1.29
+        },
+        {
+          "text": "till",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "he",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "found",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "discolored",
+          "start": 1.99,
+          "end": 2.47
+        },
+        {
+          "text": "crack",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "text": "in",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "marble",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "tracery",
+          "start": 3.35,
+          "end": 3.91
+        },
+        {
+          "text": "showing",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "a",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "text": "weak",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "spot,",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "text": "made",
+          "start": 5.43,
+          "end": 5.71
+        },
+        {
+          "text": "two",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "or",
+          "start": 5.97,
+          "end": 6.09
+        },
+        {
+          "text": "three",
+          "start": 6.09,
+          "end": 6.37
+        },
+        {
+          "text": "light",
+          "start": 6.37,
+          "end": 6.59
+        },
+        {
+          "text": "taps",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "text": "with",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "text": "his",
+          "start": 7.09,
+          "end": 7.23
+        },
+        {
+          "text": "head",
+          "start": 7.23,
+          "end": 7.35
+        },
+        {
+          "text": "to",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "text": "get",
+          "start": 7.49,
+          "end": 7.57
+        },
+        {
+          "text": "the",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "text": "distance,",
+          "start": 7.71,
+          "end": 8.05
+        },
+        {
+          "text": "and",
+          "start": 8.57,
+          "end": 8.81
+        },
+        {
+          "text": "then",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "text": "lifting",
+          "start": 8.95,
+          "end": 9.21
+        },
+        {
+          "text": "up",
+          "start": 9.21,
+          "end": 9.41
+        },
+        {
+          "text": "six",
+          "start": 9.41,
+          "end": 9.63
+        },
+        {
+          "text": "feet",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "text": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "text": "his",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "text": "body",
+          "start": 10.13,
+          "end": 10.43
+        },
+        {
+          "text": "clear",
+          "start": 10.43,
+          "end": 10.71
+        },
+        {
+          "text": "of",
+          "start": 10.71,
+          "end": 10.89
+        },
+        {
+          "text": "the",
+          "start": 10.89,
+          "end": 10.99
+        },
+        {
+          "text": "ground,",
+          "start": 10.99,
+          "end": 11.35
+        },
+        {
+          "text": "sent",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "text": "home",
+          "start": 12.03,
+          "end": 12.31
+        },
+        {
+          "text": "half",
+          "start": 12.31,
+          "end": 12.57
+        },
+        {
+          "text": "a",
+          "start": 12.57,
+          "end": 12.73
+        },
+        {
+          "text": "dozen",
+          "start": 12.73,
+          "end": 12.91
+        },
+        {
+          "text": "full-power",
+          "start": 12.91,
+          "end": 13.23
+        },
+        {
+          "text": "smashing",
+          "start": 13.55,
+          "end": 14.07
+        },
+        {
+          "text": "blows,",
+          "start": 14.07,
+          "end": 14.43
+        },
+        {
+          "text": "nose-first.",
+          "start": 14.43,
+          "end": 15.41
+        },
+        {
+          "text": "The",
+          "start": 16.39,
+          "end": 16.57
+        },
+        {
+          "text": "screen-work",
+          "start": 16.57,
+          "end": 17.01
+        },
+        {
+          "text": "broke",
+          "start": 17.01,
+          "end": 17.29
+        },
+        {
+          "text": "and",
+          "start": 17.29,
+          "end": 17.55
+        },
+        {
+          "text": "fell",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "text": "away",
+          "start": 17.71,
+          "end": 17.99
+        },
+        {
+          "text": "in",
+          "start": 17.99,
+          "end": 18.17
+        },
+        {
+          "text": "a",
+          "start": 18.17,
+          "end": 18.33
+        },
+        {
+          "text": "cloud",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "text": "of",
+          "start": 18.53,
+          "end": 18.77
+        },
+        {
+          "text": "dust",
+          "start": 18.77,
+          "end": 19.07
+        },
+        {
+          "text": "and",
+          "start": 19.07,
+          "end": 19.35
+        },
+        {
+          "text": "rubbish,",
+          "start": 19.35,
+          "end": 19.71
+        },
+        {
+          "text": "and",
+          "start": 20.19,
+          "end": 20.33
+        },
+        {
+          "text": "Mowgli",
+          "start": 20.33,
+          "end": 20.65
+        },
+        {
+          "text": "leaped",
+          "start": 20.65,
+          "end": 20.93
+        },
+        {
+          "text": "through",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "text": "the",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "text": "opening",
+          "start": 21.25,
+          "end": 21.65
+        },
+        {
+          "text": "and",
+          "start": 21.65,
+          "end": 22.07
+        },
+        {
+          "text": "flung",
+          "start": 22.07,
+          "end": 22.27
+        },
+        {
+          "text": "himself",
+          "start": 22.27,
+          "end": 22.65
+        },
+        {
+          "text": "between",
+          "start": 22.65,
+          "end": 23.09
+        },
+        {
+          "text": "Baloo",
+          "start": 23.09,
+          "end": 23.31
+        },
+        {
+          "text": "and",
+          "start": 23.53,
+          "end": 23.69
+        },
+        {
+          "text": "Bagheera--an",
+          "start": 23.69,
+          "end": 23.99
+        },
+        {
+          "text": "arm",
+          "start": 24.29,
+          "end": 24.59
+        },
+        {
+          "text": "around",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "text": "each",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "text": "big",
+          "start": 25.31,
+          "end": 25.59
+        },
+        {
+          "text": "neck.",
+          "start": 25.59,
+          "end": 25.87
+        }
+      ],
+      "stats": {
+        "expected_words": 83,
+        "heard_words": 85,
+        "matched_words": 78
+      },
+      "match_ratio": 0.9397590361445783,
+      "rejection_reasons": [],
+      "seconds": 0.46432300470769405
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72617fa6cf24515ee4a7602d49d177d29b509c496ea600f7a3f74b6ff6fd82a4",
+  "selected_reasons": []
+}

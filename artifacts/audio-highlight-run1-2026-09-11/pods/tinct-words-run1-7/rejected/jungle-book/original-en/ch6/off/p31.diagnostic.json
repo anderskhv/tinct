@@ -1,0 +1,647 @@
+{
+  "complete": true,
+  "signature": "2b95ac65ff142d4649529b90498f832cdb3036a29edf678f6f5b24fce3c9d2f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1498124822974205,
+      "alignment_seconds": 0.00014060549437999725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He is too my my son sahib said big to my scowling. He is a very bad boy, and he will end in a jail sahib",
+          "start": 0.05,
+          "end": 7.73,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.1387939453125
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " too",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.10968017578125
+            },
+            {
+              "text": " my",
+              "start": 0.89,
+              "end": 1.11,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " my",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " son",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sahib",
+              "start": 1.57,
+              "end": 2.13,
+              "probability": 0.7265625
+            },
+            {
+              "text": " said",
+              "start": 2.13,
+              "end": 2.67,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " big",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " to",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.52783203125
+            },
+            {
+              "text": " my",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " scowling.",
+              "start": 3.39,
+              "end": 4.07,
+              "probability": 0.9783528645833334
+            },
+            {
+              "text": " He",
+              "start": 4.27,
+              "end": 4.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 4.75,
+              "end": 4.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 4.85,
+              "end": 4.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " very",
+              "start": 4.95,
+              "end": 5.17,
+              "probability": 1.0
+            },
+            {
+              "text": " bad",
+              "start": 5.17,
+              "end": 5.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " boy,",
+              "start": 5.45,
+              "end": 5.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 6.05,
+              "end": 6.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 6.17,
+              "end": 6.31,
+              "probability": 1.0
+            },
+            {
+              "text": " end",
+              "start": 6.31,
+              "end": 6.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 6.57,
+              "end": 6.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 6.73,
+              "end": 6.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " jail",
+              "start": 6.81,
+              "end": 7.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sahib",
+              "start": 7.15,
+              "end": 7.73,
+              "probability": 0.964599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "too",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "my",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "raw": "my",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "son",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "sahib",
+          "start": 1.57,
+          "end": 2.13
+        },
+        {
+          "raw": "said",
+          "start": 2.13,
+          "end": 2.67
+        },
+        {
+          "raw": "big",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "to",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "my",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "raw": "scowling.",
+          "start": 3.39,
+          "end": 4.07
+        },
+        {
+          "raw": "He",
+          "start": 4.27,
+          "end": 4.75
+        },
+        {
+          "raw": "is",
+          "start": 4.75,
+          "end": 4.85
+        },
+        {
+          "raw": "a",
+          "start": 4.85,
+          "end": 4.95
+        },
+        {
+          "raw": "very",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "raw": "bad",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "raw": "boy,",
+          "start": 5.45,
+          "end": 5.75
+        },
+        {
+          "raw": "and",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "raw": "he",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "raw": "will",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "raw": "end",
+          "start": 6.31,
+          "end": 6.57
+        },
+        {
+          "raw": "in",
+          "start": 6.57,
+          "end": 6.73
+        },
+        {
+          "raw": "a",
+          "start": 6.73,
+          "end": 6.81
+        },
+        {
+          "raw": "jail",
+          "start": 6.81,
+          "end": 7.15
+        },
+        {
+          "raw": "sahib",
+          "start": 7.15,
+          "end": 7.73
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "is",
+        "Toomai,",
+        "my",
+        "son,",
+        "Sahib,\"",
+        "said",
+        "Big",
+        "Toomai,",
+        "scowling.",
+        "\"He",
+        "is",
+        "a",
+        "very",
+        "bad",
+        "boy,",
+        "and",
+        "he",
+        "will",
+        "end",
+        "in",
+        "a",
+        "jail,",
+        "Sahib.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          8,
+          4,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          24,
+          11,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "Toomai,",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "my",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "son,",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "Sahib,\"",
+          "start": 1.57,
+          "end": 2.13
+        },
+        {
+          "text": "said",
+          "start": 2.13,
+          "end": 2.67
+        },
+        {
+          "text": "Big",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "Toomai,",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "scowling.",
+          "start": 3.39,
+          "end": 4.07
+        },
+        {
+          "text": "\"He",
+          "start": 4.27,
+          "end": 4.75
+        },
+        {
+          "text": "is",
+          "start": 4.75,
+          "end": 4.85
+        },
+        {
+          "text": "a",
+          "start": 4.85,
+          "end": 4.95
+        },
+        {
+          "text": "very",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "text": "bad",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "text": "boy,",
+          "start": 5.45,
+          "end": 5.75
+        },
+        {
+          "text": "and",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "text": "he",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "text": "will",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "text": "end",
+          "start": 6.31,
+          "end": 6.57
+        },
+        {
+          "text": "in",
+          "start": 6.57,
+          "end": 6.73
+        },
+        {
+          "text": "a",
+          "start": 6.73,
+          "end": 6.81
+        },
+        {
+          "text": "jail,",
+          "start": 6.81,
+          "end": 7.15
+        },
+        {
+          "text": "Sahib.\"",
+          "start": 7.15,
+          "end": 7.73
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 26,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.15000940673053265
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e8341bd35e2a7526bb87aa28f3b8995f9b52ddf0ae52d050ecd2592f2564b29",
+  "selected_reasons": []
+}

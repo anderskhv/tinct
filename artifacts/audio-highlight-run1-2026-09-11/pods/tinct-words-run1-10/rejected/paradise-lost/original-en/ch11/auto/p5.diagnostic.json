@@ -1,0 +1,4626 @@
+{
+  "complete": true,
+  "signature": "c8ba9fd5488d3b1ea23254a6486e990b43af97a11eea7e0e44a48276bb3984ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.4392694820126053,
+      "alignment_seconds": 0.00042686800588853657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Those pure immortal elements, that know, No gross, no unharmonious mixture foul, Eject him, tainted now; and purge him off, As a distemper, gross, to air as gross, And mortal food; as may dispose him best For dissolution wrought by sin, that first Distempered all things, and of incorrupt Corrupted. I, at first, with two fair gifts Created him endowed; with happiness, And immortality: that fondly lost, This other served but to eternize woe;",
+        "hotwords": "Those, Eject, For, Distempered, Corrupted, I, Created, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, at first, with two fair gifts Created him endowed, with happiness, And immortality, that fondly lost, This other served but to eternize woe.",
+          "start": 17.41,
+          "end": 26.67,
+          "words": [
+            {
+              "text": " I,",
+              "start": 17.41,
+              "end": 18.01,
+              "probability": 0.004039764404296875
+            },
+            {
+              "text": " at",
+              "start": 18.01,
+              "end": 18.61,
+              "probability": 0.978515625
+            },
+            {
+              "text": " first,",
+              "start": 18.61,
+              "end": 18.87,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " with",
+              "start": 19.05,
+              "end": 19.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " two",
+              "start": 19.13,
+              "end": 19.37,
+              "probability": 0.984375
+            },
+            {
+              "text": " fair",
+              "start": 19.37,
+              "end": 19.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " gifts",
+              "start": 19.65,
+              "end": 19.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Created",
+              "start": 19.95,
+              "end": 20.25,
+              "probability": 0.0025806427001953125
+            },
+            {
+              "text": " him",
+              "start": 20.25,
+              "end": 20.51,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " endowed,",
+              "start": 20.51,
+              "end": 20.89,
+              "probability": 0.787109375
+            },
+            {
+              "text": " with",
+              "start": 21.31,
+              "end": 21.49,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " happiness,",
+              "start": 21.49,
+              "end": 21.93,
+              "probability": 0.958984375
+            },
+            {
+              "text": " And",
+              "start": 22.15,
+              "end": 22.21,
+              "probability": 0.0499267578125
+            },
+            {
+              "text": " immortality,",
+              "start": 22.21,
+              "end": 22.81,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 23.45,
+              "end": 23.67,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " fondly",
+              "start": 23.67,
+              "end": 24.07,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " lost,",
+              "start": 24.07,
+              "end": 24.37,
+              "probability": 0.962890625
+            },
+            {
+              "text": " This",
+              "start": 24.71,
+              "end": 24.79,
+              "probability": 0.759765625
+            },
+            {
+              "text": " other",
+              "start": 24.79,
+              "end": 25.03,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " served",
+              "start": 25.03,
+              "end": 25.45,
+              "probability": 0.96875
+            },
+            {
+              "text": " but",
+              "start": 25.45,
+              "end": 25.69,
+              "probability": 0.6015625
+            },
+            {
+              "text": " to",
+              "start": 25.69,
+              "end": 25.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " eternize",
+              "start": 25.85,
+              "end": 26.41,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " woe.",
+              "start": 26.41,
+              "end": 26.67,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 17.41,
+          "end": 18.01
+        },
+        {
+          "raw": "at",
+          "start": 18.01,
+          "end": 18.61
+        },
+        {
+          "raw": "first,",
+          "start": 18.61,
+          "end": 18.87
+        },
+        {
+          "raw": "with",
+          "start": 19.05,
+          "end": 19.13
+        },
+        {
+          "raw": "two",
+          "start": 19.13,
+          "end": 19.37
+        },
+        {
+          "raw": "fair",
+          "start": 19.37,
+          "end": 19.65
+        },
+        {
+          "raw": "gifts",
+          "start": 19.65,
+          "end": 19.95
+        },
+        {
+          "raw": "Created",
+          "start": 19.95,
+          "end": 20.25
+        },
+        {
+          "raw": "him",
+          "start": 20.25,
+          "end": 20.51
+        },
+        {
+          "raw": "endowed,",
+          "start": 20.51,
+          "end": 20.89
+        },
+        {
+          "raw": "with",
+          "start": 21.31,
+          "end": 21.49
+        },
+        {
+          "raw": "happiness,",
+          "start": 21.49,
+          "end": 21.93
+        },
+        {
+          "raw": "And",
+          "start": 22.15,
+          "end": 22.21
+        },
+        {
+          "raw": "immortality,",
+          "start": 22.21,
+          "end": 22.81
+        },
+        {
+          "raw": "that",
+          "start": 23.45,
+          "end": 23.67
+        },
+        {
+          "raw": "fondly",
+          "start": 23.67,
+          "end": 24.07
+        },
+        {
+          "raw": "lost,",
+          "start": 24.07,
+          "end": 24.37
+        },
+        {
+          "raw": "This",
+          "start": 24.71,
+          "end": 24.79
+        },
+        {
+          "raw": "other",
+          "start": 24.79,
+          "end": 25.03
+        },
+        {
+          "raw": "served",
+          "start": 25.03,
+          "end": 25.45
+        },
+        {
+          "raw": "but",
+          "start": 25.45,
+          "end": 25.69
+        },
+        {
+          "raw": "to",
+          "start": 25.69,
+          "end": 25.85
+        },
+        {
+          "raw": "eternize",
+          "start": 25.85,
+          "end": 26.41
+        },
+        {
+          "raw": "woe.",
+          "start": 26.41,
+          "end": 26.67
+        }
+      ],
+      "expected_tokens": [
+        "Those",
+        "pure",
+        "immortal",
+        "elements,",
+        "that",
+        "know,",
+        "No",
+        "gross,",
+        "no",
+        "unharmonious",
+        "mixture",
+        "foul,",
+        "Eject",
+        "him,",
+        "tainted",
+        "now;",
+        "and",
+        "purge",
+        "him",
+        "off,",
+        "As",
+        "a",
+        "distemper,",
+        "gross,",
+        "to",
+        "air",
+        "as",
+        "gross,",
+        "And",
+        "mortal",
+        "food;",
+        "as",
+        "may",
+        "dispose",
+        "him",
+        "best",
+        "For",
+        "dissolution",
+        "wrought",
+        "by",
+        "sin,",
+        "that",
+        "first",
+        "Distempered",
+        "all",
+        "things,",
+        "and",
+        "of",
+        "incorrupt",
+        "Corrupted.",
+        "I,",
+        "at",
+        "first,",
+        "with",
+        "two",
+        "fair",
+        "gifts",
+        "Created",
+        "him",
+        "endowed;",
+        "with",
+        "happiness,",
+        "And",
+        "immortality:",
+        "that",
+        "fondly",
+        "lost,",
+        "This",
+        "other",
+        "served",
+        "but",
+        "to",
+        "eternize",
+        "woe;"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          50,
+          0,
+          0
+        ],
+        [
+          "equal",
+          50,
+          74,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          50,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Those",
+          "start": 0.0,
+          "end": 8.705
+        },
+        {
+          "text": "pure",
+          "start": 8.705,
+          "end": 13.058
+        },
+        {
+          "text": "immortal",
+          "start": 13.058,
+          "end": 15.234
+        },
+        {
+          "text": "elements,",
+          "start": 15.234,
+          "end": 16.322
+        },
+        {
+          "text": "that",
+          "start": 16.322,
+          "end": 16.866
+        },
+        {
+          "text": "know,",
+          "start": 16.866,
+          "end": 17.138
+        },
+        {
+          "text": "No",
+          "start": 17.138,
+          "end": 17.274
+        },
+        {
+          "text": "gross,",
+          "start": 17.274,
+          "end": 17.342
+        },
+        {
+          "text": "no",
+          "start": 17.342,
+          "end": 17.376
+        },
+        {
+          "text": "unharmonious",
+          "start": 17.376,
+          "end": 17.393
+        },
+        {
+          "text": "mixture",
+          "start": 17.393,
+          "end": 17.401
+        },
+        {
+          "text": "foul,",
+          "start": 17.401,
+          "end": 17.405
+        },
+        {
+          "text": "Eject",
+          "start": 17.405,
+          "end": 17.407
+        },
+        {
+          "text": "him,",
+          "start": 17.407,
+          "end": 17.409
+        },
+        {
+          "text": "tainted",
+          "start": 17.409,
+          "end": 17.41
+        },
+        {
+          "text": "now;",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "and",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "purge",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "him",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "off,",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "As",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "a",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "distemper,",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "gross,",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "to",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "air",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "as",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "gross,",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "And",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "mortal",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "food;",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "as",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "may",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "dispose",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "him",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "best",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "For",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "dissolution",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "wrought",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "by",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "sin,",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "that",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "first",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "Distempered",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "all",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "things,",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "and",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "of",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "incorrupt",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "Corrupted.",
+          "start": 17.41,
+          "end": 17.41
+        },
+        {
+          "text": "I,",
+          "start": 17.41,
+          "end": 18.01
+        },
+        {
+          "text": "at",
+          "start": 18.01,
+          "end": 18.61
+        },
+        {
+          "text": "first,",
+          "start": 18.61,
+          "end": 18.87
+        },
+        {
+          "text": "with",
+          "start": 19.05,
+          "end": 19.13
+        },
+        {
+          "text": "two",
+          "start": 19.13,
+          "end": 19.37
+        },
+        {
+          "text": "fair",
+          "start": 19.37,
+          "end": 19.65
+        },
+        {
+          "text": "gifts",
+          "start": 19.65,
+          "end": 19.95
+        },
+        {
+          "text": "Created",
+          "start": 19.95,
+          "end": 20.25
+        },
+        {
+          "text": "him",
+          "start": 20.25,
+          "end": 20.51
+        },
+        {
+          "text": "endowed;",
+          "start": 20.51,
+          "end": 20.89
+        },
+        {
+          "text": "with",
+          "start": 21.31,
+          "end": 21.49
+        },
+        {
+          "text": "happiness,",
+          "start": 21.49,
+          "end": 21.93
+        },
+        {
+          "text": "And",
+          "start": 22.15,
+          "end": 22.21
+        },
+        {
+          "text": "immortality:",
+          "start": 22.21,
+          "end": 22.81
+        },
+        {
+          "text": "that",
+          "start": 23.45,
+          "end": 23.67
+        },
+        {
+          "text": "fondly",
+          "start": 23.67,
+          "end": 24.07
+        },
+        {
+          "text": "lost,",
+          "start": 24.07,
+          "end": 24.37
+        },
+        {
+          "text": "This",
+          "start": 24.71,
+          "end": 24.79
+        },
+        {
+          "text": "other",
+          "start": 24.79,
+          "end": 25.03
+        },
+        {
+          "text": "served",
+          "start": 25.03,
+          "end": 25.45
+        },
+        {
+          "text": "but",
+          "start": 25.45,
+          "end": 25.69
+        },
+        {
+          "text": "to",
+          "start": 25.69,
+          "end": 25.85
+        },
+        {
+          "text": "eternize",
+          "start": 25.85,
+          "end": 26.41
+        },
+        {
+          "text": "woe;",
+          "start": 26.41,
+          "end": 26.67
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 0.32432432432432434,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.43980498000746593
+    },
+    {
+      "asr_seconds": 0.8668521810031962,
+      "alignment_seconds": 0.0005401270173024386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Those, Eject, For, Distempered, Corrupted, I, Created, This"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Those Pure Immortal Elements, That Know, No Gross, No Unharmonious Mixture Foul Eject",
+          "start": 0.11,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " Those",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " Pure",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.01364898681640625
+            },
+            {
+              "text": " Immortal",
+              "start": 0.85,
+              "end": 1.27,
+              "probability": 0.46875
+            },
+            {
+              "text": " Elements,",
+              "start": 1.27,
+              "end": 1.79,
+              "probability": 0.473876953125
+            },
+            {
+              "text": " That",
+              "start": 2.23,
+              "end": 2.31,
+              "probability": 0.62109375
+            },
+            {
+              "text": " Know,",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.249755859375
+            },
+            {
+              "text": " No",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " Gross,",
+              "start": 3.01,
+              "end": 3.29,
+              "probability": 0.947265625
+            },
+            {
+              "text": " No",
+              "start": 3.71,
+              "end": 3.81,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Unharmonious",
+              "start": 3.81,
+              "end": 4.55,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Mixture",
+              "start": 4.55,
+              "end": 4.93,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " Foul",
+              "start": 4.93,
+              "end": 5.33,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " Eject",
+              "start": 5.33,
+              "end": 5.65,
+              "probability": 0.92822265625
+            }
+          ]
+        },
+        {
+          "text": " Him, Tainted Now, And Purge Him Off As A Distemper Gross To Air As Gross And Mortal Food, As May",
+          "start": 5.65,
+          "end": 12.21,
+          "words": [
+            {
+              "text": " Him,",
+              "start": 5.65,
+              "end": 5.93,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Tainted",
+              "start": 6.31,
+              "end": 6.51,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Now,",
+              "start": 6.51,
+              "end": 6.89,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " And",
+              "start": 7.35,
+              "end": 7.59,
+              "probability": 0.884765625
+            },
+            {
+              "text": " Purge",
+              "start": 7.59,
+              "end": 7.83,
+              "probability": 0.954345703125
+            },
+            {
+              "text": " Him",
+              "start": 7.83,
+              "end": 7.93,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Off",
+              "start": 7.93,
+              "end": 8.15,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " As",
+              "start": 8.15,
+              "end": 8.37,
+              "probability": 0.634765625
+            },
+            {
+              "text": " A",
+              "start": 8.37,
+              "end": 8.53,
+              "probability": 0.791015625
+            },
+            {
+              "text": " Distemper",
+              "start": 8.53,
+              "end": 8.95,
+              "probability": 0.9217122395833334
+            },
+            {
+              "text": " Gross",
+              "start": 8.95,
+              "end": 9.23,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " To",
+              "start": 9.23,
+              "end": 9.57,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " Air",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.3740234375
+            },
+            {
+              "text": " As",
+              "start": 9.75,
+              "end": 9.97,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Gross",
+              "start": 9.97,
+              "end": 10.25,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " And",
+              "start": 10.25,
+              "end": 10.59,
+              "probability": 0.79296875
+            },
+            {
+              "text": " Mortal",
+              "start": 10.59,
+              "end": 10.85,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " Food,",
+              "start": 10.85,
+              "end": 11.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " As",
+              "start": 11.77,
+              "end": 12.05,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " May",
+              "start": 12.05,
+              "end": 12.21,
+              "probability": 0.958984375
+            }
+          ]
+        },
+        {
+          "text": " Dispose Him Best For Dissolution Raught By Sin, That First Distempered All Things And",
+          "start": 12.21,
+          "end": 16.49,
+          "words": [
+            {
+              "text": " Dispose",
+              "start": 12.21,
+              "end": 12.51,
+              "probability": 0.919921875
+            },
+            {
+              "text": " Him",
+              "start": 12.51,
+              "end": 12.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Best",
+              "start": 12.69,
+              "end": 12.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " For",
+              "start": 12.89,
+              "end": 13.11,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Dissolution",
+              "start": 13.11,
+              "end": 13.63,
+              "probability": 0.857666015625
+            },
+            {
+              "text": " Raught",
+              "start": 13.63,
+              "end": 13.89,
+              "probability": 0.65625
+            },
+            {
+              "text": " By",
+              "start": 13.89,
+              "end": 14.13,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Sin,",
+              "start": 14.13,
+              "end": 14.41,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " That",
+              "start": 14.85,
+              "end": 14.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " First",
+              "start": 14.97,
+              "end": 15.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Distempered",
+              "start": 15.23,
+              "end": 15.67,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " All",
+              "start": 15.67,
+              "end": 15.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Things",
+              "start": 15.89,
+              "end": 16.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " And",
+              "start": 16.19,
+              "end": 16.49,
+              "probability": 0.892578125
+            }
+          ]
+        },
+        {
+          "text": " Of Incorrupt Corrupted, I At First With Two Fair Gifts Created Him Endowed, With Happiness",
+          "start": 16.49,
+          "end": 21.89,
+          "words": [
+            {
+              "text": " Of",
+              "start": 16.49,
+              "end": 16.61,
+              "probability": 0.417236328125
+            },
+            {
+              "text": " Incorrupt",
+              "start": 16.61,
+              "end": 17.07,
+              "probability": 0.9695638020833334
+            },
+            {
+              "text": " Corrupted,",
+              "start": 17.07,
+              "end": 17.59,
+              "probability": 0.950439453125
+            },
+            {
+              "text": " I",
+              "start": 18.19,
+              "end": 18.51,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " At",
+              "start": 18.51,
+              "end": 18.63,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " First",
+              "start": 18.63,
+              "end": 18.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " With",
+              "start": 18.87,
+              "end": 19.13,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Two",
+              "start": 19.13,
+              "end": 19.37,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Fair",
+              "start": 19.37,
+              "end": 19.67,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Gifts",
+              "start": 19.67,
+              "end": 19.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Created",
+              "start": 19.93,
+              "end": 20.25,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Him",
+              "start": 20.25,
+              "end": 20.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Endowed,",
+              "start": 20.53,
+              "end": 20.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " With",
+              "start": 21.37,
+              "end": 21.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Happiness",
+              "start": 21.49,
+              "end": 21.89,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " And Immortality, That Fondly Lost, This Other Served But To Eternize Woe.",
+          "start": 21.89,
+          "end": 26.73,
+          "words": [
+            {
+              "text": " And",
+              "start": 21.89,
+              "end": 22.19,
+              "probability": 0.05859375
+            },
+            {
+              "text": " Immortality,",
+              "start": 22.19,
+              "end": 22.91,
+              "probability": 0.49536895751953125
+            },
+            {
+              "text": " That",
+              "start": 23.47,
+              "end": 23.65,
+              "probability": 0.463134765625
+            },
+            {
+              "text": " Fondly",
+              "start": 23.65,
+              "end": 24.07,
+              "probability": 0.6360651652018229
+            },
+            {
+              "text": " Lost,",
+              "start": 24.07,
+              "end": 24.35,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " This",
+              "start": 24.71,
+              "end": 24.83,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Other",
+              "start": 24.83,
+              "end": 25.05,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Served",
+              "start": 25.05,
+              "end": 25.57,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " But",
+              "start": 25.57,
+              "end": 25.69,
+              "probability": 0.36328125
+            },
+            {
+              "text": " To",
+              "start": 25.69,
+              "end": 25.85,
+              "probability": 0.783203125
+            },
+            {
+              "text": " Eternize",
+              "start": 25.85,
+              "end": 26.39,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " Woe.",
+              "start": 26.39,
+              "end": 26.73,
+              "probability": 0.716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Those",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "Pure",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "Immortal",
+          "start": 0.85,
+          "end": 1.27
+        },
+        {
+          "raw": "Elements,",
+          "start": 1.27,
+          "end": 1.79
+        },
+        {
+          "raw": "That",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "raw": "Know,",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "No",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "Gross,",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "raw": "No",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "raw": "Unharmonious",
+          "start": 3.81,
+          "end": 4.55
+        },
+        {
+          "raw": "Mixture",
+          "start": 4.55,
+          "end": 4.93
+        },
+        {
+          "raw": "Foul",
+          "start": 4.93,
+          "end": 5.33
+        },
+        {
+          "raw": "Eject",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "raw": "Him,",
+          "start": 5.65,
+          "end": 5.93
+        },
+        {
+          "raw": "Tainted",
+          "start": 6.31,
+          "end": 6.51
+        },
+        {
+          "raw": "Now,",
+          "start": 6.51,
+          "end": 6.89
+        },
+        {
+          "raw": "And",
+          "start": 7.35,
+          "end": 7.59
+        },
+        {
+          "raw": "Purge",
+          "start": 7.59,
+          "end": 7.83
+        },
+        {
+          "raw": "Him",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "raw": "Off",
+          "start": 7.93,
+          "end": 8.15
+        },
+        {
+          "raw": "As",
+          "start": 8.15,
+          "end": 8.37
+        },
+        {
+          "raw": "A",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "raw": "Distemper",
+          "start": 8.53,
+          "end": 8.95
+        },
+        {
+          "raw": "Gross",
+          "start": 8.95,
+          "end": 9.23
+        },
+        {
+          "raw": "To",
+          "start": 9.23,
+          "end": 9.57
+        },
+        {
+          "raw": "Air",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "As",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "raw": "Gross",
+          "start": 9.97,
+          "end": 10.25
+        },
+        {
+          "raw": "And",
+          "start": 10.25,
+          "end": 10.59
+        },
+        {
+          "raw": "Mortal",
+          "start": 10.59,
+          "end": 10.85
+        },
+        {
+          "raw": "Food,",
+          "start": 10.85,
+          "end": 11.25
+        },
+        {
+          "raw": "As",
+          "start": 11.77,
+          "end": 12.05
+        },
+        {
+          "raw": "May",
+          "start": 12.05,
+          "end": 12.21
+        },
+        {
+          "raw": "Dispose",
+          "start": 12.21,
+          "end": 12.51
+        },
+        {
+          "raw": "Him",
+          "start": 12.51,
+          "end": 12.69
+        },
+        {
+          "raw": "Best",
+          "start": 12.69,
+          "end": 12.89
+        },
+        {
+          "raw": "For",
+          "start": 12.89,
+          "end": 13.11
+        },
+        {
+          "raw": "Dissolution",
+          "start": 13.11,
+          "end": 13.63
+        },
+        {
+          "raw": "Raught",
+          "start": 13.63,
+          "end": 13.89
+        },
+        {
+          "raw": "By",
+          "start": 13.89,
+          "end": 14.13
+        },
+        {
+          "raw": "Sin,",
+          "start": 14.13,
+          "end": 14.41
+        },
+        {
+          "raw": "That",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "raw": "First",
+          "start": 14.97,
+          "end": 15.23
+        },
+        {
+          "raw": "Distempered",
+          "start": 15.23,
+          "end": 15.67
+        },
+        {
+          "raw": "All",
+          "start": 15.67,
+          "end": 15.89
+        },
+        {
+          "raw": "Things",
+          "start": 15.89,
+          "end": 16.19
+        },
+        {
+          "raw": "And",
+          "start": 16.19,
+          "end": 16.49
+        },
+        {
+          "raw": "Of",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "raw": "Incorrupt",
+          "start": 16.61,
+          "end": 17.07
+        },
+        {
+          "raw": "Corrupted,",
+          "start": 17.07,
+          "end": 17.59
+        },
+        {
+          "raw": "I",
+          "start": 18.19,
+          "end": 18.51
+        },
+        {
+          "raw": "At",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "raw": "First",
+          "start": 18.63,
+          "end": 18.87
+        },
+        {
+          "raw": "With",
+          "start": 18.87,
+          "end": 19.13
+        },
+        {
+          "raw": "Two",
+          "start": 19.13,
+          "end": 19.37
+        },
+        {
+          "raw": "Fair",
+          "start": 19.37,
+          "end": 19.67
+        },
+        {
+          "raw": "Gifts",
+          "start": 19.67,
+          "end": 19.93
+        },
+        {
+          "raw": "Created",
+          "start": 19.93,
+          "end": 20.25
+        },
+        {
+          "raw": "Him",
+          "start": 20.25,
+          "end": 20.53
+        },
+        {
+          "raw": "Endowed,",
+          "start": 20.53,
+          "end": 20.91
+        },
+        {
+          "raw": "With",
+          "start": 21.37,
+          "end": 21.49
+        },
+        {
+          "raw": "Happiness",
+          "start": 21.49,
+          "end": 21.89
+        },
+        {
+          "raw": "And",
+          "start": 21.89,
+          "end": 22.19
+        },
+        {
+          "raw": "Immortality,",
+          "start": 22.19,
+          "end": 22.91
+        },
+        {
+          "raw": "That",
+          "start": 23.47,
+          "end": 23.65
+        },
+        {
+          "raw": "Fondly",
+          "start": 23.65,
+          "end": 24.07
+        },
+        {
+          "raw": "Lost,",
+          "start": 24.07,
+          "end": 24.35
+        },
+        {
+          "raw": "This",
+          "start": 24.71,
+          "end": 24.83
+        },
+        {
+          "raw": "Other",
+          "start": 24.83,
+          "end": 25.05
+        },
+        {
+          "raw": "Served",
+          "start": 25.05,
+          "end": 25.57
+        },
+        {
+          "raw": "But",
+          "start": 25.57,
+          "end": 25.69
+        },
+        {
+          "raw": "To",
+          "start": 25.69,
+          "end": 25.85
+        },
+        {
+          "raw": "Eternize",
+          "start": 25.85,
+          "end": 26.39
+        },
+        {
+          "raw": "Woe.",
+          "start": 26.39,
+          "end": 26.73
+        }
+      ],
+      "expected_tokens": [
+        "Those",
+        "pure",
+        "immortal",
+        "elements,",
+        "that",
+        "know,",
+        "No",
+        "gross,",
+        "no",
+        "unharmonious",
+        "mixture",
+        "foul,",
+        "Eject",
+        "him,",
+        "tainted",
+        "now;",
+        "and",
+        "purge",
+        "him",
+        "off,",
+        "As",
+        "a",
+        "distemper,",
+        "gross,",
+        "to",
+        "air",
+        "as",
+        "gross,",
+        "And",
+        "mortal",
+        "food;",
+        "as",
+        "may",
+        "dispose",
+        "him",
+        "best",
+        "For",
+        "dissolution",
+        "wrought",
+        "by",
+        "sin,",
+        "that",
+        "first",
+        "Distempered",
+        "all",
+        "things,",
+        "and",
+        "of",
+        "incorrupt",
+        "Corrupted.",
+        "I,",
+        "at",
+        "first,",
+        "with",
+        "two",
+        "fair",
+        "gifts",
+        "Created",
+        "him",
+        "endowed;",
+        "with",
+        "happiness,",
+        "And",
+        "immortality:",
+        "that",
+        "fondly",
+        "lost,",
+        "This",
+        "other",
+        "served",
+        "but",
+        "to",
+        "eternize",
+        "woe;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ],
+        [
+          "equal",
+          39,
+          74,
+          39,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Those",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "pure",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "immortal",
+          "start": 0.85,
+          "end": 1.27
+        },
+        {
+          "text": "elements,",
+          "start": 1.27,
+          "end": 1.79
+        },
+        {
+          "text": "that",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "text": "know,",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "No",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "gross,",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "text": "no",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "text": "unharmonious",
+          "start": 3.81,
+          "end": 4.55
+        },
+        {
+          "text": "mixture",
+          "start": 4.55,
+          "end": 4.93
+        },
+        {
+          "text": "foul,",
+          "start": 4.93,
+          "end": 5.33
+        },
+        {
+          "text": "Eject",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "text": "him,",
+          "start": 5.65,
+          "end": 5.93
+        },
+        {
+          "text": "tainted",
+          "start": 6.31,
+          "end": 6.51
+        },
+        {
+          "text": "now;",
+          "start": 6.51,
+          "end": 6.89
+        },
+        {
+          "text": "and",
+          "start": 7.35,
+          "end": 7.59
+        },
+        {
+          "text": "purge",
+          "start": 7.59,
+          "end": 7.83
+        },
+        {
+          "text": "him",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "text": "off,",
+          "start": 7.93,
+          "end": 8.15
+        },
+        {
+          "text": "As",
+          "start": 8.15,
+          "end": 8.37
+        },
+        {
+          "text": "a",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "text": "distemper,",
+          "start": 8.53,
+          "end": 8.95
+        },
+        {
+          "text": "gross,",
+          "start": 8.95,
+          "end": 9.23
+        },
+        {
+          "text": "to",
+          "start": 9.23,
+          "end": 9.57
+        },
+        {
+          "text": "air",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "as",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "text": "gross,",
+          "start": 9.97,
+          "end": 10.25
+        },
+        {
+          "text": "And",
+          "start": 10.25,
+          "end": 10.59
+        },
+        {
+          "text": "mortal",
+          "start": 10.59,
+          "end": 10.85
+        },
+        {
+          "text": "food;",
+          "start": 10.85,
+          "end": 11.25
+        },
+        {
+          "text": "as",
+          "start": 11.77,
+          "end": 12.05
+        },
+        {
+          "text": "may",
+          "start": 12.05,
+          "end": 12.21
+        },
+        {
+          "text": "dispose",
+          "start": 12.21,
+          "end": 12.51
+        },
+        {
+          "text": "him",
+          "start": 12.51,
+          "end": 12.69
+        },
+        {
+          "text": "best",
+          "start": 12.69,
+          "end": 12.89
+        },
+        {
+          "text": "For",
+          "start": 12.89,
+          "end": 13.11
+        },
+        {
+          "text": "dissolution",
+          "start": 13.11,
+          "end": 13.63
+        },
+        {
+          "text": "wrought",
+          "start": 13.63,
+          "end": 13.76
+        },
+        {
+          "text": "by",
+          "start": 13.89,
+          "end": 14.13
+        },
+        {
+          "text": "sin,",
+          "start": 14.13,
+          "end": 14.41
+        },
+        {
+          "text": "that",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "text": "first",
+          "start": 14.97,
+          "end": 15.23
+        },
+        {
+          "text": "Distempered",
+          "start": 15.23,
+          "end": 15.67
+        },
+        {
+          "text": "all",
+          "start": 15.67,
+          "end": 15.89
+        },
+        {
+          "text": "things,",
+          "start": 15.89,
+          "end": 16.19
+        },
+        {
+          "text": "and",
+          "start": 16.19,
+          "end": 16.49
+        },
+        {
+          "text": "of",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "text": "incorrupt",
+          "start": 16.61,
+          "end": 17.07
+        },
+        {
+          "text": "Corrupted.",
+          "start": 17.07,
+          "end": 17.59
+        },
+        {
+          "text": "I,",
+          "start": 18.19,
+          "end": 18.51
+        },
+        {
+          "text": "at",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "text": "first,",
+          "start": 18.63,
+          "end": 18.87
+        },
+        {
+          "text": "with",
+          "start": 18.87,
+          "end": 19.13
+        },
+        {
+          "text": "two",
+          "start": 19.13,
+          "end": 19.37
+        },
+        {
+          "text": "fair",
+          "start": 19.37,
+          "end": 19.67
+        },
+        {
+          "text": "gifts",
+          "start": 19.67,
+          "end": 19.93
+        },
+        {
+          "text": "Created",
+          "start": 19.93,
+          "end": 20.25
+        },
+        {
+          "text": "him",
+          "start": 20.25,
+          "end": 20.53
+        },
+        {
+          "text": "endowed;",
+          "start": 20.53,
+          "end": 20.91
+        },
+        {
+          "text": "with",
+          "start": 21.37,
+          "end": 21.49
+        },
+        {
+          "text": "happiness,",
+          "start": 21.49,
+          "end": 21.89
+        },
+        {
+          "text": "And",
+          "start": 21.89,
+          "end": 22.19
+        },
+        {
+          "text": "immortality:",
+          "start": 22.19,
+          "end": 22.91
+        },
+        {
+          "text": "that",
+          "start": 23.47,
+          "end": 23.65
+        },
+        {
+          "text": "fondly",
+          "start": 23.65,
+          "end": 24.07
+        },
+        {
+          "text": "lost,",
+          "start": 24.07,
+          "end": 24.35
+        },
+        {
+          "text": "This",
+          "start": 24.71,
+          "end": 24.83
+        },
+        {
+          "text": "other",
+          "start": 24.83,
+          "end": 25.05
+        },
+        {
+          "text": "served",
+          "start": 25.05,
+          "end": 25.57
+        },
+        {
+          "text": "but",
+          "start": 25.57,
+          "end": 25.69
+        },
+        {
+          "text": "to",
+          "start": 25.69,
+          "end": 25.85
+        },
+        {
+          "text": "eternize",
+          "start": 25.85,
+          "end": 26.39
+        },
+        {
+          "text": "woe;",
+          "start": 26.39,
+          "end": 26.73
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 74,
+        "matched_words": 73
+      },
+      "match_ratio": 0.9864864864864865,
+      "rejection_reasons": [],
+      "seconds": 0.8676753159961663
+    },
+    {
+      "asr_seconds": 0.9241220179828815,
+      "alignment_seconds": 0.00051485700532794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Those pure immortal elements, that no, no gross, no unharmonious mixture foul eject him,",
+          "start": 0.11,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " Those",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " pure",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " immortal",
+              "start": 0.85,
+              "end": 1.29,
+              "probability": 0.78125
+            },
+            {
+              "text": " elements,",
+              "start": 1.29,
+              "end": 1.81,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.712890625
+            },
+            {
+              "text": " no,",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " no",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " gross,",
+              "start": 3.01,
+              "end": 3.35,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " no",
+              "start": 3.71,
+              "end": 3.79,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " unharmonious",
+              "start": 3.79,
+              "end": 4.55,
+              "probability": 0.9300537109375
+            },
+            {
+              "text": " mixture",
+              "start": 4.55,
+              "end": 4.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " foul",
+              "start": 4.91,
+              "end": 5.27,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " eject",
+              "start": 5.27,
+              "end": 5.57,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " him,",
+              "start": 5.57,
+              "end": 5.97,
+              "probability": 0.92822265625
+            }
+          ]
+        },
+        {
+          "text": " tainted now, and purge him off as a distemper gross to err as gross and mortal food.",
+          "start": 6.29,
+          "end": 11.27,
+          "words": [
+            {
+              "text": " tainted",
+              "start": 6.29,
+              "end": 6.49,
+              "probability": 0.978515625
+            },
+            {
+              "text": " now,",
+              "start": 6.49,
+              "end": 6.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 7.41,
+              "end": 7.57,
+              "probability": 0.953125
+            },
+            {
+              "text": " purge",
+              "start": 7.57,
+              "end": 7.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " him",
+              "start": 7.77,
+              "end": 7.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " off",
+              "start": 7.93,
+              "end": 8.17,
+              "probability": 0.98828125
+            },
+            {
+              "text": " as",
+              "start": 8.17,
+              "end": 8.39,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " a",
+              "start": 8.39,
+              "end": 8.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distemper",
+              "start": 8.51,
+              "end": 8.95,
+              "probability": 0.9720052083333334
+            },
+            {
+              "text": " gross",
+              "start": 8.95,
+              "end": 9.25,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " to",
+              "start": 9.25,
+              "end": 9.57,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " err",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " as",
+              "start": 9.75,
+              "end": 9.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gross",
+              "start": 9.97,
+              "end": 10.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 10.27,
+              "end": 10.57,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " mortal",
+              "start": 10.57,
+              "end": 10.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " food.",
+              "start": 10.87,
+              "end": 11.27,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " As may dispose him best for dissolution wrought by sin, that first distempered all things",
+          "start": 11.81,
+          "end": 16.21,
+          "words": [
+            {
+              "text": " As",
+              "start": 11.81,
+              "end": 12.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " may",
+              "start": 12.05,
+              "end": 12.19,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " dispose",
+              "start": 12.19,
+              "end": 12.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " him",
+              "start": 12.49,
+              "end": 12.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " best",
+              "start": 12.71,
+              "end": 12.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 12.89,
+              "end": 13.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dissolution",
+              "start": 13.11,
+              "end": 13.53,
+              "probability": 0.98046875
+            },
+            {
+              "text": " wrought",
+              "start": 13.53,
+              "end": 13.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 13.89,
+              "end": 14.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sin,",
+              "start": 14.13,
+              "end": 14.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 14.85,
+              "end": 14.97,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " first",
+              "start": 14.97,
+              "end": 15.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " distempered",
+              "start": 15.21,
+              "end": 15.69,
+              "probability": 0.9816080729166666
+            },
+            {
+              "text": " all",
+              "start": 15.69,
+              "end": 15.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " things",
+              "start": 15.89,
+              "end": 16.21,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " and of incorrupt corrupted.",
+          "start": 16.21,
+          "end": 17.59,
+          "words": [
+            {
+              "text": " and",
+              "start": 16.21,
+              "end": 16.49,
+              "probability": 0.828125
+            },
+            {
+              "text": " of",
+              "start": 16.49,
+              "end": 16.59,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " incorrupt",
+              "start": 16.59,
+              "end": 17.07,
+              "probability": 0.951171875
+            },
+            {
+              "text": " corrupted.",
+              "start": 17.07,
+              "end": 17.59,
+              "probability": 0.9775390625
+            }
+          ]
+        },
+        {
+          "text": " I at first with two fair gifts created him endowed, with happiness and immortality.",
+          "start": 18.33,
+          "end": 22.79,
+          "words": [
+            {
+              "text": " I",
+              "start": 18.33,
+              "end": 18.51,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " at",
+              "start": 18.51,
+              "end": 18.63,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " first",
+              "start": 18.63,
+              "end": 18.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 18.89,
+              "end": 19.13,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " two",
+              "start": 19.13,
+              "end": 19.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " fair",
+              "start": 19.37,
+              "end": 19.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " gifts",
+              "start": 19.63,
+              "end": 19.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " created",
+              "start": 19.95,
+              "end": 20.27,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " him",
+              "start": 20.27,
+              "end": 20.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " endowed,",
+              "start": 20.53,
+              "end": 20.89,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " with",
+              "start": 21.31,
+              "end": 21.49,
+              "probability": 0.98828125
+            },
+            {
+              "text": " happiness",
+              "start": 21.49,
+              "end": 21.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 21.93,
+              "end": 22.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " immortality.",
+              "start": 22.23,
+              "end": 22.79,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " That fondly lost, this other served but to eternize woe.",
+          "start": 22.79,
+          "end": 26.71,
+          "words": [
+            {
+              "text": " That",
+              "start": 22.79,
+              "end": 23.63,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " fondly",
+              "start": 23.63,
+              "end": 24.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lost,",
+              "start": 24.07,
+              "end": 24.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " this",
+              "start": 24.71,
+              "end": 24.81,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " other",
+              "start": 24.81,
+              "end": 25.05,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " served",
+              "start": 25.05,
+              "end": 25.47,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " but",
+              "start": 25.47,
+              "end": 25.69,
+              "probability": 0.380615234375
+            },
+            {
+              "text": " to",
+              "start": 25.69,
+              "end": 25.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " eternize",
+              "start": 25.85,
+              "end": 26.37,
+              "probability": 0.6813151041666666
+            },
+            {
+              "text": " woe.",
+              "start": 26.37,
+              "end": 26.71,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Those",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "pure",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "immortal",
+          "start": 0.85,
+          "end": 1.29
+        },
+        {
+          "raw": "elements,",
+          "start": 1.29,
+          "end": 1.81
+        },
+        {
+          "raw": "that",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "no,",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "raw": "no",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "gross,",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "raw": "no",
+          "start": 3.71,
+          "end": 3.79
+        },
+        {
+          "raw": "unharmonious",
+          "start": 3.79,
+          "end": 4.55
+        },
+        {
+          "raw": "mixture",
+          "start": 4.55,
+          "end": 4.91
+        },
+        {
+          "raw": "foul",
+          "start": 4.91,
+          "end": 5.27
+        },
+        {
+          "raw": "eject",
+          "start": 5.27,
+          "end": 5.57
+        },
+        {
+          "raw": "him,",
+          "start": 5.57,
+          "end": 5.97
+        },
+        {
+          "raw": "tainted",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "raw": "now,",
+          "start": 6.49,
+          "end": 6.89
+        },
+        {
+          "raw": "and",
+          "start": 7.41,
+          "end": 7.57
+        },
+        {
+          "raw": "purge",
+          "start": 7.57,
+          "end": 7.77
+        },
+        {
+          "raw": "him",
+          "start": 7.77,
+          "end": 7.93
+        },
+        {
+          "raw": "off",
+          "start": 7.93,
+          "end": 8.17
+        },
+        {
+          "raw": "as",
+          "start": 8.17,
+          "end": 8.39
+        },
+        {
+          "raw": "a",
+          "start": 8.39,
+          "end": 8.51
+        },
+        {
+          "raw": "distemper",
+          "start": 8.51,
+          "end": 8.95
+        },
+        {
+          "raw": "gross",
+          "start": 8.95,
+          "end": 9.25
+        },
+        {
+          "raw": "to",
+          "start": 9.25,
+          "end": 9.57
+        },
+        {
+          "raw": "err",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "as",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "raw": "gross",
+          "start": 9.97,
+          "end": 10.27
+        },
+        {
+          "raw": "and",
+          "start": 10.27,
+          "end": 10.57
+        },
+        {
+          "raw": "mortal",
+          "start": 10.57,
+          "end": 10.87
+        },
+        {
+          "raw": "food.",
+          "start": 10.87,
+          "end": 11.27
+        },
+        {
+          "raw": "As",
+          "start": 11.81,
+          "end": 12.05
+        },
+        {
+          "raw": "may",
+          "start": 12.05,
+          "end": 12.19
+        },
+        {
+          "raw": "dispose",
+          "start": 12.19,
+          "end": 12.49
+        },
+        {
+          "raw": "him",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "raw": "best",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "raw": "for",
+          "start": 12.89,
+          "end": 13.11
+        },
+        {
+          "raw": "dissolution",
+          "start": 13.11,
+          "end": 13.53
+        },
+        {
+          "raw": "wrought",
+          "start": 13.53,
+          "end": 13.89
+        },
+        {
+          "raw": "by",
+          "start": 13.89,
+          "end": 14.13
+        },
+        {
+          "raw": "sin,",
+          "start": 14.13,
+          "end": 14.43
+        },
+        {
+          "raw": "that",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "raw": "first",
+          "start": 14.97,
+          "end": 15.21
+        },
+        {
+          "raw": "distempered",
+          "start": 15.21,
+          "end": 15.69
+        },
+        {
+          "raw": "all",
+          "start": 15.69,
+          "end": 15.89
+        },
+        {
+          "raw": "things",
+          "start": 15.89,
+          "end": 16.21
+        },
+        {
+          "raw": "and",
+          "start": 16.21,
+          "end": 16.49
+        },
+        {
+          "raw": "of",
+          "start": 16.49,
+          "end": 16.59
+        },
+        {
+          "raw": "incorrupt",
+          "start": 16.59,
+          "end": 17.07
+        },
+        {
+          "raw": "corrupted.",
+          "start": 17.07,
+          "end": 17.59
+        },
+        {
+          "raw": "I",
+          "start": 18.33,
+          "end": 18.51
+        },
+        {
+          "raw": "at",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "raw": "first",
+          "start": 18.63,
+          "end": 18.89
+        },
+        {
+          "raw": "with",
+          "start": 18.89,
+          "end": 19.13
+        },
+        {
+          "raw": "two",
+          "start": 19.13,
+          "end": 19.37
+        },
+        {
+          "raw": "fair",
+          "start": 19.37,
+          "end": 19.63
+        },
+        {
+          "raw": "gifts",
+          "start": 19.63,
+          "end": 19.95
+        },
+        {
+          "raw": "created",
+          "start": 19.95,
+          "end": 20.27
+        },
+        {
+          "raw": "him",
+          "start": 20.27,
+          "end": 20.53
+        },
+        {
+          "raw": "endowed,",
+          "start": 20.53,
+          "end": 20.89
+        },
+        {
+          "raw": "with",
+          "start": 21.31,
+          "end": 21.49
+        },
+        {
+          "raw": "happiness",
+          "start": 21.49,
+          "end": 21.93
+        },
+        {
+          "raw": "and",
+          "start": 21.93,
+          "end": 22.23
+        },
+        {
+          "raw": "immortality.",
+          "start": 22.23,
+          "end": 22.79
+        },
+        {
+          "raw": "That",
+          "start": 22.79,
+          "end": 23.63
+        },
+        {
+          "raw": "fondly",
+          "start": 23.63,
+          "end": 24.07
+        },
+        {
+          "raw": "lost,",
+          "start": 24.07,
+          "end": 24.41
+        },
+        {
+          "raw": "this",
+          "start": 24.71,
+          "end": 24.81
+        },
+        {
+          "raw": "other",
+          "start": 24.81,
+          "end": 25.05
+        },
+        {
+          "raw": "served",
+          "start": 25.05,
+          "end": 25.47
+        },
+        {
+          "raw": "but",
+          "start": 25.47,
+          "end": 25.69
+        },
+        {
+          "raw": "to",
+          "start": 25.69,
+          "end": 25.85
+        },
+        {
+          "raw": "eternize",
+          "start": 25.85,
+          "end": 26.37
+        },
+        {
+          "raw": "woe.",
+          "start": 26.37,
+          "end": 26.71
+        }
+      ],
+      "expected_tokens": [
+        "Those",
+        "pure",
+        "immortal",
+        "elements,",
+        "that",
+        "know,",
+        "No",
+        "gross,",
+        "no",
+        "unharmonious",
+        "mixture",
+        "foul,",
+        "Eject",
+        "him,",
+        "tainted",
+        "now;",
+        "and",
+        "purge",
+        "him",
+        "off,",
+        "As",
+        "a",
+        "distemper,",
+        "gross,",
+        "to",
+        "air",
+        "as",
+        "gross,",
+        "And",
+        "mortal",
+        "food;",
+        "as",
+        "may",
+        "dispose",
+        "him",
+        "best",
+        "For",
+        "dissolution",
+        "wrought",
+        "by",
+        "sin,",
+        "that",
+        "first",
+        "Distempered",
+        "all",
+        "things,",
+        "and",
+        "of",
+        "incorrupt",
+        "Corrupted.",
+        "I,",
+        "at",
+        "first,",
+        "with",
+        "two",
+        "fair",
+        "gifts",
+        "Created",
+        "him",
+        "endowed;",
+        "with",
+        "happiness,",
+        "And",
+        "immortality:",
+        "that",
+        "fondly",
+        "lost,",
+        "This",
+        "other",
+        "served",
+        "but",
+        "to",
+        "eternize",
+        "woe;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          25,
+          6,
+          25
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "equal",
+          26,
+          74,
+          26,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Those",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "pure",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "immortal",
+          "start": 0.85,
+          "end": 1.29
+        },
+        {
+          "text": "elements,",
+          "start": 1.29,
+          "end": 1.81
+        },
+        {
+          "text": "that",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "know,",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "No",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "gross,",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "text": "no",
+          "start": 3.71,
+          "end": 3.79
+        },
+        {
+          "text": "unharmonious",
+          "start": 3.79,
+          "end": 4.55
+        },
+        {
+          "text": "mixture",
+          "start": 4.55,
+          "end": 4.91
+        },
+        {
+          "text": "foul,",
+          "start": 4.91,
+          "end": 5.27
+        },
+        {
+          "text": "Eject",
+          "start": 5.27,
+          "end": 5.57
+        },
+        {
+          "text": "him,",
+          "start": 5.57,
+          "end": 5.97
+        },
+        {
+          "text": "tainted",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "text": "now;",
+          "start": 6.49,
+          "end": 6.89
+        },
+        {
+          "text": "and",
+          "start": 7.41,
+          "end": 7.57
+        },
+        {
+          "text": "purge",
+          "start": 7.57,
+          "end": 7.77
+        },
+        {
+          "text": "him",
+          "start": 7.77,
+          "end": 7.93
+        },
+        {
+          "text": "off,",
+          "start": 7.93,
+          "end": 8.17
+        },
+        {
+          "text": "As",
+          "start": 8.17,
+          "end": 8.39
+        },
+        {
+          "text": "a",
+          "start": 8.39,
+          "end": 8.51
+        },
+        {
+          "text": "distemper,",
+          "start": 8.51,
+          "end": 8.95
+        },
+        {
+          "text": "gross,",
+          "start": 8.95,
+          "end": 9.25
+        },
+        {
+          "text": "to",
+          "start": 9.25,
+          "end": 9.57
+        },
+        {
+          "text": "air",
+          "start": 9.57,
+          "end": 9.66
+        },
+        {
+          "text": "as",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "text": "gross,",
+          "start": 9.97,
+          "end": 10.27
+        },
+        {
+          "text": "And",
+          "start": 10.27,
+          "end": 10.57
+        },
+        {
+          "text": "mortal",
+          "start": 10.57,
+          "end": 10.87
+        },
+        {
+          "text": "food;",
+          "start": 10.87,
+          "end": 11.27
+        },
+        {
+          "text": "as",
+          "start": 11.81,
+          "end": 12.05
+        },
+        {
+          "text": "may",
+          "start": 12.05,
+          "end": 12.19
+        },
+        {
+          "text": "dispose",
+          "start": 12.19,
+          "end": 12.49
+        },
+        {
+          "text": "him",
+          "start": 12.49,
+          "end": 12.71
+        },
+        {
+          "text": "best",
+          "start": 12.71,
+          "end": 12.89
+        },
+        {
+          "text": "For",
+          "start": 12.89,
+          "end": 13.11
+        },
+        {
+          "text": "dissolution",
+          "start": 13.11,
+          "end": 13.53
+        },
+        {
+          "text": "wrought",
+          "start": 13.53,
+          "end": 13.89
+        },
+        {
+          "text": "by",
+          "start": 13.89,
+          "end": 14.13
+        },
+        {
+          "text": "sin,",
+          "start": 14.13,
+          "end": 14.43
+        },
+        {
+          "text": "that",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "text": "first",
+          "start": 14.97,
+          "end": 15.21
+        },
+        {
+          "text": "Distempered",
+          "start": 15.21,
+          "end": 15.69
+        },
+        {
+          "text": "all",
+          "start": 15.69,
+          "end": 15.89
+        },
+        {
+          "text": "things,",
+          "start": 15.89,
+          "end": 16.21
+        },
+        {
+          "text": "and",
+          "start": 16.21,
+          "end": 16.49
+        },
+        {
+          "text": "of",
+          "start": 16.49,
+          "end": 16.59
+        },
+        {
+          "text": "incorrupt",
+          "start": 16.59,
+          "end": 17.07
+        },
+        {
+          "text": "Corrupted.",
+          "start": 17.07,
+          "end": 17.59
+        },
+        {
+          "text": "I,",
+          "start": 18.33,
+          "end": 18.51
+        },
+        {
+          "text": "at",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "text": "first,",
+          "start": 18.63,
+          "end": 18.89
+        },
+        {
+          "text": "with",
+          "start": 18.89,
+          "end": 19.13
+        },
+        {
+          "text": "two",
+          "start": 19.13,
+          "end": 19.37
+        },
+        {
+          "text": "fair",
+          "start": 19.37,
+          "end": 19.63
+        },
+        {
+          "text": "gifts",
+          "start": 19.63,
+          "end": 19.95
+        },
+        {
+          "text": "Created",
+          "start": 19.95,
+          "end": 20.27
+        },
+        {
+          "text": "him",
+          "start": 20.27,
+          "end": 20.53
+        },
+        {
+          "text": "endowed;",
+          "start": 20.53,
+          "end": 20.89
+        },
+        {
+          "text": "with",
+          "start": 21.31,
+          "end": 21.49
+        },
+        {
+          "text": "happiness,",
+          "start": 21.49,
+          "end": 21.93
+        },
+        {
+          "text": "And",
+          "start": 21.93,
+          "end": 22.23
+        },
+        {
+          "text": "immortality:",
+          "start": 22.23,
+          "end": 22.79
+        },
+        {
+          "text": "that",
+          "start": 22.79,
+          "end": 23.63
+        },
+        {
+          "text": "fondly",
+          "start": 23.63,
+          "end": 24.07
+        },
+        {
+          "text": "lost,",
+          "start": 24.07,
+          "end": 24.41
+        },
+        {
+          "text": "This",
+          "start": 24.71,
+          "end": 24.81
+        },
+        {
+          "text": "other",
+          "start": 24.81,
+          "end": 25.05
+        },
+        {
+          "text": "served",
+          "start": 25.05,
+          "end": 25.47
+        },
+        {
+          "text": "but",
+          "start": 25.47,
+          "end": 25.69
+        },
+        {
+          "text": "to",
+          "start": 25.69,
+          "end": 25.85
+        },
+        {
+          "text": "eternize",
+          "start": 25.85,
+          "end": 26.37
+        },
+        {
+          "text": "woe;",
+          "start": 26.37,
+          "end": 26.71
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 74,
+        "matched_words": 72
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.9249306639831048
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "4dde93bb557a17a6977db30531a91e7a4930dc4016f44508dff05553a2092497",
+  "selected_reasons": []
+}

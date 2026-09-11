@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "00414ea8686ce93e94969f979cd99960e58c9eb2c1e7a79295bd9d35464cd29a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13657667115330696,
+      "alignment_seconds": 7.87666067481041e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"In whose name, Brother?\" Rann had never seen Mowgli before, though of course he had heard of him.",
+        "hotwords": "In, Brother, Rann, Mowgli"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In whose name, Brother? Rann had never seen Mowgli before, though of course he had heard of him.",
+          "start": 0.02,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.603515625
+            },
+            {
+              "text": " whose",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " name,",
+              "start": 0.74,
+              "end": 1.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Brother?",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.4560546875
+            },
+            {
+              "text": " Rann",
+              "start": 2.36,
+              "end": 2.44,
+              "probability": 0.48974609375
+            },
+            {
+              "text": " had",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " never",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seen",
+              "start": 2.84,
+              "end": 3.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mowgli",
+              "start": 3.18,
+              "end": 3.58,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " before,",
+              "start": 3.58,
+              "end": 4.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though",
+              "start": 4.5,
+              "end": 4.56,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " course",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " had",
+              "start": 5.08,
+              "end": 5.16,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " heard",
+              "start": 5.16,
+              "end": 5.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 5.32,
+              "end": 5.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 5.46,
+              "end": 5.66,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "whose",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "name,",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "raw": "Brother?",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "Rann",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "raw": "had",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "never",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "raw": "seen",
+          "start": 2.84,
+          "end": 3.18
+        },
+        {
+          "raw": "Mowgli",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "raw": "before,",
+          "start": 3.58,
+          "end": 4.02
+        },
+        {
+          "raw": "though",
+          "start": 4.5,
+          "end": 4.56
+        },
+        {
+          "raw": "of",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "course",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "he",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "had",
+          "start": 5.08,
+          "end": 5.16
+        },
+        {
+          "raw": "heard",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "raw": "of",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "raw": "him.",
+          "start": 5.46,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "\"In",
+        "whose",
+        "name,",
+        "Brother?\"",
+        "Rann",
+        "had",
+        "never",
+        "seen",
+        "Mowgli",
+        "before,",
+        "though",
+        "of",
+        "course",
+        "he",
+        "had",
+        "heard",
+        "of",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"In",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "whose",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "name,",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "text": "Brother?\"",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "Rann",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "text": "had",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "text": "never",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "text": "seen",
+          "start": 2.84,
+          "end": 3.18
+        },
+        {
+          "text": "Mowgli",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "text": "before,",
+          "start": 3.58,
+          "end": 4.02
+        },
+        {
+          "text": "though",
+          "start": 4.5,
+          "end": 4.56
+        },
+        {
+          "text": "of",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "course",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "he",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "had",
+          "start": 5.08,
+          "end": 5.16
+        },
+        {
+          "text": "heard",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "text": "of",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "text": "him.",
+          "start": 5.46,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13669527973979712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3f48681b50230ade6079efa4dff38081127b3781176c2ae784ad7a1db9aefec",
+  "selected_reasons": []
+}

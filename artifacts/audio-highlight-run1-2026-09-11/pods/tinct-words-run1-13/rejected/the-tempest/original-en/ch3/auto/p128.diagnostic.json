@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "dafc716a1959fe8094b60564fde2b8963d00745785583637a4f91e5a18549e7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11109901405870914,
+      "alignment_seconds": 0.00011139409616589546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. I'll teach you how to flow.",
+        "hotwords": "Antonio, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, I'll teach you how to flow.",
+          "start": 0.11,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " I'll",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " teach",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " how",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.91,
+              "end": 1.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " flow.",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "I'll",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "teach",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "you",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "how",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "to",
+          "start": 1.91,
+          "end": 1.99
+        },
+        {
+          "raw": "flow.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "I'll",
+        "teach",
+        "you",
+        "how",
+        "to",
+        "flow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "I'll",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "teach",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "you",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "how",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "to",
+          "start": 1.91,
+          "end": 1.99
+        },
+        {
+          "text": "flow.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11125983903184533
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "add5cf267b9c71110401cb666047f1091fca926dc52498898f93fe4e565afc2d",
+  "selected_reasons": []
+}

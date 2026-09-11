@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "a0ec4e5880862160a34cce4bbde754e382af24b53cde1959f9dbe8b87bdddba9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12547523097600788,
+      "alignment_seconds": 0.00011189398355782032,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, the ground indeed is Tawny.",
+          "start": 0.11,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " the",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " ground",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " indeed",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " is",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Tawny.",
+              "start": 2.31,
+              "end": 2.75,
+              "probability": 0.8499348958333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "ground",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "indeed",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "is",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "Tawny.",
+          "start": 2.31,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "The",
+        "ground",
+        "indeed",
+        "is",
+        "tawny."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "The",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "ground",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "indeed",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "is",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "tawny.",
+          "start": 2.31,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.125639236997813
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9afffb637a93c44505740ed1a68f4602b532dbc6364a6dc8846ef19dd07d7df0",
+  "selected_reasons": []
+}

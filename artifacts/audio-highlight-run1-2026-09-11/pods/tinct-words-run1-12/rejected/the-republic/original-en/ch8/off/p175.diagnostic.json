@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "b4e9a83806c1274cd0d59ca136c9867a6cbc6cdf274cb463d613eebe12215d24",
+  "attempts": [
+    {
+      "asr_seconds": 0.10498658800497651,
+      "alignment_seconds": 0.00011523813009262085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That, he said, is our method.",
+          "start": 0.02,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " That,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " he",
+              "start": 0.64,
+              "end": 0.74,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " said,",
+              "start": 0.74,
+              "end": 1.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " our",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " method.",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "he",
+          "start": 0.64,
+          "end": 0.74
+        },
+        {
+          "raw": "said,",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "our",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "method.",
+          "start": 1.56,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "That,",
+        "he",
+        "said,",
+        "is",
+        "our",
+        "method."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "he",
+          "start": 0.64,
+          "end": 0.74
+        },
+        {
+          "text": "said,",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "text": "is",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "our",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "method.",
+          "start": 1.56,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10513796471059322
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "180ad7b39467821b0153e06b3929a966564e05259cd60055f7f7d7a217ae22b3",
+  "selected_reasons": []
+}

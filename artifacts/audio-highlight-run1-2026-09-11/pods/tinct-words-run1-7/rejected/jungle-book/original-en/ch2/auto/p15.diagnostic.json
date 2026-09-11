@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "9ac6dc6565ccfe3e3531758ce39d9ab1548991c579e56d04f3d761af3500a4e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.09917102940380573,
+      "alignment_seconds": 5.22024929523468e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Good. Now for the birds.\"",
+        "hotwords": "Good, Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good, Now for the birds.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Good,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Now",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.011474609375
+            },
+            {
+              "text": " for",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.794921875
+            },
+            {
+              "text": " the",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.982421875
+            },
+            {
+              "text": " birds.",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.6171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Now",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "for",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "the",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "birds.",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "\"Good.",
+        "Now",
+        "for",
+        "the",
+        "birds.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Good.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Now",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "for",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "the",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "birds.\"",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09924389608204365
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ebd60e55efe442f75ff83153e9acef4cce5591684b5d335b0ff57744f7e7cf9",
+  "selected_reasons": []
+}

@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "8c7157af72da49def9808aaaf220701d06d174624d9d5086c3e92220e9b5595c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15759535878896713,
+      "alignment_seconds": 8.622556924819946e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "120. Sensuality often forces the growth of love too much, so that its root remains weak, and is easily torn up.",
+        "hotwords": "Sensuality"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 120. Sensuality often forces the growth of love too much, so that its root remains weak, and is easily torn up.",
+          "start": 0.02,
+          "end": 8.64,
+          "words": [
+            {
+              "text": " 120.",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.61083984375
+            },
+            {
+              "text": " Sensuality",
+              "start": 2.1,
+              "end": 2.7,
+              "probability": 0.939208984375
+            },
+            {
+              "text": " often",
+              "start": 2.7,
+              "end": 3.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " forces",
+              "start": 3.08,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " growth",
+              "start": 3.82,
+              "end": 4.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " love",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " too",
+              "start": 4.52,
+              "end": 4.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " much,",
+              "start": 4.82,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 5.42,
+              "end": 5.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 5.66,
+              "end": 5.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " its",
+              "start": 5.78,
+              "end": 5.92,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " root",
+              "start": 5.92,
+              "end": 6.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " remains",
+              "start": 6.2,
+              "end": 6.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " weak,",
+              "start": 6.68,
+              "end": 7.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 7.38,
+              "end": 7.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 7.48,
+              "end": 7.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " easily",
+              "start": 7.64,
+              "end": 8.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " torn",
+              "start": 8.02,
+              "end": 8.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " up.",
+              "start": 8.36,
+              "end": 8.64,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "120.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Sensuality",
+          "start": 2.1,
+          "end": 2.7
+        },
+        {
+          "raw": "often",
+          "start": 2.7,
+          "end": 3.08
+        },
+        {
+          "raw": "forces",
+          "start": 3.08,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.82
+        },
+        {
+          "raw": "growth",
+          "start": 3.82,
+          "end": 4.08
+        },
+        {
+          "raw": "of",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "love",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "too",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "raw": "much,",
+          "start": 4.82,
+          "end": 5.2
+        },
+        {
+          "raw": "so",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "raw": "that",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "raw": "its",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "raw": "root",
+          "start": 5.92,
+          "end": 6.2
+        },
+        {
+          "raw": "remains",
+          "start": 6.2,
+          "end": 6.68
+        },
+        {
+          "raw": "weak,",
+          "start": 6.68,
+          "end": 7.04
+        },
+        {
+          "raw": "and",
+          "start": 7.38,
+          "end": 7.48
+        },
+        {
+          "raw": "is",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "raw": "easily",
+          "start": 7.64,
+          "end": 8.02
+        },
+        {
+          "raw": "torn",
+          "start": 8.02,
+          "end": 8.36
+        },
+        {
+          "raw": "up.",
+          "start": 8.36,
+          "end": 8.64
+        }
+      ],
+      "expected_tokens": [
+        "120.",
+        "Sensuality",
+        "often",
+        "forces",
+        "the",
+        "growth",
+        "of",
+        "love",
+        "too",
+        "much,",
+        "so",
+        "that",
+        "its",
+        "root",
+        "remains",
+        "weak,",
+        "and",
+        "is",
+        "easily",
+        "torn",
+        "up."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "120.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Sensuality",
+          "start": 2.1,
+          "end": 2.7
+        },
+        {
+          "text": "often",
+          "start": 2.7,
+          "end": 3.08
+        },
+        {
+          "text": "forces",
+          "start": 3.08,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.82
+        },
+        {
+          "text": "growth",
+          "start": 3.82,
+          "end": 4.08
+        },
+        {
+          "text": "of",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "love",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "too",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "text": "much,",
+          "start": 4.82,
+          "end": 5.2
+        },
+        {
+          "text": "so",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "text": "that",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "text": "its",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "text": "root",
+          "start": 5.92,
+          "end": 6.2
+        },
+        {
+          "text": "remains",
+          "start": 6.2,
+          "end": 6.68
+        },
+        {
+          "text": "weak,",
+          "start": 6.68,
+          "end": 7.04
+        },
+        {
+          "text": "and",
+          "start": 7.38,
+          "end": 7.48
+        },
+        {
+          "text": "is",
+          "start": 7.48,
+          "end": 7.64
+        },
+        {
+          "text": "easily",
+          "start": 7.64,
+          "end": 8.02
+        },
+        {
+          "text": "torn",
+          "start": 8.02,
+          "end": 8.36
+        },
+        {
+          "text": "up.",
+          "start": 8.36,
+          "end": 8.64
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15772318840026855
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cfab6c8fec5afc6f13270867e09f9b0bad04e4c0f1d7196ff63800b3d58f8663",
+  "selected_reasons": []
+}

@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "a47b1b4a4b3ba004ebdca3241041e9fd687d9fb58bb6cfdc8bc004865ac3be50",
+  "attempts": [
+    {
+      "asr_seconds": 0.10523863369598985,
+      "alignment_seconds": 7.802806794643402e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, that is their way.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, that is their way.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.927734375
+            },
+            {
+              "text": " that",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " their",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " way.",
+              "start": 1.39,
+              "end": 1.65,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "that",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "is",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "their",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "way.",
+          "start": 1.39,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "that",
+        "is",
+        "their",
+        "way."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "that",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "is",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "their",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "way.",
+          "start": 1.39,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10534885199740529
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3469e794bab1d53dddbf33f7824dc7eebf30869b0fda1442324780d6ce53b4a8",
+  "selected_reasons": []
+}

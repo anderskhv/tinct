@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "4dd9638eac0313b1d72f255b90efc32b7c61ed531786751b73e241fb7ad8749e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12110220408067107,
+      "alignment_seconds": 0.00016636494547128677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ariel, thou leest thou canst not.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Ariel,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.55078125
+            },
+            {
+              "text": " thou",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " leest",
+              "start": 1.27,
+              "end": 1.65,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " thou",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " canst",
+              "start": 1.91,
+              "end": 2.27,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " not.",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ariel,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "thou",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "leest",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "raw": "thou",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "canst",
+          "start": 1.91,
+          "end": 2.27
+        },
+        {
+          "raw": "not.",
+          "start": 2.27,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Ariel.",
+        "Thou",
+        "liest;",
+        "thou",
+        "canst",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Ariel.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Thou",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "liest;",
+          "start": 1.27,
+          "end": 1.46
+        },
+        {
+          "text": "thou",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "canst",
+          "start": 1.91,
+          "end": 2.27
+        },
+        {
+          "text": "not.",
+          "start": 2.27,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12131642107851803
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2a86fc969781dce7e8bd1d251bb6ca2549c575fbba44f1bfe8a1ce5bbfd50fa2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

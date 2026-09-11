@@ -1,0 +1,4612 @@
+{
+  "complete": true,
+  "signature": "dd53f30f4bec672f941d774c5dacc145e82768c124c107c0e0ccf43c01f8cfc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.299463608302176,
+      "alignment_seconds": 0.00020467955619096756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mother Wolf told him once or twice that Shere Khan was not a creature to be trusted, and that some day he must kill Shere Khan. But though a young wolf would have remembered that advice every hour, Mowgli forgot it because he was only a boy--though he would have called himself a wolf if he had been able to speak in any human tongue.",
+        "hotwords": "Mother, Shere, Khan, But, Mowgli"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mother Wolf told him once or twice that Shere Khan was not a creature to be trusted, and that some day he must kill Shere Khan.",
+          "start": 0.05,
+          "end": 7.43,
+          "words": [
+            {
+              "text": " Mother",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Wolf",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " told",
+              "start": 0.89,
+              "end": 1.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " or",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " twice",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 1.97,
+              "end": 2.35,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Shere",
+              "start": 2.35,
+              "end": 2.73,
+              "probability": 0.703857421875
+            },
+            {
+              "text": " Khan",
+              "start": 2.73,
+              "end": 2.95,
+              "probability": 0.97265625
+            },
+            {
+              "text": " was",
+              "start": 2.95,
+              "end": 3.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " creature",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 4.05,
+              "end": 4.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trusted,",
+              "start": 4.17,
+              "end": 4.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.79,
+              "end": 5.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " that",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " some",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.1749267578125
+            },
+            {
+              "text": " day",
+              "start": 5.65,
+              "end": 5.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 5.87,
+              "end": 6.05,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " must",
+              "start": 6.05,
+              "end": 6.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " kill",
+              "start": 6.25,
+              "end": 6.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Shere",
+              "start": 6.59,
+              "end": 7.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Khan.",
+              "start": 7.11,
+              "end": 7.43,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " But though a young wolf would have remembered that advice every hour, Mowgli forgot it because he was only a boy though he would have called himself a wolf if he had been able to speak in any human tongue.",
+          "start": 8.13,
+          "end": 18.85,
+          "words": [
+            {
+              "text": " But",
+              "start": 8.13,
+              "end": 8.31,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " though",
+              "start": 8.31,
+              "end": 8.45,
+              "probability": 0.974609375
+            },
+            {
+              "text": " a",
+              "start": 8.45,
+              "end": 8.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " young",
+              "start": 8.61,
+              "end": 8.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wolf",
+              "start": 8.85,
+              "end": 9.19,
+              "probability": 0.8671875
+            },
+            {
+              "text": " would",
+              "start": 9.19,
+              "end": 9.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 9.45,
+              "end": 9.55,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " remembered",
+              "start": 9.55,
+              "end": 9.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 9.99,
+              "end": 10.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " advice",
+              "start": 10.25,
+              "end": 10.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " every",
+              "start": 10.69,
+              "end": 11.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hour,",
+              "start": 11.11,
+              "end": 11.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Mowgli",
+              "start": 12.17,
+              "end": 12.39,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " forgot",
+              "start": 12.39,
+              "end": 12.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 12.73,
+              "end": 13.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " because",
+              "start": 13.15,
+              "end": 13.53,
+              "probability": 0.30615234375
+            },
+            {
+              "text": " he",
+              "start": 13.53,
+              "end": 13.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " was",
+              "start": 13.67,
+              "end": 13.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " only",
+              "start": 13.79,
+              "end": 14.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 14.09,
+              "end": 14.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boy",
+              "start": 14.25,
+              "end": 14.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " though",
+              "start": 14.47,
+              "end": 14.69,
+              "probability": 0.623046875
+            },
+            {
+              "text": " he",
+              "start": 14.69,
+              "end": 14.89,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " would",
+              "start": 14.89,
+              "end": 14.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 14.97,
+              "end": 15.09,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " called",
+              "start": 15.09,
+              "end": 15.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " himself",
+              "start": 15.29,
+              "end": 15.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 15.65,
+              "end": 15.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wolf",
+              "start": 15.87,
+              "end": 16.13,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " if",
+              "start": 16.13,
+              "end": 16.71,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " he",
+              "start": 16.71,
+              "end": 16.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 16.83,
+              "end": 16.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " been",
+              "start": 16.89,
+              "end": 16.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " able",
+              "start": 16.99,
+              "end": 17.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 17.15,
+              "end": 17.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " speak",
+              "start": 17.31,
+              "end": 17.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 17.63,
+              "end": 17.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 17.85,
+              "end": 18.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " human",
+              "start": 18.13,
+              "end": 18.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tongue.",
+              "start": 18.51,
+              "end": 18.85,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mother",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Wolf",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "raw": "told",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "raw": "him",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "once",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "or",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "twice",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "that",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "raw": "Shere",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "raw": "Khan",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "raw": "was",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "raw": "not",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "creature",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "to",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "be",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "raw": "trusted,",
+          "start": 4.17,
+          "end": 4.59
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 5.27
+        },
+        {
+          "raw": "that",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "some",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "day",
+          "start": 5.65,
+          "end": 5.87
+        },
+        {
+          "raw": "he",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "raw": "must",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "raw": "kill",
+          "start": 6.25,
+          "end": 6.59
+        },
+        {
+          "raw": "Shere",
+          "start": 6.59,
+          "end": 7.11
+        },
+        {
+          "raw": "Khan.",
+          "start": 7.11,
+          "end": 7.43
+        },
+        {
+          "raw": "But",
+          "start": 8.13,
+          "end": 8.31
+        },
+        {
+          "raw": "though",
+          "start": 8.31,
+          "end": 8.45
+        },
+        {
+          "raw": "a",
+          "start": 8.45,
+          "end": 8.61
+        },
+        {
+          "raw": "young",
+          "start": 8.61,
+          "end": 8.85
+        },
+        {
+          "raw": "wolf",
+          "start": 8.85,
+          "end": 9.19
+        },
+        {
+          "raw": "would",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "raw": "have",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "raw": "remembered",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "raw": "that",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "raw": "advice",
+          "start": 10.25,
+          "end": 10.69
+        },
+        {
+          "raw": "every",
+          "start": 10.69,
+          "end": 11.11
+        },
+        {
+          "raw": "hour,",
+          "start": 11.11,
+          "end": 11.49
+        },
+        {
+          "raw": "Mowgli",
+          "start": 12.17,
+          "end": 12.39
+        },
+        {
+          "raw": "forgot",
+          "start": 12.39,
+          "end": 12.73
+        },
+        {
+          "raw": "it",
+          "start": 12.73,
+          "end": 13.15
+        },
+        {
+          "raw": "because",
+          "start": 13.15,
+          "end": 13.53
+        },
+        {
+          "raw": "he",
+          "start": 13.53,
+          "end": 13.67
+        },
+        {
+          "raw": "was",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "raw": "only",
+          "start": 13.79,
+          "end": 14.09
+        },
+        {
+          "raw": "a",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "raw": "boy",
+          "start": 14.25,
+          "end": 14.47
+        },
+        {
+          "raw": "though",
+          "start": 14.47,
+          "end": 14.69
+        },
+        {
+          "raw": "he",
+          "start": 14.69,
+          "end": 14.89
+        },
+        {
+          "raw": "would",
+          "start": 14.89,
+          "end": 14.97
+        },
+        {
+          "raw": "have",
+          "start": 14.97,
+          "end": 15.09
+        },
+        {
+          "raw": "called",
+          "start": 15.09,
+          "end": 15.29
+        },
+        {
+          "raw": "himself",
+          "start": 15.29,
+          "end": 15.65
+        },
+        {
+          "raw": "a",
+          "start": 15.65,
+          "end": 15.87
+        },
+        {
+          "raw": "wolf",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "raw": "if",
+          "start": 16.13,
+          "end": 16.71
+        },
+        {
+          "raw": "he",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "raw": "had",
+          "start": 16.83,
+          "end": 16.89
+        },
+        {
+          "raw": "been",
+          "start": 16.89,
+          "end": 16.99
+        },
+        {
+          "raw": "able",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "raw": "speak",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "raw": "in",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "raw": "any",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "raw": "human",
+          "start": 18.13,
+          "end": 18.51
+        },
+        {
+          "raw": "tongue.",
+          "start": 18.51,
+          "end": 18.85
+        }
+      ],
+      "expected_tokens": [
+        "Mother",
+        "Wolf",
+        "told",
+        "him",
+        "once",
+        "or",
+        "twice",
+        "that",
+        "Shere",
+        "Khan",
+        "was",
+        "not",
+        "a",
+        "creature",
+        "to",
+        "be",
+        "trusted,",
+        "and",
+        "that",
+        "some",
+        "day",
+        "he",
+        "must",
+        "kill",
+        "Shere",
+        "Khan.",
+        "But",
+        "though",
+        "a",
+        "young",
+        "wolf",
+        "would",
+        "have",
+        "remembered",
+        "that",
+        "advice",
+        "every",
+        "hour,",
+        "Mowgli",
+        "forgot",
+        "it",
+        "because",
+        "he",
+        "was",
+        "only",
+        "a",
+        "boy--though",
+        "he",
+        "would",
+        "have",
+        "called",
+        "himself",
+        "a",
+        "wolf",
+        "if",
+        "he",
+        "had",
+        "been",
+        "able",
+        "to",
+        "speak",
+        "in",
+        "any",
+        "human",
+        "tongue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "equal",
+          47,
+          65,
+          48,
+          66
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Mother",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Wolf",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "text": "told",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "text": "him",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "once",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "or",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "twice",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "that",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "text": "Shere",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "text": "Khan",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "text": "was",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "text": "not",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "creature",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "to",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "be",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "text": "trusted,",
+          "start": 4.17,
+          "end": 4.59
+        },
+        {
+          "text": "and",
+          "start": 4.79,
+          "end": 5.27
+        },
+        {
+          "text": "that",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "text": "some",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "day",
+          "start": 5.65,
+          "end": 5.87
+        },
+        {
+          "text": "he",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "text": "must",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "text": "kill",
+          "start": 6.25,
+          "end": 6.59
+        },
+        {
+          "text": "Shere",
+          "start": 6.59,
+          "end": 7.11
+        },
+        {
+          "text": "Khan.",
+          "start": 7.11,
+          "end": 7.43
+        },
+        {
+          "text": "But",
+          "start": 8.13,
+          "end": 8.31
+        },
+        {
+          "text": "though",
+          "start": 8.31,
+          "end": 8.45
+        },
+        {
+          "text": "a",
+          "start": 8.45,
+          "end": 8.61
+        },
+        {
+          "text": "young",
+          "start": 8.61,
+          "end": 8.85
+        },
+        {
+          "text": "wolf",
+          "start": 8.85,
+          "end": 9.19
+        },
+        {
+          "text": "would",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "text": "have",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "text": "remembered",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "text": "that",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "text": "advice",
+          "start": 10.25,
+          "end": 10.69
+        },
+        {
+          "text": "every",
+          "start": 10.69,
+          "end": 11.11
+        },
+        {
+          "text": "hour,",
+          "start": 11.11,
+          "end": 11.49
+        },
+        {
+          "text": "Mowgli",
+          "start": 12.17,
+          "end": 12.39
+        },
+        {
+          "text": "forgot",
+          "start": 12.39,
+          "end": 12.73
+        },
+        {
+          "text": "it",
+          "start": 12.73,
+          "end": 13.15
+        },
+        {
+          "text": "because",
+          "start": 13.15,
+          "end": 13.53
+        },
+        {
+          "text": "he",
+          "start": 13.53,
+          "end": 13.67
+        },
+        {
+          "text": "was",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "text": "only",
+          "start": 13.79,
+          "end": 14.09
+        },
+        {
+          "text": "a",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "text": "boy--though",
+          "start": 14.25,
+          "end": 14.47
+        },
+        {
+          "text": "he",
+          "start": 14.69,
+          "end": 14.89
+        },
+        {
+          "text": "would",
+          "start": 14.89,
+          "end": 14.97
+        },
+        {
+          "text": "have",
+          "start": 14.97,
+          "end": 15.09
+        },
+        {
+          "text": "called",
+          "start": 15.09,
+          "end": 15.29
+        },
+        {
+          "text": "himself",
+          "start": 15.29,
+          "end": 15.65
+        },
+        {
+          "text": "a",
+          "start": 15.65,
+          "end": 15.87
+        },
+        {
+          "text": "wolf",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "text": "if",
+          "start": 16.13,
+          "end": 16.71
+        },
+        {
+          "text": "he",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "text": "had",
+          "start": 16.83,
+          "end": 16.89
+        },
+        {
+          "text": "been",
+          "start": 16.89,
+          "end": 16.99
+        },
+        {
+          "text": "able",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "text": "to",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "text": "speak",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "text": "in",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "text": "any",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "text": "human",
+          "start": 18.13,
+          "end": 18.51
+        },
+        {
+          "text": "tongue.",
+          "start": 18.51,
+          "end": 18.85
+        }
+      ],
+      "stats": {
+        "expected_words": 65,
+        "heard_words": 66,
+        "matched_words": 64
+      },
+      "match_ratio": 0.9846153846153847,
+      "rejection_reasons": [],
+      "seconds": 0.29978664591908455
+    },
+    {
+      "asr_seconds": 0.29159212578088045,
+      "alignment_seconds": 0.00022046733647584915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mother, Shere, Khan, But, Mowgli"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Mother Wolf told him once or twice that Shere Khan was not a creature to be trusted and that someday he must kill Shere Khan",
+          "start": 0.05,
+          "end": 7.45,
+          "words": [
+            {
+              "text": " Mother",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Wolf",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " told",
+              "start": 0.89,
+              "end": 1.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " or",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " twice",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 1.97,
+              "end": 2.35,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Shere",
+              "start": 2.35,
+              "end": 2.73,
+              "probability": 0.703857421875
+            },
+            {
+              "text": " Khan",
+              "start": 2.73,
+              "end": 2.95,
+              "probability": 0.97265625
+            },
+            {
+              "text": " was",
+              "start": 2.95,
+              "end": 3.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " creature",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 4.05,
+              "end": 4.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trusted",
+              "start": 4.17,
+              "end": 4.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.57,
+              "end": 5.25,
+              "probability": 0.44775390625
+            },
+            {
+              "text": " that",
+              "start": 5.25,
+              "end": 5.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " someday",
+              "start": 5.41,
+              "end": 5.75,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " he",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " must",
+              "start": 6.05,
+              "end": 6.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kill",
+              "start": 6.25,
+              "end": 6.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Shere",
+              "start": 6.61,
+              "end": 7.11,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Khan",
+              "start": 7.11,
+              "end": 7.45,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " But though a young wolf would have remembered that advice every hour",
+          "start": 7.45,
+          "end": 11.53,
+          "words": [
+            {
+              "text": " But",
+              "start": 7.45,
+              "end": 8.29,
+              "probability": 0.35888671875
+            },
+            {
+              "text": " though",
+              "start": 8.29,
+              "end": 8.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 8.45,
+              "end": 8.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " young",
+              "start": 8.59,
+              "end": 8.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wolf",
+              "start": 8.87,
+              "end": 9.19,
+              "probability": 0.931640625
+            },
+            {
+              "text": " would",
+              "start": 9.19,
+              "end": 9.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 9.45,
+              "end": 9.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " remembered",
+              "start": 9.55,
+              "end": 9.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 9.99,
+              "end": 10.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " advice",
+              "start": 10.25,
+              "end": 10.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " every",
+              "start": 10.67,
+              "end": 11.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hour",
+              "start": 11.11,
+              "end": 11.53,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Mowgli forgot it because he was only a boy though",
+          "start": 11.53,
+          "end": 14.69,
+          "words": [
+            {
+              "text": " Mowgli",
+              "start": 11.53,
+              "end": 12.39,
+              "probability": 0.944091796875
+            },
+            {
+              "text": " forgot",
+              "start": 12.39,
+              "end": 12.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " it",
+              "start": 12.71,
+              "end": 13.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " because",
+              "start": 13.21,
+              "end": 13.55,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " he",
+              "start": 13.55,
+              "end": 13.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 13.67,
+              "end": 13.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " only",
+              "start": 13.79,
+              "end": 14.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 14.09,
+              "end": 14.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " boy",
+              "start": 14.23,
+              "end": 14.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though",
+              "start": 14.47,
+              "end": 14.69,
+              "probability": 0.84619140625
+            }
+          ]
+        },
+        {
+          "text": " He would have called himself a wolf if he had been able to speak in any human tongue",
+          "start": 14.69,
+          "end": 18.87,
+          "words": [
+            {
+              "text": " He",
+              "start": 14.69,
+              "end": 14.87,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " would",
+              "start": 14.87,
+              "end": 14.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 14.97,
+              "end": 15.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " called",
+              "start": 15.07,
+              "end": 15.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself",
+              "start": 15.29,
+              "end": 15.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 15.65,
+              "end": 15.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wolf",
+              "start": 15.87,
+              "end": 16.15,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " if",
+              "start": 16.15,
+              "end": 16.71,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " he",
+              "start": 16.71,
+              "end": 16.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " had",
+              "start": 16.81,
+              "end": 16.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " been",
+              "start": 16.89,
+              "end": 16.99,
+              "probability": 1.0
+            },
+            {
+              "text": " able",
+              "start": 16.99,
+              "end": 17.15,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 17.15,
+              "end": 17.31,
+              "probability": 1.0
+            },
+            {
+              "text": " speak",
+              "start": 17.31,
+              "end": 17.63,
+              "probability": 1.0
+            },
+            {
+              "text": " in",
+              "start": 17.63,
+              "end": 17.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " any",
+              "start": 17.85,
+              "end": 18.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " human",
+              "start": 18.13,
+              "end": 18.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tongue",
+              "start": 18.49,
+              "end": 18.87,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mother",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Wolf",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "raw": "told",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "raw": "him",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "once",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "or",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "twice",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "that",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "raw": "Shere",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "raw": "Khan",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "raw": "was",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "raw": "not",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "creature",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "to",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "be",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "raw": "trusted",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "raw": "and",
+          "start": 4.57,
+          "end": 5.25
+        },
+        {
+          "raw": "that",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "raw": "someday",
+          "start": 5.41,
+          "end": 5.75
+        },
+        {
+          "raw": "he",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "raw": "must",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "raw": "kill",
+          "start": 6.25,
+          "end": 6.61
+        },
+        {
+          "raw": "Shere",
+          "start": 6.61,
+          "end": 7.11
+        },
+        {
+          "raw": "Khan",
+          "start": 7.11,
+          "end": 7.45
+        },
+        {
+          "raw": "But",
+          "start": 7.45,
+          "end": 8.29
+        },
+        {
+          "raw": "though",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "raw": "a",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "raw": "young",
+          "start": 8.59,
+          "end": 8.87
+        },
+        {
+          "raw": "wolf",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "raw": "would",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "raw": "have",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "raw": "remembered",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "raw": "that",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "raw": "advice",
+          "start": 10.25,
+          "end": 10.67
+        },
+        {
+          "raw": "every",
+          "start": 10.67,
+          "end": 11.11
+        },
+        {
+          "raw": "hour",
+          "start": 11.11,
+          "end": 11.53
+        },
+        {
+          "raw": "Mowgli",
+          "start": 11.53,
+          "end": 12.39
+        },
+        {
+          "raw": "forgot",
+          "start": 12.39,
+          "end": 12.71
+        },
+        {
+          "raw": "it",
+          "start": 12.71,
+          "end": 13.21
+        },
+        {
+          "raw": "because",
+          "start": 13.21,
+          "end": 13.55
+        },
+        {
+          "raw": "he",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "raw": "was",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "raw": "only",
+          "start": 13.79,
+          "end": 14.09
+        },
+        {
+          "raw": "a",
+          "start": 14.09,
+          "end": 14.23
+        },
+        {
+          "raw": "boy",
+          "start": 14.23,
+          "end": 14.47
+        },
+        {
+          "raw": "though",
+          "start": 14.47,
+          "end": 14.69
+        },
+        {
+          "raw": "He",
+          "start": 14.69,
+          "end": 14.87
+        },
+        {
+          "raw": "would",
+          "start": 14.87,
+          "end": 14.97
+        },
+        {
+          "raw": "have",
+          "start": 14.97,
+          "end": 15.07
+        },
+        {
+          "raw": "called",
+          "start": 15.07,
+          "end": 15.29
+        },
+        {
+          "raw": "himself",
+          "start": 15.29,
+          "end": 15.65
+        },
+        {
+          "raw": "a",
+          "start": 15.65,
+          "end": 15.87
+        },
+        {
+          "raw": "wolf",
+          "start": 15.87,
+          "end": 16.15
+        },
+        {
+          "raw": "if",
+          "start": 16.15,
+          "end": 16.71
+        },
+        {
+          "raw": "he",
+          "start": 16.71,
+          "end": 16.81
+        },
+        {
+          "raw": "had",
+          "start": 16.81,
+          "end": 16.89
+        },
+        {
+          "raw": "been",
+          "start": 16.89,
+          "end": 16.99
+        },
+        {
+          "raw": "able",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "raw": "speak",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "raw": "in",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "raw": "any",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "raw": "human",
+          "start": 18.13,
+          "end": 18.49
+        },
+        {
+          "raw": "tongue",
+          "start": 18.49,
+          "end": 18.87
+        }
+      ],
+      "expected_tokens": [
+        "Mother",
+        "Wolf",
+        "told",
+        "him",
+        "once",
+        "or",
+        "twice",
+        "that",
+        "Shere",
+        "Khan",
+        "was",
+        "not",
+        "a",
+        "creature",
+        "to",
+        "be",
+        "trusted,",
+        "and",
+        "that",
+        "some",
+        "day",
+        "he",
+        "must",
+        "kill",
+        "Shere",
+        "Khan.",
+        "But",
+        "though",
+        "a",
+        "young",
+        "wolf",
+        "would",
+        "have",
+        "remembered",
+        "that",
+        "advice",
+        "every",
+        "hour,",
+        "Mowgli",
+        "forgot",
+        "it",
+        "because",
+        "he",
+        "was",
+        "only",
+        "a",
+        "boy--though",
+        "he",
+        "would",
+        "have",
+        "called",
+        "himself",
+        "a",
+        "wolf",
+        "if",
+        "he",
+        "had",
+        "been",
+        "able",
+        "to",
+        "speak",
+        "in",
+        "any",
+        "human",
+        "tongue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ],
+        [
+          "equal",
+          21,
+          46,
+          20,
+          45
+        ],
+        [
+          "replace",
+          46,
+          47,
+          45,
+          47
+        ],
+        [
+          "equal",
+          47,
+          65,
+          47,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ],
+        [
+          "replace",
+          46,
+          47,
+          45,
+          47
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Mother",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Wolf",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "text": "told",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "text": "him",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "once",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "or",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "twice",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "that",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "text": "Shere",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "text": "Khan",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "text": "was",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "text": "not",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "creature",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "to",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "be",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "text": "trusted,",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "text": "and",
+          "start": 4.57,
+          "end": 5.25
+        },
+        {
+          "text": "that",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "text": "some",
+          "start": 5.41,
+          "end": 5.58
+        },
+        {
+          "text": "day",
+          "start": 5.58,
+          "end": 5.665
+        },
+        {
+          "text": "he",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "text": "must",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "text": "kill",
+          "start": 6.25,
+          "end": 6.61
+        },
+        {
+          "text": "Shere",
+          "start": 6.61,
+          "end": 7.11
+        },
+        {
+          "text": "Khan.",
+          "start": 7.11,
+          "end": 7.45
+        },
+        {
+          "text": "But",
+          "start": 7.45,
+          "end": 8.29
+        },
+        {
+          "text": "though",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "text": "a",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "text": "young",
+          "start": 8.59,
+          "end": 8.87
+        },
+        {
+          "text": "wolf",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "text": "would",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "text": "have",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "text": "remembered",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "text": "that",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "text": "advice",
+          "start": 10.25,
+          "end": 10.67
+        },
+        {
+          "text": "every",
+          "start": 10.67,
+          "end": 11.11
+        },
+        {
+          "text": "hour,",
+          "start": 11.11,
+          "end": 11.53
+        },
+        {
+          "text": "Mowgli",
+          "start": 11.53,
+          "end": 12.39
+        },
+        {
+          "text": "forgot",
+          "start": 12.39,
+          "end": 12.71
+        },
+        {
+          "text": "it",
+          "start": 12.71,
+          "end": 13.21
+        },
+        {
+          "text": "because",
+          "start": 13.21,
+          "end": 13.55
+        },
+        {
+          "text": "he",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "text": "was",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "text": "only",
+          "start": 13.79,
+          "end": 14.09
+        },
+        {
+          "text": "a",
+          "start": 14.09,
+          "end": 14.23
+        },
+        {
+          "text": "boy--though",
+          "start": 14.23,
+          "end": 14.46
+        },
+        {
+          "text": "he",
+          "start": 14.69,
+          "end": 14.87
+        },
+        {
+          "text": "would",
+          "start": 14.87,
+          "end": 14.97
+        },
+        {
+          "text": "have",
+          "start": 14.97,
+          "end": 15.07
+        },
+        {
+          "text": "called",
+          "start": 15.07,
+          "end": 15.29
+        },
+        {
+          "text": "himself",
+          "start": 15.29,
+          "end": 15.65
+        },
+        {
+          "text": "a",
+          "start": 15.65,
+          "end": 15.87
+        },
+        {
+          "text": "wolf",
+          "start": 15.87,
+          "end": 16.15
+        },
+        {
+          "text": "if",
+          "start": 16.15,
+          "end": 16.71
+        },
+        {
+          "text": "he",
+          "start": 16.71,
+          "end": 16.81
+        },
+        {
+          "text": "had",
+          "start": 16.81,
+          "end": 16.89
+        },
+        {
+          "text": "been",
+          "start": 16.89,
+          "end": 16.99
+        },
+        {
+          "text": "able",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "text": "to",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "text": "speak",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "text": "in",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "text": "any",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "text": "human",
+          "start": 18.13,
+          "end": 18.49
+        },
+        {
+          "text": "tongue.",
+          "start": 18.49,
+          "end": 18.87
+        }
+      ],
+      "stats": {
+        "expected_words": 65,
+        "heard_words": 65,
+        "matched_words": 62
+      },
+      "match_ratio": 0.9538461538461539,
+      "rejection_reasons": [],
+      "seconds": 0.2919366005808115
+    },
+    {
+      "asr_seconds": 0.3121877694502473,
+      "alignment_seconds": 0.00022042915225028992,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mother Wolf told him once or twice that Shere Khan was not a creature to be trusted, and",
+          "start": 0.05,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " Mother",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Wolf",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " told",
+              "start": 0.89,
+              "end": 1.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " or",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " twice",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 1.97,
+              "end": 2.35,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Shere",
+              "start": 2.35,
+              "end": 2.73,
+              "probability": 0.703857421875
+            },
+            {
+              "text": " Khan",
+              "start": 2.73,
+              "end": 2.95,
+              "probability": 0.97265625
+            },
+            {
+              "text": " was",
+              "start": 2.95,
+              "end": 3.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " creature",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 4.05,
+              "end": 4.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trusted,",
+              "start": 4.17,
+              "end": 4.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.79,
+              "end": 5.27,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " that someday he must kill Shere Khan.",
+          "start": 5.27,
+          "end": 7.43,
+          "words": [
+            {
+              "text": " that",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " someday",
+              "start": 5.41,
+              "end": 5.75,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " he",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " must",
+              "start": 6.05,
+              "end": 6.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kill",
+              "start": 6.25,
+              "end": 6.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Shere",
+              "start": 6.59,
+              "end": 7.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Khan.",
+              "start": 7.11,
+              "end": 7.43,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " But though a young wolf would have remembered that advice every hour, Mowgli forgot it,",
+          "start": 8.13,
+          "end": 13.15,
+          "words": [
+            {
+              "text": " But",
+              "start": 8.13,
+              "end": 8.31,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " though",
+              "start": 8.31,
+              "end": 8.45,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " a",
+              "start": 8.45,
+              "end": 8.61,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " young",
+              "start": 8.61,
+              "end": 8.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wolf",
+              "start": 8.87,
+              "end": 9.19,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " would",
+              "start": 9.19,
+              "end": 9.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 9.45,
+              "end": 9.55,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " remembered",
+              "start": 9.55,
+              "end": 9.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 9.99,
+              "end": 10.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " advice",
+              "start": 10.25,
+              "end": 10.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " every",
+              "start": 10.69,
+              "end": 11.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hour,",
+              "start": 11.11,
+              "end": 11.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Mowgli",
+              "start": 12.17,
+              "end": 12.39,
+              "probability": 0.9691162109375
+            },
+            {
+              "text": " forgot",
+              "start": 12.39,
+              "end": 12.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it,",
+              "start": 12.73,
+              "end": 13.15,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " because he was only a boy though he would have called himself a wolf if he had been",
+          "start": 13.29,
+          "end": 16.99,
+          "words": [
+            {
+              "text": " because",
+              "start": 13.29,
+              "end": 13.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 13.55,
+              "end": 13.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " was",
+              "start": 13.67,
+              "end": 13.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " only",
+              "start": 13.79,
+              "end": 14.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 14.09,
+              "end": 14.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boy",
+              "start": 14.25,
+              "end": 14.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " though",
+              "start": 14.47,
+              "end": 14.69,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " he",
+              "start": 14.69,
+              "end": 14.89,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " would",
+              "start": 14.89,
+              "end": 14.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 14.97,
+              "end": 15.09,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " called",
+              "start": 15.09,
+              "end": 15.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " himself",
+              "start": 15.29,
+              "end": 15.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 15.65,
+              "end": 15.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wolf",
+              "start": 15.87,
+              "end": 16.13,
+              "probability": 0.943359375
+            },
+            {
+              "text": " if",
+              "start": 16.13,
+              "end": 16.71,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " he",
+              "start": 16.71,
+              "end": 16.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 16.83,
+              "end": 16.89,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " been",
+              "start": 16.89,
+              "end": 16.99,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " able to speak in any human tongue.",
+          "start": 16.99,
+          "end": 18.85,
+          "words": [
+            {
+              "text": " able",
+              "start": 16.99,
+              "end": 17.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 17.15,
+              "end": 17.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speak",
+              "start": 17.31,
+              "end": 17.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 17.63,
+              "end": 17.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 17.85,
+              "end": 18.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " human",
+              "start": 18.13,
+              "end": 18.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tongue.",
+              "start": 18.51,
+              "end": 18.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mother",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Wolf",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "raw": "told",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "raw": "him",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "once",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "or",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "twice",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "that",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "raw": "Shere",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "raw": "Khan",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "raw": "was",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "raw": "not",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "creature",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "to",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "be",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "raw": "trusted,",
+          "start": 4.17,
+          "end": 4.59
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 5.27
+        },
+        {
+          "raw": "that",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "someday",
+          "start": 5.41,
+          "end": 5.75
+        },
+        {
+          "raw": "he",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "raw": "must",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "raw": "kill",
+          "start": 6.25,
+          "end": 6.59
+        },
+        {
+          "raw": "Shere",
+          "start": 6.59,
+          "end": 7.11
+        },
+        {
+          "raw": "Khan.",
+          "start": 7.11,
+          "end": 7.43
+        },
+        {
+          "raw": "But",
+          "start": 8.13,
+          "end": 8.31
+        },
+        {
+          "raw": "though",
+          "start": 8.31,
+          "end": 8.45
+        },
+        {
+          "raw": "a",
+          "start": 8.45,
+          "end": 8.61
+        },
+        {
+          "raw": "young",
+          "start": 8.61,
+          "end": 8.87
+        },
+        {
+          "raw": "wolf",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "raw": "would",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "raw": "have",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "raw": "remembered",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "raw": "that",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "raw": "advice",
+          "start": 10.25,
+          "end": 10.69
+        },
+        {
+          "raw": "every",
+          "start": 10.69,
+          "end": 11.11
+        },
+        {
+          "raw": "hour,",
+          "start": 11.11,
+          "end": 11.49
+        },
+        {
+          "raw": "Mowgli",
+          "start": 12.17,
+          "end": 12.39
+        },
+        {
+          "raw": "forgot",
+          "start": 12.39,
+          "end": 12.73
+        },
+        {
+          "raw": "it,",
+          "start": 12.73,
+          "end": 13.15
+        },
+        {
+          "raw": "because",
+          "start": 13.29,
+          "end": 13.55
+        },
+        {
+          "raw": "he",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "raw": "was",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "raw": "only",
+          "start": 13.79,
+          "end": 14.09
+        },
+        {
+          "raw": "a",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "raw": "boy",
+          "start": 14.25,
+          "end": 14.47
+        },
+        {
+          "raw": "though",
+          "start": 14.47,
+          "end": 14.69
+        },
+        {
+          "raw": "he",
+          "start": 14.69,
+          "end": 14.89
+        },
+        {
+          "raw": "would",
+          "start": 14.89,
+          "end": 14.97
+        },
+        {
+          "raw": "have",
+          "start": 14.97,
+          "end": 15.09
+        },
+        {
+          "raw": "called",
+          "start": 15.09,
+          "end": 15.29
+        },
+        {
+          "raw": "himself",
+          "start": 15.29,
+          "end": 15.65
+        },
+        {
+          "raw": "a",
+          "start": 15.65,
+          "end": 15.87
+        },
+        {
+          "raw": "wolf",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "raw": "if",
+          "start": 16.13,
+          "end": 16.71
+        },
+        {
+          "raw": "he",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "raw": "had",
+          "start": 16.83,
+          "end": 16.89
+        },
+        {
+          "raw": "been",
+          "start": 16.89,
+          "end": 16.99
+        },
+        {
+          "raw": "able",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "raw": "speak",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "raw": "in",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "raw": "any",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "raw": "human",
+          "start": 18.13,
+          "end": 18.51
+        },
+        {
+          "raw": "tongue.",
+          "start": 18.51,
+          "end": 18.85
+        }
+      ],
+      "expected_tokens": [
+        "Mother",
+        "Wolf",
+        "told",
+        "him",
+        "once",
+        "or",
+        "twice",
+        "that",
+        "Shere",
+        "Khan",
+        "was",
+        "not",
+        "a",
+        "creature",
+        "to",
+        "be",
+        "trusted,",
+        "and",
+        "that",
+        "some",
+        "day",
+        "he",
+        "must",
+        "kill",
+        "Shere",
+        "Khan.",
+        "But",
+        "though",
+        "a",
+        "young",
+        "wolf",
+        "would",
+        "have",
+        "remembered",
+        "that",
+        "advice",
+        "every",
+        "hour,",
+        "Mowgli",
+        "forgot",
+        "it",
+        "because",
+        "he",
+        "was",
+        "only",
+        "a",
+        "boy--though",
+        "he",
+        "would",
+        "have",
+        "called",
+        "himself",
+        "a",
+        "wolf",
+        "if",
+        "he",
+        "had",
+        "been",
+        "able",
+        "to",
+        "speak",
+        "in",
+        "any",
+        "human",
+        "tongue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ],
+        [
+          "equal",
+          21,
+          46,
+          20,
+          45
+        ],
+        [
+          "replace",
+          46,
+          47,
+          45,
+          47
+        ],
+        [
+          "equal",
+          47,
+          65,
+          47,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ],
+        [
+          "replace",
+          46,
+          47,
+          45,
+          47
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Mother",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Wolf",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "text": "told",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "text": "him",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "once",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "or",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "twice",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "that",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "text": "Shere",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "text": "Khan",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "text": "was",
+          "start": 2.95,
+          "end": 3.25
+        },
+        {
+          "text": "not",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "creature",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "to",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "be",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "text": "trusted,",
+          "start": 4.17,
+          "end": 4.59
+        },
+        {
+          "text": "and",
+          "start": 4.79,
+          "end": 5.27
+        },
+        {
+          "text": "that",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "text": "some",
+          "start": 5.41,
+          "end": 5.58
+        },
+        {
+          "text": "day",
+          "start": 5.58,
+          "end": 5.665
+        },
+        {
+          "text": "he",
+          "start": 5.75,
+          "end": 6.05
+        },
+        {
+          "text": "must",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "text": "kill",
+          "start": 6.25,
+          "end": 6.59
+        },
+        {
+          "text": "Shere",
+          "start": 6.59,
+          "end": 7.11
+        },
+        {
+          "text": "Khan.",
+          "start": 7.11,
+          "end": 7.43
+        },
+        {
+          "text": "But",
+          "start": 8.13,
+          "end": 8.31
+        },
+        {
+          "text": "though",
+          "start": 8.31,
+          "end": 8.45
+        },
+        {
+          "text": "a",
+          "start": 8.45,
+          "end": 8.61
+        },
+        {
+          "text": "young",
+          "start": 8.61,
+          "end": 8.87
+        },
+        {
+          "text": "wolf",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "text": "would",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "text": "have",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "text": "remembered",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "text": "that",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "text": "advice",
+          "start": 10.25,
+          "end": 10.69
+        },
+        {
+          "text": "every",
+          "start": 10.69,
+          "end": 11.11
+        },
+        {
+          "text": "hour,",
+          "start": 11.11,
+          "end": 11.49
+        },
+        {
+          "text": "Mowgli",
+          "start": 12.17,
+          "end": 12.39
+        },
+        {
+          "text": "forgot",
+          "start": 12.39,
+          "end": 12.73
+        },
+        {
+          "text": "it",
+          "start": 12.73,
+          "end": 13.15
+        },
+        {
+          "text": "because",
+          "start": 13.29,
+          "end": 13.55
+        },
+        {
+          "text": "he",
+          "start": 13.55,
+          "end": 13.67
+        },
+        {
+          "text": "was",
+          "start": 13.67,
+          "end": 13.79
+        },
+        {
+          "text": "only",
+          "start": 13.79,
+          "end": 14.09
+        },
+        {
+          "text": "a",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "text": "boy--though",
+          "start": 14.25,
+          "end": 14.47
+        },
+        {
+          "text": "he",
+          "start": 14.69,
+          "end": 14.89
+        },
+        {
+          "text": "would",
+          "start": 14.89,
+          "end": 14.97
+        },
+        {
+          "text": "have",
+          "start": 14.97,
+          "end": 15.09
+        },
+        {
+          "text": "called",
+          "start": 15.09,
+          "end": 15.29
+        },
+        {
+          "text": "himself",
+          "start": 15.29,
+          "end": 15.65
+        },
+        {
+          "text": "a",
+          "start": 15.65,
+          "end": 15.87
+        },
+        {
+          "text": "wolf",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "text": "if",
+          "start": 16.13,
+          "end": 16.71
+        },
+        {
+          "text": "he",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "text": "had",
+          "start": 16.83,
+          "end": 16.89
+        },
+        {
+          "text": "been",
+          "start": 16.89,
+          "end": 16.99
+        },
+        {
+          "text": "able",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "text": "to",
+          "start": 17.15,
+          "end": 17.31
+        },
+        {
+          "text": "speak",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "text": "in",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "text": "any",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "text": "human",
+          "start": 18.13,
+          "end": 18.51
+        },
+        {
+          "text": "tongue.",
+          "start": 18.51,
+          "end": 18.85
+        }
+      ],
+      "stats": {
+        "expected_words": 65,
+        "heard_words": 65,
+        "matched_words": 62
+      },
+      "match_ratio": 0.9538461538461539,
+      "rejection_reasons": [],
+      "seconds": 0.3125285506248474
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f416d6706aa12c8228b7e0ef55deaf5707850b903546641b09b8a7cc2fddc79",
+  "selected_reasons": []
+}

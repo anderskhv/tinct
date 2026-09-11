@@ -1,0 +1,650 @@
+{
+  "complete": true,
+  "signature": "60cb97edcbdc1dc9e3f71c0b8c86fc2f3de7af000b70e96bb6ea078fb7eca1af",
+  "attempts": [
+    {
+      "asr_seconds": 0.09571352694183588,
+      "alignment_seconds": 6.830599159002304e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Now for the Snake-People,\" said Bagheera.",
+        "hotwords": "Now, Snake-People, Bagheera"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now for the Snake-People, said Bagheera.",
+          "start": 0.02,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.716796875
+            },
+            {
+              "text": " for",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.88,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Snake",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.70849609375
+            },
+            {
+              "text": "-People,",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.3681507110595703
+            },
+            {
+              "text": " said",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.908203125
+            },
+            {
+              "text": " Bagheera.",
+              "start": 1.98,
+              "end": 2.46,
+              "probability": 0.9532877604166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "raw": "Snake",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "-People,",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "said",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "Bagheera.",
+          "start": 1.98,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "\"Now",
+        "for",
+        "the",
+        "Snake-People,\"",
+        "said",
+        "Bagheera."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "text": "Snake-People,\"",
+          "start": 0.88,
+          "end": 1.33
+        },
+        {
+          "text": "said",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "Bagheera.",
+          "start": 1.98,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09580601844936609
+    },
+    {
+      "asr_seconds": 0.12833564635366201,
+      "alignment_seconds": 7.161498069763184e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Now, Snake-People, Bagheera"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Now for the Snake-People, said Bagheera",
+          "start": 0.02,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.716796875
+            },
+            {
+              "text": " for",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.88,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Snake",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.70849609375
+            },
+            {
+              "text": "-People,",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.3681507110595703
+            },
+            {
+              "text": " said",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.908203125
+            },
+            {
+              "text": " Bagheera",
+              "start": 1.98,
+              "end": 2.46,
+              "probability": 0.9532877604166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "raw": "Snake",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "-People,",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "said",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "Bagheera",
+          "start": 1.98,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "\"Now",
+        "for",
+        "the",
+        "Snake-People,\"",
+        "said",
+        "Bagheera."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "text": "Snake-People,\"",
+          "start": 0.88,
+          "end": 1.33
+        },
+        {
+          "text": "said",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "Bagheera.",
+          "start": 1.98,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12843316234648228
+    },
+    {
+      "asr_seconds": 0.13392404187470675,
+      "alignment_seconds": 0.00017612706869840622,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now for the Snake People, said Bagheera.",
+          "start": 0.02,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.716796875
+            },
+            {
+              "text": " for",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.88,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Snake",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " People,",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " said",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Bagheera.",
+              "start": 1.98,
+              "end": 2.46,
+              "probability": 0.9523111979166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "raw": "Snake",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "People,",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "said",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "Bagheera.",
+          "start": 1.98,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "\"Now",
+        "for",
+        "the",
+        "Snake-People,\"",
+        "said",
+        "Bagheera."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Now",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "for",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "text": "Snake-People,\"",
+          "start": 0.88,
+          "end": 1.33
+        },
+        {
+          "text": "said",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "Bagheera.",
+          "start": 1.98,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13416531309485435
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f059de506fa5596e712251f926f6210096e4e8a3020723ef1a2843acb3c184e1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

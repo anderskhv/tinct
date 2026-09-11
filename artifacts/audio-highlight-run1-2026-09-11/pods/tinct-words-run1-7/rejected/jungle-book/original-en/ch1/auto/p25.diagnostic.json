@@ -1,0 +1,327 @@
+{
+  "complete": true,
+  "signature": "07b3a21ced423232a2ab3481603bb729f4124edfe130194c86447fa03f92c1b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18274992145597935,
+      "alignment_seconds": 8.05174931883812e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Something is coming uphill,\" said Mother Wolf, twitching one ear. \"Get ready.\"",
+        "hotwords": "Something, Mother, Wolf, Get"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Something is coming uphill,\" said Mother Wolf, twitching one ear.",
+          "start": 0.0,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " Something",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.111083984375
+            },
+            {
+              "text": " is",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " coming",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " uphill,\"",
+              "start": 1.1,
+              "end": 1.78,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " said",
+              "start": 1.78,
+              "end": 2.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Mother",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Wolf,",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.791015625
+            },
+            {
+              "text": " twitching",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " one",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ear.",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Get ready.",
+          "start": 3.44,
+          "end": 4.38,
+          "words": [
+            {
+              "text": " Get",
+              "start": 3.44,
+              "end": 4.18,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " ready.",
+              "start": 4.18,
+              "end": 4.38,
+              "probability": 0.869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Something",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "is",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "coming",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "uphill,\"",
+          "start": 1.1,
+          "end": 1.78
+        },
+        {
+          "raw": "said",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "raw": "Mother",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "Wolf,",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "twitching",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "one",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "ear.",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "Get",
+          "start": 3.44,
+          "end": 4.18
+        },
+        {
+          "raw": "ready.",
+          "start": 4.18,
+          "end": 4.38
+        }
+      ],
+      "expected_tokens": [
+        "\"Something",
+        "is",
+        "coming",
+        "uphill,\"",
+        "said",
+        "Mother",
+        "Wolf,",
+        "twitching",
+        "one",
+        "ear.",
+        "\"Get",
+        "ready.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Something",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "is",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "coming",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "uphill,\"",
+          "start": 1.1,
+          "end": 1.78
+        },
+        {
+          "text": "said",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "text": "Mother",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "Wolf,",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "twitching",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "one",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "text": "ear.",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "\"Get",
+          "start": 3.44,
+          "end": 4.18
+        },
+        {
+          "text": "ready.\"",
+          "start": 4.18,
+          "end": 4.38
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18286496587097645
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1e9575f48ad41763c6f4298486052ddc86b364cb32dc093ea4d45957f4bcba3",
+  "selected_reasons": []
+}

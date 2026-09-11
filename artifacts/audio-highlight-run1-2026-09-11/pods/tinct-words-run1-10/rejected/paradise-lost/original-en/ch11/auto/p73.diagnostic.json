@@ -1,0 +1,994 @@
+{
+  "complete": true,
+  "signature": "40ed979db6de8e159471f1df790ad9224843ca7b0faf6e1c26e4c01b1740d46b",
+  "attempts": [
+    {
+      "asr_seconds": 0.5057685030042194,
+      "alignment_seconds": 0.0006279369990807027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "True opener of mine eyes, prime Angel blest; Much better seems this vision, and more hope Of peaceful days portends, than those two past; Those were of hate and death, or pain much worse; Here Nature seems fulfilled in all her ends.",
+        "hotwords": "True, Angel, Here, Nature"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " True opener of mine eyes, prime Angel blest, Much better seems this vision, and more hope",
+          "start": 0.05,
+          "end": 6.31,
+          "words": [
+            {
+              "text": " True",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " opener",
+              "start": 0.57,
+              "end": 0.97,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " of",
+              "start": 0.97,
+              "end": 1.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mine",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " eyes,",
+              "start": 1.45,
+              "end": 1.91,
+              "probability": 0.978515625
+            },
+            {
+              "text": " prime",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.53662109375
+            },
+            {
+              "text": " Angel",
+              "start": 2.47,
+              "end": 2.85,
+              "probability": 0.154296875
+            },
+            {
+              "text": " blest,",
+              "start": 2.85,
+              "end": 3.35,
+              "probability": 0.5224609375
+            },
+            {
+              "text": " Much",
+              "start": 3.81,
+              "end": 4.09,
+              "probability": 0.2271728515625
+            },
+            {
+              "text": " better",
+              "start": 4.09,
+              "end": 4.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " seems",
+              "start": 4.41,
+              "end": 4.75,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " this",
+              "start": 4.75,
+              "end": 5.11,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " vision,",
+              "start": 5.11,
+              "end": 5.45,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " and",
+              "start": 5.81,
+              "end": 5.91,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " more",
+              "start": 5.91,
+              "end": 6.09,
+              "probability": 0.9296875
+            },
+            {
+              "text": " hope",
+              "start": 6.09,
+              "end": 6.31,
+              "probability": 0.93017578125
+            }
+          ]
+        },
+        {
+          "text": " Of peaceful days portends, than those two past, Those were of hate and death, or pain much",
+          "start": 6.31,
+          "end": 11.85,
+          "words": [
+            {
+              "text": " Of",
+              "start": 6.31,
+              "end": 6.51,
+              "probability": 0.067138671875
+            },
+            {
+              "text": " peaceful",
+              "start": 6.51,
+              "end": 6.77,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " days",
+              "start": 6.77,
+              "end": 7.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " portends,",
+              "start": 7.21,
+              "end": 7.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " than",
+              "start": 8.01,
+              "end": 8.11,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " those",
+              "start": 8.11,
+              "end": 8.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " two",
+              "start": 8.29,
+              "end": 8.55,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " past,",
+              "start": 8.55,
+              "end": 8.91,
+              "probability": 0.388916015625
+            },
+            {
+              "text": " Those",
+              "start": 9.51,
+              "end": 9.81,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " were",
+              "start": 9.81,
+              "end": 9.99,
+              "probability": 0.978515625
+            },
+            {
+              "text": " of",
+              "start": 9.99,
+              "end": 10.11,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " hate",
+              "start": 10.11,
+              "end": 10.35,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " and",
+              "start": 10.35,
+              "end": 10.61,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " death,",
+              "start": 10.61,
+              "end": 10.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " or",
+              "start": 11.15,
+              "end": 11.27,
+              "probability": 0.98046875
+            },
+            {
+              "text": " pain",
+              "start": 11.27,
+              "end": 11.59,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " much",
+              "start": 11.59,
+              "end": 11.85,
+              "probability": 0.9345703125
+            }
+          ]
+        },
+        {
+          "text": " worse, Here Nature seems fulfilled in all her ends.",
+          "start": 11.85,
+          "end": 15.05,
+          "words": [
+            {
+              "text": " worse,",
+              "start": 11.85,
+              "end": 12.17,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Here",
+              "start": 12.77,
+              "end": 12.93,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " Nature",
+              "start": 12.93,
+              "end": 13.19,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " seems",
+              "start": 13.19,
+              "end": 13.69,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " fulfilled",
+              "start": 13.69,
+              "end": 14.13,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " in",
+              "start": 14.13,
+              "end": 14.35,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " all",
+              "start": 14.35,
+              "end": 14.51,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " her",
+              "start": 14.51,
+              "end": 14.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " ends.",
+              "start": 14.67,
+              "end": 15.05,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "opener",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "raw": "of",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "raw": "mine",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "eyes,",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "raw": "prime",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "Angel",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "raw": "blest,",
+          "start": 2.85,
+          "end": 3.35
+        },
+        {
+          "raw": "Much",
+          "start": 3.81,
+          "end": 4.09
+        },
+        {
+          "raw": "better",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "raw": "seems",
+          "start": 4.41,
+          "end": 4.75
+        },
+        {
+          "raw": "this",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "raw": "vision,",
+          "start": 5.11,
+          "end": 5.45
+        },
+        {
+          "raw": "and",
+          "start": 5.81,
+          "end": 5.91
+        },
+        {
+          "raw": "more",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "raw": "hope",
+          "start": 6.09,
+          "end": 6.31
+        },
+        {
+          "raw": "Of",
+          "start": 6.31,
+          "end": 6.51
+        },
+        {
+          "raw": "peaceful",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "raw": "days",
+          "start": 6.77,
+          "end": 7.21
+        },
+        {
+          "raw": "portends,",
+          "start": 7.21,
+          "end": 7.85
+        },
+        {
+          "raw": "than",
+          "start": 8.01,
+          "end": 8.11
+        },
+        {
+          "raw": "those",
+          "start": 8.11,
+          "end": 8.29
+        },
+        {
+          "raw": "two",
+          "start": 8.29,
+          "end": 8.55
+        },
+        {
+          "raw": "past,",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "raw": "Those",
+          "start": 9.51,
+          "end": 9.81
+        },
+        {
+          "raw": "were",
+          "start": 9.81,
+          "end": 9.99
+        },
+        {
+          "raw": "of",
+          "start": 9.99,
+          "end": 10.11
+        },
+        {
+          "raw": "hate",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "raw": "and",
+          "start": 10.35,
+          "end": 10.61
+        },
+        {
+          "raw": "death,",
+          "start": 10.61,
+          "end": 10.89
+        },
+        {
+          "raw": "or",
+          "start": 11.15,
+          "end": 11.27
+        },
+        {
+          "raw": "pain",
+          "start": 11.27,
+          "end": 11.59
+        },
+        {
+          "raw": "much",
+          "start": 11.59,
+          "end": 11.85
+        },
+        {
+          "raw": "worse,",
+          "start": 11.85,
+          "end": 12.17
+        },
+        {
+          "raw": "Here",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "raw": "Nature",
+          "start": 12.93,
+          "end": 13.19
+        },
+        {
+          "raw": "seems",
+          "start": 13.19,
+          "end": 13.69
+        },
+        {
+          "raw": "fulfilled",
+          "start": 13.69,
+          "end": 14.13
+        },
+        {
+          "raw": "in",
+          "start": 14.13,
+          "end": 14.35
+        },
+        {
+          "raw": "all",
+          "start": 14.35,
+          "end": 14.51
+        },
+        {
+          "raw": "her",
+          "start": 14.51,
+          "end": 14.67
+        },
+        {
+          "raw": "ends.",
+          "start": 14.67,
+          "end": 15.05
+        }
+      ],
+      "expected_tokens": [
+        "True",
+        "opener",
+        "of",
+        "mine",
+        "eyes,",
+        "prime",
+        "Angel",
+        "blest;",
+        "Much",
+        "better",
+        "seems",
+        "this",
+        "vision,",
+        "and",
+        "more",
+        "hope",
+        "Of",
+        "peaceful",
+        "days",
+        "portends,",
+        "than",
+        "those",
+        "two",
+        "past;",
+        "Those",
+        "were",
+        "of",
+        "hate",
+        "and",
+        "death,",
+        "or",
+        "pain",
+        "much",
+        "worse;",
+        "Here",
+        "Nature",
+        "seems",
+        "fulfilled",
+        "in",
+        "all",
+        "her",
+        "ends."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "True",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "opener",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "text": "of",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "text": "mine",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "eyes,",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "text": "prime",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "Angel",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "text": "blest;",
+          "start": 2.85,
+          "end": 3.35
+        },
+        {
+          "text": "Much",
+          "start": 3.81,
+          "end": 4.09
+        },
+        {
+          "text": "better",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "text": "seems",
+          "start": 4.41,
+          "end": 4.75
+        },
+        {
+          "text": "this",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "text": "vision,",
+          "start": 5.11,
+          "end": 5.45
+        },
+        {
+          "text": "and",
+          "start": 5.81,
+          "end": 5.91
+        },
+        {
+          "text": "more",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "text": "hope",
+          "start": 6.09,
+          "end": 6.31
+        },
+        {
+          "text": "Of",
+          "start": 6.31,
+          "end": 6.51
+        },
+        {
+          "text": "peaceful",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "text": "days",
+          "start": 6.77,
+          "end": 7.21
+        },
+        {
+          "text": "portends,",
+          "start": 7.21,
+          "end": 7.85
+        },
+        {
+          "text": "than",
+          "start": 8.01,
+          "end": 8.11
+        },
+        {
+          "text": "those",
+          "start": 8.11,
+          "end": 8.29
+        },
+        {
+          "text": "two",
+          "start": 8.29,
+          "end": 8.55
+        },
+        {
+          "text": "past;",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "text": "Those",
+          "start": 9.51,
+          "end": 9.81
+        },
+        {
+          "text": "were",
+          "start": 9.81,
+          "end": 9.99
+        },
+        {
+          "text": "of",
+          "start": 9.99,
+          "end": 10.11
+        },
+        {
+          "text": "hate",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "text": "and",
+          "start": 10.35,
+          "end": 10.61
+        },
+        {
+          "text": "death,",
+          "start": 10.61,
+          "end": 10.89
+        },
+        {
+          "text": "or",
+          "start": 11.15,
+          "end": 11.27
+        },
+        {
+          "text": "pain",
+          "start": 11.27,
+          "end": 11.59
+        },
+        {
+          "text": "much",
+          "start": 11.59,
+          "end": 11.85
+        },
+        {
+          "text": "worse;",
+          "start": 11.85,
+          "end": 12.17
+        },
+        {
+          "text": "Here",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "text": "Nature",
+          "start": 12.93,
+          "end": 13.19
+        },
+        {
+          "text": "seems",
+          "start": 13.19,
+          "end": 13.69
+        },
+        {
+          "text": "fulfilled",
+          "start": 13.69,
+          "end": 14.13
+        },
+        {
+          "text": "in",
+          "start": 14.13,
+          "end": 14.35
+        },
+        {
+          "text": "all",
+          "start": 14.35,
+          "end": 14.51
+        },
+        {
+          "text": "her",
+          "start": 14.51,
+          "end": 14.67
+        },
+        {
+          "text": "ends.",
+          "start": 14.67,
+          "end": 15.05
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5067562879994512
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aceafbcc026dca36abf7fe23475eaace0451fb180243236081a1e66953b36588",
+  "selected_reasons": []
+}

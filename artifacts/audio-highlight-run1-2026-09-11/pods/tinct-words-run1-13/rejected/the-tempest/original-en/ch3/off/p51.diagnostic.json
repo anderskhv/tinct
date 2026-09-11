@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "572945d26b5ac0ce62a33986863d06e97fc99f5b9a175a9540f9678e0638574d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11315243900753558,
+      "alignment_seconds": 0.00011241505853831768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, not since Widow Dido's time.",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.859130859375
+            },
+            {
+              "text": " not",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " since",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Widow",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " Dido's",
+              "start": 1.91,
+              "end": 2.47,
+              "probability": 0.7613118489583334
+            },
+            {
+              "text": " time.",
+              "start": 2.47,
+              "end": 2.77,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "not",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "since",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "Widow",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "Dido's",
+          "start": 1.91,
+          "end": 2.47
+        },
+        {
+          "raw": "time.",
+          "start": 2.47,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Not",
+        "since",
+        "widow",
+        "Dido's",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Not",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "since",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "widow",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "Dido's",
+          "start": 1.91,
+          "end": 2.47
+        },
+        {
+          "text": "time.",
+          "start": 2.47,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11331210506614298
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9b8102eceb447fa03b5b486f19232914eec696e375f7cc702d1ff1ded42c1836",
+  "selected_reasons": []
+}

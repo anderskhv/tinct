@@ -1,0 +1,194 @@
+{
+  "complete": true,
+  "signature": "73ea382725d2929ba2ccd3689a82846fe3a520bf639fceb863899847112ce376",
+  "attempts": [
+    {
+      "asr_seconds": 0.0941055677831173,
+      "alignment_seconds": 5.7889148592948914e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Worm earthworm, and yellow to boot.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Worm",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.352783203125
+            },
+            {
+              "text": " earthworm,",
+              "start": 0.57,
+              "end": 1.05,
+              "probability": 0.47283935546875
+            },
+            {
+              "text": " and",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.974609375
+            },
+            {
+              "text": " yellow",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " to",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " boot.",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Worm",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "earthworm,",
+          "start": 0.57,
+          "end": 1.05
+        },
+        {
+          "raw": "and",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "yellow",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "to",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "boot.",
+          "start": 1.87,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "\"Worm--earth-worm,",
+        "and",
+        "yellow",
+        "to",
+        "boot.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Worm--earth-worm,",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "and",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "yellow",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "to",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "boot.\"",
+          "start": 1.87,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09418623242527246
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ad6d8e1eda06b9ec3a15c07441dc882f4e0f26c81232ab06d4c5404aa62ba650",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

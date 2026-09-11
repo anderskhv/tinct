@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "f622578ac6325519b456edec328b746b20585ad59c96f8ac2190abd1141b3ba1",
+  "attempts": [
+    {
+      "asr_seconds": 0.08900019153952599,
+      "alignment_seconds": 0.000141276977956295,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Elephants Of The Gun Teams",
+        "hotwords": "Elephants, Of, The, Gun, Teams"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Elephants Of The Gun Teams",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Elephants",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.8611653645833334
+            },
+            {
+              "text": " Of",
+              "start": 0.82,
+              "end": 0.94,
+              "probability": 0.0251312255859375
+            },
+            {
+              "text": " The",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Gun",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Teams",
+              "start": 1.26,
+              "end": 1.6,
+              "probability": 0.73828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Elephants",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Of",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "raw": "The",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "Gun",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "Teams",
+          "start": 1.26,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Elephants",
+        "Of",
+        "The",
+        "Gun",
+        "Teams"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Elephants",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Of",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "text": "The",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "text": "Gun",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "Teams",
+          "start": 1.26,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08916404750198126
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "574db7032c8adc121c55ecd35c24e3f53981e81631dee293bfa0a1e0632ac09a",
+  "selected_reasons": []
+}

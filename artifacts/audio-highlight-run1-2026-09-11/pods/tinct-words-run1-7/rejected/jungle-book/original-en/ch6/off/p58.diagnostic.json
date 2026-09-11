@@ -1,0 +1,547 @@
+{
+  "complete": true,
+  "signature": "318d934eb0ee33e26a8b8060ffb5064a49b8a8dc5d6dfc2d123073b123420860",
+  "attempts": [
+    {
+      "asr_seconds": 0.16585639398545027,
+      "alignment_seconds": 0.00010892283171415329,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A.I., he said, half-allowed, his teeth chattering.",
+          "start": 0.08,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.1990966796875
+            },
+            {
+              "text": ".I.,",
+              "start": 0.58,
+              "end": 1.16,
+              "probability": 0.77734375
+            },
+            {
+              "text": " he",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " said,",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " half",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": "-allowed,",
+              "start": 1.92,
+              "end": 2.26,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " his",
+              "start": 2.46,
+              "end": 2.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " teeth",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " chattering.",
+              "start": 2.8,
+              "end": 3.3,
+              "probability": 0.980712890625
+            }
+          ]
+        },
+        {
+          "text": " The elephant folk are out tonight.",
+          "start": 3.96,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " elephant",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " folk",
+              "start": 4.46,
+              "end": 4.78,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " are",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " out",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tonight.",
+              "start": 5.08,
+              "end": 5.38,
+              "probability": 0.94091796875
+            }
+          ]
+        },
+        {
+          "text": " It is the dance then.",
+          "start": 5.7,
+          "end": 6.64,
+          "words": [
+            {
+              "text": " It",
+              "start": 5.7,
+              "end": 5.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 5.74,
+              "end": 5.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 5.84,
+              "end": 6.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dance",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.98046875
+            },
+            {
+              "text": " then.",
+              "start": 6.3,
+              "end": 6.64,
+              "probability": 0.6142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": ".I.,",
+          "start": 0.58,
+          "end": 1.16
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "said,",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "raw": "half",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "-allowed,",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "raw": "his",
+          "start": 2.46,
+          "end": 2.56
+        },
+        {
+          "raw": "teeth",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "raw": "chattering.",
+          "start": 2.8,
+          "end": 3.3
+        },
+        {
+          "raw": "The",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "elephant",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "folk",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "raw": "are",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "out",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "tonight.",
+          "start": 5.08,
+          "end": 5.38
+        },
+        {
+          "raw": "It",
+          "start": 5.7,
+          "end": 5.74
+        },
+        {
+          "raw": "is",
+          "start": 5.74,
+          "end": 5.84
+        },
+        {
+          "raw": "the",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "raw": "dance",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "raw": "then.",
+          "start": 6.3,
+          "end": 6.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Ai!\"",
+        "he",
+        "said,",
+        "half",
+        "aloud,",
+        "his",
+        "teeth",
+        "chattering.",
+        "\"The",
+        "elephant-folk",
+        "are",
+        "out",
+        "tonight.",
+        "It",
+        "is",
+        "the",
+        "dance,",
+        "then!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          9,
+          6,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ],
+        [
+          "equal",
+          10,
+          18,
+          12,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Ai!\"",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "he",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "said,",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "text": "half",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "aloud,",
+          "start": 1.92,
+          "end": 2.19
+        },
+        {
+          "text": "his",
+          "start": 2.46,
+          "end": 2.56
+        },
+        {
+          "text": "teeth",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "text": "chattering.",
+          "start": 2.8,
+          "end": 3.3
+        },
+        {
+          "text": "\"The",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "elephant-folk",
+          "start": 4.12,
+          "end": 4.45
+        },
+        {
+          "text": "are",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "out",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "tonight.",
+          "start": 5.08,
+          "end": 5.38
+        },
+        {
+          "text": "It",
+          "start": 5.7,
+          "end": 5.74
+        },
+        {
+          "text": "is",
+          "start": 5.74,
+          "end": 5.84
+        },
+        {
+          "text": "the",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "text": "dance,",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "text": "then!\"",
+          "start": 6.3,
+          "end": 6.64
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 20,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16601071879267693
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "99cacc96e848f0432285c7c85bc122942fbee5e4b73f9588330aada3894f29d0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,3568 @@
+{
+  "complete": true,
+  "signature": "1bfb55efa912ed5eef9ba413b4d4a4e3919cb9dcf4378610ed591853b6a5413e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2453233441337943,
+      "alignment_seconds": 0.00018821284174919128,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The camel doubled up camel-fashion, like a two-foot rule, and sat down whimpering. There was a regular beat of hoofs in the darkness, and a big troop-horse cantered up as steadily as though he were on parade, jumped a gun tail, and landed close to the mule.",
+        "hotwords": "There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The camel doubled up camel-fashion, like a two-foot rule, and sat down whimpering. There was a regular beat of hoofs in the darkness, and a big troop-horse cantered up as steadily as though he were on parade, jumped a gun tail, and landed close to the mule.",
+          "start": 0.02,
+          "end": 15.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " camel",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.953125
+            },
+            {
+              "text": " doubled",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " up",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " camel",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.9619140625
+            },
+            {
+              "text": "-fashion,",
+              "start": 1.7,
+              "end": 2.12,
+              "probability": 0.4963226318359375
+            },
+            {
+              "text": " like",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " two",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.90869140625
+            },
+            {
+              "text": "-foot",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " rule,",
+              "start": 3.32,
+              "end": 3.66,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " and",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sat",
+              "start": 4.16,
+              "end": 4.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " down",
+              "start": 4.36,
+              "end": 4.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whimpering.",
+              "start": 4.68,
+              "end": 5.14,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " There",
+              "start": 5.88,
+              "end": 5.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 5.96,
+              "end": 6.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 6.08,
+              "end": 6.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " regular",
+              "start": 6.22,
+              "end": 6.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " beat",
+              "start": 6.58,
+              "end": 6.8,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " of",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hoofs",
+              "start": 6.94,
+              "end": 7.32,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " in",
+              "start": 7.32,
+              "end": 7.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.42,
+              "end": 7.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " darkness,",
+              "start": 7.52,
+              "end": 7.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 8.32,
+              "end": 8.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 8.48,
+              "end": 8.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " big",
+              "start": 8.62,
+              "end": 8.76,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " troop",
+              "start": 8.76,
+              "end": 9.04,
+              "probability": 0.8984375
+            },
+            {
+              "text": "-horse",
+              "start": 9.04,
+              "end": 9.34,
+              "probability": 0.5709228515625
+            },
+            {
+              "text": " cantered",
+              "start": 9.34,
+              "end": 9.88,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " up",
+              "start": 9.88,
+              "end": 10.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 10.06,
+              "end": 10.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " steadily",
+              "start": 10.2,
+              "end": 10.56,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 10.56,
+              "end": 10.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though",
+              "start": 10.88,
+              "end": 11.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 11.06,
+              "end": 11.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 11.22,
+              "end": 11.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " on",
+              "start": 11.34,
+              "end": 11.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " parade,",
+              "start": 11.56,
+              "end": 11.96,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " jumped",
+              "start": 12.54,
+              "end": 12.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 12.74,
+              "end": 12.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " gun",
+              "start": 12.98,
+              "end": 13.18,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " tail,",
+              "start": 13.18,
+              "end": 13.5,
+              "probability": 0.3828125
+            },
+            {
+              "text": " and",
+              "start": 13.94,
+              "end": 14.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " landed",
+              "start": 14.06,
+              "end": 14.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " close",
+              "start": 14.36,
+              "end": 14.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 14.72,
+              "end": 14.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 14.96,
+              "end": 15.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mule.",
+              "start": 15.08,
+              "end": 15.3,
+              "probability": 0.982177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "camel",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "doubled",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "up",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "camel",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "-fashion,",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "raw": "like",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "a",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "two",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "-foot",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "rule,",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "raw": "and",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "sat",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "raw": "down",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "raw": "whimpering.",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "raw": "There",
+          "start": 5.88,
+          "end": 5.96
+        },
+        {
+          "raw": "was",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "raw": "a",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "raw": "regular",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "raw": "beat",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "hoofs",
+          "start": 6.94,
+          "end": 7.32
+        },
+        {
+          "raw": "in",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "raw": "the",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "raw": "darkness,",
+          "start": 7.52,
+          "end": 7.88
+        },
+        {
+          "raw": "and",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "raw": "a",
+          "start": 8.48,
+          "end": 8.62
+        },
+        {
+          "raw": "big",
+          "start": 8.62,
+          "end": 8.76
+        },
+        {
+          "raw": "troop",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "raw": "-horse",
+          "start": 9.04,
+          "end": 9.34
+        },
+        {
+          "raw": "cantered",
+          "start": 9.34,
+          "end": 9.88
+        },
+        {
+          "raw": "up",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "raw": "as",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "raw": "steadily",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "raw": "as",
+          "start": 10.56,
+          "end": 10.88
+        },
+        {
+          "raw": "though",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "raw": "he",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "raw": "were",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "raw": "on",
+          "start": 11.34,
+          "end": 11.56
+        },
+        {
+          "raw": "parade,",
+          "start": 11.56,
+          "end": 11.96
+        },
+        {
+          "raw": "jumped",
+          "start": 12.54,
+          "end": 12.74
+        },
+        {
+          "raw": "a",
+          "start": 12.74,
+          "end": 12.98
+        },
+        {
+          "raw": "gun",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "raw": "tail,",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "raw": "and",
+          "start": 13.94,
+          "end": 14.06
+        },
+        {
+          "raw": "landed",
+          "start": 14.06,
+          "end": 14.36
+        },
+        {
+          "raw": "close",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "raw": "to",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "raw": "the",
+          "start": 14.96,
+          "end": 15.08
+        },
+        {
+          "raw": "mule.",
+          "start": 15.08,
+          "end": 15.3
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "camel",
+        "doubled",
+        "up",
+        "camel-fashion,",
+        "like",
+        "a",
+        "two-foot",
+        "rule,",
+        "and",
+        "sat",
+        "down",
+        "whimpering.",
+        "There",
+        "was",
+        "a",
+        "regular",
+        "beat",
+        "of",
+        "hoofs",
+        "in",
+        "the",
+        "darkness,",
+        "and",
+        "a",
+        "big",
+        "troop-horse",
+        "cantered",
+        "up",
+        "as",
+        "steadily",
+        "as",
+        "though",
+        "he",
+        "were",
+        "on",
+        "parade,",
+        "jumped",
+        "a",
+        "gun",
+        "tail,",
+        "and",
+        "landed",
+        "close",
+        "to",
+        "the",
+        "mule."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "equal",
+          8,
+          26,
+          10,
+          28
+        ],
+        [
+          "replace",
+          26,
+          27,
+          28,
+          30
+        ],
+        [
+          "equal",
+          27,
+          47,
+          30,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "replace",
+          26,
+          27,
+          28,
+          30
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "camel",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "doubled",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "up",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "camel-fashion,",
+          "start": 1.38,
+          "end": 1.96
+        },
+        {
+          "text": "like",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "a",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "two-foot",
+          "start": 2.86,
+          "end": 3.09
+        },
+        {
+          "text": "rule,",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "text": "and",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "sat",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "text": "down",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "text": "whimpering.",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "text": "There",
+          "start": 5.88,
+          "end": 5.96
+        },
+        {
+          "text": "was",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "text": "a",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "text": "regular",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "text": "beat",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "text": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "hoofs",
+          "start": 6.94,
+          "end": 7.32
+        },
+        {
+          "text": "in",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "text": "the",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "text": "darkness,",
+          "start": 7.52,
+          "end": 7.88
+        },
+        {
+          "text": "and",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "text": "a",
+          "start": 8.48,
+          "end": 8.62
+        },
+        {
+          "text": "big",
+          "start": 8.62,
+          "end": 8.76
+        },
+        {
+          "text": "troop-horse",
+          "start": 8.76,
+          "end": 9.05
+        },
+        {
+          "text": "cantered",
+          "start": 9.34,
+          "end": 9.88
+        },
+        {
+          "text": "up",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "text": "as",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "text": "steadily",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "text": "as",
+          "start": 10.56,
+          "end": 10.88
+        },
+        {
+          "text": "though",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "text": "he",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "text": "were",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "text": "on",
+          "start": 11.34,
+          "end": 11.56
+        },
+        {
+          "text": "parade,",
+          "start": 11.56,
+          "end": 11.96
+        },
+        {
+          "text": "jumped",
+          "start": 12.54,
+          "end": 12.74
+        },
+        {
+          "text": "a",
+          "start": 12.74,
+          "end": 12.98
+        },
+        {
+          "text": "gun",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "text": "tail,",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "text": "and",
+          "start": 13.94,
+          "end": 14.06
+        },
+        {
+          "text": "landed",
+          "start": 14.06,
+          "end": 14.36
+        },
+        {
+          "text": "close",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "text": "to",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "text": "the",
+          "start": 14.96,
+          "end": 15.08
+        },
+        {
+          "text": "mule.",
+          "start": 15.08,
+          "end": 15.3
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 50,
+        "matched_words": 44
+      },
+      "match_ratio": 0.9361702127659575,
+      "rejection_reasons": [],
+      "seconds": 0.24560608062893152
+    },
+    {
+      "asr_seconds": 0.29877451714128256,
+      "alignment_seconds": 0.0001993449404835701,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "There"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The camel doubled up camel fashion, like a two-foot rule, and sat down whimpering.",
+          "start": 0.02,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " camel",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.953125
+            },
+            {
+              "text": " doubled",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " up",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " camel",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " fashion,",
+              "start": 1.7,
+              "end": 2.14,
+              "probability": 0.953125
+            },
+            {
+              "text": " like",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " two",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.9033203125
+            },
+            {
+              "text": "-foot",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " rule,",
+              "start": 3.32,
+              "end": 3.68,
+              "probability": 0.953125
+            },
+            {
+              "text": " and",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sat",
+              "start": 4.16,
+              "end": 4.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " down",
+              "start": 4.36,
+              "end": 4.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " whimpering.",
+              "start": 4.68,
+              "end": 5.14,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " There was a regular beat of hoofs in the darkness, and a big troop horse cantered up as steadily",
+          "start": 5.86,
+          "end": 10.56,
+          "words": [
+            {
+              "text": " There",
+              "start": 5.86,
+              "end": 5.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 5.96,
+              "end": 6.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 6.08,
+              "end": 6.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " regular",
+              "start": 6.22,
+              "end": 6.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beat",
+              "start": 6.58,
+              "end": 6.8,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " of",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hoofs",
+              "start": 6.94,
+              "end": 7.32,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " in",
+              "start": 7.32,
+              "end": 7.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.4,
+              "end": 7.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " darkness,",
+              "start": 7.52,
+              "end": 7.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 8.32,
+              "end": 8.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 8.48,
+              "end": 8.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " big",
+              "start": 8.62,
+              "end": 8.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " troop",
+              "start": 8.76,
+              "end": 9.04,
+              "probability": 0.912109375
+            },
+            {
+              "text": " horse",
+              "start": 9.04,
+              "end": 9.38,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " cantered",
+              "start": 9.38,
+              "end": 9.88,
+              "probability": 0.831298828125
+            },
+            {
+              "text": " up",
+              "start": 9.88,
+              "end": 10.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 10.06,
+              "end": 10.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " steadily",
+              "start": 10.2,
+              "end": 10.56,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " as though he were on parade, jumped a gun tail, and landed close to the mule.",
+          "start": 10.56,
+          "end": 15.3,
+          "words": [
+            {
+              "text": " as",
+              "start": 10.56,
+              "end": 10.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though",
+              "start": 10.88,
+              "end": 11.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 11.06,
+              "end": 11.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 11.22,
+              "end": 11.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 11.34,
+              "end": 11.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " parade,",
+              "start": 11.56,
+              "end": 11.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " jumped",
+              "start": 12.54,
+              "end": 12.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 12.76,
+              "end": 12.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " gun",
+              "start": 12.98,
+              "end": 13.18,
+              "probability": 0.9375
+            },
+            {
+              "text": " tail,",
+              "start": 13.18,
+              "end": 13.52,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " and",
+              "start": 13.92,
+              "end": 14.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " landed",
+              "start": 14.06,
+              "end": 14.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " close",
+              "start": 14.36,
+              "end": 14.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 14.72,
+              "end": 14.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 14.96,
+              "end": 15.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mule.",
+              "start": 15.08,
+              "end": 15.3,
+              "probability": 0.986572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "camel",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "doubled",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "up",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "camel",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "fashion,",
+          "start": 1.7,
+          "end": 2.14
+        },
+        {
+          "raw": "like",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "a",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "two",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "-foot",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "rule,",
+          "start": 3.32,
+          "end": 3.68
+        },
+        {
+          "raw": "and",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "sat",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "raw": "down",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "raw": "whimpering.",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "raw": "There",
+          "start": 5.86,
+          "end": 5.96
+        },
+        {
+          "raw": "was",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "raw": "a",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "raw": "regular",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "raw": "beat",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "hoofs",
+          "start": 6.94,
+          "end": 7.32
+        },
+        {
+          "raw": "in",
+          "start": 7.32,
+          "end": 7.4
+        },
+        {
+          "raw": "the",
+          "start": 7.4,
+          "end": 7.52
+        },
+        {
+          "raw": "darkness,",
+          "start": 7.52,
+          "end": 7.88
+        },
+        {
+          "raw": "and",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "raw": "a",
+          "start": 8.48,
+          "end": 8.62
+        },
+        {
+          "raw": "big",
+          "start": 8.62,
+          "end": 8.76
+        },
+        {
+          "raw": "troop",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "raw": "horse",
+          "start": 9.04,
+          "end": 9.38
+        },
+        {
+          "raw": "cantered",
+          "start": 9.38,
+          "end": 9.88
+        },
+        {
+          "raw": "up",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "raw": "as",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "raw": "steadily",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "raw": "as",
+          "start": 10.56,
+          "end": 10.88
+        },
+        {
+          "raw": "though",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "raw": "he",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "raw": "were",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "raw": "on",
+          "start": 11.34,
+          "end": 11.56
+        },
+        {
+          "raw": "parade,",
+          "start": 11.56,
+          "end": 11.96
+        },
+        {
+          "raw": "jumped",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "raw": "a",
+          "start": 12.76,
+          "end": 12.98
+        },
+        {
+          "raw": "gun",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "raw": "tail,",
+          "start": 13.18,
+          "end": 13.52
+        },
+        {
+          "raw": "and",
+          "start": 13.92,
+          "end": 14.06
+        },
+        {
+          "raw": "landed",
+          "start": 14.06,
+          "end": 14.36
+        },
+        {
+          "raw": "close",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "raw": "to",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "raw": "the",
+          "start": 14.96,
+          "end": 15.08
+        },
+        {
+          "raw": "mule.",
+          "start": 15.08,
+          "end": 15.3
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "camel",
+        "doubled",
+        "up",
+        "camel-fashion,",
+        "like",
+        "a",
+        "two-foot",
+        "rule,",
+        "and",
+        "sat",
+        "down",
+        "whimpering.",
+        "There",
+        "was",
+        "a",
+        "regular",
+        "beat",
+        "of",
+        "hoofs",
+        "in",
+        "the",
+        "darkness,",
+        "and",
+        "a",
+        "big",
+        "troop-horse",
+        "cantered",
+        "up",
+        "as",
+        "steadily",
+        "as",
+        "though",
+        "he",
+        "were",
+        "on",
+        "parade,",
+        "jumped",
+        "a",
+        "gun",
+        "tail,",
+        "and",
+        "landed",
+        "close",
+        "to",
+        "the",
+        "mule."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "equal",
+          8,
+          26,
+          10,
+          28
+        ],
+        [
+          "replace",
+          26,
+          27,
+          28,
+          30
+        ],
+        [
+          "equal",
+          27,
+          47,
+          30,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "replace",
+          26,
+          27,
+          28,
+          30
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "camel",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "doubled",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "up",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "camel-fashion,",
+          "start": 1.38,
+          "end": 1.96
+        },
+        {
+          "text": "like",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "a",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "two-foot",
+          "start": 2.86,
+          "end": 3.09
+        },
+        {
+          "text": "rule,",
+          "start": 3.32,
+          "end": 3.68
+        },
+        {
+          "text": "and",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "sat",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "text": "down",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "text": "whimpering.",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "text": "There",
+          "start": 5.86,
+          "end": 5.96
+        },
+        {
+          "text": "was",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "text": "a",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "text": "regular",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "text": "beat",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "text": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "hoofs",
+          "start": 6.94,
+          "end": 7.32
+        },
+        {
+          "text": "in",
+          "start": 7.32,
+          "end": 7.4
+        },
+        {
+          "text": "the",
+          "start": 7.4,
+          "end": 7.52
+        },
+        {
+          "text": "darkness,",
+          "start": 7.52,
+          "end": 7.88
+        },
+        {
+          "text": "and",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "text": "a",
+          "start": 8.48,
+          "end": 8.62
+        },
+        {
+          "text": "big",
+          "start": 8.62,
+          "end": 8.76
+        },
+        {
+          "text": "troop-horse",
+          "start": 8.76,
+          "end": 9.07
+        },
+        {
+          "text": "cantered",
+          "start": 9.38,
+          "end": 9.88
+        },
+        {
+          "text": "up",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "text": "as",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "text": "steadily",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "text": "as",
+          "start": 10.56,
+          "end": 10.88
+        },
+        {
+          "text": "though",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "text": "he",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "text": "were",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "text": "on",
+          "start": 11.34,
+          "end": 11.56
+        },
+        {
+          "text": "parade,",
+          "start": 11.56,
+          "end": 11.96
+        },
+        {
+          "text": "jumped",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "text": "a",
+          "start": 12.76,
+          "end": 12.98
+        },
+        {
+          "text": "gun",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "text": "tail,",
+          "start": 13.18,
+          "end": 13.52
+        },
+        {
+          "text": "and",
+          "start": 13.92,
+          "end": 14.06
+        },
+        {
+          "text": "landed",
+          "start": 14.06,
+          "end": 14.36
+        },
+        {
+          "text": "close",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "text": "to",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "text": "the",
+          "start": 14.96,
+          "end": 15.08
+        },
+        {
+          "text": "mule.",
+          "start": 15.08,
+          "end": 15.3
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 50,
+        "matched_words": 44
+      },
+      "match_ratio": 0.9361702127659575,
+      "rejection_reasons": [],
+      "seconds": 0.2990667661651969
+    },
+    {
+      "asr_seconds": 0.30295206885784864,
+      "alignment_seconds": 0.00018933508545160294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The camel doubled up camel fashion, like a two-foot rule, and sat down whimpering.",
+          "start": 0.02,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " camel",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.953125
+            },
+            {
+              "text": " doubled",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " up",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " camel",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " fashion,",
+              "start": 1.7,
+              "end": 2.14,
+              "probability": 0.953125
+            },
+            {
+              "text": " like",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " two",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.9033203125
+            },
+            {
+              "text": "-foot",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " rule,",
+              "start": 3.32,
+              "end": 3.68,
+              "probability": 0.953125
+            },
+            {
+              "text": " and",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sat",
+              "start": 4.16,
+              "end": 4.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " down",
+              "start": 4.36,
+              "end": 4.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " whimpering.",
+              "start": 4.68,
+              "end": 5.14,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " There was a regular beat of hoofs in the darkness, and a big troop horse cantered up as steadily",
+          "start": 5.86,
+          "end": 10.56,
+          "words": [
+            {
+              "text": " There",
+              "start": 5.86,
+              "end": 5.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 5.96,
+              "end": 6.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 6.08,
+              "end": 6.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " regular",
+              "start": 6.22,
+              "end": 6.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beat",
+              "start": 6.58,
+              "end": 6.8,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " of",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hoofs",
+              "start": 6.94,
+              "end": 7.32,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " in",
+              "start": 7.32,
+              "end": 7.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.4,
+              "end": 7.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " darkness,",
+              "start": 7.52,
+              "end": 7.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 8.32,
+              "end": 8.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 8.48,
+              "end": 8.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " big",
+              "start": 8.62,
+              "end": 8.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " troop",
+              "start": 8.76,
+              "end": 9.04,
+              "probability": 0.912109375
+            },
+            {
+              "text": " horse",
+              "start": 9.04,
+              "end": 9.38,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " cantered",
+              "start": 9.38,
+              "end": 9.88,
+              "probability": 0.831298828125
+            },
+            {
+              "text": " up",
+              "start": 9.88,
+              "end": 10.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 10.06,
+              "end": 10.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " steadily",
+              "start": 10.2,
+              "end": 10.56,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " as though he were on parade, jumped a gun tail, and landed close to the mule.",
+          "start": 10.56,
+          "end": 15.3,
+          "words": [
+            {
+              "text": " as",
+              "start": 10.56,
+              "end": 10.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though",
+              "start": 10.88,
+              "end": 11.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 11.06,
+              "end": 11.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 11.22,
+              "end": 11.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 11.34,
+              "end": 11.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " parade,",
+              "start": 11.56,
+              "end": 11.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " jumped",
+              "start": 12.54,
+              "end": 12.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 12.76,
+              "end": 12.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " gun",
+              "start": 12.98,
+              "end": 13.18,
+              "probability": 0.9375
+            },
+            {
+              "text": " tail,",
+              "start": 13.18,
+              "end": 13.52,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " and",
+              "start": 13.92,
+              "end": 14.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " landed",
+              "start": 14.06,
+              "end": 14.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " close",
+              "start": 14.36,
+              "end": 14.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 14.72,
+              "end": 14.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 14.96,
+              "end": 15.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mule.",
+              "start": 15.08,
+              "end": 15.3,
+              "probability": 0.986572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "camel",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "doubled",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "up",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "camel",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "fashion,",
+          "start": 1.7,
+          "end": 2.14
+        },
+        {
+          "raw": "like",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "a",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "two",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "-foot",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "rule,",
+          "start": 3.32,
+          "end": 3.68
+        },
+        {
+          "raw": "and",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "sat",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "raw": "down",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "raw": "whimpering.",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "raw": "There",
+          "start": 5.86,
+          "end": 5.96
+        },
+        {
+          "raw": "was",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "raw": "a",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "raw": "regular",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "raw": "beat",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "hoofs",
+          "start": 6.94,
+          "end": 7.32
+        },
+        {
+          "raw": "in",
+          "start": 7.32,
+          "end": 7.4
+        },
+        {
+          "raw": "the",
+          "start": 7.4,
+          "end": 7.52
+        },
+        {
+          "raw": "darkness,",
+          "start": 7.52,
+          "end": 7.88
+        },
+        {
+          "raw": "and",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "raw": "a",
+          "start": 8.48,
+          "end": 8.62
+        },
+        {
+          "raw": "big",
+          "start": 8.62,
+          "end": 8.76
+        },
+        {
+          "raw": "troop",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "raw": "horse",
+          "start": 9.04,
+          "end": 9.38
+        },
+        {
+          "raw": "cantered",
+          "start": 9.38,
+          "end": 9.88
+        },
+        {
+          "raw": "up",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "raw": "as",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "raw": "steadily",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "raw": "as",
+          "start": 10.56,
+          "end": 10.88
+        },
+        {
+          "raw": "though",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "raw": "he",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "raw": "were",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "raw": "on",
+          "start": 11.34,
+          "end": 11.56
+        },
+        {
+          "raw": "parade,",
+          "start": 11.56,
+          "end": 11.96
+        },
+        {
+          "raw": "jumped",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "raw": "a",
+          "start": 12.76,
+          "end": 12.98
+        },
+        {
+          "raw": "gun",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "raw": "tail,",
+          "start": 13.18,
+          "end": 13.52
+        },
+        {
+          "raw": "and",
+          "start": 13.92,
+          "end": 14.06
+        },
+        {
+          "raw": "landed",
+          "start": 14.06,
+          "end": 14.36
+        },
+        {
+          "raw": "close",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "raw": "to",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "raw": "the",
+          "start": 14.96,
+          "end": 15.08
+        },
+        {
+          "raw": "mule.",
+          "start": 15.08,
+          "end": 15.3
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "camel",
+        "doubled",
+        "up",
+        "camel-fashion,",
+        "like",
+        "a",
+        "two-foot",
+        "rule,",
+        "and",
+        "sat",
+        "down",
+        "whimpering.",
+        "There",
+        "was",
+        "a",
+        "regular",
+        "beat",
+        "of",
+        "hoofs",
+        "in",
+        "the",
+        "darkness,",
+        "and",
+        "a",
+        "big",
+        "troop-horse",
+        "cantered",
+        "up",
+        "as",
+        "steadily",
+        "as",
+        "though",
+        "he",
+        "were",
+        "on",
+        "parade,",
+        "jumped",
+        "a",
+        "gun",
+        "tail,",
+        "and",
+        "landed",
+        "close",
+        "to",
+        "the",
+        "mule."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "equal",
+          8,
+          26,
+          10,
+          28
+        ],
+        [
+          "replace",
+          26,
+          27,
+          28,
+          30
+        ],
+        [
+          "equal",
+          27,
+          47,
+          30,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "replace",
+          26,
+          27,
+          28,
+          30
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "camel",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "doubled",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "up",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "camel-fashion,",
+          "start": 1.38,
+          "end": 1.96
+        },
+        {
+          "text": "like",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "a",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "two-foot",
+          "start": 2.86,
+          "end": 3.09
+        },
+        {
+          "text": "rule,",
+          "start": 3.32,
+          "end": 3.68
+        },
+        {
+          "text": "and",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "sat",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "text": "down",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "text": "whimpering.",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "text": "There",
+          "start": 5.86,
+          "end": 5.96
+        },
+        {
+          "text": "was",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "text": "a",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "text": "regular",
+          "start": 6.22,
+          "end": 6.58
+        },
+        {
+          "text": "beat",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "text": "of",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "hoofs",
+          "start": 6.94,
+          "end": 7.32
+        },
+        {
+          "text": "in",
+          "start": 7.32,
+          "end": 7.4
+        },
+        {
+          "text": "the",
+          "start": 7.4,
+          "end": 7.52
+        },
+        {
+          "text": "darkness,",
+          "start": 7.52,
+          "end": 7.88
+        },
+        {
+          "text": "and",
+          "start": 8.32,
+          "end": 8.48
+        },
+        {
+          "text": "a",
+          "start": 8.48,
+          "end": 8.62
+        },
+        {
+          "text": "big",
+          "start": 8.62,
+          "end": 8.76
+        },
+        {
+          "text": "troop-horse",
+          "start": 8.76,
+          "end": 9.07
+        },
+        {
+          "text": "cantered",
+          "start": 9.38,
+          "end": 9.88
+        },
+        {
+          "text": "up",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "text": "as",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "text": "steadily",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "text": "as",
+          "start": 10.56,
+          "end": 10.88
+        },
+        {
+          "text": "though",
+          "start": 10.88,
+          "end": 11.06
+        },
+        {
+          "text": "he",
+          "start": 11.06,
+          "end": 11.22
+        },
+        {
+          "text": "were",
+          "start": 11.22,
+          "end": 11.34
+        },
+        {
+          "text": "on",
+          "start": 11.34,
+          "end": 11.56
+        },
+        {
+          "text": "parade,",
+          "start": 11.56,
+          "end": 11.96
+        },
+        {
+          "text": "jumped",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "text": "a",
+          "start": 12.76,
+          "end": 12.98
+        },
+        {
+          "text": "gun",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "text": "tail,",
+          "start": 13.18,
+          "end": 13.52
+        },
+        {
+          "text": "and",
+          "start": 13.92,
+          "end": 14.06
+        },
+        {
+          "text": "landed",
+          "start": 14.06,
+          "end": 14.36
+        },
+        {
+          "text": "close",
+          "start": 14.36,
+          "end": 14.72
+        },
+        {
+          "text": "to",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "text": "the",
+          "start": 14.96,
+          "end": 15.08
+        },
+        {
+          "text": "mule.",
+          "start": 15.08,
+          "end": 15.3
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 50,
+        "matched_words": 44
+      },
+      "match_ratio": 0.9361702127659575,
+      "rejection_reasons": [],
+      "seconds": 0.3032369436696172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "19040982055887f1a4a64c1764e1d87936737c2f3044c0888278404e26acabb4",
+  "selected_reasons": []
+}

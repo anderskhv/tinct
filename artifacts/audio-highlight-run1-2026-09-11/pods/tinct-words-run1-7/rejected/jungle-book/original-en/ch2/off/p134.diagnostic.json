@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "3db895dd29baf5830c7d2948ff3a6cb3b04cf2b8ae9b2cdeddaaca48a7fc7f49",
+  "attempts": [
+    {
+      "asr_seconds": 0.0956228207796812,
+      "alignment_seconds": 6.463658064603806e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Art thou hurt? said Ballou hugging him softly.",
+          "start": 0.14,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Art",
+              "start": 0.14,
+              "end": 0.6,
+              "probability": 0.10986328125
+            },
+            {
+              "text": " thou",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " hurt?",
+              "start": 0.82,
+              "end": 1.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.80859375
+            },
+            {
+              "text": " Ballou",
+              "start": 1.72,
+              "end": 2.12,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " hugging",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " him",
+              "start": 2.34,
+              "end": 2.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " softly.",
+              "start": 2.6,
+              "end": 3.0,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Art",
+          "start": 0.14,
+          "end": 0.6
+        },
+        {
+          "raw": "thou",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "hurt?",
+          "start": 0.82,
+          "end": 1.2
+        },
+        {
+          "raw": "said",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "Ballou",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "raw": "hugging",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "him",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "raw": "softly.",
+          "start": 2.6,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Art",
+        "thou",
+        "hurt?\"",
+        "said",
+        "Baloo,",
+        "hugging",
+        "him",
+        "softly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Art",
+          "start": 0.14,
+          "end": 0.6
+        },
+        {
+          "text": "thou",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "hurt?\"",
+          "start": 0.82,
+          "end": 1.2
+        },
+        {
+          "text": "said",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "Baloo,",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "hugging",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "him",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "text": "softly.",
+          "start": 2.6,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.09571184124797583
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f29f85c6ae5262ef239756a8db60d677f2f044941347f54e5080773225db2f6c",
+  "selected_reasons": []
+}

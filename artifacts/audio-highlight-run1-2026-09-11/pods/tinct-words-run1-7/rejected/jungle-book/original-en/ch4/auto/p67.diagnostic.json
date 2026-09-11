@@ -1,0 +1,1515 @@
+{
+  "complete": true,
+  "signature": "33a083f0a3b5fca3fca703f86b68350a7a49ac52766da5344835dbaedc032340",
+  "attempts": [
+    {
+      "asr_seconds": 0.3085932768881321,
+      "alignment_seconds": 0.00020010676234960556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "If the beach was good and hard, with a slope behind it for seals to play on, there was always the smoke of a whaler on the horizon, boiling down blubber, and Kotick knew what that meant. Or else he could see that seals had once visited the island and been killed off, and Kotick knew that where men had come once they would come again.",
+        "hotwords": "If, Kotick, Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " If the beach was good and hard, with a slope behind it for seals to play on, there was always the smoke of a whaler on the horizon, boiling down blubber, and Kotick knew what that meant.",
+          "start": 0.02,
+          "end": 11.08,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " beach",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " was",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 1.4,
+              "end": 1.66,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " hard,",
+              "start": 1.66,
+              "end": 2.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.984375
+            },
+            {
+              "text": " slope",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " behind",
+              "start": 2.96,
+              "end": 3.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 3.52,
+              "end": 3.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seals",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.935546875
+            },
+            {
+              "text": " to",
+              "start": 3.96,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " play",
+              "start": 4.26,
+              "end": 4.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on,",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there",
+              "start": 5.2,
+              "end": 5.32,
+              "probability": 0.9921875
+            },
+            {
+              "text": " was",
+              "start": 5.32,
+              "end": 5.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " always",
+              "start": 5.42,
+              "end": 5.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.74,
+              "end": 5.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " smoke",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 6.24,
+              "end": 6.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 6.44,
+              "end": 6.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whaler",
+              "start": 6.56,
+              "end": 6.9,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " on",
+              "start": 6.9,
+              "end": 7.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.1,
+              "end": 7.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " horizon,",
+              "start": 7.2,
+              "end": 7.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " boiling",
+              "start": 8.18,
+              "end": 8.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down",
+              "start": 8.46,
+              "end": 8.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " blubber,",
+              "start": 8.92,
+              "end": 9.34,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " and",
+              "start": 9.72,
+              "end": 9.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kotick",
+              "start": 9.88,
+              "end": 10.16,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " knew",
+              "start": 10.16,
+              "end": 10.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 10.4,
+              "end": 10.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 10.6,
+              "end": 10.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meant.",
+              "start": 10.78,
+              "end": 11.08,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Or else he could see that seals had once visited the island and been killed off, and Kotick knew that where men had come once they would come again.",
+          "start": 11.84,
+          "end": 18.98,
+          "words": [
+            {
+              "text": " Or",
+              "start": 11.84,
+              "end": 11.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " else",
+              "start": 11.98,
+              "end": 12.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " he",
+              "start": 12.18,
+              "end": 12.32,
+              "probability": 0.96875
+            },
+            {
+              "text": " could",
+              "start": 12.32,
+              "end": 12.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 12.46,
+              "end": 12.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 12.62,
+              "end": 12.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seals",
+              "start": 12.82,
+              "end": 13.2,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " had",
+              "start": 13.2,
+              "end": 13.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " once",
+              "start": 13.42,
+              "end": 13.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " visited",
+              "start": 13.7,
+              "end": 14.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 14.04,
+              "end": 14.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " island",
+              "start": 14.24,
+              "end": 14.6,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 14.6,
+              "end": 14.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " been",
+              "start": 14.82,
+              "end": 14.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " killed",
+              "start": 14.96,
+              "end": 15.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " off,",
+              "start": 15.24,
+              "end": 15.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 16.02,
+              "end": 16.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Kotick",
+              "start": 16.18,
+              "end": 16.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " knew",
+              "start": 16.5,
+              "end": 16.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 16.78,
+              "end": 17.02,
+              "probability": 0.9921875
+            },
+            {
+              "text": " where",
+              "start": 17.02,
+              "end": 17.24,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " men",
+              "start": 17.24,
+              "end": 17.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 17.46,
+              "end": 17.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come",
+              "start": 17.68,
+              "end": 17.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " once",
+              "start": 17.9,
+              "end": 18.2,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " they",
+              "start": 18.2,
+              "end": 18.38,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " would",
+              "start": 18.38,
+              "end": 18.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come",
+              "start": 18.52,
+              "end": 18.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " again.",
+              "start": 18.68,
+              "end": 18.98,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "beach",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "was",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "good",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "raw": "hard,",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "raw": "with",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "a",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "slope",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "raw": "behind",
+          "start": 2.96,
+          "end": 3.36
+        },
+        {
+          "raw": "it",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "for",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "raw": "seals",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "to",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "raw": "play",
+          "start": 4.26,
+          "end": 4.46
+        },
+        {
+          "raw": "on,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "there",
+          "start": 5.2,
+          "end": 5.32
+        },
+        {
+          "raw": "was",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "raw": "always",
+          "start": 5.42,
+          "end": 5.74
+        },
+        {
+          "raw": "the",
+          "start": 5.74,
+          "end": 5.98
+        },
+        {
+          "raw": "smoke",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "raw": "of",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "raw": "a",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "raw": "whaler",
+          "start": 6.56,
+          "end": 6.9
+        },
+        {
+          "raw": "on",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "raw": "the",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "raw": "horizon,",
+          "start": 7.2,
+          "end": 7.68
+        },
+        {
+          "raw": "boiling",
+          "start": 8.18,
+          "end": 8.46
+        },
+        {
+          "raw": "down",
+          "start": 8.46,
+          "end": 8.92
+        },
+        {
+          "raw": "blubber,",
+          "start": 8.92,
+          "end": 9.34
+        },
+        {
+          "raw": "and",
+          "start": 9.72,
+          "end": 9.88
+        },
+        {
+          "raw": "Kotick",
+          "start": 9.88,
+          "end": 10.16
+        },
+        {
+          "raw": "knew",
+          "start": 10.16,
+          "end": 10.4
+        },
+        {
+          "raw": "what",
+          "start": 10.4,
+          "end": 10.6
+        },
+        {
+          "raw": "that",
+          "start": 10.6,
+          "end": 10.78
+        },
+        {
+          "raw": "meant.",
+          "start": 10.78,
+          "end": 11.08
+        },
+        {
+          "raw": "Or",
+          "start": 11.84,
+          "end": 11.98
+        },
+        {
+          "raw": "else",
+          "start": 11.98,
+          "end": 12.18
+        },
+        {
+          "raw": "he",
+          "start": 12.18,
+          "end": 12.32
+        },
+        {
+          "raw": "could",
+          "start": 12.32,
+          "end": 12.46
+        },
+        {
+          "raw": "see",
+          "start": 12.46,
+          "end": 12.62
+        },
+        {
+          "raw": "that",
+          "start": 12.62,
+          "end": 12.82
+        },
+        {
+          "raw": "seals",
+          "start": 12.82,
+          "end": 13.2
+        },
+        {
+          "raw": "had",
+          "start": 13.2,
+          "end": 13.42
+        },
+        {
+          "raw": "once",
+          "start": 13.42,
+          "end": 13.7
+        },
+        {
+          "raw": "visited",
+          "start": 13.7,
+          "end": 14.04
+        },
+        {
+          "raw": "the",
+          "start": 14.04,
+          "end": 14.24
+        },
+        {
+          "raw": "island",
+          "start": 14.24,
+          "end": 14.6
+        },
+        {
+          "raw": "and",
+          "start": 14.6,
+          "end": 14.82
+        },
+        {
+          "raw": "been",
+          "start": 14.82,
+          "end": 14.96
+        },
+        {
+          "raw": "killed",
+          "start": 14.96,
+          "end": 15.24
+        },
+        {
+          "raw": "off,",
+          "start": 15.24,
+          "end": 15.6
+        },
+        {
+          "raw": "and",
+          "start": 16.02,
+          "end": 16.18
+        },
+        {
+          "raw": "Kotick",
+          "start": 16.18,
+          "end": 16.5
+        },
+        {
+          "raw": "knew",
+          "start": 16.5,
+          "end": 16.78
+        },
+        {
+          "raw": "that",
+          "start": 16.78,
+          "end": 17.02
+        },
+        {
+          "raw": "where",
+          "start": 17.02,
+          "end": 17.24
+        },
+        {
+          "raw": "men",
+          "start": 17.24,
+          "end": 17.46
+        },
+        {
+          "raw": "had",
+          "start": 17.46,
+          "end": 17.68
+        },
+        {
+          "raw": "come",
+          "start": 17.68,
+          "end": 17.9
+        },
+        {
+          "raw": "once",
+          "start": 17.9,
+          "end": 18.2
+        },
+        {
+          "raw": "they",
+          "start": 18.2,
+          "end": 18.38
+        },
+        {
+          "raw": "would",
+          "start": 18.38,
+          "end": 18.52
+        },
+        {
+          "raw": "come",
+          "start": 18.52,
+          "end": 18.68
+        },
+        {
+          "raw": "again.",
+          "start": 18.68,
+          "end": 18.98
+        }
+      ],
+      "expected_tokens": [
+        "If",
+        "the",
+        "beach",
+        "was",
+        "good",
+        "and",
+        "hard,",
+        "with",
+        "a",
+        "slope",
+        "behind",
+        "it",
+        "for",
+        "seals",
+        "to",
+        "play",
+        "on,",
+        "there",
+        "was",
+        "always",
+        "the",
+        "smoke",
+        "of",
+        "a",
+        "whaler",
+        "on",
+        "the",
+        "horizon,",
+        "boiling",
+        "down",
+        "blubber,",
+        "and",
+        "Kotick",
+        "knew",
+        "what",
+        "that",
+        "meant.",
+        "Or",
+        "else",
+        "he",
+        "could",
+        "see",
+        "that",
+        "seals",
+        "had",
+        "once",
+        "visited",
+        "the",
+        "island",
+        "and",
+        "been",
+        "killed",
+        "off,",
+        "and",
+        "Kotick",
+        "knew",
+        "that",
+        "where",
+        "men",
+        "had",
+        "come",
+        "once",
+        "they",
+        "would",
+        "come",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          66,
+          0,
+          66
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "If",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "beach",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "was",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "good",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "text": "and",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "text": "hard,",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "text": "with",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "a",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "slope",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "behind",
+          "start": 2.96,
+          "end": 3.36
+        },
+        {
+          "text": "it",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "for",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "text": "seals",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "to",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "text": "play",
+          "start": 4.26,
+          "end": 4.46
+        },
+        {
+          "text": "on,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "there",
+          "start": 5.2,
+          "end": 5.32
+        },
+        {
+          "text": "was",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "text": "always",
+          "start": 5.42,
+          "end": 5.74
+        },
+        {
+          "text": "the",
+          "start": 5.74,
+          "end": 5.98
+        },
+        {
+          "text": "smoke",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "text": "of",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "text": "a",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "text": "whaler",
+          "start": 6.56,
+          "end": 6.9
+        },
+        {
+          "text": "on",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "text": "the",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "text": "horizon,",
+          "start": 7.2,
+          "end": 7.68
+        },
+        {
+          "text": "boiling",
+          "start": 8.18,
+          "end": 8.46
+        },
+        {
+          "text": "down",
+          "start": 8.46,
+          "end": 8.92
+        },
+        {
+          "text": "blubber,",
+          "start": 8.92,
+          "end": 9.34
+        },
+        {
+          "text": "and",
+          "start": 9.72,
+          "end": 9.88
+        },
+        {
+          "text": "Kotick",
+          "start": 9.88,
+          "end": 10.16
+        },
+        {
+          "text": "knew",
+          "start": 10.16,
+          "end": 10.4
+        },
+        {
+          "text": "what",
+          "start": 10.4,
+          "end": 10.6
+        },
+        {
+          "text": "that",
+          "start": 10.6,
+          "end": 10.78
+        },
+        {
+          "text": "meant.",
+          "start": 10.78,
+          "end": 11.08
+        },
+        {
+          "text": "Or",
+          "start": 11.84,
+          "end": 11.98
+        },
+        {
+          "text": "else",
+          "start": 11.98,
+          "end": 12.18
+        },
+        {
+          "text": "he",
+          "start": 12.18,
+          "end": 12.32
+        },
+        {
+          "text": "could",
+          "start": 12.32,
+          "end": 12.46
+        },
+        {
+          "text": "see",
+          "start": 12.46,
+          "end": 12.62
+        },
+        {
+          "text": "that",
+          "start": 12.62,
+          "end": 12.82
+        },
+        {
+          "text": "seals",
+          "start": 12.82,
+          "end": 13.2
+        },
+        {
+          "text": "had",
+          "start": 13.2,
+          "end": 13.42
+        },
+        {
+          "text": "once",
+          "start": 13.42,
+          "end": 13.7
+        },
+        {
+          "text": "visited",
+          "start": 13.7,
+          "end": 14.04
+        },
+        {
+          "text": "the",
+          "start": 14.04,
+          "end": 14.24
+        },
+        {
+          "text": "island",
+          "start": 14.24,
+          "end": 14.6
+        },
+        {
+          "text": "and",
+          "start": 14.6,
+          "end": 14.82
+        },
+        {
+          "text": "been",
+          "start": 14.82,
+          "end": 14.96
+        },
+        {
+          "text": "killed",
+          "start": 14.96,
+          "end": 15.24
+        },
+        {
+          "text": "off,",
+          "start": 15.24,
+          "end": 15.6
+        },
+        {
+          "text": "and",
+          "start": 16.02,
+          "end": 16.18
+        },
+        {
+          "text": "Kotick",
+          "start": 16.18,
+          "end": 16.5
+        },
+        {
+          "text": "knew",
+          "start": 16.5,
+          "end": 16.78
+        },
+        {
+          "text": "that",
+          "start": 16.78,
+          "end": 17.02
+        },
+        {
+          "text": "where",
+          "start": 17.02,
+          "end": 17.24
+        },
+        {
+          "text": "men",
+          "start": 17.24,
+          "end": 17.46
+        },
+        {
+          "text": "had",
+          "start": 17.46,
+          "end": 17.68
+        },
+        {
+          "text": "come",
+          "start": 17.68,
+          "end": 17.9
+        },
+        {
+          "text": "once",
+          "start": 17.9,
+          "end": 18.2
+        },
+        {
+          "text": "they",
+          "start": 18.2,
+          "end": 18.38
+        },
+        {
+          "text": "would",
+          "start": 18.38,
+          "end": 18.52
+        },
+        {
+          "text": "come",
+          "start": 18.52,
+          "end": 18.68
+        },
+        {
+          "text": "again.",
+          "start": 18.68,
+          "end": 18.98
+        }
+      ],
+      "stats": {
+        "expected_words": 66,
+        "heard_words": 66,
+        "matched_words": 66
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3089169366285205
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce9bdca63f9a4ce1984f3d4a662d008b100f12bdf8334bae1ff383e570187352",
+  "selected_reasons": []
+}

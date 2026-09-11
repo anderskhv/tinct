@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "0e6e4b5727df86b4a6214b79fadfac15ef73fb4503b67e7dd13c4343bc902862",
+  "attempts": [
+    {
+      "asr_seconds": 0.09373357053846121,
+      "alignment_seconds": 5.863979458808899e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Illustration: The \"Cold Lairs\"]",
+        "hotwords": "Illustration, The, Cold, Lairs"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Illustration, The, Cold, Lairs",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Illustration,",
+              "start": 0.08,
+              "end": 1.14,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " The,",
+              "start": 1.5,
+              "end": 1.58,
+              "probability": 0.12213134765625
+            },
+            {
+              "text": " Cold,",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " Lairs",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.515716552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Illustration,",
+          "start": 0.08,
+          "end": 1.14
+        },
+        {
+          "raw": "The,",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "raw": "Cold,",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "Lairs",
+          "start": 1.92,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "[Illustration:",
+        "The",
+        "\"Cold",
+        "Lairs\"]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "[Illustration:",
+          "start": 0.08,
+          "end": 1.14
+        },
+        {
+          "text": "The",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "text": "\"Cold",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "Lairs\"]",
+          "start": 1.92,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09381027426570654
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a44658502e6a449d91591168f8594393792a2657e670071af1613e72cdb9722e",
+  "selected_reasons": []
+}

@@ -1,0 +1,494 @@
+{
+  "complete": true,
+  "signature": "1bc40a8f61e563c0546157d72be7ab2e7d76b1a5c331fb630fd40e57f21c0123",
+  "attempts": [
+    {
+      "asr_seconds": 0.15757279098033905,
+      "alignment_seconds": 9.008869528770447e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My quarry a man's cub went this way said Shere Khan its parents have run off give it to me",
+          "start": 0.02,
+          "end": 6.52,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.3232421875
+            },
+            {
+              "text": " quarry",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " a",
+              "start": 0.92,
+              "end": 1.46,
+              "probability": 0.473388671875
+            },
+            {
+              "text": " man's",
+              "start": 1.46,
+              "end": 1.88,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " cub",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " went",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " this",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " way",
+              "start": 2.48,
+              "end": 2.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said",
+              "start": 2.9,
+              "end": 3.24,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " Shere",
+              "start": 3.24,
+              "end": 3.56,
+              "probability": 0.49993896484375
+            },
+            {
+              "text": " Khan",
+              "start": 3.56,
+              "end": 3.84,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " its",
+              "start": 3.84,
+              "end": 4.6,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " parents",
+              "start": 4.6,
+              "end": 4.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " run",
+              "start": 5.18,
+              "end": 5.34,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " off",
+              "start": 5.34,
+              "end": 5.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " give",
+              "start": 5.62,
+              "end": 5.94,
+              "probability": 0.5869140625
+            },
+            {
+              "text": " it",
+              "start": 5.94,
+              "end": 6.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 6.08,
+              "end": 6.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 6.18,
+              "end": 6.52,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "quarry",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "a",
+          "start": 0.92,
+          "end": 1.46
+        },
+        {
+          "raw": "man's",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "raw": "cub",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "went",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "this",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "way",
+          "start": 2.48,
+          "end": 2.9
+        },
+        {
+          "raw": "said",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "raw": "Shere",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "raw": "Khan",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "raw": "its",
+          "start": 3.84,
+          "end": 4.6
+        },
+        {
+          "raw": "parents",
+          "start": 4.6,
+          "end": 4.98
+        },
+        {
+          "raw": "have",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "run",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "raw": "off",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "raw": "give",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "raw": "it",
+          "start": 5.94,
+          "end": 6.08
+        },
+        {
+          "raw": "to",
+          "start": 6.08,
+          "end": 6.18
+        },
+        {
+          "raw": "me",
+          "start": 6.18,
+          "end": 6.52
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "quarry.",
+        "A",
+        "man's",
+        "cub",
+        "went",
+        "this",
+        "way,\"",
+        "said",
+        "Shere",
+        "Khan.",
+        "\"Its",
+        "parents",
+        "have",
+        "run",
+        "off.",
+        "Give",
+        "it",
+        "to",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "quarry.",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "A",
+          "start": 0.92,
+          "end": 1.46
+        },
+        {
+          "text": "man's",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "text": "cub",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "went",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "this",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "way,\"",
+          "start": 2.48,
+          "end": 2.9
+        },
+        {
+          "text": "said",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "text": "Shere",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "text": "Khan.",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "text": "\"Its",
+          "start": 3.84,
+          "end": 4.6
+        },
+        {
+          "text": "parents",
+          "start": 4.6,
+          "end": 4.98
+        },
+        {
+          "text": "have",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "text": "run",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "text": "off.",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "text": "Give",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "text": "it",
+          "start": 5.94,
+          "end": 6.08
+        },
+        {
+          "text": "to",
+          "start": 6.08,
+          "end": 6.18
+        },
+        {
+          "text": "me.\"",
+          "start": 6.18,
+          "end": 6.52
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15770501550287008
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d38ea06824894062476731c1d1b47d3313816b8fadbec64f78f193e36b89772",
+  "selected_reasons": []
+}

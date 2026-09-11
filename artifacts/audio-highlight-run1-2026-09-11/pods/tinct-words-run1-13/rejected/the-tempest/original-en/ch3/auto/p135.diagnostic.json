@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "15d7d6259bfd35a880dc1e6a83b6122b86f1190b6c6ef7b589878f86f50dc90f",
+  "attempts": [
+    {
+      "asr_seconds": 0.0973388880956918,
+      "alignment_seconds": 8.117198012769222e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. He's gone.",
+        "hotwords": "Sebastian, He's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, He's gone.",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " He's",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.48742103576660156
+            },
+            {
+              "text": " gone.",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "He's",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "gone.",
+          "start": 1.48,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "He's",
+        "gone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "He's",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "gone.",
+          "start": 1.48,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09746965207159519
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3762e787eb536c66bf9b0694f41e22b8c552326054fb8377cbc93b2e77519e7",
+  "selected_reasons": []
+}

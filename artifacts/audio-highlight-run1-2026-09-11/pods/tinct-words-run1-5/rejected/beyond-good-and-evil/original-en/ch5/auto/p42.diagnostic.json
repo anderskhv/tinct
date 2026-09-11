@@ -1,0 +1,3362 @@
+{
+  "complete": true,
+  "signature": "56a62dcdf766352da448cb3a896d6836d7878075a2912bb5ea8dd3763661f264",
+  "attempts": [
+    {
+      "asr_seconds": 0.29048726707696915,
+      "alignment_seconds": 0.00016611069440841675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "105. The pia fraus is still more repugnant to the taste (the \"piety\") of the free spirit (the \"pious man of knowledge\") than the impia fraus. Hence the profound lack of judgment, in comparison with the Church, characteristic of the type \"free spirit\"--as Its non-freedom.",
+        "hotwords": "Hence, Church, Its"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The pia fraus is still more repugnant to the taste, the piety of the free spirit, the pious man of knowledge than the impia fraus. Hence the profound lack of judgment, in comparison with the Church, characteristic of the type, free spirit, as Its non-freedom.",
+          "start": 1.47,
+          "end": 17.63,
+          "words": [
+            {
+              "text": " The",
+              "start": 1.47,
+              "end": 2.03,
+              "probability": 0.06427001953125
+            },
+            {
+              "text": " pia",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.2928466796875
+            },
+            {
+              "text": " fraus",
+              "start": 2.31,
+              "end": 2.69,
+              "probability": 0.254486083984375
+            },
+            {
+              "text": " is",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " still",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " more",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " repugnant",
+              "start": 3.31,
+              "end": 3.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " taste,",
+              "start": 4.09,
+              "end": 4.41,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 4.87,
+              "end": 4.97,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " piety",
+              "start": 4.97,
+              "end": 5.35,
+              "probability": 0.48603057861328125
+            },
+            {
+              "text": " of",
+              "start": 5.35,
+              "end": 5.81,
+              "probability": 0.716796875
+            },
+            {
+              "text": " the",
+              "start": 5.81,
+              "end": 5.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " free",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " spirit,",
+              "start": 6.17,
+              "end": 6.57,
+              "probability": 0.97265625
+            },
+            {
+              "text": " the",
+              "start": 6.97,
+              "end": 7.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pious",
+              "start": 7.13,
+              "end": 7.51,
+              "probability": 0.26006317138671875
+            },
+            {
+              "text": " man",
+              "start": 7.51,
+              "end": 7.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 7.79,
+              "end": 7.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " knowledge",
+              "start": 7.97,
+              "end": 8.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " than",
+              "start": 8.35,
+              "end": 8.99,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " the",
+              "start": 8.99,
+              "end": 9.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " impia",
+              "start": 9.13,
+              "end": 9.49,
+              "probability": 0.945556640625
+            },
+            {
+              "text": " fraus.",
+              "start": 9.49,
+              "end": 10.07,
+              "probability": 0.929931640625
+            },
+            {
+              "text": " Hence",
+              "start": 10.67,
+              "end": 10.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 10.85,
+              "end": 11.05,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " profound",
+              "start": 11.05,
+              "end": 11.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lack",
+              "start": 11.47,
+              "end": 11.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 11.77,
+              "end": 12.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " judgment,",
+              "start": 12.01,
+              "end": 12.37,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " in",
+              "start": 12.75,
+              "end": 12.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " comparison",
+              "start": 12.85,
+              "end": 13.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 13.21,
+              "end": 13.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.61,
+              "end": 13.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Church,",
+              "start": 13.77,
+              "end": 14.05,
+              "probability": 0.31591796875
+            },
+            {
+              "text": " characteristic",
+              "start": 14.33,
+              "end": 14.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 14.79,
+              "end": 15.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 15.19,
+              "end": 15.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " type,",
+              "start": 15.31,
+              "end": 15.57,
+              "probability": 0.921875
+            },
+            {
+              "text": " free",
+              "start": 15.91,
+              "end": 15.97,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " spirit,",
+              "start": 15.97,
+              "end": 16.49,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " as",
+              "start": 16.73,
+              "end": 16.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Its",
+              "start": 16.95,
+              "end": 17.11,
+              "probability": 0.00030303001403808594
+            },
+            {
+              "text": " non",
+              "start": 17.11,
+              "end": 17.35,
+              "probability": 0.96630859375
+            },
+            {
+              "text": "-freedom.",
+              "start": 17.35,
+              "end": 17.63,
+              "probability": 0.897705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 1.47,
+          "end": 2.03
+        },
+        {
+          "raw": "pia",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "fraus",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "still",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "more",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "raw": "repugnant",
+          "start": 3.31,
+          "end": 3.81
+        },
+        {
+          "raw": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "raw": "taste,",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.87,
+          "end": 4.97
+        },
+        {
+          "raw": "piety",
+          "start": 4.97,
+          "end": 5.35
+        },
+        {
+          "raw": "of",
+          "start": 5.35,
+          "end": 5.81
+        },
+        {
+          "raw": "the",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "raw": "free",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "spirit,",
+          "start": 6.17,
+          "end": 6.57
+        },
+        {
+          "raw": "the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "raw": "pious",
+          "start": 7.13,
+          "end": 7.51
+        },
+        {
+          "raw": "man",
+          "start": 7.51,
+          "end": 7.79
+        },
+        {
+          "raw": "of",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "raw": "knowledge",
+          "start": 7.97,
+          "end": 8.35
+        },
+        {
+          "raw": "than",
+          "start": 8.35,
+          "end": 8.99
+        },
+        {
+          "raw": "the",
+          "start": 8.99,
+          "end": 9.13
+        },
+        {
+          "raw": "impia",
+          "start": 9.13,
+          "end": 9.49
+        },
+        {
+          "raw": "fraus.",
+          "start": 9.49,
+          "end": 10.07
+        },
+        {
+          "raw": "Hence",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "raw": "the",
+          "start": 10.85,
+          "end": 11.05
+        },
+        {
+          "raw": "profound",
+          "start": 11.05,
+          "end": 11.47
+        },
+        {
+          "raw": "lack",
+          "start": 11.47,
+          "end": 11.77
+        },
+        {
+          "raw": "of",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "raw": "judgment,",
+          "start": 12.01,
+          "end": 12.37
+        },
+        {
+          "raw": "in",
+          "start": 12.75,
+          "end": 12.85
+        },
+        {
+          "raw": "comparison",
+          "start": 12.85,
+          "end": 13.21
+        },
+        {
+          "raw": "with",
+          "start": 13.21,
+          "end": 13.61
+        },
+        {
+          "raw": "the",
+          "start": 13.61,
+          "end": 13.77
+        },
+        {
+          "raw": "Church,",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "raw": "characteristic",
+          "start": 14.33,
+          "end": 14.79
+        },
+        {
+          "raw": "of",
+          "start": 14.79,
+          "end": 15.19
+        },
+        {
+          "raw": "the",
+          "start": 15.19,
+          "end": 15.31
+        },
+        {
+          "raw": "type,",
+          "start": 15.31,
+          "end": 15.57
+        },
+        {
+          "raw": "free",
+          "start": 15.91,
+          "end": 15.97
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.97,
+          "end": 16.49
+        },
+        {
+          "raw": "as",
+          "start": 16.73,
+          "end": 16.95
+        },
+        {
+          "raw": "Its",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "raw": "non",
+          "start": 17.11,
+          "end": 17.35
+        },
+        {
+          "raw": "-freedom.",
+          "start": 17.35,
+          "end": 17.63
+        }
+      ],
+      "expected_tokens": [
+        "105.",
+        "The",
+        "pia",
+        "fraus",
+        "is",
+        "still",
+        "more",
+        "repugnant",
+        "to",
+        "the",
+        "taste",
+        "(the",
+        "\"piety\")",
+        "of",
+        "the",
+        "free",
+        "spirit",
+        "(the",
+        "\"pious",
+        "man",
+        "of",
+        "knowledge\")",
+        "than",
+        "the",
+        "impia",
+        "fraus.",
+        "Hence",
+        "the",
+        "profound",
+        "lack",
+        "of",
+        "judgment,",
+        "in",
+        "comparison",
+        "with",
+        "the",
+        "Church,",
+        "characteristic",
+        "of",
+        "the",
+        "type",
+        "\"free",
+        "spirit\"--as",
+        "Its",
+        "non-freedom."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          42,
+          0,
+          41
+        ],
+        [
+          "replace",
+          42,
+          43,
+          41,
+          43
+        ],
+        [
+          "equal",
+          43,
+          44,
+          43,
+          44
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          46
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          42,
+          43,
+          41,
+          43
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          46
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "105.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "The",
+          "start": 1.47,
+          "end": 2.03
+        },
+        {
+          "text": "pia",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "fraus",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "text": "is",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "still",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "more",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "text": "repugnant",
+          "start": 3.31,
+          "end": 3.81
+        },
+        {
+          "text": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "text": "taste",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "text": "(the",
+          "start": 4.87,
+          "end": 4.97
+        },
+        {
+          "text": "\"piety\")",
+          "start": 4.97,
+          "end": 5.35
+        },
+        {
+          "text": "of",
+          "start": 5.35,
+          "end": 5.81
+        },
+        {
+          "text": "the",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "text": "free",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "spirit",
+          "start": 6.17,
+          "end": 6.57
+        },
+        {
+          "text": "(the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "text": "\"pious",
+          "start": 7.13,
+          "end": 7.51
+        },
+        {
+          "text": "man",
+          "start": 7.51,
+          "end": 7.79
+        },
+        {
+          "text": "of",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "text": "knowledge\")",
+          "start": 7.97,
+          "end": 8.35
+        },
+        {
+          "text": "than",
+          "start": 8.35,
+          "end": 8.99
+        },
+        {
+          "text": "the",
+          "start": 8.99,
+          "end": 9.13
+        },
+        {
+          "text": "impia",
+          "start": 9.13,
+          "end": 9.49
+        },
+        {
+          "text": "fraus.",
+          "start": 9.49,
+          "end": 10.07
+        },
+        {
+          "text": "Hence",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "text": "the",
+          "start": 10.85,
+          "end": 11.05
+        },
+        {
+          "text": "profound",
+          "start": 11.05,
+          "end": 11.47
+        },
+        {
+          "text": "lack",
+          "start": 11.47,
+          "end": 11.77
+        },
+        {
+          "text": "of",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "text": "judgment,",
+          "start": 12.01,
+          "end": 12.37
+        },
+        {
+          "text": "in",
+          "start": 12.75,
+          "end": 12.85
+        },
+        {
+          "text": "comparison",
+          "start": 12.85,
+          "end": 13.21
+        },
+        {
+          "text": "with",
+          "start": 13.21,
+          "end": 13.61
+        },
+        {
+          "text": "the",
+          "start": 13.61,
+          "end": 13.77
+        },
+        {
+          "text": "Church,",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "text": "characteristic",
+          "start": 14.33,
+          "end": 14.79
+        },
+        {
+          "text": "of",
+          "start": 14.79,
+          "end": 15.19
+        },
+        {
+          "text": "the",
+          "start": 15.19,
+          "end": 15.31
+        },
+        {
+          "text": "type",
+          "start": 15.31,
+          "end": 15.57
+        },
+        {
+          "text": "\"free",
+          "start": 15.91,
+          "end": 15.97
+        },
+        {
+          "text": "spirit\"--as",
+          "start": 15.97,
+          "end": 16.46
+        },
+        {
+          "text": "Its",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "text": "non-freedom.",
+          "start": 17.11,
+          "end": 17.37
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 46,
+        "matched_words": 42
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2907320484519005
+    },
+    {
+      "asr_seconds": 0.3105446919798851,
+      "alignment_seconds": 0.00018581002950668335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hence, Church, Its"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 105. The piafraus is still more repugnant to the taste, the piety, of the free spirit,",
+          "start": 0.05,
+          "end": 6.57,
+          "words": [
+            {
+              "text": " 105.",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " The",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " piafraus",
+              "start": 2.05,
+              "end": 2.69,
+              "probability": 0.5430419921875
+            },
+            {
+              "text": " is",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " still",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " more",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " repugnant",
+              "start": 3.31,
+              "end": 3.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " taste,",
+              "start": 4.09,
+              "end": 4.41,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 4.85,
+              "end": 4.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " piety,",
+              "start": 4.97,
+              "end": 5.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of",
+              "start": 5.67,
+              "end": 5.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 5.83,
+              "end": 5.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " free",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " spirit,",
+              "start": 6.17,
+              "end": 6.57,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " the pious man of knowledge, than the impiafraus. Hence the profound lack of judgment in comparison",
+          "start": 7.01,
+          "end": 13.21,
+          "words": [
+            {
+              "text": " the",
+              "start": 7.01,
+              "end": 7.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pious",
+              "start": 7.13,
+              "end": 7.45,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " man",
+              "start": 7.45,
+              "end": 7.79,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 7.79,
+              "end": 7.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " knowledge,",
+              "start": 7.97,
+              "end": 8.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " than",
+              "start": 8.65,
+              "end": 9.01,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 9.01,
+              "end": 9.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impiafraus.",
+              "start": 9.13,
+              "end": 10.03,
+              "probability": 0.97236328125
+            },
+            {
+              "text": " Hence",
+              "start": 10.67,
+              "end": 10.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 10.85,
+              "end": 11.05,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " profound",
+              "start": 11.05,
+              "end": 11.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lack",
+              "start": 11.45,
+              "end": 11.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 11.77,
+              "end": 12.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " judgment",
+              "start": 12.01,
+              "end": 12.35,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " in",
+              "start": 12.35,
+              "end": 12.85,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " comparison",
+              "start": 12.85,
+              "end": 13.21,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " with the Church characteristic of the type, free spirit, as its non-freedom.",
+          "start": 13.21,
+          "end": 17.63,
+          "words": [
+            {
+              "text": " with",
+              "start": 13.21,
+              "end": 13.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 13.61,
+              "end": 13.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Church",
+              "start": 13.77,
+              "end": 14.05,
+              "probability": 0.354736328125
+            },
+            {
+              "text": " characteristic",
+              "start": 14.05,
+              "end": 14.79,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " of",
+              "start": 14.79,
+              "end": 15.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 15.19,
+              "end": 15.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " type,",
+              "start": 15.33,
+              "end": 15.59,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " free",
+              "start": 15.91,
+              "end": 15.97,
+              "probability": 0.833984375
+            },
+            {
+              "text": " spirit,",
+              "start": 15.97,
+              "end": 16.47,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " as",
+              "start": 16.69,
+              "end": 16.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " its",
+              "start": 16.95,
+              "end": 17.13,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " non",
+              "start": 17.13,
+              "end": 17.35,
+              "probability": 0.96728515625
+            },
+            {
+              "text": "-freedom.",
+              "start": 17.35,
+              "end": 17.63,
+              "probability": 0.9013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "105.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "The",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "piafraus",
+          "start": 2.05,
+          "end": 2.69
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "still",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "more",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "raw": "repugnant",
+          "start": 3.31,
+          "end": 3.81
+        },
+        {
+          "raw": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "raw": "taste,",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "raw": "piety,",
+          "start": 4.97,
+          "end": 5.33
+        },
+        {
+          "raw": "of",
+          "start": 5.67,
+          "end": 5.83
+        },
+        {
+          "raw": "the",
+          "start": 5.83,
+          "end": 5.93
+        },
+        {
+          "raw": "free",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "spirit,",
+          "start": 6.17,
+          "end": 6.57
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.13
+        },
+        {
+          "raw": "pious",
+          "start": 7.13,
+          "end": 7.45
+        },
+        {
+          "raw": "man",
+          "start": 7.45,
+          "end": 7.79
+        },
+        {
+          "raw": "of",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "raw": "knowledge,",
+          "start": 7.97,
+          "end": 8.35
+        },
+        {
+          "raw": "than",
+          "start": 8.65,
+          "end": 9.01
+        },
+        {
+          "raw": "the",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "raw": "impiafraus.",
+          "start": 9.13,
+          "end": 10.03
+        },
+        {
+          "raw": "Hence",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "raw": "the",
+          "start": 10.85,
+          "end": 11.05
+        },
+        {
+          "raw": "profound",
+          "start": 11.05,
+          "end": 11.45
+        },
+        {
+          "raw": "lack",
+          "start": 11.45,
+          "end": 11.77
+        },
+        {
+          "raw": "of",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "raw": "judgment",
+          "start": 12.01,
+          "end": 12.35
+        },
+        {
+          "raw": "in",
+          "start": 12.35,
+          "end": 12.85
+        },
+        {
+          "raw": "comparison",
+          "start": 12.85,
+          "end": 13.21
+        },
+        {
+          "raw": "with",
+          "start": 13.21,
+          "end": 13.61
+        },
+        {
+          "raw": "the",
+          "start": 13.61,
+          "end": 13.77
+        },
+        {
+          "raw": "Church",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "raw": "characteristic",
+          "start": 14.05,
+          "end": 14.79
+        },
+        {
+          "raw": "of",
+          "start": 14.79,
+          "end": 15.19
+        },
+        {
+          "raw": "the",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "raw": "type,",
+          "start": 15.33,
+          "end": 15.59
+        },
+        {
+          "raw": "free",
+          "start": 15.91,
+          "end": 15.97
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.97,
+          "end": 16.47
+        },
+        {
+          "raw": "as",
+          "start": 16.69,
+          "end": 16.95
+        },
+        {
+          "raw": "its",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "raw": "non",
+          "start": 17.13,
+          "end": 17.35
+        },
+        {
+          "raw": "-freedom.",
+          "start": 17.35,
+          "end": 17.63
+        }
+      ],
+      "expected_tokens": [
+        "105.",
+        "The",
+        "pia",
+        "fraus",
+        "is",
+        "still",
+        "more",
+        "repugnant",
+        "to",
+        "the",
+        "taste",
+        "(the",
+        "\"piety\")",
+        "of",
+        "the",
+        "free",
+        "spirit",
+        "(the",
+        "\"pious",
+        "man",
+        "of",
+        "knowledge\")",
+        "than",
+        "the",
+        "impia",
+        "fraus.",
+        "Hence",
+        "the",
+        "profound",
+        "lack",
+        "of",
+        "judgment,",
+        "in",
+        "comparison",
+        "with",
+        "the",
+        "Church,",
+        "characteristic",
+        "of",
+        "the",
+        "type",
+        "\"free",
+        "spirit\"--as",
+        "Its",
+        "non-freedom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          24,
+          3,
+          23
+        ],
+        [
+          "replace",
+          24,
+          26,
+          23,
+          24
+        ],
+        [
+          "equal",
+          26,
+          42,
+          24,
+          40
+        ],
+        [
+          "replace",
+          42,
+          43,
+          40,
+          42
+        ],
+        [
+          "equal",
+          43,
+          44,
+          42,
+          43
+        ],
+        [
+          "replace",
+          44,
+          45,
+          43,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          24,
+          26,
+          23,
+          24
+        ],
+        [
+          "replace",
+          42,
+          43,
+          40,
+          42
+        ],
+        [
+          "replace",
+          44,
+          45,
+          43,
+          45
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "105.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "The",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "pia",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "text": "fraus",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "is",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "still",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "more",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "text": "repugnant",
+          "start": 3.31,
+          "end": 3.81
+        },
+        {
+          "text": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "text": "taste",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "text": "(the",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "text": "\"piety\")",
+          "start": 4.97,
+          "end": 5.33
+        },
+        {
+          "text": "of",
+          "start": 5.67,
+          "end": 5.83
+        },
+        {
+          "text": "the",
+          "start": 5.83,
+          "end": 5.93
+        },
+        {
+          "text": "free",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "spirit",
+          "start": 6.17,
+          "end": 6.57
+        },
+        {
+          "text": "(the",
+          "start": 7.01,
+          "end": 7.13
+        },
+        {
+          "text": "\"pious",
+          "start": 7.13,
+          "end": 7.45
+        },
+        {
+          "text": "man",
+          "start": 7.45,
+          "end": 7.79
+        },
+        {
+          "text": "of",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "text": "knowledge\")",
+          "start": 7.97,
+          "end": 8.35
+        },
+        {
+          "text": "than",
+          "start": 8.65,
+          "end": 9.01
+        },
+        {
+          "text": "the",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "text": "impia",
+          "start": 9.13,
+          "end": 9.9
+        },
+        {
+          "text": "fraus.",
+          "start": 9.9,
+          "end": 10.285
+        },
+        {
+          "text": "Hence",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "text": "the",
+          "start": 10.85,
+          "end": 11.05
+        },
+        {
+          "text": "profound",
+          "start": 11.05,
+          "end": 11.45
+        },
+        {
+          "text": "lack",
+          "start": 11.45,
+          "end": 11.77
+        },
+        {
+          "text": "of",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "text": "judgment,",
+          "start": 12.01,
+          "end": 12.35
+        },
+        {
+          "text": "in",
+          "start": 12.35,
+          "end": 12.85
+        },
+        {
+          "text": "comparison",
+          "start": 12.85,
+          "end": 13.21
+        },
+        {
+          "text": "with",
+          "start": 13.21,
+          "end": 13.61
+        },
+        {
+          "text": "the",
+          "start": 13.61,
+          "end": 13.77
+        },
+        {
+          "text": "Church,",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "text": "characteristic",
+          "start": 14.05,
+          "end": 14.79
+        },
+        {
+          "text": "of",
+          "start": 14.79,
+          "end": 15.19
+        },
+        {
+          "text": "the",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "text": "type",
+          "start": 15.33,
+          "end": 15.59
+        },
+        {
+          "text": "\"free",
+          "start": 15.91,
+          "end": 15.97
+        },
+        {
+          "text": "spirit\"--as",
+          "start": 15.97,
+          "end": 16.46
+        },
+        {
+          "text": "Its",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "text": "non-freedom.",
+          "start": 17.13,
+          "end": 17.38
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 45,
+        "matched_words": 39
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3108064979314804
+    },
+    {
+      "asr_seconds": 0.29732485115528107,
+      "alignment_seconds": 0.00018493086099624634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 105. The piafraus is still more repugnant to the taste, the piety, of the free spirit,",
+          "start": 0.05,
+          "end": 6.57,
+          "words": [
+            {
+              "text": " 105.",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " The",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " piafraus",
+              "start": 2.05,
+              "end": 2.69,
+              "probability": 0.5430419921875
+            },
+            {
+              "text": " is",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " still",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " more",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " repugnant",
+              "start": 3.31,
+              "end": 3.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " taste,",
+              "start": 4.09,
+              "end": 4.41,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 4.85,
+              "end": 4.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " piety,",
+              "start": 4.97,
+              "end": 5.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of",
+              "start": 5.67,
+              "end": 5.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 5.83,
+              "end": 5.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " free",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " spirit,",
+              "start": 6.17,
+              "end": 6.57,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " the pious man of knowledge, than the impiafraus. Hence the profound lack of judgment in comparison",
+          "start": 7.01,
+          "end": 13.21,
+          "words": [
+            {
+              "text": " the",
+              "start": 7.01,
+              "end": 7.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pious",
+              "start": 7.13,
+              "end": 7.45,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " man",
+              "start": 7.45,
+              "end": 7.79,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 7.79,
+              "end": 7.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " knowledge,",
+              "start": 7.97,
+              "end": 8.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " than",
+              "start": 8.65,
+              "end": 9.01,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 9.01,
+              "end": 9.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impiafraus.",
+              "start": 9.13,
+              "end": 10.03,
+              "probability": 0.97236328125
+            },
+            {
+              "text": " Hence",
+              "start": 10.67,
+              "end": 10.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 10.85,
+              "end": 11.05,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " profound",
+              "start": 11.05,
+              "end": 11.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lack",
+              "start": 11.45,
+              "end": 11.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 11.77,
+              "end": 12.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " judgment",
+              "start": 12.01,
+              "end": 12.35,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " in",
+              "start": 12.35,
+              "end": 12.85,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " comparison",
+              "start": 12.85,
+              "end": 13.21,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " with the church characteristic of the type, free spirit, as its non-freedom.",
+          "start": 13.21,
+          "end": 17.63,
+          "words": [
+            {
+              "text": " with",
+              "start": 13.21,
+              "end": 13.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 13.61,
+              "end": 13.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " church",
+              "start": 13.77,
+              "end": 14.05,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " characteristic",
+              "start": 14.05,
+              "end": 14.71,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " of",
+              "start": 14.71,
+              "end": 15.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 15.19,
+              "end": 15.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " type,",
+              "start": 15.31,
+              "end": 15.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " free",
+              "start": 15.91,
+              "end": 15.97,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " spirit,",
+              "start": 15.97,
+              "end": 16.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " as",
+              "start": 16.67,
+              "end": 16.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " its",
+              "start": 16.95,
+              "end": 17.13,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " non",
+              "start": 17.13,
+              "end": 17.35,
+              "probability": 0.966796875
+            },
+            {
+              "text": "-freedom.",
+              "start": 17.35,
+              "end": 17.63,
+              "probability": 0.898681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "105.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "The",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "piafraus",
+          "start": 2.05,
+          "end": 2.69
+        },
+        {
+          "raw": "is",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "still",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "more",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "raw": "repugnant",
+          "start": 3.31,
+          "end": 3.81
+        },
+        {
+          "raw": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "raw": "taste,",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "raw": "piety,",
+          "start": 4.97,
+          "end": 5.33
+        },
+        {
+          "raw": "of",
+          "start": 5.67,
+          "end": 5.83
+        },
+        {
+          "raw": "the",
+          "start": 5.83,
+          "end": 5.93
+        },
+        {
+          "raw": "free",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "spirit,",
+          "start": 6.17,
+          "end": 6.57
+        },
+        {
+          "raw": "the",
+          "start": 7.01,
+          "end": 7.13
+        },
+        {
+          "raw": "pious",
+          "start": 7.13,
+          "end": 7.45
+        },
+        {
+          "raw": "man",
+          "start": 7.45,
+          "end": 7.79
+        },
+        {
+          "raw": "of",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "raw": "knowledge,",
+          "start": 7.97,
+          "end": 8.35
+        },
+        {
+          "raw": "than",
+          "start": 8.65,
+          "end": 9.01
+        },
+        {
+          "raw": "the",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "raw": "impiafraus.",
+          "start": 9.13,
+          "end": 10.03
+        },
+        {
+          "raw": "Hence",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "raw": "the",
+          "start": 10.85,
+          "end": 11.05
+        },
+        {
+          "raw": "profound",
+          "start": 11.05,
+          "end": 11.45
+        },
+        {
+          "raw": "lack",
+          "start": 11.45,
+          "end": 11.77
+        },
+        {
+          "raw": "of",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "raw": "judgment",
+          "start": 12.01,
+          "end": 12.35
+        },
+        {
+          "raw": "in",
+          "start": 12.35,
+          "end": 12.85
+        },
+        {
+          "raw": "comparison",
+          "start": 12.85,
+          "end": 13.21
+        },
+        {
+          "raw": "with",
+          "start": 13.21,
+          "end": 13.61
+        },
+        {
+          "raw": "the",
+          "start": 13.61,
+          "end": 13.77
+        },
+        {
+          "raw": "church",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "raw": "characteristic",
+          "start": 14.05,
+          "end": 14.71
+        },
+        {
+          "raw": "of",
+          "start": 14.71,
+          "end": 15.19
+        },
+        {
+          "raw": "the",
+          "start": 15.19,
+          "end": 15.31
+        },
+        {
+          "raw": "type,",
+          "start": 15.31,
+          "end": 15.59
+        },
+        {
+          "raw": "free",
+          "start": 15.91,
+          "end": 15.97
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.97,
+          "end": 16.47
+        },
+        {
+          "raw": "as",
+          "start": 16.67,
+          "end": 16.95
+        },
+        {
+          "raw": "its",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "raw": "non",
+          "start": 17.13,
+          "end": 17.35
+        },
+        {
+          "raw": "-freedom.",
+          "start": 17.35,
+          "end": 17.63
+        }
+      ],
+      "expected_tokens": [
+        "105.",
+        "The",
+        "pia",
+        "fraus",
+        "is",
+        "still",
+        "more",
+        "repugnant",
+        "to",
+        "the",
+        "taste",
+        "(the",
+        "\"piety\")",
+        "of",
+        "the",
+        "free",
+        "spirit",
+        "(the",
+        "\"pious",
+        "man",
+        "of",
+        "knowledge\")",
+        "than",
+        "the",
+        "impia",
+        "fraus.",
+        "Hence",
+        "the",
+        "profound",
+        "lack",
+        "of",
+        "judgment,",
+        "in",
+        "comparison",
+        "with",
+        "the",
+        "Church,",
+        "characteristic",
+        "of",
+        "the",
+        "type",
+        "\"free",
+        "spirit\"--as",
+        "Its",
+        "non-freedom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          24,
+          3,
+          23
+        ],
+        [
+          "replace",
+          24,
+          26,
+          23,
+          24
+        ],
+        [
+          "equal",
+          26,
+          42,
+          24,
+          40
+        ],
+        [
+          "replace",
+          42,
+          43,
+          40,
+          42
+        ],
+        [
+          "equal",
+          43,
+          44,
+          42,
+          43
+        ],
+        [
+          "replace",
+          44,
+          45,
+          43,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          24,
+          26,
+          23,
+          24
+        ],
+        [
+          "replace",
+          42,
+          43,
+          40,
+          42
+        ],
+        [
+          "replace",
+          44,
+          45,
+          43,
+          45
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "105.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "The",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "pia",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "text": "fraus",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "is",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "still",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "more",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "text": "repugnant",
+          "start": 3.31,
+          "end": 3.81
+        },
+        {
+          "text": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "text": "taste",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "text": "(the",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "text": "\"piety\")",
+          "start": 4.97,
+          "end": 5.33
+        },
+        {
+          "text": "of",
+          "start": 5.67,
+          "end": 5.83
+        },
+        {
+          "text": "the",
+          "start": 5.83,
+          "end": 5.93
+        },
+        {
+          "text": "free",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "spirit",
+          "start": 6.17,
+          "end": 6.57
+        },
+        {
+          "text": "(the",
+          "start": 7.01,
+          "end": 7.13
+        },
+        {
+          "text": "\"pious",
+          "start": 7.13,
+          "end": 7.45
+        },
+        {
+          "text": "man",
+          "start": 7.45,
+          "end": 7.79
+        },
+        {
+          "text": "of",
+          "start": 7.79,
+          "end": 7.97
+        },
+        {
+          "text": "knowledge\")",
+          "start": 7.97,
+          "end": 8.35
+        },
+        {
+          "text": "than",
+          "start": 8.65,
+          "end": 9.01
+        },
+        {
+          "text": "the",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "text": "impia",
+          "start": 9.13,
+          "end": 9.9
+        },
+        {
+          "text": "fraus.",
+          "start": 9.9,
+          "end": 10.285
+        },
+        {
+          "text": "Hence",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "text": "the",
+          "start": 10.85,
+          "end": 11.05
+        },
+        {
+          "text": "profound",
+          "start": 11.05,
+          "end": 11.45
+        },
+        {
+          "text": "lack",
+          "start": 11.45,
+          "end": 11.77
+        },
+        {
+          "text": "of",
+          "start": 11.77,
+          "end": 12.01
+        },
+        {
+          "text": "judgment,",
+          "start": 12.01,
+          "end": 12.35
+        },
+        {
+          "text": "in",
+          "start": 12.35,
+          "end": 12.85
+        },
+        {
+          "text": "comparison",
+          "start": 12.85,
+          "end": 13.21
+        },
+        {
+          "text": "with",
+          "start": 13.21,
+          "end": 13.61
+        },
+        {
+          "text": "the",
+          "start": 13.61,
+          "end": 13.77
+        },
+        {
+          "text": "Church,",
+          "start": 13.77,
+          "end": 14.05
+        },
+        {
+          "text": "characteristic",
+          "start": 14.05,
+          "end": 14.71
+        },
+        {
+          "text": "of",
+          "start": 14.71,
+          "end": 15.19
+        },
+        {
+          "text": "the",
+          "start": 15.19,
+          "end": 15.31
+        },
+        {
+          "text": "type",
+          "start": 15.31,
+          "end": 15.59
+        },
+        {
+          "text": "\"free",
+          "start": 15.91,
+          "end": 15.97
+        },
+        {
+          "text": "spirit\"--as",
+          "start": 15.97,
+          "end": 16.46
+        },
+        {
+          "text": "Its",
+          "start": 16.95,
+          "end": 17.13
+        },
+        {
+          "text": "non-freedom.",
+          "start": 17.13,
+          "end": 17.38
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 45,
+        "matched_words": 39
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.29758795350790024
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb3f1f620967b2db9d07e08407c5640985834b6f97dbe72a2dce7f85511ec7f7",
+  "selected_reasons": []
+}

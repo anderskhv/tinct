@@ -1,0 +1,150 @@
+{
+  "complete": true,
+  "signature": "f8046572eb383aef945eaca135003f97239c0c03542299ca23640e4af1670398",
+  "attempts": [
+    {
+      "asr_seconds": 0.10214158706367016,
+      "alignment_seconds": 9.768398012965918e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Re-enter aerial, invisible.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.9619140625
+            },
+            {
+              "text": "-enter",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " aerial,",
+              "start": 0.79,
+              "end": 1.19,
+              "probability": 0.37451171875
+            },
+            {
+              "text": " invisible.",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "-enter",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "aerial,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "raw": "invisible.",
+          "start": 1.59,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "[Re-enter",
+        "Ariel,",
+        "invisible]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "[Re-enter",
+          "start": 0.0,
+          "end": 0.795
+        },
+        {
+          "text": "Ariel,",
+          "start": 0.795,
+          "end": 1.193
+        },
+        {
+          "text": "invisible]",
+          "start": 1.59,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10227657202631235
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ac28c3a2f7545da9e5c5799450111fda7d07cb3fb963ba2e502040ed3d4dc5c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}
