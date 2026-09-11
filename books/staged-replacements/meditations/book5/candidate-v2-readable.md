@@ -1,0 +1,149 @@
+# Meditations, Book 5 — modern-English candidate v2
+
+**Title:** Book 5
+
+Candidate v1 with the round-1 independent-review corrections applied (see `changes-v1-to-v2.md`). Paragraph IDs `B05-Pxxx` are for reference only; the leading number is part of the text.
+
+**[B05-P001]**
+
+1. In the morning, when you get up unwillingly, let this thought be present: I am rising to the work of a human being. Why, then, am I discontented if I am going to do the things for which I exist and for which I was brought into the world? Or have I been made for this, to lie in the bedclothes and keep myself warm?—But this is more pleasant.—Do you exist, then, to take your pleasure, and not at all for action or exertion? Do you not see the little plants, the little birds, the ants, the spiders, the bees working together to put in order their several parts of the universe? And are you unwilling to do the work of a human being, and do you not hurry to do what is according to your nature? But it is necessary to take rest also.—It is necessary. However, nature has fixed bounds to this too: she has fixed bounds to eating and drinking, and yet you go beyond these bounds, beyond what is sufficient; yet in your acts it is not so, but you stop short of what you can do. So you do not love yourself, for if you did, you would love your nature and her will. But those who love their several arts exhaust themselves in working at them unwashed and without food; but you value your own nature less than the turner values the turning art, or the dancer the dancing art, or the lover of money values his money, or the vainglorious man his little glory. And such men, when they have a violent passion for a thing, choose neither to eat nor to sleep rather than perfect the things they care for. But are the acts that concern society more vile in your eyes and less worthy of your labor?
+
+**[B05-P002]**
+
+2. How easy it is to repel and wipe away every impression that is troublesome or unsuitable, and immediately to be in complete calm.
+
+**[B05-P003]**
+
+3. Judge every word and deed that is according to nature to be fit for you; and do not be diverted by the blame that follows from any people, nor by their words, but if a thing is good to be done or said, do not consider it unworthy of you. For those persons have their own ruling part and follow their own impulse; do not regard these things, but go straight on, following your own nature and the common nature; and the way of both is one.
+
+**[B05-P004]**
+
+4. I go through the things that happen according to nature until I fall and rest, breathing out my breath into that element from which I daily draw it in, and falling upon that earth from which my father collected the seed, and my mother the blood, and my nurse the milk; from which for so many years I have been supplied with food and drink; which bears me when I tread on it and abuse it for so many purposes.
+
+**[B05-P005]**
+
+5. You say, Men cannot admire the sharpness of your wits.—So be it: but there are many other things of which you cannot say, I am not formed for them by nature. Show those qualities, then, which are altogether in your power: sincerity, gravity, endurance of labor, aversion to pleasure, contentment with your portion and with few things, kindness, frankness, no love of superfluity, freedom from trifling, magnanimity. Do you not see how many qualities you are able to show at once, in which there is no excuse of natural incapacity and unfitness, and yet you still remain voluntarily below the mark? Or are you compelled, through being defectively furnished by nature, to grumble, and to be stingy, and to flatter, and to find fault with your poor body, and to try to please men, and to make a great display, and to be so restless in your mind? No, by the gods; but you might have been delivered from these things long ago. Only if in truth you can be charged with being rather slow and dull of comprehension, you must exert yourself about this also, not neglecting it nor yet taking pleasure in your dullness.
+
+**[B05-P006]**
+
+6. One man, when he has done a service to another, is ready to set it down to his account as a favor conferred. Another is not ready to do this, but still in his own mind he thinks of the man as his debtor, and he knows what he has done. A third in a way does not even know what he has done, but he is like a vine that has produced grapes, and seeks for nothing more after it has once produced its proper fruit. As a horse when he has run, a dog when he has tackled the game, a bee when it has made the honey, so a man when he has done a good act does not call out for others to come and see, but he goes on to another act, as a vine goes on to produce the grapes again in season.—Must a man, then, be one of these, who in a way act thus without observing it?—Yes.—But this very thing is necessary, the observation of what a man is doing: for, it may be said, it is characteristic of the social being to perceive that he is working in a social way, and indeed to wish that his social partner also should perceive it.—What you say is true, but you do not rightly understand what is now said: and for this reason you will become one of those of whom I spoke before, for even they are misled by a certain show of reason. But if you choose to understand the meaning of what is said, do not fear that for this reason you will omit any social act.
+
+**[B05-P007]**
+
+7. A prayer of the Athenians: Rain, rain, O dear Zeus, down on the ploughed fields of the Athenians and on the plains.—In truth we ought not to pray at all, or we ought to pray in this simple and noble way.
+
+**[B05-P008]**
+
+8. Just as we must understand it when it is said that Aesculapius prescribed to this man riding, or bathing in cold water, or going without shoes, so we must understand it when it is said that the nature of the whole prescribed to this man disease, or mutilation, or loss, or anything else of the kind. For in the first case Prescribed means something like this: he prescribed this for this man as a thing adapted to procure health; and in the second case it means that what happens to every man is fixed in a way for him suitably to his destiny. For this is what we mean when we say that things are suitable to us, as the workmen say of squared stones in walls or in the pyramids that they are suitable, when they fit them to one another in some kind of connection. For there is altogether one fitness. And as the universe is made up out of all bodies to be such a body as it is, so out of all existing causes necessity is made up to be such a cause as it is. And even those who are completely ignorant understand what I mean; for they say that It, necessity or destiny, brought this to such a person.—This, then, was brought, and this was prescribed to him. Let us, then, receive these things as we receive those that Aesculapius prescribes. Many even of his prescriptions are, as a matter of course, disagreeable, but we accept them in the hope of health. Let the perfecting and accomplishment of the things that the common nature judges to be good be judged by you to be of the same kind as your health. And so accept everything that happens, even if it seems disagreeable, because it leads to this, to the health of the universe and to the prosperity and happiness of Zeus. For he would not have brought on any man what he has brought if it were not useful for the whole. Neither does the nature of anything, whatever it may be, cause anything that is not suitable to what is directed by it. For two reasons, then, it is right to be content with what happens to you: the one, because it was done for you and prescribed for you, and in a way had reference to you, originally from the most ancient causes spun with your destiny; and the other, because even what comes severally to every man is, to the power that administers the universe, a cause of happiness and perfection, and even of its very continuance. For the integrity of the whole is mutilated if you cut off anything whatever from the conjunction and the continuity either of the parts or of the causes. And you do cut off, as far as it is in your power, when you are discontented, and in a way try to put anything out of the way.
+
+**[B05-P009]**
+
+9. Do not be disgusted, nor discouraged, nor discontented, if you do not succeed in doing everything according to right principles, but when you have failed, return back again, and be content if the greater part of what you do is consistent with man's nature, and love this to which you return; and do not return to philosophy as if she were a master, but act like those who have sore eyes and apply a bit of sponge and egg, or as another applies a plaster, or a drenching with water. For thus you will not fail to obey reason, and you will repose in it. And remember that philosophy requires only the things that your nature requires; but you would have something else that is not according to nature.—It may be objected, Why, what is more agreeable than this which I am doing? But is not this the very reason why pleasure deceives us? And consider whether magnanimity, freedom, simplicity, equanimity, piety, are not more agreeable. For what is more agreeable than wisdom itself, when you think of the security and the happy course of all things that depend on the faculty of understanding and knowledge?
+
+**[B05-P010]**
+
+10. Things are so enveloped that they have seemed to philosophers, not a few of them and not the common ones, altogether unintelligible; even to the Stoics themselves they seem difficult to understand. And all our assent is changeable; for where is the man who never changes? Carry your thoughts, then, to the objects themselves, and consider how short-lived they are and worthless, and that they may be in the possession of a filthy wretch or a whore or a robber. Then turn to the morals of those who live with you, and it is hardly possible to endure even the most agreeable of them, to say nothing of a man being hardly able to endure himself. In such darkness, then, and dirt, and in so constant a flux both of substance and of time, and of motion and of things moved, what there is worth being highly prized, or even an object of serious pursuit, I cannot imagine. But on the contrary it is a man's duty to comfort himself, and to wait for the natural dissolution, and not to resent the delay, but to rest in these principles only: the one, that nothing will happen to me that is not according to the nature of the whole; and the other, that it is in my power never to act against my god and the god within: for there is no man who will compel me to this.
+
+**[B05-P011]**
+
+11. On what am I now employing my own soul? On every occasion I must ask myself this question, and inquire, What have I now in this part of me which they call the ruling part? And whose soul do I have now—that of a child, or of a young man, or of a feeble woman, or of a tyrant, or of a domestic animal, or of a wild beast?
+
+**[B05-P012]**
+
+12. What kind of things those are which appear good to the many, we may learn even from this. For if any man should conceive certain things as being really good, such as prudence, temperance, justice, fortitude, he would not, after having first conceived these, endure to listen to anything which should not be in harmony with what is really good. But if a man has first conceived as good the things that appear to the many to be good, he will listen and readily receive as very applicable what was said by the comic writer. Thus even the many perceive the difference. For were it not so, this saying would not offend and would not be rejected in the first case, while we receive it when it is said of wealth, and of the means that further luxury and fame, as said fitly and wittily. Go on, then, and ask whether we should value and think those things to be good to which, after their first conception in the mind, the words of the comic writer might be aptly applied—that he who has them, through pure abundance, has not a place to ease himself in.
+
+**[B05-P013]**
+
+13. I am composed of form and matter; and neither of them will perish into non-existence, as neither of them came into existence out of non-existence. Every part of me, then, will be reduced by change into some part of the universe, and that again will change into another part of the universe, and so on forever. And as a result of such a change I too exist, and those who begot me, and so on forever in the other direction. For nothing prevents us from saying so, even if the universe is administered according to definite periods of revolution.
+
+**[B05-P014]**
+
+14. Reason and the reasoning art are powers that are sufficient for themselves and for their own works. They move, then, from a first principle that is their own, and they make their way to the end that is proposed to them; and this is the reason why such acts are named Catorthoseis, or right acts, which word signifies that they proceed by the right road.
+
+**[B05-P015]**
+
+15. None of these things ought to be called a man's which do not belong to a man as man. They are not required of a man, nor does man's nature promise them, nor are they the means by which man's nature attains its end. Neither, then, does the end of man lie in these things, nor yet what aids the accomplishment of this end; and what aids toward this end is what is good. Besides, if any of these things did belong to man, it would not be right for a man to despise them and set himself against them; nor would a man be worthy of praise who showed that he did not want these things, nor would he who stinted himself in any of them be good, if indeed these things were good. But now, the more of these things a man deprives himself of, or of other things like them, or even when he is deprived of any of them, the more patiently he endures the loss, in just the same degree he is a better man.
+
+**[B05-P016]**
+
+16. Such as your habitual thoughts are, such also will be the character of your mind; for the soul is dyed by the thoughts. Dye it, then, with a continuous series of such thoughts as these: for instance, that where a man can live, there he can also live well. But he must live in a palace; well, then, he can also live well in a palace. And again, consider that for whatever purpose each thing has been constituted, for this it has been constituted, and toward this it is carried; and its end is in that toward which it is carried; and where the end is, there also is the advantage and the good of each thing. Now the good for the rational being is society; for that we are made for society has been shown above. Is it not plain that the inferior exists for the sake of the superior? But the things that have life are superior to those that have not life, and of those that have life the superior are those that have reason.
+
+**[B05-P017]**
+
+17. To seek what is impossible is madness: and it is impossible that the bad should not do something of this kind.
+
+**[B05-P018]**
+
+18. Nothing happens to any man that he is not formed by nature to bear. The same things happen to another, and either because he does not see that they have happened, or because he wants to show a great spirit, he is firm and remains unharmed. It is a shame, then, that ignorance and conceit should be stronger than wisdom.
+
+**[B05-P019]**
+
+19. Things themselves do not touch the soul, not in the least degree; nor have they admission to the soul, nor can they turn or move the soul: but the soul turns and moves itself alone, and whatever judgments it may think proper to make, such it makes for itself the things that present themselves to it.
+
+**[B05-P020]**
+
+20. In one respect man is the nearest thing to me, so far as I must do good to men and endure them. But so far as some men make themselves obstacles to my proper acts, man becomes to me one of the things that are indifferent, no less than the sun or wind or a wild beast. Now it is true that these may impede my action, but they are no impediments to my feelings and disposition, which have the power of acting conditionally and changing: for the mind converts and changes every hindrance to its activity into an aid; and so what is a hindrance is made a furtherance to an act; and what is an obstacle on the road helps us on this road.
+
+**[B05-P021]**
+
+21. Reverence what is best in the universe; and this is what makes use of all things and directs all things. And in the same way also reverence what is best in yourself; and this is of the same kind as that. For in yourself also, that which makes use of everything else is this, and your life is directed by this.
+
+**[B05-P022]**
+
+22. What does no harm to the state does no harm to the citizen. In the case of every appearance of harm apply this rule: if the state is not harmed by this, neither am I harmed. But if the state is harmed, you must not be angry with him who does harm to the state. Show him where his error is.
+
+**[B05-P023]**
+
+23. Often think of the rapidity with which things pass by and disappear, both the things that are and the things that are produced. For substance is like a river in continual flow, and the activities of things are in constant change, and the causes work in infinite varieties; and there is hardly anything that stands still. And consider this which is near you, this boundless abyss of the past and of the future in which all things disappear. How, then, is he not a fool who is puffed up with such things, or plagued about them and makes himself miserable? For they vex him only for a time, and a short time.
+
+**[B05-P024]**
+
+24. Think of the universal substance, of which you have a very small portion; and of universal time, of which a short and indivisible interval has been assigned to you; and of what is fixed by destiny, and how small a part of it you are.
+
+**[B05-P025]**
+
+25. Does another do me wrong? Let him look to it. He has his own disposition, his own activity. I now have what the universal nature now wills me to have; and I do what my nature now wills me to do.
+
+**[B05-P026]**
+
+26. Let the part of your soul that leads and governs be undisturbed by the movements in the flesh, whether of pleasure or of pain; and let it not unite with them, but let it confine itself and limit those feelings to their parts. But when these feelings rise up to the mind by virtue of that other sympathy that naturally exists in a body which is all one, then you must not strive to resist the sensation, for it is natural: but do not let the ruling part, of itself, add to the sensation the opinion that it is either good or bad.
+
+**[B05-P027]**
+
+27. Live with the gods. And he does live with the gods who constantly shows to them that his own soul is satisfied with what is assigned to him, and that it does all that the god within wishes, which Zeus has given to every man as his guardian and guide, a portion of himself. And this is every man's understanding and reason.
+
+**[B05-P028]**
+
+28. Are you angry with him whose armpits stink? Are you angry with him whose mouth smells foul? What good will this anger do you? He has such a mouth, he has such armpits: it is necessary that such an emanation must come from such things: but the man has reason, it will be said, and he is able, if he takes pains, to discover wherein he offends; I wish you well of your discovery. Well, then, you too have reason: by your rational faculty stir up his rational faculty; show him his error, admonish him. For if he listens, you will cure him, and there is no need of anger. Neither tragic actor nor whore.
+
+**[B05-P029]**
+
+29. As you intend to live when you have gone out,... so it is in your power to live here. But if men do not permit you, then get away out of life, yet so as if you were suffering no harm. The house is smoky, and I leave it. Why do you think that this is any trouble? But so long as nothing of the kind drives me out, I remain, am free, and no man shall hinder me from doing what I choose; and I choose to do what is according to the nature of the rational and social being.
+
+**[B05-P030]**
+
+30. The intelligence of the universe is social. Accordingly it has made the inferior things for the sake of the superior, and it has fitted the superior to one another. You see how it has subordinated, coordinated, and assigned to everything its proper portion, and has brought together into concord with one another the things that are the best.
+
+**[B05-P031]**
+
+31. How have you behaved until now to the gods, your parents, brothers, children, teachers, to those who looked after your infancy, to your friends, kinsfolk, to your slaves? Consider whether you have until now behaved to all in such a way that this may be said of you: "Never has wronged a man in deed or word." And call to mind both how many things you have passed through, and how many things you have been able to endure, and that the history of your life is now complete and your service is ended; and how many beautiful things you have seen; and how many pleasures and pains you have despised; and how many things called honorable you have spurned; and to how many ill-minded folk you have shown a kind disposition.
+
+**[B05-P032]**
+
+32. Why do unskilled and ignorant souls disturb him who has skill and knowledge? What soul, then, has skill and knowledge? That which knows beginning and end, and knows the reason that pervades all substance, and through all time by fixed periods administers the universe.
+
+**[B05-P033]**
+
+33. Soon, very soon, you will be ashes, or a skeleton, and either a name or not even a name; but name is sound and echo. And the things that are much valued in life are empty and rotten and trifling, and like little dogs biting one another, and little children quarreling, laughing, and then at once weeping. But fidelity and modesty and justice and truth have fled up to Olympus from the widespread earth. What, then, is there that still detains you here, if the objects of sense are easily changed and never stand still, and the organs of perception are dull and easily receive false impressions, and the poor soul itself is an exhalation from blood? But to have good repute amid such a world as this is an empty thing. Why, then, do you not wait in calm for your end, whether it is extinction or removal to another state? And until that time comes, what is sufficient? Why, what else than to venerate the gods and bless them, and to do good to men, and to practice tolerance and self-restraint; but as to everything that is beyond the limits of the poor flesh and breath, to remember that this is neither yours nor in your power.
+
+**[B05-P034]**
+
+34. You can pass your life in an even flow of happiness if you can go by the right way, and think and act in the right way. These two things are common both to the soul of God and to the soul of man, and to the soul of every rational being: not to be hindered by another; and to hold good to consist in the disposition to justice and the practice of it, and in this to let your desire find its termination.
+
+**[B05-P035]**
+
+35. If this is neither my own badness, nor an effect of my own badness, and the common good is not injured, why am I troubled about it, and what is the harm to the common good?
+
+**[B05-P036]**
+
+36. Do not be carried along rashly by the appearance of things, but give help to all according to your ability and their fitness; and if they have sustained loss in matters that are indifferent, do not imagine this to be a damage; for it is a bad habit. But as the old man, when he went away, asked back his foster child's top, remembering that it was a top, so do you in this case also. When you are calling out on the Rostra, have you forgotten, man, what these things are?—Yes; but they are objects of great concern to these people—will you too, then, be made a fool for these things? I was once a fortunate man, but I lost it, I do not know how.—But fortunate means that a man has assigned to himself a good fortune: and a good fortune is a good disposition of the soul, good emotions, good actions.

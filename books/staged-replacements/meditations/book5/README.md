@@ -1,7 +1,9 @@
-# Meditations, Book V — package (draft frozen, awaiting independent review)
+# Meditations, Book V — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book V; step 4 (independent
-review) is the coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book V. The accepted text is
+`candidate-v2.json` (sha256 `9a14c3ae…`), see `ACCEPTANCE.md`. Step 4
+(independent review) was the coordinator's reviewer session, not this agent;
+its findings are under `review/`.
 
 Step 1 confirmed the source: chapter 5 of the rebuilt staged Long (sha256
 `b0ecf3da…`, D12), 36 paragraphs; V.8, one of the three paragraphs that had
@@ -16,18 +18,28 @@ marks in Book V of the PG text (V.9, V.12 ×4, V.28 ×2), matching
    36 paragraphs, byte-identical to the staged original (Long 1862).
 2. `candidate-v1.json` — the modern-English candidate, 36 paragraphs one-to-one
    with the source, same schema. **Frozen**: not edited after the packets were
-   generated from it. Corrections go to `candidate-v2.json`.
+   generated from it. Corrections went to `candidate-v2.json`.
 3. `candidate-v1-readable.md` — the same text with `B05-Pnnn` IDs outside the
    prose.
 4. `continuity.md` — glossary terms met in Book V (two rows added and two
    extended in `../GLOSSARY.md` before drafting), paragraph-level decisions,
-   apparatus folded or dropped, unresolved source issues.
-5. `provenance.json` — branch, hashes, source, generation setting.
+   apparatus folded or dropped, unresolved source issues; updated at
+   acceptance where a finding reversed or recorded a decision, and with the
+   reviewer's rulings on the base-text defects.
+5. `provenance.json` — branch, hashes, source, generation setting, review
+   round, v2 hash.
 6. `review-packets/packet-01.md … packet-12.md` — twelve packets of three
    paragraphs (36 = 12×3), each with one paragraph of context before and
    after marked `CONTEXT ONLY`. No self-review verdicts.
 7. `review-instructions.md` — the independent-review instructions, verbatim.
-8. `manifest.json` — packet → paragraph-ID map with a coverage check.
+8. `manifest.json` — packet → paragraph-ID map with a coverage check, plus the
+   v1 and v2 hashes.
+9. `review/findings-v1.md` — the independent review of v1 (0 substantive, 5
+   minor; Accept after corrections; rulings on the base-text defects).
+10. `candidate-v2.json`, `candidate-v2-readable.md`, `changes-v1-to-v2.md` —
+    the corrected candidate, built by `../scripts/build_book5_v2.py` from the
+    frozen v1; every change listed with the finding it answers.
+11. `ACCEPTANCE.md` — accepted hash, findings applied, flow read.
 
 ## Mechanical checks
 
@@ -49,23 +61,24 @@ for e in man['packets']:
     t=open('book5/'+e['packet']).read()
     for pid in e['assigned_paragraph_ids']:
         k=int(pid[-3:])-1; assert src['paragraphs'][k] in t and cand['paragraphs'][k] in t
+v2=json.load(open('book5/candidate-v2.json')); assert len(v2['paragraphs'])==36
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(v2['paragraphs']))
+md2=open('book5/candidate-v2-readable.md').read(); assert all(p in md2 for p in v2['paragraphs'])
 for k,s,c in [(8,'fail to obey reason, and thou wilt repose in it','fail to obey reason, and you will repose in it'),
               (11,'anything which should not be in harmony with what is really good','anything which should not be in harmony with what is really good'),
               (11,'Thus even the many perceive the difference.','Thus even the many perceive the difference.'),
               (27,'Neither tragic actor nor whore.','Neither tragic actor nor whore.')]:
-    assert s in src['paragraphs'][k] and c in cand['paragraphs'][k]
-assert 'gone out,...' in src['paragraphs'][28] and 'gone out,...' in cand['paragraphs'][28]
+    assert s in src['paragraphs'][k] and c in cand['paragraphs'][k] and c in v2['paragraphs'][k]
+assert 'gone out,...' in src['paragraphs'][28] and 'gone out,...' in cand['paragraphs'][28] and 'gone out,...' in v2['paragraphs'][28]
 print('OK'); print(hashlib.sha256(open('book5/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book5/candidate-v2.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('meditations-original-en.staged.json','rb').read()).hexdigest())
 PY
 ```
 
-Expected: `9b061974…` (candidate v1, frozen) and `b0ecf3da…` (staged original).
+Expected: `9b061974…` (v1, frozen), `9a14c3ae…` (v2, accepted) and `b0ecf3da…`
+(staged original).
 
 ## Next action
 
-Coordinator: hand `review-instructions.md` and `review-packets/` to a fresh
-independent-review session. Findings come back under `book5/review/`. This
-agent then applies supported corrections to `candidate-v2.json`, verifies the
-changed passages, reads the whole book for flow, and records acceptance in
-`ACCEPTANCE.md` before starting Book VI.
+None for Book V. The thread continues with Book VI (`../book6/`).

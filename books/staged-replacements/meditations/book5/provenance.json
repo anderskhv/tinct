@@ -23,5 +23,15 @@
  "dagger_marks": "Seven in Book V of the PG text: V.9 x1, V.12 x4, V.28 x2 (four clauses, named in review-instructions.md). Matches PROVENANCE.md section 4.",
  "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary (two rows added and two extended for Book V first) and the Book II, I, III and IV acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
  "build_script": "scripts/build_book_package.py 5 (candidate text frozen in scripts/candidates/book5.py; regenerates source-book5.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
- "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "candidate_v2_json_sha256": "9a14c3ae5d14be57649348a443d5919fdc27c486789d040c6276803c123ca5ce",
+ "review_round_1": "review/findings-v1.md (independent reviewer session, 2026-09-11): Accept after corrections; 0 substantive, 5 minor (3 worth improving, 2 optional preference). All five applied in candidate-v2.json via scripts/build_book5_v2.py; no flow-read change; see changes-v1-to-v2.md. Reviewer rulings on the five base-text defects and the V.28 bracket recorded in continuity.md (V.1 'rather than to perfect' is not a defect).",
+ "word_counts_v2": {
+  "source": 4464,
+  "candidate": 4440,
+  "ratio": 0.995,
+  "min_paragraph_ratio": 0.95,
+  "note": "screening signal only; not evidence of semantic completeness. The lowest ratio (V.4 0.95) is Long's 'out of which' three times becoming 'from which'."
+ },
+ "accepted": "candidate-v2.json, see ACCEPTANCE.md"
 }

@@ -140,6 +140,25 @@ session. Kept current at every push.
   pushed, built by `scripts/build_book_package.py 5` from
   `scripts/candidates/book5.py`. **Stopped for independent review** (step 4).
   Findings expected under `book5/review/`.
+- 2026-09-11 — **Book V accepted** (steps 4–8). Round-1 independent review
+  (`book5/review/findings-v1.md`): Accept after corrections, 0 substantive +
+  5 minor (3 worth improving, 2 optional preference). All five applied in
+  `book5/candidate-v2.json` (sha256 `9a14c3ae…`) via
+  `scripts/build_book5_v2.py` — 1.1 "vainglorious" (Long's fourth cognate
+  pair restored), 10.1 "so enveloped" (Long's root, no competing idiom), 26.1
+  "do not let the ruling part, of itself, add", 33.1 bare "name" restored,
+  36.1 "I do not know how"; the two optional findings were applied because
+  neither v1 reason survived the reviewer's point (D8); every change listed
+  in `book5/changes-v1-to-v2.md`; four "also noted" points left with reasons;
+  changed passages verified by word diff; four dagger clauses (seven marks)
+  verbatim; V.29 ellipsis kept. Reviewer rulings recorded in
+  `book5/continuity.md`: V.15/V.29/V.32 evident word confirmed; V.5 "for
+  them" confirmed; V.28 fragment is text, kept verbatim; V.33 citation drop
+  confirmed; V.1 "rather than to perfect" is **not** a defect (reads "prefer
+  neither X nor Y to Z") and the v1 continuity lines saying it "wants a
+  negative" are corrected. Flow read done, no further change. Acceptance
+  recorded in `book5/ACCEPTANCE.md`. `continuity.md`, `provenance.json`,
+  `manifest.json` and `README.md` updated. No new glossary row.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -172,12 +191,9 @@ session. Kept current at every push.
 
 ## Next
 
-1. **Waiting on the coordinator: independent review of Book V**
-   (`book5/review-instructions.md`, `book5/review-packets/`, 12 packets). On
-   findings: `book5/candidate-v2.json` via a change script in the established
-   pattern, verification, flow read, `book5/ACCEPTANCE.md`.
-2. Then Books VI … XII in numerical order, each with its own review round.
-   Book VI is not started until Book V is accepted.
+1. **Book VI, steps 1–3** (draft, freeze, packets), then stop for its
+   independent review.
+2. Then Books VII … XII in numerical order, each with its own review round.
 
 ## Needs Anders (listed, not waited on)
 

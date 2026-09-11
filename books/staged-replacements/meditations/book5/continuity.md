@@ -1,11 +1,12 @@
-# Continuity sheet — Meditations, Book V (candidate v1)
+# Continuity sheet — Meditations, Book V (candidate v2, accepted)
 
 Written alongside drafting `candidate-v1.json`, after Books II, I, III and IV
-were accepted, and describing what the frozen draft actually did. Term
-renderings follow `../GLOSSARY.md` (two rows added and two rows extended for
-Book V before drafting, see below); the pattern for applying review findings
-follows the four earlier `ACCEPTANCE.md` files (decisions D8, D10 and D11 in
-the ledger).
+were accepted, and describing what the frozen draft actually did; updated at
+acceptance (candidate v2) where a review finding reversed or recorded a
+decision — each such line says so. Term renderings follow `../GLOSSARY.md`
+(two rows added and two rows extended for Book V before drafting, see below);
+the pattern for applying review findings follows the four earlier
+`ACCEPTANCE.md` files (decisions D8, D10 and D11 in the ledger).
 
 ## Source
 
@@ -85,16 +86,22 @@ the ledger).
   that which, is according to thy nature" → "do you not hurry to do what is
   according to your nature" (the PG stray comma after "which" dropped); Long's
   capital "Nature has fixed bounds … she" → lowercase "nature … she", the
-  personification kept in "she"; "the vain-glorious man" → "the vain man"
-  (Book I rendered "vain-glory" as "vanity"; "his little glory" stays);
+  personification kept in "she"; "the vain-glorious man" → v1 "the vain man"
+  (on the precedent of Book I's "vain-glory" → "vanity"), at v2 (finding 1.1)
+  "the vainglorious man" — Long's word spelled solid, restoring the fourth of
+  his four cognate pairs (turner / turning art, dancer / dancing art, lover of
+  money / money, vainglorious man / glory); I.16 has no paired object, so the
+  Book I rendering stands there and Book V has only this occurrence;
   "a violent affection to a thing" → "a violent passion for a thing"
   ("affection" now means fondness); "the acts which concern society more vile
   in thy eyes" kept ("vile" is current). Long's "choose neither to eat nor to
   sleep rather than to perfect the things which they care for" is kept as he
-  has it ("rather than perfect the things they care for"), though the sentence
-  as Long prints it seems to want a negative (they would rather not eat or
-  sleep than *fail to* perfect their work); nothing is supplied. Listed under
-  unresolved source issues; a reviewer who reads it otherwise should say so.
+  has it ("rather than perfect the things they care for"). v1 had recorded
+  this as a sentence that "seems to want a negative"; the reviewer's ruling
+  corrects that: read as "prefer neither X nor Y to Z" (such men do not put
+  eating or sleeping ahead of perfecting the things they care for), the
+  sentence is complete and coherent, Long's "neither … nor" scoping over the
+  whole preference. Not a defect; nothing supplied and nothing to supply.
 - **V.2** — "In all tranquillity" → "in complete calm".
 - **V.3** — "Peculiar" (their own, particular) → "their own", twice; "which
   things do not thou regard" → "do not regard these things".
@@ -153,9 +160,11 @@ the ledger).
   folded: "what is more agreeable than this which I am doing?"; "consider if"
   → "consider whether". Long's five nouns (magnanimity, freedom, simplicity,
   equanimity, piety) kept in order.
-- **V.10** — "Things are in such a kind of envelopment" → "Things are so
-  wrapped up" (Long's "envelopment" is a wrapping, and the plain verb keeps
-  the image); "not a few nor those common philosophers" → "not a few of them
+- **V.10** — "Things are in such a kind of envelopment" → v1 "Things are so
+  wrapped up" (the plain verb for Long's noun), at v2 (finding 10.1) "Things
+  are so enveloped": Long's own root, current, and without the competing idiom
+  of "so wrapped up" (absorbed, engrossed), which for a beat had things
+  preoccupied rather than concealed; "not a few nor those common philosophers" → "not a few of them
   and not the common ones"; "nay even to the Stoics" → "even to the Stoics";
   "not to be vexed at the delay" → "not to resent the delay" (glossary);
   "conformable to the nature of the universe" → "according to the nature of
@@ -220,9 +229,12 @@ the ledger).
 - **V.26** — "The movements in the flesh" kept (physical motion); "let it
   circumscribe itself" → "let it confine itself" (as IV.3 "circumscribed" →
   "confined"); "affects" → "feelings" (twice); "let not the ruling part of
-  itself add to the sensation the opinion" → "let the ruling part not of
-  itself add to the sensation the opinion" (Long's "of itself" = on its own
-  account, kept in place).
+  itself add to the sensation the opinion" → v1 "let the ruling part not of
+  itself add …", at v2 (finding 26.1) "do not let the ruling part, of itself,
+  add to the sensation the opinion": "do not let" is the modern form of Long's
+  "let not", and the commas keep "of itself" (= on its own account) as the
+  aside it is, so the prohibition is read at first sight instead of "not of
+  itself" being taken as a unit.
 - **V.27** — "The daemon … which Zeus hath given to every man for his guardian
   and guide" → "the god within … which Zeus has given to every man as his
   guardian and guide" (glossary; Long's "which" kept); "that which is
@@ -253,8 +265,10 @@ the ledger).
   ("[revolutions]" is an alternative rendering of "periods", dropped under
   D11; V.13's "[of revolution]" is a supplement completing the phrase and is
   folded there).
-- **V.33** — "But name is sound and echo" → "but a name is sound and echo";
-  "and [like] little dogs" → "and like little dogs"; "straightway" → "at
+- **V.33** — "But name is sound and echo" → v1 "but a name is sound and
+  echo", at v2 (finding 33.1) Long's bare "name" restored: the sentence moves
+  from the countable "a name … not even a name" to name as such, and it is
+  that abstraction Long calls "sound and echo"; "and [like] little dogs" → "and like little dogs"; "straightway" → "at
   once"; Long's verse "But fidelity and modesty and justice and truth are fled
   / Up to Olympus from the wide-spread earth" → "But fidelity and modesty and
   justice and truth have fled up to Olympus from the widespread earth", run on
@@ -274,7 +288,12 @@ the ledger).
   forum; a proper name, not glossed); "so do thou in this case also" → "so do
   you in this case also"; "good disposition of the soul" → "a good disposition
   of the soul"; "good emotions" kept (Long's own word, distinct from
-  "feelings" for his "affects").
+  "feelings" for his "affects"). v1 had left Long's "I know not how" as a set
+  phrase; at v2 (finding 36.1) "I do not know how" — the one "not"-after-verb
+  form left in the book, recast to the edition's own standard (V.1 "do not
+  love yourself", V.19 "do not touch the soul"); it sits in a speech the
+  paragraph quotes ironically, where an ordinary man's complaint should sound
+  ordinary.
 
 ## Apparatus dropped (each listed, per the glossary's rule)
 
@@ -316,14 +335,24 @@ from memory of the familiar version. Proper names are Long's spellings
   as Long prints it; nothing supplied. PG's "them" for "thou" in the same
   clause is a printing error and is rendered "you".
 - V.15 PG "snowed" (for "showed") and V.32 PG "though" (for "through") are
-  scan errors in the base text; the candidate has the evident word. V.1 PG
-  "that which, is" has a stray comma, dropped.
+  scan errors in the base text; the candidate has the evident word (the
+  reviewer confirmed both, and V.29 "them art", against the PG file by line).
+  V.1 PG "that which, is" has a stray comma, dropped.
 - V.1 "choose neither to eat nor to sleep rather than to perfect the things
-  which they care for": Long's sentence appears to lack a negative; kept as
-  he has it, nothing supplied (see V.1 above).
+  which they care for": **not a source issue.** v1 listed it here as a
+  sentence that seemed to lack a negative; the reviewer's ruling (confirmed at
+  acceptance) is that it reads correctly as "prefer neither X nor Y to Z" and
+  is complete as Long prints it. Kept as he has it; nothing supplied (see V.1
+  above). Left in this list only so the v1 note is not silently dropped.
 - V.5 "I am not formed from them by nature": rendered "for them" (see V.5
-  above); a reviewer who reads Long's "from" as deliberate should say so.
+  above). The reviewer confirmed the emendation as the only reading the
+  context allows (Long's own "formed for" elsewhere in the file), while noting
+  that whether "from" is a scan error or an 1862 slip could not be settled
+  offline; "for" stands.
 - V.28 "Neither tragic actor nor whore.": a fragment; its connection to the
-  paragraph is not given by Long and is not supplied.
+  paragraph is not given by Long and is not supplied. The reviewer confirmed
+  the classification from Long's own footnote ("I have translated it literally
+  and left it imperfect"): text, not D11 apparatus; kept verbatim without the
+  brackets.
 - No truncated source paragraphs other than V.29; every other source
   paragraph ends in terminal punctuation.
