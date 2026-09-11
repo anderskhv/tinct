@@ -1,7 +1,9 @@
-# Meditations, Book IV — package (draft frozen, awaiting independent review)
+# Meditations, Book IV — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book IV; step 4 (independent
-review) is the coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book IV. The accepted text is
+`candidate-v2.json` (sha256 `20d2b4df…`), see `ACCEPTANCE.md`. Step 4
+(independent review) was the coordinator's reviewer session, not this agent;
+its findings are under `review/`.
 
 Step 1 also found and fixed a defect in the staged original: three Project
 Gutenberg illustration captions (IV.20, V.8, IX.21) had survived the build.
@@ -21,13 +23,22 @@ See `continuity.md` (Source) and `../PROVENANCE.md` §4.
    prose.
 4. `continuity.md` — glossary terms met in Book IV (five new rows added to
    `../GLOSSARY.md` before drafting), paragraph-level decisions, apparatus
-   folded or dropped, unresolved source issues.
-5. `provenance.json` — branch, hashes, source, generation setting.
+   folded or dropped, unresolved source issues; updated at acceptance where a
+   finding reversed or recorded a decision.
+5. `provenance.json` — branch, hashes, source, generation setting, review
+   round, v2 hash.
 6. `review-packets/packet-01.md … packet-17.md` — seventeen packets of three
    paragraphs (51 = 17×3), each with one paragraph of context before and
    after marked `CONTEXT ONLY`. No self-review verdicts.
 7. `review-instructions.md` — the independent-review instructions, verbatim.
-8. `manifest.json` — packet → paragraph-ID map with a coverage check.
+8. `manifest.json` — packet → paragraph-ID map with a coverage check, plus the
+   v1 and v2 hashes.
+9. `review/findings-v1.md` — the independent review of v1 (0 substantive, 8
+   minor; Accept after corrections).
+10. `candidate-v2.json`, `candidate-v2-readable.md`, `changes-v1-to-v2.md` —
+    the corrected candidate, built by `../scripts/build_book4_v2.py` from the
+    frozen v1; every change listed with the finding it answers.
+11. `ACCEPTANCE.md` — accepted hash, findings applied / declined, flow read.
 
 ## Mechanical checks
 
@@ -49,24 +60,25 @@ for e in man['packets']:
     t=open('book4/'+e['packet']).read()
     for pid in e['assigned_paragraph_ids']:
         k=int(pid[-3:])-1; assert src['paragraphs'][k] in t and cand['paragraphs'][k] in t
+v2=json.load(open('book4/candidate-v2.json')); assert len(v2['paragraphs'])==51
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(v2['paragraphs']))
+md2=open('book4/candidate-v2-readable.md').read(); assert all(p in md2 for p in v2['paragraphs'])
 for k,s in [(17,'as Agathon says'),(18,'What is praise, except indeed so far as it has a certain utility?'),(18,'clinging to something else....'),
             (29,'I do not get the means of living out of my learning'),(33,'into whatever things she pleases'),
             (45,'we ought not to act and speak as if we were asleep, for even in sleep we seem to act and speak'),
             (45,'like children who learn from their parents, simply to act and speak as we have been taught'),
             (49,'Do not then consider life a thing of any value.'),
             (50,'For such a purpose frees a man from trouble, and warfare, and all artifice and ostentatious display.')]:
-    assert s in src['paragraphs'][k] and s in cand['paragraphs'][k]
+    assert s in src['paragraphs'][k] and s in cand['paragraphs'][k] and s in v2['paragraphs'][k]
 print('OK'); print(hashlib.sha256(open('book4/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book4/candidate-v2.json','rb').read()).hexdigest())
 print(hashlib.sha256(open('meditations-original-en.staged.json','rb').read()).hexdigest())
 PY
 ```
 
-Expected: `d85924d1…` (candidate v1, frozen) and `b0ecf3da…` (staged original).
+Expected: `d85924d1…` (v1, frozen), `20d2b4df…` (v2, accepted) and `b0ecf3da…`
+(staged original).
 
 ## Next action
 
-Coordinator: hand `review-instructions.md` and `review-packets/` to a fresh
-independent-review session. Findings come back under `book4/review/`. This
-agent then applies supported corrections to `candidate-v2.json`, verifies the
-changed passages, reads the whole book for flow, and records acceptance in
-`ACCEPTANCE.md` before starting Book V.
+None for Book IV. The thread continues with Book V (`../book5/`).

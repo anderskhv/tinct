@@ -22,5 +22,15 @@
  },
  "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary (five rows added for Book IV first) and the Book II, I and III acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
  "build_script": "scripts/build_book_package.py 4 (candidate text frozen in scripts/candidates/book4.py; regenerates source-book4.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
- "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "candidate_v2_json_sha256": "20d2b4df97dccded93345670f2e90ee7be5396194986ee05b699f151f4d1e95c",
+ "review_round_1": "review/findings-v1.md (independent reviewer session, 2026-09-11): Accept after corrections; 0 substantive, 8 minor (2 worth improving, 6 optional preference). Seven applied in candidate-v2.json via scripts/build_book4_v2.py, one (22.1) declined with a recorded reason, plus one flow-read fix (IV.36); see changes-v1-to-v2.md.",
+ "word_counts_v2": {
+  "source": 4308,
+  "candidate": 4277,
+  "ratio": 0.993,
+  "min_paragraph_ratio": 0.83,
+  "note": "screening signal only; not evidence of semantic completeness. The two lowest ratios (IV.41 0.83, IV.45 0.91) are cross-references dropped as apparatus."
+ },
+ "accepted": "candidate-v2.json, see ACCEPTANCE.md"
 }

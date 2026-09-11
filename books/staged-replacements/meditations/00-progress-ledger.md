@@ -106,6 +106,22 @@ session. Kept current at every push.
   pushed, built by `scripts/build_book_package.py 4` from
   `scripts/candidates/book4.py`. **Stopped for independent review** (step 4).
   Findings expected under `book4/review/`.
+- 2026-09-11 — **Book IV accepted** (steps 4–8). Round-1 independent review
+  (`book4/review/findings-v1.md`): Accept after corrections, 0 substantive +
+  8 minor (2 worth improving, 6 optional preference). Seven applied in
+  `book4/candidate-v2.json` (sha256 `20d2b4df…`) via
+  `scripts/build_book4_v2.py`; one declined with a recorded reason (22.1 —
+  IV.22 keeps the glossary's "impulse"; the row distinguishes by sense, IV.40
+  is left open by record, and V.3 will take "impulse" too); every change listed
+  in `book4/changes-v1-to-v2.md`; six "also noted" points left with reasons;
+  changed passages verified by word diff; nine dagger clauses (ten marks —
+  the reviewer's recount of IV.19 ×3 is right, `book4/continuity.md` corrected
+  from "nine places"; `PROVENANCE.md` §4 already had it) verbatim; flow read
+  done with one further within-glossary fix (IV.36 "the nature of the whole",
+  which v1 had left as Long's "the nature of the universe" against the glossary
+  row and Book II's precedent); acceptance recorded in `book4/ACCEPTANCE.md`.
+  `continuity.md`, `provenance.json`, `manifest.json` and `README.md` updated.
+  No new glossary row.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -138,12 +154,11 @@ session. Kept current at every push.
 
 ## Next
 
-1. **Waiting on the coordinator: independent review of Book IV**
-   (`book4/review-instructions.md`, `book4/review-packets/`, 17 packets). On
-   findings: `book4/candidate-v2.json` via a change script in the established
-   pattern, verification, flow read, `book4/ACCEPTANCE.md`.
-2. Then Books V … XII in numerical order, each with its own review round.
-   Book V is not started until Book IV is accepted.
+1. **Book V** (steps 1–3 in progress in this session): `book5/` drafted from
+   chapter 5 of the rebuilt staged Long, frozen as `candidate-v1.json`, review
+   packets and instructions pushed; then stop for the coordinator's
+   independent review.
+2. Then Books VI … XII in numerical order, each with its own review round.
 
 ## Needs Anders (listed, not waited on)
 

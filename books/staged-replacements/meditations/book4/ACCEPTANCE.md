@@ -1,0 +1,35 @@
+# Acceptance — Meditations, Book IV
+
+**Accepted file:** `candidate-v2.json`, sha256 `20d2b4df97dccded93345670f2e90ee7be5396194986ee05b699f151f4d1e95c` (51 paragraphs, IV.1–IV.51, one per numbered meditation, aligned 1:1 with `source-book4.json`; word ratio 0.993 to Long, minimum paragraph ratio 0.83, the dropped Epictetus cross-reference in IV.41).
+
+**Date:** 2026-09-11. **By:** the content agent for this thread, after the steps below; the coordinator's reviewer session did not draft the candidate.
+
+## Review rounds applied
+
+1. **Round 1** — `review/findings-v1.md`, independent reviewer session spawned by the coordinator, on `candidate-v1.json` (sha256 `d85924d1…`). Verdict: *Accept after corrections*. 0 substantive findings, 8 minor (2 "worth improving": 19.1, 33.1; 6 "optional preference": 1.1, 3.1, 4.1, 22.1, 40.1, 44.1), 43 paragraphs with no material issue.
+
+No second round was requested: there was no substantive finding, every correction is confined to the clause the finding quotes (or, for the flow-read change, to one glossary phrase), and every new wording is the reviewer's own proposal, Long's own word, or the glossary's fixed rendering, so the review's condition for a second round was not met.
+
+## Step 6 — corrections applied and verified
+
+- **Applied:** both "worth improving" findings (19.1 "then again also those who succeeded them", Long's "also" restored; 33.1 "employ our serious pains", Long's verb restored) and five of the six "optional preference" findings: 1.1 "makes its own the matter heaped on it" (the reviewer's phrase for Long's "appropriates to itself", with the object placed after "its own" to avoid "on it its own"); 3.1 "as soon as you turn to them" (so Long's two verbs, recur to / return to, stay two); 4.1 "from certain earth" (Long's own, preferred to the reviewer's second option "from some earth", which would have made three "some"s where Long has two); 40.1 "the weave of the web" (process and product, as Long's "spinning … contexture"); 44.1 "delights fools or vexes them" (Long's transitive "vexes", current, and after "death" not understated as "annoys" was).
+- **Declined, with reason:** 22.1 (IV.22 "in every impulse" → "in every movement"). The glossary row fixed before drafting renders Long's "movement" as "impulse" where the sense is impulse and keeps "movement" where he means motion, so IV.22 and IV.40 are the glossary's sense distinction applied, not one word rendered two ways; IV.40 is left open by record because that sentence can be read either way; D10 concerns a dagger-fixed word, which this is not; and Book V's "follow their peculiar movement" (V.3) takes "impulse" under the same row, so "impulse" in IV.22 is the consistent rendering across the edition. The reviewer allowed this route ("leave as is, glossary-conformant and recorded"); `continuity.md` records it.
+- The reviewer's "also noted" points (not numbered findings) were left as v1 has them, each with a reason in `changes-v1-to-v2.md`: IV.5 "birth", IV.12 "what … suggests", IV.21 "their transformations", IV.29 "the eyes of the understanding", IV.50 "Do not then" inside the verbatim dagger sentence, IV.51 "run by the short way".
+- Full list, old and new text side by side with the finding ID, in `changes-v1-to-v2.md`; applied mechanically by `scripts/build_book4_v2.py`, which asserts that each old string occurs exactly once in its paragraph and that the nine named dagger clauses are still present in source and candidate. 8 paragraphs touched (IV.1, IV.3, IV.4, IV.19, IV.33, IV.36, IV.40, IV.44), 43 untouched; paragraph count 51; numbering intact.
+- Each changed passage was re-read against `source-book4.json` after the build, using the script's per-paragraph word diff: only the intended words changed (IV.1 −takes −over +makes +its +own; IV.3 −return +turn; IV.4 −a; IV.19 +also; IV.33 −spend +employ; IV.36 −universe +whole; IV.40 −weaving +weave; IV.44 −annoys +vexes), and every new word is Long's own (also, employ, certain [restored by dropping "a"], vexes, turn [Long's own verb at the end of IV.3], the whole [IV.25, IV.27]), the reviewer's proposal (makes … its own; weave) or the glossary's fixed phrase (the nature of the whole).
+- The nine dagger clauses (ten marks — IV.19 carries three, as the reviewer found; `continuity.md` corrected from "nine places") stand verbatim: IV.18 "as Agathon says"; IV.19 "What is praise, except indeed so far as it has a certain utility?" and "clinging to something else...."; IV.30 "I do not get the means of living out of my learning"; IV.34 "into whatever things she pleases"; IV.46 "we ought not to act and speak as if we were asleep, for even in sleep we seem to act and speak" and "like children who learn from their parents, simply to act and speak as we have been taught"; IV.50 "Do not then consider life a thing of any value."; IV.51 "For such a purpose frees a man from trouble, and warfare, and all artifice and ostentatious display."
+- Glossary: no departure introduced; one departure removed (IV.36, below). The five Book IV rows stand as drafted and as the reviewer found them applied. No new glossary row needed.
+- Mechanical checks from `README.md` re-run against both v1 (frozen hash `d85924d1…` confirmed) and v2: paragraph count, numbering, packet coverage, readable copies identical to the JSON, no `[Illustration` in the staged file, dagger clauses present in source, v1 and v2. All passed.
+
+## Step 7 — flow read
+
+`candidate-v2-readable.md` read continuously from IV.1 to IV.51. The book reads as one self-address in one voice: the long meditations (IV.3, IV.4, IV.21, IV.32, IV.39, IV.48, IV.49, IV.50) carry Long's argument in his order with the lists intact; the one-line sayings (IV.2, IV.9, IV.15, IV.17, IV.35, IV.41, IV.42) stay one line; the imperatives stay bare; the three corrected collocations (IV.1, IV.33, IV.40) now read without a snag, and IV.19's chain of rememberers closes as Long's does. One change was made from the read, listed last in `changes-v1-to-v2.md`: IV.36 "the nature of the whole loves nothing so much" for v1's "the nature of the universe". The glossary row fixed before Book II renders both of Long's variants as "the nature of the whole" and the accepted Book II does so (II.9); v1's `continuity.md` had kept Long's phrase in IV.36 on the mistaken ground that it was not a glossary phrase, and the reviewer's terminology note repeated that reading. This is a terminology inconsistency between accepted books, which step 7 exists to catch; the fix is inside the glossary and inside Long's own vocabulary. Nothing else was changed from the read.
+
+## Step 8 — acceptance
+
+No substantive issue remains. Book IV is accepted as `candidate-v2.json`.
+
+## What remains open
+
+- Nothing content-side for Book IV. The registry misattribution and the 412 → 487 paragraph re-basing decision (`../00-progress-ledger.md`, "Needs Anders") are unchanged and outside this book's acceptance.
+- Errors can remain; this record claims the process was followed, not that the text is beyond correction. A later reader's finding goes into a `candidate-v3.json` with the same change-log discipline.

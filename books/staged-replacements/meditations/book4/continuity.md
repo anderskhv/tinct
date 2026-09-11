@@ -1,7 +1,9 @@
-# Continuity sheet — Meditations, Book IV (candidate v1)
+# Continuity sheet — Meditations, Book IV (candidate v2, accepted)
 
 Written alongside drafting `candidate-v1.json`, after Books II, I and III were
-accepted, and describing what the frozen draft actually did. Term renderings
+accepted, and describing what the frozen draft actually did; updated at
+acceptance (candidate v2) where a review finding reversed or recorded a
+decision — each such line says so. Term renderings
 follow `../GLOSSARY.md` (five rows added for Book IV before drafting, see
 below); the pattern for applying review findings follows the three earlier
 `ACCEPTANCE.md` files (decisions D8, D10 and D11 in the ledger).
@@ -40,14 +42,14 @@ below); the pattern for applying review findings follows the three earlier
 | the animal which is naturally social | the being that is naturally social | IV.24 — per the glossary's "social animal → social being" |
 | social reason | social reason | IV.29 |
 | the reason of our common nature | the reason of our common nature | IV.29 |
-| the nature of the universe | the nature of the universe | IV.36 — Long's phrase here is not "the nature of the whole", so it stays as he has it |
+| the nature of the universe | the nature of the whole | IV.36 — v1 had kept Long's phrase on the mistaken ground that it was not a glossary phrase; the glossary row merges both of Long's variants into "the nature of the whole", as Book II does (II.9). Corrected at the v2 flow read |
 | the universe; the whole; the All | the universe; the whole; the whole | IV.3, IV.21, IV.25, IV.27, IV.29, IV.40 — "the All" (IV.27) rendered "the whole" (glossary row extended) |
 | a kind of political community; in a manner a state; some political community; the state | a kind of political community; in a way a state; some political community; the state | IV.3, IV.4, IV.29 |
 | providence or atoms | providence or atoms | IV.3 |
 | the common interest; of common advantage | the common good; for the common good | IV.12 — "common advantage" taken as Long's variant of the same term |
 | opinion (take away thy opinion; life is opinion; the power of forming opinions) | opinion | IV.3, IV.7, IV.11, IV.12, IV.26, IV.39, IV.49 |
 | impression | impression | IV.22 |
-| movement (in every movement have respect to justice) | impulse | IV.22 — the glossary's *hormē* sense; the meditation is about action, not motion |
+| movement (in every movement have respect to justice) | impulse | IV.22 — the glossary's *hormē* sense; the meditation is about action, not motion. Reviewer finding 22.1 proposed "movement" for consistency with IV.40; declined at v2: the glossary row distinguishes by sense, IV.40 is left open by record, and Book V's "follow their peculiar movement" (V.3) takes "impulse" too, so "impulse" here is the consistent rendering across the edition |
 | movement (all things act with one movement) | movement | IV.40 — left as Long has it, because the sentence can be read of motion or of impulse and the candidate does not decide |
 | principles | principles | IV.3, IV.16, IV.49 |
 | tranquillity; tranquil | calm | IV.3 (twice), IV.24 (three times) — "calm is nothing else than the good ordering of the mind" |
@@ -61,7 +63,7 @@ below); the pattern for applying review findings follows the three earlier
 | the elements; dissolution | the elements; dissolution | IV.5, IV.21, IV.32 |
 | benevolence; benevolent disposition | kindness; kind disposition | IV.20, IV.25 — the "kind" family fixed in Book I |
 | kindly disposed | kindly disposed | IV.37 — Long's own phrase, already in the family |
-| vexes; vexation | annoys; resentment | IV.44, IV.49 — the non-technical "delights fools or vexes them" takes the Book I "annoy" family; "on every occasion which leads thee to vexation" takes the glossary's "resent" family, since it is resentment at what happens that the principle answers |
+| vexes; vexation | vexes; resentment | IV.44, IV.49 — v1 had "annoys" in IV.44 (the Book I "annoy" family); reviewer finding 44.1 restored Long's transitive "vexes", which is current and, after "disease, and death", covers real distress where "annoys" understated. "On every occasion which leads thee to vexation" (IV.49) takes the glossary's "resent" family, since it is resentment at what happens that the principle answers |
 | conformably to nature; contrary to nature; according to nature | according to nature; against nature; according to nature | IV.39, IV.48 |
 | contrary to the nature of a reasonable animal; contrary to the reason of our constitution | against the nature of a rational being; against the reason of our constitution | IV.5 — the glossary's "against" carried to both halves so Long's parallel stays parallel |
 | not contrary to the will of man's nature | not contrary to the will of man's nature | IV.49 — not Long's "contrary to nature", so not converted |
@@ -78,14 +80,19 @@ below); the pattern for applying review findings follows the three earlier
   disposed, and a modern reader would hear "affected by"; his past "happened"
   beside "always … adapts" is taken as the general present his "always"
   implies. "Extinguished" → "put out"; "appropriates to itself the matter which
-  is heaped on it" → "takes over the matter heaped on it".
+  is heaped on it" → v1 "takes over the matter heaped on it"; at v2 (finding
+  1.1) "makes its own the matter heaped on it" — "takes over" means assumes
+  control of, and the fire absorbs the fuel; "makes … its own" is the plain
+  equivalent of "appropriates to itself".
 - **IV.2** — Already modern; kept word for word.
 - **IV.3** — Long's longest section (557 words) kept as one paragraph in his
   order, with the four dialogue dashes. "Thou too art wont to desire" → "you
   too are in the habit of wanting"; "sea-shores" → "seashores"; "Recall to thy
   recollection" → "Recall to your mind" (as Long's own earlier "Recall to thy
   mind"; "recall to your recollection" is a tautology); "corporeal things" →
-  "bodily things"; "nook" → "corner" (as III.10); "circumscribed" →
+  "bodily things"; "as soon as thou shalt recur to them" → v1 "as soon as you
+  return to them", at v2 (finding 3.1) "as soon as you turn to them", so that
+  Long's two verbs (recur to the principles; return to the things) stay two; "nook" → "corner" (as III.10); "circumscribed" →
   "confined"; "want of judgment" → "lack of judgment"; "stretched dead" →
   "stretched out dead". Long's brackets folded: "[fortuitous concurrence of
   things]" → "atoms, a chance concurrence of things" (his gloss on "atoms",
@@ -94,7 +101,9 @@ below); the pattern for applying review findings follows the three earlier
   present". "The universe is transformation: life is opinion." kept verbatim.
 - **IV.4** — The "if this is so" chain kept as six links; "in a manner a
   state" → "in a way a state"; "from thence" → "from there"; "or whence do they
-  come?" → "or where else do they come from?".
+  come?" → "or where else do they come from?". Long's "from certain earth" (no
+  article: some earth, a quantity of the element) restored at v2 (finding 4.1);
+  v1's "from a certain earth" had made earth countable.
 - **IV.5** — "Generation" → "birth"; "[the nature of]" folded; "contrary to" →
   "against" in both halves (see table).
 - **IV.6** — "Fig-tree" → "fig tree"; nothing else.
@@ -117,6 +126,9 @@ below); the pattern for applying review findings follows the three earlier
   for a lacuna plus the full stop). "Vehement desire" kept (current);
   "posthumous fame" → "fame after death"; "transmitted" → "passed on";
   "rejectest unseasonably" → "unseasonably reject" (Long's adverb, current).
+  Long's second "also" ("then again also they who have succeeded them"), which
+  carries the elided verb, was dropped in v1 and restored at v2 (finding 19.1):
+  "then again also those who succeeded them".
 - **IV.20** — "Terminates in itself" → "ends in itself"; "Neither worse then
   nor better is a thing made by being praised" → "A thing, then, is made
   neither worse nor better by being praised"; "the vulgar" → "the common sort
@@ -133,7 +145,8 @@ below); the pattern for applying review findings follows the three earlier
 - **IV.22** — "In every movement" → "in every impulse" (glossary *hormē*
   sense; see table); "have respect to justice" → "have regard to justice";
   "maintain the faculty of comprehension" kept (Long's verb, current). "[or
-  understanding]" is an alternative rendering and is dropped under D11.
+  understanding]" is an alternative rendering and is dropped under D11. Finding
+  22.1 (keep Long's "movement" here, as in IV.40) declined at v2; see the table.
 - **IV.23** — "O Universe", "O Nature", "Dear city of Cecrops", "Dear city of
   Zeus" kept as Long has them, without added quotation marks.
 - **IV.24** — "If thou wouldst be tranquil" → "if you would be calm"; "the
@@ -169,13 +182,16 @@ below); the pattern for applying review findings follows the three earlier
   "dissatisfied" → "discontented" (glossary); "than is fit" → "than is fitting".
 - **IV.33** — The seven names kept in Long's spellings (Camillus, Caeso,
   Volesus, Leonnatus, Scipio, Cato, Augustus, Hadrianus, Antoninus); "employ
-  our serious pains" → "spend our serious pains".
+  our serious pains" → v1 "spend our serious pains"; Long's "employ" restored at
+  v2 (finding 33.1): pains are taken, spared or employed, not spent.
 - **IV.34** — Long's dagger falls after "thread"; the clause "into whatever
   things she pleases" stands verbatim and "thy thread" becomes "your thread"
   (pronoun only, as in Book II). "[one of the fates]" folded as "Clotho, one of
   the fates", Long's lowercase kept.
 - **IV.36** — "In a manner the seed" → "in a way the seed"; "a very vulgar
-  notion" → "a very commonplace notion".
+  notion" → "a very commonplace notion". "The nature of the universe" → "the
+  nature of the whole" at v2 (flow read; glossary row, Book II precedent); v1
+  had kept Long's phrase — see the table.
 - **IV.37** — "Perturbations" → "disturbances"; "towards" → "toward" (spelling
   only).
 - **IV.38** — "Ruling principles" → "ruling parts".
@@ -183,13 +199,16 @@ below); the pattern for applying review findings follows the three earlier
   covering" → "change of your bodily covering"; "[such]" folded; "contrary to
   nature" → "against nature" (three times, glossary).
 - **IV.40** — "Co-operating" → "cooperating"; "the contexture of the web" →
-  "the weaving of the web"; "act with one movement" kept (see table).
+  v1 "the weaving of the web", at v2 (finding 40.1) "the weave of the web":
+  Long's pair is a process and its product, and "weave" as a noun says what
+  "contexture" said; "act with one movement" kept (see table).
 - **IV.41** — "Bearing about a corpse" → "carrying about a corpse"; Long's
   cross-reference "(i. c. 19)" to Epictetus dropped as apparatus. Ratio 0.83
   is from that drop.
 - **IV.42** — "Subsist in consequence of change" → "exist as a result of
   change".
-- **IV.44** — "Calumny" → "slander"; "vexes them" → "annoys them" (see table).
+- **IV.44** — "Calumny" → "slander"; "vexes them" → v1 "annoys them", Long's
+  "vexes them" restored at v2 (finding 44.1; see table).
 - **IV.45** — Long's cross-references "(vi. 38; vii. 9; vii. 75, note)"
   dropped as apparatus; "exhibit no mere succession" → "show no mere
   succession". Ratio 0.91 is from the drop.
@@ -254,11 +273,14 @@ Cadicianus, Fabius, Julianus, Lepidus).
 
 ## Unresolved source issues (Long's text)
 
-- Long marks nine places in Book IV with his dagger for uncertain Greek
-  (`../PROVENANCE.md` §4): IV.18 at "Agathon", IV.19 ×3 (around "except …
-  has" and at the broken ending), IV.30 after "learning,", IV.34 after
+- Long marks ten places in Book IV with his dagger for uncertain Greek
+  (`../PROVENANCE.md` §4; v1 of this sheet said "nine places", which was the
+  count of clauses, not marks — corrected after the reviewer re-counted the
+  PG text): IV.18 at "Agathon", IV.19 ×3 (after "except", after "has", and at
+  the broken ending "else ... +."), IV.30 after "learning,", IV.34 after
   "thread", IV.46 ×2 (after "and that" and at the end), IV.50 after "value.",
-  IV.51 after "trouble,". The clauses named in `review-instructions.md` stand
+  IV.51 after "trouble,". Ten marks, nine clauses named in
+  `review-instructions.md`, which cover all ten. The clauses named in `review-instructions.md` stand
   as Long has them (pronoun modernised in IV.34 only); reviewers should not
   expect the candidate to make them clearer than the source.
 - IV.19 ends in Long's ellipsis ("something else...."): the Greek breaks off.
@@ -267,6 +289,6 @@ Cadicianus, Fabius, Julianus, Lepidus).
   is rendered as the general present ("that happen"); a reviewer who reads
   Long's past as deliberate should say so.
 - IV.40 "act with one movement": left open between motion and impulse (see
-  table).
+  table; and finding 22.1, declined).
 - No truncated source paragraphs other than IV.19; every other source
   paragraph ends in terminal punctuation.
