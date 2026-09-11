@@ -85,6 +85,13 @@ import {
   const selectedBook = () => state.booksById.get(state.selectedBookId)
   const v1Editions = book => book.editions.filter(edition => edition.language !== 'da')
   const selectableEditions = book => v1Editions(book).filter(edition => edition.discoveryAvailable !== false)
+  /**
+   * The one edition a reader can actually choose, when there is only one —
+   * the other English edition is held (audio) or absent. A picker with a
+   * single live card is a step with no decision in it, so these books skip
+   * it and open straight into the reader (Anders, 2026-09-11).
+   */
+  const soleEdition = book => { const live = selectableEditions(book); return live.length === 1 ? live[0] : null }
   const formatWordCount = count => count ? `${new Intl.NumberFormat().format(count)} words` : 'Length unavailable'
   const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -704,6 +711,7 @@ import {
   async function selectBook(bookId, destination = 'book-detail', updateHistory = false) {
     const book = state.booksById.get(bookId)
     if (!book) return false
+    if (destination === 'edition' && soleEdition(book)) destination = 'book-detail'
     const changingBook = state.selectedBookId !== book.id || !state.selectedEditionKey
     state.selectedBookId = book.id
     state.pendingResume = state.continuations.find(item => item.bookId === book.id) || null
@@ -1095,7 +1103,12 @@ import {
     if (target?.closest('[data-open-full-library]')) { navigateView('library-index'); window.scrollTo(0,0); return }
     if (target?.closest('[data-library-selection]')) { navigateView('library'); return }
     if (target?.closest('[data-featured-open]')) { await openBookPage(state.shelfBooks[state.shelfIndex].id); return }
-    if (target?.closest('[data-open-picker]')) { if(state.pendingResume) openReader(); else {renderEditions(selectedBook());navigateView('edition');window.scrollTo(0,0)} return }
+    if (target?.closest('[data-open-picker]')) {
+      if (state.pendingResume) { openReader(); return }
+      const sole = soleEdition(selectedBook())
+      if (sole) { selectEdition(sole.key, null); openReader(); return }
+      renderEditions(selectedBook()); navigateView('edition'); window.scrollTo(0, 0); return
+    }
     if (target?.closest('[data-about-book]')) { if(pushedEntries>0) history.back();else navigateView('book-detail',true);window.scrollTo(0,0);return }
     if (target?.closest('[data-inline-preface]')) { const body=root.querySelector('[data-inline-preface-body]');body.hidden=!body.hidden;const button=root.querySelector('[data-inline-preface]');button.setAttribute('aria-expanded',String(!body.hidden));button.textContent=body.hidden?'Read full preface':'Close preface';return }
     if (target?.closest('[data-sample-more]')) {state.sampleExpanded=!state.sampleExpanded;void fillVersionSamples(selectedBook());return}
