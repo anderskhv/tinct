@@ -50,6 +50,18 @@ session. Kept current at every push.
   packets pushed, built by the new generic `scripts/build_book_package.py`
   from `scripts/candidates/book1.py`. **Stopped for independent review**
   (step 4). Findings expected under `book1/review/`.
+- 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
+  on this thread for the Book II corrections step (this one and
+  `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
+  steps 6–8 on Book II and then steps 1–3 on Book I in parallel; both pushed;
+  the second session's pushes were rejected as non-fast-forward each time.
+  The texts were near-identical in Book II (five paragraphs differed, all on
+  minor findings where the reviewer allowed either route) and of comparable
+  quality in Book I. Resolution (D9): the first pushed version stands for both
+  books; the second session discarded its duplicates rather than push a
+  competing acceptance or a second Book I candidate, and stopped. **Coordinator:
+  one content session per step on this branch; do not spawn a second while
+  one is running.**
 
 ## Decided, and why
 
@@ -63,6 +75,7 @@ session. Kept current at every push.
 | D6 | PG #15877 preferred over the Standard Ebooks text as the base file. | PG keeps Long's square brackets (SE removes them); the two otherwise differ only in spelling convention and punctuation. SE used as a cross-check. |
 | D8 | Apply every review finding in Book II, including the discretionary ones, and record the two glossary/continuity reversals (II.1 "share of the divine", II.16 "ourselves"). | Each proposed wording stayed inside Long and the glossary; declining any would have needed a reason better than the reviewer's, and none existed. Sets the pattern for later books: minor findings are applied unless `continuity.md` already records a considered reason not to. |
 | D7 | Chapter titles `Book 1`…`Book 12`, matching the served file's title style. | Keeps the app's existing chapter labelling; a change of style is not this task's call. |
+| D9 | On a session collision, the first pushed version stands; the later session discards its duplicate, records any residual point here, and stops. | One accepted text per book and one frozen candidate per review round; two hashes for the same step would be unreadable to the coordinator and the reviewer. |
 
 ## Next
 
@@ -94,3 +107,15 @@ session. Kept current at every push.
   `PROVENANCE.md` §4; reviewers should weigh findings there accordingly.
 - II.14 PG reading "that which perish" vs Standard Ebooks "perishes"; kept as
   PG has it in the staged original.
+- Book II v2, II.5: "You see how few things there are which, if a man lays hold
+  of them, he can live a life…" reproduces Long's dangling relative ("the
+  which if a man lays hold of, he is able to live"), ungrammatical in modern
+  English. Not a meaning defect; a candidate for a v3 at the next review
+  touchpoint (for example "You see how few the things are; and if a man lays
+  hold of them, he can live a life…"). Noted by the second content session,
+  not changed, per D9.
+- Glossary rows still worth adding by whichever session next touches
+  `GLOSSARY.md`: "in a manner → in a way" and "dissatisfied → discontented"
+  (both decided in Book II v2 but recorded only in `book2/continuity.md`), and
+  plural "daemons → spirits" (Book I, recorded in `book1/continuity.md`).
+  Later books need these in one place.
