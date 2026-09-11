@@ -347,6 +347,15 @@ describe('the desktop', () => {
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
   })
 
+  it('closes the Chat panel on Escape, like the menu and the sheet', () => {
+    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+    expect(root().getAttribute('data-desktop-panel')).toBe('chat')
+    fireEvent.keyDown(window, { key: 'Escape' })
+    expect(root().getAttribute('data-desktop-panel')).toBe('none')
+  })
+
   it('keeps today\u2019s desktop chrome without the flag', () => {
     render(<LabApp pathname="/lab/desktop" search="" source={fallbackLabSource()} authToken={null} />)
     expect(root().getAttribute('data-chrome-version')).toBeNull()
