@@ -61,7 +61,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Leviathan (`leviathan`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Fear and Trembling (`fear-and-trembling`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Communist Manifesto (`communist-manifesto`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Second Treatise of Government (`second-treatise`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Second Treatise of Government (`second-treatise`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | An Enquiry Concerning Human Understanding (`hume-enquiry`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Social Contract (`social-contract`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Wealth of Nations (`wealth-of-nations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
