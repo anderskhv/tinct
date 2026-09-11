@@ -65,7 +65,8 @@ class Tests(unittest.TestCase):
    with patch.dict('sys.modules',{'faster_whisper':NS(WhisperModel=lambda *a,**k:Model(['one']))}):trial.worker(args)
    candidate=json.loads((d/'out/test/original-en/ch1/auto/words.candidate.json').read_text());self.assertEqual(candidate['paragraphs'][0]['file'],'p1.mp3')
  def test_exact_helper_pin(self):
-  import hashlib,subprocess
+  import hashlib,subprocess,pinned_words_sidecar_lib
   original=subprocess.check_output(['git','show','f5b23de7795e73983edf55d922d0801d57d61287:app/tts/words_sidecar_lib.py'])
-  self.assertEqual(hashlib.sha256(original).hexdigest(),trial.sha(trial.lib.__file__))
+  self.assertEqual(hashlib.sha256(original).hexdigest(),trial.sha(pinned_words_sidecar_lib.__file__))
+  self.assertIs(trial.select_helper('v1'),pinned_words_sidecar_lib);trial.select_helper(trial.DEFAULT_HELPER)
 if __name__=='__main__':unittest.main()

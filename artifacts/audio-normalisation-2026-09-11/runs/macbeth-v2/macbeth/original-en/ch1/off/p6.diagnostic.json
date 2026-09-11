@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "676c49d77236776b45ae5d4ad7ace0588e5db8dd583f7272eed9acbbb6c809bf",
+  "attempts": [
+    {
+      "asr_seconds": 1.5168474560005052,
+      "alignment_seconds": 0.00015597799938404933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third witch there to meet with Macbeth",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.843622624874115
+            },
+            {
+              "text": " witch",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.4385358691215515
+            },
+            {
+              "text": " there",
+              "start": 1.0,
+              "end": 1.44,
+              "probability": 0.5359064936637878
+            },
+            {
+              "text": " to",
+              "start": 1.44,
+              "end": 1.52,
+              "probability": 0.9977472424507141
+            },
+            {
+              "text": " meet",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.9984816908836365
+            },
+            {
+              "text": " with",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.9984306693077087
+            },
+            {
+              "text": " Macbeth",
+              "start": 1.84,
+              "end": 2.42,
+              "probability": 0.9009363452593485
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "witch",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "there",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "raw": "meet",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "with",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "Macbeth",
+          "start": 1.84,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Witch.",
+        "There",
+        "to",
+        "meet",
+        "with",
+        "Macbeth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "witch",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.0,
+          "end": 1.44,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.52,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "meet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 1.84,
+          "end": 2.42,
+          "key": "macbeth",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Witch.",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "There",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "text": "to",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "text": "meet",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "with",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "Macbeth.",
+          "start": 1.84,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.517047905000254
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "deaec07eb82067ac3b11ee075f04202337bdf2a908c75bb03b604d13c59644cd",
+  "selected_reasons": []
+}

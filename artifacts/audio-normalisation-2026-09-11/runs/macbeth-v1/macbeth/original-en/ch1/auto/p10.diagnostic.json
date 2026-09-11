@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "fbfc0ed1bc2cf5d5dedb07753156b22d7e21c0be10d965ea5d2fa49cabaf2567",
+  "attempts": [
+    {
+      "asr_seconds": 2.0109903919992576,
+      "alignment_seconds": 0.0001381760002914234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. Fair is foul, and foul is fair: Hover through the fog and filthy air.",
+        "hotwords": "All, Hover"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Fair is foul, and foul is fair. Hover through the fog and filthy air.",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7229863405227661
+            },
+            {
+              "text": " Fair",
+              "start": 1.19,
+              "end": 1.19,
+              "probability": 0.0035330108366906643
+            },
+            {
+              "text": " is",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.8271554112434387
+            },
+            {
+              "text": " foul,",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.9784543514251709
+            },
+            {
+              "text": " and",
+              "start": 1.81,
+              "end": 1.87,
+              "probability": 0.9368385672569275
+            },
+            {
+              "text": " foul",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.7372530102729797
+            },
+            {
+              "text": " is",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.9940105080604553
+            },
+            {
+              "text": " fair.",
+              "start": 2.31,
+              "end": 2.61,
+              "probability": 0.9972447156906128
+            },
+            {
+              "text": " Hover",
+              "start": 3.27,
+              "end": 3.27,
+              "probability": 0.9607768654823303
+            },
+            {
+              "text": " through",
+              "start": 3.27,
+              "end": 3.53,
+              "probability": 0.968461811542511
+            },
+            {
+              "text": " the",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.9897700548171997
+            },
+            {
+              "text": " fog",
+              "start": 3.69,
+              "end": 3.99,
+              "probability": 0.9978781938552856
+            },
+            {
+              "text": " and",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.9056734442710876
+            },
+            {
+              "text": " filthy",
+              "start": 4.21,
+              "end": 4.45,
+              "probability": 0.9562758803367615
+            },
+            {
+              "text": " air.",
+              "start": 4.45,
+              "end": 4.85,
+              "probability": 0.9954530000686646
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Fair",
+          "start": 1.19,
+          "end": 1.19
+        },
+        {
+          "raw": "is",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "foul,",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "and",
+          "start": 1.81,
+          "end": 1.87
+        },
+        {
+          "raw": "foul",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "is",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "fair.",
+          "start": 2.31,
+          "end": 2.61
+        },
+        {
+          "raw": "Hover",
+          "start": 3.27,
+          "end": 3.27
+        },
+        {
+          "raw": "through",
+          "start": 3.27,
+          "end": 3.53
+        },
+        {
+          "raw": "the",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "fog",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "raw": "and",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "filthy",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "raw": "air.",
+          "start": 4.45,
+          "end": 4.85
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Fair",
+        "is",
+        "foul,",
+        "and",
+        "foul",
+        "is",
+        "fair:",
+        "Hover",
+        "through",
+        "the",
+        "fog",
+        "and",
+        "filthy",
+        "air."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Fair",
+          "start": 1.19,
+          "end": 1.19
+        },
+        {
+          "text": "is",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "foul,",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "and",
+          "start": 1.81,
+          "end": 1.87
+        },
+        {
+          "text": "foul",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "is",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "fair:",
+          "start": 2.31,
+          "end": 2.61
+        },
+        {
+          "text": "Hover",
+          "start": 3.27,
+          "end": 3.27
+        },
+        {
+          "text": "through",
+          "start": 3.27,
+          "end": 3.53
+        },
+        {
+          "text": "the",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "text": "fog",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "text": "and",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "filthy",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "text": "air.",
+          "start": 4.45,
+          "end": 4.85
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.0111848859996826
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f18f35bc281b4ead88fd392601824c9d13fc3ea81fbc267a6395869765663a8a",
+  "selected_reasons": []
+}

@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "88cbfd496bcd54c73711062b9655d0b7956ff7121ded8f113cd6eeccc249747d",
+  "attempts": [
+    {
+      "asr_seconds": 1.5269519630001014,
+      "alignment_seconds": 0.0001007999999274034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Witch. I come, Graymalkin!",
+        "hotwords": "First, Witch, I, Graymalkin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Witch, I come, Graymalkin!",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.8174277544021606
+            },
+            {
+              "text": " Witch,",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.16822221875190735
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.44,
+              "probability": 0.9853762984275818
+            },
+            {
+              "text": " come,",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.8794047236442566
+            },
+            {
+              "text": " Graymalkin!",
+              "start": 1.78,
+              "end": 2.34,
+              "probability": 0.39269375253934413
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.44
+        },
+        {
+          "raw": "come,",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "Graymalkin!",
+          "start": 1.78,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "I",
+        "come,",
+        "Graymalkin!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Witch.",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.44
+        },
+        {
+          "text": "come,",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "Graymalkin!",
+          "start": 1.78,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.5270865600004981
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "132188d3f0029ea11fce8d5541f4bb91d18980a24a3f9c7beb011a94a74a996c",
+  "selected_reasons": []
+}

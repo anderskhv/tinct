@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "2608d576d7cf8388aa0f18b58650234813a6cab5362119c7c4cc220ba9fff50c",
+  "attempts": [
+    {
+      "asr_seconds": 1.4105092109994075,
+      "alignment_seconds": 0.0001637739997022436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " July 7th 17",
+          "start": 0.02,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " July",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.832076370716095
+            },
+            {
+              "text": " 7th",
+              "start": 0.6,
+              "end": 1.26,
+              "probability": 0.8560561537742615
+            },
+            {
+              "text": " 17",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.3313649892807007
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "July",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "7th",
+          "start": 0.6,
+          "end": 1.26
+        },
+        {
+          "raw": "17",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "July",
+        "7th,",
+        "17—."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "July",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "july",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "7th",
+          "start": 0.6,
+          "end": 1.26,
+          "key": "7th",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "17",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "seventeen",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "July",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "7th,",
+          "start": 0.6,
+          "end": 1.26
+        },
+        {
+          "text": "17—.",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.410712957999749
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a81a85852080e1cc5cc8c4cdd7f23e8cf21ab7c9a04232922e2952a801d1809b",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "ce38f308b8b1101cc233faa4e2de3e46abe80a8098be20a3f7374d15cc5e08db",
+  "attempts": [
+    {
+      "asr_seconds": 1.3677694719999636,
+      "alignment_seconds": 0.0001738619994284818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Witch, Paddock Calls",
+          "start": 0.08,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.6403594017028809
+            },
+            {
+              "text": " Witch,",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.7277815341949463
+            },
+            {
+              "text": " Paddock",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.7619397044181824
+            },
+            {
+              "text": " Calls",
+              "start": 1.58,
+              "end": 1.96,
+              "probability": 0.803006649017334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "Paddock",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "Calls",
+          "start": 1.58,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Witch.",
+        "Paddock",
+        "calls."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.7,
+          "end": 1.04,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Paddock",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "paddock",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Calls",
+          "start": 1.58,
+          "end": 1.96,
+          "key": "calls",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Witch.",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "Paddock",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "calls.",
+          "start": 1.58,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.3679913390005822
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3fde8b244ed901453025494271060dbffab5b3274d07b44f8fe11f4109e63fe7",
+  "selected_reasons": []
+}

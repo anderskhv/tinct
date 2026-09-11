@@ -1,0 +1,583 @@
+{
+  "complete": true,
+  "signature": "7ce26f1eda923c85f6a4d9393db7d58b27d945f815275bc0365f3b66fa705ab4",
+  "attempts": [
+    {
+      "asr_seconds": 1.5618293649995394,
+      "alignment_seconds": 0.0001228399996762164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_To Mrs. Saville, England._",
+        "hotwords": "Mrs, Saville, England._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Mrs. Saville, England._",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.3266843557357788
+            },
+            {
+              "text": " Mrs.",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.9887328147888184
+            },
+            {
+              "text": " Saville,",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.7207569777965546
+            },
+            {
+              "text": " England._",
+              "start": 1.28,
+              "end": 2.24,
+              "probability": 0.4976992983296329
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "Saville,",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "England._",
+          "start": 1.28,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "_To",
+        "Mrs.",
+        "Saville,",
+        "England._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "mrs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Saville,",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "saville",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "England._",
+          "start": 1.28,
+          "end": 2.24,
+          "key": "england_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Mrs.",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "Saville,",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "England._",
+          "start": 1.16,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.561988155999643
+    },
+    {
+      "asr_seconds": 1.4110359749993222,
+      "alignment_seconds": 0.00013216299976193113,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mrs, Saville, England._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " To Mrs. Saville, England._",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.3266843557357788
+            },
+            {
+              "text": " Mrs.",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.9887328147888184
+            },
+            {
+              "text": " Saville,",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.7207569777965546
+            },
+            {
+              "text": " England._",
+              "start": 1.28,
+              "end": 2.24,
+              "probability": 0.4976992983296329
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "Saville,",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "England._",
+          "start": 1.28,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "_To",
+        "Mrs.",
+        "Saville,",
+        "England._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "mrs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Saville,",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "saville",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "England._",
+          "start": 1.28,
+          "end": 2.24,
+          "key": "england_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Mrs.",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "Saville,",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "England._",
+          "start": 1.16,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.4112050499998077
+    },
+    {
+      "asr_seconds": 1.3445270530000926,
+      "alignment_seconds": 0.00019249800061515998,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " to Mrs. Saville, England.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.49444717168807983
+            },
+            {
+              "text": " Mrs.",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.9861559271812439
+            },
+            {
+              "text": " Saville,",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.7211483120918274
+            },
+            {
+              "text": " England.",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.9962144494056702
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "Saville,",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "England.",
+          "start": 1.28,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "_To",
+        "Mrs.",
+        "Saville,",
+        "England._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "mrs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Saville,",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "saville",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "England.",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "england",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Mrs.",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "Saville,",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "England._",
+          "start": 1.28,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.3447621340001206
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "917c4c036dfeb8ccf55fccbfbf6aa5c163520f053f7de1e228e7102f63cfed87",
+  "selected_reasons": []
+}

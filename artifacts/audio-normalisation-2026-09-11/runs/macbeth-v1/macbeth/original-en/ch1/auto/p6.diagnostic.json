@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "042027218916d5b3143073c7593908679cc3a2d3f73139581e724e6f178e5dfd",
+  "attempts": [
+    {
+      "asr_seconds": 1.5511699680000675,
+      "alignment_seconds": 0.0001131470007749158,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Witch. There to meet with Macbeth.",
+        "hotwords": "Third, Witch, There, Macbeth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third Witch, There to meet with Macbeth.",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.843622624874115
+            },
+            {
+              "text": " Witch,",
+              "start": 0.64,
+              "end": 0.98,
+              "probability": 0.48509517312049866
+            },
+            {
+              "text": " There",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.012359127402305603
+            },
+            {
+              "text": " to",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.7986831068992615
+            },
+            {
+              "text": " meet",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.5459239482879639
+            },
+            {
+              "text": " with",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9648308753967285
+            },
+            {
+              "text": " Macbeth.",
+              "start": 1.84,
+              "end": 2.36,
+              "probability": 0.9347805778185526
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "raw": "There",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "raw": "meet",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 1.84,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Witch.",
+        "There",
+        "to",
+        "meet",
+        "with",
+        "Macbeth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Witch.",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "text": "There",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "to",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "meet",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "with",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "Macbeth.",
+          "start": 1.84,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.5513235610005722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "deaec07eb82067ac3b11ee075f04202337bdf2a908c75bb03b604d13c59644cd",
+  "selected_reasons": []
+}
