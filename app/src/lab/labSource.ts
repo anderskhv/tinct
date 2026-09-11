@@ -1,6 +1,8 @@
-import type { Section, ThreadCharacter } from '../types'
+import type { Edition, Section, ThreadCharacter } from '../types'
+import { getBook } from '../data/bookRegistry'
+import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
-import { labAudioManifestUrl } from './labListen'
+import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { LAB_COPY } from './labCopy'
 
 export const LAB_BOOK_ID = 'bible'
@@ -24,9 +26,13 @@ export interface LabChapter {
   number: number
   title: string
   path?: string
+  wordCount?: number
 }
 
 export interface LabSource {
+  /** Registry book id. Older test fixtures omit it and therefore remain Bible-scoped. */
+  bookId?: string
+  editions?: Edition[]
   bookTitle: string
   bookAuthor: string
   editionLabel: string
@@ -38,9 +44,18 @@ export interface LabSource {
   paragraphs: string[]
   compareParagraphs: string[]
   followParagraphs: FollowParagraph[]
+  audioTitle?: LabAudioTitleClip
   chapters: LabChapter[]
+  /**
+   * True while `chapters` is a placeholder (boot render, network fallback)
+   * rather than the loaded manifest. Anything that validates a position
+   * against the chapter list must wait until this is cleared.
+   */
+  chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
+  /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
+  supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
 }
 
 const ODYSSEY_PARAGRAPHS = [
@@ -59,6 +74,14 @@ export function parseBibleChapterTitle(title: string): { book: string; chapter: 
   const match = trimmed.match(/^(.*\S)\s+(\d+)$/)
   if (match) return { book: match[1], chapter: match[2] }
   return { book: trimmed || 'Genesis', chapter: '1' }
+}
+
+/** A Bible book gets one decorative opening page, immediately before chapter 1. */
+export function bibleBookOpeningTitle(chapters: LabChapter[], chapterNumber: number): string | null {
+  const chapter = chapters.find(item => item.number === chapterNumber)
+  if (!chapter) return null
+  const parsed = parseBibleChapterTitle(chapter.title)
+  return parsed.chapter === '1' ? parsed.book : null
 }
 
 export function labHeaderLine(book: string, chapter: string): string {
@@ -87,12 +110,16 @@ function sourceFromChapter(input: {
   paragraphs: string[]
   compareParagraphs: string[]
   followParagraphs: FollowParagraph[]
+  audioTitle?: LabAudioTitleClip
   chapters: LabChapter[]
+  chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
 }): LabSource {
   const parsed = parseBibleChapterTitle(input.chapterTitle)
   return {
+    bookId: LAB_BOOK_ID,
+    editions: getBook(LAB_BOOK_ID)?.editions,
     bookTitle: LAB_COPY.bookTitle,
     bookAuthor: LAB_COPY.bookAuthor,
     editionLabel: LAB_COPY.editionLabel,
@@ -104,7 +131,9 @@ function sourceFromChapter(input: {
     paragraphs: input.paragraphs,
     compareParagraphs: input.compareParagraphs,
     followParagraphs: input.followParagraphs,
+    audioTitle: input.audioTitle,
     chapters: input.chapters,
+    ...(input.chaptersProvisional ? { chaptersProvisional: true } : {}),
     sections: input.sections,
     cast: input.cast,
   }
@@ -147,6 +176,7 @@ export function bibleFallbackSource(): LabSource {
       { number: 1, title: 'Genesis 1', path: 'ch0001.json' },
       { number: 2, title: 'Genesis 2', path: 'ch0002.json' },
     ],
+    chaptersProvisional: true,
     sections: [
       {
         title: 'Old Testament',
@@ -188,31 +218,59 @@ async function loadThreadsJson(): Promise<{ characters?: ThreadCharacter[] }> {
   return threadsJson
 }
 
+const bookThreadsJsonCache = new Map<string, { characters?: ThreadCharacter[] }>()
+
+async function loadBookThreadsJson(bookId: string): Promise<{ characters?: ThreadCharacter[] }> {
+  if (bookId === LAB_BOOK_ID) return loadThreadsJson()
+  const cached = bookThreadsJsonCache.get(bookId)
+  if (cached) return cached
+  const response = await fetch(`/data/editions/${bookId}-threads.json?v=${encodeURIComponent(labBuildVersion())}`).catch(() => null)
+  let data: { characters?: ThreadCharacter[] } = { characters: [] }
+  if (response?.ok) {
+    try {
+      const parsed = await response.json() as { characters?: ThreadCharacter[] }
+      if (Array.isArray(parsed.characters)) data = parsed
+    } catch {
+      // Threads are optional. Dev/static hosts may answer a missing JSON asset
+      // with the SPA shell; that must never make readable chapter text fail.
+    }
+  }
+  bookThreadsJsonCache.set(bookId, data)
+  return data
+}
+
 async function loadAudioFollowMetadata(
   paragraphs: string[],
   chapterNumber: number,
   editionKey = LAB_EDITION_KEY,
-): Promise<FollowParagraph[]> {
+  bookId = LAB_BOOK_ID,
+): Promise<{ followParagraphs: FollowParagraph[]; audioTitle?: LabAudioTitleClip }> {
   try {
-    const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey))
+    const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey, bookId))
     if (!manifestRes.ok) {
-      return paragraphs.map((text, index) => ({ index, text }))
+      return { followParagraphs: paragraphs.map((text, index) => ({ index, text })) }
     }
     const manifest = await manifestRes.json() as { paragraphs?: ManifestParagraph[] }
     const byIndex = new Map<number, ManifestParagraph>()
     for (const entry of manifest.paragraphs || []) {
       if (typeof entry.paragraph === 'number') byIndex.set(entry.paragraph, entry)
     }
-    return paragraphs.map((text, index) => (
-      followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
-    ))
+    const titleEntry = (manifest.paragraphs || []).find(entry => entry.paragraph === -1 && entry.file)
+    return {
+      followParagraphs: paragraphs.map((text, index) => (
+        followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
+      )),
+      audioTitle: titleEntry?.file
+        ? { kind: 'title', file: titleEntry.file, duration: titleEntry.duration }
+        : undefined,
+    }
   } catch {
-    return paragraphs.map((text, index) => ({ index, text }))
+    return { followParagraphs: paragraphs.map((text, index) => ({ index, text })) }
   }
 }
 
 interface BibleManifest {
-  chapters: Array<{ number: number; title: string; path: string }>
+  chapters: Array<{ number: number; title: string; path: string; wordCount?: number }>
   sections?: Section[]
 }
 
@@ -304,23 +362,21 @@ export function prefetchLabChapterTexts(
 
 export async function loadLabSource(
   chapterNumber = 1,
-  editions?: { primary?: string; compare?: string; audio?: string },
+  editions?: { primary?: string; compare?: string; audio?: string; readingFirst?: boolean },
 ): Promise<LabSource> {
   const primary = editions?.primary || LAB_EDITION_KEY
   const compare = editions?.compare || LAB_COMPARE_EDITION_KEY
   const audio = editions?.audio || LAB_EDITION_KEY
   try {
-    const [manifest, threadsJson] = await Promise.all([
-      loadBibleManifest(primary),
-      loadThreadsJson(),
-    ])
+    const threadsPromise = editions?.readingFirst ? undefined : loadThreadsJson().catch(() => ({ characters: [] }))
+    const manifest = await loadBibleManifest(primary)
     const entry = manifest.chapters.find(item => item.number === chapterNumber) || manifest.chapters[0]
     if (!entry) return bibleFallbackSource()
 
     const compareEntry = { ...entry, path: chapterPath(entry) }
     const [paragraphs, compareParagraphs] = await Promise.all([
       loadBibleChapterText(primary, entry),
-      loadBibleChapterText(compare, compareEntry).catch(() => []),
+      editions?.readingFirst && !editions.compare ? Promise.resolve([]) : loadBibleChapterText(compare, compareEntry).catch(() => []),
     ])
     if (paragraphs.length === 0) return bibleFallbackSource()
 
@@ -328,19 +384,125 @@ export async function loadLabSource(
       number: item.number,
       title: item.title,
       path: item.path,
+      wordCount: item.wordCount,
     }))
 
-    return sourceFromChapter({
+    const supplement = Promise.all([loadAudioFollowMetadata(paragraphs, entry.number, audio), threadsPromise ?? loadThreadsJson().catch(() => ({ characters: [] }))])
+      .then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+    const supporting = editions?.readingFirst
+      ? { followParagraphs: paragraphs.map((text, index) => ({ index, text })), cast: [] }
+      : await supplement
+    return { ...sourceFromChapter({
       chapterNumber: entry.number,
       chapterTitle: entry.title,
       paragraphs,
       compareParagraphs,
-      followParagraphs: await loadAudioFollowMetadata(paragraphs, entry.number, audio),
+      followParagraphs: supporting.followParagraphs,
+      audioTitle: 'audioTitle' in supporting ? supporting.audioTitle : undefined,
       chapters,
       sections: manifest.sections,
-      cast: spoilerSafeCast(threadsJson.characters || [], entry.number),
-    })
+      cast: supporting.cast,
+    }), ...(editions?.readingFirst ? { supplement } : {}) }
   } catch {
     return bibleFallbackSource()
   }
+}
+
+export interface LabBookSourceSelection {
+  bookId: string
+  primaryEditionKey: string
+  compareEditionKey?: string
+  audioEditionKey?: string
+  chapterNumber?: number
+  readingFirst?: boolean
+}
+
+/**
+ * Adapt any published registry edition into the existing Lab reader contract.
+ * This deliberately returns the same LabSource shape as the Bible loader so
+ * pagination, Compare, highlighting and navigation keep one state path.
+ */
+export async function loadLabBookSource(selection: LabBookSourceSelection): Promise<LabSource> {
+  if (selection.bookId === LAB_BOOK_ID) {
+    return loadLabSource(selection.chapterNumber ?? 1, {
+      primary: selection.primaryEditionKey,
+      compare: selection.compareEditionKey,
+      audio: selection.audioEditionKey,
+      readingFirst: selection.readingFirst,
+    })
+  }
+
+  const registryBook = getBook(selection.bookId)
+  if (!registryBook) throw new Error(`Unknown published book: ${selection.bookId}`)
+  const primaryEdition = registryBook.editions.find(edition => edition.key === selection.primaryEditionKey)
+  if (!primaryEdition) throw new Error(`Unknown edition ${selection.primaryEditionKey} for ${selection.bookId}`)
+  const compareEdition = selection.compareEditionKey
+    ? registryBook.editions.find(edition => edition.key === selection.compareEditionKey)
+    : undefined
+  if (selection.compareEditionKey && (!compareEdition || compareEdition.key === primaryEdition.key)) {
+    throw new Error(`Invalid compare edition ${selection.compareEditionKey} for ${selection.bookId}`)
+  }
+  const audioEdition = selection.audioEditionKey
+    ? registryBook.editions.find(edition => edition.key === selection.audioEditionKey && edition.hasAudio)
+    : (primaryEdition.hasAudio ? primaryEdition : registryBook.editions.find(edition => edition.hasAudio))
+  if (selection.audioEditionKey && !audioEdition) {
+    throw new Error(`Invalid audio edition ${selection.audioEditionKey} for ${selection.bookId}`)
+  }
+
+  const requestedChapter = selection.chapterNumber ?? 1
+  const threadsPromise = selection.readingFirst ? undefined : loadBookThreadsJson(registryBook.id)
+  const [primaryData, compareData] = await Promise.all([
+    loadEditionWindow(registryBook.id, primaryEdition.key, requestedChapter),
+    compareEdition
+      ? loadEditionWindow(registryBook.id, compareEdition.key, requestedChapter).catch(() => null)
+      : Promise.resolve(null),
+  ])
+  const entry = primaryData.chapters.find(chapter => chapter.number === requestedChapter)
+    ?? primaryData.chapters.find(chapter => chapter.paragraphs.length > 0)
+  if (!entry?.paragraphs.length) {
+    throw new Error(`Edition ${registryBook.id}-${primaryEdition.key} has no readable chapter ${requestedChapter}`)
+  }
+  const compareParagraphs = compareData?.chapters.find(chapter => chapter.number === entry.number)?.paragraphs ?? []
+  const supplement = Promise.all([
+    audioEdition
+      ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
+      : Promise.resolve({ followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })) }),
+    threadsPromise ?? loadBookThreadsJson(registryBook.id),
+  ]).then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+  const supporting: Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'> = selection.readingFirst
+    ? { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })), cast: [] }
+    : await supplement
+
+  return {
+    bookId: registryBook.id,
+    editions: registryBook.editions,
+    bookTitle: registryBook.title,
+    bookAuthor: registryBook.author,
+    editionLabel: primaryEdition.label,
+    chapterLabel: entry.title,
+    chapterTitle: entry.title,
+    chapterNumber: entry.number,
+    headerBook: registryBook.title,
+    headerChapter: entry.title,
+    paragraphs: entry.paragraphs,
+    compareParagraphs,
+    followParagraphs: supporting.followParagraphs,
+    audioTitle: 'audioTitle' in supporting ? supporting.audioTitle : undefined,
+    chapters: primaryData.chapters.map(chapter => ({
+      number: chapter.number,
+      title: chapter.title,
+      wordCount: chapter.paragraphs.length
+        ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
+        : undefined,
+    })),
+    sections: primaryData.sections,
+    cast: supporting.cast,
+    ...(selection.readingFirst ? { supplement } : {}),
+  }
+}
+
+/** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
+export async function loadLabChapterList(bookId: string, editionKey: string): Promise<LabChapter[]> {
+  if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
+  return loadEditionChapterList(bookId, editionKey)
 }

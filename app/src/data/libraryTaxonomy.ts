@@ -989,7 +989,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
-    "id": "much-ado",
+    "id": "much-ado-about-nothing",
     "title": "Much Ado About Nothing",
     "author": "William Shakespeare",
     "year": "c. 1599",
@@ -2107,6 +2107,30 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "langs": [
       "EN",
       "DA"
+    ]
+  },
+  {
+    "id": "ivan-ilyich",
+    "title": "The Death of Ivan Ilyich",
+    "author": "Leo Tolstoy",
+    "year": "1886",
+    "ySort": 1886.1,
+    "form": "novel",
+    "era": "modern",
+    "hue": 355,
+    "blurb": "A successful judge confronts the life he built as death draws near.",
+    "themes": [
+      "mortality",
+      "meaning",
+      "compassion"
+    ],
+    "shelves": [
+      "russian-novels"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "RU"
     ]
   },
   {

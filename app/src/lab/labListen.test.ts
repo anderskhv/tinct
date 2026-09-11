@@ -11,7 +11,10 @@ import {
   labAudioSidecarUrl,
   loadLabAudioChapter,
   readLabWordSidecar,
+  LAB_PLAYBACK_CLOCK_STEP_SECONDS,
+  steppedPlaybackTime,
 } from './labListen'
+import { LAB_FOLLOW_LEAD_SECONDS } from './useLabListen'
 
 afterEach(() => {
   vi.unstubAllGlobals()
@@ -20,14 +23,26 @@ afterEach(() => {
 describe('lab bible audio paths', () => {
   it('uses the production Bible chapter manifest and paragraph files', () => {
     expect(labAudioManifestUrl()).toBe('/api/audio-manifest?path=bible%2Fkjv-en%2Fch1%2Fmanifest.json')
-    expect(labAudioSidecarUrl()).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fwords.json')
+    expect(labAudioSidecarUrl()).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fwords.json&timing=2')
     expect(labAudioFileUrl('p0.mp3')).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fp0.mp3')
     expect(labAudioFileUrl('p1.mp3')).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch1%2Fp1.mp3')
     expect(labAudioManifestUrl(2)).toBe('/api/audio-manifest?path=bible%2Fkjv-en%2Fch2%2Fmanifest.json')
     expect(labAudioFileUrl('p0.mp3', 2)).toBe('/api/audio-file?path=bible%2Fkjv-en%2Fch2%2Fp0.mp3')
   })
 
-  it('skips title clips and keeps one MP3 per paragraph', () => {
+  it('does not leave mutable word timings behind the immutable MP3 cache path', () => {
+    const worker = readFileSync(resolve(__dirname, '../../public/sw.js'), 'utf8')
+    const metadataBranch = worker.indexOf("const isAudioMetadata")
+    const rangeBranch = worker.indexOf("event.request.headers.has('range')")
+
+    expect(labAudioSidecarUrl()).toContain('&timing=')
+    expect(metadataBranch).toBeGreaterThan(-1)
+    expect(metadataBranch).toBeLessThan(rangeBranch)
+    expect(worker).toMatch(/handleAudioMetadata[\s\S]*fetch\(request, \{ cache: 'no-store' \}\)/)
+    expect(worker).toMatch(/handleAudioMetadata[\s\S]*cache\.match\(request\)/)
+  })
+
+  it('keeps the title as a distinct clip before one MP3 per paragraph', () => {
     const clips = clipsFromManifest(
       ['Tell me', 'So now'],
       [
@@ -36,7 +51,11 @@ describe('lab bible audio paths', () => {
         { paragraph: 1, file: 'p1.mp3', duration: 5 },
       ],
     )
-    expect(clips.map(clip => clip.file)).toEqual(['p0.mp3', 'p1.mp3'])
+    expect(clips.map(clip => [clip.kind, clip.file])).toEqual([
+      ['title', 'title.mp3'],
+      ['paragraph', 'p0.mp3'],
+      ['paragraph', 'p1.mp3'],
+    ])
     const fromFollow = clipsFromFollowParagraphs([
       {
         index: 0,
@@ -48,6 +67,8 @@ describe('lab bible audio paths', () => {
       { index: 1, text: 'So now' },
     ])
     expect(fromFollow.map(clip => clip.file)).toEqual(['p0.mp3'])
+    expect(fromFollow[0].kind).toBe('paragraph')
+    if (fromFollow[0].kind !== 'paragraph') throw new Error('expected paragraph clip')
     expect(fromFollow[0].words?.map(word => word.text)).toEqual(['Tell', 'me'])
   })
 
@@ -57,7 +78,8 @@ describe('lab bible audio paths', () => {
     expect(listen).toContain('labAudioFileUrl')
     expect(listen).toContain('readLabWordSidecar')
     expect(listen).toContain('labAudioSidecarUrl')
-    expect(listen).toContain('measureFollowParagraphWords')
+    expect(listen).not.toContain('measureFollowParagraphWords')
+    expect(listen).not.toContain('measureWordTimesFromAudioUrl')
     expect(listen).toContain('chapterHasWordTimings')
     expect(listen).toContain('paragraphsRef.current = followParagraphs')
     expect(listen).not.toMatch(/paragraphsRef\.current = options\.followParagraphs/)
@@ -66,6 +88,8 @@ describe('lab bible audio paths', () => {
     expect(listen).toContain('setSpeed')
     expect(listen).toContain('parseHearingSpeed')
     expect(listen).toContain('followPlayingClip')
+    expect(LAB_FOLLOW_LEAD_SECONDS).toBe(0.08)
+    expect(listen).toContain('positionRef.current.time + LAB_FOLLOW_LEAD_SECONDS')
     expect(listen).toContain('playbackRate')
     expect(listen).toMatch(/const pause = useCallback\(\(\) => \{[\s\S]*setFollow\(\{ kind: 'none' \}\)/)
   })
@@ -138,5 +162,23 @@ describe('lab bible audio paths', () => {
       kind: 'paragraph',
       paragraphIndex: 0,
     })
+  })
+})
+
+describe('steppedPlaybackTime', () => {
+  it('holds the reader clock still between steps so a 60 Hz tick renders nothing', () => {
+    expect(steppedPlaybackTime(4, 4.016)).toBe(4)
+    expect(steppedPlaybackTime(4, 4 + LAB_PLAYBACK_CLOCK_STEP_SECONDS - 0.001)).toBe(4)
+    expect(steppedPlaybackTime(4, 4 + LAB_PLAYBACK_CLOCK_STEP_SECONDS)).toBe(4 + LAB_PLAYBACK_CLOCK_STEP_SECONDS)
+  })
+
+  it('takes any move backwards exactly: a seek or a new clip starts from its true time', () => {
+    expect(steppedPlaybackTime(24.9, 0)).toBe(0)
+    expect(steppedPlaybackTime(10, 9.95)).toBe(9.95)
+    expect(steppedPlaybackTime(0, 0)).toBe(0)
+  })
+
+  it('ignores a clock that is not a number', () => {
+    expect(steppedPlaybackTime(3, Number.NaN)).toBe(3)
   })
 })

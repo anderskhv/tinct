@@ -1,3 +1,5 @@
+import { useCharacterCards } from '../services/characters/useCharacterCards'
+import { resolveCharacter, type CharacterSelection } from '../services/characters/characterCards'
 import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor, Edition, EditionKey } from '../types'
@@ -14,6 +16,8 @@ import {
 } from '../utils/readerPagination'
 
 interface SelectionInfo {
+  character?: CharacterSelection
+  characterAnchor?: { start: number; end: number } | null
   x: number
   y: number
   text: string
@@ -167,14 +171,20 @@ export function SplitReader({
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
+  const leftCharacters = useCharacterCards(bookId, primaryEditionKey)
+  const rightCharacters = useCharacterCards(bookId, splitEditionKey)
+  useLayoutEffect(() => { setSelectionPopup(null) }, [bookId, primaryEditionKey, splitEditionKey, currentChapter, leftParagraphs, rightParagraphs])
   const openSelectionPopup = useCallback((info: SelectionInfo) => {
-    const mode = defaultPopupMode(info.text, info.existingHighlightId)
+    if (readerRef.current && readerRef.current.getBoundingClientRect().width === 0) return
+    const source = info.side === 'left' ? leftParagraphs : rightParagraphs
+    const character = info.characterAnchor ? resolveCharacter(info.side === 'left' ? leftCharacters : rightCharacters, currentChapter ?? 0, info.paragraphIndex, info.characterAnchor.start, info.characterAnchor.end, source[info.paragraphIndex] || '', !!info.existingHighlightId || (info.side === 'left' ? leftHighlights : rightHighlights).some(h => h.paragraphIndex === info.paragraphIndex && h.startOffset < info.endOffset && h.endOffset > info.startOffset)) : null
+    const mode = character ? 'character' : defaultPopupMode(info.text, info.existingHighlightId)
     setPopupMode(mode)
     setIssueTag('')
     setIssueComment('')
     if (mode === 'define') beginDefine(info.text)
-    setSelectionPopup(info)
-  }, [beginDefine])
+    setSelectionPopup({ ...info, character: character ?? undefined })
+  }, [beginDefine, leftCharacters, rightCharacters, currentChapter, leftParagraphs, rightParagraphs, readerRef, leftHighlights, rightHighlights])
   const popupRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -785,6 +795,17 @@ export function SplitReader({
       endOffset = startOffset >= 0 ? startOffset + selectedText.length : 0
     }
 
+    // Derive the character anchor from the actual DOM Range, not the first matching surname.
+    let characterAnchor: { start: number; end: number } | null = null
+    const endNode = range.endContainer.nodeType === Node.ELEMENT_NODE ? range.endContainer as Element : range.endContainer.parentElement
+    if (paragraphEl.contains(range.startContainer) && endNode?.closest('[data-paragraph-index]') === paragraphEl) {
+      const prefix = range.cloneRange()
+      prefix.selectNodeContents(paragraphEl)
+      prefix.setEnd(range.startContainer, range.startOffset)
+      const start = prefix.toString().replace(/\n/g, ' ').replace(/ {2,}/g, ' ').length
+      const end = start + normalizedSelection.length
+      if (normalizedPara.slice(start, end) === normalizedSelection) characterAnchor = { start, end }
+    }
     const rect = range.getBoundingClientRect()
 
     // Pick the side with more room — see matching comment in Reader.tsx.
@@ -798,6 +819,7 @@ export function SplitReader({
       paragraphIndex: resolvedParagraphIndex,
       startOffset: Math.max(0, startOffset),
       endOffset: Math.max(0, endOffset),
+      characterAnchor,
       side,
       showBelow,
     })
@@ -872,18 +894,11 @@ export function SplitReader({
     if (!selectionPopup) return
     if (selectionPopup.existingHighlightId) {
       onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
-      dismissPopup()
       return
     }
-    onHighlight(
-      selectionPopup.paragraphIndex,
-      selectionPopup.startOffset,
-      selectionPopup.endOffset,
-      selectionPopup.text,
-      color,
-      selectionPopup.side,
-    )
-    dismissPopup()
+    const created = onHighlight(selectionPopup.paragraphIndex, selectionPopup.startOffset,
+      selectionPopup.endOffset, selectionPopup.text, color, selectionPopup.side)
+    if (created?.id) setSelectionPopup(current => current ? { ...current, existingHighlightId: created.id } : current)
     window.getSelection()?.removeAllRanges()
   }
 
@@ -1179,6 +1194,7 @@ export function SplitReader({
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           onColorClick={handleColorClick}
+          currentHighlightColor={(selectionPopup.side === 'left' ? leftHighlights : rightHighlights).find(h => h.id === selectionPopup.existingHighlightId)?.color}
           defineQuery={defineQuery}
           setDefineQuery={setDefineQuery}
           defineResult={defineResult}

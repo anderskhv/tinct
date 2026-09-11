@@ -1,8 +1,10 @@
+import type { VoiceTrial } from '../voice/voiceTrial'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
-import { VoiceSessionController, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
+import { VoiceSessionController, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/VoiceSessionController'
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
 import type { CompanionAskNotify } from '../lab/labCompanion'
+import type { CompanionAskResult, VoiceVersion } from '../voice/v2/voiceV2'
 import { nearbyParagraphWindow } from '../voice/context'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
 import { VOICE_REALTIME_MODEL } from '../voice/types'
@@ -49,20 +51,28 @@ export interface UseVoiceSessionOptions {
   /** Clears session-scoped application state such as the voice undo stack. */
   onSessionStart?: () => void
   honorModelResume?: boolean
+  /** V2 reader: wait silently and always speak the completed companion answer. */
+  voiceTrial?: VoiceTrial | null
+  quietCompanionHandoff?: boolean
   /** Lab-only. Production AudioStrip leaves this unset. */
   setPlaybackSpeed?: (rate: number) => void
   /** Lab-only. Production AudioStrip leaves this unset. */
-  skipPlayback?: (kind: LabPlaybackSkip) => void | Promise<void>
+  skipPlayback?: VoiceAudioEngine['skipPlayback']
   /** Lab-only. Production AudioStrip leaves this unset. */
   assistantPace?: AssistantPace
   onSetAssistantPace?: (pace: AssistantPace) => void
   /** Lab-only. Hard book questions hop to /api/lab-chat. Production leaves this unset. */
-  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string>
+  onCompanionAsk?: (question: string, notify?: CompanionAskNotify) => Promise<string | CompanionAskResult>
+  /** Lab-only. `'v2'` only from `/lab/reader?voice=v2`; production and V1 leave this unset. */
+  voiceVersion?: VoiceVersion
 }
 
 const IDLE_SNAPSHOT: VoiceUiSnapshot = {
   state: 'reading',
   mode: 'conversation',
+  activity: 'idle',
+  connection: 'idle',
+  micMuted: false,
   resumeInSeconds: null,
   error: null,
   isActive: false,
@@ -103,7 +113,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
           const next = [...previous, sample].slice(-20)
           if (typeof window !== 'undefined') {
             ;(window as Window & { __tinctVoiceDebug?: unknown }).__tinctVoiceDebug = {
-              model: VOICE_REALTIME_MODEL,
+              model: sample.model,
               samples: next,
             }
           }
@@ -195,8 +205,11 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       tools: opts.tools,
       applicationTools: opts.applicationTools,
       honorModelResume: opts.honorModelResume,
+      quietCompanionHandoff: opts.quietCompanionHandoff,
+      voiceTrial: opts.voiceTrial,
       assistantPace: opts.assistantPace,
       onCompanionAsk: opts.onCompanionAsk,
+      voiceVersion: opts.voiceVersion,
     })
     return controllerRef.current?.getSnapshot() ?? IDLE_SNAPSHOT
   }, [buildContext])
@@ -237,6 +250,15 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
 
   return {
     state: ui.state,
+    activity: ui.activity,
+    /** Transport only, reported apart from microphone and assistant activity. */
+    connection: ui.connection,
+    micMuted: ui.micMuted,
+    setMicMuted: (muted: boolean) => {
+      controllerRef.current?.setMicMuted(muted)
+    },
+    /** Real loudness of the assistant's playback, or null when no tap exists. */
+    getAssistantLevel: () => controllerRef.current?.getAssistantLevel() ?? null,
     isActive: ui.isActive,
     error: ui.error,
     resumeInSeconds: ui.resumeInSeconds,

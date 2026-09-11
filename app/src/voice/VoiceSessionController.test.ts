@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { VoiceSessionController } from './VoiceSessionController'
+import { LAB_HOLDING_LINE, LAB_STILL_LOOKING_LINE, LAB_STILL_LOOKING_MS } from '../lab/labCompanion'
 import { LAB_AUDIO_CONSTRAINTS, LAB_BARGE_IN_MS, LAB_MIC_SETTLE_MS, LAB_SEMANTIC_VAD_EAGERNESS, LAB_STUCK_LISTENING_MS, LAB_VAD_CREATE_RESPONSE, LAB_VAD_INTERRUPT_RESPONSE, LAB_VOICE_GREETING } from './types'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceReaderContext } from './types'
 
@@ -644,6 +645,31 @@ describe('VoiceSessionController lab honor resume', () => {
     controller.testRealtime({ type: 'output_audio_buffer.stopped' })
     expect(audio.resumePlayback).toHaveBeenCalled()
     expect(controller.getSnapshot().state).toBe('reading')
+  })
+
+  it('restarts the current chapter and resumes after the confirmation', () => {
+    withWindowTimers()
+    const sent: string[] = []
+    const audio = audioEngine({ anchor: ANCHOR, wasPlaying: true })
+    const { controller } = makeController()
+    controller.testPrimeSession({
+      audio,
+      honorModelResume: true,
+      send: (data) => sent.push(data),
+    })
+    sent.length = 0
+    controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'restart_chapter',
+      call_id: 'call_restart',
+    })
+    expect(audio.skipPlayback).toHaveBeenCalledWith('restart_chapter')
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    expect(audio.resumePlayback).toHaveBeenCalled()
   })
 
   it('does not start the book after a plain question speech_end', () => {
@@ -1306,12 +1332,13 @@ describe('VoiceSessionController ask_companion hop', () => {
       arguments: '{"question":"what does this mean"}',
     })
     const events = sent.map(item => JSON.parse(item))
-    const covers = events.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Do not answer the question yet'))
+    const covers = events.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Do not answer yet'))
     const spoken = events.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Telemachus is being given a path.'))
     const output = events.find(item => item.type === 'conversation.item.create')
     expect(query).toHaveBeenCalledWith('what does this mean', expect.any(Object))
     expect(covers).toHaveLength(1)
-    expect(covers[0].response.instructions).toContain('Let me look at the passage.')
+    expect(covers[0].response.instructions).toContain(LAB_HOLDING_LINE)
+    expect(covers[0].response.instructions).not.toMatch(/good question/i)
     expect(output.item.output).toContain('Telemachus is being given a path.')
     expect(spoken).toHaveLength(1)
     expect(spoken[0].response.instructions).toContain('Do not invent a thinner substitute')
@@ -1373,7 +1400,7 @@ describe('VoiceSessionController ask_companion hop', () => {
     await Promise.resolve()
     await Promise.resolve()
     const early = sent.map(item => JSON.parse(item))
-    const covers = early.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Do not answer the question yet'))
+    const covers = early.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Do not answer yet'))
     const first = early.filter(item => item.type === 'response.create' && String(item.response?.instructions || '').includes('Athena is already beside him.'))
     expect(covers).toHaveLength(1)
     expect(first).toHaveLength(0)
@@ -1439,5 +1466,400 @@ describe('VoiceSessionController ask_companion hop', () => {
     })
     expect(query).not.toHaveBeenCalled()
     expect(audio.setPlaybackSpeed).toHaveBeenCalled()
+  })
+})
+
+describe('VoiceSessionController navigation never starts playback by itself', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  function withWindowTimers() {
+    vi.stubGlobal('window', { setTimeout, clearTimeout, setInterval, clearInterval })
+  }
+
+  function speakConfirm(controller: VoiceSessionController) {
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+  }
+
+  it('moves previous_chapter without playing when the session did not start from playback', async () => {
+    withWindowTimers()
+    const sent: string[] = []
+    const audio = audioEngine(null)
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true, shouldResumeBook: false, send: data => sent.push(data) })
+    sent.length = 0
+    await controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'previous_chapter',
+      call_id: 'call_prev',
+    })
+    expect(audio.skipPlayback).toHaveBeenCalledWith('previous_chapter')
+    const created = sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create')
+    expect(created).toHaveLength(1)
+    expect(created[0].response.instructions).toContain('Do not resume the book')
+    speakConfirm(controller)
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+    expect(controller.getSnapshot().state).not.toBe('reading')
+  })
+
+  it("honours the app's navigation outcome over the session default", async () => {
+    withWindowTimers()
+    const silent = { ...audioEngine({ anchor: ANCHOR, wasPlaying: true }), skipPlayback: vi.fn(async () => ({ resumePlayback: false })) }
+    const first = makeController().controller
+    first.testPrimeSession({ audio: silent, honorModelResume: true })
+    await first.testRealtime({ type: 'response.function_call_arguments.done', name: 'next_chapter', call_id: 'call_a' })
+    await Promise.resolve()
+    speakConfirm(first)
+    expect(silent.resumePlayback).not.toHaveBeenCalled()
+    expect(first.getSnapshot().state).not.toBe('reading')
+
+    const playing = { ...audioEngine(null), skipPlayback: vi.fn(async () => ({ resumePlayback: true })) }
+    const second = makeController().controller
+    second.testPrimeSession({ audio: playing, honorModelResume: true, shouldResumeBook: false })
+    await second.testRealtime({ type: 'response.function_call_arguments.done', name: 'next_chapter', call_id: 'call_b' })
+    await Promise.resolve()
+    speakConfirm(second)
+    expect(playing.resumePlayback).toHaveBeenCalled()
+    expect(second.getSnapshot().state).toBe('reading')
+  })
+
+  it('routes "Yes!!" after an offer to look something up to the companion instead of moving', async () => {
+    withWindowTimers()
+    const sent: string[] = []
+    const audio = audioEngine(null)
+    const query = vi.fn(async () => 'In chapter 32, Jeremiah was shut up in the court of the prison; chapter 37 has Zedekiah move him there.')
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true, shouldResumeBook: false, onCompanionAsk: query, send: data => sent.push(data) })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({
+      type: 'response.output_audio_transcript.done',
+      transcript: 'I only have Jeremiah 37 in front of me. We could go back a few chapters and have a look?',
+    })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({
+      type: 'conversation.item.input_audio_transcription.completed',
+      transcript: 'Yes!!',
+    })
+    sent.length = 0
+    await controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'previous_chapter',
+      call_id: 'call_yes',
+    })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(audio.skipPlayback).not.toHaveBeenCalled()
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+    expect(query).toHaveBeenCalledTimes(1)
+    const asked = String(query.mock.calls[0][0])
+    expect(asked).toContain('"Yes!!"')
+    expect(asked).toContain('go back a few chapters and have a look')
+    // The model's move is answered with a refusal; the companion's answer is spoken.
+    const outputs = sent.map(item => JSON.parse(item)).filter(item => item.type === 'conversation.item.create')
+    expect(outputs).toHaveLength(1)
+    expect(outputs[0].item.call_id).toBe('call_yes')
+    expect(JSON.parse(outputs[0].item.output).ok).toBe(false)
+    const spoken = sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create').at(-1)
+    expect(spoken.response.instructions).toContain('In chapter 32')
+    expect(controller.getSnapshot().state).not.toBe('reading')
+  })
+
+  it('routes "Yes!!" after an offer away from resume_audiobook too, and a plain yes still asks nothing', async () => {
+    withWindowTimers()
+    const audio = audioEngine(null)
+    const query = vi.fn(async () => 'Chapter 32 explains it.')
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true, shouldResumeBook: false, onCompanionAsk: query, send: () => { /* unused */ } })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'response.output_audio_transcript.done', transcript: 'Want me to check chapter 32?' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'sure' })
+    await controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'resume_audiobook', call_id: 'call_resume' })
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+    expect(query).toHaveBeenCalledTimes(1)
+    expect(controller.getSnapshot().state).not.toBe('reading')
+
+    // Let the app-driven lookup for "sure" finish before the next turn.
+    await new Promise(resolve => setTimeout(resolve, 0))
+    // Without a lookup offer, a bare yes changes nothing about the tools.
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'response.output_audio_transcript.done', transcript: 'Zedekiah is the king of Judah.' })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'yes' })
+    await controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'next_chapter', call_id: 'call_next' })
+    expect(audio.skipPlayback).toHaveBeenCalledWith('next_chapter')
+    expect(query).toHaveBeenCalledTimes(1)
+  })
+
+  it('expands a bare yes handed to ask_companion into the offered lookup', async () => {
+    withWindowTimers()
+    const audio = audioEngine(null)
+    const query = vi.fn(async () => 'Chapter 32 explains it.')
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true, shouldResumeBook: false, onCompanionAsk: query, send: () => { /* unused */ } })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'response.output_audio_transcript.done', transcript: 'I can look that up in chapter 32 if you like.' })
+    controller.testRealtime({ type: 'response.done' })
+    await controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'ask_companion', call_id: 'call_ask', arguments: '{"question":"yes"}' })
+    expect(query).toHaveBeenCalledTimes(1)
+    expect(String(query.mock.calls[0][0])).toContain('look that up in chapter 32')
+  })
+})
+
+describe('VoiceSessionController companion hop is silent except a holding line', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  function withWindowTimers() {
+    vi.stubGlobal('window', { setTimeout, clearTimeout, setInterval, clearInterval })
+  }
+
+  function deferred<T>() {
+    let resolve: (value: T) => void = () => { /* pending */ }
+    const promise = new Promise<T>(r => { resolve = r })
+    return { promise, resolve }
+  }
+
+  it('allows only the holding line, then one "still looking" line after 6 s, then the answer', async () => {
+    vi.useFakeTimers()
+    withWindowTimers()
+    const sent: string[] = []
+    const answer = deferred<string>()
+    const query = vi.fn(() => answer.promise)
+    const audio = audioEngine(null)
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio, honorModelResume: true, shouldResumeBook: false, send: data => sent.push(data), onCompanionAsk: query })
+    sent.length = 0
+    const creates = () => sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create')
+    const hop = controller.testRealtime({
+      type: 'response.function_call_arguments.done',
+      name: 'ask_companion',
+      call_id: 'call_hold',
+      arguments: '{"question":"But what does the king want?"}',
+    })
+    await Promise.resolve()
+    expect(creates()).toHaveLength(1)
+    expect(creates()[0].response.instructions).toContain(`"${LAB_HOLDING_LINE}"`)
+    expect(creates()[0].response.instructions).not.toMatch(/good question/i)
+
+    // A stray response.create source during the hop (a non-resume tool confirm) is swallowed.
+    await controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'hold_voice_session', call_id: 'call_stray' })
+    expect(creates()).toHaveLength(1)
+
+    vi.advanceTimersByTime(LAB_STILL_LOOKING_MS - 1)
+    expect(creates()).toHaveLength(1)
+    vi.advanceTimersByTime(2)
+    expect(creates()).toHaveLength(2)
+    expect(creates()[1].response.instructions).toContain(`"${LAB_STILL_LOOKING_LINE}"`)
+    vi.advanceTimersByTime(LAB_STILL_LOOKING_MS * 2)
+    expect(creates()).toHaveLength(2)
+
+    answer.resolve('He wants a way out that costs him nothing.')
+    await hop
+    expect(creates()).toHaveLength(3)
+    expect(creates()[2].response.instructions).toContain('He wants a way out that costs him nothing.')
+    expect(creates().every(item => !/waiting on|full explanation|don't want to invent/i.test(String(item.response.instructions)))).toBe(true)
+
+    // After the answer the gate is open again.
+    await controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'hold_voice_session', call_id: 'call_after' })
+    expect(creates()).toHaveLength(4)
+  })
+
+  it('cuts off narration of the mechanism and keeps only the holding line in the transcript', async () => {
+    withWindowTimers()
+    const sent: string[] = []
+    const turns: string[] = []
+    const answer = deferred<string>()
+    const controller = new VoiceSessionController({
+      onSnapshot: () => { /* unused */ },
+      onTurn: (role, text) => { if (role === 'assistant') turns.push(text) },
+    })
+    controller.testPrimeSession({ audio: audioEngine(null), honorModelResume: true, shouldResumeBook: false, send: data => sent.push(data), onCompanionAsk: () => answer.promise })
+    sent.length = 0
+    const hop = controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'ask_companion', call_id: 'call_narr', arguments: '{"question":"Explain the ending."}' })
+    await Promise.resolve()
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'response.output_audio_transcript.delta', delta: "I'll look that up. " })
+    expect(sent.map(item => JSON.parse(item).type)).not.toContain('response.cancel')
+    controller.testRealtime({ type: 'response.output_audio_transcript.delta', delta: "I'm still waiting on the companion's full explanation, so I don't want to invent anything." })
+    const types = sent.map(item => JSON.parse(item).type)
+    expect(types).toContain('response.cancel')
+    expect(types).toContain('output_audio_buffer.clear')
+    expect(turns.at(-1)).toBe(LAB_HOLDING_LINE)
+    answer.resolve('The chapter ends with Jeremiah kept in the court of the prison.')
+    await hop
+    expect(sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create').at(-1).response.instructions).toContain('court of the prison')
+  })
+})
+
+describe('VoiceSessionController every book utterance reaches the companion', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  function withWindowTimers() {
+    vi.stubGlobal('window', { setTimeout, clearTimeout, setInterval, clearInterval })
+  }
+
+  it('cancels a Realtime self-answer to a short book question and asks the companion instead', async () => {
+    withWindowTimers()
+    const sent: string[] = []
+    const turns: string[] = []
+    const query = vi.fn(async () => 'Zedekiah wants Jeremiah to tell him something hopeful without paying for it.')
+    const controller = new VoiceSessionController({
+      onSnapshot: () => { /* unused */ },
+      onTurn: (role, text) => { if (role === 'assistant') turns.push(text) },
+    })
+    controller.testPrimeSession({ audio: audioEngine(null), honorModelResume: true, shouldResumeBook: false, send: data => sent.push(data), onCompanionAsk: query })
+    sent.length = 0
+    controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'But what does the king want?' })
+    expect(query).not.toHaveBeenCalled()
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'response.output_audio_transcript.delta', delta: 'Great catch. I only have what is here, so' })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    const events = sent.map(item => JSON.parse(item))
+    expect(events.map(item => item.type)).toContain('response.cancel')
+    expect(query).toHaveBeenCalledTimes(1)
+    expect(String(query.mock.calls[0][0])).toBe('But what does the king want?')
+    expect(turns.some(text => text.includes('Great catch'))).toBe(false)
+    const spoken = events.filter(item => item.type === 'response.create').at(-1)
+    expect(spoken.response.instructions).toContain('Zedekiah wants Jeremiah')
+  })
+
+  it('runs one hop when the model itself calls ask_companion after the transcript', async () => {
+    withWindowTimers()
+    const query = vi.fn(async () => 'An answer.')
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio: audioEngine(null), honorModelResume: true, shouldResumeBook: false, send: () => { /* unused */ }, onCompanionAsk: query })
+    controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'Can you explain the ending to me?' })
+    controller.testRealtime({ type: 'response.created' })
+    await controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'ask_companion', call_id: 'call_model', arguments: '{"question":"Can you explain the ending to me?"}' })
+    controller.testRealtime({ type: 'response.output_audio_transcript.delta', delta: 'The chapter ends' })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(query).toHaveBeenCalledTimes(1)
+  })
+
+  it('asks the companion after a self-answer that finished before the transcript arrived', async () => {
+    withWindowTimers()
+    const query = vi.fn(async () => 'The proper answer.')
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio: audioEngine(null), honorModelResume: true, shouldResumeBook: false, send: () => { /* unused */ }, onCompanionAsk: query })
+    controller.testRealtime({ type: 'input_audio_buffer.speech_started' })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'response.output_audio_transcript.done', transcript: "I can't explain what comes after this chapter." })
+    controller.testRealtime({ type: 'response.done' })
+    controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'What does the ending mean?' })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(query).toHaveBeenCalledTimes(1)
+  })
+
+  it('leaves playback commands, confirms and greetings with Realtime', async () => {
+    withWindowTimers()
+    const query = vi.fn(async () => 'never')
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio: audioEngine(null), honorModelResume: true, shouldResumeBook: false, send: () => { /* unused */ }, onCompanionAsk: query })
+    for (const transcript of ['next chapter', 'ok', 'hello there', 'thanks a lot']) {
+      controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript })
+      controller.testRealtime({ type: 'response.created' })
+      controller.testRealtime({ type: 'response.output_audio_transcript.delta', delta: 'Sure.' })
+      controller.testRealtime({ type: 'response.done' })
+    }
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(query).not.toHaveBeenCalled()
+  })
+})
+
+describe('V2 reader quiet companion handoff', () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
+  it('speaks the completed answer after an earlier acknowledgement without another filler turn', async () => {
+    vi.stubGlobal('window', { setTimeout, clearTimeout, setInterval, clearInterval })
+    const sent: string[] = []
+    let finish!: (text: string) => void
+    const query = vi.fn(() => new Promise<string>(resolve => { finish = resolve }))
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio: audioEngine({ anchor: ANCHOR, wasPlaying: false }), honorModelResume: true, quietCompanionHandoff: true, send: data => sent.push(data), onCompanionAsk: query })
+    controller.testRealtime({ type: 'response.created' })
+    controller.testRealtime({ type: 'output_audio_buffer.started' })
+    controller.testRealtime({ type: 'response.done', response: { status: 'completed' } })
+    controller.testRealtime({ type: 'output_audio_buffer.stopped' })
+    sent.length = 0
+    const pending = controller.testRealtime({ type: 'response.function_call_arguments.done', name: 'ask_companion', call_id: 'quiet-hop', arguments: '{"question":"Why do the families fight?"}' })
+    expect(sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create')).toHaveLength(0)
+    finish('Their inherited feud shapes the choices of the younger generation.')
+    await pending
+    const responses = sent.map(item => JSON.parse(item)).filter(item => item.type === 'response.create')
+    expect(responses).toHaveLength(1)
+    expect(responses[0].response.instructions).toContain('Their inherited feud shapes the choices of the younger generation.')
+    controller.stop()
+  })
+})
+
+
+describe('quiet handoff routes the question before speech', () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
+  it('waits for the transcript, asks once, and emits only the completed answer', async () => {
+    vi.stubGlobal('window', { setTimeout, clearTimeout, setInterval, clearInterval })
+    vi.useFakeTimers()
+    const sent: string[] = []
+    let finish!: (answer: string) => void
+    const query = vi.fn(() => new Promise<string>(resolve => { finish = resolve }))
+    const { controller } = makeController()
+    controller.testPrimeSession({ audio: audioEngine(null), honorModelResume: true, quietCompanionHandoff: true, send: data => sent.push(data), onCompanionAsk: query })
+    controller.testRealtime({ type: 'input_audio_buffer.speech_started' })
+    await vi.advanceTimersByTimeAsync(600)
+    controller.testRealtime({ type: 'input_audio_buffer.speech_stopped' })
+    await vi.advanceTimersByTimeAsync(350)
+    expect(sent.map(item => JSON.parse(item)).filter(e => e.type === 'response.create')).toHaveLength(0)
+    controller.testRealtime({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'What is the firmament in Genesis?' })
+    expect(query).toHaveBeenCalledTimes(1)
+    expect(sent.map(item => JSON.parse(item)).filter(e => ['response.cancel', 'output_audio_buffer.clear', 'response.create'].includes(e.type))).toHaveLength(0)
+    finish('The firmament separates the waters above from the waters below.')
+    await vi.advanceTimersByTimeAsync(1)
+    const responses = sent.map(item => JSON.parse(item)).filter(e => e.type === 'response.create')
+    expect(responses).toHaveLength(1)
+    expect(responses[0].response.instructions).toContain('The firmament separates')
+    controller.stop()
+  })
+})
+
+describe('direct voice trial lifecycle', () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
+  it('requests exactly one direct answer after confirmed transcription, without a companion', async () => {
+    vi.useFakeTimers()
+    vi.stubGlobal('window',{setTimeout,clearTimeout,setInterval,clearInterval})
+    const sent: string[]=[]
+    const query=vi.fn()
+    const {controller}=makeController()
+    controller.testPrimeSession({audio:audioEngine(null),honorModelResume:true,voiceVersion:'v2',voiceTrial:'full',send:data=>sent.push(data),onCompanionAsk:query})
+    controller.testRealtime({type:'input_audio_buffer.speech_started'})
+    await vi.advanceTimersByTimeAsync(600)
+    controller.testRealtime({type:'input_audio_buffer.speech_stopped'})
+    await vi.advanceTimersByTimeAsync(500)
+    expect(sent.map(s=>JSON.parse(s)).filter(e=>e.type==='response.create')).toHaveLength(0)
+    controller.testRealtime({type:'conversation.item.input_audio_transcription.completed',transcript:'What is the firmament in Genesis?'})
+    expect(sent.map(s=>JSON.parse(s)).filter(e=>e.type==='response.create')).toHaveLength(1)
+    controller.testRealtime({type:'response.created'})
+    controller.testRealtime({type:'output_audio_buffer.started'})
+    controller.testRealtime({type:'response.output_audio_transcript.delta',delta:'The firmament is an expanse.'})
+    expect(query).not.toHaveBeenCalled()
+    expect(sent.map(s=>JSON.parse(s)).filter(e=>e.type==='response.cancel')).toHaveLength(0)
+    controller.stop()
+  })
+  it('does not start a response if transcription times out', async () => {
+    vi.useFakeTimers();vi.stubGlobal('window',{setTimeout,clearTimeout,setInterval,clearInterval})
+    const sent:string[]=[]; const {controller,snapshots}=makeController()
+    controller.testPrimeSession({audio:audioEngine(null),honorModelResume:true,voiceVersion:'v2',voiceTrial:'mini',send:data=>sent.push(data)})
+    controller.testRealtime({type:'input_audio_buffer.speech_started'});await vi.advanceTimersByTimeAsync(600)
+    controller.testRealtime({type:'input_audio_buffer.speech_stopped'});await vi.advanceTimersByTimeAsync(11000)
+    expect(sent.map(s=>JSON.parse(s)).filter(e=>e.type==='response.create')).toHaveLength(0)
+    expect(snapshots.some(s => !!s.error)).toBe(true)
+    controller.stop()
   })
 })

@@ -2,7 +2,7 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import { emptyLabPositionState, type LabPositionState } from './labPosition'
-import { emptyLabChatHistoryState, persistLabTalkTurn, readLabChatHistoryLocal } from './labTalkHistory'
+import { emptyLabChatHistoryState, type LabChatHistoryState } from './labTalkHistory'
 import { buildLabReadingFeed, labFeedHighlightCards, labFeedPassageLine } from './labReadingFeed'
 
 afterEach(() => {
@@ -71,17 +71,38 @@ describe('lab reading feed cards', () => {
   })
 
   it('includes a stored talk as a card', () => {
-    persistLabTalkTurn({
-      id: 'keller',
-      role: 'user',
-      content: 'What would Keller say about this?',
-      timestamp: 1_777_300_000_000,
-      isComplete: true,
-      source: 'text',
-    }, 1, 0, { bookId: 'romans', headerBook: 'Romans' })
+    const chat: LabChatHistoryState = {
+      updatedAt: 1_777_300_000_000,
+      books: {
+        romans: {
+          bookId: 'romans',
+          headerBook: 'Romans',
+          updatedAt: 1_777_300_000_000,
+          conversations: [{
+            id: 'conv_lab_romans_1',
+            bookId: 'romans',
+            chapterNumber: 1,
+            paragraphIndex: 0,
+            startTimestamp: 1_777_300_000_000,
+            endTimestamp: 1_777_300_000_000,
+            preview: 'What would Keller say about this?',
+            messages: [{
+              id: 'keller',
+              role: 'user',
+              content: 'What would Keller say about this?',
+              timestamp: 1_777_300_000_000,
+              bookId: 'romans',
+              chapterNumber: 1,
+              isComplete: true,
+              source: 'text',
+            }],
+          }],
+        },
+      },
+    }
     const cards = buildLabReadingFeed({
       position: romansState(),
-      chat: readLabChatHistoryLocal(),
+      chat,
       current: romansCurrent,
     })
     const talk = cards.find(card => card.kind === 'talk')

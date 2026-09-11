@@ -1,3 +1,5 @@
+import { useCharacterCards } from '../services/characters/useCharacterCards'
+import { resolveCharacter } from '../services/characters/characterCards'
 import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { ParagraphRenderer } from './ParagraphRenderer'
 import type { Highlight, HighlightColor } from '../types'
@@ -175,14 +177,18 @@ export function Reader({
   const [issueTag, setIssueTag] = useState('')
   const [issueComment, setIssueComment] = useState('')
   const [issueSubmitting, setIssueSubmitting] = useState(false)
+  const characters = useCharacterCards(bookId, editionKey)
+  useLayoutEffect(() => { setSelectionPopup(null) }, [bookId, editionKey, currentChapter, paragraphs, isActive])
   const openSelectionPopup = useCallback((info: SelectionInfo) => {
-    const mode = defaultPopupMode(info.text, info.existingHighlightId)
+    if (!isActive) return
+    const character = (info.segments?.length ?? 1) <= 1 ? resolveCharacter(characters, currentChapter ?? 0, info.paragraphIndex, info.startOffset, info.endOffset, paragraphs[info.paragraphIndex] || '', !!info.existingHighlightId || highlights.some(h => h.paragraphIndex === info.paragraphIndex && h.startOffset < info.endOffset && h.endOffset > info.startOffset)) : null
+    const mode = character ? 'character' : defaultPopupMode(info.text, info.existingHighlightId)
     setPopupMode(mode)
     setIssueTag('')
     setIssueComment('')
     if (mode === 'define') beginDefine(info.text)
-    setSelectionPopup(info)
-  }, [beginDefine])
+    setSelectionPopup({ ...info, character: character ?? undefined })
+  }, [beginDefine, characters, currentChapter, paragraphs, isActive, highlights])
   const [customSelection, setCustomSelection] = useState<CustomSelection | null>(null)
   const customSelectionRef = useRef<CustomSelection | null>(null)
   customSelectionRef.current = customSelection
@@ -1233,6 +1239,7 @@ export function Reader({
           endOffset: selectionPopup.endOffset,
           text: selectionPopup.text,
         }]
+    const ids: string[] = []
     let created: { id: string } | void
     for (const segment of segments) {
       if (segment.startOffset >= segment.endOffset) continue
@@ -1243,19 +1250,20 @@ export function Reader({
         segment.text,
         color,
       )
+      if (created?.id) ids.push(created.id)
     }
+    if (ids.length) setSelectionPopup(current => current ? { ...current, existingHighlightId: ids[0], highlightIds: ids } : current)
     return created
   }
 
   const handleColorClick = (color: HighlightColor) => {
     if (!selectionPopup) return
     if (selectionPopup.existingHighlightId) {
-      onUpdateHighlightColor?.(selectionPopup.existingHighlightId, color)
-      dismissPopup()
+      ;(selectionPopup.highlightIds ?? [selectionPopup.existingHighlightId]).forEach(id => onUpdateHighlightColor?.(id, color))
       return
     }
     createHighlightsFromSelection(color)
-    dismissPopup()
+    clearSelectionPreview()
     window.getSelection()?.removeAllRanges()
   }
 
@@ -1675,6 +1683,7 @@ export function Reader({
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           onColorClick={handleColorClick}
+          currentHighlightColor={highlights.find(h => h.id === selectionPopup.existingHighlightId)?.color}
           defineQuery={defineQuery}
           setDefineQuery={setDefineQuery}
           defineResult={defineResult}

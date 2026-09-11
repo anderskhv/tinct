@@ -3,6 +3,19 @@ import react from '@vitejs/plugin-react'
 import type { IncomingMessage, ServerResponse } from 'http'
 import fs from 'fs'
 import path from 'path'
+import { serializePreReaderCatalogue } from './src/preReader/catalogue'
+import { addLibraryReadingStructures } from './src/preReader/libraryReadingStructure'
+
+const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
+  serializePreReaderCatalogue(),
+  path.resolve(process.cwd(), 'public'),
+))
+
+// The entry uses the same exact approved text files as the reader registry.
+const entryPrefaces = new Map(JSON.parse(serializedPreReaderCatalogue).books.flatMap((book: { id: string }) => {
+  const file = path.resolve(process.cwd(), 'src/data/prefaces', `${book.id}.txt`)
+  return fs.existsSync(file) ? [[book.id, JSON.stringify({bookId:book.id, language:'en', paragraphs:fs.readFileSync(file,'utf8').trim().split(/\n\s*\n/)})]] : []
+}))
 
 export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -56,24 +69,91 @@ export default defineConfig(({ mode, command }) => {
     __BUILD_VERSION__: JSON.stringify(buildVersion),
   },
   base: isCapacitor ? './' : '/',
+  build: {
+    rollupOptions: {
+      input: {
+        index: path.resolve(process.cwd(), 'index.html'),
+        labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
+        labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
+        labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
+      },
+      output: {
+        entryFileNames: chunk => chunk.name === 'labAuthStatus'
+          ? 'lab/auth-status.js'
+          : chunk.name === 'labSignIn'
+            ? 'lab/sign-in-runtime.js'
+            : chunk.name === 'labReadingMemory'
+              ? 'lab/reading-memory.js'
+              : 'assets/[name]-[hash].js',
+      },
+    },
+  },
   plugins: [
     react(),
     {
+      name: 'lab-pre-reader-catalogue',
+      configureServer(server) {
+        server.middlewares.use('/lab/prefaces/', (req,res) => {
+          const id=decodeURIComponent((req.url || '').split('?')[0].replace(/^\//,'').replace(/\.json$/,''))
+          const source=entryPrefaces.get(id)
+          res.writeHead(source ? 200 : 404, {'Content-Type':'application/json; charset=utf-8'})
+          res.end(source || '{}')
+        })
+        server.middlewares.use('/lab/catalogue.json', (_req, res) => {
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
+          res.end(serializedPreReaderCatalogue)
+        })
+      },
+      generateBundle() {
+        for(const [id,source] of entryPrefaces) this.emitFile({type:'asset',fileName:`lab/prefaces/${id}.json`,source:source as string})
+        this.emitFile({
+          type: 'asset',
+          fileName: 'lab/catalogue.json',
+          source: serializedPreReaderCatalogue,
+        })
+      },
+    },
+    {
       name: 'anthropic-proxy',
       configureServer(server) {
-        // Production has a build-time swap: `mv dist/index.html dist/app.html
-        // && cp dist/landing.html dist/index.html`. So `/` serves the static
-        // landing page in prod. Dev doesn't run that swap, so `/` would serve
-        // the SPA — making sign-out (which redirects to `/`) drop the user
-        // into the BookStore instead of the landing page. Mirror the swap
-        // in dev: at `/` (and `/index.html`), serve `public/landing.html`.
-        // SPA still reachable at `/read` and friends.
+        // Mirror the promoted public homepage while keeping the lab routes
+        // available for the catalogue, sign-in and reader.
         server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
+          if (pathOnly === '/lab/auth-status.js') {
+            req.url = `/src/labAuthStatus.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/sign-in-runtime.js') {
+            req.url = `/src/labSignIn.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/reading-memory.js') {
+            req.url = `/src/labReadingMemory.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/sign-in' || pathOnly === '/lab/sign-in/') {
+            req.url = `/lab/sign-in/index.html${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/library-2' || pathOnly === '/lab/library-2/') {
+            req.url = `/lab/library-2/index.html${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab' || pathOnly === '/lab/' || pathOnly === '/lab/landing' || pathOnly === '/lab/library' || pathOnly === '/library') {
+            req.url = `/lab/index.html${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           if (pathOnly === '/' || pathOnly === '/index.html') {
-            const landingPath = path.join(process.cwd(), 'public', 'landing.html')
+            const landingPath = path.join(process.cwd(), 'public', 'lab', 'index.html')
             if (fs.existsSync(landingPath)) {
               res.writeHead(200, { 'Content-Type': 'text/html' })
               fs.createReadStream(landingPath).pipe(res)

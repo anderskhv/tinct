@@ -1,3 +1,6 @@
+import { visibleToViewer } from '../readingMemory/sessions'
+import { readDeviceReadingMemory } from '../readingMemory/deviceStore'
+import type { ReadingSession } from '../readingMemory/types'
 import { ALL_BOOKS, getBook } from '../data/bookRegistry'
 import { loadEditionWindow } from '../data/editionLoader'
 import { storage } from '../services/storage'
@@ -21,7 +24,7 @@ export const LAB_TINCT_VOICE_POLICY = `Tinct memory and controls are available i
 
 Only end Talk or resume the book when the reader explicitly asks. For bye, goodbye, see you later, “okay thanks, that's it for now,” or a similarly clear conversational ending, say one short natural goodbye and call end_voice_session. For resume, continue reading, or go back to the audiobook, call resume_audiobook. A bare thanks does not end Talk. Silence, a pause, a completed answer, a tool result, or uncertainty is never a reason to end Talk. After every non-resume tool result, remain in the conversation and listen for the next turn, except when end_voice_session was explicitly requested.
 
-For “what did I read last time?”, “what did I read yesterday?”, or similar recall, call get_reading_history. Base the answer only on its result. Keep the initial recap to 5–15 spoken seconds; the result remains in this conversation so you can answer an exact follow-up about its passage.
+For “what did I read last time?”, “what did I read yesterday?”, or similar recall, call get_reading_history. Base the answer only on its result. The current open chapter is not evidence of what was read yesterday. Missing records mean unknown, not that the reader is mistaken. Never contradict their recollection on the basis of incomplete history. If lab_fixture_used is true, explicitly say this is demo history, never personal history. Keep the initial recap to 5–15 spoken seconds; the result remains in this conversation so you can answer an exact follow-up about its passage.
 
 For a request to open Library, Reading history, Settings, Chat, Cast, Pricing, or the book, call open_tinct_view. The Lab opens either the real Lab surface or an explicitly labelled Lab preview. Never claim a view opened unless the tool says ok.
 
@@ -71,6 +74,8 @@ export interface LabVoiceHistoryInput {
   fixtureEnabled: boolean
   now?: number
   logs?: BookReadingLog[]
+  userId?: string | null
+  sessions?: ReadingSession[]
 }
 
 function normalized(value: string): string {
@@ -92,7 +97,7 @@ function yesterdayAt(now: number, hour: number, minute: number): number {
   return value.getTime()
 }
 
-function fixtureActivity(input: LabVoiceHistoryInput): Record<string, unknown> {
+function fixtureActivity(input: LabVoiceHistoryInput) {
   const last = Math.max(0, input.source.paragraphs.length - 1)
   const start = Math.max(0, Math.min(last, input.paragraphIndex))
   const end = Math.min(last, start + 1)
@@ -104,7 +109,7 @@ function fixtureActivity(input: LabVoiceHistoryInput): Record<string, unknown> {
     chapter_number: input.source.chapterNumber,
     chapter_title: input.source.chapterLabel,
     edition: input.source.editionLabel,
-    mode: 'read',
+    mode: 'read' as const,
     started_at: new Date(yesterdayAt(now, 20, 5)).toISOString(),
     last_active_at: new Date(yesterdayAt(now, 20, 22)).toISOString(),
     paragraph_range: start === end ? `${start + 1}` : `${start + 1}–${end + 1}`,
@@ -121,15 +126,30 @@ function fixtureActivity(input: LabVoiceHistoryInput): Record<string, unknown> {
  * a visibly labelled, in-memory yesterday fixture. This never writes storage. */
 export async function getLabVoiceReadingHistory(input: LabVoiceHistoryInput): Promise<VoiceReadingRecallPayload> {
   const now = input.now ?? Date.now()
+  const sessions = (input.sessions ?? Object.values(readDeviceReadingMemory().sessions))
+    .filter(visibleToViewer(input.userId ?? null))
+  const sessionLogs: BookReadingLog[] = sessions.map(session => ({
+    bookId: session.anchor.bookId,
+    chapters: { [session.anchor.chapterNumber]: {
+      chapterNumber: session.anchor.chapterNumber,
+      sessions: [{
+        startedAt: session.startedAt, lastActiveAt: session.lastActiveAt,
+        editionKey: session.anchor.editionKey, mode: 'read' as const,
+        startParagraphIndex: session.anchor.range.startParagraphIndex,
+        lastParagraphIndex: session.anchor.range.endParagraphIndex,
+      }],
+    } },
+  } as BookReadingLog))
   const hits = findReadingActivity({
-    logs: input.logs ?? storage.getAll<BookReadingLog>('reading-log:'),
+    logs: [...sessionLogs, ...(input.logs ?? storage.getAll<BookReadingLog>('reading-log:'))],
     books: ALL_BOOKS,
     period: input.period,
     now,
-    bookQuery: input.bookQuery,
-    limit: 4,
+    // A Bible sub-book (Jeremiah) is a chapter label, not a registry book.
+    // Filter after resolving chapter titles, before applying the result limit.
+    limit: Number.MAX_SAFE_INTEGER,
   })
-  const activities = await Promise.all(hits.map(async hit => {
+  const resolved = await Promise.all(hits.map(async hit => {
     const book = getBook(hit.bookId)
     const edition = book?.editions.find(candidate => candidate.key === hit.editionKey)
       || book?.editions[0]
@@ -167,6 +187,17 @@ export async function getLabVoiceReadingHistory(input: LabVoiceHistoryInput): Pr
     }
   }))
 
+  const needle = normalized(input.bookQuery || '')
+  const seen = new Set<string>()
+  const activities = resolved.filter(activity => {
+    if (needle && ![activity.book_id, activity.book_title, activity.book_author, activity.chapter_title]
+      .some(value => normalized(value || '').includes(needle))) return false
+    const key = `${activity.book_id}:${activity.chapter_number}:${activity.started_at}:${activity.last_active_at}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  }).slice(0, 8)
+
   if (
     activities.length === 0
     && input.fixtureEnabled
@@ -183,6 +214,27 @@ export async function getLabVoiceReadingHistory(input: LabVoiceHistoryInput): Pr
     activities,
     lab_fixture_used: activities.some(activity => activity.lab_fixture === true),
   }
+}
+
+/**
+ * Navigation policy shared by typed chat and voice (V1 and V2).
+ *
+ * A chapter or paragraph move requested through the companion opens the
+ * reader at that place. It starts the audiobook only when the session began
+ * from playback (the companion paused a playing book) or the reader
+ * explicitly asked to play or read aloud. A move made to look something up
+ * must never turn the audiobook on by itself.
+ */
+export interface LabPlaybackNavigationOutcome {
+  /** True when playback should resume once the companion has confirmed the move. */
+  resumePlayback: boolean
+}
+
+export function shouldResumePlaybackAfterNavigation(input: {
+  sessionStartedFromPlayback: boolean
+  explicitPlayRequest?: boolean
+}): boolean {
+  return input.sessionStartedFromPlayback || input.explicitPlayRequest === true
 }
 
 export interface LabVoiceActionEntry {
@@ -255,4 +307,9 @@ export function createLabVoiceToolAdapter<ViewSnapshot>(
   bindings: LabVoiceAdapterBindings<ViewSnapshot>,
 ): TinctVoiceToolAdapter<ViewSnapshot> {
   return { ...bindings }
+}
+
+/** A request to see the page must not be interpreted as a request to hear it. */
+export function labVoiceRequestsAudio(text: string): boolean {
+  return /\b(?:play|resume|restart|replay|read\s+(?:it\s+)?aloud|continue\s+(?:the\s+)?(?:audio(?:book)?|listening))\b/i.test(text)
 }

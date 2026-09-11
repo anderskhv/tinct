@@ -16,6 +16,7 @@ import {
   cutPageTailTo,
   followOnReadingPage,
   absorbChapterTailPages,
+  growPageByFirstOmittedWord,
   growPaintedPageIfSlack,
   reflowAfterCut,
   isOneWordLeftoverPage,
@@ -364,6 +365,34 @@ describe('lab height-fit pages vs chrome', () => {
       { paragraphIndex: 0, from: 0, to: 30 },
       { paragraphIndex: 0, from: 30, to: 80 },
     ])
+  })
+
+  it('keeps a paint-shrunk page contiguous with a following multi-paragraph page', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 77 },
+      {
+        paragraphIndex: 0,
+        from: 77,
+        to: 94,
+        segments: [
+          { paragraphIndex: 0, from: 77, to: 94 },
+          { paragraphIndex: 1, from: 0, to: 55 },
+        ],
+      },
+      { paragraphIndex: 1, from: 55, to: 119 },
+    ]
+
+    const shrunk = applyPaintShrink(pages, 0, 71, { overflowing: true })
+
+    expect(chapterPageSegments(shrunk[1])).toEqual([
+      { paragraphIndex: 0, from: 71, to: 94 },
+      { paragraphIndex: 1, from: 0, to: 55 },
+    ])
+    expect(restorePageIndexForAnchor(shrunk, { paragraphIndex: 0, wordIndex: 71 })).toBe(1)
+    expect(chapterPagesCover([
+      Array.from({ length: 94 }, (_, index) => `p0w${index}`).join(' '),
+      Array.from({ length: 119 }, (_, index) => `p1w${index}`).join(' '),
+    ], shrunk)).toBe(true)
   })
 
   it('does not peel a single leftover word onto its own page', () => {
@@ -728,6 +757,30 @@ describe('page fill after peel', () => {
     const grown = growPaintedPageIfSlack(pages, 0, painted, 'peel')
     expect(grown[0].to).toBeGreaterThan(pages[0].to)
     expect(grown[1].from).toBe(grown[0].to)
+  })
+
+  it('trials exactly the first omitted weak word instead of polishing it away', () => {
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 7 },
+      { paragraphIndex: 0, from: 7, to: 10 },
+    ]
+
+    expect(growPageByFirstOmittedWord(
+      pages,
+      0,
+      ['EGEUS. Full of vexation come I, with complaint Against'],
+    )).toEqual([
+      { paragraphIndex: 0, from: 0, to: 8 },
+      { paragraphIndex: 0, from: 8, to: 10 },
+    ])
+  })
+
+  it('trials the first omitted word at an unmaterialized paragraph tail', () => {
+    const pages = [{ paragraphIndex: 0, from: 0, to: 1 }]
+
+    expect(growPageByFirstOmittedWord(pages, 0, ['There was evening'])).toEqual([
+      { paragraphIndex: 0, from: 0, to: 2, segments: undefined },
+    ])
   })
 
   it('fills visual slack across a paragraph boundary without consuming words', () => {

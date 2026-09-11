@@ -1,6 +1,6 @@
 #!/bin/bash
 # Post-deploy smoke test for Tinct
-# Run after every wrangler deploy to verify nothing is broken.
+# Run after every npm run deploy to verify nothing is broken.
 # Usage: ./scripts/smoke-test.sh [url]
 # Default URL: https://tinct.ahvelplund.workers.dev
 
@@ -19,7 +19,7 @@ echo ""
 # 1. Landing page loads
 echo "1. Landing page"
 LANDING=$(curl -sf "$URL/" 2>/dev/null || echo "FAIL")
-if echo "$LANDING" | grep -q 'Tinct — Read Classic Books'; then
+if printf '%s\n' "$LANDING" | grep -q 'Tinct — A New Way to Read'; then
   pass "Landing page loads"
 else
   fail "Landing page did not load"
@@ -28,38 +28,40 @@ fi
 # 1b. Static library hub loads at /read
 echo "1b. Library hub"
 LIBRARY=$(curl -sLf "$URL/read" 2>/dev/null || echo "FAIL")
-if echo "$LIBRARY" | grep -q 'The Tinct Library'; then
+if printf '%s\n' "$LIBRARY" | grep -q 'The Tinct Library'; then
   pass "Static library hub loads at /read"
 else
   fail "Static library hub did not load at /read"
 fi
 
-# 1c. SPA loads at /app
+# 1c. SPA loads at /reader
 echo "1c. App"
-HTML=$(curl -sf "$URL/app" 2>/dev/null || echo "FAIL")
-if echo "$HTML" | grep -q '<div id="root"'; then
-  pass "SPA loads at /app with root div"
+HTML=$(curl -sf "$URL/reader" 2>/dev/null || echo "FAIL")
+if printf '%s\n' "$HTML" | grep -q '<div id="root"'; then
+  pass "SPA loads at /reader with root div"
 else
-  fail "SPA did not load at /app"
+  fail "SPA did not load at /reader"
 fi
 
 # 2. JS bundle exists and loads
 echo "2. JS Bundle"
-JS_FILE=$(echo "$HTML" | sed -n 's/.*src="\(\/assets\/index-[^"]*\.js\)".*/\1/p' | head -1)
+JS_FILE=$(printf '%s\n' "$HTML" | sed -n 's/.*src="\(\/assets\/index-[^"]*\.js\)".*/\1/p' | head -1)
 if [ -n "$JS_FILE" ]; then
   pass "JS bundle found: $JS_FILE"
   JS_CONTENT=$(curl -sf "$URL$JS_FILE" 2>/dev/null || echo "")
 
   # 2b. JS file contains actual JavaScript (not HTML fallback)
-  if echo "$JS_CONTENT" | head -c 100 | grep -q "var \|function \|Object\.\|import "; then
+  if printf '%s\n' "$JS_CONTENT" | head -c 100 | grep -q "var \|const \|function \|Object\.\|import "; then
     pass "JS bundle contains JavaScript code"
   else
     fail "JS bundle returns HTML instead of JavaScript — CRITICAL: app will not render"
   fi
 
+  # Shared configuration can be factored into a statically imported chunk.
+  CONFIG_MARKERS=$(node "$(dirname "$0")/check-deployed-config.cjs" "$URL$JS_FILE")
   # 3. Supabase URL baked in
   echo "3. Supabase"
-  if echo "$JS_CONTENT" | grep -q "supabase.co"; then
+  if printf '%s\n' "$CONFIG_MARKERS" | grep -q "supabase-url"; then
     pass "Supabase URL is in bundle"
   else
     fail "Supabase URL MISSING from bundle — auth will be broken"
@@ -67,7 +69,7 @@ if [ -n "$JS_FILE" ]; then
 
   # 3b. Supabase anon key (JWT — always starts with eyJhbGciOi)
   # Catches the 2026-04-22/23 outage mode: URL present but anon key empty.
-  if echo "$JS_CONTENT" | grep -q "eyJhbGciOi"; then
+  if printf '%s\n' "$CONFIG_MARKERS" | grep -q "supabase-key"; then
     pass "Supabase anon key is in bundle"
   else
     fail "Supabase anon key MISSING from bundle — auth will return \"Auth not configured\""
@@ -75,7 +77,7 @@ if [ -n "$JS_FILE" ]; then
 
   # 4. Worker audio route baked in
   echo "4. Audio (Worker)"
-  if echo "$JS_CONTENT" | grep -q "/api/audio-file"; then
+  if printf '%s\n' "$JS_CONTENT" | grep -q "/api/audio-file"; then
     pass "Worker audio route is in bundle"
   else
     fail "Worker audio route MISSING from bundle — audio will be broken"
@@ -108,7 +110,7 @@ fi
 # 6. Audio manifest accessible through Worker
 echo "6. Audio files (Worker)"
 MANIFEST=$(curl -sf "$URL/api/audio-manifest?path=odyssey/original-en/ch1/manifest.json" 2>/dev/null || echo "FAIL")
-if echo "$MANIFEST" | grep -q '"paragraphs"'; then
+if printf '%s\n' "$MANIFEST" | grep -q '"paragraphs"'; then
   pass "Audio manifest loads through Worker"
 else
   fail "Audio manifest not accessible through Worker"
@@ -126,10 +128,10 @@ fi
 #    `media-src`, audio falls back to default-src and browser policy changes
 #    causing audio play to silently cascade through the chapter.)
 echo "8. CSP audio allowlist"
-CSP_HEADER=$(curl -sI "$URL/app" 2>/dev/null | tr -d '\r' | awk -F': ' 'tolower($1)=="content-security-policy" { $1=""; sub(/^ /, ""); print }')
+CSP_HEADER=$(curl -sI "$URL/reader" 2>/dev/null | tr -d '\r' | awk -F': ' 'tolower($1)=="content-security-policy" { $1=""; sub(/^ /, ""); print }')
 if [ -z "$CSP_HEADER" ]; then
-  fail "CSP header missing from /app"
-elif echo "$CSP_HEADER" | grep -q "media-src 'self'"; then
+  fail "CSP header missing from /reader"
+elif printf '%s\n' "$CSP_HEADER" | grep -q "media-src 'self'"; then
   pass "CSP media-src allows same-origin audio"
 else
   fail "CSP does not permit same-origin media — audio playback may fail"
@@ -137,7 +139,7 @@ fi
 
 # 9. CSS loads
 echo "9. CSS"
-CSS_FILE=$(echo "$HTML" | sed -n 's/.*href="\(\/assets\/index-[^"]*\.css\)".*/\1/p' | head -1)
+CSS_FILE=$(printf '%s\n' "$HTML" | sed -n 's/.*href="\(\/assets\/index-[^"]*\.css\)".*/\1/p' | head -1)
 if [ -n "$CSS_FILE" ]; then
   CSS_STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "$URL$CSS_FILE" 2>/dev/null || echo "000")
   if [ "$CSS_STATUS" = "200" ]; then

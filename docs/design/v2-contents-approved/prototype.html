@@ -1,0 +1,157 @@
+<div id="tinct-fast" aria-label="Mobile contents, starting at Genesis 44">
+  <style>
+    #tinct-fast { --tn-paper:light-dark(#f1ece2,#25231f);--tn-ink:light-dark(#342f27,#eae3d6);--tn-muted:light-dark(#797060,#b3a995);--tn-line:light-dark(#ddd5c7,#433d33);--tn-wash:light-dark(#e7e0d3,#39332a);--tn-accent:light-dark(#8b7048,#c9ac7b);--tn-panel:var(--tn-paper);color:var(--tn-ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:390px;margin:auto; }
+    #tinct-fast * { box-sizing:border-box; }
+    #tinct-fast [hidden] { display:none!important; }
+    #tinct-fast .tn-phone { height:780px;display:flex;flex-direction:column;background:var(--tn-paper);overflow:hidden;position:relative; }
+    #tinct-fast button,#tinct-fast input { font:inherit;color:inherit; }
+    #tinct-fast button { background:transparent;border:0;cursor:pointer;min-height:44px;text-align:left;padding:10px; }
+    #tinct-fast button:hover { background:var(--tn-wash);border-radius:6px; }
+    #tinct-fast button:focus-visible,#tinct-fast input:focus-visible { outline:2px solid var(--tn-accent);outline-offset:-2px; }
+    #tinct-fast .tn-header { position:relative;display:flex;gap:6px;align-items:center;justify-content:space-between;padding:8px 14px 0;flex:none; }
+    #tinct-fast h2 { position:absolute;left:58px;right:58px;pointer-events:none;font:13px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.02em;margin:0;text-align:center;color:var(--tn-muted); }
+    #tinct-fast h3 { font:24px Georgia,serif;margin:0; }
+    #tinct-fast p { margin:0; }
+    #tinct-fast small { color:var(--tn-muted);font-size:11px; }
+    #tinct-fast .tn-icon,#tinct-fast .tn-search-trigger { min-width:44px;display:flex;align-items:center;justify-content:center; }
+    #tinct-fast .tn-glyph { width:17px;height:17px;stroke-width:1.5;flex:none; }
+    #tinct-fast .tn-controls { padding:0 24px;flex:none; }
+    #tinct-fast .tn-path { display:flex;align-items:center;gap:12px;justify-content:space-between; }
+    #tinct-fast .tn-path button { padding:6px 0;display:flex;align-items:center;gap:9px; }
+    #tinct-fast .tn-path .tn-book { font:34px/1.2 Georgia,serif;letter-spacing:-.7px; }
+    #tinct-fast .tn-book .tn-glyph { width:13px;height:13px;color:var(--tn-muted); }
+    #tinct-fast .tn-path .tn-jump { font-size:13px;color:var(--tn-muted);padding:8px 0 8px 12px; }
+    #tinct-fast .tn-jump .tn-glyph { width:12px;height:12px; }
+    #tinct-fast .tn-tabs { display:flex;gap:25px;border-bottom:1px solid var(--tn-line);margin-top:5px; }
+    #tinct-fast .tn-tabs button { padding:10px 0;font-size:12px;color:var(--tn-muted); }
+    #tinct-fast .tn-tabs [aria-pressed=true] { color:var(--tn-ink);box-shadow:inset 0 -1px var(--tn-ink); }
+    #tinct-fast .tn-tabs button:hover,#tinct-fast .tn-path button:hover { background:transparent;border-radius:0;color:var(--tn-accent); }
+    #tinct-fast .tn-body { flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 24px 12px;scrollbar-width:thin;scrollbar-color:var(--tn-line) transparent; }
+    #tinct-fast .tn-summary { display:flex;justify-content:space-between;font-size:11px;color:var(--tn-muted);padding:14px 0 8px; }
+    #tinct-fast .tn-chapter { border-bottom:1px solid var(--tn-line);padding:0; }
+    #tinct-fast .tn-chapter-main { display:flex;align-items:center;gap:12px;width:100%;padding:16px 0;min-height:59px; }
+    #tinct-fast .tn-chapter-main strong { font:22px/1.2 Georgia,serif;letter-spacing:-.25px; }
+    #tinct-fast .tn-chapter-main .tn-end { margin-left:auto;color:var(--tn-muted);font-size:11px;display:flex;align-items:center;gap:6px; }
+    #tinct-fast .tn-current-dot { display:inline-block;width:5px;height:5px;background:var(--tn-accent);border-radius:50%; }
+    #tinct-fast .tn-chapter[data-current=true] .tn-chapter-main strong { color:var(--tn-accent); }
+    #tinct-fast .tn-chapter[data-browsed=true]:not([data-current=true]) .tn-chapter-main strong { text-decoration:underline;text-decoration-color:var(--tn-line);text-underline-offset:5px; }
+    #tinct-fast .tn-annotation { display:flex;gap:10px;align-items:start;width:100%;padding:8px 0; }
+    #tinct-fast .tn-annotation .tn-symbol { color:var(--tn-muted);min-width:16px;padding-top:4px; }
+    #tinct-fast .tn-symbol .tn-glyph { width:13px;height:13px; }
+    #tinct-fast .tn-annotation>span:last-child { min-width:0; }
+    #tinct-fast .tn-annotation strong { display:block;font:18px/1.4 Georgia,serif;font-weight:normal;letter-spacing:-.15px; }
+    #tinct-fast .tn-chapter .tn-annotation { padding:6px 0 9px; }
+    #tinct-fast .tn-chapter .tn-annotation strong { font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:0; }
+    #tinct-fast .tn-chapter .tn-highlight strong { font:17px/1.45 Georgia,serif;font-style:italic;color:var(--tn-muted); }
+    #tinct-fast .tn-chapter .tn-highlight { padding-bottom:17px; }
+    #tinct-fast .tn-annotation small { display:block;margin-bottom:6px; }
+    #tinct-fast .tn-excerpt { display:block;color:var(--tn-muted);font-size:12px;margin-top:7px;line-height:1.55; }
+    #tinct-fast .tn-note-preview { padding:0 4px 6px 15px;margin:0 0 3px 9px;border-left:1px solid var(--tn-line); }
+    #tinct-fast .tn-note-preview button { font-size:11px;color:var(--tn-muted);padding:4px 0; }
+    #tinct-fast .tn-note-preview p { font:17px/1.5 Georgia,serif; }
+    #tinct-fast .tn-location { flex:none;display:flex;align-items:center;gap:9px;width:100%;padding:14px 24px!important;min-height:54px;background:var(--tn-panel)!important;border-top:1px solid var(--tn-line); }
+    #tinct-fast .tn-location span { display:block;font-size:12px; }
+    #tinct-fast .tn-location .tn-location-dot { width:5px;height:5px;border-radius:50%;background:var(--tn-accent);flex:none; }
+    #tinct-fast .tn-location .tn-location-page { margin-left:auto;color:var(--tn-muted);font-size:11px; }
+    #tinct-fast .tn-location .tn-glyph { width:14px;height:14px;color:var(--tn-muted); }
+    #tinct-fast .tn-section { font-size:11px;color:var(--tn-muted);margin:18px 0 7px; }
+    #tinct-fast .tn-row { display:flex;align-items:center;gap:12px;width:100%;padding:15px 0;border-bottom:1px solid var(--tn-line); }
+    #tinct-fast .tn-row>span:first-child { flex:1; }
+    #tinct-fast .tn-row strong { display:block;font:23px Georgia,serif;letter-spacing:-.3px; }
+    #tinct-fast .tn-row small { display:block;margin-top:5px; }
+    #tinct-fast .tn-row .tn-end { color:var(--tn-muted);font-size:12px; }
+    #tinct-fast .tn-scope { font-size:11px;color:var(--tn-muted);padding:3px 0 4px; }
+    #tinct-fast input { min-height:44px;min-width:0;width:100%;background:transparent;border:0;font-size:16px; }
+    #tinct-fast .tn-searchbox { display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--tn-line);margin-bottom:4px; }
+    #tinct-fast .tn-searchbox button { font-size:12px;padding:5px; }
+    #tinct-fast .tn-number-form { display:flex;gap:12px;align-items:center;margin:8px 0 23px;border-bottom:1px solid var(--tn-line); }
+    #tinct-fast .tn-number-form input { flex:1;padding:10px 0;font:27px Georgia,serif; }
+    #tinct-fast .tn-number-form button { display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:none;font-size:13px; }
+    #tinct-fast .tn-quiet { color:var(--tn-muted);font-size:12px;padding:10px 0; }
+    #tinct-fast .tn-thread { padding-top:18px; }
+    #tinct-fast .tn-thread h3 { line-height:1.4;margin:10px 0 22px; }
+    #tinct-fast .tn-thread p { font:21px/1.6 Georgia,serif;margin:14px 0 22px; }
+    #tinct-fast .tn-thread blockquote { margin:18px 0;padding-left:16px;border-left:2px solid var(--tn-accent);font:20px/1.6 Georgia,serif; }
+    #tinct-fast .tn-primary { background:var(--tn-ink)!important;color:var(--tn-paper);display:block;width:100%;border-radius:5px;text-align:center;margin:14px 0; }
+    #tinct-fast .tn-listitem { padding:14px 0;border-bottom:1px solid var(--tn-line); }
+    #tinct-fast mark { background:var(--tn-wash);color:inherit;padding:0 1px; }
+    #tinct-fast .tn-empty { color:var(--tn-muted);font-size:13px;padding:20px 0; }
+    #tinct-fast .tn-live { position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%); }
+  </style>
+  <div class="tn-phone">
+    <header class="tn-header"><button class="tn-icon" data-action="back" aria-label="Back to book"><i class="tn-glyph" data-lucide="arrow-left" aria-hidden="true"></i></button><h2>The Bible</h2><button class="tn-search-trigger" data-action="search" aria-label="Search"><i class="tn-glyph" data-lucide="search" aria-hidden="true"></i></button></header>
+    <div class="tn-controls"></div>
+    <main class="tn-body" aria-label="Contents list"></main>
+    <button class="tn-location" data-action="current" aria-label="Your reading place, Genesis 44, page 2 of 4"><span class="tn-location-dot"></span><span class="tn-location-label">Genesis 44</span><span class="tn-location-page">2 / 4</span><i class="tn-glyph" data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+    <span class="tn-live" aria-live="polite"></span>
+  </div>
+  <script>
+    (()=>{
+      const root=document.getElementById('tinct-fast');
+      const q=s=>root.querySelector(s);
+      const icon=name=>`<i class="tn-glyph" data-lucide="${name}" aria-hidden="true"></i>`;
+      const icons=()=>{if(globalThis.lucide)globalThis.lucide.createIcons({attrs:{width:17,height:17,'stroke-width':1.5}});};
+      const books=[['Genesis',50],['Exodus',40],['Leviticus',27],['Numbers',36],['Deuteronomy',34],['Joshua',24],['Judges',21],['Ruth',4],['1 Samuel',31],['2 Samuel',24],['1 Kings',22],['2 Kings',25],['1 Chronicles',29],['2 Chronicles',36],['Ezra',10],['Nehemiah',13],['Esther',10],['Job',42],['Psalms',150],['Proverbs',31],['Ecclesiastes',12],['Song of Solomon',8],['Isaiah',66],['Jeremiah',52],['Lamentations',5],['Ezekiel',48],['Daniel',12],['Hosea',14],['Joel',3],['Amos',9],['Obadiah',1],['Jonah',4],['Micah',7],['Nahum',3],['Habakkuk',3],['Zephaniah',3],['Haggai',2],['Zechariah',14],['Malachi',4],['Matthew',28],['Mark',16],['Luke',24],['John',21],['Acts',28],['Romans',16],['1 Corinthians',16],['2 Corinthians',13],['Galatians',6],['Ephesians',6],['Philippians',4],['Colossians',4],['1 Thessalonians',5],['2 Thessalonians',3],['1 Timothy',6],['2 Timothy',4],['Titus',3],['Philemon',1],['Hebrews',13],['James',5],['1 Peter',5],['2 Peter',3],['1 John',5],['2 John',1],['3 John',1],['Jude',1],['Revelation',22]];
+      const state={view:'chapters',book:'Genesis',readBook:'Genesis',readChapter:44,page:2,browseChapter:44,filter:'All',testament:'Old',query:'',bookQuery:'',thread:null,expanded:new Set(),returnView:'chapters',savedScroll:0};
+      const chats=[
+        {id:'cup',book:'Genesis',n:44,date:'Today',title:'Why put the cup in Benjamin’s sack?',excerpt:'Is Joseph testing whether his brothers have changed?',answer:'Joseph creates a situation in which the brothers could abandon Benjamin, as they once abandoned him. Judah’s willingness to stay in Benjamin’s place is a striking change.',messages:6},
+        {id:'judah',book:'Genesis',n:44,date:'Today',title:'What changes in Judah’s speech?',excerpt:'He offers himself in Benjamin’s place. Why is that significant?',answer:'Judah shifts from treating a brother as expendable to offering his own freedom for one. His speech also brings their father’s grief into the room.',messages:4},
+        {id:'identity',book:'Genesis',n:42,date:'Yesterday',title:'Why does Joseph hide his identity?',excerpt:'Recognition, power, and the possibility of forgiveness.',answer:'Joseph recognizes his brothers while they do not recognize him. That imbalance gives him time to learn what has happened to his family and to see how his brothers now act.',messages:8},
+        {id:'dreams',book:'Genesis',n:37,date:'5 Sep',title:'Are the dreams a promise or a warning?',excerpt:'Joseph’s dreams and the jealousy of his brothers.',answer:'The dreams anticipate a reversal of power within the family. Their immediate effect is to sharpen the brothers’ resentment.',messages:4},
+        {id:'name',book:'Exodus',n:3,date:'2 Sep',title:'What does “I am that I am” mean?',excerpt:'A name, a promise of presence, or both?',answer:'The name is given in the context of Moses’ question about who sends him. It connects identity with the promise of presence.',messages:6}
+      ];
+      const highlights=[{id:'servant',book:'Genesis',n:44,text:'Let thy servant abide instead of the lad a bondman to my lord.',note:'Judah offers to take Benjamin’s place.',date:'Today'},{id:'guilty',book:'Genesis',n:42,text:'We are verily guilty concerning our brother.',note:'The brothers remember Joseph.',date:'Yesterday'},{id:'dream',book:'Genesis',n:37,text:'And Joseph dreamed a dream, and he told it his brethren.',note:'The beginning of the conflict.',date:'5 Sep'}];
+      const passages=[{book:'Genesis',n:39,verse:2,text:'And the LORD was with Joseph, and he was a prosperous man; and he was in the house of his master the Egyptian.'},{book:'Genesis',n:44,verse:12,text:'And he searched, and began at the eldest, and left at the youngest: and the cup was found in Benjamin’s sack.'},{book:'Genesis',n:50,verse:20,text:'But as for you, ye thought evil against me; but God meant it unto good.'}];
+      const total=()=>books.find(([b])=>b===state.book)[1];
+      const location=()=>`${state.readBook} ${state.readChapter}`;
+      const matchingChats=n=>chats.filter(c=>c.book===state.book&&(n===undefined||c.n===n));
+      const matchingHighlights=n=>highlights.filter(h=>h.book===state.book&&(n===undefined||h.n===n));
+      function escape(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+      function marked(s){const term=state.query.trim();if(!term)return escape(s);const index=s.toLowerCase().indexOf(term.toLowerCase());return index<0?escape(s):escape(s.slice(0,index))+'<mark>'+escape(s.slice(index,index+term.length))+'</mark>'+escape(s.slice(index+term.length));}
+      function tabs(){return `<nav class="tn-tabs" aria-label="Contents filter">${['All','Chats','Highlights'].map(f=>`<button data-filter="${f}" aria-pressed="${state.filter===f}">${f}</button>`).join('')}</nav>`;}
+      function chatButton(c,full=false){return `<button class="tn-annotation" data-chat="${c.id}" aria-label="${escape(c.title)}, ${c.book} ${c.n}, ${c.messages} messages">${full?'':`<span class="tn-symbol">${icon('message-circle')}</span>`}<span>${full?`<small>${c.book} ${c.n} · ${c.date}</small>`:''}<strong>${marked(c.title)}</strong>${full?`<span class="tn-excerpt">${marked(c.excerpt)}</span>`:''}</span></button>`;}
+      function highlightButton(h,full=false){return `<button class="tn-annotation tn-highlight" data-highlight="${h.id}" aria-label="Highlight in ${h.book} ${h.n}">${full?'':`<span class="tn-symbol">${icon('highlighter')}</span>`}<span>${full?`<small>${h.book} ${h.n} · ${h.date}</small>`:''}<strong>“${marked(h.text)}”</strong>${full?`<span class="tn-excerpt">${marked(h.note)}</span>`:''}</span></button>`;}
+      function chapterRows(){let html=`<div class="tn-summary"><span>${total()} chapters</span><span>${state.book==='Genesis'?'42 read':''}</span></div>`;for(let n=1;n<=total();n++){const current=state.book===state.readBook&&n===state.readChapter;const status=current?'Reading':state.book==='Genesis'&&n<=42?'Read':state.book==='Genesis'&&n===43?'Started':'Unread';const cs=matchingChats(n),hs=matchingHighlights(n);html+=`<section class="tn-chapter" data-n="${n}" data-current="${current}" data-browsed="${n===state.browseChapter}"><button class="tn-chapter-main" data-read="${n}" aria-label="Chapter ${n}, ${status}" ${current?'aria-current="location"':''}><strong>Chapter ${n}</strong><span class="tn-end">${current?'<span class="tn-current-dot"></span>Reading':status==='Read'?icon('check'):status==='Started'?'Started':''}</span></button>${cs.slice(0,state.expanded.has(n)?cs.length:2).map(c=>chatButton(c)).join('')}${cs.length>2&&!state.expanded.has(n)?`<div class="tn-note-preview"><button data-expand="${n}">+ ${cs.length-2} chats</button></div>`:''}${hs.slice(0,1).map(h=>highlightButton(h)).join('')}</section>`;}return html;}
+      function annotationList(){const items=state.filter==='Chats'?matchingChats():matchingHighlights();return items.length?items.map(item=>`<div class="tn-listitem">${state.filter==='Chats'?chatButton(item,true):highlightButton(item,true)}</div>`).join(''):`<p class="tn-empty">No ${state.filter.toLowerCase()} in ${state.book} yet.</p>`;}
+      function bookList(){const term=state.bookQuery.toLowerCase().trim();const list=term?books.filter(([b])=>b.toLowerCase().includes(term)):state.testament==='Old'?books.slice(0,39):books.slice(39);return list.map(([b,c])=>`<button class="tn-row" data-book="${b}"><span><strong>${b}</strong>${b==='Genesis'?'<small>42 read · 4 chats</small>':b==='Exodus'?'<small>1 chat</small>':''}</span><span class="tn-end">${b===state.readBook?'<span class="tn-current-dot"></span>':c}</span></button>`).join('')||'<p class="tn-empty">No books found.</p>';}
+      function searchResults(){const term=state.query.trim().toLowerCase();if(!term)return '<div class="tn-section">Try a word or chapter</div><button class="tn-row" data-query="Joseph"><span><strong>Joseph</strong></span><span>↗</span></button><button class="tn-row" data-query="Genesis 7"><span><strong>Genesis 7</strong></span><span>↗</span></button>';let html='';const m=term.match(/^(.*?)\s+(\d+)(?::(\d+))?$/);if(state.filter==='All'){const candidates=books.filter(([b])=>b.toLowerCase().startsWith(m?m[1]:term));for(const [b,c] of candidates){if(m&&Number(m[2])>0&&Number(m[2])<=c)html+=`<button class="tn-row" data-reference="${b}:${m[2]}"><span><small>CHAPTER</small><strong>${b} ${m[2]}</strong></span><span>↗</span></button>`;else if(!m)html+=`<button class="tn-row" data-book="${b}"><span><small>BOOK</small><strong>${b}</strong></span><span>›</span></button>`;}const ps=passages.filter(p=>p.text.toLowerCase().includes(term));if(ps.length)html+='<div class="tn-section">Passages</div>'+ps.map(p=>`<button class="tn-annotation" data-reference="${p.book}:${p.n}"><span><small>${p.book} ${p.n}:${p.verse}</small><strong>${marked(p.text)}</strong></span></button>`).join('');}
+        const cs=chats.filter(c=>(c.title+' '+c.excerpt+' '+c.answer).toLowerCase().includes(term));const hs=highlights.filter(h=>(h.text+' '+h.note).toLowerCase().includes(term));if(state.filter!=='Highlights'&&cs.length)html+='<div class="tn-section">Chats</div>'+cs.map(c=>chatButton(c,true)).join('');if(state.filter!=='Chats'&&hs.length)html+='<div class="tn-section">Highlights</div>'+hs.map(h=>highlightButton(h,true)).join('');return html||'<p class="tn-empty">No matches. Try “Joseph” or “Genesis 7”.</p>';}
+      function controls(){if(state.view==='books')return `<div class="tn-searchbox"><input data-input="books" aria-label="Find a Bible book" placeholder="Find a book…"><button data-action="home">Done</button></div><nav class="tn-tabs" aria-label="Testament">${['Old','New'].map(t=>`<button data-testament="${t}" aria-pressed="${state.testament===t}">${t} Testament</button>`).join('')}</nav>`;
+        if(state.view==='search')return `<div class="tn-searchbox"><input data-input="search" aria-label="Search words, chapters, chats and highlights" placeholder="Search The Bible"><button data-action="home">Cancel</button></div><div class="tn-scope">All books</div>${tabs()}`;
+        if(state.view==='jump')return `<div class="tn-path"><button class="tn-book" data-action="books">${state.book} ${icon('chevron-down')}</button></div>`;
+        if(state.view==='thread'||state.view==='highlight'||state.view==='reading')return '';
+        return `<div class="tn-path"><button class="tn-book" data-action="books" aria-label="Change book, ${state.book}">${state.book} ${icon('chevron-down')}</button><button class="tn-jump" data-action="jump" aria-label="Jump to chapter">Jump to ${icon('chevron-down')}</button></div>${tabs()}`;}
+      function content(){if(state.view==='books')return bookList();if(state.view==='search')return searchResults();if(state.view==='jump')return `<div class="tn-number-form" role="group" aria-label="Go to chapter"><input type="number" inputmode="numeric" min="1" max="${total()}" required placeholder="Chapter 1–${total()}" aria-label="Chapter number"><button type="button" data-action="openchapter">Go ${icon('arrow-right')}</button></div>${Array.from({length:Math.ceil(total()/10)},(_,i)=>`<button class="tn-row" data-range="${i*10+1}" aria-label="Browse chapters ${i*10+1} to ${Math.min(total(),i*10+10)}"><span><strong>${i*10+1}–${Math.min(total(),i*10+10)}</strong></span><span class="tn-end">${icon('chevron-right')}</span></button>`).join('')}`;
+        if(state.view==='thread'){const c=chats.find(c=>c.id===state.thread);return `<article class="tn-thread"><small>${c.book.toUpperCase()} ${c.n} · ${c.date.toUpperCase()}</small><h3>${c.title}</h3><small>You</small><p>${c.excerpt}</p><small>Tinct</small><p>${c.answer}</p><button class="tn-primary" data-action="resume">Back to book</button></article>`;}
+        if(state.view==='highlight'){const h=highlights.find(h=>h.id===state.thread);return `<article class="tn-thread"><small>${h.book.toUpperCase()} ${h.n} · HIGHLIGHT</small><blockquote>“${h.text}”</blockquote><small>Your note</small><p>${h.note}</p><button class="tn-primary" data-reference="${h.book}:${h.n}">Open passage</button></article>`;}
+        if(state.view==='reading')return `<article class="tn-thread"><small>THE BIBLE · KING JAMES VERSION</small><h3>${location()}</h3>${state.readBook==='Genesis'&&state.readChapter===44?'<p>And he searched, and began at the eldest, and left at the youngest: and the cup was found in Benjamin’s sack.</p><p>Then they rent their clothes, and laded every man his ass, and returned to the city.</p>':'<p>Chapter opened in the design preview.</p>'}<button class="tn-quiet" data-action="current">Open contents →</button></article>`;
+        return state.filter==='All'?chapterRows():annotationList();}
+      function reveal(n){const body=q('.tn-body'),row=body.querySelector(`[data-n="${n}"]`);if(row)body.scrollTop=Math.max(0,row.getBoundingClientRect().top-body.getBoundingClientRect().top+body.scrollTop);}
+      function render(target){q('.tn-controls').innerHTML=controls();q('.tn-body').innerHTML=content();q('.tn-body').scrollTop=0;q('.tn-location-label').textContent=location();q('.tn-location-page').textContent=state.readBook==='Genesis'&&state.readChapter===44?state.page+' / 4':'Page '+state.page;q('.tn-location').setAttribute('aria-label','Your reading place, '+location()+', page '+state.page);q('h2').textContent=state.view==='books'?'Books':state.view==='jump'?'Find a chapter':state.view==='thread'?'Conversation':state.view==='highlight'?'Highlight':'The Bible';q('[data-action=back]').setAttribute('aria-label',['thread','highlight'].includes(state.view)?'Back to overview':state.view==='chapters'?'Back to book':'Back to contents');q('.tn-search-trigger').hidden=['search','books','jump','thread','highlight'].includes(state.view);const input=q('[data-input]');if(input)input.value=state.view==='books'?state.bookQuery:state.query;icons();if(target)reveal(target);}
+      function navigate(book,n){state.book=book;state.readBook=book;state.readChapter=n;state.browseChapter=n;state.page=1;state.view='reading';state.query='';state.filter='All';q('.tn-live').textContent=`Opened ${book} ${n}, page 1`;}
+      root.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;let target=null,focusInput=false,preserveScroll=null;
+        if(b.dataset.action==='back'){if(['thread','highlight'].includes(state.view)){state.view=state.returnView;preserveScroll=state.savedScroll;}else if(state.view==='chapters')state.view='reading';else{state.view='chapters';target=state.browseChapter;}}
+        if(b.dataset.action==='search'){state.view='search';state.query='';state.filter='All';focusInput=true;}
+        if(b.dataset.action==='books'){state.view='books';state.bookQuery='';}
+        if(b.dataset.action==='jump')state.view='jump';
+        if(b.dataset.action==='openchapter'){const field=q('.tn-number-form input');if(!field.reportValidity())return;navigate(state.book,Number(field.value));}
+        if(b.dataset.action==='home'){state.query='';state.view='chapters';target=state.browseChapter;}
+        if(b.dataset.action==='current'){state.view='chapters';state.book=state.readBook;state.browseChapter=state.readChapter;state.filter='All';state.query='';target=state.readChapter;}
+        if(b.dataset.action==='resume')state.view='reading';
+        if(b.dataset.testament){state.testament=b.dataset.testament;state.bookQuery='';}
+        if(b.dataset.book){state.book=b.dataset.book;state.browseChapter=state.book===state.readBook?state.readChapter:1;state.view='chapters';state.filter='All';state.query='';target=state.browseChapter;}
+        if(b.dataset.filter){state.filter=b.dataset.filter;if(state.view==='chapters'&&state.filter==='All')target=state.browseChapter;}
+        if(b.dataset.range){state.browseChapter=Number(b.dataset.range);state.view='chapters';state.filter='All';target=state.browseChapter;}
+        if(b.dataset.expand){preserveScroll=q('.tn-body').scrollTop;state.expanded.add(Number(b.dataset.expand));}
+        if(b.dataset.chat||b.dataset.highlight){state.returnView=state.view;state.savedScroll=q('.tn-body').scrollTop;state.thread=b.dataset.chat||b.dataset.highlight;state.view=b.dataset.chat?'thread':'highlight';}
+        if(b.dataset.read)navigate(state.book,Number(b.dataset.read));
+        if(b.dataset.reference){const [book,n]=b.dataset.reference.split(':');navigate(book,Number(n));}
+        if(b.dataset.query)state.query=b.dataset.query;
+        render(target);if(preserveScroll!==null)q('.tn-body').scrollTop=preserveScroll;if(focusInput)q('input')?.focus();
+      });root.addEventListener('input',e=>{if(e.target.dataset.input==='search'){state.query=e.target.value;q('.tn-body').innerHTML=searchResults();icons();q('.tn-body').scrollTop=0;}if(e.target.dataset.input==='books'){state.bookQuery=e.target.value;q('.tn-body').innerHTML=bookList();icons();q('.tn-body').scrollTop=0;}});
+      root.addEventListener('submit',e=>{e.preventDefault();const n=Number(q('.tn-number-form input').value);if(Number.isInteger(n)&&n>=1&&n<=total()){navigate(state.book,n);render();}});
+      root.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tn-number-form input')){q('[data-action=openchapter]').click();return;}if(e.key==='Escape'){state.view='chapters';state.query='';render(state.browseChapter);q('[data-action=books]')?.focus();}});
+      render(44);
+    })();
+  </script>
+</div>

@@ -1,6 +1,11 @@
 import type { Section } from '../types'
 import type { LabChapter } from './labSource'
 
+/**
+ * Legacy device-only finished list. The reader no longer writes it: finished
+ * chapters live in the synced position record (`labPosition.ts`), and
+ * `labPositionStore.migrateLegacyFinishedChapters` folds this key in once.
+ */
 export const LAB_FINISHED_STORAGE_KEY = 'tinct-lab-finished-chapters'
 
 export type LabTreeKind = 'testament' | 'section' | 'book' | 'chapter'
@@ -222,7 +227,7 @@ export function labTreeProgressLabel(node: LabTreeNode, finished: Set<number>): 
   if (node.kind === 'book') {
     const { finished: done, total } = bookChapterProgress(node.chapterNumbers, finished)
     if (done <= 0 || total <= 0 || done >= total) return null
-    return `${done} of ${total}`
+    return `${done} of ${total} finished`
   }
   const books = childBooks(node)
   const doneBooks = books.filter(book => {
@@ -230,7 +235,7 @@ export function labTreeProgressLabel(node: LabTreeNode, finished: Set<number>): 
     return total > 0 && done >= total
   }).length
   if (doneBooks <= 0 || books.length <= 0) return null
-  return `${doneBooks} of ${books.length} books`
+  return `${doneBooks} of ${books.length} books finished`
 }
 
 export function labTreeMark(

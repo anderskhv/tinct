@@ -1,7 +1,9 @@
 // @vitest-environment jsdom
 
-import { describe, expect, it } from 'vitest'
-import { isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPullOpensToc, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics } from './labChrome'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+  labShouldAutofocusComposer,
+} from './labChrome'
 
 describe('lab chrome states', () => {
   it('keeps one status line per state', () => {
@@ -23,19 +25,19 @@ describe('lab chrome states', () => {
     expect(labAfterTalk('reading')).toBe('reading')
   })
 
-  it('names Starting / Listening / Thinking / Speaking for the composer status', () => {
-    expect(labVoicePhaseLabel('connecting')).toBe('Starting')
+  it('names Connecting / Listening / Thinking / Speaking for the composer status', () => {
+    expect(labVoicePhaseLabel('connecting')).toBe('Connecting')
     expect(labVoicePhaseLabel('listening')).toBe('Listening')
     expect(labVoicePhaseLabel('thinking')).toBe('Thinking')
     expect(labVoicePhaseLabel('speaking')).toBe('Speaking')
     expect(labVoicePhaseLabel('idle')).toBeNull()
   })
 
-  it('holds Starting until her greeting audio begins, not when the session is listening', () => {
+  it('shows setup only while the live session is connecting', () => {
     expect(nextLabVoiceGate('off', 'connecting', true)).toBe('connecting')
     expect(nextLabVoiceGate('connecting', 'connecting', true)).toBe('connecting')
-    expect(nextLabVoiceGate('connecting', 'listening', true)).toBe('connecting')
-    expect(nextLabVoiceGate('connecting', 'thinking', true)).toBe('connecting')
+    expect(nextLabVoiceGate('connecting', 'listening', true)).toBe('off')
+    expect(nextLabVoiceGate('connecting', 'thinking', true)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'speaking', true)).toBe('off')
     expect(nextLabVoiceGate('off', 'listening', true)).toBe('off')
     expect(nextLabVoiceGate('off', 'thinking', true)).toBe('off')
@@ -45,10 +47,24 @@ describe('lab chrome states', () => {
     expect(nextLabVoiceGate('connecting', 'connecting', false)).toBe('connecting')
   })
 
-  it('does not dismiss Starting just because the mic heard a blip', () => {
-    expect(nextLabVoiceGate('connecting', 'listening', true, null, true)).toBe('connecting')
+  it('does not mask a live state after the microphone becomes active', () => {
+    expect(nextLabVoiceGate('connecting', 'listening', true, null, true)).toBe('off')
     expect(nextLabVoiceGate('connecting', 'speaking', true, null, true)).toBe('off')
     expect(nextLabVoiceGate('ready', 'speaking', true, null, true)).toBe('off')
+  })
+})
+
+describe('lab pagination paint authority', () => {
+  it('uses only the primary text column to author a Compare page map', () => {
+    const passage = document.createElement('article')
+    const primary = document.createElement('div')
+    primary.className = 'lab-book-col'
+    const compare = document.createElement('div')
+    compare.className = 'lab-book-col lab-book-col-compare'
+    passage.append(primary, compare)
+
+    expect(labPaginationPaintRoot(passage)).toBe(primary)
+    expect(labPaginationPaintRoot(primary)).toBe(primary)
   })
 })
 
@@ -101,6 +117,70 @@ describe('lab visual viewport height', () => {
   })
 })
 
+describe('lab keyboard pan reset', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+    document.body.innerHTML = ''
+  })
+
+  it('treats only text entry as keyboard ownership', () => {
+    document.body.innerHTML = '<input id="t" type="text"><input id="b" type="button"><textarea id="a"></textarea><button id="c"></button>'
+    expect(labTextEntryFocused(document.getElementById('t'))).toBe(true)
+    expect(labTextEntryFocused(document.getElementById('a'))).toBe(true)
+    expect(labTextEntryFocused(document.getElementById('b'))).toBe(false)
+    expect(labTextEntryFocused(document.getElementById('c'))).toBe(false)
+    expect(labTextEntryFocused(document.body)).toBe(false)
+    expect(labTextEntryFocused(null)).toBe(false)
+  })
+
+  it('resets the pan only while a text field owns the keyboard', () => {
+    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 0, textEntryFocused: true })).toBe(true)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 300, textEntryFocused: true })).toBe(true)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: true })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false })).toBe(false)
+    expect(labShouldResetViewportPan({ textEntryFocused: true })).toBe(false)
+  })
+
+  it('scrolls the window back to the top when Safari pans the focused composer under the URL bar', () => {
+    document.body.innerHTML = '<div id="host"></div><input id="ask" type="text">'
+    const host = document.getElementById('host') as HTMLElement
+    const listeners = new Map<string, () => void>()
+    const viewport = {
+      height: 400,
+      offsetTop: 444,
+      addEventListener: (type: string, fn: () => void) => { listeners.set(type, fn) },
+      removeEventListener: (type: string) => { listeners.delete(type) },
+    }
+    const original = window.visualViewport
+    Object.defineProperty(window, 'visualViewport', { configurable: true, value: viewport })
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => {})
+    try {
+      const unbind = bindLabVisualViewportHeight(host)
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('400px')
+      // Nothing focused: a pinch-zoom pan is the user's, leave it alone.
+      expect(scrollTo).not.toHaveBeenCalled()
+
+      ;(document.getElementById('ask') as HTMLInputElement).focus()
+      listeners.get('resize')?.()
+      expect(scrollTo).toHaveBeenCalledWith(0, 0)
+      scrollTo.mockClear()
+      listeners.get('scroll')?.()
+      expect(scrollTo).toHaveBeenCalledWith(0, 0)
+
+      scrollTo.mockClear()
+      viewport.offsetTop = 0
+      listeners.get('resize')?.()
+      expect(scrollTo).not.toHaveBeenCalled()
+
+      unbind()
+      expect(listeners.size).toBe(0)
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('')
+    } finally {
+      Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
+    }
+  })
+})
+
 describe('lab settled page geometry', () => {
   it('invalidates page breaks when the readable box changes size', () => {
     const settled = { width: 390, height: 844 }
@@ -140,9 +220,9 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('keeps last content bottom strictly above chrome top', () => {
-    // Invariant: last content bottom y < chrome top y - 12px.
-    expect(lastContentClearsChrome(587, 600)).toBe(true)
-    expect(lastContentClearsChrome(588, 600)).toBe(false)
+    // Invariant: last content bottom y < chrome top y - 24px.
+    expect(lastContentClearsChrome(575, 600)).toBe(true)
+    expect(lastContentClearsChrome(576, 600)).toBe(false)
     expect(lastContentClearsChrome(599, 600)).toBe(false)
     expect(lastContentClearsChrome(600, 600)).toBe(false)
     expect(lastContentClearsChrome(640, 600)).toBe(false)
@@ -155,12 +235,12 @@ describe('lab chrome inset invariant', () => {
     expect(nextPaintShrinkTo(10, 11, 4)).toBe(11)
   })
 
-  it('does not regrow a page after finalizing the result of a trial grow', () => {
+  it('does not regrow a page after a one-word trial establishes the painted bound', () => {
     expect(shouldGrowPaintedPage(null, 80, 40)).toBe(true)
     expect(shouldGrowPaintedPage('peel', 80, 40)).toBe(true)
     expect(shouldGrowPaintedPage('grow', 80, 40)).toBe(true)
-    expect(shouldGrowPaintedPage('polish', 80, 40)).toBe(false)
-    expect(shouldGrowPaintedPage('polish', 101, 40)).toBe(true)
+    expect(shouldGrowPaintedPage('bounded', 80, 40)).toBe(false)
+    expect(shouldGrowPaintedPage('bounded', 200, 40)).toBe(false)
   })
 
   it('does not eat Genesis page 1 down to the verse number when last-line count is the whole pack', () => {
@@ -250,7 +330,7 @@ describe('lab chrome inset invariant', () => {
 
   it('keeps last ink above the bar after a shrink step', () => {
     expect(nextPaintShrinkTo(0, 80, 8, 121, 36)).toBeLessThan(72)
-    expect(lastContentClearsChrome(547, 560)).toBe(true)
+    expect(lastContentClearsChrome(535, 560)).toBe(true)
     expect(settlePageTotal(15, 14)).toBe(15)
     expect(settlePageTotal(14, 15)).toBe(14)
     expect(settlePageTotal(12, 12)).toBe(12)
@@ -258,9 +338,9 @@ describe('lab chrome inset invariant', () => {
   })
 
   it('treats inner passage/wrap scroll or last ink on the bar as an invalid page', () => {
-    expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560 })).toBe(true)
-    expect(labPageFitsPaint({ lastBottom: 548, chromeTop: 560 })).toBe(false)
-    expect(labPageFitsPaint({ lastBottom: 547, chromeTop: 560, scrollOverflow: true })).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 535, chromeTop: 560 })).toBe(true)
+    expect(labPageFitsPaint({ lastBottom: 536, chromeTop: 560 })).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 535, chromeTop: 560, scrollOverflow: true })).toBe(false)
     document.body.innerHTML = `
       <div class="lab-page-wrap">
         <article class="lab-passage">
@@ -277,6 +357,18 @@ describe('lab chrome inset invariant', () => {
     expect(labScrollportOverflows(wrap)).toBe(true)
     Object.defineProperty(passage, 'scrollHeight', { configurable: true, value: 513 })
     expect(labScrollportOverflows(wrap)).toBe(false)
+  })
+
+  it('allows terminal action scrolling without treating UI as ink or accepting source overflow', () => {
+    document.body.innerHTML = '<div class="lab-page-wrap"><article class="lab-passage has-chapter-end"><p class="lab-hearing-line"><span data-testid="lab-word">last</span></p><section class="lab-chapter-end"><button>Discuss</button></section></article></div>'
+    const wrap = document.querySelector('.lab-page-wrap') as HTMLElement
+    const passage = document.querySelector('.lab-passage') as HTMLElement
+    Object.defineProperty(passage, 'scrollHeight', { configurable: true, value: 700 })
+    Object.defineProperty(passage, 'clientHeight', { configurable: true, value: 500 })
+    expect(labScrollportOverflows(wrap)).toBe(false)
+    expect(labPageFitsPaint({ lastBottom: 590, chromeTop: 560, scrollOverflow: labScrollportOverflows(wrap) })).toBe(false)
+    passage.querySelector('.lab-chapter-end')!.remove()
+    expect(labScrollportOverflows(wrap)).toBe(true)
   })
 
   it('clamps chrome top to the visible visualViewport, never 100vh', () => {
@@ -395,17 +487,37 @@ describe('lab readable page vs chrome rect', () => {
 })
 
 
-describe('lab fullscreen and pull', () => {
+describe('lab fullscreen', () => {
   it('hides Play/Chat/Talk in read fullscreen and keeps them for Talk', () => {
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: false, phoneAsk: false })).toBe(true)
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: true, phoneAsk: false })).toBe(false)
     expect(labShowPhoneBar({ phoneChrome: true, fullscreen: true, phoneAsk: true })).toBe(true)
     expect(labShowPhoneBar({ phoneChrome: false, fullscreen: false, phoneAsk: false })).toBe(false)
   })
+})
 
-  it('opens the TOC after a downward pull', () => {
-    expect(labPullOpensToc(20)).toBe(false)
-    expect(labPullOpensToc(56)).toBe(true)
-    expect(labPullOpensToc(80)).toBe(true)
+describe('labKeyboardPageDirection', () => {
+  it('maps the classic Reader keys and nothing else', () => {
+    expect(labKeyboardPageDirection('ArrowRight')).toBe(1)
+    expect(labKeyboardPageDirection('PageDown')).toBe(1)
+    expect(labKeyboardPageDirection(' ')).toBe(1)
+    expect(labKeyboardPageDirection('ArrowLeft')).toBe(-1)
+    expect(labKeyboardPageDirection('PageUp')).toBe(-1)
+    expect(labKeyboardPageDirection('Enter')).toBeNull()
+    expect(labKeyboardPageDirection('ArrowDown')).toBeNull()
+  })
+})
+
+describe('chat composer autofocus', () => {
+  it('focuses only on the desktop layout with a fine pointer', () => {
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: true, maxTouchPoints: 0 })).toBe(true)
+    // Phone: never, whatever the pointer says.
+    expect(labShouldAutofocusComposer({ phoneChrome: true, pointerFine: true, maxTouchPoints: 0 })).toBe(false)
+    expect(labShouldAutofocusComposer({ phoneChrome: true, pointerFine: null, maxTouchPoints: 5 })).toBe(false)
+    // Tablet in the desktop layout: a coarse pointer means a keyboard would pop.
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: false, maxTouchPoints: 5 })).toBe(false)
+    // No matchMedia (older engines, jsdom): touch points decide, not the viewport width.
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: null, maxTouchPoints: 0 })).toBe(true)
+    expect(labShouldAutofocusComposer({ phoneChrome: false, pointerFine: undefined, maxTouchPoints: 2 })).toBe(false)
   })
 })

@@ -48,8 +48,10 @@ export function labStatusLine(
       ? 'Talking · tap the circle to stop'
       : 'Talking · tap × to stop'
   }
-  if (state === 'hearing') return `Hearing · ${chapterLabel}`
-  return `Reading · ${chapterLabel}`
+  // No label while the chapter is still being resolved: the status names a
+  // chapter only once it is the one that will be read.
+  if (state === 'hearing') return chapterLabel ? `Hearing · ${chapterLabel}` : 'Hearing'
+  return chapterLabel ? `Reading · ${chapterLabel}` : 'Reading'
 }
 
 export function labAfterTalk(returnTo: LabReturnTo): LabChromeState {
@@ -62,7 +64,7 @@ export type LabVoiceGatePhase = 'off' | 'connecting' | 'ready'
 
 export function nextLabVoiceGate(
   current: LabVoiceGatePhase,
-  conversationState: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking',
+  conversationState: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing',
   voiceActive: boolean,
   notice?: string | null,
   _userSpeechStarted?: boolean,
@@ -71,19 +73,22 @@ export function nextLabVoiceGate(
   if (!voiceActive && conversationState !== 'connecting' && conversationState !== 'listening' && conversationState !== 'thinking') {
     return 'off'
   }
-  // Starting overlay only at Talk open. Do not resurrect it when she
-  // later listens / thinks / speaks.
-  if (conversationState === 'speaking') return 'off'
-  if (current === 'off' && conversationState === 'connecting') return 'connecting'
-  if (current === 'connecting') return 'connecting'
+  // The gate describes transport setup only. Once the live voice machine
+  // reports listening, thinking, or speaking, reveal that exact state rather
+  // than holding a synthetic startup label over it.
+  if (conversationState !== 'connecting') return 'off'
+  if (current === 'off' || current === 'connecting') return 'connecting'
   return current
 }
 
-export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking'): string | null {
-  if (phase === 'connecting') return 'Starting'
+export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'): string | null {
+  if (phase === 'connecting') return 'Connecting'
   if (phase === 'listening') return 'Listening'
   if (phase === 'thinking') return 'Thinking'
   if (phase === 'speaking') return 'Speaking'
+  // Voice V2 only.
+  if (phase === 'checking') return 'Checking text'
+  if (phase === 'preparing') return 'Preparing answer'
   return null
 }
 
@@ -167,9 +172,6 @@ export type LabPhoneBarMode = 'reading' | 'hearing' | 'talking'
 
 export const LAB_PHONE_BAR_ITEMS = ['Play', 'Chat', 'Talk'] as const
 export const LAB_GEAR_ITEMS = ['Library', 'Reading', 'Layout'] as const
-export const LAB_TOC_PULL_PX = 56
-
-
 /** Phone footer / sheet mode. The Play | Chat | Talk bar stays on. */
 export function labPhoneBarMode(
   state: LabChromeState,
@@ -197,16 +199,70 @@ export function labVisualViewportHeightPx(
 }
 
 /**
+ * Whether opening Chat should put the caret in the composer. On the desktop
+ * layout with a fine pointer the reader expects to type straight away; on a
+ * phone (or any touch surface) a programmatic focus() raises the keyboard
+ * over the conversation, so the reader taps the field when they want it.
+ * Layout alone is not enough: a tablet can show the desktop layout.
+ */
+export function labShouldAutofocusComposer(input: {
+  phoneChrome: boolean
+  /** `(pointer: fine)` match; null/undefined when matchMedia is unavailable. */
+  pointerFine?: boolean | null
+  maxTouchPoints?: number
+}): boolean {
+  if (input.phoneChrome) return false
+  if (typeof input.pointerFine === 'boolean') return input.pointerFine
+  return (input.maxTouchPoints ?? 0) === 0
+}
+
+/** A focused text field is the only thing that puts the software keyboard in front of the shell. */
+export function labTextEntryFocused(active: Element | null | undefined): boolean {
+  if (!active) return false
+  if (active.tagName === 'TEXTAREA') return true
+  if (active.tagName === 'INPUT') {
+    const type = (active as HTMLInputElement).type
+    return !['button', 'checkbox', 'color', 'file', 'image', 'radio', 'range', 'reset', 'submit'].includes(type)
+  }
+  return (active as HTMLElement).isContentEditable === true
+}
+
+/**
+ * iOS Safari answers a focused composer by shrinking the visual viewport and
+ * panning it down the (unchanged) layout viewport. The shell is already
+ * sized to the visible box, so the pan only hides the header under the URL
+ * bar and leaves dead paper above the keyboard. Reset it while the keyboard
+ * is up; a pinch-zoom pan with nothing focused is left alone.
+ */
+export function labShouldResetViewportPan(input: {
+  offsetTop?: number
+  scrollY?: number
+  textEntryFocused: boolean
+}): boolean {
+  if (!input.textEntryFocused) return false
+  const offsetTop = typeof input.offsetTop === 'number' ? input.offsetTop : 0
+  const scrollY = typeof input.scrollY === 'number' ? input.scrollY : 0
+  return offsetTop > 0 || scrollY > 0
+}
+
+/**
  * Pin the phone shell to the visible viewport so the in-flow footer
  * sits above the iOS Safari toolbar. 100vh/100dvh are the large viewport
- * and push the footer below the fold.
+ * and push the footer below the fold. While the keyboard is up, also
+ * undo the pan Safari applies to reveal the focused composer.
  */
 export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   const apply = () => {
-    const vv = typeof window !== 'undefined' ? window.visualViewport?.height : undefined
-    const inner = typeof window !== 'undefined' ? window.innerHeight : undefined
-    const px = labVisualViewportHeightPx(vv, inner)
+    if (typeof window === 'undefined') return
+    const viewport = window.visualViewport
+    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight)
     if (px > 0) host.style.setProperty(LAB_VVH_VAR, `${px}px`)
+    const panned = labShouldResetViewportPan({
+      offsetTop: viewport?.offsetTop,
+      scrollY: window.scrollY,
+      textEntryFocused: labTextEntryFocused(typeof document !== 'undefined' ? document.activeElement : null),
+    })
+    if (panned) window.scrollTo(0, 0)
   }
   apply()
   const viewport = typeof window !== 'undefined' ? window.visualViewport : null
@@ -235,8 +291,8 @@ export function labChromeInsetPx(chromeHeightPx: number, gap = LAB_CHROME_GAP_PX
   return Math.max(0, chromeHeightPx) + gap
 }
 
-/** Painted last ink must sit at least this many px above the visible bar. */
-export const LAB_OVERFLOW_CLEAR_PX = 12
+/** Painted last ink must sit far enough above chrome to preserve a calm gutter. */
+export const LAB_OVERFLOW_CLEAR_PX = 24
 
 /** Extra slack when measuring phone hearing pages — descenders + highlight box. */
 export const LAB_HEARING_MEASURE_SLACK_PX = 8
@@ -320,6 +376,9 @@ export function labScrollportOverflows(root: HTMLElement): boolean {
     nodes.push(el)
   })
   for (const el of nodes) {
+    // Terminal actions can scroll after the source text. Ink overflow is
+    // still checked independently; UI height must never split source pages.
+    if (el.classList.contains('has-chapter-end') && el.querySelector('.lab-chapter-end')) continue
     if (el.scrollHeight > el.clientHeight) return true
   }
   return false
@@ -433,6 +492,12 @@ export function measurePaintedOverflow(
   }
 }
 
+/** Compare mirrors one page map; only the primary column may resize it. */
+export function labPaginationPaintRoot(root: HTMLElement): HTMLElement {
+  if (!root.querySelector('.lab-book-col-compare')) return root
+  return root.querySelector<HTMLElement>('.lab-book-col:not(.lab-book-col-compare)') ?? root
+}
+
 /** After document.fonts.ready + first paint (rAF). Never a pre-paint guess. */
 export function afterLabPaint(run: () => void): () => void {
   let cancelled = false
@@ -468,7 +533,7 @@ export function labPageSlackPx(lastBottom: number, chromeTop: number): number {
   return Math.max(0, chromeTop - LAB_OVERFLOW_CLEAR_PX - lastBottom)
 }
 
-export type LabPageAdjust = 'peel' | 'grow' | 'polish' | null
+export type LabPageAdjust = 'peel' | 'grow' | 'bounded' | null
 
 /** Room for at least one more line below the last painted ink. */
 export function labPaintHasGrowableSlack(
@@ -488,11 +553,8 @@ export function shouldGrowPaintedPage(
   lineHeight: number,
 ): boolean {
   const line = lineHeight > 8 ? lineHeight : 24
+  if (lastAdjust === 'bounded') return false
   if (slackPx <= line) return false
-  // A typographic cleanup may intentionally leave a line or two. If a resize
-  // leaves substantially more space than that, refill instead of freezing a
-  // nearly empty page; the next overflow trial can still revert to the clean end.
-  if (lastAdjust === 'polish') return slackPx > line * 2.5
   if (lastAdjust !== 'peel') return true
   return slackPx > line * 1.1
 }
@@ -786,11 +848,14 @@ export function labShowPhoneBar(input: {
   return !input.fullscreen
 }
 
-export function labPullOpensToc(deltaY: number, threshold = LAB_TOC_PULL_PX): boolean {
-  return deltaY >= threshold
-}
-
 export type LabPageTurnDirection = -1 | 1
+
+/** Keyboard page turns: the classic Reader's keys, so desktop readers keep their habits. */
+export function labKeyboardPageDirection(key: string): LabPageTurnDirection | null {
+  if (key === 'ArrowRight' || key === 'PageDown' || key === ' ') return 1
+  if (key === 'ArrowLeft' || key === 'PageUp') return -1
+  return null
+}
 
 /** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
 export function labSwipePageDirection(
@@ -801,6 +866,23 @@ export function labSwipePageDirection(
   if (Math.abs(deltaX) < threshold) return null
   if (Math.abs(deltaX) <= Math.abs(deltaY) * 1.2) return null
   return deltaX < 0 ? 1 : -1
+}
+
+/**
+ * The Compare swap: a decisive vertical swipe, up or down.
+ *
+ * Vertical because horizontal already means the next page, and the two must
+ * never be able to fire on the same gesture — a swipe that is not clearly one
+ * axis is neither. The chrome never says any of this: the swipe is learned in
+ * the edition picker, not on the page.
+ */
+export function labSwipeCompareSwap(
+  deltaX: number,
+  deltaY: number,
+  threshold = 52,
+): boolean {
+  if (Math.abs(deltaY) < threshold) return false
+  return Math.abs(deltaY) > Math.abs(deltaX) * 1.2
 }
 
 /** Short taps in the outer thirds turn pages; the centre remains selection-safe. */

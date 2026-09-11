@@ -52,6 +52,18 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
+  // Manifests and word timings can be repaired or regenerated independently
+  // from immutable MP3s. A cache-first response here left long-lived iPhones
+  // pinned to stale timing JSON, so a refresh still showed paragraph fallback.
+  // Prefer the network for this small metadata and retain cache only for true
+  // offline use.
+  const audioPath = url.searchParams.get('path') || ''
+  const isAudioMetadata = url.pathname.startsWith('/api/audio-manifest') || audioPath.endsWith('.json')
+  if (isAudioMetadata) {
+    event.respondWith(handleAudioMetadata(event.request))
+    return
+  }
+
   // Audio: cache-first. Mobile media elements often request MP3s with byte
   // ranges; when a full file is cached, satisfy those ranges locally instead
   // of bypassing the cache and streaming over the network.
@@ -71,6 +83,19 @@ self.addEventListener('fetch', (event) => {
     )
   )
 })
+
+async function handleAudioMetadata(request) {
+  const cache = await caches.open(CACHE_NAME)
+  try {
+    const fresh = await fetch(request, { cache: 'no-store' })
+    if (fresh.ok) await cache.put(request, fresh.clone())
+    return fresh
+  } catch {
+    const cached = await cache.match(request)
+    if (cached) return cached
+    return offlineFallback()
+  }
+}
 
 function isAppShellNavigation(request, url) {
   if (request.mode !== 'navigate') return false

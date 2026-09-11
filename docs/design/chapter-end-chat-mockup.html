@@ -1,0 +1,109 @@
+<div id="tinct-chat-preview" aria-label="Chapter-end buttons and chat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Playfair+Display:wght@500&display=swap">
+<style>
+#tinct-chat-preview { --paper:light-dark(#f8f4eb,#25241f);--ink:light-dark(#373b32,#e7e4d8);--muted:light-dark(#717366,#b2b3a3);--rule:light-dark(#dcdccf,#494b40);--bubble:light-dark(#eaece0,#363c30);--accent:light-dark(#536344,#c4cfad);color:var(--ink);font-family:Georgia,serif; }
+#tinct-chat-preview * { box-sizing:border-box; }
+#tinct-chat-preview .phone { max-width:390px;margin:auto;background:var(--paper);border:1px solid var(--rule);border-radius:18px;overflow:hidden; }
+#tinct-chat-preview .top { padding:18px 23px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule); }
+#tinct-chat-preview .brand {font-size:24px;letter-spacing:-1px;}
+#tinct-chat-preview .small {font:12px/1.5 system-ui,sans-serif;color:var(--muted);}
+#tinct-chat-preview .page {padding:27px;min-height:495px;}
+#tinct-chat-preview .running {text-align:center;font-size:15px;color:var(--muted);margin:0 0 25px;}
+#tinct-chat-preview .verse {font-size:20px;line-height:1.65;margin:0;}
+#tinct-chat-preview sup {font:11px system-ui,sans-serif;color:var(--muted);padding-right:5px;}
+#tinct-chat-preview .end {margin:28px 0 16px;text-align:center;font:12px system-ui,sans-serif;color:var(--muted);letter-spacing:.6px;}
+#tinct-chat-preview button {font-family:inherit;color:var(--ink);cursor:pointer;background:transparent;border:0;}
+#tinct-chat-preview .actions {display:grid;gap:9px;}
+#tinct-chat-preview .action {border:1px solid var(--rule);border-radius:7px;padding:14px;text-align:left;font-size:16px;display:flex;justify-content:space-between;min-height:48px;}
+#tinct-chat-preview .action:hover {background:var(--bubble);}
+#tinct-chat-preview .continue {color:var(--accent);width:100%;min-height:44px;font-size:16px;margin-top:20px;}
+#tinct-chat-preview .nav {border-top:1px solid var(--rule);display:flex;justify-content:space-around;align-items:center;padding:4px 8px;font:12px system-ui,sans-serif;color:var(--muted);}
+#tinct-chat-preview .nav button {font:12px system-ui,sans-serif;min-height:44px;padding:7px;color:var(--muted);}
+#tinct-chat-preview .nav [aria-current="page"] {color:var(--ink);text-decoration:underline;text-underline-offset:7px;}
+#tinct-chat-preview .chat {padding:0 22px 20px;min-height:495px;}
+#tinct-chat-preview .context {padding:15px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);margin-bottom:23px;}
+#tinct-chat-preview .context button {font:12px system-ui,sans-serif;color:var(--accent);min-height:35px;}
+#tinct-chat-preview .user {background:var(--bubble);border-radius:13px 13px 3px 13px;padding:12px 15px;margin:0 0 23px auto;width:fit-content;max-width:91%;font:15px/1.5 system-ui,sans-serif;}
+#tinct-chat-preview .answer p {font-size:17px;line-height:1.65;margin:0 0 15px;}
+#tinct-chat-preview .source {font:11px/1.5 system-ui,sans-serif;color:var(--muted);}
+#tinct-chat-preview .source a {color:inherit;}
+#tinct-chat-preview .composer {display:flex;align-items:center;border:1px solid var(--rule);border-radius:13px;padding:7px 7px 7px 13px;gap:5px;margin-top:25px;}
+#tinct-chat-preview textarea {width:100%;min-width:0;resize:vertical;border:0;background:transparent;color:var(--ink);font:16px/1.5 system-ui,sans-serif;height:44px;padding:10px 0;}
+#tinct-chat-preview textarea::placeholder {color:var(--muted);}
+#tinct-chat-preview .voice {min-height:44px;min-width:54px;color:var(--accent);font:12px system-ui,sans-serif;}
+#tinct-chat-preview .voicebox {margin-top:24px;background:var(--bubble);border-radius:13px;text-align:center;padding:20px;}
+#tinct-chat-preview .voicebox p {font-size:18px;margin:0 0 12px;}
+#tinct-chat-preview .voicebox button {min-height:44px;font:13px system-ui,sans-serif;}
+#tinct-chat-preview .chapter-title {font-size:29px;font-weight:400;margin:15px 0 25px;}
+#tinct-chat-preview [hidden] {display:none !important;}
+#tinct-chat-preview .quiet .action {border:0;border-bottom:1px solid var(--rule);border-radius:0;}
+#tinct-chat-preview {--paper:light-dark(#e5ddc7,#25221c);--ink:light-dark(#201a13,#ede5d4);--muted:light-dark(#736b5c,#b9ae99);--rule:light-dark(#cfc3aa,#4e4435);--bubble:light-dark(#d8c9ad,#443b2e);--accent:light-dark(#504532,#dbccb0);font-family:'EB Garamond',Georgia,serif;}
+#tinct-chat-preview .top {border:0;gap:10px;padding:14px 15px;}
+#tinct-chat-preview .brand {font:500 18px 'Playfair Display',Georgia,serif;letter-spacing:0;}
+#tinct-chat-preview .chapter-picker {font-style:italic;background:light-dark(#dfd5be,#393124);border-radius:24px;padding:9px 14px;}
+#tinct-chat-preview .header-icons {display:flex;gap:18px;align-items:center;margin-left:auto;}
+#tinct-chat-preview .header-icons span {font-size:17px;}
+#tinct-chat-preview .chat {padding:0 14px 14px;min-height:690px;display:flex;flex-direction:column;}
+#tinct-chat-preview .context {border:0;justify-content:flex-start;margin:0 0 24px;padding:16px 0 0;}
+#tinct-chat-preview .context button {background:var(--bubble);border-radius:22px;padding:8px 13px;font:14px 'EB Garamond',Georgia,serif;}
+#tinct-chat-preview #chat-context {display:none;}
+#tinct-chat-preview .user {font:18px/1.4 'EB Garamond',Georgia,serif;background:light-dark(#ded3bc,#393124);margin-bottom:24px;}
+#tinct-chat-preview .answer p {font:400 20px/1.45 'EB Garamond',Georgia,serif;}
+#tinct-chat-preview .source {margin-bottom:25px;}
+#tinct-chat-preview .composer {margin-top:auto;display:block;border:0;background:light-dark(#f8f4eb,#39332a);border-radius:23px;padding:12px 16px 9px;}
+#tinct-chat-preview textarea {font:18px 'EB Garamond',Georgia,serif;resize:none;}
+#tinct-chat-preview .compose-actions {display:flex;justify-content:flex-end;gap:10px;align-items:center;}
+#tinct-chat-preview .dictate {border-radius:50%;background:var(--bubble);width:37px;height:37px;display:grid;place-items:center;}
+#tinct-chat-preview .voice {border-radius:50%;background:var(--ink);color:var(--paper);width:44px;min-width:44px;height:44px;display:grid;place-items:center;}
+#tinct-chat-preview .page {min-height:690px;}
+#tinct-chat-preview .verse {font-family:'EB Garamond',Georgia,serif;font-size:24px;line-height:1.4;}
+#tinct-chat-preview .page-footer {display:flex;align-items:center;justify-content:space-between;padding:14px 0;color:var(--muted);font:11px ui-monospace,monospace;}
+</style>
+<div class="phone">
+  <div class="top"><span class="brand">Bible</span><span class="chapter-picker">Jeremiah 34⌄</span><span class="header-icons" aria-label="Playback and Tinct menu"><span aria-label="Play">▸</span><span aria-label="Tinct menu">ŧ</span></span></div>
+  <div class="page" data-screen="reader">
+    <p class="running">Jeremiah · 34</p>
+    <p class="verse"><sup>22</sup>Behold, I will command, saith the Lord, and cause them to return to this city; and they shall fight against it, and take it, and burn it with fire: and I will make the cities of Judah a desolation without an inhabitant.</p>
+    <div class="end">End of chapter 34</div>
+    <div class="actions">
+      <button type="button" class="action" data-go="recap"><span>Discuss this chapter</span><span aria-hidden="true">↗</span></button>
+      <button type="button" class="action" data-go="prepare"><span>Prepare for next</span><span aria-hidden="true">↗</span></button>
+    </div>
+    <button type="button" class="continue" data-go="next">Continue to Jeremiah 35 →</button>
+    <div class="page-footer"><span>‹</span><span>End of chapter 34</span><span>›</span></div>
+  </div>
+  <div class="chat" data-screen="chat" hidden>
+    <div class="context"><span class="small" id="chat-context">Jeremiah 34</span><button type="button" data-go="reader">← Back to book</button></div>
+    <div class="user" id="chat-request"></div>
+    <div class="answer" id="chat-answer" aria-live="polite"></div>
+    <div class="source"><a id="chat-source" target="_blank" rel="noopener noreferrer"></a></div>
+    <div class="composer"><textarea aria-label="Ask" placeholder="Ask"></textarea><div class="compose-actions"><button type="button" class="dictate" data-go="dictate" aria-label="Dictate a question"><i data-lucide="mic" aria-hidden="true"></i></button><button type="button" class="voice" data-go="voice" aria-label="Open voice conversation"><i data-lucide="audio-lines" aria-hidden="true"></i></button></div></div>
+    <div class="voicebox" hidden><p>Continue by voice</p><div class="small">Voice preview · microphone off</div><button type="button" data-go="typing">Back to typing</button></div>
+  </div>
+  <div class="page" data-screen="next" hidden><p class="running">Jeremiah</p><h2 class="chapter-title">Chapter 35</h2><p class="verse"><sup>1</sup>The word which came unto Jeremiah from the Lord in the days of Jehoiakim the son of Josiah king of Judah, saying,</p><p class="verse"><sup>2</sup>Go unto the house of the Rechabites, and speak unto them, and bring them into the house of the Lord, into one of the chambers, and give them wine to drink.</p><button type="button" class="continue" data-go="reader">← Back to chapter 34</button></div>
+</div>
+<script>
+(() => {
+ const root=document.getElementById('tinct-chat-preview');
+ const state={quiet:false};
+ const responses={
+  recap:{context:'Jeremiah 34',request:'Recap this chapter.',paragraphs:[
+   'With Jerusalem under siege, Zedekiah and the people agree to free their Hebrew slaves. They release them, then change their minds and force them back into slavery.',
+   'Jeremiah condemns the reversal as a betrayal of the covenant they made before God. The chapter ends with a warning that the Babylonian army will return and destroy the city.',
+   'What did you make of their decision to take the people back into slavery?'
+  ],source:'Jeremiah 34:8–22',url:'https://bible.usccb.org/bible/jeremiah/34'},
+  prepare:{context:'Preparing for Jeremiah 35',request:'Prepare me for the next chapter.',paragraphs:[
+   'Jeremiah 35 goes back to the reign of Jehoiakim, before Zedekiah, the king in the chapter you’ve just finished. These episodes are not arranged in chronological order.',
+   'Jeremiah brings an extended family called the Rechabites into a room in the Jerusalem Temple and offers them wine. The chapter opens with their meeting; the family will explain its background as the conversation unfolds.'
+  ],source:'Jeremiah 35:1–5 · Context',url:'https://bible.usccb.org/bible/jeremiah/35'}
+ };
+ let selected=null;
+ function show(screen){root.querySelectorAll('[data-screen]').forEach(e=>e.hidden=e.dataset.screen!==screen);}
+ function openChat(kind){selected=kind;const r=responses[kind];root.querySelector('#chat-context').textContent=r.context;root.querySelector('#chat-request').textContent=r.request;root.querySelector('#chat-answer').replaceChildren(...r.paragraphs.map(t=>{const p=document.createElement('p');p.textContent=t;return p;}));const link=root.querySelector('#chat-source');link.href=r.url;link.textContent=r.source;root.querySelector('.composer').hidden=false;root.querySelector('.voicebox').hidden=true;show('chat');}
+ root.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{const action=b.dataset.go;if(action==='recap'||action==='prepare'){openChat(action);return;}if(action==='chat'){if(selected)show('chat');else openChat('recap');return;}if(action==='voice'||action==='dictate'||action==='typing'){root.querySelector('.composer').hidden=action!=='typing';root.querySelector('.voicebox').hidden=action==='typing';root.querySelector('.voicebox p').textContent=action==='dictate'?'Dictate a question':'Continue by voice';return;}show(action);}));
+ const render=()=>root.querySelector('.actions').classList.toggle('quiet',state.quiet);render();
+ if(globalThis.Tweak){const tweak=new Tweak({container:root,onChange:render});tweak.addToggle(state,'quiet',{label:'Understated button borders'});}
+ openChat('recap');
+})();
+</script>
+</div>

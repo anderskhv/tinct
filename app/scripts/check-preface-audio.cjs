@@ -1,0 +1,15 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
+const origin=process.env.TEST_ORIGIN||'https://tinct.app',dir=process.env.ARTIFACT_DIR||'/tmp/tinct-preface-audio';fs.mkdirSync(dir,{recursive:true});
+(async()=>{const b=await chromium.launch();try{const p=await b.newPage({viewport:{width:1440,height:950}});
+ await p.route('**/api/**',r=>/\/api\/audio-/.test(r.request().url())?r.continue():r.fulfill({status:404,body:'{}'}));
+ await p.addInitScript(()=>{ window.__prefaceAudio=[]; const OriginalAudio=window.Audio; window.Audio=function(...args){const audio=new OriginalAudio(...args);window.__prefaceAudio.push(audio);return audio};window.Audio.prototype=OriginalAudio.prototype; });
+ await p.addInitScript(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'odyssey',primaryEditionKey:'original-en',compareEditionKey:'modern-en',savedPlace:{bookId:'odyssey',chapterNumber:1,paragraphIndex:2,wordIndex:0,page:0}})));
+ await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');
+ await p.getByTestId('lab-v2-play').click();await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true',{}, {timeout:30000});
+ await p.getByTestId('lab-header-chapter').click();await p.getByRole('button',{name:'Cover and preface'}).click();await p.getByRole('button',{name:'Read preface'}).click();await p.waitForTimeout(300);
+ assert.equal(await p.getByTestId('lab-root').getAttribute('data-playing'),'false');
+ const get=()=>p.evaluate(()=>({chapter:document.querySelector('.lab').dataset.chapter,place:document.querySelector('.lab').dataset.place,audio:[...(window.__prefaceAudio||[]),...document.querySelectorAll('audio')].filter(e=>e.currentSrc).map(e=>({src:e.currentSrc,time:e.currentTime}))}));
+ const before=await get();assert.ok(before.audio.length>0,'Observe actual audiobook elements');assert.ok(before.audio.some(a=>a.time>0),'Actual audio clock has advanced');await p.waitForTimeout(1500);assert.deepEqual(await get(),before);
+ await p.getByRole('button',{name:'Continue reading',exact:true}).click();await p.getByTestId('lab-book-preface').waitFor({state:'hidden'});assert.deepEqual(await get(),before);
+ await p.screenshot({path:dir+'/audio-return.png'});fs.writeFileSync(dir+'/result.json',JSON.stringify(before,null,2));console.log('Audio pauses for preface; source, time and reader location preserved on return.');
+ }finally{await b.close()}})().catch(e=>{console.error(e);process.exit(1)});

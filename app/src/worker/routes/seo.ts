@@ -146,6 +146,48 @@ function isLabPathname(pathname: string): boolean {
   return isLabPath(pathname)
 }
 
+const LAB_PRE_READER_PATHS = new Map([
+  ['/library', '/lab/'],
+  ['/library/', '/lab/'],
+  ['/lab', '/lab/'],
+  ['/lab/', '/lab/'],
+  ['/lab/landing', '/lab/'],
+  ['/lab/library', '/lab/'],
+  ['/lab/library-2', '/lab/library-2/'],
+  ['/lab/library-2/', '/lab/library-2/'],
+  ['/lab/sign-in', '/lab/sign-in/'],
+  ['/lab/sign-in/', '/lab/sign-in/'],
+])
+
+function isLabStaticAssetPath(pathname: string): boolean {
+  return /^\/lab\/[^/]+\.[a-z0-9]+$/i.test(pathname)
+    || /^\/lab\/prefaces\/[a-z0-9-]+\.json$/.test(pathname)
+}
+
+async function serveLabPreReader(
+  requestMethod: string,
+  url: URL,
+  env: SeoEnv,
+  assetPath: string,
+): Promise<Response | null> {
+  // Cloudflare Assets applies html_handling to binding fetches. Requesting
+  // /lab/index.html is therefore canonicalized to /lab/ with a 307, which is
+  // not an `ok` response and previously caused this route to fall through to
+  // the React reader shell. Fetch the canonical directory URL directly.
+  const assetUrl = new URL(url.toString())
+  assetUrl.pathname = assetPath
+  const labResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: requestMethod }))
+  if (!labResp.ok) return null
+
+  const newResp = new Response(requestMethod === 'HEAD' ? null : labResp.body, labResp)
+  newResp.headers.set('Cache-Control', 'no-store')
+  newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    newResp.headers.set(key, value)
+  }
+  return newResp
+}
+
 async function serveLabDemo(
   requestMethod: string,
   url: URL,
@@ -283,37 +325,63 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       })
     }
 
-    // Root URL serves the landing page (which is index.html after build swap).
-    // SPA is available at /app.html and /app. Plain /read is now the static
-    // crawlable library hub, so signed-in app traffic must not redirect there.
-    //
-    // Signed-in short-circuit: if the client has a `tinct_auth=1` cookie
-      // (set by the SPA in useAuth on sign-in, cleared on sign-out), 302 to
-      // /app before serving landing.html. This is deterministic across
-    // browsers/devices and far more reliable than the inline-script
-    // localStorage probe in landing.html. That inline script remains as a
-    // fallback for cookie-disabled browsers.
-    if (url.pathname === '/' && request.method === 'GET') {
-      const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
-      const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
-      if (hasAuthCookie) {
-        return new Response(null, {
-          status: 302,
-          headers: { Location: '/app', 'Cache-Control': 'no-store' },
-        })
+    // Promote the proven catalogue/reader flow at the public entry. The
+    // boot script handles anonymous, returning and recently-reading users.
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {
+      const home = await serveLabPreReader(request.method, url, env, '/lab/')
+      if (home) {
+        const html = request.method === 'HEAD' ? null : (await home.text())
+          .replace(/<meta\s+name="robots"[^>]*>/i, '')
+          .replace(/<title>[^<]*<\/title>/i, '<title>Tinct — A New Way to Read</title>')
+          .replace('</head>', '<meta name="description" content="Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading."><link rel="canonical" href="https://tinct.app/"></head>')
+        const response = new Response(html, home)
+        response.headers.delete('X-Robots-Tag')
+        response.headers.delete('Content-Length')
+        response.headers.delete('ETag')
+        return response
       }
-      // For signed-out users, serve landing.html but mark it no-store so the
-      // Cloudflare edge doesn't cache the Worker's response. Without this,
-      // CF caches the first (no-cookie) response and subsequent requests —
-      // even with the auth cookie — are served from edge without re-running
-      // the Worker, which silently breaks the signed-in redirect.
-      const resp = await env.ASSETS.fetch(request)
-      const newResp = new Response(resp.body, resp)
-      newResp.headers.set('Cache-Control', 'no-store')
-      for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-        newResp.headers.set(key, value)
+      return new Response('Temporarily unavailable', { status: 503, headers: { 'Cache-Control': 'no-store' } })
+    }
+
+    if (request.method === 'GET' || request.method === 'HEAD') {
+      const destination = new URL(url.toString())
+      if (url.pathname === '/lab/reader' && url.searchParams.get('chrome') === 'v2') {
+        destination.pathname = '/reader'
+      } else if (url.pathname === '/lab/library') {
+        destination.pathname = '/library'
+      } else if (url.pathname === '/app') {
+        if (url.searchParams.has('signin')) {
+          destination.pathname = '/lab/sign-in'
+          destination.searchParams.delete('signin')
+        } else {
+          destination.pathname = '/library'
+          if (url.searchParams.has('book')) destination.searchParams.set('view', 'book-detail')
+        }
       }
-      return newResp
+      if (destination.pathname === '/reader' || destination.pathname === '/library') {
+        destination.searchParams.delete('chrome')
+        if (destination.searchParams.get('voiceTrial') === 'full') destination.searchParams.delete('voiceTrial')
+      }
+      if (destination.pathname + destination.search !== url.pathname + url.search) {
+        return new Response(null, { status: 302, headers: { Location: destination.pathname + destination.search, 'Cache-Control': 'no-store' } })
+      }
+    }
+
+    // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
+    // reader SPA on /lab/reader and the explicit phone/desktop QA routes below.
+    if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
+      const labResp = await serveLabPreReader(request.method, url, env, LAB_PRE_READER_PATHS.get(url.pathname)!)
+      if (labResp) return labResp
+    }
+
+    // run_worker_first sends even matching static assets through this Worker.
+    // Let the standalone Lab's catalogue and runtime files reach ASSETS rather
+    // than being mistaken for nested React reader routes.
+    if ((request.method === 'GET' || request.method === 'HEAD') && isLabStaticAssetPath(url.pathname)) {
+      // Return the binding response as-is, including conditional 304s. Treating
+      // a 304 as a miss makes a warm browser fall through to the Lab reader SPA,
+      // caching HTML under a JavaScript URL and breaking every later navigation.
+      return env.ASSETS.fetch(request)
     }
 
     // Private reading-chrome demo. Always noindex, including /lab/*.
@@ -368,18 +436,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     // Library route is in the sitemap, so serve the committed crawlable hub
-    // rather than the SPA shell. This exposes internal book links to crawlers
-    // while the app remains available at /read?view=library and deep links.
-    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname === '/read') {
-      const hubResp = await env.ASSETS.fetch(new Request(`${url.origin}/read/index.html`, request))
-      if (hubResp.ok) {
-        const newResp = new Response(request.method === 'HEAD' ? null : hubResp.body, hubResp)
-        newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
-        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-          newResp.headers.set(key, value)
-        }
-        return newResp
-      }
+    // rather than the SPA shell. Fetch the canonical directory URL: with
+    // auto-trailing-slash HTML handling, /read/index.html redirects to /read/.
+    // Returning that content directly keeps both public URL forms reliable.
+    if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/read' || url.pathname === '/read/')) {
+      const hubResp = await serveStaticHtml(request.method, request, url, '/read/', env)
+      if (hubResp) return hubResp
     }
 
     // Per-book transactional SEO: inject book-specific meta tags into the SPA
@@ -399,6 +461,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       if (!url.search && !hasAuthCookie) {
         const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
         if (staticBookResp) return staticBookResp
+      }
+      if ((url.search || hasAuthCookie) && (BOOK_META[bookId] || GENERATED_BOOK_META[bookId])) {
+        const target = new URL('/lab/', url.origin)
+        target.searchParams.set('book', bookId)
+        target.searchParams.set('view', 'book-detail')
+        return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
       }
       // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
       // generated meta from bookRegistry is the fallback so every book in

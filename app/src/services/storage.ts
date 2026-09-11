@@ -82,6 +82,11 @@ const PRESERVED_KEYS: ReadonlySet<string> = new Set([
   // `tinct:tinct-tour-seen` because `storage.set('tinct-tour-seen', ...)` goes
   // through localStorageProvider which adds the `tinct:` prefix.
   'tinct:tinct-tour-seen',
+  // Lab reader device preferences (appearance, editions, audio speed) and the
+  // device id that tie-breaks position records. Neither is user data; both
+  // would otherwise be lost on the `tinct-` prefix. Added 2026-09-06.
+  'tinct-lab-prefs',
+  'tinct-lab-device-id',
 ])
 
 /**

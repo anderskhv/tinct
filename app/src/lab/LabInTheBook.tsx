@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { LAB_COPY } from './labCopy'
 import type { LabCastMember, LabChapter, LabMark } from './labSource'
@@ -40,6 +40,14 @@ export function LabInTheBook({
 }: LabInTheBookProps) {
   const [tab, setTab] = useState<InTheBookTab>('search')
   const [query, setQuery] = useState('')
+
+  // Esc closes the open panel, like the other reader overlays.
+  useEffect(() => {
+    if (!open) return
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); onClose() } }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open, onClose])
 
   const hits = useMemo(() => {
     const needle = query.trim().toLowerCase()

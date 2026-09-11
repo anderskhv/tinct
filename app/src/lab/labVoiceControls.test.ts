@@ -9,6 +9,7 @@ import {
   labVoiceActionEntry,
   mergeLabVoiceTools,
   type LabVoiceViewSnapshot,
+  shouldResumePlaybackAfterNavigation,
 } from './labVoiceControls'
 
 describe('Lab production voice-tool bridge', () => {
@@ -163,4 +164,38 @@ describe('Lab production voice-tool bridge', () => {
       undoResult: 'Undid dark mode',
     })
   })
+})
+
+describe('navigation never starts playback by itself', () => {
+  it('resumes only when the session began from playback or the reader asked to hear the book', () => {
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: false })).toBe(false)
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: false, explicitPlayRequest: false })).toBe(false)
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: true })).toBe(true)
+    expect(shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: false, explicitPlayRequest: true })).toBe(true)
+  })
+})
+
+it('distinguishes seeing the book from explicitly playing it', async () => {
+  const { labVoiceRequestsAudio } = await import('./labVoiceControls')
+  for (const request of ['Can you take me back to the book?', 'Back to reading, please', 'Thank you, that is enough']) expect(labVoiceRequestsAudio(request)).toBe(false)
+  for (const request of ['Resume the audiobook', 'Play from here', 'Read it aloud', 'Continue listening']) expect(labVoiceRequestsAudio(request)).toBe(true)
+})
+
+it('recalls real dated lab sessions and matches Bible sub-books without inventing yesterday', async () => {
+  const { sessionFor, bibleChapterFixture } = await import('../readingMemory/fixtures.test-helpers')
+  const now = new Date(2026, 8, 8, 13).getTime()
+  const yesterday = new Date(2026, 8, 7, 18).getTime()
+  const fixture = { ...bibleChapterFixture(), chapterNumber: 786, chapterLabel: 'Jeremiah 41' }
+  const session = sessionFor(fixture, { state: 'completed', startedAt: yesterday, lastActiveAt: yesterday + 60000 })
+  session.owner = 'reader-a'
+  const loader = vi.spyOn(await import('../data/editionLoader'), 'loadEditionWindow').mockResolvedValue({ chapters: [{ number: 786, title: 'Jeremiah 41', paragraphs: fixture.paragraphs }] } as never)
+  try {
+    const input = { period: 'yesterday' as const, bookQuery: 'Jeremiah', source: bibleFallbackSource(), paragraphIndex: 0, fixtureEnabled: false, logs: [], now, sessions: [session], userId: 'reader-a' }
+    const result = await getLabVoiceReadingHistory(input)
+    expect(result.activities).toHaveLength(1)
+    expect(result.activities[0]).toMatchObject({ chapter_title: 'Jeremiah 41', lab_fixture: false })
+    expect(loader).toHaveBeenCalledWith('bible', 'kjv-en', 786)
+    expect((await getLabVoiceReadingHistory({ ...input, userId: 'another-reader' })).activities).toEqual([])
+    expect((await getLabVoiceReadingHistory({ ...input, sessions: [] })).activities).toEqual([])
+  } finally { loader.mockRestore() }
 })

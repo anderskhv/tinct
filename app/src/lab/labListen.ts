@@ -1,11 +1,9 @@
 import { resolveAudioUrl } from '../utils/audioUrl'
-import { measureWordTimesFromAudioUrl } from './labAudioMeasure'
 import {
   followFromPlayback,
   followParagraphFromManifest,
   followTimeFromAudio,
   mergeSidecarWords,
-  paragraphHasWordTimings,
   type FollowParagraph,
   type FollowTarget,
   type ManifestParagraph,
@@ -18,23 +16,50 @@ export const LAB_AUDIO = {
   chapterNumber: 1,
 } as const
 
-export interface LabAudioClip {
+// Word timing files are generated independently from their MP3s and may be
+// repaired in place. Keep a version in the request URL so a device cannot be
+// pinned forever to an older service-worker/browser cache entry.
+export const LAB_WORD_SIDECAR_VERSION = '2'
+
+export interface LabAudioTitleClip {
+  kind: 'title'
+  file: string
+  duration?: number
+}
+
+export interface LabAudioParagraphClip {
+  kind: 'paragraph'
   index: number
   file: string
   duration?: number
   words?: FollowParagraph['words']
 }
 
-export function labAudioChapterBase(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return `${LAB_AUDIO.bookId}/${editionKey}/ch${chapterNumber}`
+export type LabAudioClip = LabAudioTitleClip | LabAudioParagraphClip
+
+export function labAudioChapterBase(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  return `${bookId}/${editionKey}/ch${chapterNumber}`
 }
 
-export function labAudioManifestUrl(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/manifest.json`, 'manifest')
+export function labAudioManifestUrl(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/manifest.json`, 'manifest')
 }
 
-export function labAudioSidecarUrl(chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/words.json`, 'file')
+export function labAudioSidecarUrl(
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  const url = resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/words.json`, 'file')
+  return `${url}&timing=${LAB_WORD_SIDECAR_VERSION}`
 }
 
 /** Bible has chapter audio on R2; word sidecars are optional. */
@@ -49,14 +74,39 @@ export async function readLabWordSidecar(
   return null
 }
 
-export function labAudioFileUrl(file: string, chapterNumber = LAB_AUDIO.chapterNumber, editionKey = LAB_AUDIO.editionKey): string {
-  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey)}/${file}`, 'file')
+export function labAudioFileUrl(
+  file: string,
+  chapterNumber = LAB_AUDIO.chapterNumber,
+  editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
+): string {
+  return resolveAudioUrl(`${labAudioChapterBase(chapterNumber, editionKey, bookId)}/${file}`, 'file')
+}
+
+/** Granularity of the playback clock the reader re-renders on (seconds). */
+export const LAB_PLAYBACK_CLOCK_STEP_SECONDS = 0.25
+
+/**
+ * The follow paint moves per word, but the React clock behind the progress
+ * bar and the first-15-seconds checks must not tick at 60 Hz: each tick is
+ * a full reader render. Hold `previous` until `next` is a step ahead; any
+ * move backwards (a seek, a new clip) is taken exactly.
+ */
+export function steppedPlaybackTime(
+  previous: number,
+  next: number,
+  step = LAB_PLAYBACK_CLOCK_STEP_SECONDS,
+): number {
+  if (!Number.isFinite(next)) return previous
+  if (next < previous) return next
+  return next - previous >= step ? next : previous
 }
 
 export function clipsFromFollowParagraphs(paragraphs: FollowParagraph[]): LabAudioClip[] {
   return paragraphs.flatMap((paragraph) => {
     if (!paragraph.file || paragraph.index < 0) return []
     return [{
+      kind: 'paragraph' as const,
       index: paragraph.index,
       file: paragraph.file,
       duration: paragraph.duration,
@@ -70,51 +120,40 @@ export function clipsFromManifest(
   manifestParagraphs: ManifestParagraph[],
 ): LabAudioClip[] {
   const byIndex = new Map<number, ManifestParagraph>()
+  let title: LabAudioTitleClip | null = null
   for (const entry of manifestParagraphs) {
     if (typeof entry.paragraph === 'number') {
-      if (entry.paragraph < 0) continue
+      if (entry.paragraph < 0) {
+        if (entry.file) title = { kind: 'title', file: entry.file, duration: entry.duration }
+        continue
+      }
       byIndex.set(entry.paragraph, entry)
     }
   }
-  return paragraphs.map((text, index) => {
+  const body = paragraphs.map((text, index) => {
     const entry = byIndex.get(index) || byIndex.get(index + 1)
     const followed = followParagraphFromManifest(index, text, entry)
     if (!followed.file) return null
     return {
+      kind: 'paragraph' as const,
       index,
       file: followed.file,
       duration: followed.duration,
       words: followed.words,
     }
-  }).filter((clip): clip is LabAudioClip => clip != null)
-}
-
-/** Decode each paragraph MP3 and measure speech bounds → word timings. */
-export async function measureFollowParagraphWords(
-  paragraphs: FollowParagraph[],
-  chapterNumber = LAB_AUDIO.chapterNumber,
-  editionKey = LAB_AUDIO.editionKey,
-): Promise<FollowParagraph[]> {
-  return Promise.all(paragraphs.map(async (paragraph) => {
-    if (!paragraph.file || paragraphHasWordTimings(paragraph)) return paragraph
-    const url = labAudioFileUrl(paragraph.file, chapterNumber, editionKey)
-    const words = await measureWordTimesFromAudioUrl(
-      paragraph.text,
-      url,
-      typeof paragraph.duration === 'number' ? paragraph.duration : undefined,
-    )
-    return words ? { ...paragraph, words, wordsMeasured: true } : paragraph
-  }))
+  }).filter((clip): clip is LabAudioParagraphClip => clip != null)
+  return title ? [title, ...body] : body
 }
 
 export async function loadLabAudioChapter(
   paragraphs: string[],
   chapterNumber = LAB_AUDIO.chapterNumber,
   editionKey = LAB_AUDIO.editionKey,
+  bookId = LAB_AUDIO.bookId,
 ): Promise<FollowParagraph[]> {
   const [manifestRes, sidecarRes] = await Promise.all([
-    fetch(labAudioManifestUrl(chapterNumber, editionKey)),
-    fetch(labAudioSidecarUrl(chapterNumber, editionKey)).catch(() => null),
+    fetch(labAudioManifestUrl(chapterNumber, editionKey, bookId)),
+    fetch(labAudioSidecarUrl(chapterNumber, editionKey, bookId)).catch(() => null),
   ])
   if (!manifestRes.ok) {
     return paragraphs.map((text, index) => ({ index, text }))
@@ -128,8 +167,7 @@ export async function loadLabAudioChapter(
     followParagraphFromManifest(index, text, byIndex.get(index) || byIndex.get(index + 1))
   ))
 
-  const merged = mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes))
-  return measureFollowParagraphWords(merged, chapterNumber, editionKey)
+  return mergeSidecarWords(followed, await readLabWordSidecar(sidecarRes), chapterNumber)
 }
 
 export function followPlayingClip(
@@ -137,7 +175,7 @@ export function followPlayingClip(
   clip: LabAudioClip | undefined,
   currentTime: number,
 ): FollowTarget {
-  if (!clip) return { kind: 'none' }
+  if (!clip || clip.kind === 'title') return { kind: 'none' }
   return followFromPlayback({
     paragraphs,
     paragraphIndex: clip.index,

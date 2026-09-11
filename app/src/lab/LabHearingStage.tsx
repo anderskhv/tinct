@@ -1,6 +1,6 @@
 import { LAB_COPY } from './labCopy'
 import { hearingStageLines } from './labHearing'
-import type { FollowParagraph, FollowTarget } from './labFollow'
+import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 
 interface LabHearingStageProps {
   paragraphs: FollowParagraph[]
@@ -40,17 +40,26 @@ export function LabHearingStage({
     <section className="lab-hearing" data-testid="lab-hearing">
       <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
         {lines.map((line, lineIndex) => (
-          <p key={lineIndex} className="lab-hearing-line">
-            {line.words.map((word, wordIndex) => (
+          <p
+            key={lineIndex}
+            className="lab-hearing-line"
+            data-follow-granularity={followGranularity(paragraph) === 'sentence' ? 'sentence' : undefined}
+          >
+            {line.words.map((word, wordIndex) => {
+              const role = word.wordIndex != null && paragraph
+                ? followWordRole(follow, paragraph.index, word.wordIndex) ?? word.role
+                : word.role
+              return (
               <span
                 key={`${lineIndex}-${wordIndex}`}
-                className={`lab-hearing-word is-${word.role}`}
-                data-testid={word.role === 'current' ? 'lab-hearing-current' : undefined}
+                className={`lab-hearing-word is-${role}`}
+                data-testid={role === 'current' ? 'lab-hearing-current' : undefined}
               >
                 {wordIndex > 0 && !word.text.startsWith("'") && !word.text.startsWith(',') && !word.text.startsWith('.') ? ' ' : ''}
                 {word.text}
               </span>
-            ))}
+              )
+            })}
           </p>
         ))}
       </div>

@@ -2,13 +2,29 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import {
+  labCompactFootProgress,
   DEFAULT_LAB_PREFS,
+  LAB_ACCOUNT_URL,
   LAB_LIBRARY_URL,
+  LAB_SIGN_IN_URL,
+  labAccountUrl,
+  labSignInUrl,
+  LAB_MAX_FONT_SIZE,
+  LAB_MIN_FONT_SIZE,
   LAB_PREFS_KEY,
+  LAB_ACCESSIBILITY_FONTS,
+  LAB_FONT_LABELS,
+  LAB_READING_FONTS,
+  LAB_V1_DEFAULT_FONT,
+  LAB_V2_DEFAULT_FONT,
+  labFontFamilyCss,
+  labReadingFont,
   labFootProgress,
   labFootProgressPages,
   labProgressKnobLive,
+  labReaderProgressLabel,
   parseLabPrefs,
+  parseLabStoredPrefs,
   readLabPrefs,
   writeLabPrefs,
 } from './labPrefs'
@@ -18,10 +34,45 @@ afterEach(() => {
 })
 
 describe('lab prefs', () => {
-  it('points Library at the public Tinct library hub, never /app', () => {
-    expect(LAB_LIBRARY_URL).toBe('/read/')
+  it('keeps mobile progress compact because the chapter is already in the header', () => {
+    expect(labCompactFootProgress('Genesis 1 — 5 / 9')).toBe('5 / 9')
+    expect(labCompactFootProgress('Genesis 1 — 56%')).toBe('56%')
+    expect(labCompactFootProgress('82%')).toBe('82%')
+  })
+
+  it('toggles between total-book and explicit chapter progress', () => {
+    const shared = {
+      currentPage: 4,
+      totalPages: 22,
+      chapterPercent: 18,
+      chapterNumber: 2,
+      chapterWordsRead: 180,
+      chapterWordCounts: [
+        { number: 1, wordCount: 1000 },
+        { number: 2, wordCount: 1000 },
+      ],
+      wordsPerPage: 100,
+    }
+    expect(labReaderProgressLabel({ ...shared, mode: 'book' })).toBe('12 / 20 of book · 59%')
+    expect(labReaderProgressLabel({ ...shared, mode: 'chapter' })).toBe('4 / 22 of chapter · 18%')
+  })
+
+  it('adds thousands separators to reader page totals', () => {
+    expect(labReaderProgressLabel({
+      mode: 'book',
+      currentPage: 1,
+      totalPages: 10,
+      chapterPercent: 50,
+      chapterNumber: 1,
+      chapterWordsRead: 4_799,
+      chapterWordCounts: [{ number: 1, wordCount: 8_921 }],
+      wordsPerPage: 1,
+    })).toBe('4,799 / 8,921 of book · 54%')
+  })
+
+  it('points Library at the lab library, never /app', () => {
+    expect(LAB_LIBRARY_URL).toBe('/library')
     expect(LAB_LIBRARY_URL).not.toContain('/app')
-    expect(LAB_LIBRARY_URL).not.toContain('library')
     expect(LAB_LIBRARY_URL).not.toContain('?')
     expect(LAB_LIBRARY_URL).not.toBe('/read/library')
     expect(LAB_LIBRARY_URL).not.toBe('/read?view=library')
@@ -43,6 +94,92 @@ describe('lab prefs', () => {
     expect(next.audioEdition).toBe('web-en')
     writeLabPrefs(next)
     expect(readLabPrefs().progressDisplay.scope).toBe('section')
+  })
+
+  it('migrates one legacy appearance into both profiles without losing shared choices', () => {
+    const migrated = parseLabStoredPrefs({
+      primaryEdition: 'web-en',
+      compareEdition: 'kjv-en',
+      audioEdition: 'web-en',
+      audioSpeed: 1.75,
+      compareOpen: true,
+      darkMode: true,
+      fontFamily: 'baskerville',
+      fontSize: 1.8,
+      alignment: 'left',
+      lineSpacing: 'open',
+      margins: 'wide',
+      paragraphSpacing: 'generous',
+      progressDisplay: { metric: 'percent', scope: 'book' },
+    })
+
+    expect(migrated.version).toBe(2)
+    expect(migrated.shared).toEqual({
+      primaryEdition: 'web-en',
+      compareEdition: 'kjv-en',
+      audioEdition: 'web-en',
+      audioSpeed: 1.75,
+      compareOpen: true,
+    })
+    expect(migrated.phone).toEqual(migrated.desktop)
+    expect(migrated.phone).toMatchObject({
+      theme: 'dark',
+      fontFamily: 'baskerville',
+      fontSize: 1.8,
+      alignment: 'left',
+      lineSpacing: 'open',
+      margins: 'wide',
+      paragraphSpacing: 'generous',
+      progressDisplay: { metric: 'percent', scope: 'book' },
+    })
+  })
+
+  it('updates only the active appearance profile while editions, Compare, and audio stay shared', () => {
+    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify({
+      primaryEdition: 'web-en',
+      compareEdition: 'kjv-en',
+      audioEdition: 'web-en',
+      audioSpeed: 1.5,
+      compareOpen: true,
+      theme: 'book',
+      fontSize: 1.2,
+      alignment: 'justify',
+    }))
+
+    writeLabPrefs({
+      ...readLabPrefs('phone'),
+      theme: 'dark',
+      fontSize: 1.6,
+      alignment: 'left',
+      audioSpeed: 2,
+    }, 'phone')
+    writeLabPrefs({
+      ...readLabPrefs('desktop'),
+      theme: 'light',
+      fontSize: 1,
+      alignment: 'justify',
+    }, 'desktop')
+
+    const phone = readLabPrefs('phone')
+    const desktop = readLabPrefs('desktop')
+    expect(phone).toMatchObject({ theme: 'dark', fontSize: 1.6, alignment: 'left' })
+    expect(desktop).toMatchObject({ theme: 'light', fontSize: 1, alignment: 'justify' })
+    expect(phone.primaryEdition).toBe('web-en')
+    expect(desktop.primaryEdition).toBe('web-en')
+    expect(phone.compareOpen).toBe(true)
+    expect(desktop.compareOpen).toBe(true)
+    expect(phone.audioEdition).toBe('web-en')
+    expect(desktop.audioEdition).toBe('web-en')
+    expect(phone.audioSpeed).toBe(2)
+    expect(desktop.audioSpeed).toBe(2)
+  })
+
+  it('offers a genuinely smaller size and clamps imported preferences', () => {
+    expect(LAB_MIN_FONT_SIZE).toBe(0.8)
+    expect(LAB_MAX_FONT_SIZE).toBe(2.2)
+    expect(parseLabPrefs({ fontSize: 0.1 }).fontSize).toBe(LAB_MIN_FONT_SIZE)
+    expect(parseLabPrefs({ fontSize: 9 }).fontSize).toBe(LAB_MAX_FONT_SIZE)
+    expect(parseLabPrefs({ audioSpeed: 9 }).audioSpeed).toBe(3)
   })
 
   it('formats the foot strip from cheap knobs and keeps page/chapter as fallback', () => {
@@ -104,5 +241,66 @@ describe('lab prefs', () => {
       metric: 'time',
       scope: 'book',
     })).toBe('Chapter 643 — 4 / 7')
+  })
+})
+
+describe('lab sign-in URLs', () => {
+  it('return to the reader path they were given and default to the library', () => {
+    expect(labSignInUrl('/lab/reader?voice=v2')).toBe('/lab/sign-in?returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+    expect(labAccountUrl('/lab/phone')).toBe('/lab/sign-in?mode=account&returnTo=%2Flab%2Fphone')
+    expect(labSignInUrl()).toBe(LAB_SIGN_IN_URL)
+    expect(labAccountUrl('')).toBe(LAB_ACCOUNT_URL)
+    expect(LAB_SIGN_IN_URL).toBe(`/lab/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`)
+  })
+})
+
+describe('the reading faces', () => {
+  it('offers Literata first and keeps Atkinson in its own accessibility group', () => {
+    expect(LAB_READING_FONTS).toEqual(['literata', 'garamond', 'baskerville', 'sourceserif'])
+    expect(LAB_ACCESSIBILITY_FONTS).toEqual(['atkinson'])
+    expect(LAB_READING_FONTS).not.toContain('atkinson')
+    expect(LAB_FONT_LABELS.literata).toBe('Literata')
+    expect(LAB_FONT_LABELS.atkinson).toBe('Atkinson Hyperlegible')
+  })
+
+  it('sets each face in its own family, with a face that exists behind it', () => {
+    expect(labFontFamilyCss('literata')).toContain("'Literata'")
+    expect(labFontFamilyCss('atkinson')).toContain("'Atkinson Hyperlegible'")
+    // Every face falls back to one the reader already ships.
+    for (const family of [...LAB_READING_FONTS, ...LAB_ACCESSIBILITY_FONTS]) {
+      expect(labFontFamilyCss(family)).toMatch(/(EB Garamond|IBM Plex Sans)/)
+    }
+  })
+
+  it('moves the default in V2 only, and never moves a face a reader picked', () => {
+    // Never chosen: the new reader gets the new default, today's reader does not.
+    expect(labReadingFont(null, true)).toBe(LAB_V2_DEFAULT_FONT)
+    expect(labReadingFont(null, false)).toBe(LAB_V1_DEFAULT_FONT)
+    expect(LAB_V2_DEFAULT_FONT).toBe('literata')
+    expect(LAB_V1_DEFAULT_FONT).toBe('garamond')
+    // Chosen: the choice holds in both chromes, including the old three.
+    for (const family of ['garamond', 'baskerville', 'sourceserif', 'literata', 'atkinson'] as const) {
+      expect(labReadingFont(family, true)).toBe(family)
+      expect(labReadingFont(family, false)).toBe(family)
+    }
+  })
+
+  it('carries a stored face across the store that did not know it', () => {
+    // The three the store has always known parse unchanged...
+    for (const family of ['garamond', 'baskerville', 'sourceserif'] as const) {
+      expect(parseLabPrefs({ fontFamily: family }).fontFamily).toBe(family)
+    }
+    // ...the two it did not, too, and a face nobody can read is "never chosen"
+    // rather than a face nobody picked.
+    expect(parseLabPrefs({ fontFamily: 'literata' }).fontFamily).toBe('literata')
+    expect(parseLabPrefs({ fontFamily: 'atkinson' }).fontFamily).toBe('atkinson')
+    expect(parseLabPrefs({ fontFamily: 'papyrus' }).fontFamily).toBeNull()
+    expect(DEFAULT_LAB_PREFS.fontFamily).toBeNull()
+  })
+
+  it('round-trips a new face through the store', () => {
+    writeLabPrefs({ ...DEFAULT_LAB_PREFS, fontFamily: 'atkinson' })
+    expect(readLabPrefs().fontFamily).toBe('atkinson')
+    expect(parseLabStoredPrefs(JSON.parse(localStorage.getItem(LAB_PREFS_KEY)!)).phone.fontFamily).toBe('atkinson')
   })
 })

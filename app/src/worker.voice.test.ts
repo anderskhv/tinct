@@ -160,3 +160,15 @@ describe('voice session route', () => {
     )
   })
 })
+
+it('selects only explicit trial models without changing the default', async () => {
+  for (const [voiceTrial, expected] of [['full','gpt-realtime-2.1'],['mini',VOICE_REALTIME_MODEL],['arbitrary-model',VOICE_REALTIME_MODEL]]) {
+    let requested: unknown
+    vi.stubGlobal('fetch',vi.fn(async (_url, init) => { requested=JSON.parse(init.body); return Response.json({value:'ephemeral-test'}) }))
+    const {ctx}=makeExecutionContext()
+    const response=await handleVoiceSession(new Request('https://tinct.app/api/lab-voice-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({voiceTrial})}),{OPENAI_API_KEY:'test'},ctx,async()=>null,async()=>true,{allowLabGuest:true})
+    expect(response.status).toBe(200)
+    expect(requested).toMatchObject({session:{model:expected}})
+    expect(await response.json()).toMatchObject({model:expected})
+  }
+})

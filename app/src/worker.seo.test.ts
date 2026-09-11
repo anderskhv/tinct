@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
 import worker, { serveSpaWithMetaForTest } from './worker'
 import { handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
 
@@ -16,6 +17,9 @@ function envWithAppShell(html = '<!doctype html><html><head><title>Tinct — A N
 function routerEnv() {
   const shell = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app shell</body></html>'
   const hub = '<!doctype html><html><head><title>Tinct Library</title></head><body><a href="/read/odyssey/summary">The Odyssey</a></body></html>'
+  const lab = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Tinct mobile landing and onboarding lab</title></head><body><div id="tinct-onboarding-worlds-v5">lab shell</div></body></html>'
+  const library2 = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Library 2</title></head><body><div id="tinct-library-2">library 2 shell</div></body></html>'
+  const labSignIn = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Sign in</title></head><body><div id="tinct-lab-sign-in">sign in shell</div></body></html>'
   return {
     ASSETS: {
       fetch: async (request: Request) => {
@@ -24,7 +28,49 @@ function routerEnv() {
           return new Response(shell, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
         if (url.pathname === '/read/index.html') {
+          return new Response(null, { status: 307, headers: { Location: '/read/' } })
+        }
+        if (url.pathname === '/read/') {
           return new Response(hub, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        }
+        if (url.pathname === '/lab/index.html') {
+          return new Response(null, { status: 307, headers: { Location: '/lab/' } })
+        }
+        if (url.pathname === '/lab/') {
+          return new Response(lab, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        }
+        if (url.pathname === '/lab/library-2/') {
+          return new Response(library2, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        }
+        if (url.pathname === '/lab/sign-in/') {
+          return new Response(labSignIn, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        }
+        if (url.pathname === '/lab/prefaces/odyssey.json') {
+          return Response.json({ marker: 'complete approved preface' })
+        }
+        if (url.pathname === '/lab/catalogue.json') {
+          return Response.json({ marker: 'published catalogue' })
+        }
+        if (url.pathname === '/lab/catalogue-runtime.js') {
+          if (request.headers.has('If-None-Match')) {
+            return new Response(null, { status: 304, headers: { ETag: '"lab-runtime"' } })
+          }
+          return new Response('window.__labRuntimeLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/interaction-runtime.js') {
+          return new Response('window.__labInteractionsLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/library-2-runtime.js') {
+          return new Response('window.__labLibrary2Loaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/library-2-model.js') {
+          return new Response('export const library2Model = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/auth-status.js') {
+          return new Response('window.__labAuthStatusLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
+        }
+        if (url.pathname === '/lab/sign-in-runtime.js') {
+          return new Response('window.__labSignInLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
         }
         if (url.pathname === '/robots.txt') {
           return new Response('User-agent: *\nAllow: /\nDisallow: /data/\nDisallow: /api/\n', { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
@@ -110,9 +156,87 @@ describe('worker SEO SPA metadata', () => {
 })
 
 describe('worker SEO routing', () => {
-  it('serves the crawlable /read hub instead of the app shell', async () => {
-    const resp = await worker.fetch(new Request('https://tinct.app/read'), routerEnv() as never, ctx)
+  it.each(['/lab', '/lab/', '/lab/landing', '/library'])('serves the standalone noindex lab at %s', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
+    expect(resp.headers.get('Cache-Control')).toBe('no-store')
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    const html = await resp.text()
+    expect(html).toContain('id="tinct-onboarding-worlds-v5"')
+    expect(html).not.toContain('app shell')
+  })
+
+  it.each(['/lab/library-2', '/lab/library-2/'])('serves Library 2 at %s without changing the existing Lab entry', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('Cache-Control')).toBe('no-store')
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    const html = await resp.text()
+    expect(html).toContain('id="tinct-library-2"')
+    expect(html).not.toContain('id="tinct-onboarding-worlds-v5"')
+    expect(html).not.toContain('app shell')
+  })
+
+  it.each(['/lab/sign-in', '/lab/sign-in/'])('serves the real Lab sign-in route at %s', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+    const html = await resp.text()
+    expect(html).toContain('id="tinct-lab-sign-in"')
+    expect(html).not.toContain('app shell')
+  })
+
+  it.each([
+    ['/lab/catalogue.json', 'application/json', 'published catalogue'],
+    ['/lab/prefaces/odyssey.json', 'application/json', 'complete approved preface'],
+    ['/lab/catalogue-runtime.js', 'text/javascript', '__labRuntimeLoaded'],
+    ['/lab/interaction-runtime.js', 'text/javascript', '__labInteractionsLoaded'],
+    ['/lab/library-2-runtime.js', 'text/javascript', '__labLibrary2Loaded'],
+    ['/lab/library-2-model.js', 'text/javascript', 'library2Model'],
+    ['/lab/auth-status.js', 'text/javascript', '__labAuthStatusLoaded'],
+    ['/lab/sign-in-runtime.js', 'text/javascript', '__labSignInLoaded'],
+  ])('serves the standalone Lab asset %s instead of the app shell', async (pathname, contentType, marker) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('Content-Type')).toContain(contentType)
+    const body = await resp.text()
+    expect(body).toContain(marker)
+    expect(body).not.toContain('app shell')
+  })
+
+  it('keeps versioned Lab assets on the static asset path', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/lab/catalogue.json?v=20260903-2'), routerEnv() as never, ctx)
+    expect(resp.headers.get('Content-Type')).toContain('application/json')
+    expect(await resp.text()).toContain('published catalogue')
+  })
+
+  it('returns conditional Lab asset responses without falling through to the app shell', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/lab/catalogue-runtime.js?v=20260903-2', {
+      headers: { 'If-None-Match': '"lab-runtime"' },
+    }), routerEnv() as never, ctx)
+    expect(resp.status).toBe(304)
+    expect(await resp.text()).toBe('')
+  })
+
+  it('keeps every Lab interaction script executable under the production CSP', async () => {
+    const source = readFileSync(new URL('../public/lab/index.html', import.meta.url), 'utf8')
+    const scripts = [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
+    expect(scripts.length).toBeGreaterThan(0)
+    expect(scripts.every(([, attributes, body]) => /\bsrc=/i.test(attributes) && body.trim() === '')).toBe(true)
+    expect(source).toMatch(/src="\/lab\/catalogue-runtime\.js\?v=[\w-]+"/)
+    expect(source).not.toContain('src="/lab/interaction-runtime.js')
+
+    const resp = await worker.fetch(new Request('https://tinct.app/lab/'), routerEnv() as never, ctx)
+    const csp = resp.headers.get('Content-Security-Policy') || ''
+    const scriptDirective = csp.split(';').find(directive => directive.trim().startsWith('script-src')) || ''
+    expect(scriptDirective).toContain("script-src 'self'")
+    expect(scriptDirective).not.toContain("'unsafe-inline'")
+  })
+
+  it.each(['/read', '/read/'])('serves the crawlable hub directly at %s instead of redirecting or falling back', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    expect(resp.headers.get('Location')).toBeNull()
     expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, must-revalidate')
     expect(await resp.text()).toContain('/read/odyssey/summary')
   })
@@ -157,15 +281,17 @@ describe('worker SEO routing', () => {
     expect(await marketing.text()).toContain('odyssey marketing')
 
     const fromApp = await worker.fetch(new Request('https://tinct.app/read/odyssey?from=app'), env as never, ctx)
-    expect(await fromApp.text()).toContain('app shell')
+    expect(fromApp.status).toBe(302)
+    expect(fromApp.headers.get('Location')).toBe('/lab/?book=odyssey&view=book-detail')
 
     const signedIn = await worker.fetch(new Request('https://tinct.app/read/odyssey', {
       headers: { Cookie: 'tinct_auth=1' },
     }), env as never, ctx)
-    expect(await signedIn.text()).toContain('app shell')
+    expect(signedIn.status).toBe(302)
+    expect(signedIn.headers.get('Location')).toBe('/lab/?book=odyssey&view=book-detail')
   })
 
-  it('serves /lab as a noindex demo, including nested paths', async () => {
+  it('serves the standalone /lab entry and nested reader as noindex surfaces', async () => {
     const lab = await worker.fetch(new Request('https://tinct.app/lab'), routerEnv() as never, ctx)
     expect(lab.status).toBe(200)
     expect(lab.headers.get('X-Robots-Tag')).toContain('noindex')
@@ -173,7 +299,7 @@ describe('worker SEO routing', () => {
     const html = await lab.text()
     expect(html).toContain('name="robots"')
     expect(html).toContain('noindex')
-    expect(html).toContain('app shell')
+    expect(html).toContain('lab shell')
 
     const nested = await worker.fetch(new Request('https://tinct.app/lab/phone'), routerEnv() as never, ctx)
     expect(nested.headers.get('X-Robots-Tag')).toContain('noindex')
@@ -184,10 +310,42 @@ describe('worker SEO routing', () => {
     expect(await head.text()).toBe('')
   })
 
-  it('keeps /app on the production SPA shell', async () => {
+  it.each(['GET', 'HEAD'])('serves the promoted homepage without noindex (%s)', async method => {
+    const response = await worker.fetch(new Request('https://tinct.app/', { method }), routerEnv() as never, ctx)
+    expect(response.status).toBe(200)
+    expect(response.headers.get('X-Robots-Tag')).toBeNull()
+    expect(response.headers.get('Cache-Control')).toBe('no-store')
+    const body = await response.text()
+    if (method === 'HEAD') expect(body).toBe('')
+    else {
+      expect(body).toContain('tinct-onboarding-worlds-v5')
+      expect(body).not.toContain('noindex')
+      expect(body).toContain('href="https://tinct.app/"')
+    }
+  })
+
+  it.each([
+    ['/lab/reader?chrome=v2&book=bible&chapter=3&voiceTrial=full', '/reader?book=bible&chapter=3'],
+    ['/app?signin=1', '/lab/sign-in'],
+    ['/lab/library?chrome=v2', '/library'],
+    ['/app?book=ulysses', '/library?book=ulysses&view=book-detail'],
+  ])('preserves public navigation intent from %s', async (path, target) => {
+    const response = await worker.fetch(new Request('https://tinct.app' + path), routerEnv() as never, ctx)
+    expect(response.status).toBe(302)
+    expect(response.headers.get('Location')).toBe(target)
+  })
+
+  it.each(['/reader', '/reader/', '/library', '/library/'])('serves clean public route %s without redirecting to lab', async (path) => {
+    const response = await worker.fetch(new Request('https://tinct.app' + path), routerEnv() as never, ctx)
+    expect(response.status).toBe(200)
+    expect(response.headers.get('Location')).toBeNull()
+    expect(response.headers.get('X-Robots-Tag')).toContain('noindex')
+  })
+
+  it('opens the promoted library from /app', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/app'), routerEnv() as never, ctx)
-    expect(resp.status).toBe(200)
-    expect(await resp.text()).toContain('app shell')
+    expect(resp.status).toBe(302)
+    expect(resp.headers.get('Location')).toBe('/library')
   })
 
   it('serves unknown app paths as noindex SPA fallback', async () => {

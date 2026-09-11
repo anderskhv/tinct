@@ -1,20 +1,25 @@
 import type { ChatConversation, ChatMessage } from '../types'
 import { apiUrl } from '../utils/apiUrl'
-import { isStuckRepeatedLine, type LabAskTurn } from './labAsk'
+import type { LabAskTurn } from './labAsk'
 import { biblicalBookId } from './labPosition'
 
-/** Voice-session book id only. Never a persist key — Bible is not one thread. */
+/**
+ * Legacy lab chat state (retired 2026-09-07).
+ *
+ * The lab used to keep every book's chats in one blob under
+ * `tinct:chat-history:lab` (keyed by biblical book / title slug) and mirror
+ * it to a Worker KV row through `/api/lab-chat-history`. Chats now live in
+ * the classic per-book rows (`chat-history:{bookId}`, see labChatHistory.ts).
+ * What remains here is the parser, used by the Worker route and by the
+ * one-time migration that folds the old blob into the per-book rows.
+ */
+
+/** Voice-session book id only. Never a persist key. */
 export const LAB_CHAT_BOOK_ID = 'lab'
 export const LAB_CHAT_HISTORY_STORAGE_KEY = 'tinct:chat-history:lab'
-/** @deprecated use LAB_CHAT_HISTORY_STORAGE_KEY — kept so old imports keep compiling */
-export const LAB_CHAT_HISTORY_KEY = LAB_CHAT_HISTORY_STORAGE_KEY
 
-const CONVERSATION_GAP_MS = 5 * 60 * 1000
-const MAX_TURNS_PER_BOOK = 80
+const MAX_TURNS_PER_BOOK = 600
 const MAX_CONTENT = 8_000
-const IDB_NAME = 'tinct-lab'
-const IDB_STORE = 'kv'
-const IDB_KEY = 'chat-history'
 const FORBIDDEN_BOOKS = new Set(['bible', 'lab', 'odyssey'])
 
 export interface LabBookChat {
@@ -29,11 +34,6 @@ export interface LabChatHistoryState {
   updatedAt: number
 }
 
-export interface LabChatBookRef {
-  bookId: string
-  headerBook: string
-}
-
 function makePreview(text: string): string {
   if (text.length <= 80) return text
   return text.slice(0, 77) + '...'
@@ -45,14 +45,6 @@ function isFiniteInt(value: unknown, min: number, max: number): value is number 
 
 export function emptyLabChatHistoryState(): LabChatHistoryState {
   return { books: {}, updatedAt: 0 }
-}
-
-export function resolveLabChatBook(headerBook: string, fallback = ''): LabChatBookRef | null {
-  const raw = (headerBook || fallback).trim()
-  if (!raw) return null
-  const bookId = biblicalBookId(raw)
-  if (!bookId || FORBIDDEN_BOOKS.has(bookId)) return null
-  return { bookId, headerBook: raw }
 }
 
 function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
@@ -153,24 +145,6 @@ function trimConversations(conversations: ChatConversation[]): ChatConversation[
   return next
 }
 
-export function turnsFromConversations(conversations: ChatConversation[]): LabAskTurn[] {
-  return conversations.flatMap(conversation => conversation.messages.map(message => ({
-    id: message.id,
-    role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
-    content: message.content,
-    source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
-    cancelled: message.isComplete === false,
-  })))
-}
-
-export function readLabAskTurns(bookId: string, state?: LabChatHistoryState): LabAskTurn[] {
-  if (!bookId || FORBIDDEN_BOOKS.has(bookId)) return []
-  const books = (state ?? readLabChatHistoryLocal()).books
-  const book = books[bookId]
-  if (!book) return []
-  return turnsFromConversations(book.conversations)
-}
-
 export function mergeLabChatHistoryStates(local: LabChatHistoryState, cloud: LabChatHistoryState): LabChatHistoryState {
   const books: Record<string, LabBookChat> = { ...local.books }
   for (const [bookId, incoming] of Object.entries(cloud.books)) {
@@ -186,43 +160,6 @@ export function mergeLabChatHistoryStates(local: LabChatHistoryState, cloud: Lab
   }
 }
 
-function idbAvailable(): boolean {
-  return typeof indexedDB !== 'undefined'
-}
-
-function openIdb(): Promise<IDBDatabase | null> {
-  if (!idbAvailable()) return Promise.resolve(null)
-  return new Promise((resolve) => {
-    try {
-      const req = indexedDB.open(IDB_NAME, 1)
-      req.onupgradeneeded = () => {
-        if (!req.result.objectStoreNames.contains(IDB_STORE)) req.result.createObjectStore(IDB_STORE)
-      }
-      req.onsuccess = () => resolve(req.result)
-      req.onerror = () => resolve(null)
-    } catch {
-      resolve(null)
-    }
-  })
-}
-
-async function writeIdb(state: LabChatHistoryState): Promise<void> {
-  const db = await openIdb()
-  if (!db) return
-  await new Promise<void>((resolve) => {
-    try {
-      const tx = db.transaction(IDB_STORE, 'readwrite')
-      tx.objectStore(IDB_STORE).put(state, IDB_KEY)
-      tx.oncomplete = () => resolve()
-      tx.onerror = () => resolve()
-    } catch {
-      resolve()
-    } finally {
-      db.close()
-    }
-  })
-}
-
 export function readLabChatHistoryLocal(): LabChatHistoryState {
   if (typeof localStorage === 'undefined') return emptyLabChatHistoryState()
   try {
@@ -232,15 +169,6 @@ export function readLabChatHistoryLocal(): LabChatHistoryState {
   } catch {
     return emptyLabChatHistoryState()
   }
-}
-
-export function writeLabChatHistoryLocal(state: LabChatHistoryState): void {
-  if (typeof localStorage !== 'undefined') {
-    try {
-      localStorage.setItem(LAB_CHAT_HISTORY_STORAGE_KEY, JSON.stringify(state))
-    } catch { /* quota / private mode */ }
-  }
-  void writeIdb(state)
 }
 
 export function clearLabChatHistoryLocal(): void {
@@ -259,185 +187,6 @@ export async function fetchLabChatHistoryCloud(token: string | null | undefined)
   } catch {
     return null
   }
-}
-
-export async function putLabChatHistoryCloud(
-  token: string | null | undefined,
-  state: LabChatHistoryState,
-): Promise<boolean> {
-  if (!token) return false
-  try {
-    const res = await fetch(apiUrl('/api/lab-chat-history'), {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(state),
-    })
-    return res.ok
-  } catch {
-    return false
-  }
-}
-
-export function createLabChatHistorySync(opts: {
-  token?: string | null
-  online?: () => boolean
-  put?: typeof putLabChatHistoryCloud
-}) {
-  let dirty = false
-  let last: LabChatHistoryState | null = null
-  const put = opts.put ?? putLabChatHistoryCloud
-  const isOnline = opts.online ?? (() => typeof navigator === 'undefined' || navigator.onLine)
-
-  const flushCloud = async () => {
-    if (!opts.token || !last) return false
-    const ok = await put(opts.token, last)
-    if (ok) dirty = false
-    return ok
-  }
-
-  return {
-    persist(state: LabChatHistoryState) {
-      last = state
-      writeLabChatHistoryLocal(state)
-      if (!opts.token) return
-      if (!isOnline()) {
-        dirty = true
-        return
-      }
-      void put(opts.token, state).then((ok) => {
-        if (!ok) dirty = true
-      })
-    },
-    async flush() {
-      return flushCloud()
-    },
-    isDirty: () => dirty,
-    canWriteCloud: () => Boolean(opts.token),
-  }
-}
-
-function appendTurnToConversations(
-  current: ChatConversation[],
-  enriched: ChatMessage,
-  bookId: string,
-  chapterNumber: number,
-  paragraphIndex: number | undefined,
-): ChatConversation[] {
-  const now = enriched.timestamp
-  const last = current[current.length - 1]
-  if (
-    last
-    && last.bookId === bookId
-    && last.chapterNumber === chapterNumber
-    && now - last.endTimestamp < CONVERSATION_GAP_MS
-  ) {
-    if (last.messages.some(item => item.id === enriched.id)) return current
-    const lastMsg = last.messages[last.messages.length - 1]
-    if (
-      lastMsg
-      && lastMsg.role === 'assistant'
-      && enriched.role === 'assistant'
-      && isStuckRepeatedLine(lastMsg.content, enriched.content)
-    ) {
-      return current
-    }
-    if (lastMsg && lastMsg.role === enriched.role && lastMsg.source === enriched.source) {
-      if (enriched.role === 'user' && enriched.id !== lastMsg.id && enriched.content !== lastMsg.content) {
-        return [...current.slice(0, -1), {
-          ...last,
-          endTimestamp: now,
-          messages: [...last.messages, enriched],
-        }]
-      }
-      if (enriched.role === 'user' && enriched.content !== lastMsg.content) {
-        return [...current.slice(0, -1), {
-          ...last,
-          endTimestamp: now,
-          messages: [...last.messages, enriched],
-        }]
-      }
-      if (enriched.content.length < lastMsg.content.length) {
-        if (enriched.isComplete === false) {
-          const messages = [...last.messages.slice(0, -1), { ...lastMsg, isComplete: false }]
-          return [...current.slice(0, -1), { ...last, endTimestamp: now, messages }]
-        }
-        return current
-      }
-      const messages = [...last.messages.slice(0, -1), { ...lastMsg, ...enriched, id: lastMsg.id }]
-      return [...current.slice(0, -1), { ...last, endTimestamp: now, messages }]
-    }
-    return [...current.slice(0, -1), {
-      ...last,
-      endTimestamp: now,
-      messages: [...last.messages, enriched],
-    }]
-  }
-  return [...current, {
-    id: `conv_lab_${bookId}_${now}`,
-    bookId,
-    chapterNumber,
-    paragraphIndex,
-    startTimestamp: now,
-    endTimestamp: now,
-    messages: [enriched],
-    preview: enriched.role === 'user' ? makePreview(enriched.content) : '',
-  }]
-}
-
-/** Persist a finalized lab Talk/Ask turn under a biblical book, never bible/lab/odyssey. */
-export function persistLabTalkTurn(
-  message: ChatMessage,
-  chapterNumber = 1,
-  paragraphIndex?: number,
-  book?: LabChatBookRef | string,
-): LabChatHistoryState {
-  const resolved = typeof book === 'string' || !book
-    ? resolveLabChatBook(typeof book === 'string' ? book : '', message.bookId === 'lab' || message.bookId === 'bible' ? '' : (message.bookId || ''))
-    : resolveLabChatBook(book.headerBook, book.bookId)
-  const state = readLabChatHistoryLocal()
-  if (!resolved) return state
-  const content = (message.content || '').trim()
-  if (!content) return state
-  const now = message.timestamp || Date.now()
-  const enriched: ChatMessage = {
-    ...message,
-    content,
-    bookId: resolved.bookId,
-    chapterNumber,
-    paragraphIndex,
-    timestamp: now,
-  }
-  const existing = state.books[resolved.bookId]
-  const conversations = appendTurnToConversations(
-    existing?.conversations || [],
-    enriched,
-    resolved.bookId,
-    chapterNumber,
-    paragraphIndex,
-  )
-  const next: LabChatHistoryState = {
-    books: {
-      ...state.books,
-      [resolved.bookId]: {
-        bookId: resolved.bookId,
-        headerBook: resolved.headerBook,
-        updatedAt: now,
-        conversations: trimConversations(conversations),
-      },
-    },
-    updatedAt: now,
-  }
-  writeLabChatHistoryLocal(next)
-  return next
-}
-
-export function readLabTalkHistory(bookId?: string): ChatConversation[] {
-  const state = readLabChatHistoryLocal()
-  if (bookId) return state.books[bookId]?.conversations || []
-  return Object.values(state.books).flatMap(book => book.conversations)
 }
 
 export function dumpLabTalkTurns(turns: LabAskTurn[]): void {

@@ -214,6 +214,26 @@ export function growPaintedPageIfSlack(
   return sameChapterPages(grown, pages) ? pages : grown
 }
 
+/**
+ * Append exactly the first omitted word, regardless of estimated line slack.
+ * The caller must paint this trial and keep it only when the real browser
+ * geometry still clears the reader chrome. This is the final maximal-fill
+ * check after the faster multi-word estimate has converged.
+ */
+export function growPageByFirstOmittedWord(
+  pages: ChapterHearingPage[],
+  pageIndex: number,
+  paragraphs?: string[],
+): ChapterHearingPage[] {
+  const fromNext = wordsAvailableOnNextPage(pages, pageIndex)
+  if (fromNext > 0) return growPageByWords(pages, pageIndex, 1)
+  if (!paragraphs) return pages
+  const tail = chapterPageTail(pages[pageIndex])
+  if (!tail) return pages
+  const paragraphLength = tokenizeHearingWords(paragraphs[tail.paragraphIndex] || '').length
+  return growPageTailInParagraph(pages, pageIndex, 1, paragraphLength)
+}
+
 export const HEARING_PAGE_MIN = 70
 export const HEARING_PAGE_MAX = 90
 /** A leftover page this short is an orphan line, not a real page. */
@@ -595,31 +615,11 @@ export function applyPaintShrink(
     if (leftover <= 1) return pages
     if (lastLineWords > 1 && leftover < lastLineWords) return pages
   }
-  const after = pages[pageIndex + 1]
-  const next = pages.slice()
-  next[pageIndex] = { ...page, to: newTo }
-  if (after && after.paragraphIndex === page.paragraphIndex) {
-    next[pageIndex + 1] = { ...after, from: newTo }
-    if (next[pageIndex + 1].to <= newTo) {
-      next.splice(pageIndex + 1, 1)
-    }
-  } else {
-    next.splice(pageIndex + 1, 0, {
-      paragraphIndex: page.paragraphIndex,
-      from: newTo,
-      to: page.to,
-    })
-  }
-  for (let i = 0; i < next.length - 1; i++) {
-    if (next[i].paragraphIndex !== next[i + 1].paragraphIndex) continue
-    if (next[i + 1].from !== next[i].to) {
-      next[i + 1] = { ...next[i + 1], from: next[i].to }
-    }
-    if (next[i + 1].to <= next[i + 1].from) {
-      next.splice(i + 1, 1)
-      i -= 1
-    }
-  }
+  // Preserve the segment list on a following multi-paragraph page. Updating
+  // only its legacy top-level `from` leaves its first segment unchanged and
+  // creates a hidden word-range gap; anchor restoration then snaps a genuine
+  // edge-tap page turn back to the page it came from.
+  const next = cutPageTailTo(pages, pageIndex, newTo)
   // Overflow peel must keep a one-word leftover off this page.
   return overflowing ? next : absorbOneWordLeftoverPages(next)
 }

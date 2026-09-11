@@ -1,0 +1,164 @@
+// @vitest-environment jsdom
+
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
+import { chapterHearingPages } from '../lab/labHearing'
+import { READING_MEMORY_DEVICE_KEY, READING_MEMORY_QUEUE_KEY, deviceReadingMemoryQueue, readDeviceReadingMemory, writeDeviceReadingMemory } from './deviceStore'
+import { fakeVersionedCloud, platoDialogueFixture, sessionFor } from './fixtures.test-helpers'
+import { applyReadingMemoryEvent, emptyReadingMemory, eventFromSession, latestReadingSession } from './sessions'
+import type { ReadingMemoryCloud } from './queue'
+import { useLabReadingMemory, type LabReadingMemoryInput } from './useLabReadingMemory'
+
+afterEach(() => {
+  cleanup()
+  localStorage.clear()
+})
+
+function inputFor(patch: Partial<LabReadingMemoryInput> = {}): LabReadingMemoryInput {
+  const fixture = platoDialogueFixture()
+  return {
+    bookId: fixture.bookId,
+    editionKey: fixture.editionKey,
+    chapterNumber: fixture.chapterNumber,
+    chapterLabel: fixture.chapterLabel,
+    paragraphs: fixture.paragraphs,
+    pageIndex: 0,
+    pages: chapterHearingPages(fixture.paragraphs, null),
+    pagesSettled: true,
+    ready: true,
+    pageTurnDirection: null,
+    finishedChapters: new Set<number>(),
+    userId: null,
+    ...patch,
+  }
+}
+
+describe('useLabReadingMemory (reader observer)', () => {
+  it('signed out: records to the device only and never queues a cloud write', () => {
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor() })
+    const session = latestReadingSession(readDeviceReadingMemory())
+    expect(session?.state).toBe('started')
+    expect(session?.owner).toBeNull()
+    expect(session?.anchor.chapterLabel).toBe('Book I')
+    expect(localStorage.getItem(READING_MEMORY_QUEUE_KEY)).toBeNull()
+    rerender(inputFor({ ready: false }))
+    expect(deviceReadingMemoryQueue().pending()).toEqual([])
+  })
+
+  it('signed in: the same observation is queued for the versioned cloud commit', () => {
+    renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ userId: 'user-1' }) })
+    const pending = deviceReadingMemoryQueue().pending()
+    expect(pending).toHaveLength(1)
+    expect(pending[0].seq).toBe(1)
+    expect(pending[0].session.owner).toBe('user-1')
+    expect(pending[0].session.anchor.bookId).toBe('plato-republic')
+    expect(localStorage.getItem(READING_MEMORY_DEVICE_KEY)).not.toBeNull()
+  })
+
+  it('signing in adopts the signed-out sessions on the device and continues under the account', async () => {
+    const fixture = platoDialogueFixture()
+    // Cloud hydration may remain pending while the reader turns a page.
+    const cloudFor = (): ReadingMemoryCloud => ({ read: () => new Promise(() => {}), commit: async () => { throw new Error('No commit while hydration is pending') } })
+    const earlier = sessionFor(fixture, { id: 'earlier', state: 'progressed', startedAt: Date.UTC(2026, 8, 1, 6), lastActiveAt: Date.UTC(2026, 8, 1, 6, 10), endedAt: Date.UTC(2026, 8, 1, 6, 10), owner: null })
+    const foreign = sessionFor(fixture, { id: 'foreign', state: 'started', startedAt: Date.UTC(2026, 8, 1, 5), endedAt: Date.UTC(2026, 8, 1, 5), owner: 'someone-else' })
+    writeDeviceReadingMemory(applyReadingMemoryEvent(applyReadingMemoryEvent(emptyReadingMemory(), eventFromSession(earlier)), eventFromSession(foreign)))
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ cloudFor }) })
+    const anonymous = latestReadingSession(readDeviceReadingMemory())
+    expect(anonymous?.id).not.toBe('earlier')
+    expect(anonymous?.owner).toBeNull()
+    expect(deviceReadingMemoryQueue().pending()).toEqual([])
+
+    await act(async () => { rerender(inputFor({ userId: 'user-1', cloudFor })) })
+    await waitFor(() => {
+      const device = readDeviceReadingMemory()
+      expect(device.sessions.earlier?.owner).toBe('user-1')
+      expect(device.sessions[anonymous!.id]?.owner).toBe('user-1')
+      expect(device.sessions.foreign).toBeUndefined()
+    })
+    const device = readDeviceReadingMemory()
+    // The anonymous spell closed at sign-in; reading continues in a new session owned by the account.
+    expect(device.sessions[anonymous!.id]?.endedAt).not.toBeNull()
+    const continued = Object.values(device.sessions).find(session => session.id !== anonymous!.id && session.id !== 'earlier')
+    expect(continued?.owner).toBe('user-1')
+    expect(continued?.endedAt).toBeNull()
+    const queued = deviceReadingMemoryQueue().pending()
+    expect(queued.map(event => event.sessionId).sort()).toEqual([anonymous!.id, continued!.id, 'earlier'].sort())
+    for (const event of queued) expect(event.session.owner).toBe('user-1')
+
+    // The recorder re-read the adopted store: its next write keeps every owner.
+    await act(async () => { rerender(inputFor({ userId: 'user-1', pageIndex: 1, cloudFor })) })
+    for (const session of Object.values(readDeviceReadingMemory().sessions)) expect(session.owner).toBe('user-1')
+  })
+
+  it('does not record while pages are unsettled or a cover is up, and never completes from a visit', () => {
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ pagesSettled: false }) })
+    expect(latestReadingSession(readDeviceReadingMemory())).toBeNull()
+    rerender(inputFor({ ready: false }))
+    expect(latestReadingSession(readDeviceReadingMemory())).toBeNull()
+    rerender(inputFor())
+    const session = latestReadingSession(readDeviceReadingMemory())
+    expect(session?.state).toBe('started')
+    expect(session?.completedAt).toBeNull()
+  })
+
+  it('marks completed only on the finished-chapter transition', () => {
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor() })
+    act(() => rerender(inputFor({ finishedChapters: new Set([1]) })))
+    const session = latestReadingSession(readDeviceReadingMemory())
+    expect(session?.state).toBe('completed')
+    expect(typeof session?.completedAt).toBe('number')
+  })
+
+  it('reports the chapter completed to the reader when a forward turn lands on the final page with the last word on it', () => {
+    const onChapterCompleted = vi.fn()
+    const pages = chapterHearingPages(platoDialogueFixture().paragraphs, null)
+    const lastPage = pages.length - 1
+    expect(lastPage).toBeGreaterThan(0)
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ onChapterCompleted }) })
+    // Landing on the final page from a backward retreat is not completion.
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'previous' })))
+    expect(onChapterCompleted).not.toHaveBeenCalled()
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next' })))
+    expect(onChapterCompleted).toHaveBeenCalledWith(1)
+    expect(latestReadingSession(readDeviceReadingMemory())?.state).toBe('completed')
+    // The reader marks the chapter finished; the transition must not report it a second time, and pages that are not settled never do.
+    onChapterCompleted.mockClear()
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next', finishedChapters: new Set([1]) })))
+    act(() => rerender(inputFor({ onChapterCompleted, pageIndex: lastPage, pageTurnDirection: 'next', pagesSettled: false })))
+    expect(onChapterCompleted).not.toHaveBeenCalled()
+  })
+
+  it('signing in merges the account\'s cloud copy into the device mirror without touching the open session', async () => {
+    const fixture = platoDialogueFixture()
+    const cloudOnly = sessionFor({ ...fixture, chapterNumber: 2, chapterLabel: 'Book II' }, { id: 'cloud-only', seq: 6, state: 'completed', startedAt: Date.UTC(2026, 8, 1, 6), lastActiveAt: Date.UTC(2026, 8, 1, 6, 30), endedAt: Date.UTC(2026, 8, 1, 6, 30), owner: 'user-1' })
+    const fake = fakeVersionedCloud({ state: applyReadingMemoryEvent(emptyReadingMemory(), eventFromSession(cloudOnly)), rev: 3 })
+    const cloudFor = () => fake.cloud
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ cloudFor }) })
+    const anonymous = latestReadingSession(readDeviceReadingMemory())
+    expect(readDeviceReadingMemory().sessions['cloud-only']).toBeUndefined()
+
+    await act(async () => { rerender(inputFor({ userId: 'user-1', cloudFor })) })
+    await waitFor(() => {
+      expect(readDeviceReadingMemory().sessions['cloud-only']).toMatchObject({ seq: 6, state: 'completed', owner: 'user-1' })
+    })
+    // The adopted anonymous session and the account's continuing session are both still there, and drained to the cloud.
+    await waitFor(() => expect(fake.row()?.state.sessions[anonymous!.id]?.owner).toBe('user-1'))
+    expect(readDeviceReadingMemory().sessions[anonymous!.id]?.owner).toBe('user-1')
+    expect(fake.row()?.state.sessions['cloud-only']?.seq).toBe(6)
+  })
+
+  it('a chapter already in the finished set at mount is not treated as completed', () => {
+    renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ finishedChapters: new Set([1]) }) })
+    const session = latestReadingSession(readDeviceReadingMemory())
+    expect(session?.state).toBe('started')
+    expect(session?.completedAt).toBeNull()
+  })
+
+  it('closes the session on pagehide with a real timestamp', () => {
+    renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor() })
+    act(() => { window.dispatchEvent(new Event('pagehide')) })
+    const session = latestReadingSession(readDeviceReadingMemory())
+    expect(typeof session?.endedAt).toBe('number')
+    expect(session!.endedAt! >= session!.startedAt).toBe(true)
+  })
+})
