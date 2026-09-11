@@ -1,3 +1,4 @@
+import { isEditionDiscoverable } from '../data/audioAvailability'
 import { useState, useEffect, useMemo } from 'react'
 import type { Book, Edition, EditionKey, Language } from '../types'
 import { inferOnboardingLanguage, loadOnboardingData, type OnboardingLanguage } from '../utils/onboardingData'
@@ -151,10 +152,10 @@ export function BookOnboarding({
   //      who don't yet have a previous choice on file.
   //   3. First available edition as final fallback.
   const [editionKey, setEditionKey] = useState<EditionKey>(() => {
-    if (defaultEditionKey && editions.some(e => e.key === defaultEditionKey)) return defaultEditionKey
-    const origEn = editions.find(e => e.style === 'original' && e.language === 'en')
+    if (defaultEditionKey && editions.some(e => e.key === defaultEditionKey && isEditionDiscoverable(bookId, e))) return defaultEditionKey
+    const origEn = editions.find(e => e.style === 'original' && e.language === 'en' && isEditionDiscoverable(bookId, e))
     if (origEn) return origEn.key
-    return editions[0]?.key || ''
+    return editions.find(e => isEditionDiscoverable(bookId, e))?.key || ''
   })
   const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(undefined)
   const [angle, setAngle] = useState('')
@@ -227,11 +228,11 @@ export function BookOnboarding({
   // is empty (e.g. Danish-only reader opens a book with no Danish translation),
   // fall back to showing all editions with a note.
   const filteredEditions = useMemo(
-    () => editions.filter(e => readingLanguages.includes(e.language)),
-    [editions, readingLanguages]
+    () => editions.filter(e => readingLanguages.includes(e.language) && isEditionDiscoverable(bookId, e)),
+    [bookId, editions, readingLanguages]
   )
   const noMatchingLanguage = filteredEditions.length === 0
-  const effectiveEditions = noMatchingLanguage ? editions : filteredEditions
+  const effectiveEditions = noMatchingLanguage ? editions.filter(e => isEditionDiscoverable(bookId, e)) : filteredEditions
 
   const sortedEditions = useMemo(() => {
     return [...effectiveEditions].sort((a, b) => {

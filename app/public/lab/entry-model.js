@@ -1,7 +1,7 @@
 /** Entry presentation only: no reader state or persistence. */
 export function fullShelf(catalogue) {
   const byId = new Map(catalogue.books.map(book => [book.id, book]))
-  return [...new Set([...(catalogue.popular || []), ...catalogue.books.map(book => book.id)])].map(id => byId.get(id)).filter(Boolean)
+  return [...new Set([...(catalogue.popular || []), ...catalogue.books.map(book => book.id)])].map(id => byId.get(id)).filter(book => book && book.discoveryAvailable !== false)
 }
 export const normalizePassage = text => String(text || '').replace(/\s+/g, ' ').trim()
 /** Whole aligned paragraphs are the fallback; never guess sentence alignment.

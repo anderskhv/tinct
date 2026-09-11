@@ -1,3 +1,5 @@
+import { tokenGroupCoverage, type GroupAlignment } from './tokenGroupCoverage'
+
 export interface TimedWord {
   text: string
   start: number
@@ -12,7 +14,7 @@ export interface ManifestParagraph {
 }
 
 /** Sidecar `alignment` block (chapter-level carries `minimumParagraphRatio`). */
-export interface SidecarAlignment {
+export interface SidecarAlignment extends GroupAlignment {
   expectedWords?: number
   heardWords?: number
   matchedWords?: number
@@ -25,6 +27,8 @@ export interface SidecarAlignment {
  * match ratio and the chapter threshold it is judged against.
  */
 export interface FollowAlignment {
+  /** Display-token coverage from explicit lexical groups; raw ratio stays separate. */
+  tokenGroupCoverage?: number
   matchRatio: number
   threshold: number
 }
@@ -142,9 +146,11 @@ export function followThresholdFromSidecar(sidecar: WordSidecar | null | undefin
 export function followAlignmentFromSidecar(
   alignment: SidecarAlignment | undefined,
   threshold: number,
+  words?: TimedWord[],
 ): FollowAlignment | undefined {
   if (!alignment || !isUnitRatio(alignment.matchRatio)) return undefined
-  return { matchRatio: alignment.matchRatio, threshold }
+  const grouped = words ? tokenGroupCoverage(alignment, words) : undefined
+  return { matchRatio: alignment.matchRatio, threshold, ...(grouped != null ? { tokenGroupCoverage: grouped } : {}) }
 }
 
 /**
@@ -156,7 +162,7 @@ export function followAlignmentFromSidecar(
 export function followGranularity(paragraph: FollowParagraph | undefined): FollowGranularity {
   const alignment = paragraph?.alignment
   if (!alignment) return 'word'
-  return alignment.matchRatio < alignment.threshold ? 'sentence' : 'word'
+  return (alignment.tokenGroupCoverage ?? alignment.matchRatio) < alignment.threshold ? 'sentence' : 'word'
 }
 
 /** `.`, `!`, `?`, `;` or `:` ending a token (closing quotes/brackets allowed). */
@@ -357,7 +363,7 @@ export function mergeSidecarWords(
     byIndex.set(entry.paragraph, {
       file: entry.file,
       words,
-      alignment: followAlignmentFromSidecar(entry.alignment, threshold),
+      alignment: followAlignmentFromSidecar(entry.alignment, threshold, words),
     })
   }
   return paragraphs.map((paragraph) => {

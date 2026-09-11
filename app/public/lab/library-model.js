@@ -88,6 +88,7 @@ export function mostVisibleWorld(layers) {
 /** A book the library may list: published text, not a stub or a coming-soon placeholder. */
 export function isListable(book) {
   if (!book || typeof book !== 'object') return false
+  if (book.discoveryAvailable === false) return false
   if (book.stub === true || book.comingSoon === true || book.unavailable === true) return false
   if (book.availability && book.availability.chapterText === false) return false
   return true

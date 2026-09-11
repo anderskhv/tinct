@@ -30,7 +30,12 @@ import urllib.error
 import urllib.request
 
 API = "https://rest.runpod.io/v1"
-DEFAULT_OWNER_PREFIX = "tinct-wordtiming-"
+# Every Tinct launcher names its pods from the "tinct-audio" base
+# (app/tts/cloud-audio.py, run-kokoro-cloud.py), and the observed pods are
+# tinct-audio-bounded-trial-* and tinct-words-shard-*. The prefix has to match
+# what is actually used, or the guard classifies its own runaway pods as
+# somebody else's and never stops them.
+DEFAULT_OWNER_PREFIX = "tinct-"
 
 
 def _call(method: str, path: str, key: str, body: dict | None = None):
@@ -137,6 +142,18 @@ def main() -> int:
         print(f"  {pod['id']} {pod['name']} {pod['status']} "
               f"${pod['costPerHr']}/hr up {(pod['uptimeSeconds'] or 0)/60:.1f}m {pod['gpu']}")
     print(f"estimated spend this envelope: ${total_spend:.2f} of ${args.budget:.2f}")
+
+    # A pod we do not own but which is running and billing is the one case the
+    # guard cannot act on. Say so loudly rather than leaving it in a list of
+    # exited pods where nobody will notice it.
+    hot = [p for p in foreign
+           if p["status"] == "RUNNING" and (p["costPerHr"] or 0) > 0]
+    for pod in hot:
+        print(f"::warning::unowned pod {pod['id']} ({pod['name']}) is RUNNING at "
+              f"${pod['costPerHr']}/hr and is outside the owner prefix, so this guard "
+              f"will not stop it")
+    report["unownedRunningPods"] = [{"id": p["id"], "name": p["name"],
+                                     "costPerHr": p["costPerHr"]} for p in hot]
 
     for action in actions:
         pod = action["pod"]

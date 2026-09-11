@@ -9,6 +9,9 @@ import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache
 import { LAB_TEE_CROSS, LAB_TEE_MORPH_FRAMES, LAB_TEE_REST } from './labSuperGlyph'
 import { labSuperMenuRows } from './labSuperMenu'
 
+// Transport geometry uses a synthetic Bible fixture; availability has its own regression.
+vi.mock('../data/audioAvailability', async importOriginal => ({ ...await importOriginal<typeof import('../data/audioAvailability')>(), isAudioHeld: () => false }))
+
 afterEach(() => {
   cleanup()
   vi.useRealTimers()

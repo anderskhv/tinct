@@ -1,4 +1,4 @@
-# Cloud deploy (CI and Cursor Cloud Agents)
+# Cloud deploy (GitHub Actions and cloud agents)
 
 Tinct can deploy without Anders' Mac once **one GitHub secret** and optional account id are configured.
 
@@ -7,9 +7,7 @@ Tinct can deploy without Anders' Mac once **one GitHub secret** and optional acc
 From `app/`:
 
 ```bash
-npm run build      # Vite + landing swap + service-worker stamp
-npm run verify-bundle
-npx wrangler deploy
+npm run deploy    # builds, verifies the bundle, then deploys
 ```
 
 This pushes the Worker (`app/src/worker.ts`) and static assets from `dist/`. It does **not** re-upload Worker runtime secrets (Anthropic, Stripe, Supabase service role, etc.) — those already live on the Cloudflare Worker.
@@ -38,7 +36,7 @@ Local `app/.env` is optional for CI; it is still used when present on a develope
 ## GitHub Actions
 
 - **Verify** (all PRs + `main` + `cursor/**`): `.github/workflows/verify.yml` — test, build, verify-bundle.
-- **Deploy** (`main` push + manual): `.github/workflows/deploy.yml` — verify gates then `wrangler deploy` + `scripts/smoke-test.sh` against `https://tinct.app`.
+- **Deploy** (`main` push + manual): `.github/workflows/deploy.yml` — tests then `npm run deploy` + `scripts/smoke-test.sh` against `https://tinct.app`.
 
 ### One-time GitHub setup
 
@@ -46,6 +44,13 @@ Local `app/.env` is optional for CI; it is still used when present on a develope
    - `CLOUDFLARE_API_TOKEN` = Workers deploy token
 2. (Optional) `CLOUDFLARE_ACCOUNT_ID`
 3. Merge to `main` or run **Deploy** workflow manually from Actions tab.
+
+## Cloud checkout setup
+
+GitHub verify/deploy use Node 24.13.0 and `scripts/cloud-setup.sh`.
+For Codex cloud configuration and working from another device, see
+[Cloud development](cloud-development.md). Local Mac paths are not required
+by this setup. Never invoke raw Wrangler deployment instead of `npm run deploy`.
 
 ## Cursor Cloud Agents
 
@@ -56,12 +61,10 @@ Local `app/.env` is optional for CI; it is still used when present on a develope
 
 ```bash
 cd app
-npm run build
-npm run verify-bundle
-npx wrangler deploy
+CI=true npm run deploy
 ```
 
-`CLOUDFLARE_API_TOKEN` must be in the agent environment; `npm run deploy` also works because Wrangler reads it from the process environment.
+`CLOUDFLARE_API_TOKEN` must be in the agent environment for direct deployment. Prefer GitHub Actions releases so coding agents do not need production deploy credentials.
 
 ### Egress
 

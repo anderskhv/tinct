@@ -17,7 +17,7 @@ The current state of the handoff is `docs/audio-highlight-cloud-handoff-2026-09-
 | `audit_production.py` | nothing | Walks every English edition on production and records which chapters have a recording and which have a timing sidecar. A **census**, not a quality judgement. |
 | `verify_timings.py` | nothing | Checks published sidecars for identity, paragraph mapping, coverage, timestamp bounds, and agreement with the published edition text at the existing 0.85 threshold. This is the check that turns "a file is present" into "the highlighting is right". |
 | `publish_timings.py` | `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT` | Validates a candidate, refuses to overwrite, uploads conditionally, re-reads the bytes production serves, and appends to a publication journal. |
-| `runpod_guard.py` | `RUNPOD_API_KEY` | Stops GPU pods that exceed the rate ceiling, the wall-clock deadline, or the spend envelope. Only touches pods matching the owner prefix. |
+| `runpod_guard.py` | `RUNPOD_API_KEY` | Stops GPU pods that exceed the rate ceiling, the wall-clock deadline, or the spend envelope. Only touches pods whose name starts with `tinct-`, which is how every launcher names them; anything else is reported, and called out loudly if it is running and billing. |
 
 ## Running the audit
 
@@ -74,5 +74,8 @@ that reconciliation had to come first.
   each other.
 - A published object counts as verified only after production has served the
   bytes back and the SHA-256 matches.
-- The GPU guard acts only on pods whose name carries the owner prefix. Other
-  RunPod resources are reported and left alone.
+- The GPU guard acts only on pods whose name starts with `tinct-` — the prefix
+  every launcher uses. Other RunPod resources are reported and left alone, and
+  an unowned pod that is actually running and billing is called out as a warning
+  rather than buried in a list, since that is the one case the guard cannot fix
+  by itself.
