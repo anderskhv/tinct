@@ -181,6 +181,29 @@ session. Kept current at every push.
   pushed, built by `scripts/build_book_package.py 6` from
   `scripts/candidates/book6.py`. **Stopped for independent review** (step 4).
   Findings expected under `book6/review/`.
+- 2026-09-11 — **Book VI accepted** (steps 4–8). Round-1 independent review
+  (`book6/review/findings-v1.md`): Accept after corrections, 0 substantive +
+  3 minor (2 worth improving, 1 optional preference). All three applied in
+  `book6/candidate-v2.json` (sha256 `8ee718d5…`) via
+  `scripts/build_book6_v2.py` — 9.1 VI.9 "contains this from outside / is
+  contained within this nature" (Long's "comprehends" in its older sense,
+  which now reads as "understands"), 50.1 VI.50 "Let us try to persuade
+  men." (Long's "[men]" is a referent supplement, folded — reclassified in
+  `continuity.md` from the D11 list to the folded list), 15.1 VI.15 "the
+  breathing of the air" (the optional item, applied under D8; v1 had recorded
+  no reason for "breathing in"); every change listed in
+  `book6/changes-v1-to-v2.md`; three "also noted" points left with reasons;
+  changed passages verified by word diff; three dagger clauses verbatim as
+  specified. Reviewer rulings recorded in `book6/continuity.md`: VI.50
+  "[not]" fold, VI.43 fold, VI.45 fold, VI.41 PG "not" a base-text error,
+  VI.41 dagger-bearing bracket and VI.39 and VI.50 "[conditionally]" D11
+  drops, VI.49 comma, VI.27 lowered, VI.34 "patricides" kept. The reviewer's
+  record note acted on: `PROVENANCE.md` §3 no longer says Standard Ebooks
+  "removes" Long's brackets; it says SE variously runs them as text, keeps
+  them, or omits them, and that each book's `continuity.md` records the state
+  per case. Flow read done, no further change. Acceptance recorded in
+  `book6/ACCEPTANCE.md`. `continuity.md`, `provenance.json`, `manifest.json`
+  and `README.md` updated. No new glossary row.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -213,12 +236,10 @@ session. Kept current at every push.
 
 ## Next
 
-1. **Waiting on the coordinator: independent review of Book VI**
-   (`book6/review-instructions.md`, `book6/review-packets/`, 20 packets). On
-   findings: `book6/candidate-v2.json` via a change script in the established
-   pattern, verification, flow read, `book6/ACCEPTANCE.md`.
-2. Then Books VII … XII in numerical order, each with its own review round.
-   Book VII is not started until Book VI is accepted.
+1. **Book VII** (steps 1–3): source verified, glossary rows added or
+   extended before drafting, `book7/candidate-v1.json` frozen with packets,
+   then stop for the independent review.
+2. Then Books VIII … XII in numerical order, each with its own review round.
 
 ## Needs Anders (listed, not waited on)
 

@@ -23,5 +23,15 @@
  "dagger_marks": "Three in Book VI of the PG text: VI.38 x1, VI.41 x1 (inside Long's bracket), VI.50 x1 (at the end). Three clauses, named in review-instructions.md. Matches PROVENANCE.md section 4.",
  "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary (one row added and two extended for Book VI first) and the Book II, I, III, IV and V acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
  "build_script": "scripts/build_book_package.py 6 (candidate text frozen in scripts/candidates/book6.py; regenerates source-book6.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
- "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "candidate_v2_json_sha256": "8ee718d5306a9ffe7ab9769b85aee156e2b04da42f68f280d367a1e6fe359957",
+ "review_round_1": "review/findings-v1.md (independent reviewer session, 2026-09-11): Accept after corrections; 0 substantive, 3 minor (2 worth improving: 9.1, 50.1; 1 optional preference: 15.1). All three applied in candidate-v2.json via scripts/build_book6_v2.py; no flow-read change; see changes-v1-to-v2.md. Reviewer rulings on the base-text defects (VI.27, VI.34, VI.41, VI.49) and the bracket decisions (VI.39, VI.41, VI.43, VI.45, VI.50 x3) recorded in continuity.md; VI.50 '[men]' reclassified from a D11 drop to a folded supplement.",
+ "word_counts_v2": {
+  "source": 4561,
+  "candidate": 4502,
+  "ratio": 0.987,
+  "min_paragraph_ratio": 0.9,
+  "note": "screening signal only; not evidence of semantic completeness. The lowest ratios are the dropped six-token cross-reference in VI.9 (0.90 after finding 9.1 added two words) and the D11 drop in VI.41 (0.92)."
+ },
+ "accepted": "candidate-v2.json, see ACCEPTANCE.md"
 }

@@ -1,11 +1,12 @@
-# Continuity sheet — Meditations, Book VI (candidate v1)
+# Continuity sheet — Meditations, Book VI (candidate v2, accepted)
 
 Written alongside drafting `candidate-v1.json`, after Books II, I, III, IV and
-V were accepted, and describing what the frozen draft actually did. Term
-renderings follow `../GLOSSARY.md` (one row added and two rows extended for
-Book VI before drafting, see below); the pattern for applying review findings
-follows the five earlier `ACCEPTANCE.md` files (decisions D8, D10 and D11 in
-the ledger).
+V were accepted, and describing what the frozen draft actually did; updated at
+acceptance (candidate v2) where a review finding reversed or recorded a
+decision — each such line says so. Term renderings follow `../GLOSSARY.md`
+(one row added and two rows extended for Book VI before drafting, see below);
+the pattern for applying review findings follows the five earlier
+`ACCEPTANCE.md` files (decisions D8, D10 and D11 in the ledger).
 
 ## Source
 
@@ -100,7 +101,15 @@ the ledger).
 - **VI.9** — "In conformity to the nature of the universe" → "According to the
   nature of the whole" (glossary, both halves); "a nature external and
   independent of this" → "a nature external to and independent of this";
-  cross-reference "(xi. 1; vi. 40; viii. 50)" dropped.
+  cross-reference "(xi. 1; vi. 40; viii. 50)" dropped. v1 had kept Long's
+  "a nature which externally comprehends this, or a nature which is
+  comprehended within this nature" with "which" → "that" only; at v2 (finding
+  9.1) "a nature that contains this from outside, or a nature that is
+  contained within this nature": Long's "comprehends" is the older sense
+  *includes, encloses*, which a current reader takes as "understands" in the
+  very three-way distinction the meditation turns on; the same class as
+  "involution" → "entanglement" (VI.10) and "implicated" → "bound up"
+  (VI.38). The reviewer's first proposal, taken as offered.
 - **VI.10** — "A mutual involution of things" → "a mutual entanglement of
   things" (Long's "involution" is a rolling-together; "entanglement" is the
   plain word and keeps the image); "tarry" → "linger"; "fortuitous" kept
@@ -127,8 +136,14 @@ the ledger).
   extinguished"; "on which there is no abiding" → "on which nothing stays";
   "the sparrows which fly by, but it has already passed" → "the sparrows that
   fly by—but it has already passed" (Long's "but" is the turn of the image;
-  the dash marks it); "the respiration of the air" → "the breathing in of the
-  air"; "the whole respiratory power" → "the whole power of breathing".
+  the dash marks it); "the respiration of the air" → v1 "the breathing in of
+  the air", at v2 (finding 15.1, optional, applied under D8) "the breathing
+  of the air": Long's "respiration" names the whole cycle and the next
+  sentence spells out both directions ("to have once drawn in the air and to
+  have given it back"), so "breathing in" had named half of what Long names
+  whole; "breathing" is the word the candidate already uses for his
+  "respiration" at VI.16, and one word for one Long word is the pattern
+  (D10); "the whole respiratory power" → "the whole power of breathing".
 - **VI.16** — "Transpiration, as in plants" kept (Long's term; a reader meets
   it in biology); "respiration, as in domesticated animals" → "breathing"
   (as VI.15); "assembling in herds" → "gathering in herds"; "in conformity to
@@ -297,11 +312,18 @@ the ledger).
   suppose, because you weigh"; "dissatisfied" → "discontented" (glossary,
   twice); "litrae" kept (a unit of weight; a proper term, not glossed, as
   "Rostra" at V.36).
-- **VI.50** — "Let us try to persuade them [men]" → "Let us try to persuade
-  them": the bracket names the referent of "them", which the next two
-  sentences ("against their will", "any man") supply anyway, so it is dropped
-  as a label under D11 rather than folded (Standard Ebooks keeps the
-  brackets); "betake thyself to contentment and tranquillity" → "turn to
+- **VI.50** — "Let us try to persuade them [men]" → v1 "Let us try to persuade
+  them" (v1 had classed the bracket as a D11 label and dropped it, on the
+  ground that "against their will" and "any man" in the next sentences supply
+  the referent); at v2 (finding 50.1) "Let us try to persuade men.": the
+  reviewer's ruling, accepted, is that "[men]" is a referent supplement of
+  the VI.6 "[the wrong-doer]" / VI.47 "[of men]" class — it says who "them"
+  is, and is not a second rendering of a word already rendered — and the
+  rule folds supplements; without it a new meditation opened on a pronoun
+  with nothing before it (VI.49 is about litrae and years). Reclassified
+  below from the D11 list to the folded list (Standard Ebooks keeps the
+  brackets, which settles nothing either way; the class is settled by what
+  the bracket does); "betake thyself to contentment and tranquillity" → "turn to
   contentment and calm" (glossary for "tranquillity"); "towards" → "toward";
   "with a reservation [conditionally]" → "with a reservation": "[conditionally]"
   is a second rendering of "reservation" (the Stoic *hypexairesis*, which
@@ -355,7 +377,6 @@ Alternative renderings and labels (D11):
 - VI.41 "[because we do not regard these things as indifferent]" — Long's
   second rendering of "because we make a difference between these things"
   (dagger inside; see VI.41 above).
-- VI.50 "[men]" — label for "them", whose referent the next sentences give.
 - VI.50 "[conditionally]" — second rendering of "with a reservation".
 
 No verse citations in Book VI.
@@ -363,8 +384,10 @@ No verse citations in Book VI.
 Long's supplements folded into prose: VI.6 "[the wrong-doer]"; VI.31 "[the
 things about thee]" and "[the dreams]"; VI.43 "[the earth]" (as an
 apposition); VI.45 "[neither good nor bad]" (running text in Standard
-Ebooks); VI.47 "[of men]"; VI.50 "[not]" (inside the dagger-marked last
-sentence; see VI.50 above).
+Ebooks); VI.47 "[of men]"; VI.50 "[men]" (at v2, finding 50.1 — v1 had
+listed it above as a D11 drop; see VI.50); VI.50 "[not]" (inside the
+dagger-marked last sentence; see VI.50 above). Eight folds at v2, four D11
+drops (five brackets: VI.35 ×2, VI.39, VI.41, VI.50 "[conditionally]").
 
 ## Nothing imported from other translations
 
@@ -391,16 +414,36 @@ Hipparchus, Archimedes, Menippus).
   alternative the dagger sits in is dropped under D11; VI.50's last sentence
   stands verbatim with pronouns modernised and Long's "[not]" folded. Each is
   flagged above; reviewers should not expect the candidate to make them
-  clearer than the source.
+  clearer than the source. The reviewer located all three marks by line in
+  the PG text (4167, 4191, 4292) and confirmed each handling: VI.38
+  verbatim; VI.41's bracket a D11 drop (Long's footnote shows it is a second
+  rendering of the same clause, with Gataker's third in the note); VI.50
+  "[not]" **fold**, the sentence's sense depending on it, "if" kept rather
+  than sharpened to "even if".
 - VI.41 PG "thou wilt not blame the gods": the "not" is a base-text error
   (Standard Ebooks' Long has "thou wilt blame"; the argument requires it);
-  the candidate has "you will blame". A reviewer who reads PG's "not" as
-  Long's should say so.
+  the candidate has "you will blame". The reviewer confirmed it (PG line
+  4187): the second half of the meditation is the contrast that the first
+  half needs, and with "not" there is no argument at all.
 - VI.49 PG "Thou art not dissatisfied. I suppose, because" — a full stop for a
-  comma (Standard Ebooks has the comma); rendered with the comma.
+  comma (Standard Ebooks has the comma); rendered with the comma. Confirmed
+  by the reviewer (line 4278).
 - VI.27 PG "to strive After the things" — a stray capital mid-sentence;
-  lowered.
+  lowered. Confirmed by the reviewer (line 4076).
 - VI.34 "patricides": PG and Standard Ebooks agree; Long's spelling, kept.
+  Confirmed by the reviewer as a real word and the exact sense, not an
+  error for "parricides".
+- The reviewer's rulings on the bracket decisions: VI.43 "[the earth]" fold
+  (a referent supplied, the V.8 class); VI.45 "[neither good nor bad]" fold
+  (Long's gloss of a term the paragraph cannot otherwise resolve); VI.39
+  "[sincerely]" and VI.50 "[conditionally]" D11 drops confirmed; VI.50
+  "[men]" a supplement, folded at v2 (finding 50.1, see above).
+- A record note from the reviewer, acted on at acceptance: `../PROVENANCE.md`
+  §3 had said Standard Ebooks "removes" Long's square-bracket supplements;
+  for Book VI it runs some as text (VI.6, VI.39, VI.45, VI.47), keeps some
+  in brackets (VI.35 ×2, VI.41, VI.43, VI.50 "[men]") and omits some (VI.50
+  "[conditionally]", "[not]"). That sentence is amended; this sheet records
+  the state per case, as above.
 - VI.13 "Consider then what Crates says of Xenocrates himself" — Long gives
   no more, and neither does the candidate.
 - No truncated source paragraphs; every source paragraph ends in terminal

@@ -97,8 +97,15 @@ documented source.
   cross-checked for Book II against Standard Ebooks' Long
   (`https://standardebooks.org/ebooks/marcus-aurelius/meditations/george-long`):
   the only differences are spelling convention, punctuation, Standard Ebooks'
-  removal of Long's square-bracket supplements, and one word in II.14 (PG
-  "that which perish", SE "perishes"; kept as PG has it, noted here).
+  treatment of Long's square brackets, and one word in II.14 (PG "that which
+  perish", SE "perishes"; kept as PG has it, noted here). On the brackets,
+  Standard Ebooks is not uniform: it variously runs Long's bracketed words as
+  plain text (e.g. VI.6, VI.39, VI.45, VI.47), keeps them in brackets (e.g.
+  VI.35, VI.41, VI.43, VI.50 "[men]"), or omits them outright (e.g. VI.50
+  "[conditionally]", "[not]"). An earlier version of this sentence said SE
+  "removes" the brackets, which was imprecise (noted by the Book VI reviewer,
+  amended at Book VI acceptance). Each book's `continuity.md` records the
+  state per case where it was checked.
 - **Rights.** George Long died 1879; the translation was published 1862.
   Public domain in the US (pre-1930 publication) and in Denmark/EU (author's
   life plus 70 years, expired 1950). The Project Gutenberg header, footer and
