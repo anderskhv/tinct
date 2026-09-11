@@ -7,9 +7,12 @@
     {
       "bookId": "odyssey",
       "title": "The Odyssey",
-      "contentStatus": "not-started",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -27,7 +30,7 @@
         }
       ],
       "existingThreadCandidates": 26,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Release owner: compare fingerprints, register both English editions and verify the Roman/Greek name pairs in production"
     },
     {
       "bookId": "ulysses",

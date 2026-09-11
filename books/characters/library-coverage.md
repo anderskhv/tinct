@@ -6,7 +6,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 
 | Book | Content | Next action |
 | --- | --- | --- |
-| The Odyssey (`odyssey`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Odyssey (`odyssey`) | validated-package | Release owner: compare fingerprints, register both English editions and verify the Roman/Greek name pairs in production |
 | Ulysses (`ulysses`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | War and Peace (`war-and-peace`) | recognition-draft | Review 45 draft entries and extend complete source inventory; reject ambiguous inherited aliases |
 | The Bible (`bible`) | partial-baruch-only | Expand full Bible people/reference inventory while preserving live Baruch son of Neriah; authoritative source is shipping checkout books/characters/bible/baruch.json |

@@ -1,0 +1,31 @@
+{
+  "bookId": "odyssey",
+  "scope": "Both full English editions, all twenty-four books: named people, gods, personified powers, named animals and named peoples. Places, rivers, mountains, islands, ships, stars and adjectival forms of place names are excluded.",
+  "authoredEntries": 356,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+      "chapters": 24,
+      "paragraphs": 1027,
+      "entries": 356,
+      "mentions": 3253,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "813127d77b4041f613a11b46e50890f46519252782188a6a1156ebc050898cdc",
+      "chapters": 24,
+      "paragraphs": 1027,
+      "entries": 354,
+      "mentions": 3243,
+      "omittedEntities": [
+        "gaia",
+        "sicels"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

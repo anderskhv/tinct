@@ -1,0 +1,4306 @@
+{
+  "contentVersion": "2026-09-11.1",
+  "coverage": "Both full English editions, all twenty-four books: named people, gods, personified powers, named animals and named peoples. Places, rivers, mountains, islands, ships, stars and adjectival forms of place names are excluded.",
+  "entities": [
+    {
+      "id": "odysseus",
+      "name": "Odysseus",
+      "body": "King of Ithaca, husband of Penelope and father of Telemachus. He sacked Troy and has been twenty years getting home. Butler’s original calls him by his Roman name, Ulysses.",
+      "aliases": [
+        "Ulysses",
+        "Odysseus"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "telemachus",
+      "name": "Telemachus",
+      "body": "Odysseus’s son, a young man who has grown up without ever meeting his father.",
+      "aliases": [
+        "Telemachus"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            16,
+            22
+          ],
+          "body": "Odysseus’s son. He has now met his father, who revealed himself to him at the swineherd’s hut."
+        }
+      ]
+    },
+    {
+      "id": "penelope",
+      "name": "Penelope",
+      "body": "Odysseus’s wife, holding his household together against the suitors who want her to remarry.",
+      "aliases": [
+        "Penelope"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laertes",
+      "name": "Laertes",
+      "body": "Odysseus’s father, the old king of Ithaca, who has withdrawn to his farm in the country.",
+      "aliases": [
+        "Laertes"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anticlea",
+      "name": "Anticlea",
+      "body": "Odysseus’s mother, daughter of Autolycus.",
+      "aliases": [
+        "Anticlea",
+        "Anticleia"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurycleia",
+      "name": "Euryclea",
+      "body": "The old nurse of Odysseus’s house, bought by Laertes; she nursed Odysseus and then Telemachus. The modern edition spells her name both Euryclea and Eurycleia.",
+      "aliases": [
+        "Euryclea",
+        "Eurycleia"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eumaeus",
+      "name": "Eumaeus",
+      "body": "Odysseus’s swineherd, who keeps the pig farm in the hills and is loyal to the absent master.",
+      "aliases": [
+        "Eumaeus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            15,
+            33
+          ],
+          "body": "Odysseus’s swineherd, loyal to the absent master. He was born a king’s son on the island of Syra, the child of Ctesius son of Ormenus."
+        }
+      ]
+    },
+    {
+      "id": "philoetius",
+      "name": "Philoetius",
+      "body": "Odysseus’s stockman, in charge of the cattle on the mainland.",
+      "aliases": [
+        "Philoetius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melanthius",
+      "name": "Melanthius",
+      "body": "Odysseus’s goatherd, son of Dolius, who has taken the suitors’ side.",
+      "aliases": [
+        "Melanthius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurynome",
+      "name": "Eurynome",
+      "body": "Penelope’s head waiting woman and housekeeper.",
+      "aliases": [
+        "Eurynome"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dolius",
+      "name": "Dolius",
+      "body": "The old gardener given to Penelope by her father when she married; father of Melanthius and Melantho.",
+      "aliases": [
+        "Dolius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melantho",
+      "name": "Melantho",
+      "body": "A maid of the house, daughter of Dolius, brought up by Penelope; she sides with the suitors.",
+      "aliases": [
+        "Melantho"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "medon",
+      "name": "Medon",
+      "body": "A servant and herald of Odysseus’s house who waits on the suitors at table.",
+      "aliases": [
+        "Medon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phemius",
+      "name": "Phemius",
+      "body": "The bard of Ithaca, son of Terpes, forced to sing for the suitors.",
+      "aliases": [
+        "Phemius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "actor-daughter",
+      "name": "The maid who keeps the bedroom door",
+      "body": "Penelope’s maidservant, daughter of Actor, the only servant who knows the secret of the marriage bed.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "argos",
+      "name": "Argos",
+      "body": "Odysseus’s hunting dog, bred by him before he left for Troy and now old and neglected.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ctimene",
+      "name": "Ctimene",
+      "body": "Odysseus’s younger sister, brought up alongside Eumaeus and married away to Same.",
+      "aliases": [
+        "Ctimene"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antinous",
+      "name": "Antinous",
+      "body": "Son of Eupeithes and the most aggressive of the suitors courting Penelope.",
+      "aliases": [
+        "Antinous"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurymachus",
+      "name": "Eurymachus",
+      "body": "Son of Polybus and, with Antinous, a leader among the suitors.",
+      "aliases": [
+        "Eurymachus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphinomus",
+      "name": "Amphinomus",
+      "body": "A suitor from Dulichium, son of Nisus; the most decent-spoken of them, and Penelope’s favourite among them.",
+      "aliases": [
+        "Amphinomus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agelaus",
+      "name": "Agelaus",
+      "body": "A suitor, son of Damastor.",
+      "aliases": [
+        "Agelaus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ctesippus",
+      "name": "Ctesippus",
+      "body": "A suitor from Same, a coarse-mannered rich man’s son.",
+      "aliases": [
+        "Ctesippus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leiodes",
+      "name": "Leiodes",
+      "body": "A suitor, son of Oenops, who acts as sacrificial priest to the others.",
+      "aliases": [
+        "Leiodes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurynomus-suitor",
+      "name": "Eurynomus",
+      "body": "A suitor, one of the three surviving sons of the old Ithacan Aegyptius.",
+      "aliases": [
+        "Eurynomus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphimedon",
+      "name": "Amphimedon",
+      "body": "A suitor of Ithaca, son of Melaneus, who once hosted Agamemnon.",
+      "aliases": [
+        "Amphimedon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demoptolemus",
+      "name": "Demoptolemus",
+      "body": "A suitor who fights in the front rank at the end.",
+      "aliases": [
+        "Demoptolemus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pisander",
+      "name": "Pisander",
+      "body": "A suitor, son of Polyctor.",
+      "aliases": [
+        "Pisander"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polybus-suitor",
+      "name": "Polybus",
+      "body": "A suitor, son of Polyctor.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polybus-eurymachus",
+      "name": "Polybus",
+      "body": "Father of the suitor Eurymachus.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurydamas",
+      "name": "Eurydamas",
+      "body": "A suitor.",
+      "aliases": [
+        "Eurydamas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leocritus",
+      "name": "Leocritus",
+      "body": "A suitor, son of Evenor, who breaks up the Ithacan assembly. Butler’s original spells him Leiocritus at his first appearance.",
+      "aliases": [
+        "Leiocritus",
+        "Leocritus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euryades",
+      "name": "Euryades",
+      "body": "A suitor killed in the hall.",
+      "aliases": [
+        "Euryades"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elatus",
+      "name": "Elatus",
+      "body": "A suitor killed in the hall.",
+      "aliases": [
+        "Elatus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mulius",
+      "name": "Mulius",
+      "body": "A servant from Dulichium who waits on Amphinomus.",
+      "aliases": [
+        "Mulius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "autonoe",
+      "name": "Autonoe",
+      "body": "One of Penelope’s waiting women.",
+      "aliases": [
+        "Autonoe"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippodamia",
+      "name": "Hippodamia",
+      "body": "One of Penelope’s waiting women.",
+      "aliases": [
+        "Hippodamia"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "irus",
+      "name": "Irus",
+      "body": "The town beggar of Ithaca, a big idle man whose real name is Arnaeus; the young men call him Irus because he runs their errands.",
+      "aliases": [
+        "Irus",
+        "Arnaeus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            18,
+            10
+          ],
+          "body": "The town beggar of Ithaca, really named Arnaeus, who challenged the stranger at the door and was beaten."
+        }
+      ]
+    },
+    {
+      "id": "mentor",
+      "name": "Mentor",
+      "body": "An old friend of Odysseus, left in charge of the household when he sailed for Troy. Athena repeatedly takes his shape and voice.",
+      "aliases": [
+        "Mentor"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mentes",
+      "name": "Mentes",
+      "body": "Chief of the Taphians and an old guest-friend of Odysseus’s house, son of Anchialus; Athena comes to Ithaca in his shape.",
+      "aliases": [
+        "Mentes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "halitherses",
+      "name": "Halitherses",
+      "body": "The best reader of omens in Ithaca, son of Mastor, and an old friend of Odysseus’s house.",
+      "aliases": [
+        "Halitherses"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aegyptius",
+      "name": "Aegyptius",
+      "body": "A very old Ithacan who speaks first at the assembly; father of Antiphus, Eurynomus and two sons who work his land.",
+      "aliases": [
+        "Aegyptius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiphus",
+      "name": "Antiphus",
+      "body": "Son of the old Ithacan Aegyptius; he sailed with Odysseus and was killed by the Cyclops.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiphus-elder",
+      "name": "Antiphus",
+      "body": "An elder of Ithaca, one of the old friends of Odysseus’s house with whom Telemachus sits in the assembly.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eupeithes",
+      "name": "Eupeithes",
+      "body": "Father of Antinous; Odysseus once saved him from an Ithacan mob.",
+      "aliases": [
+        "Eupeithes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "noemon",
+      "name": "Noemon",
+      "body": "An Ithacan, son of Phronius, who lends Telemachus a ship.",
+      "aliases": [
+        "Noemon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phronius",
+      "name": "Phronius",
+      "body": "Father of Noemon.",
+      "aliases": [
+        "Phronius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "piraeus",
+      "name": "Piraeus",
+      "body": "Telemachus’s friend, son of Clytius, who keeps his guest and his gifts while the house is unsafe.",
+      "aliases": [
+        "Piraeus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clytius",
+      "name": "Clytius",
+      "body": "Father of Piraeus.",
+      "aliases": [
+        "Clytius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theoclymenus",
+      "name": "Theoclymenus",
+      "body": "A seer of the house of Melampus, in exile from Argos for killing a man; Telemachus brings him home to Ithaca.",
+      "aliases": [
+        "Theoclymenus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            20,
+            30
+          ],
+          "body": "The seer Telemachus brought home from Pylos, of the house of Melampus; he reads the darkness that falls over the suitors at their meal."
+        }
+      ]
+    },
+    {
+      "id": "pisenor-herald",
+      "name": "Pisenor",
+      "body": "The herald of the Ithacan assembly, who brings Telemachus his staff.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "evenor",
+      "name": "Evenor",
+      "body": "Father of the suitor Leocritus.",
+      "aliases": [
+        "Evenor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "damastor",
+      "name": "Damastor",
+      "body": "Father of the suitor Agelaus.",
+      "aliases": [
+        "Damastor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polyctor",
+      "name": "Polyctor",
+      "body": "Father of the suitors Pisander and Polybus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oenops",
+      "name": "Oenops",
+      "body": "Father of the suitor Leiodes.",
+      "aliases": [
+        "Oenops"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melaneus",
+      "name": "Melaneus",
+      "body": "An Ithacan, father of the suitor Amphimedon.",
+      "aliases": [
+        "Melaneus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nisus",
+      "name": "Nisus",
+      "body": "A rich and brave man of Dulichium, son of Aretias and father of Amphinomus.",
+      "aliases": [
+        "Nisus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aretias",
+      "name": "Aretias",
+      "body": "A king, father of Nisus and grandfather of Amphinomus.",
+      "aliases": [
+        "Aretias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polytherses",
+      "name": "Polytherses",
+      "body": "Father of the suitor Ctesippus.",
+      "aliases": [
+        "Polytherses"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mastor",
+      "name": "Mastor",
+      "body": "Father of the seer Halitherses.",
+      "aliases": [
+        "Mastor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "terpes",
+      "name": "Terpes",
+      "body": "Father of the bard Phemius.",
+      "aliases": [
+        "Terpes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ops",
+      "name": "Ops",
+      "body": "Father of the nurse Euryclea, son of Pisenor.",
+      "aliases": [
+        "Ops"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pisenor",
+      "name": "Pisenor",
+      "body": "Father of Ops and grandfather of the nurse Euryclea.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "icarius",
+      "name": "Icarius",
+      "body": "Penelope’s father.",
+      "aliases": [
+        "Icarius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iphthime",
+      "name": "Iphthime",
+      "body": "Penelope’s sister, daughter of Icarius, married to Eumelus of Pherae; Athena sends a phantom in her likeness.",
+      "aliases": [
+        "Iphthime"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eumelus",
+      "name": "Eumelus",
+      "body": "Iphthime’s husband, who lives at Pherae.",
+      "aliases": [
+        "Eumelus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arceisius",
+      "name": "Arceisius",
+      "body": "Odysseus’s grandfather, father of Laertes.",
+      "aliases": [
+        "Arceisius",
+        "Arcesius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "autolycus",
+      "name": "Autolycus",
+      "body": "Odysseus’s maternal grandfather, famous as the most accomplished thief and perjurer alive; he named the boy and gave him the boar-hunt scar.",
+      "aliases": [
+        "Autolycus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphithea",
+      "name": "Amphithea",
+      "body": "Odysseus’s grandmother, wife of Autolycus.",
+      "aliases": [
+        "Amphithea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "icmalius",
+      "name": "Icmalius",
+      "body": "The craftsman who made Penelope’s inlaid chair.",
+      "aliases": [
+        "Icmalius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mesaulius",
+      "name": "Mesaulius",
+      "body": "A servant Eumaeus bought for himself, who waits at his table.",
+      "aliases": [
+        "Mesaulius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ithacus",
+      "name": "Ithacus",
+      "body": "One of the three men said to have built the town fountain of Ithaca.",
+      "aliases": [
+        "Ithacus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neritus",
+      "name": "Neritus",
+      "body": "One of the three men said to have built the town fountain of Ithaca.",
+      "aliases": [
+        "Neritus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sicel-woman",
+      "name": "The Sicel woman",
+      "body": "The old servant who looks after Laertes on his country farm. The modern edition calls her Sicilian.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "athena",
+      "name": "Athena",
+      "body": "Daughter of Zeus, goddess of war and cunning, and Odysseus’s protector throughout. Butler’s original calls her Minerva.",
+      "aliases": [
+        "Minerva",
+        "Athena"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "body": "King of the gods and father of Athena. Butler’s original calls him Jove.",
+      "aliases": [
+        "Jove",
+        "Zeus"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "poseidon",
+      "name": "Poseidon",
+      "body": "God of the sea and the earthquake, and the one god set against Odysseus, because Odysseus blinded his son Polyphemus. Butler’s original calls him Neptune.",
+      "aliases": [
+        "Neptune",
+        "Poseidon"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "body": "The messenger god, guide of travellers and of the dead. Butler’s original calls him Mercury.",
+      "aliases": [
+        "Mercury",
+        "Hermes"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "body": "God of archery, prophecy and sudden death.",
+      "aliases": [
+        "Apollo"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "artemis",
+      "name": "Artemis",
+      "body": "Goddess of the hunt and Apollo’s sister. Butler’s original calls her Diana.",
+      "aliases": [
+        "Diana",
+        "Artemis"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aphrodite",
+      "name": "Aphrodite",
+      "body": "Goddess of love and beauty. Butler’s original calls her Venus.",
+      "aliases": [
+        "Venus",
+        "Aphrodite"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ares",
+      "name": "Ares",
+      "body": "God of war. Butler’s original calls him Mars.",
+      "aliases": [
+        "Mars",
+        "Ares"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hephaestus",
+      "name": "Hephaestus",
+      "body": "The smith of the gods, lame and famously skilful, husband of Aphrodite. Butler’s original calls him Vulcan.",
+      "aliases": [
+        "Vulcan",
+        "Hephaestus"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hera",
+      "name": "Hera",
+      "body": "Zeus’s wife, queen of the gods. Butler’s original calls her Juno.",
+      "aliases": [
+        "Juno",
+        "Hera"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demeter",
+      "name": "Demeter",
+      "body": "Goddess of the harvest. Butler’s original calls her Ceres.",
+      "aliases": [
+        "Ceres",
+        "Demeter"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "persephone",
+      "name": "Persephone",
+      "body": "Queen of the dead, who rules in Hades. Butler’s original calls her Proserpine.",
+      "aliases": [
+        "Proserpine",
+        "Persephone"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hades",
+      "name": "Hades",
+      "body": "God of the underworld; the name also stands for his house, where the dead go.",
+      "aliases": [
+        "Hades"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helios",
+      "name": "Helios",
+      "body": "The sun god, whose cattle graze on Thrinacia. Butler’s original calls him Hyperion.",
+      "aliases": [
+        "Hyperion",
+        "Helios"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cronus",
+      "name": "Cronus",
+      "body": "Zeus’s father. Butler’s original calls him Saturn.",
+      "aliases": [
+        "Saturn",
+        "Cronus",
+        "Cronos"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leto",
+      "name": "Leto",
+      "body": "Mother of Apollo and Artemis by Zeus.",
+      "aliases": [
+        "Leto"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dawn",
+      "name": "Dawn",
+      "body": "The goddess of daybreak, who rises each morning from beside Tithonus. Butler’s original also names her Aurora.",
+      "aliases": [
+        "Dawn",
+        "Aurora"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oceanus",
+      "name": "Oceanus",
+      "body": "The great river encircling the earth, spoken of as a god and as the father of nymphs.",
+      "aliases": [
+        "Oceanus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphitrite",
+      "name": "Amphitrite",
+      "body": "Sea goddess; the waves are called hers.",
+      "aliases": [
+        "Amphitrite"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "proteus",
+      "name": "Proteus",
+      "body": "The old man of the sea, a shape-shifting immortal who tells the truth only under compulsion.",
+      "aliases": [
+        "Proteus"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eidothea",
+      "name": "Idothea",
+      "body": "Daughter of Proteus, who takes pity on Menelaus in Egypt and teaches him how to trap her father.",
+      "aliases": [
+        "Idothea",
+        "Eidothea"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leucothea",
+      "name": "Ino",
+      "body": "A mortal woman, daughter of Cadmus, since raised to godhood as Leucothea; she gives Odysseus her veil in the storm.",
+      "aliases": [
+        "Ino",
+        "Leucothea"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calypso",
+      "name": "Calypso",
+      "body": "The goddess on Ogygia who kept Odysseus seven years and wanted to marry him.",
+      "aliases": [
+        "Calypso"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "circe",
+      "name": "Circe",
+      "body": "The goddess and enchantress of Aeaea, daughter of the sun and sister of Aeetes.",
+      "aliases": [
+        "Circe"
+      ],
+      "category": "major",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "themis",
+      "name": "Themis",
+      "body": "Goddess invoked as the beginning and end of councils.",
+      "aliases": [
+        "Themis"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hebe",
+      "name": "Hebe",
+      "body": "Daughter of Zeus and Hera, married to Heracles among the gods.",
+      "aliases": [
+        "Hebe"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eileithyia",
+      "name": "Ilithuia",
+      "body": "Goddess of childbirth, who has a cave at Amnisus in Crete.",
+      "aliases": [
+        "Ilithuia",
+        "Eileithyia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paeon",
+      "name": "Paeeon",
+      "body": "The healer of the gods; the Egyptian physicians are called his race.",
+      "aliases": [
+        "Paeeon",
+        "Paeon"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dionysus",
+      "name": "Bacchus",
+      "body": "God of wine, who gave the golden urn that holds Achilles’ bones and who denounced Ariadne.",
+      "aliases": [
+        "Bacchus",
+        "Dionysus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "body": "Calypso’s father, who knows the depths of the sea and holds the pillars of heaven apart.",
+      "aliases": [
+        "Atlas"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thoosa",
+      "name": "Thoosa",
+      "body": "A sea nymph, daughter of Phorcys and mother of Polyphemus by Poseidon.",
+      "aliases": [
+        "Thoosa"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phorcys",
+      "name": "Phorcys",
+      "body": "A sea god, father of Thoosa; a harbour of Ithaca bears his name.",
+      "aliases": [
+        "Phorcys"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crataiis",
+      "name": "Crataiis",
+      "body": "Scylla’s mother, whom Odysseus is told to call on as he passes.",
+      "aliases": [
+        "Crataiis"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "halosydne",
+      "name": "Halosydne",
+      "body": "A sea goddess; the seals are called her flock.",
+      "aliases": [
+        "Halosydne"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perse",
+      "name": "Perse",
+      "body": "Daughter of Oceanus and mother, by the sun, of Circe and Aeetes.",
+      "aliases": [
+        "Perse"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neaera",
+      "name": "Neaera",
+      "body": "A nymph, mother by Helios of Phaethusa and Lampetie.",
+      "aliases": [
+        "Neaera"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaethusa",
+      "name": "Phaethusa",
+      "body": "A goddess, daughter of Helios, who herds the sun’s cattle on Thrinacia with her sister.",
+      "aliases": [
+        "Phaethusa"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lampetie",
+      "name": "Lampetie",
+      "body": "A goddess, daughter of Helios, who herds the sun’s cattle on Thrinacia and reports their slaughter to her father.",
+      "aliases": [
+        "Lampetie",
+        "Lampetia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maia",
+      "name": "Maia",
+      "body": "Hermes’s mother.",
+      "aliases": [
+        "Maia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thetis",
+      "name": "Thetis",
+      "body": "A sea goddess, Achilles’ mother, who offered his armour as a prize.",
+      "aliases": [
+        "Thetis"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erinyes",
+      "name": "The Furies",
+      "body": "The avenging spirits called down by a wronged parent. Butler’s original names them the Erinyes.",
+      "aliases": [
+        "Erinyes",
+        "Erinys",
+        "Furies"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "graces",
+      "name": "The Graces",
+      "body": "The goddesses who bathe and anoint Aphrodite.",
+      "aliases": [
+        "Graces"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "naiads",
+      "name": "The Naiads",
+      "body": "The water nymphs of the cave above the harbour of Phorcys in Ithaca.",
+      "aliases": [
+        "Naiads",
+        "Naiad"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gaia",
+      "name": "Gaia",
+      "body": "The earth, named as the mother of Tityus.",
+      "aliases": [
+        "Gaia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nestor",
+      "name": "Nestor",
+      "body": "The old king of Pylos, knight of Gerene, who came home safely from Troy and still gives the best counsel of any Greek.",
+      "aliases": [
+        "Nestor"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pisistratus",
+      "name": "Pisistratus",
+      "body": "Nestor’s youngest son, who travels with Telemachus to Sparta.",
+      "aliases": [
+        "Pisistratus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thrasymedes",
+      "name": "Thrasymedes",
+      "body": "A son of Nestor.",
+      "aliases": [
+        "Thrasymedes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perseus-nestorid",
+      "name": "Perseus",
+      "body": "A son of Nestor.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "echephron",
+      "name": "Echephron",
+      "body": "A son of Nestor.",
+      "aliases": [
+        "Echephron"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "stratius",
+      "name": "Stratius",
+      "body": "A son of Nestor.",
+      "aliases": [
+        "Stratius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aretus",
+      "name": "Aretus",
+      "body": "A son of Nestor.",
+      "aliases": [
+        "Aretus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurydice",
+      "name": "Eurydice",
+      "body": "Nestor’s wife, eldest daughter of Clymenus.",
+      "aliases": [
+        "Eurydice"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clymenus",
+      "name": "Clymenus",
+      "body": "Father of Nestor’s wife Eurydice.",
+      "aliases": [
+        "Clymenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polycaste",
+      "name": "Polycaste",
+      "body": "Nestor’s youngest daughter, who bathes Telemachus at Pylos.",
+      "aliases": [
+        "Polycaste"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neleus",
+      "name": "Neleus",
+      "body": "Nestor’s father, the old king of Pylos, son of Poseidon and Tyro.",
+      "aliases": [
+        "Neleus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laerces",
+      "name": "Laerceus",
+      "body": "The goldsmith at Pylos who gilds the heifer’s horns for Nestor’s sacrifice.",
+      "aliases": [
+        "Laerceus",
+        "Laerces"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "menelaus",
+      "name": "Menelaus",
+      "body": "King of Sparta, Agamemnon’s brother and Helen’s husband; he came home last of all the Greeks.",
+      "aliases": [
+        "Menelaus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "body": "Menelaus’s wife, daughter of Zeus, whose going to Troy began the war.",
+      "aliases": [
+        "Helen"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "megapenthes",
+      "name": "Megapenthes",
+      "body": "Menelaus’s son by a slave woman, married on the day Telemachus arrives.",
+      "aliases": [
+        "Megapenthes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermione",
+      "name": "Hermione",
+      "body": "Menelaus and Helen’s only daughter, promised in marriage to Achilles’ son.",
+      "aliases": [
+        "Hermione"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eteoneus",
+      "name": "Eteoneus",
+      "body": "Menelaus’s servant, son of Boethous, who keeps his door.",
+      "aliases": [
+        "Eteoneus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boethous",
+      "name": "Boethous",
+      "body": "Father of Menelaus’s servant Eteoneus.",
+      "aliases": [
+        "Boethous"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asphalion",
+      "name": "Asphalion",
+      "body": "A servant of Menelaus who pours water over the guests’ hands.",
+      "aliases": [
+        "Asphalion"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adraste",
+      "name": "Adraste",
+      "body": "One of Helen’s maids at Sparta.",
+      "aliases": [
+        "Adraste"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcippe",
+      "name": "Alcippe",
+      "body": "One of Helen’s maids at Sparta.",
+      "aliases": [
+        "Alcippe"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phylo",
+      "name": "Phylo",
+      "body": "One of Helen’s maids at Sparta, who fetches her work-box.",
+      "aliases": [
+        "Phylo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcandra",
+      "name": "Alcandra",
+      "body": "An Egyptian woman of Thebes, wife of Polybus, who gave Helen the silver work-box.",
+      "aliases": [
+        "Alcandra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polybus-egypt",
+      "name": "Polybus",
+      "body": "A rich man of Egyptian Thebes who gave Menelaus two silver baths.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polybus-phaeacian",
+      "name": "Polybus",
+      "body": "The Phaeacian craftsman who made the red ball Laodamas and Halios dance with.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polydamna",
+      "name": "Polydamna",
+      "body": "An Egyptian woman, wife of Thon, who gave Helen the drug that quiets all pain.",
+      "aliases": [
+        "Polydamna"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thon",
+      "name": "Thon",
+      "body": "An Egyptian, husband of Polydamna.",
+      "aliases": [
+        "Thon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaedimus",
+      "name": "Phaedimus",
+      "body": "King of the Sidonians, who gave Menelaus the silver mixing bowl.",
+      "aliases": [
+        "Phaedimus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diocles",
+      "name": "Diocles",
+      "body": "The host at Pherae on the road between Pylos and Sparta, son of Ortilochus.",
+      "aliases": [
+        "Diocles"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ortilochus",
+      "name": "Ortilochus",
+      "body": "Father of Diocles and grandson of the river Alpheus; his house at Messene is where Odysseus met Iphitus.",
+      "aliases": [
+        "Ortilochus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alector",
+      "name": "Alector",
+      "body": "A Spartan, father of the bride Megapenthes marries.",
+      "aliases": [
+        "Alector"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phrontis",
+      "name": "Phrontis",
+      "body": "The steersman of Menelaus’s ship, the best helmsman alive, killed by Apollo off Sunium.",
+      "aliases": [
+        "Phrontis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcinous",
+      "name": "Alcinous",
+      "body": "King of the Phaeacians on Scheria, son of Nausithous and husband of Arete.",
+      "aliases": [
+        "Alcinous"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arete",
+      "name": "Arete",
+      "body": "Queen of the Phaeacians, Alcinous’s wife and niece, honoured by her people beyond any other woman.",
+      "aliases": [
+        "Arete"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nausicaa",
+      "name": "Nausicaa",
+      "body": "Alcinous and Arete’s daughter, who finds Odysseus on the shore.",
+      "aliases": [
+        "Nausicaa"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demodocus",
+      "name": "Demodocus",
+      "body": "The blind bard of the Phaeacian court, whom the Muse loves.",
+      "aliases": [
+        "Demodocus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laodamas",
+      "name": "Laodamas",
+      "body": "Alcinous’s son and his favourite, the best looking of the young Phaeacians.",
+      "aliases": [
+        "Laodamas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "halios",
+      "name": "Halios",
+      "body": "A son of Alcinous, who dances with Laodamas. Both editions spell his name Halios once and Halius once.",
+      "aliases": [
+        "Halios",
+        "Halius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clytoneus",
+      "name": "Clytoneus",
+      "body": "A son of Alcinous who competes in the games.",
+      "aliases": [
+        "Clytoneus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euryalus",
+      "name": "Euryalus",
+      "body": "A young Phaeacian, son of Naubolus, who taunts Odysseus into the discus throw and then makes amends.",
+      "aliases": [
+        "Euryalus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "echeneus",
+      "name": "Echeneus",
+      "body": "The oldest of the Phaeacian elders and their best speaker.",
+      "aliases": [
+        "Echeneus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pontonous",
+      "name": "Pontonous",
+      "body": "Alcinous’s herald, who mixes and serves the wine.",
+      "aliases": [
+        "Pontonous"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nausithous",
+      "name": "Nausithous",
+      "body": "The Phaeacians’ former king, son of Poseidon, who moved them from Hypereia to Scheria; father of Alcinous.",
+      "aliases": [
+        "Nausithous"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhexenor",
+      "name": "Rhexenor",
+      "body": "Nausithous’s elder son, killed young by Apollo; Arete’s father.",
+      "aliases": [
+        "Rhexenor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "periboea",
+      "name": "Periboea",
+      "body": "Nausithous’s mother, youngest daughter of Eurymedon king of the giants.",
+      "aliases": [
+        "Periboea"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurymedon",
+      "name": "Eurymedon",
+      "body": "A king of the giants, whose people and himself were destroyed; Periboea’s father.",
+      "aliases": [
+        "Eurymedon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurymedusa",
+      "name": "Eurymedusa",
+      "body": "The old servant from Apeira, given to Alcinous as a prize, who nursed Nausicaa. The modern edition calls her Eurynome — the name it also gives Penelope’s housekeeper.",
+      "aliases": [
+        "Eurymedusa"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dymas-daughter",
+      "name": "The sea captain’s daughter",
+      "body": "Nausicaa’s close friend, daughter of the famous sea captain Dymas; Athena takes her shape.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dymas",
+      "name": "Dymas",
+      "body": "A famous Phaeacian sea captain.",
+      "aliases": [
+        "Dymas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "naubolus",
+      "name": "Naubolus",
+      "body": "Father of the Phaeacian Euryalus.",
+      "aliases": [
+        "Naubolus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polyneus",
+      "name": "Polyneus",
+      "body": "A Phaeacian, father of Amphialus and son of Tecton.",
+      "aliases": [
+        "Polyneus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tecton",
+      "name": "Tecton",
+      "body": "A Phaeacian, grandfather of Amphialus.",
+      "aliases": [
+        "Tecton"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acroneos",
+      "name": "Acroneos",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Acroneos",
+        "Acroneus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ocyalus",
+      "name": "Ocyalus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Ocyalus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elatreus",
+      "name": "Elatreus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Elatreus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nauteus",
+      "name": "Nauteus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Nauteus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "prymneus",
+      "name": "Prymneus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Prymneus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anchialus-phaeacian",
+      "name": "Anchialus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eretmeus",
+      "name": "Eretmeus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Eretmeus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ponteus",
+      "name": "Ponteus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Ponteus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "proreus",
+      "name": "Proreus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Proreus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thoon",
+      "name": "Thoon",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Thoon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anabesineus",
+      "name": "Anabesineus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Anabesineus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphialus",
+      "name": "Amphialus",
+      "body": "A young Phaeacian who competes in the games held for Odysseus.",
+      "aliases": [
+        "Amphialus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polyphemus",
+      "name": "Polyphemus",
+      "body": "The Cyclops whose cave Odysseus enters, son of Poseidon and the nymph Thoosa.",
+      "aliases": [
+        "Polyphemus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "telemus",
+      "name": "Telemus",
+      "body": "A seer among the Cyclopes, son of Eurymus, who once prophesied to Polyphemus.",
+      "aliases": [
+        "Telemus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurymus",
+      "name": "Eurymus",
+      "body": "Father of the Cyclops seer Telemus.",
+      "aliases": [
+        "Eurymus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "noman",
+      "name": "Noman",
+      "body": "The name Odysseus gives the Cyclops when asked. The modern edition renders it Nobody.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "assumed-name",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeolus",
+      "name": "Aeolus",
+      "body": "Son of Hippotas and keeper of the winds on his floating island; he gives Odysseus the bag of storms.",
+      "aliases": [
+        "Aeolus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippotas",
+      "name": "Hippotas",
+      "body": "Father of Aeolus the wind king.",
+      "aliases": [
+        "Hippotas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiphates",
+      "name": "Antiphates",
+      "body": "King of the Laestrygonians, who begins the destruction of Odysseus’s fleet.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurylochus",
+      "name": "Eurylochus",
+      "body": "Odysseus’s second in command and kinsman by marriage; he argues against his captain twice.",
+      "aliases": [
+        "Eurylochus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polites",
+      "name": "Polites",
+      "body": "The companion Odysseus valued most of all, who speaks first at Circe’s door.",
+      "aliases": [
+        "Polites"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perimedes",
+      "name": "Perimedes",
+      "body": "One of Odysseus’s crew, who helps at the trench of the dead and at the Sirens.",
+      "aliases": [
+        "Perimedes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elpenor",
+      "name": "Elpenor",
+      "body": "The youngest of Odysseus’s crew, neither brave nor clever, who falls from Circe’s roof and is the first ghost to meet him.",
+      "aliases": [
+        "Elpenor"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "teiresias",
+      "name": "Teiresias",
+      "body": "The blind Theban prophet, the one dead man whose understanding Persephone left whole; Odysseus goes to Hades to consult him. The modern edition also spells the name Tiresias.",
+      "aliases": [
+        "Teiresias",
+        "Tiresias"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scylla",
+      "name": "Scylla",
+      "body": "The six-headed monster in the cliff above the strait, daughter of Crataiis.",
+      "aliases": [
+        "Scylla"
+      ],
+      "category": "supporting",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charybdis",
+      "name": "Charybdis",
+      "body": "The whirlpool under the fig tree opposite Scylla, which sucks the water down three times a day.",
+      "aliases": [
+        "Charybdis"
+      ],
+      "category": "supporting",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sirens",
+      "name": "The Sirens",
+      "body": "The singers on their meadow who enchant every man who hears them.",
+      "aliases": [
+        "Sirens"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "muse",
+      "name": "The Muse",
+      "body": "The goddess of song, invoked in the first line and named as the source of Demodocus’s gift.",
+      "aliases": [
+        "Muse"
+      ],
+      "category": "supporting",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maron",
+      "name": "Maron",
+      "body": "Priest of Apollo at Ismarus, son of Euanthes, who gave Odysseus the strong wine out of gratitude.",
+      "aliases": [
+        "Maron"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "euanthes",
+      "name": "Euanthes",
+      "body": "Father of Maron, priest of Apollo at Ismarus.",
+      "aliases": [
+        "Euanthes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeetes",
+      "name": "Aeetes",
+      "body": "A magician, Circe’s brother, and child like her of the sun and Perse.",
+      "aliases": [
+        "Aetes",
+        "Aeetes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jason",
+      "name": "Jason",
+      "body": "The hero for whose sake Hera steered the Argo safely past the wandering rocks.",
+      "aliases": [
+        "Jason"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lamus",
+      "name": "Lamus",
+      "body": "The founder whose rocky stronghold is the Laestrygonian city.",
+      "aliases": [
+        "Lamus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agamemnon",
+      "name": "Agamemnon",
+      "body": "King of Mycenae and leader of the Greeks at Troy, Menelaus’s brother; he came home to an ambush.",
+      "aliases": [
+        "Agamemnon"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clytemnestra",
+      "name": "Clytemnestra",
+      "body": "Agamemnon’s wife, daughter of Tyndareus, who took Aegisthus while her husband was at Troy.",
+      "aliases": [
+        "Clytemnestra"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aegisthus",
+      "name": "Aegisthus",
+      "body": "The man who seduced Clytemnestra and killed Agamemnon, and was killed in turn by Orestes.",
+      "aliases": [
+        "Aegisthus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orestes",
+      "name": "Orestes",
+      "body": "Agamemnon’s son, who avenged his father; the example held up to Telemachus.",
+      "aliases": [
+        "Orestes"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "body": "Son of Peleus and the greatest of the Greek fighters at Troy.",
+      "aliases": [
+        "Achilles"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peleus",
+      "name": "Peleus",
+      "body": "Achilles’ father, still ruling among the Myrmidons.",
+      "aliases": [
+        "Peleus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeacus",
+      "name": "Aeacus",
+      "body": "Peleus’s father; Achilles is called his descendant.",
+      "aliases": [
+        "Aeacus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "patroclus",
+      "name": "Patroclus",
+      "body": "Achilles’ closest companion, killed at Troy.",
+      "aliases": [
+        "Patroclus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antilochus",
+      "name": "Antilochus",
+      "body": "Nestor’s son, singularly fast on his feet, killed at Troy.",
+      "aliases": [
+        "Antilochus"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ajax",
+      "name": "Ajax",
+      "body": "Son of Telamon and the finest of the Greeks after Achilles; he lost the contest for Achilles’ armour and will not speak to Odysseus even in death.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ajax-oileus",
+      "name": "Ajax",
+      "body": "The Greek leader wrecked on the rocks of Gyrae on the voyage home.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "telamon",
+      "name": "Telamon",
+      "body": "Father of the greater Ajax.",
+      "aliases": [
+        "Telamon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neoptolemus",
+      "name": "Neoptolemus",
+      "body": "Achilles’ son, whom Odysseus fetched from Scyros; he came home from Troy unharmed.",
+      "aliases": [
+        "Neoptolemus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "idomeneus",
+      "name": "Idomeneus",
+      "body": "King of Crete, who lost no men at sea coming home from Troy.",
+      "aliases": [
+        "Idomeneus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philoctetes",
+      "name": "Philoctetes",
+      "body": "Son of Poias, an archer who came home safely from Troy.",
+      "aliases": [
+        "Philoctetes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "poias",
+      "name": "Poias",
+      "body": "Father of Philoctetes.",
+      "aliases": [
+        "Poias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diomedes",
+      "name": "Diomedes",
+      "body": "Son of Tydeus, who stationed his ships at Argos on the way home. Butler’s original spells him Diomed.",
+      "aliases": [
+        "Diomed",
+        "Diomedes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tydeus",
+      "name": "Tydeus",
+      "body": "Father of Diomedes.",
+      "aliases": [
+        "Tydeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "priam",
+      "name": "Priam",
+      "body": "King of Troy.",
+      "aliases": [
+        "Priam"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cassandra",
+      "name": "Cassandra",
+      "body": "Priam’s daughter, killed beside Agamemnon by Clytemnestra.",
+      "aliases": [
+        "Cassandra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deiphobus",
+      "name": "Deiphobus",
+      "body": "A Trojan who was with Helen when she called to the men inside the wooden horse.",
+      "aliases": [
+        "Deiphobus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anticlus",
+      "name": "Anticlus",
+      "body": "A Greek inside the wooden horse who began to answer Helen’s voice until Odysseus stopped his mouth.",
+      "aliases": [
+        "Anticlus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epeus",
+      "name": "Epeus",
+      "body": "The man who built the wooden horse with Athena’s help.",
+      "aliases": [
+        "Epeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurypylus",
+      "name": "Eurypylus",
+      "body": "Son of Telephus and the handsomest man Odysseus ever saw except Memnon; killed by Neoptolemus at Troy.",
+      "aliases": [
+        "Eurypylus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "telephus",
+      "name": "Telephus",
+      "body": "Father of Eurypylus.",
+      "aliases": [
+        "Telephus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "memnon",
+      "name": "Memnon",
+      "body": "A hero named as the handsomest man at Troy.",
+      "aliases": [
+        "Memnon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurybates",
+      "name": "Eurybates",
+      "body": "Odysseus’s herald at Troy, round-shouldered, dark and curly-haired; his master valued him above the rest.",
+      "aliases": [
+        "Eurybates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atreus",
+      "name": "Atreus",
+      "body": "Father of Agamemnon and Menelaus.",
+      "aliases": [
+        "Atreus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thyestes",
+      "name": "Thyestes",
+      "body": "Atreus’s brother, who used to live on the headland where Aegisthus later settled.",
+      "aliases": [
+        "Thyestes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philomeleides",
+      "name": "Philomeleides",
+      "body": "The wrestler of Lesbos whom Odysseus threw before the war.",
+      "aliases": [
+        "Philomeleides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ilus",
+      "name": "Ilus",
+      "body": "Son of Mermerus, of Ephyra, who feared the gods and would not sell Odysseus arrow poison.",
+      "aliases": [
+        "Ilus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mermerus",
+      "name": "Mermerus",
+      "body": "Father of Ilus of Ephyra.",
+      "aliases": [
+        "Mermerus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tyro",
+      "name": "Tyro",
+      "body": "Daughter of Salmoneus and wife of Cretheus, who bore Pelias and Neleus to Poseidon in the likeness of the river Enipeus.",
+      "aliases": [
+        "Tyro"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salmoneus",
+      "name": "Salmoneus",
+      "body": "Tyro’s father.",
+      "aliases": [
+        "Salmoneus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cretheus",
+      "name": "Cretheus",
+      "body": "Son of Aeolus and husband of Tyro.",
+      "aliases": [
+        "Cretheus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "enipeus",
+      "name": "Enipeus",
+      "body": "A river spoken of as a person, the most beautiful in the world, whose form Poseidon took to deceive Tyro.",
+      "aliases": [
+        "Enipeus"
+      ],
+      "category": "reference",
+      "kind": "personification",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pelias",
+      "name": "Pelias",
+      "body": "Tyro’s son by Poseidon, a great breeder of sheep at Iolcus.",
+      "aliases": [
+        "Pelias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeson",
+      "name": "Aeson",
+      "body": "A son of Tyro and Cretheus.",
+      "aliases": [
+        "Aeson"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pheres",
+      "name": "Pheres",
+      "body": "A son of Tyro and Cretheus.",
+      "aliases": [
+        "Pheres"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amythaon",
+      "name": "Amythaon",
+      "body": "A son of Tyro and Cretheus, a mighty warrior and charioteer.",
+      "aliases": [
+        "Amythaon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiope",
+      "name": "Antiope",
+      "body": "Daughter of Asopus, mother by Zeus of Amphion and Zethus.",
+      "aliases": [
+        "Antiope"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "asopus",
+      "name": "Asopus",
+      "body": "Antiope’s father.",
+      "aliases": [
+        "Asopus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphion",
+      "name": "Amphion",
+      "body": "Son of Zeus and Antiope, who with his brother Zethus founded Thebes and walled it.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "zethus",
+      "name": "Zethus",
+      "body": "Son of Zeus and Antiope, who founded Thebes with Amphion; father of the boy Itylus.",
+      "aliases": [
+        "Zethus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "itylus",
+      "name": "Itylus",
+      "body": "Zethus’s son, killed by mishap by his own mother, who became the nightingale.",
+      "aliases": [
+        "Itylus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pandareus",
+      "name": "Pandareus",
+      "body": "Father of the nightingale of the spring song, and of the daughters the storm winds carried off.",
+      "aliases": [
+        "Pandareus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcmena",
+      "name": "Alcmena",
+      "body": "Wife of Amphitryon and mother of Heracles by Zeus.",
+      "aliases": [
+        "Alcmena",
+        "Alcmene"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphitryon",
+      "name": "Amphitryon",
+      "body": "Alcmena’s husband.",
+      "aliases": [
+        "Amphitryon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "megara",
+      "name": "Megara",
+      "body": "Daughter of King Creon, married to Heracles.",
+      "aliases": [
+        "Megara"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "creon",
+      "name": "Creon",
+      "body": "A great king, father of Megara.",
+      "aliases": [
+        "Creon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epicaste",
+      "name": "Epicaste",
+      "body": "Mother of Oedipus, who married her own son without knowing it.",
+      "aliases": [
+        "Epicaste"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oedipus",
+      "name": "Oedipodes",
+      "body": "King of Thebes, who killed his father and married his own mother unknowing. The modern edition calls him Oedipus.",
+      "aliases": [
+        "Oedipodes",
+        "Oedipus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chloris",
+      "name": "Chloris",
+      "body": "Neleus’s wife and queen in Pylos, youngest daughter of Amphion of Orchomenus; mother of Nestor.",
+      "aliases": [
+        "Chloris"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphion-orchomenus",
+      "name": "Amphion",
+      "body": "King of Minyan Orchomenus, son of Iasus and father of Chloris.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iasus-orchomenus",
+      "name": "Iasus",
+      "body": "Father of Amphion king of Orchomenus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chromius",
+      "name": "Chromius",
+      "body": "A son of Neleus and Chloris, Nestor’s brother.",
+      "aliases": [
+        "Chromius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "periclymenus",
+      "name": "Periclymenus",
+      "body": "A son of Neleus and Chloris, Nestor’s brother.",
+      "aliases": [
+        "Periclymenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pero",
+      "name": "Pero",
+      "body": "Neleus’s daughter, wooed by the whole country and won only through the cattle of Iphicles.",
+      "aliases": [
+        "Pero"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iphicles",
+      "name": "Iphicles",
+      "body": "The owner of the cattle of Phylace that had to be raided to win Pero.",
+      "aliases": [
+        "Iphicles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leda",
+      "name": "Leda",
+      "body": "Tyndareus’s wife, mother of Castor and Pollux.",
+      "aliases": [
+        "Leda"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tyndareus",
+      "name": "Tyndarus",
+      "body": "Leda’s husband and the father of Castor and Pollux. The modern edition spells him Tyndareus.",
+      "aliases": [
+        "Tyndarus",
+        "Tyndareus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "castor",
+      "name": "Castor",
+      "body": "Son of Leda and Tyndareus, a breaker of horses; he and Pollux live and die on alternate days.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pollux",
+      "name": "Pollux",
+      "body": "Son of Leda and Tyndareus, a mighty boxer.",
+      "aliases": [
+        "Pollux"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iphimedeia",
+      "name": "Iphimedeia",
+      "body": "Wife of Aloeus, who bore Otus and Ephialtes to Poseidon.",
+      "aliases": [
+        "Iphimedeia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aloeus",
+      "name": "Aloeus",
+      "body": "Iphimedeia’s husband.",
+      "aliases": [
+        "Aloeus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "otus",
+      "name": "Otus",
+      "body": "A giant son of Iphimedeia, who with his brother threatened to pile the mountains and storm heaven.",
+      "aliases": [
+        "Otus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ephialtes",
+      "name": "Ephialtes",
+      "body": "A giant son of Iphimedeia, who with his brother threatened to pile the mountains and storm heaven.",
+      "aliases": [
+        "Ephialtes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaedra",
+      "name": "Phaedra",
+      "body": "One of the famous women whose ghost Odysseus sees.",
+      "aliases": [
+        "Phaedra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "procris",
+      "name": "Procris",
+      "body": "One of the famous women whose ghost Odysseus sees.",
+      "aliases": [
+        "Procris"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ariadne",
+      "name": "Ariadne",
+      "body": "Daughter of Minos, carried off from Crete by Theseus and killed by Artemis on Dia.",
+      "aliases": [
+        "Ariadne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minos",
+      "name": "Minos",
+      "body": "King of Crete at Knossos, who conferred with Zeus every ninth year and now sits in judgement on the dead.",
+      "aliases": [
+        "Minos"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "body": "A hero of Athens, one of the great dead Odysseus wished to see.",
+      "aliases": [
+        "Theseus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peirithous",
+      "name": "Peirithous",
+      "body": "Theseus’s companion, host to the Centaur Eurytion among the Lapiths.",
+      "aliases": [
+        "Peirithous",
+        "Pirithous"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurytion",
+      "name": "Eurytion",
+      "body": "The Centaur whom wine inflamed at Peirithous’s house.",
+      "aliases": [
+        "Eurytion"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maera",
+      "name": "Maera",
+      "body": "One of the women’s ghosts Odysseus names.",
+      "aliases": [
+        "Maera"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clymene",
+      "name": "Clymene",
+      "body": "One of the women’s ghosts Odysseus names.",
+      "aliases": [
+        "Clymene"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eriphyle",
+      "name": "Eriphyle",
+      "body": "A ghost Odysseus names, the woman who sold her own husband for gold.",
+      "aliases": [
+        "Eriphyle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tityus",
+      "name": "Tityus",
+      "body": "A giant son of Gaia, punished in Hades for assaulting Leto.",
+      "aliases": [
+        "Tityus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tantalus",
+      "name": "Tantalus",
+      "body": "A shade punished in Hades with water and fruit that withdraw whenever he reaches.",
+      "aliases": [
+        "Tantalus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sisyphus",
+      "name": "Sisyphus",
+      "body": "A shade punished in Hades by rolling a stone that always runs back down.",
+      "aliases": [
+        "Sisyphus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heracles",
+      "name": "Heracles",
+      "body": "The greatest of the strong men, whose phantom Odysseus meets in Hades while he himself feasts among the gods. Butler’s original calls him Hercules.",
+      "aliases": [
+        "Hercules",
+        "Heracles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gorgon",
+      "name": "The Gorgon",
+      "body": "The monstrous head Odysseus fears Persephone will send up out of Hades.",
+      "aliases": [
+        "Gorgon"
+      ],
+      "category": "reference",
+      "kind": "mythical-being",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rhadamanthus",
+      "name": "Rhadamanthus",
+      "body": "The fair-haired ruler of the Elysian plain.",
+      "aliases": [
+        "Rhadamanthus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orion",
+      "name": "Orion",
+      "body": "The hunter loved by Dawn and killed by Artemis in Ortygia; he hunts still among the dead.",
+      "aliases": [
+        "Orion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iasion",
+      "name": "Iasion",
+      "body": "The man Demeter loved and Zeus struck down.",
+      "aliases": [
+        "Iasion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tithonus",
+      "name": "Tithonus",
+      "body": "Dawn’s consort, from whose side she rises each morning.",
+      "aliases": [
+        "Tithonus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cadmus",
+      "name": "Cadmus",
+      "body": "Father of Ino, who became the goddess Leucothea.",
+      "aliases": [
+        "Cadmus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erechtheus",
+      "name": "Erechtheus",
+      "body": "The king of Athens to whose house Athena goes.",
+      "aliases": [
+        "Erechtheus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lampus",
+      "name": "Lampus",
+      "body": "One of the two horses that draw Dawn’s chariot.",
+      "aliases": [
+        "Lampus"
+      ],
+      "category": "reference",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaethon",
+      "name": "Phaethon",
+      "body": "One of the two horses that draw Dawn’s chariot.",
+      "aliases": [
+        "Phaethon"
+      ],
+      "category": "reference",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "actor",
+      "name": "Actor",
+      "body": "Father of the maidservant who keeps Penelope’s bedroom door.",
+      "aliases": [
+        "Actor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melampus",
+      "name": "Melampus",
+      "body": "The seer and rich man of Pylos, driven out by Neleus, from whom Theoclymenus is descended.",
+      "aliases": [
+        "Melampus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phylacus",
+      "name": "Phylacus",
+      "body": "The king in whose house Melampus was held prisoner for a year.",
+      "aliases": [
+        "Phylacus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antiphates-melampus",
+      "name": "Antiphates",
+      "body": "A son of Melampus, father of Oicleus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mantius",
+      "name": "Mantius",
+      "body": "A son of Melampus, father of Polypheides and Cleitus.",
+      "aliases": [
+        "Mantius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oicleus",
+      "name": "Oicleus",
+      "body": "Son of Antiphates and father of the seer Amphiaraus.",
+      "aliases": [
+        "Oicleus",
+        "Oecleus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphiaraus",
+      "name": "Amphiaraus",
+      "body": "A seer dearly loved by Zeus and Apollo, killed at Thebes through a woman’s bribe.",
+      "aliases": [
+        "Amphiaraus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcmaeon",
+      "name": "Alcmaeon",
+      "body": "A son of Amphiaraus.",
+      "aliases": [
+        "Alcmaeon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amphilochus",
+      "name": "Amphilochus",
+      "body": "A son of Amphiaraus.",
+      "aliases": [
+        "Amphilochus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polypheides",
+      "name": "Polypheides",
+      "body": "Son of Mantius and the greatest seer alive after Amphiaraus; Theoclymenus’s father.",
+      "aliases": [
+        "Polypheides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleitus",
+      "name": "Cleitus",
+      "body": "Son of Mantius, carried off by Dawn for his beauty.",
+      "aliases": [
+        "Cleitus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "castor-hylax",
+      "name": "Castor",
+      "body": "The rich and honoured Cretan whom Odysseus, in his false story, claims as his father.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hylax",
+      "name": "Hylax",
+      "body": "Named in Odysseus’s false Cretan story as his supposed grandfather.",
+      "aliases": [
+        "Hylax"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aethon",
+      "name": "Aethon",
+      "body": "The name Odysseus gives Penelope when he tells her he is a Cretan and Idomeneus’s younger brother.",
+      "aliases": [
+        "Aethon"
+      ],
+      "category": "supporting",
+      "kind": "assumed-name",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deucalion",
+      "name": "Deucalion",
+      "body": "Named in Odysseus’s false story as Minos’s son and the father of Idomeneus.",
+      "aliases": [
+        "Deucalion"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eperitus",
+      "name": "Eperitus",
+      "body": "The name Odysseus gives Laertes before telling him the truth.",
+      "aliases": [
+        "Eperitus"
+      ],
+      "category": "supporting",
+      "kind": "assumed-name",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apheidas",
+      "name": "Apheidas",
+      "body": "A king named in Odysseus’s last false story as his supposed father.",
+      "aliases": [
+        "Apheidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polypemon",
+      "name": "Polypemon",
+      "body": "Named in Odysseus’s last false story as his supposed grandfather.",
+      "aliases": [
+        "Polypemon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pheidon",
+      "name": "Pheidon",
+      "body": "King of the Thesprotians, who in Odysseus’s tale entertained him and had news of the real Odysseus.",
+      "aliases": [
+        "Pheidon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "acastus",
+      "name": "Acastus",
+      "body": "King of Dulichium, to whom the Thesprotian crew were told to take the beggar.",
+      "aliases": [
+        "Acastus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thoas",
+      "name": "Thoas",
+      "body": "Son of Andraemon, who in Odysseus’s campfire story ran to the ships and left his cloak behind.",
+      "aliases": [
+        "Thoas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "andraemon",
+      "name": "Andraemon",
+      "body": "Father of Thoas.",
+      "aliases": [
+        "Andraemon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orsilochus",
+      "name": "Orsilochus",
+      "body": "Idomeneus’s son, whom the beggar claims in his story to have killed in Crete.",
+      "aliases": [
+        "Orsilochus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dmetor",
+      "name": "Dmetor",
+      "body": "A great man of Cyprus, son of Iasus, to whom the beggar says he was given.",
+      "aliases": [
+        "Dmetor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iasus-cyprus",
+      "name": "Iasus",
+      "body": "Father of Dmetor of Cyprus.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arybas",
+      "name": "Arybas",
+      "body": "A rich man of Sidon, father of the nurse who carried Eumaeus away.",
+      "aliases": [
+        "Arybas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ctesius",
+      "name": "Ctesius",
+      "body": "Eumaeus’s father, son of Ormenus, king of one of the two communities of Syra.",
+      "aliases": [
+        "Ctesius",
+        "Ctesias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ormenus",
+      "name": "Ormenus",
+      "body": "Eumaeus’s grandfather.",
+      "aliases": [
+        "Ormenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "echetus",
+      "name": "Echetus",
+      "body": "A king on the mainland held up as a threat, who mutilates everyone brought to him.",
+      "aliases": [
+        "Echetus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iphitus",
+      "name": "Iphitus",
+      "body": "Son of Eurytus, who gave Odysseus the great bow in Messene and was later killed by Heracles.",
+      "aliases": [
+        "Iphitus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eurytus",
+      "name": "Eurytus",
+      "body": "The archer of Oechalia who would shoot against the gods; Iphitus’s father.",
+      "aliases": [
+        "Eurytus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anchialus-taphian",
+      "name": "Anchialus",
+      "body": "Father of Mentes, king of the Taphians.",
+      "aliases": [],
+      "category": "",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alcimus",
+      "name": "Alcimus",
+      "body": "Named as Mentor’s father.",
+      "aliases": [
+        "Alcimus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alpheus",
+      "name": "Alpheus",
+      "body": "A river spoken of as an ancestor, grandfather of Diocles.",
+      "aliases": [
+        "Alpheus"
+      ],
+      "category": "reference",
+      "kind": "personification",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "greeks",
+      "name": "The Greeks",
+      "body": "The army that fought at Troy. The original calls them Achaeans, Argives and Danaans where the modern edition says Greeks.",
+      "aliases": [
+        "Achaeans",
+        "Argives",
+        "Danaans",
+        "Greeks"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trojans",
+      "name": "The Trojans",
+      "body": "The people of Troy, against whom the Greeks fought for nine years.",
+      "aliases": [
+        "Trojans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phaeacians",
+      "name": "The Phaeacians",
+      "body": "The seafaring people of Scheria, near kin to the gods, who ferry strangers home.",
+      "aliases": [
+        "Phaeacians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cyclopes",
+      "name": "The Cyclopes",
+      "body": "A lawless people who neither plant nor plough and have no assemblies or laws. The singular Cyclops in this book always means Polyphemus.",
+      "aliases": [
+        "Cyclopes"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laestrygonians",
+      "name": "The Laestrygonians",
+      "body": "The giant people of Telepylus who wreck Odysseus’s fleet.",
+      "aliases": [
+        "Laestrygonians"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cicones",
+      "name": "The Cicons",
+      "body": "The people of Ismarus, the first Odysseus raided after Troy. The modern edition calls them Cicones.",
+      "aliases": [
+        "Cicons",
+        "Cicones"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thesprotians",
+      "name": "The Thesprotians",
+      "body": "The mainland people whose king Pheidon figures in the beggar’s story.",
+      "aliases": [
+        "Thesprotians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phoenicians",
+      "name": "The Phoenicians",
+      "body": "Seafaring traders who appear in both the beggar’s tales and Eumaeus’s.",
+      "aliases": [
+        "Phoenicians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sidonians",
+      "name": "The Sidonians",
+      "body": "The people of Sidon.",
+      "aliases": [
+        "Sidonians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "egyptians",
+      "name": "The Egyptians",
+      "body": "The people of Egypt, skilled in medicine.",
+      "aliases": [
+        "Egyptians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ethiopians",
+      "name": "The Ethiopians",
+      "body": "The people at the world’s end, split into two halves, where Poseidon goes to be feasted.",
+      "aliases": [
+        "Ethiopians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "taphians",
+      "name": "The Taphians",
+      "body": "A seafaring and pirating people; Mentes is their chief.",
+      "aliases": [
+        "Taphians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "myrmidons",
+      "name": "The Myrmidons",
+      "body": "Achilles’ people, ruled after him by Neoptolemus and by old Peleus.",
+      "aliases": [
+        "Myrmidons"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cephallenians",
+      "name": "The Cephallenians",
+      "body": "The people over whom Odysseus and Laertes ruled.",
+      "aliases": [
+        "Cephallenians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epeans",
+      "name": "The Epeans",
+      "body": "The people who rule in Elis.",
+      "aliases": [
+        "Epeans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cretans",
+      "name": "The Cretans",
+      "body": "The people of Crete, among whom the beggar claims his family stood high.",
+      "aliases": [
+        "Cretans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pylians",
+      "name": "The Pylians",
+      "body": "Nestor’s people.",
+      "aliases": [
+        "Pylians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lapiths",
+      "name": "The Lapithae",
+      "body": "The people among whom the Centaur Eurytion grew violent with wine. The modern edition calls them the Lapiths.",
+      "aliases": [
+        "Lapithae",
+        "Lapiths"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cimmerians",
+      "name": "The Cimmerians",
+      "body": "The people who live wrapped in mist and darkness at the edge of Oceanus.",
+      "aliases": [
+        "Cimmerians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sintians",
+      "name": "The Sintians",
+      "body": "The people of Lemnos, whose speech Hephaestus calls barbarous.",
+      "aliases": [
+        "Sintians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "solymi",
+      "name": "The Solymi",
+      "body": "A people whose mountains Poseidon passes on his way back from Ethiopia.",
+      "aliases": [
+        "Solymi"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erembians",
+      "name": "The Erembians",
+      "body": "One of the peoples Menelaus visited in his wanderings.",
+      "aliases": [
+        "Erembians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messenians",
+      "name": "The Messenians",
+      "body": "The people who carried off three hundred Ithacan sheep.",
+      "aliases": [
+        "Messenians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eteocretans",
+      "name": "The Eteocretans",
+      "body": "One of the peoples of Crete.",
+      "aliases": [
+        "Eteocretans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dorians",
+      "name": "The Dorians",
+      "body": "One of the peoples of Crete, of threefold race.",
+      "aliases": [
+        "Dorians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pelasgians",
+      "name": "The Pelasgi",
+      "body": "One of the peoples of Crete. The modern edition calls them the Pelasgians.",
+      "aliases": [
+        "Pelasgi",
+        "Pelasgians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ceteans",
+      "name": "The Ceteians",
+      "body": "The people who fell around Eurypylus at Troy. The modern edition calls them the Ceteans.",
+      "aliases": [
+        "Ceteians",
+        "Ceteans"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cydonians",
+      "name": "The Cydonians",
+      "body": "A people of Crete, living around the river Iardanus.",
+      "aliases": [
+        "Cydonians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sicels",
+      "name": "The Sicels",
+      "body": "A people to whom the suitors propose selling the beggar and the seer.",
+      "aliases": [
+        "Sicels"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cauconians",
+      "name": "The Cauconians",
+      "body": "A people to whom Athena, as Mentor, says she must go to collect a debt.",
+      "aliases": [
+        "Cauconians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

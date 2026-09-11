@@ -363,3 +363,35 @@ The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source 
 Current complete content suite: 434 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
+
+## Opus batch 3: The Odyssey
+
+Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| The Odyssey | (this commit) | 356 / 354 | build_odyssey.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Odyssey | da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07 | 813127d77b4041f613a11b46e50890f46519252782188a6a1156ebc050898cdc |
+
+3253 exact mentions in the original, 3243 in the modern, across all 24 books and 1027 paragraphs per edition. Commands: `python3 books/characters/build_odyssey.py --check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Full content suite passes **447 tests**. Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+This is the library's largest edition divergence. Butler's original uses the Roman names for the gods and for the hero — Ulysses, Jove, Minerva, Neptune, Mercury, Vulcan, Mars, Diana, Venus, Proserpine, Juno, Hercules, Hyperion, Saturn — where the modern edition uses the Greek. Both forms are aliases of one entity, so one card serves both editions; verify that a reader who switches edition mid-book keeps the same card.
+
+Also review: the two Ajaxes (4:41 is the one wrecked at Gyrae, the rest are Telamon's son); four men named Polybus; Argos bound as Odysseus's dog at 17:26 and 17:29 and nowhere else, with the place left uncast; the singular Cyclops bound to Polyphemus; Odysseus's three assumed names (Noman/Nobody, Aethon, Eperitus) as their own entries; and the deliberate non-binding of the fountain-builder Polyctor at 17:17.
+
+### Source defects, none blocking enablement
+
+| Defect | Effect |
+|---|---|
+| `modern-en` calls Nausicaa's nurse **Eurynome** at 7:0 where the original has **Eurymedusa** — and Eurynome is also Penelope's housekeeper | An explicit builder rule binds that one paragraph to the Phaeacian nurse. Without it the modern edition would put Penelope's housekeeper on Scheria |
+| `modern-en` uses two spellings each for the nurse (Eurycleia 16 / Euryclea 17) and the prophet (Tiresias 9 / Teiresias 7) | Both spellings are aliases; totals match the original exactly |
+| Both editions spell Alcinous's son Halios at 8:7 and Halius at 8:31 | Cosmetic; both are aliases |
+| `original-en` spells the suitor Leiocritus at 2:14 and Leocritus at 22:29 | Both are aliases |
+| Gaia (7:25) and the Sicels (20:33) are replaced by common nouns in `modern-en` | Recorded as `omittedEntities` for that edition — entity absent, not an unresolved binding |
+
+No edition file was changed. Any repair to these source bytes invalidates the recorded hashes and requires a restored-text review and a rebuild.
