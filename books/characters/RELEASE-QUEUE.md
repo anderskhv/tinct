@@ -509,7 +509,7 @@ Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not producti
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
-| The Aeneid | (this commit) | 340 / 342 | build_the_aeneid.py |
+| The Aeneid | baba11fb | 340 / 342 | build_the_aeneid.py |
 
 | Book | original-en | modern-en |
 |---|---|---|
