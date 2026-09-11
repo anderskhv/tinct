@@ -1,0 +1,33 @@
+{
+ "chapter": 1,
+ "chapter_title_da": "Forord",
+ "chapter_title_en": "Preface",
+ "source_paragraph_count": 5,
+ "candidate_paragraph_count": 5,
+ "packet_size": 3,
+ "packets": [
+  {
+   "packet": "review-packets/packet-01.md",
+   "assigned_paragraph_ids": [
+    "C01-P001",
+    "C01-P002",
+    "C01-P003"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-02.md",
+   "assigned_paragraph_ids": [
+    "C01-P004",
+    "C01-P005"
+   ]
+  }
+ ],
+ "coverage_check": {
+  "all_ids_present_exactly_once_in_order": true,
+  "first_id": "C01-P001",
+  "last_id": "C01-P005"
+ },
+ "source_ch01_json_sha256": "b2cfeafac9a1dfcfc1e44e30278145ee81b3a12b9ddd232b2e5ee4bf817120b8",
+ "candidate_v1_json_sha256": "f19ac0c1e3ad08d62892dfdb5c68516c8a8bfd1fa2a61b83183471fe416e433e",
+ "frozen": "candidate-v1.json"
+}

@@ -1,0 +1,30 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/fear-and-trembling-modern-en-20260911",
+ "served_original_en_path": "app/public/data/editions/fear-and-trembling-original-en.json",
+ "served_original_en_sha256": "d6f7ab72adfe4c161c5ab69b5bedda7e3bb519a92b0050d8b0b6f07d294e45a1",
+ "served_original_en_rights_verdict": "UNCERTAIN — not used as source; see ../PROVENANCE.md. Commit b76fa5649 (2026-05-04) states it is a freshly authored AI translation \"in a Lowrie/Hannay-adjacent register,\" written by Claude Opus, not a real historical public-domain translation, and mislabeled in bookRegistry.ts as plain \"Original (English).\"",
+ "served_original_da_path": "app/public/data/editions/fear-and-trembling-original-da.json",
+ "served_original_da_sha256": "c61144bbf51a930748799d4ff30ff48031ee12452ada5eb5391f684e8961d63a",
+ "served_original_da_rights_verdict": "PUBLIC DOMAIN. Kierkegaard died 1855; Frygt og Bæven first published 1843, Copenhagen. This is a Google Books OCR scan (Internet Archive, University of California copy) of a 3rd-edition (1980s) reprint set in the original 1843 orthography. See books/raw/fear-and-trembling/SOURCE.md.",
+ "chapter_extracted": {
+  "number": 1,
+  "title_da": "Forord",
+  "title_en": "Preface",
+  "paragraphs": 5,
+  "extraction": "fear-and-trembling-original-da.json, chapters[0]; paragraphs byte-identical to the served Danish file"
+ },
+ "source_ch01_json_sha256": "b2cfeafac9a1dfcfc1e44e30278145ee81b3a12b9ddd232b2e5ee4bf817120b8",
+ "candidate_v1_json_sha256": "f19ac0c1e3ad08d62892dfdb5c68516c8a8bfd1fa2a61b83183471fe416e433e",
+ "translation_source": "Frygt og Bæven, 1843 (Danish original), as staged in fear-and-trembling-original-da.json. This is the only source consulted for wording. No English translation (served original-en, served modern-en, Lowrie 1941, Hannay 1985, Hong & Hong 1983, Payne 1939, or any other) was read or consulted for phrasing during drafting.",
+ "word_counts": {
+  "source_da": 1044,
+  "candidate_en": 1115,
+  "ratio": 1.068,
+  "min_paragraph_ratio": 1.007,
+  "note": "Danish-to-English word-count ratio is a weak cross-language signal (Danish compounds inflate the English count when unpacked); recorded only as a screening check that nothing was compressed or dropped. All five paragraphs are at or above 1.0 (fuller in English than in Danish word-for-word), consistent with no omission. Per-paragraph ratios: 1.033, 1.007, 1.064, 1.136, 1.25 (P5 is the two-word signature line; its ratio is noise, not a signal)."
+ },
+ "generation_setting": "Drafted in-conversation, whole chapter (Preface) read before drafting, per WORKFLOW.md step 2. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "review_round_1": "Not yet performed. Awaiting the coordinator's independent reviewer session (WORKFLOW.md step 4)."
+}
