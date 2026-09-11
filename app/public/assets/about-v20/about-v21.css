@@ -1,7 +1,13 @@
 /* Tinct about page: overrides layered on the v20 build. Loaded after index.*.css. */
 
-/* No header: the page opens on the slop screen. The scene background stays the story's dark brown
-   so nothing green shows through while a scene hands off. */
+/* Ground. The v20 build paints the root canvas, the scrolling story container (.journey.story-root) and the
+   scene handoffs in the green of the reader-era design (#132b27) while the bookshelf story is dark brown. The sticky
+   stage is 100svh tall, so wherever the visible viewport is taller than the small viewport (iOS Safari with the
+   toolbar collapsed, the area behind a translucent toolbar, rubber-band over-scroll) the container's green showed as
+   a band. Every layer under the story is now the story's own ground; the <meta name=theme-color> in about.html
+   (patch-about-story.mjs) tells Safari the same colour for its toolbars. */
+html,body,.journey.story-root[data-bookshelf=true]{background:#191411}
+.journey.story-root[data-bookshelf=true]{transition:none}
 .journey[data-scene=introducing],.journey[data-scene=reading-cases]{background:#191411}
 
 /* Floating pill: "Escape" until the reveal has been seen, then "Start reading". Hidden over the hero. */
@@ -16,7 +22,9 @@ html[data-tinct-footer=visible] .floating-read{opacity:0!important;pointer-event
 }
 @keyframes tinct-cta-reveal{from{opacity:0;pointer-events:none}to{opacity:1;pointer-events:auto}}
 @supports not (animation-timeline:scroll()){.floating-read{opacity:1;pointer-events:auto;top:auto;bottom:22px}}
-@media (max-width:760px){.floating-read{top:14px;right:14px;padding:9px 14px;font-size:15px}}
+/* Phones: the pill sits at the bottom, centred, above Safari's toolbar. about-v21.js hides it while the closing
+   section's own Start reading button or the footer is on screen. */
+@media (max-width:760px){.floating-read{top:auto;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:auto;left:50%;transform:translateX(-50%);padding:11px 22px;font-size:16px;white-space:nowrap}}
 
 /* Footer */
 .about-footer{background:#191411;color:#b9ae94;border-top:1px solid rgba(246,241,231,.12);padding:34px 5vw 44px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;font:14px/1.4 TinctSerif,Georgia,serif}
@@ -46,7 +54,7 @@ html[data-tinct-footer=visible] .floating-read{opacity:0!important;pointer-event
 @media (max-width:1024px){
   .reading-brand{flex-direction:column;justify-content:center;gap:10px;padding:0 24px}
   .reading-brand .brand-copy,.reading-brand .brand-devices{width:100%}
-  .reading-brand .brand-devices .journey-visual{height:40vh}
+  .reading-brand .brand-devices .journey-visual{height:40svh}
   .reading-brand .tinct-promise{font-size:34px}
 }
 
@@ -97,18 +105,28 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
   .reading-left-leaf{display:none}
   .reading-right-leaf{width:100%;border-radius:5px}
   .reading-book,.reading-narration{transform:none!important}
-  .reading-narration{width:auto;margin:0;left:24px;right:24px;top:auto;bottom:72%}
+  /* The page is pinned to the bottom of the scene above the pill; the narration ends a fixed gap above the page (wider than the headline's 25px entry slide).
+     Everything is in % of the scene (the small viewport) or px: the old page height in vh was the *large* viewport
+     on iOS Safari, so with the toolbar showing the page rose over the headline's last line. The page's text scales
+     with the page (container units) so the passage still fits on a short screen. */
+  .reading-journey{--page-h:min(58%,640px);--page-foot:calc(60px + env(safe-area-inset-bottom,0px))}
+  .reading-narration{width:auto;margin:0;left:24px;right:24px;top:auto;bottom:calc(var(--page-foot) + var(--page-h) + 32px)}
   .reading-problem{font-size:clamp(20px,2.6vw,26px)}
   .reading-narration h2{margin-top:12px;font-size:clamp(34px,5vw,48px)}
   .reading-detail{margin-top:12px;font-size:clamp(17px,2.2vw,21px)}
-  .reading-object-stage{width:92vw;right:4vw;top:62%;height:min(56vh,640px)}
-  .reading-passage{font-size:clamp(14px,1.9vw,18px)}
+  .reading-object-stage{width:92vw;right:4vw;top:auto;bottom:var(--page-foot);height:var(--page-h);transform:none!important;container-type:size}
+  .reading-passage{font-size:clamp(11px,3cqh,16px)}
   .book-conversation,.book-character{width:87%}
   .shelf-stage{top:60%;width:118vw;right:-9vw}
   /* The page turns into the conversation at the same size instead of sharing the width with it. */
-  .reading-journey[data-beat=voice] .reading-object-stage{width:92vw;height:min(56vh,640px);top:62%;right:4vw}
+  .reading-journey[data-beat=voice] .reading-object-stage{width:92vw;height:var(--page-h);top:auto;bottom:var(--page-foot);right:4vw}
   .reading-journey[data-beat=voice] .reading-book{width:100%;transform:perspective(1100px) rotateY(calc(var(--reveal,0) * -95deg))!important;transform-origin:0 50%;opacity:calc(1 - var(--reveal,0))}
-  .reading-journey[data-beat=voice] .book-conversation{width:100%;left:0;right:0;top:0;min-height:100%;padding:48px 16px 20px}
+  /* The Talk panel scales with the page it turns into (container units), so its controls stay inside it on a short screen. */
+  .reading-journey[data-beat=voice] .book-conversation{width:100%;left:0;right:0;top:0;min-height:100%;max-height:100%;box-sizing:border-box;overflow:hidden;padding:calc(34px + 2.4cqh) 16px 16px;gap:min(8px,1.6cqh) 10px}
+  .reading-journey[data-beat=voice] .conversation-orbit{width:min(200px,42%,26cqh)}
+  .reading-journey[data-beat=voice] .book-conversation h3{font-size:clamp(20px,6cqh,34px)}
+  .reading-journey[data-beat=voice] .book-conversation .book-question,.reading-journey[data-beat=voice] .book-conversation>p:not(.book-question){font-size:clamp(13px,3.4cqh,18px)}
+  .reading-journey[data-beat=voice] .book-conversation button svg,.reading-journey[data-beat=voice] .talk-side i{width:min(40px,9cqh);height:min(40px,9cqh)}
 }
 
 /* Language ("Swipe for another edition"): one full page, no highlights, no pill, edition named in the page header. */
