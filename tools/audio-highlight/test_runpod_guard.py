@@ -21,15 +21,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import runpod_guard  # noqa: E402
 
 
-def pod(name, *, minutes=1.0, rate=0.44, status="RUNNING", pod_id=None):
-    return {
+def pod(name, *, minutes=1.0, rate=0.44, status="RUNNING", pod_id=None,
+        runtime_uptime=True, started_at=None):
+    entry = {
         "id": pod_id or f"pod-{name}",
         "name": name,
         "desiredStatus": status,
         "costPerHr": rate,
-        "runtime": {"uptimeInSeconds": minutes * 60},
+        "runtime": {"uptimeInSeconds": minutes * 60 if runtime_uptime else 0},
         "machine": {"gpuDisplayName": "RTX A4000"},
     }
+    if started_at is not None:
+        entry["lastStartedAt"] = started_at
+    return entry
 
 
 class GuardTest(unittest.TestCase):
@@ -150,6 +154,43 @@ class GuardTest(unittest.TestCase):
         _, report, _ = self.run_guard("enforce", "--spent", "0.10")
         self.assertAlmostEqual(report["estimatedRunningCost"], 0.22, places=3)
         self.assertAlmostEqual(report["estimatedTotalSpend"], 0.32, places=3)
+
+    def test_uptime_falls_back_to_the_start_timestamp(self):
+        # RunPod returned uptimeInSeconds 0 for four live pods on 2026-09-11,
+        # zeroing both the deadline and the spend estimate.
+        import datetime
+        started = (datetime.datetime.now(datetime.timezone.utc)
+                   - datetime.timedelta(minutes=70)).isoformat().replace("+00:00", "Z")
+        self.pods = [pod("tinct-wordtiming-01", runtime_uptime=False, started_at=started)]
+        _, report, _ = self.run_guard("enforce", "--max-minutes", "50", "--apply")
+        self.assertEqual(report["ownedPods"][0]["uptimeSource"], "timestamp")
+        self.assertEqual(self.stopped, [("stop", "pod-tinct-wordtiming-01")],
+                         "past the deadline must stop even without runtime uptime")
+
+    def test_uptime_parses_runpod_s_actual_timestamp_format(self):
+        # The REST pod list stamps look like '2026-09-11 12:35:42.57 +0000 UTC'.
+        # fromisoformat rejects that, and on 2026-09-11 the guard stopped two
+        # healthy pods mid-batch as "unmeasurable" because of it.
+        import datetime
+        started = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(minutes=20))
+        stamp = started.strftime("%Y-%m-%d %H:%M:%S.%f")[:-4] + " +0000 UTC"
+        self.pods = [pod("tinct-wordtiming-01", runtime_uptime=False, started_at=stamp)]
+        _, report, _ = self.run_guard("enforce", "--max-minutes", "50", "--apply")
+        self.assertEqual(report["ownedPods"][0]["uptimeSource"], "timestamp")
+        self.assertAlmostEqual(report["ownedPods"][0]["uptimeSeconds"], 20 * 60, delta=30)
+        self.assertEqual(self.stopped, [], "a healthy 20-minute pod must not be stopped")
+
+    def test_a_running_pod_with_no_measurable_uptime_is_stopped(self):
+        self.pods = [pod("tinct-wordtiming-01", runtime_uptime=False)]
+        _, report, _ = self.run_guard("enforce", "--apply")
+        self.assertEqual(report["ownedPods"][0]["uptimeSource"], "unknown")
+        self.assertEqual(self.stopped, [("stop", "pod-tinct-wordtiming-01")])
+        self.assertTrue(any("unmeasurable" in r for r in report["actions"][0]["reasons"]))
+
+    def test_an_exited_pod_without_uptime_is_left_alone(self):
+        self.pods = [pod("tinct-wordtiming-01", runtime_uptime=False, status="EXITED")]
+        self.run_guard("enforce", "--apply")
+        self.assertEqual(self.stopped, [], "an exited pod bills nothing")
 
     def test_missing_credential_fails_closed(self):
         os.environ.pop("RUNPOD_API_KEY")

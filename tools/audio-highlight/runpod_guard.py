@@ -22,6 +22,7 @@ line and never print it.
 from __future__ import annotations
 
 import argparse
+import datetime
 import json
 import os
 import sys
@@ -58,6 +59,45 @@ def _call(method: str, path: str, key: str, body: dict | None = None):
         return error.code, {"error": detail}
 
 
+def _parse_stamp(stamp: str) -> datetime.datetime | None:
+    """A RunPod timestamp as an aware datetime, or None.
+
+    RunPod's REST pod list returns `2026-09-11 12:35:42.57 +0000 UTC` — a space
+    before the offset and a trailing ` UTC` — which `fromisoformat` rejects.
+    The 2026-09-11 run lost two in-progress batches to exactly that: the guard
+    read every live pod as unmeasurable and stopped it. ISO-8601 stays accepted.
+    """
+    text = str(stamp).strip().replace(" UTC", "")
+    try:
+        started = datetime.datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        started = None
+        for fmt in ("%Y-%m-%d %H:%M:%S.%f %z", "%Y-%m-%d %H:%M:%S %z"):
+            try:
+                started = datetime.datetime.strptime(text, fmt)
+                break
+            except ValueError:
+                continue
+        if started is None:
+            return None
+    if started.tzinfo is None:
+        started = started.replace(tzinfo=datetime.timezone.utc)
+    return started
+
+
+def _age_seconds(pod: dict) -> float | None:
+    """Seconds since the pod started, from whichever timestamp the API gives us."""
+    for field in ("lastStartedAt", "startedAt", "createdAt", "creationTime"):
+        stamp = pod.get(field)
+        if not stamp:
+            continue
+        started = _parse_stamp(stamp)
+        if started is None:
+            continue
+        return max(0.0, (datetime.datetime.now(datetime.timezone.utc) - started).total_seconds())
+    return None
+
+
 def list_pods(key: str) -> list[dict]:
     status, body = _call("GET", "/pods", key)
     if status != 200:
@@ -66,12 +106,23 @@ def list_pods(key: str) -> list[dict]:
     rows = []
     for pod in pods:
         runtime = pod.get("runtime") or {}
+        # RunPod does not always populate runtime.uptimeInSeconds — it came back
+        # 0 for four live pods on 2026-09-11, which silently zeroed both the
+        # deadline check and the spend estimate. Fall back to the pod's own start
+        # timestamp, and mark the uptime unmeasured when neither is available, so
+        # an unenforceable pod is never mistaken for a compliant one.
+        uptime = runtime.get("uptimeInSeconds")
+        source = "runtime"
+        if not uptime:
+            uptime = _age_seconds(pod)
+            source = "timestamp" if uptime is not None else "unknown"
         rows.append({
             "id": pod.get("id"),
             "name": pod.get("name") or "",
             "status": pod.get("desiredStatus") or pod.get("status"),
             "costPerHr": pod.get("costPerHr"),
-            "uptimeSeconds": runtime.get("uptimeInSeconds"),
+            "uptimeSeconds": uptime,
+            "uptimeSource": source,
             "gpu": (pod.get("machine") or {}).get("gpuDisplayName") or pod.get("gpuTypeId"),
         })
     return rows
@@ -120,6 +171,11 @@ def main() -> int:
             reasons.append(f"uptime {minutes:.1f} min over {args.max_minutes:.0f} min")
         if total_spend > args.budget:
             reasons.append(f"envelope ${total_spend:.2f} over ${args.budget:.2f}")
+        if pod["status"] == "RUNNING" and pod["uptimeSource"] == "unknown":
+            # We cannot tell how long it has been billing, so we cannot promise
+            # the deadline or the envelope holds. Stop it rather than guess.
+            reasons.append("uptime is unmeasurable, so neither the deadline nor "
+                           "the envelope can be enforced for it")
         if args.command == "stop-all":
             reasons.append("stop-all requested")
         if reasons and pod["status"] != "EXITED":
@@ -140,7 +196,8 @@ def main() -> int:
     print(f"owned pods: {len(owned)}   other pods left alone: {len(foreign)}")
     for pod in owned:
         print(f"  {pod['id']} {pod['name']} {pod['status']} "
-              f"${pod['costPerHr']}/hr up {(pod['uptimeSeconds'] or 0)/60:.1f}m {pod['gpu']}")
+              f"${pod['costPerHr']}/hr up {(pod['uptimeSeconds'] or 0)/60:.1f}m "
+              f"({pod['uptimeSource']}) {pod['gpu']}")
     print(f"estimated spend this envelope: ${total_spend:.2f} of ${args.budget:.2f}")
 
     # A pod we do not own but which is running and billing is the one case the

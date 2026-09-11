@@ -44,6 +44,8 @@ interface LabPassageProps {
   markedIndexes: Set<number>
   onMark?: (index: number) => void
   focusParagraph?: number | null
+  /** The paragraph a voice conversation is about: tinted on the page. */
+  discussedParagraph?: number | null
   dimmed?: boolean
   peek?: boolean
   readingPage?: ChapterHearingPage
@@ -281,6 +283,7 @@ export function LabPassage({
   hideTransport = false,
   markedIndexes,
   focusParagraph,
+  discussedParagraph = null,
   dimmed,
   peek,
   readingPage,
@@ -599,6 +602,7 @@ export function LabPassage({
                       lineContinuesParagraph(paragraphs, line) ? 'is-continued' : '',
                       markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
                       focusParagraph === paragraphIndex ? 'is-focus' : '',
+                      discussedParagraph === paragraphIndex ? 'is-discussed' : '',
                     ].filter(Boolean).join(' ')}
                     style={alignCompare && compare ? { gridColumn: 1, gridRow: lineIndex + 1 } : undefined}
                     data-follow-granularity={inlineHearingPaint ? followGranularityAttr(followParagraphs, paragraphIndex) : undefined}

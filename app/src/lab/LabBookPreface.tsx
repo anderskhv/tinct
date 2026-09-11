@@ -56,12 +56,6 @@ export function LabBookPreface({ preface, title, cover, continued, reopened, rea
     if (view === 'preface') heading.current?.focus({ preventScroll: true })
     else coverHeading.current?.focus({ preventScroll: true })
   }, [view])
-  const open = () => {
-    if (viewRef.current === 'preface') return
-    history.pushState({ ...history.state, tinctPreface: historyId.current, view: 'preface' }, '')
-    depth.current += 1
-    setView('preface')
-  }
   const backToCover = () => { if (view === 'preface') history.back() }
   const read = () => {
     if (!ready || leaving.current) return
@@ -82,7 +76,6 @@ export function LabBookPreface({ preface, title, cover, continued, reopened, rea
         <section className="lab-preface-preview" lang="en">
           <h1>{title}</h1>
           <p>{preface.preview}</p>
-          <button type="button" className="lab-preface-link" onClick={open}>Read preface <span className="lab-preface-language">· English</span></button>
           <button type="button" className="lab-preface-primary" disabled={!ready} onClick={read}>{readingLabel}</button>
         </section>
       </div> : <article className="lab-preface-article" lang="en">

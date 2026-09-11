@@ -1,0 +1,160 @@
+{
+  "shots": [
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-0-reader.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-1-connecting.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-2-listening.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-3-speaking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-4-thinking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-5-muted.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-6-disconnected.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-0-reader.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-1-panel-connecting.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-1b-panel-listening.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-2-panel-speaking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-3-pill-speaking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-4-panel-restored.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-5-panel-thinking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-6-panel-muted.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-7-panel-disconnected.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-light-8-reader-after.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-dark-0-reader.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-dark-1-connecting.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-dark-2-listening.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-dark-3-speaking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-dark-4-thinking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-dark-5-muted.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-dark-6-disconnected.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-0-reader.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-1-panel-connecting.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-1b-panel-listening.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-2-panel-speaking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-3-pill-speaking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-4-panel-restored.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-5-panel-thinking.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-6-panel-muted.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-7-panel-disconnected.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/desktop-dark-8-reader-after.png",
+    "/home/user/tinct/docs/verification/voice-surface-2026-09-11/phone-light-reduced-motion-listening.png"
+  ],
+  "checks": [
+    {
+      "name": "phone light: listening caption",
+      "ok": true
+    },
+    {
+      "name": "phone light: speaking orb follows real audio",
+      "ok": true,
+      "detail": "source=audio level=0.392"
+    },
+    {
+      "name": "phone light: no monospace, no uppercase on the surface",
+      "ok": true,
+      "detail": "{\"mono\":0,\"upper\":0}"
+    },
+    {
+      "name": "desktop light: place unchanged when the panel opens",
+      "ok": true,
+      "detail": "{\"plain\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"none\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":0},\"before\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1}}"
+    },
+    {
+      "name": "desktop light: passage tinted on the page",
+      "ok": true,
+      "detail": "1 lines"
+    },
+    {
+      "name": "desktop light: minimize keeps the place",
+      "ok": true,
+      "detail": "{\"before\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1},\"minimized\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"pill\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1}}"
+    },
+    {
+      "name": "desktop light: still tinted while minimized",
+      "ok": true
+    },
+    {
+      "name": "desktop light: pill carries one line of the utterance",
+      "ok": true,
+      "detail": "…the sun and moon come on the fourth day as keepers of a rhythm that already runs. Ask me anything about this page."
+    },
+    {
+      "name": "desktop light: restore keeps the place",
+      "ok": true,
+      "detail": "{\"before\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1},\"restored\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1}}"
+    },
+    {
+      "name": "desktop light: orb and Transcript restore the panel",
+      "ok": true
+    },
+    {
+      "name": "desktop light: no monospace, no uppercase in the panel",
+      "ok": true,
+      "detail": "{\"mono\":0,\"upper\":0}"
+    },
+    {
+      "name": "desktop light: End keeps the place and clears the tint",
+      "ok": true,
+      "detail": "{\"plain\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"none\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":0},\"after\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"none\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":0}}"
+    },
+    {
+      "name": "phone dark: listening caption",
+      "ok": true
+    },
+    {
+      "name": "phone dark: speaking orb follows real audio",
+      "ok": true,
+      "detail": "source=audio level=0.394"
+    },
+    {
+      "name": "phone dark: no monospace, no uppercase on the surface",
+      "ok": true,
+      "detail": "{\"mono\":0,\"upper\":0}"
+    },
+    {
+      "name": "desktop dark: place unchanged when the panel opens",
+      "ok": true,
+      "detail": "{\"plain\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"none\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":0},\"before\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1}}"
+    },
+    {
+      "name": "desktop dark: passage tinted on the page",
+      "ok": true,
+      "detail": "1 lines"
+    },
+    {
+      "name": "desktop dark: minimize keeps the place",
+      "ok": true,
+      "detail": "{\"before\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1},\"minimized\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"pill\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1}}"
+    },
+    {
+      "name": "desktop dark: still tinted while minimized",
+      "ok": true
+    },
+    {
+      "name": "desktop dark: pill carries one line of the utterance",
+      "ok": true,
+      "detail": "…the sun and moon come on the fourth day as keepers of a rhythm that already runs. Ask me anything about this page."
+    },
+    {
+      "name": "desktop dark: restore keeps the place",
+      "ok": true,
+      "detail": "{\"before\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1},\"restored\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"talk\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":1}}"
+    },
+    {
+      "name": "desktop dark: orb and Transcript restore the panel",
+      "ok": true
+    },
+    {
+      "name": "desktop dark: no monospace, no uppercase in the panel",
+      "ok": true,
+      "detail": "{\"mono\":0,\"upper\":0}"
+    },
+    {
+      "name": "desktop dark: End keeps the place and clears the tint",
+      "ok": true,
+      "detail": "{\"plain\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"none\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":0},\"after\":{\"chapter\":\"1\",\"place\":\"0:0\",\"panel\":\"none\",\"firstWords\":\"1 In the beginning God created the heaven\",\"discussed\":0}}"
+    },
+    {
+      "name": "phone reduced motion: one still frame",
+      "ok": true,
+      "detail": "data-motion=still"
+    }
+  ]
+}

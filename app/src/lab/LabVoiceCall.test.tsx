@@ -99,9 +99,13 @@ describe('the call surface', () => {
   })
 
   describe('the transcript control', () => {
-    it('is labelled exactly as specified', () => {
+    it('is the icon button with one word beneath it', () => {
       renderCall()
-      expect(screen.getByTestId('lab-call-transcript').textContent).toBe('See transcript in real time.')
+      const control = screen.getByTestId('lab-call-transcript')
+      expect(control.textContent).toBe('Transcript')
+      expect(control.querySelector('svg')).toBeTruthy()
+      // The underlined "See transcript in real time." link is retired.
+      expect(screen.queryByText('See transcript in real time.')).toBeNull()
     })
 
     it('opens the transcript without ending the call', () => {
@@ -124,7 +128,9 @@ describe('the call surface', () => {
     ]) {
       const onEnd = vi.fn()
       const { unmount } = renderCall(input, { onEnd })
-      expect(screen.getByTestId('lab-call-end').textContent).toBe('End conversation')
+      // The word beneath the filled X is "End"; the full action is its name.
+      expect(screen.getByTestId('lab-call-end').textContent).toBe('End')
+      expect(screen.getByTestId('lab-call-end').getAttribute('aria-label')).toBe('End conversation')
       fireEvent.click(screen.getByTestId('lab-call-end'))
       expect(onEnd).toHaveBeenCalledTimes(1)
       unmount()
