@@ -1307,14 +1307,20 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
      points are for a scrolling row and go with it; fitNowShelf() in
      src/labReadingMemory.ts reads the wrap and keeps the scroll-driven
      focus off, so focus here comes from clicks alone. */
-  @media (min-width:1280px) {
-    #tinct-onboarding-worlds-v5 .lib-reading-now { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); column-gap:64px; row-gap:28px; align-items:start; }
+  @media (min-width:1100px) {
+    #tinct-onboarding-worlds-v5 .lib-reading-now { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); column-gap:48px; row-gap:28px; align-items:start; }
     #tinct-onboarding-worlds-v5 .lib-reading-now > .lib-sec-head { grid-column:1 / -1; }
     #tinct-onboarding-worlds-v5 .lib-now-shelf { flex-wrap:wrap; gap:28px 24px; margin:0; padding:4px 0 6px; overflow:visible; scroll-snap-type:none; }
-    #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 176px; scroll-snap-align:none; }
+    #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 160px; scroll-snap-align:none; }
     #tinct-onboarding-worlds-v5 .lib-now-caption { padding-top:4px; }
-    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:42px; }
     #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { max-width:60ch; }
+  }
+  /* A landscape iPad (1024–1180px) gets the same two-column section from
+     1100px; the full desktop sizes from 1280px are unchanged. */
+  @media (min-width:1280px) {
+    #tinct-onboarding-worlds-v5 .lib-reading-now { column-gap:64px; }
+    #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 176px; }
+    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:42px; }
   }
   @media (prefers-reduced-motion:reduce) {
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { transition:none; }

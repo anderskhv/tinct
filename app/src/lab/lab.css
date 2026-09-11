@@ -4627,6 +4627,54 @@
   50% { transform: scale(1.04); opacity: 1; }
 }
 
+/* ── Tablets (2026-09-11) ────────────────────────────────────────────────
+   Landscape tablets (900px and wider) take the desktop surface — the
+   two-column spread — through LAB_PHONE_QUERY in labChrome.ts. Upright
+   tablets keep the phone surface, but a 768–834px page is not a phone: the
+   measure opens to the page and the type steps down one size, so a line
+   holds ~60 characters instead of ~45 in a 620px strip. The hidden native
+   column flow uses these same classes, so pagination follows the same
+   measure. Phones (≤ 699px) are untouched. */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .lab.is-phone .lab-book,
+  .lab.is-phone .lab-passage,
+  .lab.has-phone-chrome .lab-book,
+  .lab.has-phone-chrome .lab-passage {
+    max-width: 50rem;
+  }
+  .lab.is-phone .lab-hearing-stage,
+  .lab.has-phone-chrome .lab-hearing-stage {
+    max-width: 48rem;
+  }
+  .lab.is-phone .lab-hearing-line,
+  .lab.has-phone-chrome .lab-hearing-line {
+    font-size: calc(1.5rem * (var(--lab-font-size, 1.3) / 1.3));
+  }
+  .lab.is-phone .lab-passage-headline,
+  .lab.has-phone-chrome .lab-passage-headline {
+    max-width: 46rem;
+  }
+  /* Chrome sized for the width: the phone header's 1.1rem wordmark and
+     0.92rem chapter pill, and the 0.67rem footer line, are phone sizes. */
+  .lab.is-phone .lab-header,
+  .lab.has-phone-chrome .lab-header {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+  .lab.is-phone .lab-logo,
+  .lab.has-phone-chrome .lab-logo {
+    font-size: 1.3rem;
+  }
+  .lab.is-phone .lab-header-chapter-label,
+  .lab.has-phone-chrome .lab-header-chapter-label {
+    font-size: 1.04rem;
+  }
+  .lab.is-phone:not(.has-phone-ask) .lab-chapter-progress-info,
+  .lab.has-phone-chrome:not(.has-phone-ask) .lab-chapter-progress-info {
+    font-size: 0.78rem;
+  }
+}
+
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the preview shell behind `?chrome=v2`.
 
@@ -6484,3 +6532,12 @@
 .lab[data-chrome-version="v2"] .lab-passage.is-chapter-end-page > .lab-passage-header { display: none; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-page { width: 100%; max-width: 560px; margin: 0 auto; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-page .lab-chapter-end { margin-top: 0; }
+
+/* The desktop spread on a 900–1100px landscape tablet: tighter page padding
+   and gutter, so each of the two columns keeps ~40 characters. */
+@media (max-width: 1100px) {
+  .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap {
+    --desktop-pad-x: 24px;
+    --desktop-gutter: 40px;
+  }
+}

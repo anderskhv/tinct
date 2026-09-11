@@ -4,11 +4,11 @@ Branch: `claude/reader-library-fixes-20260911`. Plan: `docs/library-reader-fixes
 (brought onto this branch, with its DECISIONS row). Screenshots and measurement
 JSON: `docs/verification/reader-library-fixes-2026-09-11/`.
 
-Status: **Part A (the six issues) done and verified.** Part B (tablet layout) is
-recorded in its own section below as it lands.
+Status: **Part A (the six issues) and Part B (tablet layout) both done and
+verified.** Part B is the last section of this document.
 
-Gates at the Part A push: `npm test` 153 files / 1683 tests green; `npm run build`
-and `npm run verify-bundle` pass. (The sandbox has no `.env`; the local build
+Gates at the Part A push: `npm test` 153 files / 1683 tests green; at the
+Part B push 153 / 1684. `npm run build` and `npm run verify-bundle` pass at both. (The sandbox has no `.env`; the local build
 used placeholder `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` /
 `VITE_AUDIO_BASE_URL` values so the bundle verifier's checks have something
 to find. Nothing was deployed; the coordinator deploys from a real `.env`.)
@@ -249,3 +249,130 @@ cards with covers and the right focus.
   network; the screenshots above were taken with Playwright against static
   builds instead).
 - `app/scripts/check-audio-availability.cjs` is stale (see issue 6).
+
+---
+
+# Part B — tablet layout (2026-09-11)
+
+Anders: "tablets don't render well generally — they don't use the space
+efficiently." His screenshot: the reader on a tablet-class viewport, one
+~620px column centred in a ~1200px-wide paper with ~250px margins each side,
+phone header (title, chapter pill, play, t.) and phone footer
+("121 / 473 of book · 25%").
+
+Commit: `lab: give landscape tablets the desktop spread and upright tablets a wider measure`.
+
+## What decided the layout, and why a tablet got the phone one
+
+`app/src/lab/LabApp.tsx` picks the surface with `readPhoneSurface()` →
+`isLabPhoneSurface()` (`app/src/lab/labChrome.ts`), and one of that function's
+inputs is `matchMedia(PHONE_QUERY)`. `PHONE_QUERY` was `(max-width: 1024px)`:
+every tablet — an iPad in landscape (1024×768) included — matched it and got
+`is-phone` + `has-phone-chrome`. On that surface the passage is
+`.lab-book, .lab-passage { max-width: 42rem }` (672px) with 1.55rem side
+padding, so the text column is 622px whatever the page width, at the phone's
+27.5px type. That is exactly the screenshot: `tablet-before-reader-1024x768.png`
+(column x:176–848 of 1024). Pagination on that surface is the browser's own
+column flow (`LabNativePaginator`), one column per page — there is no
+two-column mode on the phone surface, and adding one would mean teaching the
+paint-shrink pass (`shrinkNativePageAfterPaint`) about a second column.
+
+The desktop surface (`is-desktop`, `data-desktop-paging="true"`) already renders
+a measured two-column spread (`LabDesktopPaginator`, `.lab-book-columns` grid)
+with page numbers, prev/next buttons, keyboard turns and the Ask companion,
+and iPad Air landscape (1180×820) already got it
+(`tablet-before-reader-1180x820.png`). So the change is where the line between
+the two surfaces runs, plus type and chrome on the upright tablet.
+
+## What changed
+
+- `app/src/lab/labChrome.ts` — `LAB_PHONE_QUERY =
+  '(max-width: 899px), ((max-width: 1024px) and (orientation: portrait))'`,
+  documented in place. Phone under 900px in either orientation; 900–1024px
+  phone only when upright; 900px+ in landscape gets the desktop spread.
+  `isLabPhoneSurface`'s other rules (iPhone UA, touch screen ≤430px,
+  `/lab/phone` override) are unchanged. `LabApp.tsx` imports it as
+  `PHONE_QUERY`; the `sync` there already re-evaluates on the media query's
+  `change`, `resize` and `orientationchange`, so rotation flips the surface.
+- `app/src/lab/lab.css` "Tablets (2026-09-11)" block (placed before the
+  Reader chrome V2 section, whose rules must all carry the V2 flag — a test
+  pins that): for `.is-phone` / `.has-phone-chrome` between 700 and 1024px
+  the passage opens to `50rem`, the stage to `48rem`, the line steps down to
+  `1.5rem` (24px; ~60 characters on a 768px page instead of ~45 in the
+  620px strip), the headline to `46rem`; the header gets 1.4rem side padding,
+  a 1.3rem wordmark and a 1.04rem chapter pill, the footer line 0.78rem. The
+  hidden native column flow shares these classes, so pagination follows the
+  same measure.
+- `app/src/lab/lab.css` (end): on the desktop spread at ≤1100px,
+  `--desktop-pad-x: 24px` and `--desktop-gutter: 40px`, so each of the two
+  columns on a 1024px page keeps ~40 characters (437px lines).
+- `app/public/lab/index.html`: the library's two-column Reading-now section
+  (Part A issue 3) now starts at 1100px instead of 1280px (160px covers,
+  48px gap, 36px h1), so a landscape iPad Air gets it; the 1280px sizes
+  (176px, 64px, 42px) are unchanged. The 768–1024px library already used the
+  601px+ desktop layout (single-column index, 4-column cover cells, 124/148px
+  Reading-now covers) and did not fall to the phone breakpoint; left as is.
+
+Tests: `labChrome.test.ts` "the phone surface media query" pins the string
+and its truth table (390×844, 768×1024, 820×1180 → phone; 1024×768,
+1180×820, 1440×900 → desktop; 1024×1366 portrait → phone).
+`LabApp.chromeV2.test.tsx` "keeps every V2 rule behind the flag" still holds
+(the tablet block sits before the V2 section).
+
+## Verification
+
+`tablet-*-results.json` carry every measurement; screenshots are
+`tablet-before-*` / `tablet-after-*` for reader (The Odyssey, Book 7, opened
+through the reader handoff at paragraph 24) and library, iPad user agent
+with touch on the tablet sizes.
+
+| viewport | surface before → after | text column before → after |
+|---|---|---|
+| 768×1024 (iPad portrait) | phone → phone, tablet measure | 622px @ 27.5px → 718px @ 24px |
+| 820×1180 (iPad Air portrait) | phone → phone, tablet measure | 622px @ 27.5px → 750px @ 24px |
+| 1024×768 (iPad landscape) | phone → **desktop spread** | 622px single column → 2 × 437px @ 22.7px |
+| 1180×820 (iPad Air landscape) | desktop → desktop | 2 × 496px, unchanged |
+| 390×844 (phone) | phone → phone | 340px @ 27.5px, unchanged |
+| 1440×900 (desktop) | desktop → desktop | 2 × 618px, unchanged |
+
+No-regression pair: `tablet-before-reader-390x844.png` vs
+`tablet-after-reader-390x844.png`, and the same for `library-390x844` and
+`reader-1440x900`, are byte-identical. `library-1440x900` differs in 135 of
+1,296,000 pixels, all inside the dimmed second-to-fourth covers, with every
+measured rectangle identical (shelf 38/200/780/566, caption 882/200/520/222,
+cover 176px, h1 42px) — a resampling artefact, not a layout change (crop
+compared by eye).
+
+Library at 1180×820 after: Reading-now as the two-column section (shelf
+x:38 w:634, caption x:720 w:422), `tablet-after-library-1180x820.png`.
+
+### Reading position across rotation
+
+`rotate.cjs` (results in `rotate-results.json`, screenshots `rotate-*.png`):
+open Book 7 at paragraph 12, turn two pages with ArrowRight, read
+`data-place` (the visible page's anchor `paragraph:word`), rotate, read
+again, rotate back.
+
+| rotation | before | after | back | anchor on visible page after |
+|---|---|---|---|---|
+| 1024×768 → 768×1024 (desktop → phone) | 17:12 | 17:12, visible ¶15–17 | 17:12 | yes |
+| 768×1024 → 1024×768 (phone → desktop) | 17:125 | 17:125, visible ¶17–18 | 17:125 | yes |
+| 1180×820 → 820×1180 (desktop → phone) | 17:52 | 17:52, visible ¶15–17 | 17:52 | yes |
+
+The stored `tinct-lab-position` record stays in chapter 7 at the same
+paragraph and word through every flip. The surface flip re-measures pages
+(`useLayoutEffect(() => setNativeMeasuredContent(null), [desktopPaging])` and
+the resize invalidation at `LabApp.tsx` ~1750) and restores from the anchor;
+nothing in that path was changed.
+
+## Not done / caveats
+
+- The phone surface still has no two-column mode; landscape tablets get
+  their two columns through the desktop surface. A landscape *phone*
+  (e.g. 844×390) stays on the phone surface, as before (under 900px).
+- The desktop surface on a touch tablet turns pages with the prev/next
+  buttons, the chapter pill and the keyboard; swipe is a phone-surface
+  gesture and was not added.
+- A narrow landscape desktop window between 900 and 1024px wide now gets the
+  spread where it used to get the phone layout; the ≤1100px gutter tweak is
+  for that range.

@@ -42,6 +42,7 @@ import {
   type LabChromeState,
   type LabReturnTo,
   type LabVoiceGatePhase,
+  LAB_PHONE_QUERY,
 } from './labChrome'
 import { LabPhoneBibleTree } from './LabPhoneBibleTree'
 import { LabContentsV2 } from './LabContentsV2'
@@ -117,7 +118,7 @@ import { getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import './lab.css'
 
-const PHONE_QUERY = '(max-width: 1024px)'
+const PHONE_QUERY = LAB_PHONE_QUERY
 
 type LabFullscreenDocument = Document & {
   webkitFullscreenElement?: Element | null
