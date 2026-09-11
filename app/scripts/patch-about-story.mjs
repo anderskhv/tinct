@@ -32,7 +32,9 @@ const files = {
   story: only(chunks, /^scroll-story-[A-Za-z0-9_-]+\.js$/),
   iframe: join(about, 'audio-journey.html'),
 };
-for (const f of ['about-v21.css', 'about-v21.js']) if (!existsSync(join(about, f))) throw new Error(`assets/about-v20/${f} is missing`);
+for (const f of ['about-v21.css', 'about-v21.js', 'assets/library-desktop-v1.webp', 'assets/voice-phone-v1.webp', 'assets/reader-classic.jpg', 'assets/devices-transparent-v10.webp']) {
+  if (!existsSync(join(about, f))) throw new Error(`assets/about-v20/${f} is missing`);
+}
 
 const PILL_HTML = '<a class="floating-read" href="/read"><span class="cta-escape">Escape</span><span class="cta-read">Start reading</span></a>';
 const FOOTER_HTML =
@@ -88,7 +90,7 @@ const edits = [
   ['story', 'beat order', 'n=[0,.06,.2,.34,.48,.64,.92,1],r=[-1,2,1,3,0,4,5]', 'n=[0,.05,.13,.27,.41,.55,.71,1],r=[-1,5,2,1,3,0,4]', 1],
   ['story', 'reveal with the product',
     '(0,_.jsxs)(`div`,{className:`reading-brand`,children:[(0,_.jsx)(`p`,{className:`tinct-introduction`,children:`Introducing Tinct.`}),(0,_.jsx)(`h2`,{children:`All this and more.`}),(0,_.jsxs)(`p`,{className:`tinct-promise`,children:[`Built to remove the barriers`,(0,_.jsx)(`br`,{}),`between you and the greatest books.`]})]})',
-    '(0,_.jsxs)(`div`,{className:`reading-brand`,style:{opacity:Q(u,0,.12)*(1-Q(u,.88,1))},children:[(0,_.jsxs)(`div`,{className:`brand-copy`,children:[(0,_.jsx)(`p`,{className:`tinct-introduction`,children:`Introducing Tinct.`}),(0,_.jsxs)(`h2`,{className:`tinct-promise`,children:[`Built to remove the barriers`,(0,_.jsx)(`br`,{}),`between you and the greatest books.`]})]}),(0,_.jsx)(`div`,{className:`brand-devices`,style:{opacity:Q(u,.06,.3),transform:`translateY(${(1-Q(u,.06,.35))*40}px)`},children:(0,_.jsx)(W,{unoptimized:!0,src:`/assets/about-v20/assets/devices-forest-v6.webp`,alt:`Tinct on a laptop, an e-reader and a phone`,width:1536,height:1024})})]})', 1],
+    '(0,_.jsxs)(`div`,{className:`reading-brand`,style:{opacity:Q(u,0,.12)*(1-Q(u,.88,1))},children:[(0,_.jsxs)(`div`,{className:`brand-copy`,children:[(0,_.jsx)(`p`,{className:`tinct-introduction`,children:`Introducing Tinct.`}),(0,_.jsxs)(`h2`,{className:`tinct-promise`,children:[`Built to remove the barriers`,(0,_.jsx)(`br`,{}),`between you and the greatest books.`]})]}),(0,_.jsx)(`div`,{className:`brand-devices`,style:{opacity:Q(u,.06,.3),transform:`translateY(${(1-Q(u,.06,.35))*40}px)`},children:(0,_.jsx)(To,{children:(0,_.jsx)(`figure`,{className:`device-ensemble brand-ensemble`,"aria-label":`Tinct on a laptop, an e-reader and a phone`,children:(0,_.jsxs)(`div`,{className:`device-canvas`,children:[(0,_.jsx)(W,{unoptimized:!0,src:`/assets/about-v20/assets/devices-transparent-v10.webp`,alt:``,width:1536,height:1024}),So.map(e=>(0,_.jsx)(`div`,{className:`projected-screen projected-`+e.kind,style:{width:e.width,height:e.height,transform:`matrix3d(${Ha(e.width,e.height,e.corners).join(`,`)})`},children:(0,_.jsx)(`img`,{className:`brand-screen`,src:e.kind===`desktop`?`/assets/about-v20/assets/library-desktop-v1.webp`:e.kind===`phone`?`/assets/about-v20/assets/voice-phone-v1.webp`:`/assets/about-v20/assets/reader-classic.jpg`,alt:``,width:e.width,height:e.height})},e.kind))]})})})})]})', 1],
   // Overview scene: sequenced highlights paired with the questions, one at a time.
   ['story', 'passage steps param', 'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r})',
     'function ro({modern:e=!1,highlight:t=``,audio:n=!1,onCharacter:r,steps:k=null})', 1],
