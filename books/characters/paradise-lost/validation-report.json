@@ -1,0 +1,33 @@
+{
+  "bookId": "paradise-lost",
+  "scope": "Both full English editions, all 12 books and 1,188 paragraphs. Named people, gods, angels, devils, personified powers, named monsters and named peoples. Places, rivers, mountains and constellations are not cast.",
+  "authoredEntries": 171,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "56c47aa192f17e38ae996d1abfc268dc0090a8c365a2e8f7578160dea2f81185",
+      "chapters": 12,
+      "paragraphs": 1188,
+      "entries": 167,
+      "mentions": 1138,
+      "omittedEntities": [
+        "aeneas",
+        "arthur",
+        "noah",
+        "chaldeans"
+      ]
+    },
+    "modern-en": {
+      "sourceSha256": "87727e7760ea487d5b4527570d9bdaeaeb3158c782ed372f9c0a554cbf8562ba",
+      "chapters": 12,
+      "paragraphs": 1188,
+      "entries": 171,
+      "mentions": 1208,
+      "omittedEntities": []
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

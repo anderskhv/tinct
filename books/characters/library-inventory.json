@@ -501,9 +501,12 @@
     {
       "bookId": "paradise-lost",
       "title": "Paradise Lost",
-      "contentStatus": "not-started",
+      "contentStatus": "validated-package",
       "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -521,7 +524,7 @@
         }
       ],
       "existingThreadCandidates": 15,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Awaiting integration by the release owner. 171 entities across all 12 books. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding."
     },
     {
       "bookId": "frankenstein",

@@ -24,7 +24,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Divine Comedy (`divine-comedy`) | validated-package | Awaiting integration by the release owner. 589 entities across all 100 cantos; the largest package in the library. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding. |
 | Jane Eyre (`jane-eyre`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Aeneid (`the-aeneid`) | validated-package | Release owner: compare fingerprints, register both English editions and verify the three Pallases and the monster-named galleys in production |
-| Paradise Lost (`paradise-lost`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Paradise Lost (`paradise-lost`) | validated-package | Awaiting integration by the release owner. 171 entities across all 12 books. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding. |
 | Frankenstein (`frankenstein`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Manual (`the-manual`) | validated-package | Restored by main95029ffe2; preserve both English character editions. Audio eligibility is independent. |
 | Apology (`apology`) | validated-package | Restored by main95029ffe2; preserve both English character editions. Audio eligibility is independent. |

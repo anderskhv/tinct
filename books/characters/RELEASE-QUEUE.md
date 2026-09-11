@@ -727,3 +727,48 @@ Register both English editions, version the immutable asset URL, run the normal 
 4. Paradiso XVI shows *The old houses of Florence* on the family names and nothing on the place names beside them.
 
 Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.
+
+## Opus batch 7: Paradise Lost
+
+Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| Paradise Lost | COMMIT | 167 / 171 | build_paradise_lost.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Paradise Lost | 56c47aa192f17e38ae996d1abfc268dc0090a8c365a2e8f7578160dea2f81185 | 87727e7760ea487d5b4527570d9bdaeaeb3158c782ed372f9c0a554cbf8562ba |
+
+171 authored entities, 1,138 exact mentions in the original and 1,208 in the modern, across all 12 books and 1,188 paragraphs per edition. Commands: `python3 books/characters/build_paradise_lost.py --check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+The original is Milton's blank verse, which capitalises every line-opening, so the inventory was built from the prose and checked back against the verse.
+
+**Book 1 is the reason this package exists.** Eighteen fallen angels are named in ninety lines and none is explained, on the argument that the gods of Canaan, Egypt and Greece were these same devils under other names. Moloch's card is therefore both the devil who argues for open war and the idol smeared with children's blood in the valley of Hinnom; the same doubling runs through Chemos, Astoreth, Thammuz, Dagon, Rimmon and Osiris.
+
+**Three words are a person and a thing at once, deliberately**: Sin, Death and Chaos. They are bound as the persons, with two skipped exceptions ("Sin-bred" at 4:36, and Book 12's "stirring up Sin against law"). **Night is not treated the same way** — she is Chaos's consort in Books 1-3 and 10 and plain nightfall everywhere else, so she is bound at fifteen listed locations only, and a test asserts nothing outside those four books is hers.
+
+**Serpent is bound exactly once**, at 1:4, where the poem says "It was the infernal Serpent". The other thirty-one are the animal Satan borrows. A test pins that to one location — worth a reviewer's eye, since the opposite choice is defensible and would have changed thirty-one cards.
+
+Spot-check, in order of risk: 5:55 "Son of Heaven and Earth" (Adam, not the Son); 10:30 "O Son" (Death, not the Son); 12:39 "Joshua, whom the Gentiles Jesus call" (Joshua, not Christ); 1:0 the Heavenly Muse (Urania, not one of the nine); 7:3 "nor could the Muse defend her son" (Calliope, who is not Urania).
+
+### Deliberately unbound, documented
+
+Aeneas at 9:1, whom Milton calls only "Cytherea's son"; Noah throughout Book 11, shown at length and never named; Nimrod in Book 12, called only "a mighty hunter"; Cain, Abel and Enoch, all shown in Adam's visions and none of them named. Arthur is supplied by the prose at 1:56 where Milton writes only "Uther's son" — Uther is bound, Arthur is recorded as an original-edition omission.
+
+### Source defects, none blocking enablement
+
+None. Both editions parse cleanly into 12 books and 1,188 paragraphs and align paragraph for paragraph. Four entities are absent from the verse (Aeneas, Arthur, Noah, the Chaldeans) and none from the prose; **no entity is absent from both**. No edition byte was touched.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the normal app gates and deploy, then open the production reader and confirm on the fetched asset:
+
+1. Book 1's catalogue shows a distinct card for each of Moloch, Chemos, Astoreth, Thammuz, Dagon and Rimmon, and each card mentions both the devil and the idol.
+2. "Serpent" carries a card at 1:4 and no card anywhere in Book 9.
+3. Book 2's Night (2:79) carries a card and Book 4's nightfall (4:75) does not.
+4. 5:55 shows Adam's card, not the Son's.
+
+Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.
