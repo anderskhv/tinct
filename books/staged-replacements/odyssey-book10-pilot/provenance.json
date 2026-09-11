@@ -1,0 +1,17 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/wizardly-allen-ra9p0k",
+ "commit": "9453bf8f203b32300456439fb5b501cc8d3b0479",
+ "original_source_path": "app/public/data/editions/odyssey-original-en.json",
+ "chapter_extracted": {
+  "number": 10,
+  "title": "Book 10 — Aeolus, the Laestrygones, Circe"
+ },
+ "source_file_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "extracted_source_json_sha256": "15064e9ba044d246876933bcb7a3ca5cd3199e70e84e34feaeca825a6106455f",
+ "candidate_v1_json_sha256": "6a5e9ef63ca6f80e020a089a94072de28c925302c0d233adb0a13a20b63d6a4f",
+ "translation_provenance": "Base translation used for name/continuity comparison only, not as a content authority: books/staged-replacements/odyssey-pilot/odyssey-book9-candidate.json on branch claude/upbeat-brown-cuttkn, commit d2ec5cfae27013c84cfdda0587f43bbf2c55735f.",
+ "edition_source_attribution": "app/public/data/editions/odyssey-original-en.json is Samuel Butler's public-domain prose translation of the Odyssey (no separate provenance/SOURCE.md file was found for this specific edition file in the repository at the time of this task; the text was identified as Butler's translation by internal textual evidence — e.g. the file's own Book 9 heading and phrasing match Butler's known prose Odyssey — and confirmed against the already-reviewed Book 9 pilot, which the earlier session likewise identified as Butler. This should be treated as a recorded uncertainty, not a verified citation, since no Gutenberg header or SOURCE.md for this edition file was located.",
+ "generation_setting": "Sonnet Medium",
+ "generation_note": "Drafted in-conversation (main session, no subagents, no scripts calling any LLM API) per books/CLAUDE.md and books/AGENTS.md zero API-spend rule. No Anthropic API calls were made to produce the candidate text."
+}
