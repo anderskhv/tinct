@@ -431,3 +431,74 @@ In Phoenix's parable at 9:23 the Prayers and Sin are personified but printed in 
 | Alcimedon's father is **Laerceus** at 16:10 and **Laerces** at 17:29 in both editions; Pylaemenes is **Pylaemanes** at first appearance in the original | One entity each, both spellings as aliases |
 
 No edition file was changed. Any repair to these bytes invalidates the recorded hashes and requires a restored-text review and a rebuild.
+
+## Lane A automation batch 1: On the Genealogy of Morals
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md` (queue item 1 of 15). Queued, not
+production verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| On the Genealogy of Morals | 0530df7b | 72 / 72 | build_genealogy_of_morals.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| On the Genealogy of Morals | 2377b4157b8e28c24a35bcb25e98c2b51a25be3abf0cb5bde71a59aa75550f4f | 72ca79453b9a485fa0a8277df452809dba80b87ecaf6985121e020ef51d30a9c |
+
+199 exact mentions in each edition, identical locations on both sides, across
+4 chapters (Preface, First Essay, Second Essay, Third Essay) and 124
+paragraphs per edition. Zero omitted entities on either side. Commands:
+`python3 books/characters/build_genealogy_of_morals.py --check`, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared
+dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was
+changed.
+
+### Release review points
+
+A treatise with no invented cast and, unusually for this queue, **no
+namesake collisions at all**: every one of the 72 bound names resolves to
+exactly one person, verified by an exhaustive per-name location sweep of
+both editions before authoring. The two things worth independent review are
+both "person or not" traps rather than namesake ones:
+
+- **Zarathustra** also names Nietzsche's own book. "My Zarathustra" (1:9)
+  and the "Thus Spake Zarathustra" epigraph attribution (4:0) are book-title
+  uses and carry no entity; only the Second Essay's closing invocation
+  (3:31, "open alone to Zarathustra, Zarathustra the godless") is bound.
+- **Zeus** is bound only at Nietzsche's own English-language invocations
+  (3:19, 3:26); the Latin "ipso Jove" inside the quoted Tertullian passage
+  (2:33) is a different author's reference in a different language and is
+  deliberately left unbound, along with every other proper name inside that
+  Latin block except Tertullian himself (named in the surrounding English
+  gloss, not the Latin).
+
+One reference could not be resolved from the text and is deliberately
+unbound: **"Sir Christopher" in Shakespeare** (4:23), cited alongside
+opponents of vegetarianism. See the package README's "Ambiguous or generic
+references" section.
+
+Categories: 70 of 72 entries are Reference; **Schopenhauer** and **Wagner**
+are Major, since each anchors several consecutive paragraphs of sustained
+analysis in the Third Essay rather than a single citation.
+
+### Source defects, none blocking enablement
+
+| Defect | Effect |
+|---|---|
+| `original-en` prints `Ubigaudeam` for `Ubi gaudeam` inside the Tertullian Latin quotation at 2:33 | Cosmetic; inside the untranslated Latin block already excluded from binding, so no offsets are affected |
+
+No edition file was changed.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm on
+the fetched asset:
+
+1. A first-encounter card in each edition (1:6, "Schopenhauer").
+2. That "Zarathustra" shows no card at 1:9 or 4:0, and shows one at 3:31.
+3. That "Sir Christopher" (4:23) shows no card.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
