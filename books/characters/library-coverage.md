@@ -23,7 +23,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Meditations (`meditations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Divine Comedy (`divine-comedy`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Jane Eyre (`jane-eyre`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Aeneid (`the-aeneid`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Aeneid (`the-aeneid`) | in-progress | Lane B authoring in progress: 12 books, 544 paragraphs per edition; Dryden's Roman names throughout, so no Roman/Greek split, but the Italian and Trojan catalogues carry their own namesakes |
 | Paradise Lost (`paradise-lost`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Frankenstein (`frankenstein`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Manual (`the-manual`) | validated-package | Restored by main95029ffe2; preserve both English character editions. Audio eligibility is independent. |
