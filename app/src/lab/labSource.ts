@@ -7,7 +7,7 @@ import { LAB_COPY } from './labCopy'
 
 export const LAB_BOOK_ID = 'bible'
 export const LAB_EDITION_KEY = 'kjv-en'
-export const LAB_COMPARE_EDITION_KEY = 'modern-en'
+export const LAB_COMPARE_EDITION_KEY = 'web-en'
 
 export interface LabCastMember {
   id: string
