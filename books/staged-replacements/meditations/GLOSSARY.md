@@ -15,7 +15,7 @@ which of Long's variants belong together; the candidate never uses the Greek.
 | the nature of the whole; the nature of the universe | **the nature of the whole** | *hē tōn holōn physis*. One phrase for both of Long's variants. |
 | the universal nature | **the universal nature** | Long's phrase for the same idea in later books; kept as its own phrase so the reader meets the same term Long uses there. |
 | the common nature | **the common nature** | *koinē physis*, the nature all things share; Marcus contrasts it with "my own nature". Kept distinct. |
-| the whole; the universe; the whole universe; the world (kosmos); the All | **the whole**; **the universe** | As Long has them. "Whole" is kept where Long has it because Marcus's argument is often about part and whole. Long's "the All" (IV.27, VII.75) is rendered "the whole". Added in Book IV. |
+| the whole; the universe; the whole universe; the world (kosmos); the All; the universal (as a noun) | **the whole**; **the universe** | As Long has them. "Whole" is kept where Long has it because Marcus's argument is often about part and whole. Long's "the All" (IV.27, VII.75) is rendered "the whole". Added in Book IV. Long's bare noun "the universal" (VI.45 "for the interest of the universal") is the same idea and is rendered "the whole"; row extended in Book VI. His adjective in "the universal nature", "the universal substance" is untouched. |
 | reason; the reason (of the universe, of our common nature) | **reason** | *logos*. Never "rationality" or "logic". |
 | rational animal; reasonable animal; rational being; rational soul | **rational being** | *zōon logikon*. "Animal" in Long means "living creature"; a modern reader hears something else. Long's "reasonable animal" (IV.5, IV.29, V.16, IX.8) is the same term. Added in Book IV. |
 | social animal; social (acts, reason, life) | **social being**; **social** | *koinōnikos*. "Social act" and "social life" stay as they are. |
@@ -42,7 +42,7 @@ which of Long's variants belong together; the candidate never uses the Greek.
 | the elements; dissolution (of the elements) | **the elements**; **dissolution** | Kept: the argument about death depends on these being the same words each time. |
 | philosophy | **philosophy** | Never "wisdom" or "a philosophy". |
 | felicity; happiness | **happiness** | |
-| vexed; discontent(ed) | **resentful / resent**; **discontented** | "To be vexed at anything which happens" → "to resent anything that happens". |
+| vexed; vexation; discontent(ed) | **resentful / resent**; **resentment**; **discontented** | "To be vexed at anything which happens" → "to resent anything that happens". The noun "vexation" (VI.20 "show any signs of vexation") → "resentment", and "vexed because" (VI.27) → "resentful because"; row extended in Book VI. Long's transitive verb "vex" (IV.44, V.23, "they vex him") is a different word, current, and stays. |
 | tranquil; tranquillity | **calm** | |
 | kinsman; akin to me; kinship | **kinsman**; **akin to me**; **kinship** | Kept: the family metaphor is the point. |
 | dissatisfied; dissatisfaction | **discontented**; **discontent** | Long's word is neither "vexed" nor "discontent"; rendered with the "discontent" family for consistency (decided in Book II v2, II.2 and II.13). |
@@ -54,7 +54,8 @@ which of Long's variants belong together; the candidate never uses the Greek.
 | vulgar (notion, help, comfort); the vulgar | **commonplace**; **the common sort of men** | Long's "vulgar" means common or ordinary, not crude. "The common sort of men" is Long's own phrase (IV.3). IV.20, IV.36, IV.50, IX.3. Added in Book IV. |
 | affects (my affects and disposition; those affects; the affects of the flesh) | **feelings** | *pathē*. V.20, V.26, VII.2, VII.66, VIII.1, XII.19. Long's noun "affects" is now psychological jargon and, to a general reader, a verb; "feelings" is the plain word for the same thing (the states that rise from the flesh to the mind, V.26) and imposes no modern reading. Not "emotions" (Long uses "emotions" himself, V.36, and it stays there) and not "passions". Added in Book V. |
 | the formal; the material (as nouns: "composed of the formal and the material") | **form**; **matter** | V.13, XII.18, XII.29. Long's own words for the same pair in IV.21 are "the cause of form" and "that which is material", which stay as they are; where he uses the bare adjectives as nouns, "form" and "matter" say the same in current English. Added in Book V. |
-| a man; men (generic) | **a man**; **men** | Long's generic "man" is kept. Rewriting it would be a modern imposition, and Marcus's "as a Roman and a man" is his own. "Human being" is used only where Long uses it (V.1). |
+| beneficence; benevolence; benevolent (acts, disposition) | **kindness**; **kind** | Long's one word-family kept as one family: I.3, I.7, I.9, I.15 (recorded in `book1/continuity.md` at Book I), V.5 "benevolence" → "kindness", VI.47 "a benevolent disposition" → "a kind disposition" (Long's own phrase at V.31). "Benevolent" now reads as institutional; "kind" is the plain word. Promoted from the Book I continuity sheet to a glossary row in Book VI, its third book. |
+| a man; men (generic) | **a man**; **men** | Long's generic "man" is kept. Rewriting it would be a modern imposition, and Marcus's "as a Roman and a man" is his own. "Human being" is used only where Long uses it (V.1, VI.23). |
 
 ## Voice and form
 

@@ -159,6 +159,28 @@ session. Kept current at every push.
   negative" are corrected. Flow read done, no further change. Acceptance
   recorded in `book5/ACCEPTANCE.md`. `continuity.md`, `provenance.json`,
   `manifest.json` and `README.md` updated. No new glossary row.
+- 2026-09-11 — **Book VI drafted and frozen** (steps 1–3): `book6/candidate-v1.json`
+  (sha256 `78fbe619…`), 59 paragraphs 1:1 with Long's VI.1–VI.59, word ratio
+  0.987 (min paragraph 0.88, a dropped cross-reference). Source verified from
+  the staged Long chapter 6 into `book6/source-book6.json` (sha256
+  `2384b4d0…`); staged-file hash `b0ecf3da…` re-verified. One glossary row
+  added before drafting (beneficence / benevolent → kindness / kind, promoted
+  from `book1/continuity.md`) and two extended (the bare noun "the universal"
+  into the whole row; "vexation" / "vexed because" into the resent row).
+  Three dagger marks (VI.38, VI.41 inside Long's bracket, VI.50 at the end;
+  three clauses) named in `review-instructions.md` and kept as Long has them.
+  Seven cross-references dropped (VI.2, VI.9, VI.10, VI.28, VI.30, VI.36,
+  VI.38) and five D11 drops listed (VI.35 ×2, VI.39, VI.41, VI.50 ×2 counting
+  "[men]" and "[conditionally]"); seven supplements folded, three of them
+  flagged for the reviewer (VI.43 "the earth", VI.45 "neither good nor bad",
+  VI.50 "[not]" inside the dagger sentence). Base-text defects recorded and
+  checked against Standard Ebooks' Long: VI.41 PG "wilt not blame" (rendered
+  without the "not"), VI.49 "dissatisfied. I suppose" (comma), VI.27 stray
+  capital. Readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+  `README.md`, `review-instructions.md` and twenty review packets (19×3 + 2)
+  pushed, built by `scripts/build_book_package.py 6` from
+  `scripts/candidates/book6.py`. **Stopped for independent review** (step 4).
+  Findings expected under `book6/review/`.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -191,9 +213,12 @@ session. Kept current at every push.
 
 ## Next
 
-1. **Book VI, steps 1–3** (draft, freeze, packets), then stop for its
-   independent review.
+1. **Waiting on the coordinator: independent review of Book VI**
+   (`book6/review-instructions.md`, `book6/review-packets/`, 20 packets). On
+   findings: `book6/candidate-v2.json` via a change script in the established
+   pattern, verification, flow read, `book6/ACCEPTANCE.md`.
 2. Then Books VII … XII in numerical order, each with its own review round.
+   Book VII is not started until Book VI is accepted.
 
 ## Needs Anders (listed, not waited on)
 
