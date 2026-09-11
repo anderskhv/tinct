@@ -44,6 +44,27 @@ worker count modest so it stays gentle on production.
   until then it logs a warning and does nothing, and termination still depends
   on `app/tts/pod-watchdog.py` running on the Mac.
 
+## Tests
+
+```bash
+python3 -m unittest discover -s tools/audio-highlight -p 'test_*.py'
+```
+
+`test_runpod_guard.py` exercises the guard against a stubbed provider API, so
+the decisions it makes are verified without a RunPod key and without spending
+anything: each of the three limits stops a pod, a pod inside every limit is
+left running, an already-exited pod is not stopped twice, a dry run acts on
+nothing, the credential-missing path fails closed, and — the one that matters
+most — a pod outside the owner prefix is never touched, not even by `stop-all`.
+
+## A warning about the scheduled workflows
+
+GitHub runs `schedule` triggers only from the default branch, so neither
+workflow fires until it is on `main`. As of September 11, 2026, **pushing to
+`main` is not safe**: production is running the lab launch-switch build and
+`main` is 182 commits behind it, while `deploy.yml` deploys `main` on every
+push. See `docs/audio-highlight-cloud-handoff-2026-09-11.md`.
+
 ## Rules this tooling will not bend
 
 - The paragraph acceptance threshold stays at **0.85**. No tool here lowers it,

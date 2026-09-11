@@ -178,17 +178,37 @@ guard arms itself with no further action.
 
 Three actions, none of which involves sending a secret through a chat message.
 
-**1. Merge this branch to `main`.** GitHub only runs scheduled workflows from
-the default branch, so the six-hourly census and the five-minute GPU guard do
-not fire from a feature branch. Nothing here touches app code, so no deploy is
-required — but until this is on `main`, the cloud supervision is code, not a
-running service.
+**1. Reconcile `main` with what is actually deployed — before anything merges.**
+This is the blocker, and it is bigger than this branch.
+
+Production is **not** running `main`. It is running the lab launch-switch build:
+`/app` redirects to `/library`, the SPA is served at `/reader` and `/classic`,
+and `main` has none of those routes. `main` is **182 commits and 327 app source
+files behind production**, deployed by hand from the Mac rather than through
+GitHub.
+
+`deploy.yml` deploys `main` on every push to it. So merging *anything* into
+`main` right now — including this branch, which contains no app code — would
+redeploy `main` over the live build and take production back a week: the lab
+library, the `/reader` and `/classic` routes, the character cards, the Macbeth
+and Hamlet packages, the compact highlight menu, the chapter-end chat. It would
+go green while doing it, because `main`'s own smoke test still asserts `main`'s
+old routes.
+
+The deployed branch is a strict descendant of `main` — `git log <live>..main` is
+empty — so the reconciliation is a fast-forward, not a merge conflict. Whoever
+owns that release should fast-forward `main` to the deployed commit, confirm
+production is unchanged, and only then land anything else on top.
+
+Until that happens: **do not push to `main`.** The scheduled workflows in this
+branch cannot arm, because GitHub only runs `schedule` triggers from the
+default branch. The hourly Claude Routine is unaffected and is already running.
 
 **2. RunPod key.** RunPod console → Settings → API Keys → create a key with
 read/write. Add it as `RUNPOD_API_KEY` in two places:
   - the repository's GitHub Actions secrets (Settings → Secrets and variables →
-    Actions → New repository secret), which arms the five-minute guard
-    automatically;
+    Actions → New repository secret), which arms the five-minute guard as soon
+    as the workflow reaches the default branch;
   - the Claude Code web environment's secrets, so this session can see pod
     state and stop pods directly.
 
@@ -197,17 +217,19 @@ Create API token with object read/write on `tinct-audio`. It returns an Access
 Key ID and a Secret Access Key. Add them to the same two places as:
   - `R2_ACCESS_KEY_ID`
   - `R2_SECRET_ACCESS_KEY`
-  - `R2_ENDPOINT` = `https://58f26c4a077e8c66e0b017d2399ae1b3.r2.cloudflarestorage.com`
+  - `R2_ENDPOINT` — the S3 endpoint Cloudflare shows next to the token,
+    `https://<account-id>.r2.cloudflarestorage.com`
 
-The account ID in that endpoint is not a secret; it already appears in every R2
-URL. The two keys are, and they should only ever be typed into a secrets field.
+All three go in a secrets field, never in a file and never in a chat message.
 
-A separate, smaller thing found along the way: `scripts/smoke-test.sh` greps for
-a landing-page title and an `/app` SPA route that the lab routing switch
-retired, so it has been failing on every deploy since — including the last one
-on `main`, where the deploy step itself succeeded and only the smoke test went
-red. Production is healthy; the test is stale. Worth fixing, because AGENTS.md
-treats a green deploy workflow as the confirmation that a release landed.
+### On the smoke test
+
+An earlier draft of this document said `scripts/smoke-test.sh` was stale and
+worth fixing. That was half right. The copy on `main` is stale — but the
+deployed branch **already fixes it**, moving the SPA check to `/reader` and
+updating the landing-page assertion. Running that fixed version against
+production passes all 15 checks. Nothing needs writing; the fix simply has not
+reached `main`, for the same reason nothing else has.
 
 ## Standing rules for whoever executes
 
