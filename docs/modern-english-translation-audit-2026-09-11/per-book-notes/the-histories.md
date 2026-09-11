@@ -70,10 +70,10 @@ Every number in the chain is correct.
 chapter-level content substitutions with matching paragraph counts and fluent output, so no
 count, length-ratio or empty-paragraph check could see them.
 
-## Phase 2 — sampled passages (15 locations across all nine Books)
+## Phase 2 — sampled passages (20 locations across eight of the nine Books)
 
-Sampling: Book 1 ×5 (1.1, 1.23, 1.24, 1.32, 1.188, 1.202), Book 2 ×4 (2.1, 2.6, 2.35, 2.86),
-Book 3 ×2 (3.27, 3.80), Book 4 ×1 (4.5), Book 6 ×1 (6.112), Book 7 ×3 (7.48, 7.184, 7.162),
+Sampling: Book 1 ×6 (1.1, 1.23, 1.24, 1.32, 1.188, 1.202), Book 2 ×4 (2.1, 2.6, 2.35, 2.86),
+Book 3 ×2 (3.27, 3.80), Book 4 ×1 (4.5), **Book 5 ×0**, Book 6 ×1 (6.112), Book 7 ×3 (7.48, 7.184, 7.162),
 Book 8 ×1 (8.89), Book 9 ×2 (9.29, 9.122). Plus whole-corpus automated sweeps for numerals,
 proper nouns, terminology and chapter-title integrity.
 
@@ -257,7 +257,7 @@ Macaulay (archaic pronouns gone, periods broken up, footnote digits removed, myr
 but deliberately conservative, with a residue of chapters barely touched. Voice 4: Herodotus's
 digressive, first-person, sceptical manner is well preserved.
 
-**Recommendation: LIGHT EDIT.** Confidence: **medium** — 15 sampled passages out of 1,525
+**Recommendation: LIGHT EDIT.** Confidence: **medium** — 20 sampled passages out of 1,525
 chapters, plus whole-corpus automated sweeps for numerals, proper nouns, terminology and titles.
 "Strong in samples" is not "the whole book is verified": there may be further chapter
 substitutions of the 1.188 / 2.6 type that my heuristics did not surface.
@@ -278,9 +278,10 @@ who chooses the Macaulay edition today.
 
 ## Limitations of this review
 
-- 15 passages out of 1,525 chapters (~1 %) were read as aligned pairs, concentrated in Books 1–3
-  and 6–9. **Books 4 and 5 were sampled once and twice respectively**, and I did not read any
-  passage of Book 5 in full.
+- 20 passages out of 1,525 chapters (~1.3 %) were read as aligned pairs, concentrated in Books 1–3
+  and 6–9. **Book 4 was sampled once (4.5) and Book 5 not at all** — Book 5 (file chapters
+  762–886, Terpsichore) was covered only by the automated sweeps. If a third chapter
+  substitution exists, Book 5 is the least-inspected place for it.
 - The two omissions were found by an automated sweep plus targeted follow-up; the sweep is a
   heuristic (normalized proper-noun set difference) and will miss substitutions between chapters
   that share proper nouns. The true omission count is unknown; I found two.
