@@ -577,6 +577,73 @@ the fetched asset:
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
 
+## Lane A automation batch 3: Second Treatise of Government
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md` (queue item 3 of 15). Queued, not
+production verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Second Treatise of Government | c6c53731 | 47 / 47 | build_second_treatise.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Second Treatise of Government | efbd7cabd14ed99f98aabae7a95f48e8102db75f0b7aaae0054d0ffe4675b0d0 | 177b364414c437af89fe5d09b8922d71ff772ccf7da6ec2e64c710ed061269bf |
+
+107 exact mentions in the original, 108 in the modern, across all 19
+chapters and 301 paragraphs per edition. Zero omitted entities on either
+side. Commands: `python3 books/characters/build_second_treatise.py --check`,
+then `python3 -m unittest discover -s books/characters -p 'test_*.py'`.
+Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither
+was changed.
+
+### Release review points
+
+A political treatise, not a novel: 44 of 47 entries are Reference. Three
+are Major because the whole argument turns on them, not a single citation:
+**Sir Robert Filmer** (this entire treatise's polemical target throughout),
+**Adam** (the linchpin of the paternal-dominion argument Locke dismantles
+in chapters 1, 5, 6 and 18), and **Richard Hooker** (Locke's own chief
+cited authority, quoted at length).
+
+No namesake collisions anywhere in the book, verified by an exhaustive
+per-name location sweep of both editions before authoring — including the
+one real risk spot, five Genesis figures (Cain, Abel, Abraham, Lot, Esau)
+all cited in a single sentence at 5:14. Two source-text spelling variants
+handled as aliases, not namesakes: original-en's "Jeptha" (19:45, no middle
+h) alongside its own "Jephtha" elsewhere (never the modern "Jephthah" in
+either edition), and original-en's lowercase "juvenal" (19:33) where
+modern-en capitalizes "Juvenal".
+
+Left deliberately unbound, all cases where Locke's own text supplies no
+name to bind: "the archphilosopher" (6:24, a Hooker-footnote epithet for
+Aristotle), "one at Syracuse" (18:5, an unnamed tyrant), the kings of
+Assyria in general (16:22, as distinct from the two named kings of Judah,
+Hezekiah and Ahaz, who are bound), and "the author of the Mirrour" (19:43,
+an anonymous medieval legal text).
+
+### Source defects, none blocking enablement
+
+None. Both editions match on chapter/paragraph structure exactly; the only
+divergences are the two documented spelling variants above, both handled
+as aliases with no source bytes touched.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm on
+the fetched asset:
+
+1. A first-encounter card in each edition (1:5, "Sir Robert Filmer").
+2. That the five Genesis figures at 5:14 (Cain, Abel, Abraham, Lot, Esau)
+   each show their own distinct card.
+3. That "the archphilosopher" (6:24) and "one at Syracuse" (18:5) show no
+   card.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
+
 ## Opus batch 5: The Aeneid
 
 Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
