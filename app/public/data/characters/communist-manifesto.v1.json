@@ -1,0 +1,1383 @@
+{
+  "schemaVersion": 1,
+  "bookId": "communist-manifesto",
+  "language": "en",
+  "contentVersion": "2026-09-10.1",
+  "normalization": "prose-reader-v1",
+  "offsetUnit": "utf16",
+  "reviewStatus": "authoring-agent-reviewed",
+  "editions": {
+    "original-en": {
+      "sourcePath": "app/public/data/editions/communist-manifesto-original-en.json",
+      "sourceSha256": "8b5b839176167eefeff135ee6e2a66d631af44293367540d09fa92e18cbdd5d3",
+      "chapterCount": 5,
+      "paragraphCount": 213,
+      "paragraphHashes": {
+        "1": [
+          "410f6dde8a760b87bd31c2e5abaa5f76c2ce2c51b4636198d13241025bf0fe19",
+          "e5fc26b1d94ba53e7bb7fed2c55a03c3274486a803e910d05bfb6bd05e2cc074",
+          "1802eb29e80d23599e727cc103e2c52e3b8593f7d543efb2a153a3bd31e45bd6",
+          "e0402f87499def3e2c2ffd561ace0c0f6416f5190f03e26e5dea5363b8228829",
+          "7c601bd6f8bda706911ab6fbb00decefde6aae3ff14b57bb888293e530825e54",
+          "0fb981c6dec4ac03496dd367f192ca78a671e9c237f4b1ef02333993c88f135e"
+        ],
+        "2": [
+          "e641b31c27c4676b6d57a1053d4cba30bb20d236bbfa570d587317e83aa88960",
+          "e94d90275802c6908144766b13ef512086230bd59bac6edd504589b4c23cc82b",
+          "8f20c6ba1a4a1b0b92f4b37ea3e37db7afa3b90f3688c252ce5ea7c307af9ee2",
+          "3170b4b53f128d4b71ede2d4a064cbfbe92fb8af24aef083476710a57b83843b",
+          "903a2c09bf66b66d97c876b7f687b88e4fa832f3856dee57e84576bbb14e43de",
+          "0dda3efac63f57b85aa9760cfed2b130acd0b1dcc23fb5d1654f2f3579c3e9f1",
+          "9131f0f83ab8f79d89df1f5624c1dc4489b250614fed5c17aca49ce826da8aee",
+          "7764c0fd89d2701ac7dfa72001863f3c96e46fb64c626e60ded9550ddccc5abd",
+          "b8e2342fa405740407f82f460e0a0158c7fe9611aa2e26fc981c2c1a6efadb52",
+          "5299050a8bf8278616ef6777d49972ead773a86134045b3a0bead136910a464e",
+          "fd5626b17789331b6819ea273881aa4f4665ec10b2cacae246e0c58b943da1fc",
+          "78184190b0279627ca1759fc24fd02d27218f9d97dbafa3323df79aab0718c8a",
+          "c5cee134d05bf953c67fc4a9ff4dfa1f486107092ffcbb37aa1b91c9d08a2f2f",
+          "1e75b7a1acc2f72c5a386b71e7d5e83714a1f3bb7f3f49a81d58cf8cb77299d0",
+          "ee2df7c99b4fc5802a5e2fc8d4fd10901e9bf0f4654039ab3cc67d294d1ea6ef",
+          "a25a264e26bd3e582ddcac610831ea764de12a83af8f7eff22c88f434a596f51",
+          "9663479b270c0502a1d63766071d56ccb9198b030b68827f235c65807cb81947",
+          "dcf20a6fbc98c76388d922ffb4792070e602284d14777042201f25572ee2c465",
+          "6733673a8a5b05b1ca0a3fbdaeea99a9fb57483ec40f68ae4c2e1e0a2c3a2e9a",
+          "a4850cb438720aebb01aa678eb1997a3dffd55bbb52d7f5f066d1104c80e487b",
+          "99f557a1666796ef9d0e79327f0fb3a8208a28cd7046edafdcd8f4293b813a0d",
+          "6c63ffcb11ab79f347b1a2d20b4ec951e2f24f69569aa51cf479f76cbfd53cae",
+          "6a8b6266456eb413747ed6e056b38f18512da1b38c20ec09d2b083f0e1bd2b47",
+          "247a8fa2ec45869aa499ca831bc1650d06e8bd6a9b89590eee347f357f7b2d96",
+          "6a6993090f3cd26d0499bf33dc2d9bdfed5682dc7da0506dfc0da1198ae0be0e",
+          "dd7fa39d8ee2088c249a1a85208b9922b827fe01f149945b5caee46502f36b66",
+          "2c6fc014178e3b670ab7614ac44e83cae9d204abea3b4a4a437090afbea84d09",
+          "070f17708020b7cfbf49afe003f044ccced4313f0ee73d9fb6f6b4d53acc64fa",
+          "75b9ca6adc53cd8420fd1017bd3319fd329fe4f06aa80e7c0753bfcef09b3684",
+          "5192e089b38b78dfffe84dc2b0fbb68e5462473b81298c86f8b1d0bdb15a35b3",
+          "466fcf36930ea311f5e1970931d9f9d7bc782ac997e8b203eaefe2fc66852bf2",
+          "f64ea5a585651b44481548d96e75dabc691f6b64d865539b71ba56dcf7b30e8b",
+          "a06e3455def06981a623bfa643d84a8a3ebf0011255484621a8285edcd87d585",
+          "09d6afa9adbbfb173c0851cc936e400be9f666ea3c3643286e9d2df400b7c490",
+          "a2ae0b3901504325c67d2034c0a370f21ad4714892268a31fb3c71fcf08e5ad0",
+          "1e6659f5b4e4bf8a3dd0d9fbeddb40ce2274e6b34c28890759c6c7067427edf2",
+          "52d98155201e57e9da12288a2ad3fe25f28178f1846b343565ef144abd96a15a",
+          "dba3fac7a902e3e433469237ce2d9564c1d8032bf1574344212c7fb45f735b19",
+          "21f7b29e7ebea3112848be7a6dac6fc48f9906ff7b71af50bf2221d099ad0287",
+          "50fc778f1efa9d98a8e43d80e44e980bd06192da2ca48b9f9b9b8ff8733df6d0",
+          "24bf0260df9149aee0c87bbddf74138ec5114da2a1a42118958b8ebe30a85214",
+          "d0b3dddabf4f56bbc32273ba1fc260b21ffe6318c2efafd6dd6e2d968b843146",
+          "3fd58403db79ae6a49913fcd3d183a81db4d44cd58f4aa6b6b9e164ff5c42d1b",
+          "d8a6a3e1a4fccf157d4d349d768e02882c7819e86a430206f9d9490a6b6744d1",
+          "f4a4f0c3a4477839d83f5b7797859ca15a8c2ac1bcb311ccc24f1d51cc77eec7",
+          "7657a4d94cc8683a34e0b3691169c3db90d3d73fb3b7c5bb3c8423472f67f794",
+          "448eecff4bcb1c1ccfddca48ae2783e239082e862131c94da109780ded1664dc",
+          "9d85199a0441909727b04c78d30229cc945473c083295f4f13179da42dacc7f1",
+          "29638649fe78243a58997e6f9a9ed630acbe99618b814132583d58e6954c1cd5",
+          "da0e7f5127ec39d6d87578277a43dc10553ce679c329e9df35ce1c64d7f54401"
+        ],
+        "3": [
+          "b096c27054bae92695d9cfb06f252289c661b318038b525f860da70147970b55",
+          "7ade92ce88aca4bc9e892f74295c3820d3bde166d8a337cf5f9ca897bd7a2372",
+          "80a464f0897d958610ff9c7f4afa16a24536169cfa3bd6351560d722bbb169f9",
+          "4818ee6a1f5bad94db259f2712ded256342770546651a64833cc1f24b3a746a5",
+          "2e26a800547545a1da0ae7aa233ac7d43ee9554429f8f2f98357c08e755b9c0a",
+          "dca32640d260d1495f3077f7646bec40f3378cce39444bf8cf895f763e9a09a5",
+          "ef1bbcce2603be92fdb23c77513cbeb9d9d4faf31967b3089030f54bea97dfe5",
+          "98cba5711f665f2db25caefc45e46e610db10cf23a0e8144ed22070c3bb57f63",
+          "bc0086915ad1e7cccaca5721d1d1e87d27967838b382c1489b15666d8dbc1aa2",
+          "5b6e05dfa6056c636bd15b652530acbfc1c5a1209b3a4455e7dbd378e107c6c2",
+          "014e9a4cd3944d5307640ad5f76eaf79f4f1a56b18cd57bd5052f62d95f93315",
+          "a6494a694eab4efd504a3d3924b1de31d0d142e6bdd949aea3ebfd450477b6e7",
+          "ad7a674711d20df481f735685eb812234f620bf3003ed3da0cdabe4677e7ece3",
+          "f6d9e83c637c88d171f87d61ec5d6ad318dab1c4bbb1b861da81527410254303",
+          "9b9950cc25ee7e72c971160cef172969d571f4529effe08634f81b1b853d4a35",
+          "9b392af8e206e56c97da6a5246b1283018a404433b80bd7fd3a1a6a4a8b8848b",
+          "49e9cc6a16f711c2e41d72de971cce32aa67ab50784f9a6cd5a0eb79e1f8fbc3",
+          "b2ff118cfd21e56aa3169923af0a271949b80faacd4364e3f17edb89816dc0e6",
+          "04b8b7d9fa2edc25c62dae9e9ec37b391124572c25e8d9bc9d0c6258eec58d85",
+          "b543226dea604f29d34e79e0d561bae539da3c8aa7560b56088175500a9764c6",
+          "76b0c1c83ca04168e8b260e72cd948644447a9a8ad3d595a7515fd3f09314848",
+          "f9cefb5400e099479b0ba6108f2f743772d8ceb9af2038af6b9a6011bcca19cf",
+          "210e25095dc019516cb56e2fee4baa954f95c1ca83710d87e1d607b682c1a096",
+          "10d3af26781d8e09c3483c89173a905142137fb86bfba782e5c48bf9b8a5b5b1",
+          "1f42849e1da5d6f6cfe9157133f46d679c0d72132a740efb0b4cc2206ff382f0",
+          "2911bdb7fb7312672695a9355a8b52f2a7407b059fd660d4eb10bafc322cb23a",
+          "108db38d4647d1377aefcb16a8ef64055996692d0a38f9291fd36ad735593370",
+          "812db5d762b4643c34fc8839a4964ae83967a9b922c102f2381c4f4a9f8e68ac",
+          "155b1f6ae977f33e4187064c0da46adcd337ec61b07bf994d9e2195056960e5c",
+          "40bac008e4bad54ea7febe4efc1700175ca8f5ed6578d108fc0fef9ab4f43769",
+          "0d4942983e13cf3ce9771cfe66aa6112dc9b4d997ebfd9a5d58279581ec090fa",
+          "e3fe9adc502001195d1cb4332acf3a28ce5589871b487d65bbfff03abe4c6220",
+          "819f9b1acd46cdda05092770b7b1c26a39d7508486c7eadd0d7d4c82a0405482",
+          "95fe5b6bd08d1153045dbb0a22be7649bce8b8a876ea369e65def4cea8fbfb0d",
+          "99f6e0370ba9473f93b0b3725ab16ca2f5ea9e93f038e5f1f2e8dd079002f559",
+          "9e8b86ba7dde630c65a77b581cfb549602d05f58f7a4e248f57cec7378494b6f",
+          "ab8babbc5d2cd577b11f9e1a576366657f26ee1dd3f09e1ea9077e2bb81ce98c",
+          "a922043895bddaa5cff6abde0dcf470c5ce68d45d857d072845f09e3473ad84d",
+          "d08353e1c54585ecdd3bc062178e9df42b94548eb67500f666d22a935c75c585",
+          "e5c9a67fe5f5e96a80e4dbd220caeb4d7c1d4fb23f294f3db6ccd00e3c3af339",
+          "0db0fabbcc4b9ab9408ac662b85934c548fae06de22e3fd23322dc66be51a232",
+          "478be3145bd75541828502bba488b70aaeec10bdad20e68d9419dd03d5cd3f04",
+          "4f966c9fbb396ce57b54342fa2d4212b6f273caf76ab5038ed9a911f6433d4fc",
+          "df9191ef420595e63cf548670ed04a3f69b0e4d4916b14e92732f081be0abe6f",
+          "bf498c498b6ad842c990ce08cffe8db44ce9c4f97a3bbd389b558a3be24b278c",
+          "1ef79fb810e2018affe1b50064202bd98c4e4dfd9c41144d9314217fb9dbbebb",
+          "3ebec555a7df7cee1830a79def347c5c26c6d3bf00e9177de816283f724b99e9",
+          "80b8dbba020d2cd3803e8d3ff09485c7ff517574a5d7c471f464c36dd7924789",
+          "04440a5c0cff3864370491390354155f2bb74d79d1c5119819f40765531a2ad2",
+          "11ff993ead77d73b8a7dda4d220ce09dcdb2ac90ceeb2209a3438de497e567d6",
+          "5b320ca78a836e43b3794862812d982c342e147ca47a296110cc095d56cbfbdc",
+          "1b0c9865d6c0a0cff91bd7e1983b41ab220b6ae4bbff6f0e0393f88dea546d34",
+          "f5e581477f292877fd079d9929cb31f2079a19cabe62caae270d181c34f209f6",
+          "bc9f70147be14eccb5fa6171c1680f0bad81620183241389f42355f7c9d8489d",
+          "209b92c64fa429ac9a48682754aa34195fcda9ebcbb5d7c84d56375d7064d4ef",
+          "355f723281a5ead063aecd57f8916c5111c022be79af130db17d1554f027ae74",
+          "6961c1615c7e29cf90241871b0b38432935ea9fef8c3ff84fc8a78a5759e18ae",
+          "04c66d1d06ae44aedfd688297b745d46c334a4bc262b39d33e625fc28626fd13",
+          "204925f4965645eac5b678cd95f77c520ade0b6c3859b650d94bb3166381c73d",
+          "6a50ed393d989f71c1bda19a73dedf3570be55b1885919d9ac150290e4c74732",
+          "76ec8e9af4eb8d7958d3823cada654931c9e64658a22a89065beb7e06465bbd0",
+          "ac013b432b03c5ac79e43aeeac68fcb18dbb7fd0add241216e27c14bd0205d6e",
+          "1e0455245a2cde9ae6ae25964cd26dc8c06ce63f8dc2b0688009b4869fb212ef",
+          "f3ba0de6f21294904e4e35d763ea40185c6e3f83928cc66bc84fafd4c11762c4",
+          "7e6f9a1fa0b3304eb52358867b0448aa7e3b548ba3b162ca0c75785e7b347bea",
+          "aa5bb5b4290c2ce55a2b51819445ffd4328982007dc6517d9b858b853af09698",
+          "eebb7c25813156691045a086fa9e88c1415c704b0162816e6d7145cff5d700ae",
+          "14af7ef992874b322729a72707db54f24d1bc6da8a8c7f08b69faeffd974bcae",
+          "be31d3b21a9ee0685512edde0f6131fcf076e4d35e0b8eaab5006aaf4026115f",
+          "b0e33fe66d669bddc96a1a79fd6e61adc926009d06fe2a931bc23c6bd546741b",
+          "90f3281f22833f33a1c98aade5b6728bfe18f9987a930167dd680f97e5f5f398",
+          "c95cb3b46244a81f53a09be076b60e7f8669db59e746a286feb5e1d8f89c31c4",
+          "ecd2bad053a5dde0c916a6e2c1acfb2434e94fc56e12221a06ddca7c495b9bbe",
+          "73f3847f96aae3e5661c82e77aef0fd3a3c712c0708f8b69d625b966decb1fdb",
+          "15a098af79f0edc947c0eaf213794b6ff76dd659725a2bb7b350154fe794121e",
+          "c540db5a9035dacc0550b1ec515dde4da9ce48f769d20fd88c3687d14d006ca6",
+          "bb3ae8763599b5fbb84c509e73b0ec52a3b04926c27b3668d542f0c3e77ec721",
+          "8f6dde84c417cbb778719e4e8d9058858bff84af45e57bc2ff1a29af95c803e5",
+          "c09b2ae52fa9258dbecf37fb72870487bd5b146b566cb0f19801881670dc4998",
+          "57594ad03269fce306882db5411b84a4efea1dd30814c3ebfa3c6b44bf58e6da",
+          "f1c49f1bcec70ea0d9a1a322d00d31b625e71fea51d05703eb47cec235231c41",
+          "ba99ad0238b7b079f2471b12b450b8d2b5d49ef3a633b228562d12deb7cd800b",
+          "1a9d45e31ddafe1a3c2888adcf03a42cd6b25754795b9be1dfdace5394ee998d"
+        ],
+        "4": [
+          "bb1502737ae2525aedb6ea117325d85f9c7273111fb45f962c0bcaca68fe54cc",
+          "72779ec544fe5c7d9f0e621218e568e346564a6eb3d160e93e99dfa675869b9f",
+          "6e30257c7a1c12641cb41780b26ef9cee1d5dfe22b0580feeaedd04a83380108",
+          "02669b1513555ad4037d84e71976b7bb5bbc877a22bbb5afad539b84569e6046",
+          "ad83e4d30c2b3605b91dcde8547df756eb0c6f3244bc132f038298eb782e8fe8",
+          "ca09fab5b10e574d487b25d861c1606e22d338c3095dd242e11f0397b1676acc",
+          "2471684ebb1712ef60b29546338078d14ceb515eb30cc4c909f1f1147501618d",
+          "99c8002136ee1eaa8c11dbffc6a5fdd538ffa9781400d61c52dc3c0482600a2f",
+          "5ed3ccb6d102634834ad3b7744a526d0a64ba279e0d7005c024d132ad5fc6ef9",
+          "d36e82870e2242aea5a5876e06184e3ad69499d0b864616c365df88a68242706",
+          "a086b4e66c9734320c6bf05ded4f0a821c55b1f8f92b363e47e5c59b67ffd79d",
+          "e896ddb6e5b8790e19b92fb5fd7a5554f022eb8c60af82d23585281cbad29fe3",
+          "8dba97a062772fbbe7d846a1bf44bede8433c0d263817bd09185e192e8b7abb1",
+          "93f010b30be1c35e0967c2cf5a504c4b10637d0caabec1b7a5a0885bfb250cea",
+          "d15145fcb7e55149b50ca3ce1d52d1c572f678cacbbfd915588fce3b2f202df3",
+          "1bdec6f888fef3a3a74bca98f5892fd2d361b915686516624e23fddce32464a0",
+          "273f8443086c28c8b4e206b6952d8023c51fe645706360debca029b4d99986d0",
+          "e0e1100b30800171690e8622f71e6411a9e0a640db7e2cd3a0c626343bb952bd",
+          "5be6eb6962d1a557ed04462ef0c8c188798f0867fd66714a9ad3edc746451f03",
+          "d335632b5d886fc1e63d0c7922c1a57572011f824e088f79484249312d0b1794",
+          "58694f4854c80f4650234b549f1918ebcaee1dbf91b4bd88c159d91fc65a92e4",
+          "95a7438dddb0bf69bbf838566b3b2fb3adc58e887d57323bc1636b9147c9bfc0",
+          "adac3daecf3c2e0f84591846d792e9903f5640650e5737324e5706c9bfad991b",
+          "6ace7a773088aea797776f4716aa1f2c29273285b134b55f7a18b883e1c3e497",
+          "efd90e907cd8aa555ff6e4a2a21b8202435d296a3049a55716fa28347017ae13",
+          "3ac7e5461ffec76f4b201d517caa64f43c645e83d482eef20362d57bbfdf57d5",
+          "ded7b7692350b89ef3df62a0305512dce032819c225b6b603cbb7a798ea6339a",
+          "95fd6f0222df467516d65684f415c06b013482116a6a7f606f55bed29ce88813",
+          "ae04f884091e809869b5d8accc443fc211e4fd008830c65a5de0ad2a8b7f0efa",
+          "d676dfa73f63492bfd301f4ebaae33c38a6315decf74b844cd8e7fd15a2845a3",
+          "be6133fed19e34c55f705f4040173e861ec8b1b3a11d58d95342d09d5e0d42fe",
+          "d0837963b7ef939345d138287359699a28c9b0727c7ab0cfe656eaa9f00e5511",
+          "2bc4d67e9da43a12289e9c0a6d339c993df469263ce70f4bcde6462fbee18328",
+          "2eeffcb8c0991c51c71d3610f831fd3a4892aec1f9a67511c9168fa7ef1c8861",
+          "29c0bea88d7a00abfa6433c383ff5992c2e32cc55137e91ec49720dc14a43832",
+          "4e0aac65dba370293bdc3dbcc1744353ff9e6727640f8960dec67d180e07e4d9",
+          "bf3e6f73ccde2851ce9ee0b44a88b056e8c7eb95494bbd9559c18ce8e59ddad1",
+          "2c8787e489ec67dbda2c6d4c458e119a62f064374d85b9f1ef61169fbe0f52cc",
+          "d530f304c229830119cea0753e31c4a435972bc021e074548e55e0584d06cc50",
+          "2c5dfeeeec9e96b13db0dbdc52c93858f51b469ab0313c4f7b37fd8e489edb8d",
+          "d7dd0649a5005a6b2b38cbada455ef64b0656fce9381e294ff36012b4c718e12",
+          "f3adf15b0ca4ba88e354eb894b436fc3f8b081f99dee6760c5d876c6890ebca5",
+          "5dca1bf0d00addbf15d14094ca139bfceb12ff7ae3a75fbf5d6d422e44fe49cf",
+          "8cf137c45f26d9a950d7578cf3543ccc84ffd9e222e6d1762b96e88f387e355a",
+          "c40c992d5bf35fc3435f8f077bb2600fcf24171b65da4e95978b661af4bf767d",
+          "f04eecaec3e9dc3ecd6fa6a53085b7d84c9b9dec5e3acde19c9477b608b9b261",
+          "1f55500350de908b97cfc02c4536c63452f2860f68407f3844da9cd0eaa621bf",
+          "a4146395979a74737ea109190643e76d972c4c727da70f78958c2d0f759e83a6",
+          "da21ef633dde58afe889d120bc562aa8679d08828ae4a873062c18a2190e2bbe",
+          "019e6c659a3f787a734ca9380a8d64318950bb10d54f0339118e097ca338b5c1",
+          "1ffc24feca41a4a72539b66ad8d2f385652cac15618522fbf9c0b0e935159c41",
+          "55dfe6bf7ebdb4634d5cd42995611c8d759e59e1b6129561468b8daf23cd46f5",
+          "282886ee5d8e97cc7b9497d937e84d5da04b1126b3ca18d44df67ca4ef360c0b",
+          "7d8063221cfe08a97c50510d70e166412e9dd33a7da5be8866457c77cbb735ff",
+          "97701e2ce1ed8c06e8aa670cc01e5e22b92c9145b1f9a7156d7e0afd62446fcf",
+          "a8c37d38f7e1bbc1b03bb46a3ac5b041a0c6b6062d3d68c23a14c843667f757f",
+          "7ffdf0f71904029dd0b0aa76325ce177838de952cbfed63bb49ef5b77838e548",
+          "820445a0c5ff1370ea63e21c2855bd197cbafba0deacb7243124c7f95efa6643",
+          "a3e9f2e0037389b315189b919f2ba837c1e82088450ef86d43bd58a71d17aecf",
+          "e707b699c9fbd8e8609ce817cd85b29bb95d35c8f0b08104d2d954f7849c4965",
+          "20f32a05e5f0414ec71bcd5ab99102e99bd3e8376352a012d3d55bf4280f472e",
+          "dcd7992c4460e57b5a9e5b3768296545d568426992cd5afb525e518f33dd3aa6"
+        ],
+        "5": [
+          "b1e15591afcbf11be0d24140d6a0500cc63260cbd3142721fdb8a27ab63eb368",
+          "139b4909c5535f63820d10297d5420a543391d6bda8774132aea39a9b0423c7a",
+          "1de790a1f50ef59fdb43bb8fc13e16fc6fcfd24fc8a1e970d1fc6273b1497239",
+          "b6a25407b9c17bfa3a1561ba53424c5ffdcd3d533c172b04ab2ddb58a5c41830",
+          "beaa9cd4e1fbfbef0a4ea9922a75fbde744608f59b75290f28891b55b1c017db",
+          "d3ccdaa1d267fea1c8720340985fd92fb53e63a858518d030efe46f84657416b",
+          "7064280b2a5d7721a87c1d8f101041dffa70055d697d4d24eaf2a6ab488ae52c",
+          "788860f4d2698c508cac05cac63ff2a4806a9d69137b2a43b5582b8004f369a6",
+          "d627aa1de790dab80f9905382b2fb248bd50c5d6d4bdcbcf8612abd52103629f",
+          "5b6194d14d4b0259352ee0b92ad95723612eaee1b8a2d6ca7db2d902a7b6511f",
+          "061735b95d0fe78b5410166541ed80e6ab5d54c92e993a0e66885934f6cd3c88",
+          "f47a4c28a387ddd4bf86cff81b70aab61b299f639cea71df2c6f9e803147a380"
+        ]
+      },
+      "characters": [
+        {
+          "id": "pius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 148
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 148
+          },
+          "snapshots": [
+            {
+              "id": "pius-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 148
+              },
+              "name": "Pope Pius IX",
+              "subtitle": "",
+              "body": "The pope at the time of the Manifesto’s publication in 1848.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 148
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nicholas",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 157
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 157
+          },
+          "snapshots": [
+            {
+              "id": "nicholas-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 157
+              },
+              "name": "Nicholas I",
+              "subtitle": "",
+              "body": "The Russian emperor referred to as the Czar in the opening.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 157
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "metternich",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 169
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 169
+          },
+          "snapshots": [
+            {
+              "id": "metternich-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 169
+              },
+              "name": "Klemens von Metternich",
+              "subtitle": "",
+              "body": "The Austrian statesman associated with the conservative European order.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 169
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "guizot",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 180
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 180
+          },
+          "snapshots": [
+            {
+              "id": "guizot-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 180
+              },
+              "name": "François Guizot",
+              "subtitle": "",
+              "body": "The French statesman and historian prominent under the July Monarchy.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 180
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sismondi",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 16,
+            "offset": 435
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 16,
+            "offset": 435
+          },
+          "snapshots": [
+            {
+              "id": "sismondi-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 16,
+                "offset": 435
+              },
+              "name": "Jean Charles Léonard de Sismondi",
+              "subtitle": "",
+              "body": "The economist and critic of industrial capitalism discussed under petty-bourgeois socialism.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 16,
+                  "throughOffset": 435
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "proudhon",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 41,
+            "offset": 20
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 41,
+            "offset": 20
+          },
+          "snapshots": [
+            {
+              "id": "proudhon-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 41,
+                "offset": 20
+              },
+              "name": "Pierre-Joseph Proudhon",
+              "subtitle": "",
+              "body": "The French socialist thinker whose Philosophy of Poverty is cited.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 41,
+                  "throughOffset": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "babeuf",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 48,
+            "offset": 169
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 48,
+            "offset": 169
+          },
+          "snapshots": [
+            {
+              "id": "babeuf-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 48,
+                "offset": 169
+              },
+              "name": "Gracchus Babeuf",
+              "subtitle": "",
+              "body": "The French revolutionary associated with radical economic equality.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 48,
+                  "throughOffset": 169
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "saint-simon",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 76
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 76
+          },
+          "snapshots": [
+            {
+              "id": "saint-simon-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 50,
+                "offset": 76
+              },
+              "name": "Henri de Saint-Simon",
+              "subtitle": "",
+              "body": "The French social thinker grouped here with Fourier and Owen.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 50,
+                  "throughOffset": 76
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fourier",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 85
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 85
+          },
+          "snapshots": [
+            {
+              "id": "fourier-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 50,
+                "offset": 85
+              },
+              "name": "Charles Fourier",
+              "subtitle": "",
+              "body": "The French socialist thinker known for planned cooperative communities.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 50,
+                  "throughOffset": 85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "owen",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 91
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 91
+          },
+          "snapshots": [
+            {
+              "id": "owen-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 50,
+                "offset": 91
+              },
+              "name": "Robert Owen",
+              "subtitle": "",
+              "body": "The social reformer associated with cooperative communities and improved working conditions.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 50,
+                  "throughOffset": 91
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "mentions": [
+        {
+          "characterId": "pius",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 144,
+          "endOffset": 148,
+          "text": "Pope",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "nicholas",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 153,
+          "endOffset": 157,
+          "text": "Czar",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "metternich",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 159,
+          "endOffset": 169,
+          "text": "Metternich",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "guizot",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 174,
+          "endOffset": 180,
+          "text": "Guizot",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "sismondi",
+          "chapterNumber": 4,
+          "paragraphIndex": 16,
+          "startOffset": 427,
+          "endOffset": 435,
+          "text": "Sismondi",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "proudhon",
+          "chapterNumber": 4,
+          "paragraphIndex": 41,
+          "startOffset": 12,
+          "endOffset": 20,
+          "text": "Proudhon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "babeuf",
+          "chapterNumber": 4,
+          "paragraphIndex": 48,
+          "startOffset": 163,
+          "endOffset": 169,
+          "text": "Babeuf",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "saint-simon",
+          "chapterNumber": 4,
+          "paragraphIndex": 50,
+          "startOffset": 65,
+          "endOffset": 76,
+          "text": "Saint-Simon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "fourier",
+          "chapterNumber": 4,
+          "paragraphIndex": 50,
+          "startOffset": 78,
+          "endOffset": 85,
+          "text": "Fourier",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "owen",
+          "chapterNumber": 4,
+          "paragraphIndex": 50,
+          "startOffset": 87,
+          "endOffset": 91,
+          "text": "Owen",
+          "resolution": "reviewed-name"
+        }
+      ],
+      "ignoredContextMatches": []
+    },
+    "modern-en": {
+      "sourcePath": "app/public/data/editions/communist-manifesto-modern-en.json",
+      "sourceSha256": "909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62",
+      "chapterCount": 5,
+      "paragraphCount": 213,
+      "paragraphHashes": {
+        "1": [
+          "47caec4fd43ae1b7bfe288f8caddf16fa2c928957d2ca80314b338973fc6d892",
+          "45cde243879ef3078cd3077a54c8b522aa746237f17494d993d1fcc38a087cf4",
+          "00a9402c516fd2995105653ba8e7843870187b88000a5194c70ee19f921cbb66",
+          "3bb2a6c5278668c520f9475d17f29ba2cee5a1a9e068ae59d201f1b503f495af",
+          "e4b2e991d8aaaef1f486f85bdfdf76a324a4f9e068a32b2c5999858358f636a3",
+          "12f57b8b8022722467a3ef266cc283c656b6a3c1b0dbc979e9603739641555d5"
+        ],
+        "2": [
+          "e641b31c27c4676b6d57a1053d4cba30bb20d236bbfa570d587317e83aa88960",
+          "9b7a719b8a64710fc93000ad1afff5608040347ce464b028054cc267e4d28454",
+          "e811afacef41a78b8d11b271f77d52a30e8300cf0a98c50011ce9bdc39fb2cbf",
+          "ddb812141403f18356e6860bb6147a76d9ea7de1cfa7d1220dfcee6c38fb9f3d",
+          "903a2c09bf66b66d97c876b7f687b88e4fa832f3856dee57e84576bbb14e43de",
+          "9b9c14f3c718d473b9585b1741c64c6647a3ffba25a1f8c3802c372b80e8dbc9",
+          "5d433afa84757ae94c48df4b7899fa647bbd1e8a6feaed5c6136450e1a53182e",
+          "0309f5c87b455beeae48f086cd5824e212d688d0646bcd042d51d329c0ac3f76",
+          "7a35bf859cae972cd206c9215f98cc1e434e404039e1c4a24a2cb0085bc7cdc8",
+          "125ad871fd41cb0b849b22f92f2dd0ab1a42caa4ccd0c1f23b8746b7d70cc262",
+          "16da0783f947a8bebd33dc976f2f95e4ed72dc60c0b7b773bfed7ee3ba93a335",
+          "eecf920465424d446938331a3057353fe28179cc7bf5651b942c252cb41c328f",
+          "ef31afa326b0c2c56825310cd56699116924295a9e4da66ad5b86ef5217a7f8c",
+          "55631ea950d191d61d590dce2dd9b3922886617a83ea2b51806e87679f64c589",
+          "7b40506f44875d7175d9191920347b12ccdbfb149b4725774551055a10c52dfa",
+          "00ee1a32bf450550740ff27781a8a353e81cf630dab1c04a09b1aaa39f902390",
+          "ed285f5a4ec7332be027bd687b5ce311be45cb8ec6905247a0b73aa7ff69b737",
+          "7b5b4acf3a4495c4dfec319c31cf7f329139fbe431a17831036dd07ab2ba8d90",
+          "483dec781e7df472fcee431658d23973217f78e40796f58ceed200232c831d0b",
+          "e100dff4dc4e96dfdbed4f5e7fcfa9fec5b73bcb870004b29e5b14c4747899ce",
+          "48ae5142c8455172ecfc118518743aaa14c5035eac227b0bff4fa82a9194d7ee",
+          "3c1ca215a7bd08bff8806d664ddad76a62067f1fd25e8ef795be6053df8c3f4c",
+          "606042de8c326a3720e81d4cd20ffbf3eb88e21007615ffda48fb433e56317ec",
+          "89b2bc93c4e9232b19e024e81f2504bd2da2fd53737ce9054dc22687c3d43564",
+          "91b522339133a7baabe56a97734446042a8f5a3bddb921dfe41b6bf8ac45f304",
+          "dd7fa39d8ee2088c249a1a85208b9922b827fe01f149945b5caee46502f36b66",
+          "1f691bfb2b7d76cb2fdde8175069034001d2f9d86ba8590db7b608f92b0529a4",
+          "1c2570cc918f3d82dd57897a93769b3a0ec856ef146cef9198b81777f9e1c861",
+          "b734a07cdf1fe44075dc6fdbde6b76a36931cd2f34beff399fd62a7ef966314f",
+          "a8f465691713b8407862ead70cbbcc7d9a8c17f0f6ef55ed75a9de65da51c9d5",
+          "dbb058e5d09bbe7bbb0ae75ba17da127769193ab3f863b5e1ba0ec675304f525",
+          "20c1ddc95fd1d822fb75528924f84b76f1f8d969568496110a6fa3b9f6d24c1b",
+          "63c103d06d365ea00836fc91608b3c775964b90d4b36130f3f4ed1fd670bbe89",
+          "16ae44804cc34ec1235883f6da3ec6c5726940476db26db7ce1ad8fc98ecef5f",
+          "8b2ed7fc03a7b17ef122fbd6268dca5144e666db48c4f1f3ed6ed8beeb60522b",
+          "a16fefab5de06ffda56e2bbb3ad8fccfcba1b200f7b0195e4612eb2611913dea",
+          "bb584095bc05935fe19581c22711935ee5c62f84e28bfe542f7a2a3b99df37b9",
+          "ad9e30689b5eb4494d3c2ef82f9e9ac5a745a25ff9c703acf6c4b0c330a0b895",
+          "e602413661c4288460a361145273fac77a7d5b800e4a136ab44431c1fe075a75",
+          "1da7dbe65725c16c2a4f885fffdc55a913cf361a52af7f9bf35855a16a43651a",
+          "18fc231f052e2d8bf3d5fe9595ebc5c5cff7da1a35ca34ebb5e546c249ff9fec",
+          "0861ba4b84c94c50b3dc121801cd1332520ad674ee8337f879065940677af856",
+          "b207b38ef9875bf31f8374056a94b712d41fca5ae207fe3cfc69d2e3b88dabbe",
+          "d05148c3fea71e2c29c0f5d7ddb73429808506d47473523cee6f50de34f751b0",
+          "d1ce06927beb328f92260b8c19f23bc0c90d1382ff6881dd5c6cab37bc4483d2",
+          "7657a4d94cc8683a34e0b3691169c3db90d3d73fb3b7c5bb3c8423472f67f794",
+          "448eecff4bcb1c1ccfddca48ae2783e239082e862131c94da109780ded1664dc",
+          "dfa695e9ca83cbbe9b89540c3bd2159622b74872795ffe6f1eb2da3d6a8f5aae",
+          "3827c2920acbdc2d865bb3da3c24406c913d0b19fdac9d070f761b0430540138",
+          "5636827161d907e649b23ef0600081956b8c7c72baa3a2189f11fabdf14dec62"
+        ],
+        "3": [
+          "236b6766781c5516c54c162f968f310d746ef32c43e484ea799c34177c473fc2",
+          "02abfb63d6101e37316854cc0d375341c082cb7caa138e4ceb82e5cc3555e277",
+          "bff77d62995c2572a6b4a33fc002c1f2b9c32ca35c3af8c77cf7c969460eb36a",
+          "c57e7d2610232dfdbd122614cfdc67c6794ca2d465b5458da6cb1927e8b8b0d2",
+          "3af01ff48dd78413d7ad899be1d92b51e8373c3d0451cf73b3f1faa2eb3fb3fd",
+          "daa728686905dc979c24d0fc723de0d766ac3d6557ff3507f47326fbfa7ef8cc",
+          "bcb7e66aeaf356e170a63d08b9f432d4570dba1aa0ede2c2622faf3b322dc960",
+          "ed7d01fa6075e15ba544a4e2ecb689d31c8cc54bcd05d482c99a04e884f2b0f6",
+          "5a5fb9df221af448a9c00829358f582722e4d5262edfc6271fb8fe505b7a2d9b",
+          "5b6e05dfa6056c636bd15b652530acbfc1c5a1209b3a4455e7dbd378e107c6c2",
+          "74b336f177d79552c4aecf702bc8b6dce34f30d63a4bedfab69c93711d7fd4f2",
+          "b1782cb9e77df7db82d6b8d2677ddb8c705a16a983552ffdcad11208c983d4b7",
+          "4b4c80bd251912f67b7c81fcd46c3170f772619df0e0e702dbf55cde8ac3d8f6",
+          "b5cb271e8f51a5fced63d95b17d4e7915162a9dfc995c5506bb692da7dea13b8",
+          "9b9950cc25ee7e72c971160cef172969d571f4529effe08634f81b1b853d4a35",
+          "52282d26c1d1d725704204cac7c6a12e4c21f3cbd2fcab2a2d0bd4905e5c250b",
+          "b5c18c9da9476810486edb191af26667af03e63b9924b942bcbcf30bc3e1222a",
+          "c23a9293034879386b7edaa9040a2d9dfa7be65bb765b511e0e99a933d65e63f",
+          "58f04cd84a77203fa6c8a494f698ff4567e8c0c883417a6d66fd497689766f23",
+          "b543226dea604f29d34e79e0d561bae539da3c8aa7560b56088175500a9764c6",
+          "786b13d058bdcd3010e6cc218fcd78d7da98163d7a2cfdaf83309ae190bc8be8",
+          "ce1882612aa59c3c8a5120aea36884c9271bdab49ec74734eed8521bae4e0f8b",
+          "02f5057e9eafe488a3adfe579a8200d5a85aa3ceee9e7d6200606cbe63c7fc2a",
+          "751d47e5ee258bf888071233fc54f37745ba7c24c231178299b152585aa4a202",
+          "620b81ddd6c9c89ff5d23c1f81b75ec2e3b91321d24ca2021c264ccba0d0add5",
+          "1a63dcd12b9c59ea5ac7026b04f4ab60d26a8e60b5cce9abb865f31e29e332f7",
+          "7a8b78a28d4c823edb9da9f2c51c155cbdedac4e763b304560976769f73d7e31",
+          "812db5d762b4643c34fc8839a4964ae83967a9b922c102f2381c4f4a9f8e68ac",
+          "8e2bba6a40a9bfc88291ac089e78d2dde507ffa6977d8bb49520d3cabda68b7f",
+          "73d86731e7283054a99098e3d1b341238515536302979eb29c8a2620f94e88bf",
+          "52cd624f927316428426c675a265b41b387733963eac1ddc461943029f516b0d",
+          "e4fe3bb2a34441381c83ce40beab9ad5682c2737806266ed1953276fae69f840",
+          "d7423d9936ba37fe62533d8ac9ad3e8b8662049ee3cfb374f06830b5cb458112",
+          "b26159c734cb53f302426a5023ee43034fd7c896377ccf94a0cf6f1033d5d595",
+          "99f6e0370ba9473f93b0b3725ab16ca2f5ea9e93f038e5f1f2e8dd079002f559",
+          "b98f3bc537f56014af4027eaa8b1daf5d2de1244043ef612b87ffe14f06742ce",
+          "e4df017a84b2186c9931d4e032c4fc5a184140c1e41ef3571c8aac63e723c58a",
+          "1de47ed9c3089f64e957e7f98e1caab52496e3adb3d3647a752227ffde5bdaec",
+          "7e2dca225bad158487cd2e2cc53d8916f4febc0cd1fd5062e5fd69551ca9600d",
+          "e5c9a67fe5f5e96a80e4dbd220caeb4d7c1d4fb23f294f3db6ccd00e3c3af339",
+          "0db0fabbcc4b9ab9408ac662b85934c548fae06de22e3fd23322dc66be51a232",
+          "340acd64741f620eade74ac1a94f04482ea7216eb82d5db32a88b509d7ec020b",
+          "893fce8cb8644740665b3c44818abc2e8ae359f3109297d169c30ae1a7259f67",
+          "65201ce8c85176dbfcebad600fcad28e2858574ee89df44a3961f7c5c31e36ad",
+          "7a2a08e143d690a2f086f25fa4037fb27c41df71146b44104ac9d68f88b24292",
+          "85d33ce953575e417fb5f36ab0d5f650d1fef9222ab45017483ee32c56240485",
+          "3ebec555a7df7cee1830a79def347c5c26c6d3bf00e9177de816283f724b99e9",
+          "829fa7d6a002521052c8ade72ab25137d15ac84a25e2915044941cb1aee6fd5f",
+          "86a0602f6522283c5307b12d616b9f0e207fb3329a2297afa9212ab46524cf9a",
+          "27776f3653695caadad5f078a213e0be0fb4de1f84ab101e24fb3da1dd576256",
+          "fdf81b674eb89e2f3fc0dc58437066f944e430a18a631dd2f7d0d48e7208b9fb",
+          "8c88a50517db3a60e36ea85ac1a4dde3781ffa04717987802491c47c7a5302cd",
+          "910b8c3043ddb0dcc2a32147dc24e0f7560911b25feef5bf36a99da110dda3a4",
+          "bc9f70147be14eccb5fa6171c1680f0bad81620183241389f42355f7c9d8489d",
+          "209b92c64fa429ac9a48682754aa34195fcda9ebcbb5d7c84d56375d7064d4ef",
+          "0a7ea02acae47c1335f3e9ed17bb2070e3f3466bdca408d72e40937378469a44",
+          "a679fcf1b35b72ea2e043c0fa10c17e0db4e93bbe614cfc440ed399bad530755",
+          "237d608b430b513abcd77118a301a7e21a4100ec4c60aac955617b749b533778",
+          "1c852cab2ef9a4c34b0ce5884f52ba81f4a078e34dd52404ce9385972861f470",
+          "40c597b2813b4da93604beb79262368b363857f60d9ab3e97a55c83459c8428e",
+          "b23ff5abdb44bcf5c5f7544766de8fafb81074448e6290296f6088b66754a88a",
+          "decfa4894cdcdc6421ef08a3af2e26b15f553d546f320e9ad3da3358bbe63115",
+          "04f0ae49268e32fa0751471c4904ffb81e2fcbceba8e07bc3144d2165d3db138",
+          "be2e694862c7456372e9645365ef00280308a7e1eb6f11290868f230859d8542",
+          "402d244d5fc13a2508fc409cd1d2dd5e3a04e0c7ef6d8b1d13160a07b3ab1bf0",
+          "8addb3140f34f19d418948cb76c00e59507fde6c819ad034042b7980dc67bc08",
+          "15a917a1bfc32c374f1c90407cfae9cd1437af37a4506abd20fa3aa5c7205b64",
+          "0e85ca909ccf77a6966cad573f7d9e705cdca3b2a2b3566ef379076f6d7f48aa",
+          "bbff1e8f9981f6d5c12abc607674dafca273266cc9383886a9631ca2b018ee55",
+          "b0e33fe66d669bddc96a1a79fd6e61adc926009d06fe2a931bc23c6bd546741b",
+          "5a3f79cf9a1f32d0b7b256b87b3497c1528aa9a8b32598d1fdc0ed3ce8bc3e37",
+          "c95cb3b46244a81f53a09be076b60e7f8669db59e746a286feb5e1d8f89c31c4",
+          "ecd2bad053a5dde0c916a6e2c1acfb2434e94fc56e12221a06ddca7c495b9bbe",
+          "73f3847f96aae3e5661c82e77aef0fd3a3c712c0708f8b69d625b966decb1fdb",
+          "15a098af79f0edc947c0eaf213794b6ff76dd659725a2bb7b350154fe794121e",
+          "c540db5a9035dacc0550b1ec515dde4da9ce48f769d20fd88c3687d14d006ca6",
+          "bb3ae8763599b5fbb84c509e73b0ec52a3b04926c27b3668d542f0c3e77ec721",
+          "747d638816396ae31412dc7875931b758216a9f239a404dc9fca15e3a9fbfaf4",
+          "c09b2ae52fa9258dbecf37fb72870487bd5b146b566cb0f19801881670dc4998",
+          "57594ad03269fce306882db5411b84a4efea1dd30814c3ebfa3c6b44bf58e6da",
+          "ecd56e3fac69ad5f107b6f1a38ffd646ad7802f8deb6cb080203804ddb16f0f4",
+          "53aca4b88b72873fc936ce4793059aed39fcc4df863ecfedd6d605812f245f8b",
+          "f962b92036815f0fd2acd24a41d0b34705dc78186367e8590b5e786da606733c"
+        ],
+        "4": [
+          "bb1502737ae2525aedb6ea117325d85f9c7273111fb45f962c0bcaca68fe54cc",
+          "72779ec544fe5c7d9f0e621218e568e346564a6eb3d160e93e99dfa675869b9f",
+          "d5e74e925a0530a858805d8ecd0dde0c150cf8123d0708b60411b7bac077138c",
+          "0ea3b7513ab8dc061a5db000c706e0ddb0047e92021f51dbf259386bc3cd8fb0",
+          "c93947e8b56ce9bf574b86d184d0a343fe4b7011a9398ce4729bdfec08669858",
+          "08f402b9bb5cf5497185240772128b1c48208935f4fb19b4766ce92ab4d0c14c",
+          "07e60b67138713748a22757bd4f573eb80291660a481b602ff0b09ba787d51ff",
+          "b9508b860ea96e9139360c5fe21ab84e540c5b0f3be3474f20a4a4df3297010e",
+          "98de6b547957860f98dd59a77d4ceb54b0c0a02be6cb0bfe6676e6e18db9166b",
+          "43a5455d481174998f4851263340637451b9050089eb3612604f68ab5c8f24af",
+          "03aeb96f87e30efe6f526903dad1357a6cf33cb2f2d27345bec6318d1ba91752",
+          "3c06b19a3620efb10aaa1e28a57c4f807e92e1fd91aa0fe1d4e1a9785807f954",
+          "b82c89c2b2ce9f86ec706505717eb5a172c4cdd27870d04492d58209529936cf",
+          "93f010b30be1c35e0967c2cf5a504c4b10637d0caabec1b7a5a0885bfb250cea",
+          "4af15d987dd35b6205e4b296ef0460e3cccdb1733736d76f4421f5a2c38a22d5",
+          "6380463986a19469fd9f4cd526dee48a42b9be0133d70977431a83b499137096",
+          "2a68277f3363c10fc333061c4e2e07d4324f21b920a72364a9a1ab73ac577dcf",
+          "2b53b44303c24ffc284a2ef8bc9c52972b6575aebef4ab58be96721397396e75",
+          "7578bacf6bdb9d97d4555a25c13c8cd567005f7e146d50807621ef8e9bd14858",
+          "d335632b5d886fc1e63d0c7922c1a57572011f824e088f79484249312d0b1794",
+          "58694f4854c80f4650234b549f1918ebcaee1dbf91b4bd88c159d91fc65a92e4",
+          "95a7438dddb0bf69bbf838566b3b2fb3adc58e887d57323bc1636b9147c9bfc0",
+          "a25e4840002e01b7660a4807f93fe57cc32b212f7b7ab57eddab93c87be9241c",
+          "326ee4560b15555a59e6d022838464adaa2ee3457059540b3cab2a0cd8c4c5c8",
+          "f56f1e84a0da551bff1d73831117d9f25c0278c0c70928d0e4a690c36a9b3732",
+          "965ff5a68ba7f9830d913bb475df2602c44f826930c2a63e8f6ccac9c6108cf4",
+          "2e84ec7afc7fce8d8ca8523e7b14ea6738dae60da42ee36ebcfefaf54eebaa56",
+          "ef5d4336906d186f989d133f5507783f0c5c0a9edd3c733e81d6a97e766cbe57",
+          "6ed564d97bff8a68519d30a31038bea0d595bea45a4fd387b17ffe7dde29a34a",
+          "f6ef4f2a47cc7f9c11b523b67a62f5620c5dadeec47cb085b84222be162ce7fe",
+          "5412ecf81f3ded937e4fd81d224e3b43cc73f2e938f54e65c2798af30197d867",
+          "26abf57281119d785e8ea1fc2713e38c0cd5ba54bfc7e2203dd70a0856d337ab",
+          "8ee026e828a2a421d33bf88b962d7065f77d65f54516f11c9234ab6bee6475a1",
+          "2eeffcb8c0991c51c71d3610f831fd3a4892aec1f9a67511c9168fa7ef1c8861",
+          "43ac317a85942d557987fc0134aaa5a250346502bc13134b494885da2dc6f73a",
+          "4e0aac65dba370293bdc3dbcc1744353ff9e6727640f8960dec67d180e07e4d9",
+          "46ba13441dff227861bf1fa74d7a55054bae1dbb51f3374842a4e028b8c2650b",
+          "8171c9ac0dd3fb19af4a3489eeb4620381cfbcf713a7d2a7e29b995f79f8be67",
+          "d530f304c229830119cea0753e31c4a435972bc021e074548e55e0584d06cc50",
+          "34fd293c3a140a3256dff91024d12e58e8a4d9d19355edd073197b3d1e75c392",
+          "d7dd0649a5005a6b2b38cbada455ef64b0656fce9381e294ff36012b4c718e12",
+          "808944ee7bcb5d73a4060fd1c0f300186def64e1c30688cd72275d980f09047b",
+          "c66c9a7aae41337d1f3c90733219ca87f57a31e39ee939fb84227c5ed1fa8659",
+          "b37affae3fef73d9ffa43a333c7adb23f7252bfc8a91af723871847bc2d30736",
+          "df08d0a64aeafa640baa6253d63eed93816736dd46abb1d8778a560a4f6623ef",
+          "80647949f3c933ef0cd6809a6341419fd152c39315dd423a149c83deb704d2eb",
+          "1f55500350de908b97cfc02c4536c63452f2860f68407f3844da9cd0eaa621bf",
+          "a4146395979a74737ea109190643e76d972c4c727da70f78958c2d0f759e83a6",
+          "31dbc1bc70bff6ec1c08e77c89b41bd99fc0b5dce4c6410a6e2e5cfc6263a008",
+          "3a8b0c2f0fe4adda5e9992477290c3fbe415f8d9417c4e6a35953c3822b45058",
+          "7a53e42e086f8789732822e2fb7e4fe98b7a73e405f0c0703c633b7072cff3ab",
+          "45bbfa09ffd07cf3f9ca7d67791313494ac9c70150e328169cb8f1450f5f88b1",
+          "421222b58096898211fea6a40f632b032cd8c869bf6a95dd20ecc25d5a6bc44c",
+          "caaf464be46791a11e53b6d909535508a3d48eb480fffa0e8edf95790f7b9a00",
+          "9f4d7a473658887a5d74efca22c90089d657c3ea9a59321e83df17c07fad0981",
+          "a22063bf1adffadbd915fe9ef7d3166a66720d618ff203d2d471337a0276144b",
+          "697e45a02ccea1af41c08f6fdac9a9a090ea223e389abe7a5474c8b65a7cadee",
+          "de880dee4227ade9b4c03eeb6edd7752a0819400105bd556c8c759408ef30e2a",
+          "2a91f00a13ee3ecdc3e0707855edb76772fb32ebfc0ae3e33da33eae6d82394c",
+          "e78d207a801cff4ac0e009432ed7280927c030f12ed0d4670fc5e564f7dbcd44",
+          "893d10b213b430094a8c124ce76ffe9dd7691282a2babcae90218fa4bd5ebc66",
+          "dcd7992c4460e57b5a9e5b3768296545d568426992cd5afb525e518f33dd3aa6"
+        ],
+        "5": [
+          "dca778f17ecf0109965509e85dcc2638f015bc60ea932899c8668d5d55348f70",
+          "60cec9f44120f86305bc83857ae73e2ac3b8a1131395ebef187c64e78e7d6695",
+          "94b533b351617077100853b58bab2c7936e14d49960526e0e9c7f09dd2ddf872",
+          "ddf90051ac1a05d08c70017e416d81c5696f114593a4add65e1b8f4fe9b2182f",
+          "beaa9cd4e1fbfbef0a4ea9922a75fbde744608f59b75290f28891b55b1c017db",
+          "92503baba9922a4ff7171f2280c36e3f5b63c01c228fc845e29634b2627685f9",
+          "ec1ad44aa7c2a2cb6954d845ee13dab93283e7ac7c1803eed0ba7e1d33556c1f",
+          "5d2a5fb4d71685b9388ab0a35e8b03642c7cb7d9f3c8a4e653f556f64c0b796f",
+          "7e13d3b1bc789203636d85ebf9017e79a854f4e3b03176ff16d6ec7eb1a140d8",
+          "5b6194d14d4b0259352ee0b92ad95723612eaee1b8a2d6ca7db2d902a7b6511f",
+          "c77c91cce4f7794571e54938c02e7db59cd995d904db5d21f112942714c4af02",
+          "f47a4c28a387ddd4bf86cff81b70aab61b299f639cea71df2c6f9e803147a380"
+        ]
+      },
+      "characters": [
+        {
+          "id": "pius",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 148
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 148
+          },
+          "snapshots": [
+            {
+              "id": "pius-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 148
+              },
+              "name": "Pope Pius IX",
+              "subtitle": "",
+              "body": "The pope at the time of the Manifesto’s publication in 1848.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 148
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nicholas",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 157
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 157
+          },
+          "snapshots": [
+            {
+              "id": "nicholas-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 157
+              },
+              "name": "Nicholas I",
+              "subtitle": "",
+              "body": "The Russian emperor referred to as the Czar in the opening.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 157
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "metternich",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 169
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 169
+          },
+          "snapshots": [
+            {
+              "id": "metternich-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 169
+              },
+              "name": "Klemens von Metternich",
+              "subtitle": "",
+              "body": "The Austrian statesman associated with the conservative European order.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 169
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "guizot",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 180
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 180
+          },
+          "snapshots": [
+            {
+              "id": "guizot-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 180
+              },
+              "name": "François Guizot",
+              "subtitle": "",
+              "body": "The French statesman and historian prominent under the July Monarchy.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 180
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sismondi",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 16,
+            "offset": 434
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 16,
+            "offset": 434
+          },
+          "snapshots": [
+            {
+              "id": "sismondi-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 16,
+                "offset": 434
+              },
+              "name": "Jean Charles Léonard de Sismondi",
+              "subtitle": "",
+              "body": "The economist and critic of industrial capitalism discussed under petty-bourgeois socialism.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 16,
+                  "throughOffset": 434
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "proudhon",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 41,
+            "offset": 20
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 41,
+            "offset": 20
+          },
+          "snapshots": [
+            {
+              "id": "proudhon-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 41,
+                "offset": 20
+              },
+              "name": "Pierre-Joseph Proudhon",
+              "subtitle": "",
+              "body": "The French socialist thinker whose Philosophy of Poverty is cited.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 41,
+                  "throughOffset": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "babeuf",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 48,
+            "offset": 169
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 48,
+            "offset": 169
+          },
+          "snapshots": [
+            {
+              "id": "babeuf-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 48,
+                "offset": 169
+              },
+              "name": "Gracchus Babeuf",
+              "subtitle": "",
+              "body": "The French revolutionary associated with radical economic equality.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 48,
+                  "throughOffset": 169
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "saint-simon",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 75
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 75
+          },
+          "snapshots": [
+            {
+              "id": "saint-simon-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 50,
+                "offset": 75
+              },
+              "name": "Henri de Saint-Simon",
+              "subtitle": "",
+              "body": "The French social thinker grouped here with Fourier and Owen.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 50,
+                  "throughOffset": 75
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fourier",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 84
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 84
+          },
+          "snapshots": [
+            {
+              "id": "fourier-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 50,
+                "offset": 84
+              },
+              "name": "Charles Fourier",
+              "subtitle": "",
+              "body": "The French socialist thinker known for planned cooperative communities.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 50,
+                  "throughOffset": 84
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "owen",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 90
+          },
+          "firstMention": {
+            "chapterNumber": 4,
+            "paragraphIndex": 50,
+            "offset": 90
+          },
+          "snapshots": [
+            {
+              "id": "owen-identity",
+              "availableAt": {
+                "chapterNumber": 4,
+                "paragraphIndex": 50,
+                "offset": 90
+              },
+              "name": "Robert Owen",
+              "subtitle": "",
+              "body": "The social reformer associated with cooperative communities and improved working conditions.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 4,
+                  "paragraphIndex": 50,
+                  "throughOffset": 90
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "mentions": [
+        {
+          "characterId": "pius",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 144,
+          "endOffset": 148,
+          "text": "Pope",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "nicholas",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 153,
+          "endOffset": 157,
+          "text": "Czar",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "metternich",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 159,
+          "endOffset": 169,
+          "text": "Metternich",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "guizot",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 174,
+          "endOffset": 180,
+          "text": "Guizot",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "sismondi",
+          "chapterNumber": 4,
+          "paragraphIndex": 16,
+          "startOffset": 426,
+          "endOffset": 434,
+          "text": "Sismondi",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "proudhon",
+          "chapterNumber": 4,
+          "paragraphIndex": 41,
+          "startOffset": 12,
+          "endOffset": 20,
+          "text": "Proudhon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "babeuf",
+          "chapterNumber": 4,
+          "paragraphIndex": 48,
+          "startOffset": 163,
+          "endOffset": 169,
+          "text": "Babeuf",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "saint-simon",
+          "chapterNumber": 4,
+          "paragraphIndex": 50,
+          "startOffset": 64,
+          "endOffset": 75,
+          "text": "Saint-Simon",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "fourier",
+          "chapterNumber": 4,
+          "paragraphIndex": 50,
+          "startOffset": 77,
+          "endOffset": 84,
+          "text": "Fourier",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "owen",
+          "chapterNumber": 4,
+          "paragraphIndex": 50,
+          "startOffset": 86,
+          "endOffset": 90,
+          "text": "Owen",
+          "resolution": "reviewed-name"
+        }
+      ],
+      "ignoredContextMatches": []
+    }
+  }
+}
