@@ -1363,3 +1363,80 @@ on the fetched asset:
 
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
+
+## Lane A automation batch 9: The Imitation of Christ
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md`. Queued, not production
+verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| The Imitation of Christ | 9e75b0199 | 27 / 27 | build_imitation_of_christ.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Imitation of Christ | 43902ea5bf50af978562e161b9e3202475777fc150ab067a8af13e144e54d0a2 | 8805af64c4357b3f56e843e5c4c43b5746622547d774e2237711205000c727aa |
+
+255 exact mentions in original-en, 252 in modern-en, across all 114
+chapters and 774 paragraphs per edition. No omitted entities on either
+side. Commands: `python3 books/characters/build_imitation_of_christ.py
+--check`, then `python3 -m unittest discover -s books/characters -p
+'test_*.py'`. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+Matching the automation queue's own note for this book ("Scriptural and
+saintly references; no cast"), 25 of 27 bound entries are Reference. One
+entity is Central: **Christ**, addressed as "Thou" throughout and also
+named directly, over a hundred times, as Christ, Jesus, and the Son of
+Man -- the book is literally titled after him. One is Major: **the
+Disciple**, the book's other named voice, explicitly labelled ("The
+Voice of the Disciple") heading alternating sections through Book IV's
+staged dialogue with Christ on the Eucharist; in Books I-III the same
+first-person voice is the ordinary, unnamed-narrator convention Walden,
+Confessions, and Meditations apply to their own narrators.
+
+No namesake collisions. The real editorial hazard is a citation format:
+this edition prints scripture references as 76 dedicated footnote-list
+paragraphs per edition (e.g. "(1) Job vii. 1 (Vulg.). (2) 1 Corinthians
+x. 13."). Every Bible-book-title candidate this produces is excluded as
+a book, not a person -- including where the cited book is traditionally
+credited to a real person who does get a card elsewhere (Matthew, Luke,
+John, James, 1 Peter). Ten names shared between a citation and a genuine
+person-mention (**David**, **Solomon**, **Noah**, **Joshua**, **Samuel**,
+**Moses**, **Job**, **Luke**, **John the Baptist**, **Peter**) are bound
+only via a location-scoped `bind()` match to their confirmed prose
+location, never a global alias, checked against every one of the 76
+footnote paragraphs, not a sample.
+
+### Edition terminology divergence, not a defect
+
+original-en's "Holy Ghost" is modern-en's "Holy Spirit" throughout -- a
+genuine, consistent modernization. Both phrasings are aliased on one
+entity (`holy-spirit`) so it binds fully in both editions rather than
+being omitted from one. Minor paraphrase variance also accounts for a
+small mention-count gap on two entities (`christ`: 200 vs. 198;
+`holy-spirit`: 9 vs. 8) with no omission on either side. No source
+edits.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm
+on the fetched asset:
+
+1. A first-encounter card in each edition (1:0, "Christ").
+2. That "The Voice of the Disciple" headings throughout Book IV
+   (chapters 97-114) show a card for the Disciple, and "The Voice of
+   Christ" headings resolve to the Christ card.
+3. That David, Solomon, Noah, Joshua, Samuel, Moses, Job, Luke, John the
+   Baptist, and Peter each show a card only at their one or few prose
+   locations, and that none of the book's 76 footnote-citation
+   paragraphs (e.g. "1 Samuel," "1 Peter ii. 11") shows a card.
+4. That "Holy Ghost" (original-en) and "Holy Spirit" (modern-en) both
+   resolve to the same card.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
