@@ -1,0 +1,106 @@
+[
+ {
+  "bookId": "confessions",
+  "edition": "original-en",
+  "chapter": 2,
+  "durationSeconds": 1226.8,
+  "chaptersTotal": 13,
+  "blocker": "missing-paragraph-recording",
+  "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+  "pod": "tinct-words-run1-3",
+  "missing": "p10.mp3 HTTP 404",
+  "skipReason": "missing-paragraph-recording (run 3, audio repair)"
+ },
+ {
+  "bookId": "phaedo",
+  "edition": "original-en",
+  "chapter": 1,
+  "durationSeconds": 991.5,
+  "chaptersTotal": 9,
+  "blocker": "rejected-below-0.85-on-both-arms",
+  "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+  "pod": "tinct-words-run1-4",
+  "paragraphsBelowGate": [
+   1,
+   6,
+   14,
+   16,
+   17,
+   18,
+   19,
+   21,
+   22,
+   31,
+   43,
+   45
+  ],
+  "matchRatio": {
+   "auto": 0.9887118193891102,
+   "off": 0.9644754316069057
+  },
+  "skipReason": "phaedo spelled-out speaker name (run 3, re-recording)"
+ },
+ {
+  "bookId": "phaedo",
+  "edition": "original-en",
+  "chapter": 7,
+  "durationSeconds": 2903.2,
+  "chaptersTotal": 9,
+  "blocker": "rejected-below-0.85-on-both-arms",
+  "unblockedBy": "tokenizer normalisation decision (hyphen compounds, spaced ellipses, bracketed markers) or re-recording of the failing paragraphs",
+  "pod": "tinct-words-run1-4",
+  "paragraphsBelowGate": [
+   6,
+   40,
+   42,
+   104,
+   125,
+   130,
+   138,
+   141,
+   164,
+   202
+  ],
+  "matchRatio": {
+   "auto": 0.9911768076085711,
+   "off": 0.979145181620259
+  },
+  "skipReason": "phaedo spelled-out speaker name (run 3, re-recording)"
+ },
+ {
+  "bookId": "descartes-meditations",
+  "edition": "original-en",
+  "chapter": 6,
+  "durationSeconds": 2238.4,
+  "chaptersTotal": 9,
+  "blocker": "missing-paragraph-recording",
+  "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+  "pod": "tinct-words-run1-4",
+  "missing": "p6.mp3 HTTP 404",
+  "skipReason": "missing-paragraph-recording (run 3, audio repair)"
+ },
+ {
+  "bookId": "peloponnesian-war",
+  "edition": "original-en",
+  "chapter": 16,
+  "durationSeconds": 4713.6,
+  "chaptersTotal": 26,
+  "blocker": "missing-paragraph-recording",
+  "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+  "pod": "tinct-words-run1-8",
+  "missing": "p59.mp3 HTTP 404",
+  "skipReason": "missing-paragraph-recording (run 3, audio repair)"
+ },
+ {
+  "bookId": "peloponnesian-war",
+  "edition": "original-en",
+  "chapter": 24,
+  "durationSeconds": 3060.7,
+  "chaptersTotal": 26,
+  "blocker": "missing-paragraph-recording",
+  "unblockedBy": "repair:audio \u2014 record or restore the missing paragraph file, then align",
+  "pod": "tinct-words-run1-8",
+  "missing": "p1.mp3 HTTP 404",
+  "skipReason": "missing-paragraph-recording (run 3, audio repair)"
+ }
+]
