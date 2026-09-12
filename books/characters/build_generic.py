@@ -66,8 +66,12 @@ def match_all(entities, paras):
         for a, b, cid in sorted(set(candidates), key=lambda z: (-(z[1] - z[0]), z[0])):
             overlap = [c for c in chosen if a < c[1] and b > c[0]]
             if overlap:
-                if any(c[2] != cid for c in overlap):
-                    raise ValueError(f'Ambiguous match {ch}:{pi} {text[a:b]!r} -> {cid} vs {[c[2] for c in overlap]}')
+                # Exact same span claimed by two different characters is a real ambiguity.
+                exact = [c for c in overlap if c[0] == a and c[1] == b and c[2] != cid]
+                if exact:
+                    raise ValueError(f'Ambiguous match {ch}:{pi} {text[a:b]!r} -> {cid} vs {[c[2] for c in exact]}')
+                # Otherwise this candidate is nested inside (or crosses) an already-chosen,
+                # longer-or-equal span from another character; the longer one wins silently.
                 continue
             chosen.append((a, b, cid))
         for a, b, cid in sorted(chosen):
