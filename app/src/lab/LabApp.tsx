@@ -69,6 +69,7 @@ import {
   labBookPageEstimate,
   labPageFolio,
   labReaderProgressLabel,
+  LAB_PROGRESS_HOLD_MS,
   editionLabelFor,
   readLabPrefs,
   writeLabPrefs,
@@ -2368,8 +2369,37 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     wordsPerPage: measuredWordsPerPage,
     bookWordCount,
   })
-  const phoneProgressLabel = labReaderProgressLabel(progressInput)
-  const desktopProgressLabel = `${bookPageEstimate.percent}%`
+  // Both of the pill's numbers must come from one measured layout. Words per
+  // page is now held across a chapter change, so the book scale no longer
+  // moves under the reader — but the pages of the chapter in front of them
+  // are still the provisional map for a moment after a chapter turn, and both
+  // the chapter pair ("N / M of chapter") and the book estimate are drawn
+  // through that M. Crossing Odyssey Book 1 into Book 2 the pill read
+  // "68 / 1,891 of book" for as long as a second and a half before settling
+  // on "50 / 1,413". So while the map on screen was not measured for the text
+  // on screen, the last measured label is held and no pair is shown that no
+  // layout produced. The hold is bounded: a measurement that never arrives —
+  // audio holds the paginator still — releases the pill rather than freezing
+  // it. The desktop leaf folios need no hold; they are already painted only
+  // on a measured map.
+  const progressMeasured = !measuredPaging || nativeMeasuredContent === readerParagraphs
+  const [progressHoldReleased, setProgressHoldReleased] = useState(false)
+  useEffect(() => {
+    if (progressMeasured) { setProgressHoldReleased(false); return }
+    const timer = window.setTimeout(() => setProgressHoldReleased(true), LAB_PROGRESS_HOLD_MS)
+    return () => window.clearTimeout(timer)
+  }, [progressMeasured])
+  const liveProgressLabels = {
+    phone: labReaderProgressLabel(progressInput),
+    book: `${bookPageEstimate.percent}%`,
+  }
+  const measuredProgressLabelsRef = useRef(liveProgressLabels)
+  if (progressMeasured) measuredProgressLabelsRef.current = liveProgressLabels
+  const shownProgressLabels = progressMeasured || progressHoldReleased
+    ? liveProgressLabels
+    : measuredProgressLabelsRef.current
+  const phoneProgressLabel = shownProgressLabels.phone
+  const desktopProgressLabel = shownProgressLabels.book
   // No figure until the chapter list is real and the place is resolved: the
   // boot list has two chapters and would read "1 / 2 of book" for a moment.
   const footProgressLabel = initialResolving || (book.chaptersProvisional && book.paragraphs.length === 0)
@@ -3489,13 +3519,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     else resumeListenAfterAsk()
   }, [callOpen, endCall, resumeListenAfterAsk])
 
-  // Escape closes the desktop Chat panel like every other sheet. A menu, a
-  // settings sheet, the contents, a card or a call already answer Escape for
-  // themselves and are left to it; the composer's own draft is not cleared.
-  const desktopChatEscapes = chromeV2 && !showPhoneChrome && desktopAskOpen && chrome !== 'talking'
+  // Escape closes the Chat panel like every other sheet, on the phone as well
+  // as the desktop — a phone with a hardware or Bluetooth keyboard is a real
+  // reader, so this is not gated on pointer type. A menu, a settings sheet,
+  // the contents, a card, a prompt or a call already answer Escape for
+  // themselves and are left to it: while one of them is in front, this stays
+  // out of the way and the layer on top closes first. The composer's own
+  // draft is not cleared — it is held in `draft` above the panel, so the same
+  // half-typed line is there when Chat opens again.
+  const chatPanelEscapes = chromeV2 && chrome !== 'talking'
+    && (showPhoneChrome ? phoneAskOpen : desktopAskOpen)
     && !superMenuOpen && superSheet === null && !tocOpen && !inTheBookOpen && !callOpen && selectionPopup == null
+    && !gearOpen && !speedPopoverOpen && accountPrompt == null && !prefaceVisible
   useEffect(() => {
-    if (!desktopChatEscapes) return
+    if (!chatPanelEscapes) return
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== 'Escape' || event.defaultPrevented) return
       event.preventDefault()
@@ -3504,7 +3541,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [closePhoneAsk, desktopChatEscapes, dictation])
+  }, [chatPanelEscapes, closePhoneAsk, dictation])
 
   const handleOrb = useCallback(() => {
     if (ask.voiceActive) {
