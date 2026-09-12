@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_WINDOW, LabAskPane } from './LabAskPane'
+import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_MAX_COMPOSER_PX, LAB_ASK_WINDOW, LabAskPane } from './LabAskPane'
 import type { LabConversationState } from './labAsk'
 
 afterEach(() => {
@@ -699,5 +699,71 @@ describe('lab ask composer: Enter', () => {
     expect(notDefaulted).toBe(true)
     fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter', metaKey: true })
     expect(onSubmit).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('lab ask composer: the growing field never flashes a scrollbar', () => {
+  const pane = (draft: string) => (
+    <LabAskPane
+      chromeV2
+      conversationState="idle"
+      voiceActive={false}
+      typedLoading={false}
+      turns={[]}
+      draft={draft}
+      onDraftChange={vi.fn()}
+      onSubmit={vi.fn()}
+      onMic={vi.fn()}
+      onVoiceMode={vi.fn()}
+      phoneSheet={false}
+    />
+  )
+
+  /** jsdom has no layout, so scrollHeight is driven by the line count. */
+  function stubScrollHeight(perLine: number) {
+    Object.defineProperty(HTMLTextAreaElement.prototype, 'scrollHeight', {
+      configurable: true,
+      get(this: HTMLTextAreaElement) {
+        // A collapsed field still reports its full content height, which is
+        // what makes the measurement moment overflow.
+        return Math.max(1, this.value.split('\n').length) * perLine
+      },
+    })
+  }
+
+  afterEach(() => {
+    Reflect.deleteProperty(HTMLTextAreaElement.prototype, 'scrollHeight')
+  })
+
+  it('keeps overflow hidden while the field still fits its text', () => {
+    stubScrollHeight(30)
+    const { rerender } = render(pane('One line'))
+    const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
+    expect(field.style.overflowY).toBe('hidden')
+    expect(field.style.height).toBe('30px')
+
+    // Every added line grows the box and still shows no scrollbar — the
+    // top-right artifact the measurement used to flash.
+    for (const lines of [2, 3, 4, 5]) {
+      rerender(pane(Array(lines).fill('Line').join('\n')))
+      expect(field.style.overflowY).toBe('hidden')
+      expect(field.style.height).toBe(`${lines * 30}px`)
+    }
+  })
+
+  it('gives the scrollbar back only once the field is capped and really clips', () => {
+    stubScrollHeight(30)
+    const { rerender } = render(pane(Array(6).fill('Line').join('\n')))
+    const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
+    expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
+    expect(field.style.overflowY).toBe('hidden')
+
+    rerender(pane(Array(7).fill('Line').join('\n')))
+    expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
+    expect(field.style.overflowY).toBe('auto')
+
+    // Shrinking back under the cap puts it away again.
+    rerender(pane('One line'))
+    expect(field.style.overflowY).toBe('hidden')
   })
 })

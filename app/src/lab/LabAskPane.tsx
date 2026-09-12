@@ -36,6 +36,8 @@ export const LAB_ASK_FOLLOW_PX = 80
 export const LAB_ASK_WINDOW = 40
 /** Scrolling within this many pixels of the top reveals the next window of older turns. */
 export const LAB_ASK_LOAD_MORE_PX = 120
+/** The composer grows with its text up to here, then scrolls. */
+export const LAB_ASK_MAX_COMPOSER_PX = 180
 /** Breathing room above a reply pinned to the top of the viewport. */
 export const LAB_ASK_REPLY_TOP_GAP = 8
 
@@ -89,11 +91,22 @@ export function LabAskPane({
 }: LabAskPaneProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
+  // Auto-grow. The measurement collapses the field to 0px to read its
+  // scrollHeight, which for that moment makes the content overflow the box by
+  // its whole height — and an overflowing textarea paints a scrollbar. Where
+  // scrollbars are overlays (macOS) that is a short dark thumb at the field's
+  // top-right, flashed on every keystroke that adds a line. So the field
+  // carries no scrollbar at all until it is actually clipped: overflow is
+  // hidden while the box still fits its text, and only the capped field —
+  // which really does hide text — gets one back.
   useLayoutEffect(() => {
     const field = textareaRef.current
     if (!field) return
+    field.style.overflowY = 'hidden'
     field.style.height = '0px'
-    field.style.height = `${Math.min(field.scrollHeight, 180)}px`
+    const content = field.scrollHeight
+    field.style.height = `${Math.min(content, LAB_ASK_MAX_COMPOSER_PX)}px`
+    if (content > LAB_ASK_MAX_COMPOSER_PX) field.style.overflowY = 'auto'
   }, [draft, chromeV2])
   const copyTurn = async (turn: LabAskTurn) => {
     try {
