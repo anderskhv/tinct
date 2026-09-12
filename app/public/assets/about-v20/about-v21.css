@@ -22,10 +22,16 @@ html[data-tinct-footer=visible] .floating-read{opacity:0!important;pointer-event
 }
 @keyframes tinct-cta-reveal{from{opacity:0;pointer-events:none}to{opacity:1;pointer-events:auto}}
 @supports not (animation-timeline:scroll()){.floating-read{opacity:1;pointer-events:auto;top:auto;bottom:22px}}
-/* Phones: the pill sits at the bottom, centred, above Safari's toolbar. On phones it stays through the closing
-   section; on wider screens about-v21.js hides it while the closing section's own Start reading button is on
-   screen (2026-09-12: the footer bar is gone, so that button is the only thing it steps aside for). */
+/* Phones: the pill sits at the bottom, centred, above Safari's toolbar. about-v21.js hides it while the closing
+   section's own Start reading button or the footer is on screen. */
 @media (max-width:760px){.floating-read{top:auto;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:auto;left:50%;transform:translateX(-50%);padding:11px 22px;font-size:16px;white-space:nowrap}}
+
+/* Footer */
+.about-footer{background:#191411;color:#b9ae94;border-top:1px solid rgba(246,241,231,.12);padding:34px 5vw 44px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;font:14px/1.4 TinctSerif,Georgia,serif}
+.about-footer-mark{color:#f6f1e7;font:500 26px/1 TinctSerif,Georgia,serif;letter-spacing:-1px}
+.about-footer nav{display:flex;flex-wrap:wrap;gap:8px 26px;margin-left:auto}
+.about-footer a{color:#d8cfb8;text-decoration:none;border-bottom:1px solid rgba(216,207,184,.35);padding-bottom:2px}
+.about-footer a:hover{color:#f6f1e7;border-bottom-color:#f6f1e7}
 
 /* Type: the story speaks in the serif, never in the mono UI voice. */
 .reading-leaf footer{font:12px/1.3 TinctSerif,Georgia,serif}
@@ -223,25 +229,4 @@ mark.ask-mark,span.ask-mark{color:inherit;background-color:rgba(255,226,120,var(
 .reading-journey[data-beat=language] .reading-right-leaf::after{content:"";position:absolute;left:79%;right:2%;top:7%;height:30%;background:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20190'%20fill='none'%20stroke='%231f4a5c'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M8%20178C53%20171%2086%20150%2092%20108%2096%2073%2074%2041%2048%2022'/%3E%3Cpath%20d='M10%20176C52%20168%2083%20148%2090%20110'%20opacity='.45'/%3E%3Cpath%20d='M48%2022%2049%2045'/%3E%3Cpath%20d='M48%2022%2068%2033'/%3E%3C/svg%3E") no-repeat center/100% 100%;opacity:.72;pointer-events:none}
 @media (max-width:1024px){
   .reading-journey[data-beat=language] .reading-right-leaf::after{left:75%;right:2%;top:8%;height:40%}
-}
-
-/* ── Scroll pacing (2026-09-12, Anders: "set a max speed for scrolling — on a mobile it's too fast at times") ──
-   A flick on a touchscreen arrives with several thousand px/s of momentum, and the story mapped scroll
-   position straight onto animation progress, so beats flashed past unread. The fix has two halves:
-
-   1. The story chunk no longer maps scroll to progress directly. Each frame it eases the rendered progress
-      toward the scroll-derived target with a time-based exponential follower and a hard ceiling on how far
-      it may travel per second (GSAP's numeric `scrub`, and what Lenis does to the scroll itself). The
-      ceiling is stated in px of scroll per second and divided by the chapter's own height, so a chapter
-      that was given more scroll distance keeps its extra dwell. Disabled under prefers-reduced-motion:
-      an animation that lags the scroll is exactly what that setting exists to avoid.
-
-   2. Proximity scroll snapping on phones, below. A flick that ends near a chapter boundary lands on the
-      boundary instead of a third of the way into the next beat. Proximity, never mandatory: chapters here
-      run from 2000px to 18000px tall and a mandatory snap would yank anyone reading the middle of one back
-      to its start. Nothing is intercepted — this is the native scroller, no wheel or touchmove handler,
-      no preventDefault, and the page stays fully scrollable and keyboard-reachable at any speed. */
-@media (max-width:760px) and (prefers-reduced-motion: no-preference) {
-  html{scroll-snap-type:y proximity}
-  .story-root[data-bookshelf=true] .journey-steps .journey-step{scroll-snap-align:start}
 }

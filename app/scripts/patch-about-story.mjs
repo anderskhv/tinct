@@ -94,29 +94,11 @@ const edits = [
   ['story', 'audio fades in', '!t&&n.index===4?(0,_.jsx)(eo,{progress:Math.min(1,u/.88)})', '!t&&n.index===4?(0,_.jsx)(eo,{progress:Math.min(1,u/.88),fade:Q(u,0,.12)})', 1],
   ['story', 'audio frame fade prop', 'function eo({progress:e}){', 'function eo({progress:e,fade:o=1}){', 1],
   ['story', 'audio frame opacity', 'className:`audio-journey-frame`,src:', 'className:`audio-journey-frame`,style:{opacity:o},src:', 1],
-  // Scroll pacing (2026-09-12, Anders: "set a max speed for scrolling — on a mobile it's too fast at times").
-  // The story used to map scroll position straight onto animation progress, so a flick's momentum (several
-  // thousand px/s) drove the reveal at the same rate and beats flashed past unread. A first attempt clamped
-  // progress by a fixed amount per animation frame; that is frame-rate dependent (twice as fast on a 120Hz
-  // phone) and catches up at a constant speed, which reads as mechanical.
-  //
-  // Now the rendered progress *follows* the scroll-derived target: each frame it eases toward the target by
-  // an exponential of the elapsed time (frame-rate independent), under a hard ceiling on how far it may
-  // travel per second. That is what GSAP's numeric `scrub` does, and it is the honest reading of "a maximum
-  // speed" — the scroll is never touched, only the rate at which the reveal is allowed to follow it. The
-  // ceiling is stated in px of scroll per second and divided by the chapter's own height, so a chapter that
-  // was given more scroll distance (the LinkedIn-Hamlet beat, the great-books questions) keeps its extra
-  // dwell rather than having it capped away. Crossing into a neighbouring beat starts that beat from its own
-  // boundary, so the cap holds across the join too, but only for an adjacent step: a deep link or an anchor
-  // jump lands where it was asked to land.
-  //
-  // Under prefers-reduced-motion the follower is skipped entirely and the target is rendered as-is — an
-  // animation that trails the scroll is precisely what that setting exists to avoid.
-  //
-  // The second half of the fix is proximity scroll snapping on phones, in about-v21.css.
-  ['story', 'speed cap state', 'function Oo({cinematic:e=!1,bookshelf:t=!1})', 'var Ro={v:null,o:null,i:-1,t:0,k:null};function Oo({cinematic:e=!1,bookshelf:t=!1})', 1, 'var Ro={v:null,o:null,i:-1,t:0'],
-  ['story', 'damped progress with a capped rate', 'i({...s,overload:u,travel:d})',
-    '{let capId=$[s.index]?.id,capStill=window.matchMedia(`(prefers-reduced-motion: reduce)`).matches,capNow=performance.now(),capDt=Ro.t?Math.min(.05,Math.max(0,(capNow-Ro.t)/1e3)):0;Ro.t=capNow;let capH=Math.max(1,a[o.index]?.getBoundingClientRect().height||window.innerHeight),capPx=capId===`ai`?1100:capId===`infinite`?1500:capId===`introducing`?3600:2400,capEase=(cur,target,tau,rate)=>{if(cur===null||capStill||capDt<=0)return target;let next=cur+(target-cur)*(1-Math.exp(-capDt/tau)),step=rate*capDt,lag=rate*1.2;next>cur+step?next=cur+step:next<cur-step&&(next=cur-step);target-next>lag?next=target-lag:next-target>lag&&(next=target+lag);return Math.abs(target-next)<1e-4?target:next},capP=s.progress,capQ=capEase(Ro.o,u,.12,.5),capG=Ro.i===s.index?capEase(Ro.v,capP,.12,capPx/capH):Ro.i>=0&&Math.abs(s.index-Ro.i)===1&&capDt>0&&!capStill?capEase(s.index>Ro.i?0:1,capP,.12,capPx/capH):capP;Ro.o=capQ,Ro.v=capG,Ro.i=s.index,(capQ!==u||capG!==capP)&&Ro.k&&Ro.k(),i({...s,progress:capG,overload:capQ,travel:d})}', 1],
+  // Scroll speed cap: no scene can advance faster than a few frames' worth per frame, so a flick cannot skip a beat.
+  // The card avalanche and the reading chapter get tighter limits.
+  ['story', 'speed cap state', 'function Oo({cinematic:e=!1,bookshelf:t=!1})', 'var Ro={v:null,o:null,i:-1};function Oo({cinematic:e=!1,bookshelf:t=!1})', 1, 'var Ro={v:null,o:null'],
+  ['story', 'scene speed cap', 'i({...s,overload:u,travel:d})',
+    '{let z=$[s.index]?.id,m=z===`infinite`?.022:z===`introducing`?.008:z===`ai`?.014:.03,p=s.progress,q=Ro.o===null?u:Math.max(Ro.o-.022,Math.min(Ro.o+.022,u)),g=Ro.i===s.index&&Ro.v!==null?Math.max(Ro.v-m,Math.min(Ro.v+m,p)):p;Ro.o=q,Ro.v=g,Ro.i=s.index,(q!==u||g!==p)&&Ro.k&&Ro.k(),i({...s,progress:g,overload:q,travel:d})}', 1],
   // Portrait screens anchor the world on the phone so it sits centred, and lift the captions out of the scaled world.
   // On phones the open book starts smaller so both pages fit, and closes to the same size as elsewhere.
   ['audio', 'phone book position', "$('.ta-book-anchor').style.left=`${72-22*move}%`;", "$('.ta-book-anchor').style.left=`${72-22*move-(scene.clientWidth<600&&scene.clientWidth<scene.clientHeight?1.5:0)*(1-move)}%`;", 1],
