@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "47afa489b642e6601b1074e73c8d738f620dc364257c12d4f3fc0b4b7a546351",
+  "attempts": [
+    {
+      "asr_seconds": 0.09240228682756424,
+      "alignment_seconds": 0.00013779476284980774,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, we're learned you this fool.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " we're",
+              "start": 0.99,
+              "end": 1.15,
+              "probability": 0.744873046875
+            },
+            {
+              "text": " learned",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.47412109375
+            },
+            {
+              "text": " you",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fool.",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "we're",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "raw": "learned",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "you",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "this",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "fool.",
+          "start": 1.59,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Where",
+        "learn'd",
+        "you",
+        "this,",
+        "fool?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we're",
+          "start": 0.99,
+          "end": 1.15,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "learned",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "learned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "fool",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Where",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "text": "learn'd",
+          "start": 0.97,
+          "end": 1.14
+        },
+        {
+          "text": "you",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "this,",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "fool?",
+          "start": 1.59,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09258713945746422
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "797bdb8b88a41353389602db4b4739df9ecb92261846be24b027679851c07e90",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

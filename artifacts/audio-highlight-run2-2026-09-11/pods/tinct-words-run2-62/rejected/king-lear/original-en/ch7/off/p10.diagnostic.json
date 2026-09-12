@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "7b8ef9b81e24c4a45b6381feb0248bcf0bb67c5380915e9330d4fc6428633a71",
+  "attempts": [
+    {
+      "asr_seconds": 0.07628430798649788,
+      "alignment_seconds": 0.00011632964015007019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, fellow I know thee",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " fellow",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " know",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " thee",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "fellow",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "know",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "thee",
+          "start": 1.48,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Fellow,",
+        "I",
+        "know",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "fellow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Fellow,",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "know",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "thee.",
+          "start": 1.48,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0764443539083004
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7573cc02ce32bc43b36eb8d599b32ff1f8cb56f8c4b8a771da46de4c42f1e349",
+  "selected_reasons": []
+}

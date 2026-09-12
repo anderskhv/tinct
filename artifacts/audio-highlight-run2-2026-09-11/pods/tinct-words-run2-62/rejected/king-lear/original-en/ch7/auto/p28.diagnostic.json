@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "f5261aefea403e8d2daff3d72ce507bdf026f59eece6a663f59efed85da5bb93",
+  "attempts": [
+    {
+      "asr_seconds": 0.08970099687576294,
+      "alignment_seconds": 0.00011982768774032593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cornwall. What is your difference? Speak.",
+        "hotwords": "Cornwall, What, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cornwall, What is your difference? Speak.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " What",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.0249786376953125
+            },
+            {
+              "text": " is",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.837890625
+            },
+            {
+              "text": " your",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.8203125
+            },
+            {
+              "text": " difference?",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Speak.",
+              "start": 2.25,
+              "end": 2.31,
+              "probability": 0.7978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "What",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "is",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "your",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "difference?",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "Speak.",
+          "start": 2.25,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "What",
+        "is",
+        "your",
+        "difference?",
+        "Speak."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "difference?",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "difference",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Speak.",
+          "start": 2.25,
+          "end": 2.31,
+          "key": "speak",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "What",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "is",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "your",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "difference?",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "text": "Speak.",
+          "start": 2.25,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08986707031726837
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a6d297f32afd051696249cd034fb61ba3432ced8acb5574a31e423c0c4d560b",
+  "selected_reasons": []
+}

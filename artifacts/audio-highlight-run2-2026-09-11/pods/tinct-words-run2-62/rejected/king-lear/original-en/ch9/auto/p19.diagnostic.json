@@ -1,0 +1,6438 @@
+{
+  "complete": true,
+  "signature": "23189f2f9823dad819dc73091eeb835306a7b2006765bbba13ba7f9497205281",
+  "attempts": [
+    {
+      "asr_seconds": 0.43139586970210075,
+      "alignment_seconds": 0.0008473843336105347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fool. Winter's not gone yet, if the wild geese fly that way. Fathers that wear rags Do make their children blind, But fathers that bear bags Shall see their children kind. Fortune, that arrant whore, Ne'er turns the key to th' poor. But for all this, thou shalt have as many dolours for thy daughters as thou canst tell in a year.",
+        "hotwords": "Fool, Winter's, Do, But, Shall, Fortune, Ne'er"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fool, Winter's not gone yet, if the wild geese fly that way. Fathers that wear rags Do make their children blind, But fathers that bear bags Shall see their children kind. Fortune, that arrant whore, Ne'er turns the key to th' poor. But for all this, thou shalt have as many dolours for thy daughters as thou canst tell in a year.",
+          "start": 0.05,
+          "end": 20.89,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " Winter's",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.54693603515625
+            },
+            {
+              "text": " not",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gone",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " yet,",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " if",
+              "start": 2.27,
+              "end": 2.31,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " wild",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.94921875
+            },
+            {
+              "text": " geese",
+              "start": 2.67,
+              "end": 3.01,
+              "probability": 0.923583984375
+            },
+            {
+              "text": " fly",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " that",
+              "start": 3.23,
+              "end": 3.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " way.",
+              "start": 3.45,
+              "end": 3.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Fathers",
+              "start": 4.75,
+              "end": 4.75,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " that",
+              "start": 4.75,
+              "end": 5.01,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " wear",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rags",
+              "start": 5.23,
+              "end": 5.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Do",
+              "start": 5.67,
+              "end": 5.93,
+              "probability": 0.0020885467529296875
+            },
+            {
+              "text": " make",
+              "start": 5.93,
+              "end": 6.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " their",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " children",
+              "start": 6.35,
+              "end": 6.69,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " blind,",
+              "start": 6.69,
+              "end": 7.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " But",
+              "start": 7.73,
+              "end": 7.89,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " fathers",
+              "start": 7.89,
+              "end": 8.21,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " that",
+              "start": 8.21,
+              "end": 8.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " bear",
+              "start": 8.49,
+              "end": 8.73,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " bags",
+              "start": 8.73,
+              "end": 9.13,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Shall",
+              "start": 9.13,
+              "end": 9.35,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " see",
+              "start": 9.35,
+              "end": 9.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " their",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " children",
+              "start": 9.77,
+              "end": 10.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " kind.",
+              "start": 10.15,
+              "end": 10.63,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Fortune,",
+              "start": 11.91,
+              "end": 11.91,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 12.21,
+              "end": 12.37,
+              "probability": 0.875
+            },
+            {
+              "text": " arrant",
+              "start": 12.37,
+              "end": 12.71,
+              "probability": 0.4731025695800781
+            },
+            {
+              "text": " whore,",
+              "start": 12.71,
+              "end": 12.97,
+              "probability": 0.8984375
+            },
+            {
+              "text": " Ne",
+              "start": 13.55,
+              "end": 13.59,
+              "probability": 0.118408203125
+            },
+            {
+              "text": "'er",
+              "start": 13.59,
+              "end": 13.71,
+              "probability": 0.923095703125
+            },
+            {
+              "text": " turns",
+              "start": 13.71,
+              "end": 13.97,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " the",
+              "start": 13.97,
+              "end": 14.21,
+              "probability": 0.970703125
+            },
+            {
+              "text": " key",
+              "start": 14.21,
+              "end": 14.39,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " to",
+              "start": 14.39,
+              "end": 14.59,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " th'",
+              "start": 14.59,
+              "end": 14.91,
+              "probability": 0.3935546875
+            },
+            {
+              "text": " poor.",
+              "start": 14.91,
+              "end": 15.45,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " But",
+              "start": 16.07,
+              "end": 16.17,
+              "probability": 0.978515625
+            },
+            {
+              "text": " for",
+              "start": 16.17,
+              "end": 16.31,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " all",
+              "start": 16.31,
+              "end": 16.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this,",
+              "start": 16.49,
+              "end": 16.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thou",
+              "start": 17.21,
+              "end": 17.25,
+              "probability": 0.285400390625
+            },
+            {
+              "text": " shalt",
+              "start": 17.25,
+              "end": 17.43,
+              "probability": 0.982421875
+            },
+            {
+              "text": " have",
+              "start": 17.43,
+              "end": 17.65,
+              "probability": 0.966796875
+            },
+            {
+              "text": " as",
+              "start": 17.65,
+              "end": 17.81,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " many",
+              "start": 17.81,
+              "end": 18.03,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " dolours",
+              "start": 18.03,
+              "end": 18.51,
+              "probability": 0.09572347005208333
+            },
+            {
+              "text": " for",
+              "start": 18.51,
+              "end": 18.67,
+              "probability": 0.341796875
+            },
+            {
+              "text": " thy",
+              "start": 18.67,
+              "end": 18.85,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " daughters",
+              "start": 18.85,
+              "end": 19.19,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " as",
+              "start": 19.19,
+              "end": 19.45,
+              "probability": 0.420654296875
+            },
+            {
+              "text": " thou",
+              "start": 19.45,
+              "end": 19.63,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " canst",
+              "start": 19.63,
+              "end": 20.05,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " tell",
+              "start": 20.05,
+              "end": 20.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 20.31,
+              "end": 20.49,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " a",
+              "start": 20.49,
+              "end": 20.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " year.",
+              "start": 20.63,
+              "end": 20.89,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Winter's",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "gone",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "yet,",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "if",
+          "start": 2.27,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "wild",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "geese",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "raw": "fly",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "that",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "raw": "way.",
+          "start": 3.45,
+          "end": 3.83
+        },
+        {
+          "raw": "Fathers",
+          "start": 4.75,
+          "end": 4.75
+        },
+        {
+          "raw": "that",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "raw": "wear",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "rags",
+          "start": 5.23,
+          "end": 5.67
+        },
+        {
+          "raw": "Do",
+          "start": 5.67,
+          "end": 5.93
+        },
+        {
+          "raw": "make",
+          "start": 5.93,
+          "end": 6.15
+        },
+        {
+          "raw": "their",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "children",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "raw": "blind,",
+          "start": 6.69,
+          "end": 7.17
+        },
+        {
+          "raw": "But",
+          "start": 7.73,
+          "end": 7.89
+        },
+        {
+          "raw": "fathers",
+          "start": 7.89,
+          "end": 8.21
+        },
+        {
+          "raw": "that",
+          "start": 8.21,
+          "end": 8.49
+        },
+        {
+          "raw": "bear",
+          "start": 8.49,
+          "end": 8.73
+        },
+        {
+          "raw": "bags",
+          "start": 8.73,
+          "end": 9.13
+        },
+        {
+          "raw": "Shall",
+          "start": 9.13,
+          "end": 9.35
+        },
+        {
+          "raw": "see",
+          "start": 9.35,
+          "end": 9.59
+        },
+        {
+          "raw": "their",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "children",
+          "start": 9.77,
+          "end": 10.15
+        },
+        {
+          "raw": "kind.",
+          "start": 10.15,
+          "end": 10.63
+        },
+        {
+          "raw": "Fortune,",
+          "start": 11.91,
+          "end": 11.91
+        },
+        {
+          "raw": "that",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "raw": "arrant",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "raw": "whore,",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "raw": "Ne",
+          "start": 13.55,
+          "end": 13.59
+        },
+        {
+          "raw": "'er",
+          "start": 13.59,
+          "end": 13.71
+        },
+        {
+          "raw": "turns",
+          "start": 13.71,
+          "end": 13.97
+        },
+        {
+          "raw": "the",
+          "start": 13.97,
+          "end": 14.21
+        },
+        {
+          "raw": "key",
+          "start": 14.21,
+          "end": 14.39
+        },
+        {
+          "raw": "to",
+          "start": 14.39,
+          "end": 14.59
+        },
+        {
+          "raw": "th'",
+          "start": 14.59,
+          "end": 14.91
+        },
+        {
+          "raw": "poor.",
+          "start": 14.91,
+          "end": 15.45
+        },
+        {
+          "raw": "But",
+          "start": 16.07,
+          "end": 16.17
+        },
+        {
+          "raw": "for",
+          "start": 16.17,
+          "end": 16.31
+        },
+        {
+          "raw": "all",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "raw": "this,",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "raw": "thou",
+          "start": 17.21,
+          "end": 17.25
+        },
+        {
+          "raw": "shalt",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "raw": "have",
+          "start": 17.43,
+          "end": 17.65
+        },
+        {
+          "raw": "as",
+          "start": 17.65,
+          "end": 17.81
+        },
+        {
+          "raw": "many",
+          "start": 17.81,
+          "end": 18.03
+        },
+        {
+          "raw": "dolours",
+          "start": 18.03,
+          "end": 18.51
+        },
+        {
+          "raw": "for",
+          "start": 18.51,
+          "end": 18.67
+        },
+        {
+          "raw": "thy",
+          "start": 18.67,
+          "end": 18.85
+        },
+        {
+          "raw": "daughters",
+          "start": 18.85,
+          "end": 19.19
+        },
+        {
+          "raw": "as",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "raw": "thou",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "raw": "canst",
+          "start": 19.63,
+          "end": 20.05
+        },
+        {
+          "raw": "tell",
+          "start": 20.05,
+          "end": 20.31
+        },
+        {
+          "raw": "in",
+          "start": 20.31,
+          "end": 20.49
+        },
+        {
+          "raw": "a",
+          "start": 20.49,
+          "end": 20.63
+        },
+        {
+          "raw": "year.",
+          "start": 20.63,
+          "end": 20.89
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Winter's",
+        "not",
+        "gone",
+        "yet,",
+        "if",
+        "the",
+        "wild",
+        "geese",
+        "fly",
+        "that",
+        "way.",
+        "Fathers",
+        "that",
+        "wear",
+        "rags",
+        "Do",
+        "make",
+        "their",
+        "children",
+        "blind,",
+        "But",
+        "fathers",
+        "that",
+        "bear",
+        "bags",
+        "Shall",
+        "see",
+        "their",
+        "children",
+        "kind.",
+        "Fortune,",
+        "that",
+        "arrant",
+        "whore,",
+        "Ne'er",
+        "turns",
+        "the",
+        "key",
+        "to",
+        "th'",
+        "poor.",
+        "But",
+        "for",
+        "all",
+        "this,",
+        "thou",
+        "shalt",
+        "have",
+        "as",
+        "many",
+        "dolours",
+        "for",
+        "thy",
+        "daughters",
+        "as",
+        "thou",
+        "canst",
+        "tell",
+        "in",
+        "a",
+        "year."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          35,
+          0,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          37
+        ],
+        [
+          "equal",
+          36,
+          62,
+          37,
+          63
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          35,
+          36,
+          35,
+          37
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Winter's",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "winters",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "gone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.27,
+          "end": 2.31,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "wild",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "geese",
+          "start": 2.67,
+          "end": 3.01,
+          "key": "geese",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "fly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.23,
+          "end": 3.45,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 3.45,
+          "end": 3.83,
+          "key": "way",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Fathers",
+          "start": 4.75,
+          "end": 4.75,
+          "key": "fathers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.75,
+          "end": 5.01,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "wear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "rags",
+          "start": 5.23,
+          "end": 5.67,
+          "key": "rags",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 5.67,
+          "end": 5.93,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.93,
+          "end": 6.15,
+          "key": "make",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "their",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 6.35,
+          "end": 6.69,
+          "key": "children",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "blind,",
+          "start": 6.69,
+          "end": 7.17,
+          "key": "blind",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 7.73,
+          "end": 7.89,
+          "key": "but",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "fathers",
+          "start": 7.89,
+          "end": 8.21,
+          "key": "fathers",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.21,
+          "end": 8.49,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 8.49,
+          "end": 8.73,
+          "key": "bear",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "bags",
+          "start": 8.73,
+          "end": 9.13,
+          "key": "bags",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 9.13,
+          "end": 9.35,
+          "key": "shall",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 9.35,
+          "end": 9.59,
+          "key": "see",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "their",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 9.77,
+          "end": 10.15,
+          "key": "children",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "kind.",
+          "start": 10.15,
+          "end": 10.63,
+          "key": "kind",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Fortune,",
+          "start": 11.91,
+          "end": 11.91,
+          "key": "fortune",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.21,
+          "end": 12.37,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "arrant",
+          "start": 12.37,
+          "end": 12.71,
+          "key": "arrant",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whore,",
+          "start": 12.71,
+          "end": 12.97,
+          "key": "whore",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Ne",
+          "start": 13.55,
+          "end": 13.59,
+          "key": "ne",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 13.59,
+          "end": 13.71,
+          "key": "er",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "turns",
+          "start": 13.71,
+          "end": 13.97,
+          "key": "turns",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.97,
+          "end": 14.21,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "key",
+          "start": 14.21,
+          "end": 14.39,
+          "key": "key",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.39,
+          "end": 14.59,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 14.59,
+          "end": 14.91,
+          "key": "th",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "poor.",
+          "start": 14.91,
+          "end": 15.45,
+          "key": "poor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 16.07,
+          "end": 16.17,
+          "key": "but",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.17,
+          "end": 16.31,
+          "key": "for",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 16.31,
+          "end": 16.49,
+          "key": "all",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 16.49,
+          "end": 16.83,
+          "key": "this",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 17.21,
+          "end": 17.25,
+          "key": "thou",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 17.25,
+          "end": 17.43,
+          "key": "shalt",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 17.43,
+          "end": 17.65,
+          "key": "have",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 17.65,
+          "end": 17.81,
+          "key": "as",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 17.81,
+          "end": 18.03,
+          "key": "many",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "dolours",
+          "start": 18.03,
+          "end": 18.51,
+          "key": "dolours",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 18.51,
+          "end": 18.67,
+          "key": "for",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 18.67,
+          "end": 18.85,
+          "key": "thy",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "daughters",
+          "start": 18.85,
+          "end": 19.19,
+          "key": "daughters",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 19.19,
+          "end": 19.45,
+          "key": "as",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 19.45,
+          "end": 19.63,
+          "key": "thou",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 19.63,
+          "end": 20.05,
+          "key": "canst",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 20.05,
+          "end": 20.31,
+          "key": "tell",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.31,
+          "end": 20.49,
+          "key": "in",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 20.49,
+          "end": 20.63,
+          "key": "a",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "year.",
+          "start": 20.63,
+          "end": 20.89,
+          "key": "year",
+          "pieces": [
+            62
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Winter's",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "not",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "gone",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "yet,",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "if",
+          "start": 2.27,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "wild",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "geese",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "text": "fly",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "that",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "text": "way.",
+          "start": 3.45,
+          "end": 3.83
+        },
+        {
+          "text": "Fathers",
+          "start": 4.75,
+          "end": 4.75
+        },
+        {
+          "text": "that",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "text": "wear",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "rags",
+          "start": 5.23,
+          "end": 5.67
+        },
+        {
+          "text": "Do",
+          "start": 5.67,
+          "end": 5.93
+        },
+        {
+          "text": "make",
+          "start": 5.93,
+          "end": 6.15
+        },
+        {
+          "text": "their",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "children",
+          "start": 6.35,
+          "end": 6.69
+        },
+        {
+          "text": "blind,",
+          "start": 6.69,
+          "end": 7.17
+        },
+        {
+          "text": "But",
+          "start": 7.73,
+          "end": 7.89
+        },
+        {
+          "text": "fathers",
+          "start": 7.89,
+          "end": 8.21
+        },
+        {
+          "text": "that",
+          "start": 8.21,
+          "end": 8.49
+        },
+        {
+          "text": "bear",
+          "start": 8.49,
+          "end": 8.73
+        },
+        {
+          "text": "bags",
+          "start": 8.73,
+          "end": 9.13
+        },
+        {
+          "text": "Shall",
+          "start": 9.13,
+          "end": 9.35
+        },
+        {
+          "text": "see",
+          "start": 9.35,
+          "end": 9.59
+        },
+        {
+          "text": "their",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "children",
+          "start": 9.77,
+          "end": 10.15
+        },
+        {
+          "text": "kind.",
+          "start": 10.15,
+          "end": 10.63
+        },
+        {
+          "text": "Fortune,",
+          "start": 11.91,
+          "end": 11.91
+        },
+        {
+          "text": "that",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "text": "arrant",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "text": "whore,",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "text": "Ne'er",
+          "start": 12.97,
+          "end": 13.34
+        },
+        {
+          "text": "turns",
+          "start": 13.71,
+          "end": 13.97
+        },
+        {
+          "text": "the",
+          "start": 13.97,
+          "end": 14.21
+        },
+        {
+          "text": "key",
+          "start": 14.21,
+          "end": 14.39
+        },
+        {
+          "text": "to",
+          "start": 14.39,
+          "end": 14.59
+        },
+        {
+          "text": "th'",
+          "start": 14.59,
+          "end": 14.91
+        },
+        {
+          "text": "poor.",
+          "start": 14.91,
+          "end": 15.45
+        },
+        {
+          "text": "But",
+          "start": 16.07,
+          "end": 16.17
+        },
+        {
+          "text": "for",
+          "start": 16.17,
+          "end": 16.31
+        },
+        {
+          "text": "all",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "text": "this,",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "text": "thou",
+          "start": 17.21,
+          "end": 17.25
+        },
+        {
+          "text": "shalt",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "text": "have",
+          "start": 17.43,
+          "end": 17.65
+        },
+        {
+          "text": "as",
+          "start": 17.65,
+          "end": 17.81
+        },
+        {
+          "text": "many",
+          "start": 17.81,
+          "end": 18.03
+        },
+        {
+          "text": "dolours",
+          "start": 18.03,
+          "end": 18.51
+        },
+        {
+          "text": "for",
+          "start": 18.51,
+          "end": 18.67
+        },
+        {
+          "text": "thy",
+          "start": 18.67,
+          "end": 18.85
+        },
+        {
+          "text": "daughters",
+          "start": 18.85,
+          "end": 19.19
+        },
+        {
+          "text": "as",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "text": "thou",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "text": "canst",
+          "start": 19.63,
+          "end": 20.05
+        },
+        {
+          "text": "tell",
+          "start": 20.05,
+          "end": 20.31
+        },
+        {
+          "text": "in",
+          "start": 20.31,
+          "end": 20.49
+        },
+        {
+          "text": "a",
+          "start": 20.49,
+          "end": 20.63
+        },
+        {
+          "text": "year.",
+          "start": 20.63,
+          "end": 20.89
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 63,
+        "matched_words": 61
+      },
+      "match_ratio": 0.9838709677419355,
+      "rejection_reasons": [],
+      "seconds": 0.4326179511845112
+    },
+    {
+      "asr_seconds": 0.4823393486440182,
+      "alignment_seconds": 0.0004532374441623688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Fool, Winter's, Do, But, Shall, Fortune, Ne'er"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Fool, Winter's not gone yet if the wild geese fly that way.",
+          "start": 0.05,
+          "end": 3.87,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " Winter's",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.54693603515625
+            },
+            {
+              "text": " not",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gone",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " yet",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " if",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " wild",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " geese",
+              "start": 2.67,
+              "end": 3.01,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " fly",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.97265625
+            },
+            {
+              "text": " that",
+              "start": 3.23,
+              "end": 3.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " way.",
+              "start": 3.47,
+              "end": 3.87,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Fathers that wear rags do make their children blind,",
+          "start": 4.75,
+          "end": 7.19,
+          "words": [
+            {
+              "text": " Fathers",
+              "start": 4.75,
+              "end": 4.75,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " that",
+              "start": 4.75,
+              "end": 5.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " wear",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " rags",
+              "start": 5.23,
+              "end": 5.67,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " do",
+              "start": 5.67,
+              "end": 5.95,
+              "probability": 0.98046875
+            },
+            {
+              "text": " make",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " children",
+              "start": 6.35,
+              "end": 6.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " blind,",
+              "start": 6.71,
+              "end": 7.19,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " but Fathers that bear bags shall see their children kind.",
+          "start": 7.67,
+          "end": 10.67,
+          "words": [
+            {
+              "text": " but",
+              "start": 7.67,
+              "end": 7.89,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Fathers",
+              "start": 7.89,
+              "end": 8.19,
+              "probability": 0.15380859375
+            },
+            {
+              "text": " that",
+              "start": 8.19,
+              "end": 8.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bear",
+              "start": 8.49,
+              "end": 8.73,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " bags",
+              "start": 8.73,
+              "end": 9.15,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " shall",
+              "start": 9.15,
+              "end": 9.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " see",
+              "start": 9.35,
+              "end": 9.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " children",
+              "start": 9.77,
+              "end": 10.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " kind.",
+              "start": 10.17,
+              "end": 10.67,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Fortune, that errant whore, Ne'er turns the key to T.H. poor.",
+          "start": 11.91,
+          "end": 15.43,
+          "words": [
+            {
+              "text": " Fortune,",
+              "start": 11.91,
+              "end": 11.91,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 12.21,
+              "end": 12.37,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " errant",
+              "start": 12.37,
+              "end": 12.71,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " whore,",
+              "start": 12.71,
+              "end": 12.97,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Ne",
+              "start": 13.57,
+              "end": 13.59,
+              "probability": 0.008575439453125
+            },
+            {
+              "text": "'er",
+              "start": 13.59,
+              "end": 13.71,
+              "probability": 0.87890625
+            },
+            {
+              "text": " turns",
+              "start": 13.71,
+              "end": 13.99,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 13.99,
+              "end": 14.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " key",
+              "start": 14.21,
+              "end": 14.39,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " to",
+              "start": 14.39,
+              "end": 14.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " T",
+              "start": 14.59,
+              "end": 14.79,
+              "probability": 0.326904296875
+            },
+            {
+              "text": ".H.",
+              "start": 14.79,
+              "end": 15.03,
+              "probability": 0.859619140625
+            },
+            {
+              "text": " poor.",
+              "start": 15.03,
+              "end": 15.43,
+              "probability": 0.7744140625
+            }
+          ]
+        },
+        {
+          "text": " But for all this, thou shalt have as many dollars for thy daughters",
+          "start": 16.03,
+          "end": 19.17,
+          "words": [
+            {
+              "text": " But",
+              "start": 16.03,
+              "end": 16.17,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " for",
+              "start": 16.17,
+              "end": 16.31,
+              "probability": 0.984375
+            },
+            {
+              "text": " all",
+              "start": 16.31,
+              "end": 16.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this,",
+              "start": 16.49,
+              "end": 16.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thou",
+              "start": 17.17,
+              "end": 17.25,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " shalt",
+              "start": 17.25,
+              "end": 17.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " have",
+              "start": 17.43,
+              "end": 17.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 17.67,
+              "end": 17.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " many",
+              "start": 17.81,
+              "end": 18.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dollars",
+              "start": 18.05,
+              "end": 18.39,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " for",
+              "start": 18.39,
+              "end": 18.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thy",
+              "start": 18.67,
+              "end": 18.87,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " daughters",
+              "start": 18.87,
+              "end": 19.17,
+              "probability": 0.94140625
+            }
+          ]
+        },
+        {
+          "text": " as thou canst tell in a year.",
+          "start": 19.17,
+          "end": 20.87,
+          "words": [
+            {
+              "text": " as",
+              "start": 19.17,
+              "end": 19.45,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thou",
+              "start": 19.45,
+              "end": 19.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " canst",
+              "start": 19.63,
+              "end": 20.05,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " tell",
+              "start": 20.05,
+              "end": 20.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 20.31,
+              "end": 20.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 20.49,
+              "end": 20.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " year.",
+              "start": 20.63,
+              "end": 20.87,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Winter's",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "gone",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "yet",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "if",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "wild",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "geese",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "raw": "fly",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "that",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "raw": "way.",
+          "start": 3.47,
+          "end": 3.87
+        },
+        {
+          "raw": "Fathers",
+          "start": 4.75,
+          "end": 4.75
+        },
+        {
+          "raw": "that",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "raw": "wear",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "rags",
+          "start": 5.23,
+          "end": 5.67
+        },
+        {
+          "raw": "do",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "raw": "make",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "their",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "children",
+          "start": 6.35,
+          "end": 6.71
+        },
+        {
+          "raw": "blind,",
+          "start": 6.71,
+          "end": 7.19
+        },
+        {
+          "raw": "but",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "raw": "Fathers",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "raw": "that",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "raw": "bear",
+          "start": 8.49,
+          "end": 8.73
+        },
+        {
+          "raw": "bags",
+          "start": 8.73,
+          "end": 9.15
+        },
+        {
+          "raw": "shall",
+          "start": 9.15,
+          "end": 9.35
+        },
+        {
+          "raw": "see",
+          "start": 9.35,
+          "end": 9.59
+        },
+        {
+          "raw": "their",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "children",
+          "start": 9.77,
+          "end": 10.17
+        },
+        {
+          "raw": "kind.",
+          "start": 10.17,
+          "end": 10.67
+        },
+        {
+          "raw": "Fortune,",
+          "start": 11.91,
+          "end": 11.91
+        },
+        {
+          "raw": "that",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "raw": "errant",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "raw": "whore,",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "raw": "Ne",
+          "start": 13.57,
+          "end": 13.59
+        },
+        {
+          "raw": "'er",
+          "start": 13.59,
+          "end": 13.71
+        },
+        {
+          "raw": "turns",
+          "start": 13.71,
+          "end": 13.99
+        },
+        {
+          "raw": "the",
+          "start": 13.99,
+          "end": 14.21
+        },
+        {
+          "raw": "key",
+          "start": 14.21,
+          "end": 14.39
+        },
+        {
+          "raw": "to",
+          "start": 14.39,
+          "end": 14.59
+        },
+        {
+          "raw": "T",
+          "start": 14.59,
+          "end": 14.79
+        },
+        {
+          "raw": ".H.",
+          "start": 14.79,
+          "end": 15.03
+        },
+        {
+          "raw": "poor.",
+          "start": 15.03,
+          "end": 15.43
+        },
+        {
+          "raw": "But",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "raw": "for",
+          "start": 16.17,
+          "end": 16.31
+        },
+        {
+          "raw": "all",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "raw": "this,",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "raw": "thou",
+          "start": 17.17,
+          "end": 17.25
+        },
+        {
+          "raw": "shalt",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "raw": "have",
+          "start": 17.43,
+          "end": 17.67
+        },
+        {
+          "raw": "as",
+          "start": 17.67,
+          "end": 17.81
+        },
+        {
+          "raw": "many",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "raw": "dollars",
+          "start": 18.05,
+          "end": 18.39
+        },
+        {
+          "raw": "for",
+          "start": 18.39,
+          "end": 18.67
+        },
+        {
+          "raw": "thy",
+          "start": 18.67,
+          "end": 18.87
+        },
+        {
+          "raw": "daughters",
+          "start": 18.87,
+          "end": 19.17
+        },
+        {
+          "raw": "as",
+          "start": 19.17,
+          "end": 19.45
+        },
+        {
+          "raw": "thou",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "raw": "canst",
+          "start": 19.63,
+          "end": 20.05
+        },
+        {
+          "raw": "tell",
+          "start": 20.05,
+          "end": 20.31
+        },
+        {
+          "raw": "in",
+          "start": 20.31,
+          "end": 20.49
+        },
+        {
+          "raw": "a",
+          "start": 20.49,
+          "end": 20.63
+        },
+        {
+          "raw": "year.",
+          "start": 20.63,
+          "end": 20.87
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Winter's",
+        "not",
+        "gone",
+        "yet,",
+        "if",
+        "the",
+        "wild",
+        "geese",
+        "fly",
+        "that",
+        "way.",
+        "Fathers",
+        "that",
+        "wear",
+        "rags",
+        "Do",
+        "make",
+        "their",
+        "children",
+        "blind,",
+        "But",
+        "fathers",
+        "that",
+        "bear",
+        "bags",
+        "Shall",
+        "see",
+        "their",
+        "children",
+        "kind.",
+        "Fortune,",
+        "that",
+        "arrant",
+        "whore,",
+        "Ne'er",
+        "turns",
+        "the",
+        "key",
+        "to",
+        "th'",
+        "poor.",
+        "But",
+        "for",
+        "all",
+        "this,",
+        "thou",
+        "shalt",
+        "have",
+        "as",
+        "many",
+        "dolours",
+        "for",
+        "thy",
+        "daughters",
+        "as",
+        "thou",
+        "canst",
+        "tell",
+        "in",
+        "a",
+        "year."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ],
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ],
+        [
+          "equal",
+          34,
+          35,
+          34,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          37
+        ],
+        [
+          "equal",
+          36,
+          40,
+          37,
+          41
+        ],
+        [
+          "replace",
+          40,
+          41,
+          41,
+          43
+        ],
+        [
+          "equal",
+          41,
+          51,
+          43,
+          53
+        ],
+        [
+          "replace",
+          51,
+          52,
+          53,
+          54
+        ],
+        [
+          "equal",
+          52,
+          62,
+          54,
+          64
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          37
+        ],
+        [
+          "replace",
+          40,
+          41,
+          41,
+          43
+        ],
+        [
+          "replace",
+          51,
+          52,
+          53,
+          54
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Winter's",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "winters",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "gone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "wild",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "geese",
+          "start": 2.67,
+          "end": 3.01,
+          "key": "geese",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "fly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.23,
+          "end": 3.47,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 3.47,
+          "end": 3.87,
+          "key": "way",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Fathers",
+          "start": 4.75,
+          "end": 4.75,
+          "key": "fathers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.75,
+          "end": 5.01,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "wear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "rags",
+          "start": 5.23,
+          "end": 5.67,
+          "key": "rags",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.67,
+          "end": 5.95,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.95,
+          "end": 6.15,
+          "key": "make",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "their",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 6.35,
+          "end": 6.71,
+          "key": "children",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "blind,",
+          "start": 6.71,
+          "end": 7.19,
+          "key": "blind",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.67,
+          "end": 7.89,
+          "key": "but",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Fathers",
+          "start": 7.89,
+          "end": 8.19,
+          "key": "fathers",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.19,
+          "end": 8.49,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 8.49,
+          "end": 8.73,
+          "key": "bear",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "bags",
+          "start": 8.73,
+          "end": 9.15,
+          "key": "bags",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 9.15,
+          "end": 9.35,
+          "key": "shall",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 9.35,
+          "end": 9.59,
+          "key": "see",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "their",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 9.77,
+          "end": 10.17,
+          "key": "children",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "kind.",
+          "start": 10.17,
+          "end": 10.67,
+          "key": "kind",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Fortune,",
+          "start": 11.91,
+          "end": 11.91,
+          "key": "fortune",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.21,
+          "end": 12.37,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "errant",
+          "start": 12.37,
+          "end": 12.71,
+          "key": "errant",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whore,",
+          "start": 12.71,
+          "end": 12.97,
+          "key": "whore",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Ne",
+          "start": 13.57,
+          "end": 13.59,
+          "key": "ne",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 13.59,
+          "end": 13.71,
+          "key": "er",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "turns",
+          "start": 13.71,
+          "end": 13.99,
+          "key": "turns",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.99,
+          "end": 14.21,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "key",
+          "start": 14.21,
+          "end": 14.39,
+          "key": "key",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.39,
+          "end": 14.59,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 14.59,
+          "end": 14.79,
+          "key": "t",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 14.79,
+          "end": 15.03,
+          "key": "h",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "poor.",
+          "start": 15.03,
+          "end": 15.43,
+          "key": "poor",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 16.03,
+          "end": 16.17,
+          "key": "but",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.17,
+          "end": 16.31,
+          "key": "for",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 16.31,
+          "end": 16.49,
+          "key": "all",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 16.49,
+          "end": 16.83,
+          "key": "this",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 17.17,
+          "end": 17.25,
+          "key": "thou",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 17.25,
+          "end": 17.43,
+          "key": "shalt",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 17.43,
+          "end": 17.67,
+          "key": "have",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 17.67,
+          "end": 17.81,
+          "key": "as",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 17.81,
+          "end": 18.05,
+          "key": "many",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "dollars",
+          "start": 18.05,
+          "end": 18.39,
+          "key": "dollars",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 18.39,
+          "end": 18.67,
+          "key": "for",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 18.67,
+          "end": 18.87,
+          "key": "thy",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "daughters",
+          "start": 18.87,
+          "end": 19.17,
+          "key": "daughters",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 19.17,
+          "end": 19.45,
+          "key": "as",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 19.45,
+          "end": 19.63,
+          "key": "thou",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 19.63,
+          "end": 20.05,
+          "key": "canst",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 20.05,
+          "end": 20.31,
+          "key": "tell",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.31,
+          "end": 20.49,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 20.49,
+          "end": 20.63,
+          "key": "a",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "year.",
+          "start": 20.63,
+          "end": 20.87,
+          "key": "year",
+          "pieces": [
+            63
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Winter's",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "not",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "gone",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "yet,",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "if",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "wild",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "geese",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "text": "fly",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "that",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "text": "way.",
+          "start": 3.47,
+          "end": 3.87
+        },
+        {
+          "text": "Fathers",
+          "start": 4.75,
+          "end": 4.75
+        },
+        {
+          "text": "that",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "text": "wear",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "rags",
+          "start": 5.23,
+          "end": 5.67
+        },
+        {
+          "text": "Do",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "text": "make",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "text": "their",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "children",
+          "start": 6.35,
+          "end": 6.71
+        },
+        {
+          "text": "blind,",
+          "start": 6.71,
+          "end": 7.19
+        },
+        {
+          "text": "But",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "text": "fathers",
+          "start": 7.89,
+          "end": 8.19
+        },
+        {
+          "text": "that",
+          "start": 8.19,
+          "end": 8.49
+        },
+        {
+          "text": "bear",
+          "start": 8.49,
+          "end": 8.73
+        },
+        {
+          "text": "bags",
+          "start": 8.73,
+          "end": 9.15
+        },
+        {
+          "text": "Shall",
+          "start": 9.15,
+          "end": 9.35
+        },
+        {
+          "text": "see",
+          "start": 9.35,
+          "end": 9.59
+        },
+        {
+          "text": "their",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "children",
+          "start": 9.77,
+          "end": 10.17
+        },
+        {
+          "text": "kind.",
+          "start": 10.17,
+          "end": 10.67
+        },
+        {
+          "text": "Fortune,",
+          "start": 11.91,
+          "end": 11.91
+        },
+        {
+          "text": "that",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "text": "arrant",
+          "start": 12.37,
+          "end": 12.54
+        },
+        {
+          "text": "whore,",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "text": "Ne'er",
+          "start": 12.97,
+          "end": 13.34
+        },
+        {
+          "text": "turns",
+          "start": 13.71,
+          "end": 13.99
+        },
+        {
+          "text": "the",
+          "start": 13.99,
+          "end": 14.21
+        },
+        {
+          "text": "key",
+          "start": 14.21,
+          "end": 14.39
+        },
+        {
+          "text": "to",
+          "start": 14.39,
+          "end": 14.59
+        },
+        {
+          "text": "th'",
+          "start": 14.59,
+          "end": 14.81
+        },
+        {
+          "text": "poor.",
+          "start": 15.03,
+          "end": 15.43
+        },
+        {
+          "text": "But",
+          "start": 16.03,
+          "end": 16.17
+        },
+        {
+          "text": "for",
+          "start": 16.17,
+          "end": 16.31
+        },
+        {
+          "text": "all",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "text": "this,",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "text": "thou",
+          "start": 17.17,
+          "end": 17.25
+        },
+        {
+          "text": "shalt",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "text": "have",
+          "start": 17.43,
+          "end": 17.67
+        },
+        {
+          "text": "as",
+          "start": 17.67,
+          "end": 17.81
+        },
+        {
+          "text": "many",
+          "start": 17.81,
+          "end": 18.05
+        },
+        {
+          "text": "dolours",
+          "start": 18.05,
+          "end": 18.22
+        },
+        {
+          "text": "for",
+          "start": 18.39,
+          "end": 18.67
+        },
+        {
+          "text": "thy",
+          "start": 18.67,
+          "end": 18.87
+        },
+        {
+          "text": "daughters",
+          "start": 18.87,
+          "end": 19.17
+        },
+        {
+          "text": "as",
+          "start": 19.17,
+          "end": 19.45
+        },
+        {
+          "text": "thou",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "text": "canst",
+          "start": 19.63,
+          "end": 20.05
+        },
+        {
+          "text": "tell",
+          "start": 20.05,
+          "end": 20.31
+        },
+        {
+          "text": "in",
+          "start": 20.31,
+          "end": 20.49
+        },
+        {
+          "text": "a",
+          "start": 20.49,
+          "end": 20.63
+        },
+        {
+          "text": "year.",
+          "start": 20.63,
+          "end": 20.87
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 64,
+        "matched_words": 58
+      },
+      "match_ratio": 0.9354838709677419,
+      "rejection_reasons": [],
+      "seconds": 0.48297885432839394
+    },
+    {
+      "asr_seconds": 0.4915835112333298,
+      "alignment_seconds": 0.000881485641002655,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool, winter's not gone yet if the wild geese fly that way.",
+          "start": 0.05,
+          "end": 3.87,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " winter's",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.887451171875
+            },
+            {
+              "text": " not",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gone",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " yet",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " if",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wild",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " geese",
+              "start": 2.67,
+              "end": 2.99,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " fly",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that",
+              "start": 3.23,
+              "end": 3.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " way.",
+              "start": 3.45,
+              "end": 3.87,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Fathers that wear rags do make their children blind, but fathers that bear bags shall see",
+          "start": 4.77,
+          "end": 9.59,
+          "words": [
+            {
+              "text": " Fathers",
+              "start": 4.77,
+              "end": 4.77,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " that",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wear",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rags",
+              "start": 5.23,
+              "end": 5.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 5.67,
+              "end": 5.95,
+              "probability": 0.984375
+            },
+            {
+              "text": " make",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " children",
+              "start": 6.35,
+              "end": 6.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " blind,",
+              "start": 6.73,
+              "end": 7.21,
+              "probability": 1.0
+            },
+            {
+              "text": " but",
+              "start": 7.67,
+              "end": 7.87,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " fathers",
+              "start": 7.87,
+              "end": 8.21,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " that",
+              "start": 8.21,
+              "end": 8.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bear",
+              "start": 8.49,
+              "end": 8.73,
+              "probability": 0.849609375
+            },
+            {
+              "text": " bags",
+              "start": 8.73,
+              "end": 9.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " shall",
+              "start": 9.15,
+              "end": 9.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " see",
+              "start": 9.35,
+              "end": 9.59,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " their children kind.",
+          "start": 9.59,
+          "end": 10.65,
+          "words": [
+            {
+              "text": " their",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " children",
+              "start": 9.77,
+              "end": 10.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kind.",
+              "start": 10.17,
+              "end": 10.65,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Fortune, that errant whore, ne'er turns the key to th poor.",
+          "start": 11.91,
+          "end": 15.43,
+          "words": [
+            {
+              "text": " Fortune,",
+              "start": 11.91,
+              "end": 11.91,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " that",
+              "start": 12.21,
+              "end": 12.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " errant",
+              "start": 12.37,
+              "end": 12.71,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " whore,",
+              "start": 12.71,
+              "end": 12.97,
+              "probability": 0.9765625
+            },
+            {
+              "text": " ne",
+              "start": 13.55,
+              "end": 13.59,
+              "probability": 0.78857421875
+            },
+            {
+              "text": "'er",
+              "start": 13.59,
+              "end": 13.71,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " turns",
+              "start": 13.71,
+              "end": 13.99,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 13.99,
+              "end": 14.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " key",
+              "start": 14.21,
+              "end": 14.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 14.39,
+              "end": 14.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " th",
+              "start": 14.59,
+              "end": 14.95,
+              "probability": 0.4931640625
+            },
+            {
+              "text": " poor.",
+              "start": 14.95,
+              "end": 15.43,
+              "probability": 0.6669921875
+            }
+          ]
+        },
+        {
+          "text": " But for all this, thou shalt have as many dollars for thy daughters as thou canst tell",
+          "start": 16.05,
+          "end": 20.31,
+          "words": [
+            {
+              "text": " But",
+              "start": 16.05,
+              "end": 16.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " for",
+              "start": 16.17,
+              "end": 16.31,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " all",
+              "start": 16.31,
+              "end": 16.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this,",
+              "start": 16.49,
+              "end": 16.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thou",
+              "start": 17.17,
+              "end": 17.25,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " shalt",
+              "start": 17.25,
+              "end": 17.43,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " have",
+              "start": 17.43,
+              "end": 17.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 17.67,
+              "end": 17.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " many",
+              "start": 17.81,
+              "end": 18.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dollars",
+              "start": 18.03,
+              "end": 18.43,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " for",
+              "start": 18.43,
+              "end": 18.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 18.67,
+              "end": 18.87,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " daughters",
+              "start": 18.87,
+              "end": 19.19,
+              "probability": 0.9765625
+            },
+            {
+              "text": " as",
+              "start": 19.19,
+              "end": 19.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thou",
+              "start": 19.45,
+              "end": 19.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " canst",
+              "start": 19.63,
+              "end": 20.05,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " tell",
+              "start": 20.05,
+              "end": 20.31,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " in a year.",
+          "start": 20.31,
+          "end": 20.87,
+          "words": [
+            {
+              "text": " in",
+              "start": 20.31,
+              "end": 20.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 20.49,
+              "end": 20.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " year.",
+              "start": 20.61,
+              "end": 20.87,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "winter's",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "gone",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "yet",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "if",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "wild",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "geese",
+          "start": 2.67,
+          "end": 2.99
+        },
+        {
+          "raw": "fly",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "raw": "that",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "raw": "way.",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "raw": "Fathers",
+          "start": 4.77,
+          "end": 4.77
+        },
+        {
+          "raw": "that",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "wear",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "rags",
+          "start": 5.23,
+          "end": 5.67
+        },
+        {
+          "raw": "do",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "raw": "make",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "their",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "children",
+          "start": 6.35,
+          "end": 6.73
+        },
+        {
+          "raw": "blind,",
+          "start": 6.73,
+          "end": 7.21
+        },
+        {
+          "raw": "but",
+          "start": 7.67,
+          "end": 7.87
+        },
+        {
+          "raw": "fathers",
+          "start": 7.87,
+          "end": 8.21
+        },
+        {
+          "raw": "that",
+          "start": 8.21,
+          "end": 8.49
+        },
+        {
+          "raw": "bear",
+          "start": 8.49,
+          "end": 8.73
+        },
+        {
+          "raw": "bags",
+          "start": 8.73,
+          "end": 9.15
+        },
+        {
+          "raw": "shall",
+          "start": 9.15,
+          "end": 9.35
+        },
+        {
+          "raw": "see",
+          "start": 9.35,
+          "end": 9.59
+        },
+        {
+          "raw": "their",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "children",
+          "start": 9.77,
+          "end": 10.17
+        },
+        {
+          "raw": "kind.",
+          "start": 10.17,
+          "end": 10.65
+        },
+        {
+          "raw": "Fortune,",
+          "start": 11.91,
+          "end": 11.91
+        },
+        {
+          "raw": "that",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "raw": "errant",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "raw": "whore,",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "raw": "ne",
+          "start": 13.55,
+          "end": 13.59
+        },
+        {
+          "raw": "'er",
+          "start": 13.59,
+          "end": 13.71
+        },
+        {
+          "raw": "turns",
+          "start": 13.71,
+          "end": 13.99
+        },
+        {
+          "raw": "the",
+          "start": 13.99,
+          "end": 14.21
+        },
+        {
+          "raw": "key",
+          "start": 14.21,
+          "end": 14.39
+        },
+        {
+          "raw": "to",
+          "start": 14.39,
+          "end": 14.59
+        },
+        {
+          "raw": "th",
+          "start": 14.59,
+          "end": 14.95
+        },
+        {
+          "raw": "poor.",
+          "start": 14.95,
+          "end": 15.43
+        },
+        {
+          "raw": "But",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "raw": "for",
+          "start": 16.17,
+          "end": 16.31
+        },
+        {
+          "raw": "all",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "raw": "this,",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "raw": "thou",
+          "start": 17.17,
+          "end": 17.25
+        },
+        {
+          "raw": "shalt",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "raw": "have",
+          "start": 17.43,
+          "end": 17.67
+        },
+        {
+          "raw": "as",
+          "start": 17.67,
+          "end": 17.81
+        },
+        {
+          "raw": "many",
+          "start": 17.81,
+          "end": 18.03
+        },
+        {
+          "raw": "dollars",
+          "start": 18.03,
+          "end": 18.43
+        },
+        {
+          "raw": "for",
+          "start": 18.43,
+          "end": 18.67
+        },
+        {
+          "raw": "thy",
+          "start": 18.67,
+          "end": 18.87
+        },
+        {
+          "raw": "daughters",
+          "start": 18.87,
+          "end": 19.19
+        },
+        {
+          "raw": "as",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "raw": "thou",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "raw": "canst",
+          "start": 19.63,
+          "end": 20.05
+        },
+        {
+          "raw": "tell",
+          "start": 20.05,
+          "end": 20.31
+        },
+        {
+          "raw": "in",
+          "start": 20.31,
+          "end": 20.49
+        },
+        {
+          "raw": "a",
+          "start": 20.49,
+          "end": 20.61
+        },
+        {
+          "raw": "year.",
+          "start": 20.61,
+          "end": 20.87
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Winter's",
+        "not",
+        "gone",
+        "yet,",
+        "if",
+        "the",
+        "wild",
+        "geese",
+        "fly",
+        "that",
+        "way.",
+        "Fathers",
+        "that",
+        "wear",
+        "rags",
+        "Do",
+        "make",
+        "their",
+        "children",
+        "blind,",
+        "But",
+        "fathers",
+        "that",
+        "bear",
+        "bags",
+        "Shall",
+        "see",
+        "their",
+        "children",
+        "kind.",
+        "Fortune,",
+        "that",
+        "arrant",
+        "whore,",
+        "Ne'er",
+        "turns",
+        "the",
+        "key",
+        "to",
+        "th'",
+        "poor.",
+        "But",
+        "for",
+        "all",
+        "this,",
+        "thou",
+        "shalt",
+        "have",
+        "as",
+        "many",
+        "dolours",
+        "for",
+        "thy",
+        "daughters",
+        "as",
+        "thou",
+        "canst",
+        "tell",
+        "in",
+        "a",
+        "year."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ],
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ],
+        [
+          "equal",
+          34,
+          35,
+          34,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          37
+        ],
+        [
+          "equal",
+          36,
+          51,
+          37,
+          52
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          53
+        ],
+        [
+          "equal",
+          52,
+          62,
+          53,
+          63
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          37
+        ],
+        [
+          "replace",
+          51,
+          52,
+          52,
+          53
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "winter's",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "winters",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "gone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "wild",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "geese",
+          "start": 2.67,
+          "end": 2.99,
+          "key": "geese",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "fly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.23,
+          "end": 3.45,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 3.45,
+          "end": 3.87,
+          "key": "way",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Fathers",
+          "start": 4.77,
+          "end": 4.77,
+          "key": "fathers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "wear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "rags",
+          "start": 5.23,
+          "end": 5.67,
+          "key": "rags",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.67,
+          "end": 5.95,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.95,
+          "end": 6.15,
+          "key": "make",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "their",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 6.35,
+          "end": 6.73,
+          "key": "children",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "blind,",
+          "start": 6.73,
+          "end": 7.21,
+          "key": "blind",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.67,
+          "end": 7.87,
+          "key": "but",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "fathers",
+          "start": 7.87,
+          "end": 8.21,
+          "key": "fathers",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.21,
+          "end": 8.49,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 8.49,
+          "end": 8.73,
+          "key": "bear",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "bags",
+          "start": 8.73,
+          "end": 9.15,
+          "key": "bags",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 9.15,
+          "end": 9.35,
+          "key": "shall",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 9.35,
+          "end": 9.59,
+          "key": "see",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "their",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 9.77,
+          "end": 10.17,
+          "key": "children",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "kind.",
+          "start": 10.17,
+          "end": 10.65,
+          "key": "kind",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Fortune,",
+          "start": 11.91,
+          "end": 11.91,
+          "key": "fortune",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.21,
+          "end": 12.37,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "errant",
+          "start": 12.37,
+          "end": 12.71,
+          "key": "errant",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whore,",
+          "start": 12.71,
+          "end": 12.97,
+          "key": "whore",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 13.55,
+          "end": 13.59,
+          "key": "ne",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 13.59,
+          "end": 13.71,
+          "key": "er",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "turns",
+          "start": 13.71,
+          "end": 13.99,
+          "key": "turns",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.99,
+          "end": 14.21,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "key",
+          "start": 14.21,
+          "end": 14.39,
+          "key": "key",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.39,
+          "end": 14.59,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "th",
+          "start": 14.59,
+          "end": 14.95,
+          "key": "th",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "poor.",
+          "start": 14.95,
+          "end": 15.43,
+          "key": "poor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 16.05,
+          "end": 16.17,
+          "key": "but",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.17,
+          "end": 16.31,
+          "key": "for",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 16.31,
+          "end": 16.49,
+          "key": "all",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 16.49,
+          "end": 16.83,
+          "key": "this",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 17.17,
+          "end": 17.25,
+          "key": "thou",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 17.25,
+          "end": 17.43,
+          "key": "shalt",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 17.43,
+          "end": 17.67,
+          "key": "have",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 17.67,
+          "end": 17.81,
+          "key": "as",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 17.81,
+          "end": 18.03,
+          "key": "many",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "dollars",
+          "start": 18.03,
+          "end": 18.43,
+          "key": "dollars",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 18.43,
+          "end": 18.67,
+          "key": "for",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 18.67,
+          "end": 18.87,
+          "key": "thy",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "daughters",
+          "start": 18.87,
+          "end": 19.19,
+          "key": "daughters",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 19.19,
+          "end": 19.45,
+          "key": "as",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 19.45,
+          "end": 19.63,
+          "key": "thou",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 19.63,
+          "end": 20.05,
+          "key": "canst",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 20.05,
+          "end": 20.31,
+          "key": "tell",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.31,
+          "end": 20.49,
+          "key": "in",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 20.49,
+          "end": 20.61,
+          "key": "a",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "year.",
+          "start": 20.61,
+          "end": 20.87,
+          "key": "year",
+          "pieces": [
+            62
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Winter's",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "not",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "gone",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "yet,",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "if",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "wild",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "geese",
+          "start": 2.67,
+          "end": 2.99
+        },
+        {
+          "text": "fly",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "text": "that",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "text": "way.",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "text": "Fathers",
+          "start": 4.77,
+          "end": 4.77
+        },
+        {
+          "text": "that",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "wear",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "rags",
+          "start": 5.23,
+          "end": 5.67
+        },
+        {
+          "text": "Do",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "text": "make",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "text": "their",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "children",
+          "start": 6.35,
+          "end": 6.73
+        },
+        {
+          "text": "blind,",
+          "start": 6.73,
+          "end": 7.21
+        },
+        {
+          "text": "But",
+          "start": 7.67,
+          "end": 7.87
+        },
+        {
+          "text": "fathers",
+          "start": 7.87,
+          "end": 8.21
+        },
+        {
+          "text": "that",
+          "start": 8.21,
+          "end": 8.49
+        },
+        {
+          "text": "bear",
+          "start": 8.49,
+          "end": 8.73
+        },
+        {
+          "text": "bags",
+          "start": 8.73,
+          "end": 9.15
+        },
+        {
+          "text": "Shall",
+          "start": 9.15,
+          "end": 9.35
+        },
+        {
+          "text": "see",
+          "start": 9.35,
+          "end": 9.59
+        },
+        {
+          "text": "their",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "children",
+          "start": 9.77,
+          "end": 10.17
+        },
+        {
+          "text": "kind.",
+          "start": 10.17,
+          "end": 10.65
+        },
+        {
+          "text": "Fortune,",
+          "start": 11.91,
+          "end": 11.91
+        },
+        {
+          "text": "that",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "text": "arrant",
+          "start": 12.37,
+          "end": 12.54
+        },
+        {
+          "text": "whore,",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "text": "Ne'er",
+          "start": 12.97,
+          "end": 13.34
+        },
+        {
+          "text": "turns",
+          "start": 13.71,
+          "end": 13.99
+        },
+        {
+          "text": "the",
+          "start": 13.99,
+          "end": 14.21
+        },
+        {
+          "text": "key",
+          "start": 14.21,
+          "end": 14.39
+        },
+        {
+          "text": "to",
+          "start": 14.39,
+          "end": 14.59
+        },
+        {
+          "text": "th'",
+          "start": 14.59,
+          "end": 14.95
+        },
+        {
+          "text": "poor.",
+          "start": 14.95,
+          "end": 15.43
+        },
+        {
+          "text": "But",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "text": "for",
+          "start": 16.17,
+          "end": 16.31
+        },
+        {
+          "text": "all",
+          "start": 16.31,
+          "end": 16.49
+        },
+        {
+          "text": "this,",
+          "start": 16.49,
+          "end": 16.83
+        },
+        {
+          "text": "thou",
+          "start": 17.17,
+          "end": 17.25
+        },
+        {
+          "text": "shalt",
+          "start": 17.25,
+          "end": 17.43
+        },
+        {
+          "text": "have",
+          "start": 17.43,
+          "end": 17.67
+        },
+        {
+          "text": "as",
+          "start": 17.67,
+          "end": 17.81
+        },
+        {
+          "text": "many",
+          "start": 17.81,
+          "end": 18.03
+        },
+        {
+          "text": "dolours",
+          "start": 18.03,
+          "end": 18.23
+        },
+        {
+          "text": "for",
+          "start": 18.43,
+          "end": 18.67
+        },
+        {
+          "text": "thy",
+          "start": 18.67,
+          "end": 18.87
+        },
+        {
+          "text": "daughters",
+          "start": 18.87,
+          "end": 19.19
+        },
+        {
+          "text": "as",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "text": "thou",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "text": "canst",
+          "start": 19.63,
+          "end": 20.05
+        },
+        {
+          "text": "tell",
+          "start": 20.05,
+          "end": 20.31
+        },
+        {
+          "text": "in",
+          "start": 20.31,
+          "end": 20.49
+        },
+        {
+          "text": "a",
+          "start": 20.49,
+          "end": 20.61
+        },
+        {
+          "text": "year.",
+          "start": 20.61,
+          "end": 20.87
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 63,
+        "matched_words": 59
+      },
+      "match_ratio": 0.9516129032258065,
+      "rejection_reasons": [],
+      "seconds": 0.492833960801363
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0cf87259de05fda918d14a7f1998fbccd1653f39629f75adcc1b7f7907bc00e9",
+  "selected_reasons": []
+}

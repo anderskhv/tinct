@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "0bfaebccdc2f9e27285ee51633efe9c6b678a24d0c58579839207ca0b486d00d",
+  "attempts": [
+    {
+      "asr_seconds": 0.06866046413779259,
+      "alignment_seconds": 8.869171142578125e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, no madam.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " no",
+              "start": 1.17,
+              "end": 1.35,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " madam.",
+              "start": 1.35,
+              "end": 1.79,
+              "probability": 0.845947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "no",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "raw": "madam.",
+          "start": 1.35,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "No,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.17,
+          "end": 1.35,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.35,
+          "end": 1.79,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "No,",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "text": "madam.",
+          "start": 1.35,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06877702847123146
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "898fafdc7cb4b70648c66d795bffeb224ca5aa89d531d08a7acafecf4b24ccb8",
+  "selected_reasons": []
+}

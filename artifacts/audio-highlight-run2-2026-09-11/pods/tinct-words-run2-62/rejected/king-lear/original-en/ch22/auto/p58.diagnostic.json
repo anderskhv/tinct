@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4eecd3408a8967fe79a8e9e0bcf9454a3ba0ef5fb0ef03853fc96167d699d7fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.08330989629030228,
+      "alignment_seconds": 0.00012718886137008667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. Ay, sir.",
+        "hotwords": "Gloucester, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, Ay, sir.",
+          "start": 0.53,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.53,
+              "end": 0.91,
+              "probability": 0.7413330078125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.005504608154296875
+            },
+            {
+              "text": " sir.",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.1396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "sir.",
+          "start": 1.35,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Ay,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.53,
+          "end": 0.91,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "text": "Ay,",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "sir.",
+          "start": 1.35,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0834810771048069
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "056129de0c1a0967f0464f019a0580097c8c288cee5339ecb5e53a6e5e108b0c",
+  "selected_reasons": []
+}

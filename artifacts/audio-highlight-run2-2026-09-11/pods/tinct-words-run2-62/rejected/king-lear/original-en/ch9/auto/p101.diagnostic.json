@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "7f271120a041a2b6015b14a8f3f9d80f35b6bd0a68decb2351400f4fe14696f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12527936697006226,
+      "alignment_seconds": 0.00023564323782920837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Thy fifty yet doth double five-and-twenty, And thou art twice her love.",
+        "hotwords": "Thy, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thy fifty yet doth double five-and-twenty, And thou art twice her love.",
+          "start": 0.08,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " Thy",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " fifty",
+              "start": 0.54,
+              "end": 0.88,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " yet",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.8046875
+            },
+            {
+              "text": " doth",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " double",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.978515625
+            },
+            {
+              "text": " five",
+              "start": 1.64,
+              "end": 1.94,
+              "probability": 0.82861328125
+            },
+            {
+              "text": "-and",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.498565673828125
+            },
+            {
+              "text": "-twenty,",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " And",
+              "start": 2.96,
+              "end": 3.06,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " thou",
+              "start": 3.06,
+              "end": 3.26,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " art",
+              "start": 3.26,
+              "end": 3.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " twice",
+              "start": 3.54,
+              "end": 3.82,
+              "probability": 0.97265625
+            },
+            {
+              "text": " her",
+              "start": 3.82,
+              "end": 4.08,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " love.",
+              "start": 4.08,
+              "end": 4.34,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thy",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "fifty",
+          "start": 0.54,
+          "end": 0.88
+        },
+        {
+          "raw": "yet",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "doth",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "double",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "raw": "five",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "raw": "-and",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "-twenty,",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "raw": "And",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "raw": "thou",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "raw": "art",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "raw": "twice",
+          "start": 3.54,
+          "end": 3.82
+        },
+        {
+          "raw": "her",
+          "start": 3.82,
+          "end": 4.08
+        },
+        {
+          "raw": "love.",
+          "start": 4.08,
+          "end": 4.34
+        }
+      ],
+      "expected_tokens": [
+        "Thy",
+        "fifty",
+        "yet",
+        "doth",
+        "double",
+        "five-and-twenty,",
+        "And",
+        "thou",
+        "art",
+        "twice",
+        "her",
+        "love."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thy",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "thy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fifty",
+          "start": 0.54,
+          "end": 0.88,
+          "key": "fifty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "yet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "doth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "double",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "double",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "five -and -twenty,",
+          "start": 1.64,
+          "end": 2.5,
+          "key": "fiveandtwenty",
+          "pieces": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.96,
+          "end": 3.06,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.06,
+          "end": 3.26,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 3.26,
+          "end": 3.54,
+          "key": "art",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "twice",
+          "start": 3.54,
+          "end": 3.82,
+          "key": "twice",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.82,
+          "end": 4.08,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 4.08,
+          "end": 4.34,
+          "key": "love",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "five-and-twenty,",
+          "heard": "five -and -twenty,",
+          "heard_indexes": [
+            5,
+            6,
+            7
+          ],
+          "start": 1.64,
+          "end": 2.5
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Thy",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "fifty",
+          "start": 0.54,
+          "end": 0.88
+        },
+        {
+          "text": "yet",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "doth",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "double",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "text": "five-and-twenty,",
+          "start": 1.64,
+          "end": 2.5
+        },
+        {
+          "text": "And",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "text": "thou",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "text": "art",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "text": "twice",
+          "start": 3.54,
+          "end": 3.82
+        },
+        {
+          "text": "her",
+          "start": 3.82,
+          "end": 4.08
+        },
+        {
+          "text": "love.",
+          "start": 4.08,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12558746710419655
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78180817cca67aa75c66b9a78830c732946f7034b9be170ad612f24eb6cd94a8",
+  "selected_reasons": []
+}

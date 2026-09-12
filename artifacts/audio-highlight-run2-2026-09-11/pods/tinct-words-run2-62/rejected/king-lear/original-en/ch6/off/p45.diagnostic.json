@@ -1,0 +1,615 @@
+{
+  "complete": true,
+  "signature": "d7f07f44747e2e7495a3dd13ee75f52df5dc82aa2471083e7f055a1df585e47f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1920616813004017,
+      "alignment_seconds": 0.0003117024898529053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester. He did beret his practice and received this hurt you see, striving to apprehend him.",
+          "start": 0.02,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " Gloucester.",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " He",
+              "start": 1.44,
+              "end": 1.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " did",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " beret",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.736572265625
+            },
+            {
+              "text": " his",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " practice",
+              "start": 2.2,
+              "end": 2.62,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " and",
+              "start": 2.62,
+              "end": 3.22,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " received",
+              "start": 3.22,
+              "end": 3.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 3.56,
+              "end": 3.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hurt",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 4.06,
+              "end": 4.26,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " see,",
+              "start": 4.26,
+              "end": 4.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " striving",
+              "start": 4.84,
+              "end": 5.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 5.1,
+              "end": 5.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " apprehend",
+              "start": 5.36,
+              "end": 5.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 5.68,
+              "end": 6.04,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "He",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "raw": "did",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "beret",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "his",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "practice",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "raw": "and",
+          "start": 2.62,
+          "end": 3.22
+        },
+        {
+          "raw": "received",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "raw": "this",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "raw": "hurt",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "you",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "raw": "see,",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "raw": "striving",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "raw": "to",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "raw": "apprehend",
+          "start": 5.36,
+          "end": 5.68
+        },
+        {
+          "raw": "him.",
+          "start": 5.68,
+          "end": 6.04
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "He",
+        "did",
+        "bewray",
+        "his",
+        "practice;",
+        "and",
+        "receiv'd",
+        "This",
+        "hurt",
+        "you",
+        "see,",
+        "striving",
+        "to",
+        "apprehend",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          16,
+          8,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester.",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.44,
+          "end": 1.52,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "beret",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "beret",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "practice",
+          "start": 2.2,
+          "end": 2.62,
+          "key": "practice",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.62,
+          "end": 3.22,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "received",
+          "start": 3.22,
+          "end": 3.56,
+          "key": "received",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.56,
+          "end": 3.84,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hurt",
+          "start": 3.84,
+          "end": 4.06,
+          "key": "hurt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.06,
+          "end": 4.26,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 4.26,
+          "end": 4.58,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "striving",
+          "start": 4.84,
+          "end": 5.1,
+          "key": "striving",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.1,
+          "end": 5.36,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "apprehend",
+          "start": 5.36,
+          "end": 5.68,
+          "key": "apprehend",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.68,
+          "end": 6.04,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "He",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "text": "did",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "bewray",
+          "start": 1.7,
+          "end": 1.85
+        },
+        {
+          "text": "his",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "practice;",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "text": "and",
+          "start": 2.62,
+          "end": 3.22
+        },
+        {
+          "text": "receiv'd",
+          "start": 3.22,
+          "end": 3.39
+        },
+        {
+          "text": "This",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "text": "hurt",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "text": "you",
+          "start": 4.06,
+          "end": 4.26
+        },
+        {
+          "text": "see,",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "text": "striving",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "text": "to",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "text": "apprehend",
+          "start": 5.36,
+          "end": 5.68
+        },
+        {
+          "text": "him.",
+          "start": 5.68,
+          "end": 6.04
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.19248994439840317
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60d8497dfa092a3c5604634c1babe08a7463aaa1f4dc6eaddedac86de81c861a",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "663318b6ef90fd6c6863ba38be608a88e4a26a5d5ea4706bdc1205cefdc0b713",
+  "attempts": [
+    {
+      "asr_seconds": 0.11259164288640022,
+      "alignment_seconds": 0.00011934340000152588,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Edmund, Cornwall, Regan, Gloucester and Servants.",
+        "hotwords": "Enter, Edmund, Cornwall, Regan, Gloucester, Servants"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Edmund, Cornwall, Regan, Gloucester and Servants.",
+          "start": 0.08,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Edmund,",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.2919921875
+            },
+            {
+              "text": " Cornwall,",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Regan,",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.86328125
+            },
+            {
+              "text": " Gloucester",
+              "start": 2.76,
+              "end": 3.04,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 3.04,
+              "end": 3.26,
+              "probability": 0.380859375
+            },
+            {
+              "text": " Servants.",
+              "start": 3.26,
+              "end": 3.76,
+              "probability": 0.669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Edmund,",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "Regan,",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "raw": "Gloucester",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "raw": "Servants.",
+          "start": 3.26,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Edmund,",
+        "Cornwall,",
+        "Regan,",
+        "Gloucester",
+        "and",
+        "Servants."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Edmund,",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "edmund",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "cornwall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Regan,",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "regan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Gloucester",
+          "start": 2.76,
+          "end": 3.04,
+          "key": "gloucester",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.26,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Servants.",
+          "start": 3.26,
+          "end": 3.76,
+          "key": "servants",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Edmund,",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "text": "Cornwall,",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "Regan,",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "text": "Gloucester",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "text": "and",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "text": "Servants.",
+          "start": 3.26,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11275482177734375
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "01e179e757eee57c4af26969eb89866524024ae04880fdbb63503ef9385464eb",
+  "selected_reasons": []
+}

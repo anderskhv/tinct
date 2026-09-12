@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "bad0595d8c8c8d57d3be74ee9370768e91d8c0989583dd25508f56f1a95cc7a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.08473744615912437,
+      "alignment_seconds": 0.00011053308844566345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. By Jupiter, I swear no.",
+        "hotwords": "Lear, By, Jupiter, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, By, Jupiter, I swear no.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.45556640625
+            },
+            {
+              "text": " By,",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.00632476806640625
+            },
+            {
+              "text": " Jupiter,",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.935546875
+            },
+            {
+              "text": " I",
+              "start": 1.57,
+              "end": 1.61,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " swear",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.806640625
+            },
+            {
+              "text": " no.",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.0802001953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "By,",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "Jupiter,",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.61
+        },
+        {
+          "raw": "swear",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "no.",
+          "start": 1.83,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "By",
+        "Jupiter,",
+        "I",
+        "swear",
+        "no."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "By,",
+          "start": 0.91,
+          "end": 1.09,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jupiter,",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "jupiter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "swear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 1.83,
+          "end": 2.19,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "By",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "Jupiter,",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "I",
+          "start": 1.57,
+          "end": 1.61
+        },
+        {
+          "text": "swear",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "no.",
+          "start": 1.83,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08488855510950089
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9eb821e13cb42215feecd48edbabda5cbbf5f7547c711f0a85375d2731dea2c",
+  "selected_reasons": []
+}

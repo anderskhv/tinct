@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9b27cdaed775d6c103123405a3a0b9349f7506078da7e248d29a2af1d0223231",
+  "attempts": [
+    {
+      "asr_seconds": 0.08041335642337799,
+      "alignment_seconds": 0.00010044127702713013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. Wherefore to Dover, sir?",
+        "hotwords": "Regan, Wherefore, Dover"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, Wherefore to Dover, sir?",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6478271484375
+            },
+            {
+              "text": " Wherefore",
+              "start": 1.09,
+              "end": 1.47,
+              "probability": 0.42330169677734375
+            },
+            {
+              "text": " to",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " Dover,",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " sir?",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.50537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Wherefore",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "Dover,",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "sir?",
+          "start": 2.07,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Wherefore",
+        "to",
+        "Dover,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wherefore",
+          "start": 1.09,
+          "end": 1.47,
+          "key": "wherefore",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dover,",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "dover",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Wherefore",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "text": "to",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "Dover,",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "sir?",
+          "start": 2.07,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08055106177926064
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16da194f8d16b7f6a039d8b7c27e7562905245769521b343041a5ffbf9ab6dfb",
+  "selected_reasons": []
+}

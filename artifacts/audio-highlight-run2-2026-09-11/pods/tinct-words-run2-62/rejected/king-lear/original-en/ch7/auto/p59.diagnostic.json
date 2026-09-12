@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "21611c1285bde1adb3bafa8c126ecfe600394cd406550ba25ec36e54b9e1928c",
+  "attempts": [
+    {
+      "asr_seconds": 0.0888950526714325,
+      "alignment_seconds": 0.00011539086699485779,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. Sir, being his knave, I will.",
+        "hotwords": "Regan, Sir, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, Sir, being his knave, I will.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6099853515625
+            },
+            {
+              "text": " Sir,",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.10205078125
+            },
+            {
+              "text": " being",
+              "start": 1.43,
+              "end": 1.49,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " his",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " knave,",
+              "start": 1.69,
+              "end": 2.01,
+              "probability": 0.694091796875
+            },
+            {
+              "text": " I",
+              "start": 2.17,
+              "end": 2.19,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " will.",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "being",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "raw": "his",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "knave,",
+          "start": 1.69,
+          "end": 2.01
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "raw": "will.",
+          "start": 2.19,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Sir,",
+        "being",
+        "his",
+        "knave,",
+        "I",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 1.43,
+          "end": 1.49,
+          "key": "being",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knave,",
+          "start": 1.69,
+          "end": 2.01,
+          "key": "knave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.19,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Sir,",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "being",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "text": "his",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "knave,",
+          "start": 1.69,
+          "end": 2.01
+        },
+        {
+          "text": "I",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "text": "will.",
+          "start": 2.19,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08906495943665504
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ecdd2bc180588d7326d6772a7e41abaa864d1db806b9789fc14097505bf64da",
+  "selected_reasons": []
+}

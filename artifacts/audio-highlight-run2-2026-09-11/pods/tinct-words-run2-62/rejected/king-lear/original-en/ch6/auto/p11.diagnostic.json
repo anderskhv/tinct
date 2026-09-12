@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "a99451116e2489845eb2d001911968d7ba035767faff47a39d5caa3f5d268147",
+  "attempts": [
+    {
+      "asr_seconds": 0.06538320332765579,
+      "alignment_seconds": 0.000141046941280365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Edgar.",
+        "hotwords": "Enter, Edgar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Edgar.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " Edgar.",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.439697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Edgar.",
+          "start": 0.68,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Edgar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Edgar.",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "edgar",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Edgar.",
+          "start": 0.68,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06557022407650948
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3bd855a3cec7702638b55b9ae4de5ced541d7ae2188ba1987ce7aa88f082f397",
+  "selected_reasons": []
+}

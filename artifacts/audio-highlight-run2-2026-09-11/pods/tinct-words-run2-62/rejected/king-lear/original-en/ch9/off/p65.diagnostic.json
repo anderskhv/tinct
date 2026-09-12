@@ -1,0 +1,647 @@
+{
+  "complete": true,
+  "signature": "7819a39868929bd3b355006a480ea9cbfdad2c20572cbcdd1dfe84a77bff26bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.17798420786857605,
+      "alignment_seconds": 0.00022590532898902893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Regan, oh the blessed gods, so will you wish on me when the rash mood is on.",
+          "start": 0.45,
+          "end": 4.77,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.45,
+              "end": 0.81,
+              "probability": 0.6015625
+            },
+            {
+              "text": " oh",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " the",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.796875
+            },
+            {
+              "text": " blessed",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " gods,",
+              "start": 1.75,
+              "end": 2.17,
+              "probability": 0.91796875
+            },
+            {
+              "text": " so",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " will",
+              "start": 2.85,
+              "end": 2.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 2.97,
+              "end": 3.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wish",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " rash",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " mood",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " is",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on.",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "raw": "oh",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "blessed",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "gods,",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "raw": "so",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "will",
+          "start": 2.85,
+          "end": 2.97
+        },
+        {
+          "raw": "you",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "raw": "wish",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "on",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "me",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "when",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "the",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "rash",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "mood",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "is",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "on.",
+          "start": 4.49,
+          "end": 4.77
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "O",
+        "the",
+        "blest",
+        "gods!",
+        "So",
+        "will",
+        "you",
+        "wish",
+        "on",
+        "me",
+        "when",
+        "the",
+        "rash",
+        "mood",
+        "is",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          17,
+          4,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.45,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "blessed",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "blessed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gods,",
+          "start": 1.75,
+          "end": 2.17,
+          "key": "gods",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.85,
+          "end": 2.97,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.97,
+          "end": 3.09,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 3.09,
+          "end": 3.27,
+          "key": "wish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "rash",
+          "start": 3.85,
+          "end": 4.09,
+          "key": "rash",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mood",
+          "start": 4.09,
+          "end": 4.33,
+          "key": "mood",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.33,
+          "end": 4.49,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "text": "O",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "the",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "blest",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "gods!",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "text": "So",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "will",
+          "start": 2.85,
+          "end": 2.97
+        },
+        {
+          "text": "you",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "text": "wish",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "text": "on",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "me",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "when",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "the",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "rash",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "text": "mood",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "is",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "on.",
+          "start": 4.49,
+          "end": 4.77
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.17828333005309105
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f3cd0a41093e4270328fcc87afe8054f5311a9855eb23d1b29473cc88d320aa4",
+  "selected_reasons": []
+}

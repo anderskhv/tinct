@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "0216431d7c7926e9b10572c4aaac6280401883b3b440214c654598cd5b205cfd",
+  "attempts": [
+    {
+      "asr_seconds": 0.08914034441113472,
+      "alignment_seconds": 0.0001492127776145935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First servant nay then come on and take the chance of anger",
+          "start": 0.05,
+          "end": 3.85,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " servant",
+              "start": 0.61,
+              "end": 1.03,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " nay",
+              "start": 1.03,
+              "end": 1.83,
+              "probability": 0.55560302734375
+            },
+            {
+              "text": " then",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " come",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " on",
+              "start": 2.23,
+              "end": 2.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " take",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " chance",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 3.31,
+              "end": 3.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " anger",
+              "start": 3.51,
+              "end": 3.85,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "servant",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "raw": "nay",
+          "start": 1.03,
+          "end": 1.83
+        },
+        {
+          "raw": "then",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "come",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "on",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "raw": "and",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "take",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "chance",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "raw": "of",
+          "start": 3.31,
+          "end": 3.51
+        },
+        {
+          "raw": "anger",
+          "start": 3.51,
+          "end": 3.85
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Servant.",
+        "Nay,",
+        "then,",
+        "come",
+        "on,",
+        "and",
+        "take",
+        "the",
+        "chance",
+        "of",
+        "anger."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servant",
+          "start": 0.61,
+          "end": 1.03,
+          "key": "servant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 1.03,
+          "end": 1.83,
+          "key": "nay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.23,
+          "end": 2.47,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "take",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chance",
+          "start": 3.07,
+          "end": 3.31,
+          "key": "chance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.31,
+          "end": 3.51,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "anger",
+          "start": 3.51,
+          "end": 3.85,
+          "key": "anger",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Servant.",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "text": "Nay,",
+          "start": 1.03,
+          "end": 1.83
+        },
+        {
+          "text": "then,",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "come",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "on,",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "text": "and",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "take",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "the",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "chance",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "text": "of",
+          "start": 3.31,
+          "end": 3.51
+        },
+        {
+          "text": "anger.",
+          "start": 3.51,
+          "end": 3.85
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08934768289327621
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "70d522b14b898d3379e929c4206434571f17841c6b8ddcc4f18d63641461001c",
+  "selected_reasons": []
+}

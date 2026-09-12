@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "64f3f49b39e2b16f9367440b0a3386cc30437e92b02bf7d9e0fee547502fc7fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.14032044261693954,
+      "alignment_seconds": 0.00019316375255584717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fool. If a man's brains were in's heels, were't not in danger of kibes?",
+        "hotwords": "Fool, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fool, If a man's brains were in's heels, were't not in danger of kibes?",
+          "start": 0.08,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9296875
+            },
+            {
+              "text": " If",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.021484375
+            },
+            {
+              "text": " a",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " man's",
+              "start": 1.46,
+              "end": 1.86,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " brains",
+              "start": 1.86,
+              "end": 2.16,
+              "probability": 0.935546875
+            },
+            {
+              "text": " were",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " in's",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.4906425476074219
+            },
+            {
+              "text": " heels,",
+              "start": 2.62,
+              "end": 2.98,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " were't",
+              "start": 3.36,
+              "end": 3.5,
+              "probability": 0.23404216766357422
+            },
+            {
+              "text": " not",
+              "start": 3.5,
+              "end": 3.58,
+              "probability": 0.845703125
+            },
+            {
+              "text": " in",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " danger",
+              "start": 3.76,
+              "end": 4.0,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " kibes?",
+              "start": 4.18,
+              "end": 4.68,
+              "probability": 0.7685546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "If",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "a",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "man's",
+          "start": 1.46,
+          "end": 1.86
+        },
+        {
+          "raw": "brains",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "raw": "were",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "in's",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "heels,",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "raw": "were't",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "raw": "not",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "raw": "in",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "danger",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "kibes?",
+          "start": 4.18,
+          "end": 4.68
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "If",
+        "a",
+        "man's",
+        "brains",
+        "were",
+        "in's",
+        "heels,",
+        "were't",
+        "not",
+        "in",
+        "danger",
+        "of",
+        "kibes?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 1.46,
+          "end": 1.86,
+          "key": "mans",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "brains",
+          "start": 1.86,
+          "end": 2.16,
+          "key": "brains",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "were",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in's",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "ins",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heels,",
+          "start": 2.62,
+          "end": 2.98,
+          "key": "heels",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "were't",
+          "start": 3.36,
+          "end": 3.5,
+          "key": "weret",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.5,
+          "end": 3.58,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "danger",
+          "start": 3.76,
+          "end": 4.0,
+          "key": "danger",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.18,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kibes?",
+          "start": 4.18,
+          "end": 4.68,
+          "key": "kibes",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "If",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "a",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "man's",
+          "start": 1.46,
+          "end": 1.86
+        },
+        {
+          "text": "brains",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "text": "were",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "text": "in's",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "heels,",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "text": "were't",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "text": "not",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "text": "in",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "danger",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "text": "of",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "kibes?",
+          "start": 4.18,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14058495312929153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f82a7a247efae2752e23f398c910ec3fa8f501082655645097de6e1a48ce530",
+  "selected_reasons": []
+}

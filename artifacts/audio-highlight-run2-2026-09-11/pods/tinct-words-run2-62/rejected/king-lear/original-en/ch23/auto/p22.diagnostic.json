@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c37c9e98fe1e93acc3fd036772f8e592227167d2b6d9ddf681b5db8371634aea",
+  "attempts": [
+    {
+      "asr_seconds": 0.09481233730912209,
+      "alignment_seconds": 0.00010262057185173035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cordelia. Still, still, far wide!",
+        "hotwords": "Cordelia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cordelia. Still, still, far wide!",
+          "start": 0.51,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Cordelia.",
+              "start": 0.51,
+              "end": 0.87,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " Still,",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " still,",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " far",
+              "start": 1.97,
+              "end": 2.05,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " wide!",
+              "start": 2.05,
+              "end": 2.37,
+              "probability": 0.9375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "raw": "Still,",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "still,",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "far",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "raw": "wide!",
+          "start": 2.05,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "Still,",
+        "still,",
+        "far",
+        "wide!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.51,
+          "end": 0.87,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Still,",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "still",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "still,",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "still",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 1.97,
+          "end": 2.05,
+          "key": "far",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wide!",
+          "start": 2.05,
+          "end": 2.37,
+          "key": "wide",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "text": "Still,",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "still,",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "far",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "text": "wide!",
+          "start": 2.05,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09495246410369873
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8faeaaf770541a2dd1f916ac2e71e750fbdf8b46605dcdf45cce68ced005fc49",
+  "selected_reasons": []
+}

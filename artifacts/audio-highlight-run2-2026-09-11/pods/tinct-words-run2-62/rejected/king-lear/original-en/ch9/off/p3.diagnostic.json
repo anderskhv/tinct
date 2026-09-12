@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "033625f624a02c72fdaa99fa60b3f8770acd8d8b33d9ef6ef1fd6f62bccd5931",
+  "attempts": [
+    {
+      "asr_seconds": 0.07339686155319214,
+      "alignment_seconds": 0.0001207403838634491,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, hail to the noble master.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " hail",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.767578125
+            },
+            {
+              "text": " to",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " noble",
+              "start": 1.57,
+              "end": 1.91,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " master.",
+              "start": 1.91,
+              "end": 2.33,
+              "probability": 0.86767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "hail",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "to",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "noble",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "raw": "master.",
+          "start": 1.91,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Hail",
+        "to",
+        "thee,",
+        "noble",
+        "master!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "hail",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.57,
+          "end": 1.91,
+          "key": "noble",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "master.",
+          "start": 1.91,
+          "end": 2.33,
+          "key": "master",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Hail",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "to",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "thee,",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "noble",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "text": "master!",
+          "start": 1.91,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0735580213367939
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "864139e6ffde3338fc0962bdcc93d5148f5a4b1b289dbefc44d9e63c27b36939",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "be64413df86bb22d03d96fbc7d818a325a2c2a6baa955733d90351f502595840",
+  "attempts": [
+    {
+      "asr_seconds": 0.08162832260131836,
+      "alignment_seconds": 0.00011241063475608826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, I see it feelingly.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.85546875
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " see",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " feelingly.",
+              "start": 1.59,
+              "end": 2.07,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "raw": "see",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "it",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "feelingly.",
+          "start": 1.59,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "I",
+        "see",
+        "it",
+        "feelingly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "feelingly.",
+          "start": 1.59,
+          "end": 2.07,
+          "key": "feelingly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "text": "see",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "it",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "feelingly.",
+          "start": 1.59,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08177658542990685
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a32cbec677d538b1844478fb28c05622e5680df1f0d02740b7660fefbf5fc07",
+  "selected_reasons": []
+}

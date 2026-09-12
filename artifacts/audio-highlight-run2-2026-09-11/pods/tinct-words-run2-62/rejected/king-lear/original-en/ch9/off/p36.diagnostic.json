@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "fc418042621784989c48dd2ce625df9e5239afd27b6b2c3853e4c1cc85e1c753",
+  "attempts": [
+    {
+      "asr_seconds": 0.1157742328941822,
+      "alignment_seconds": 0.0001533813774585724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leer informed them.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Leer",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.47930908203125
+            },
+            {
+              "text": " informed",
+              "start": 0.75,
+              "end": 1.23,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " them.",
+              "start": 1.23,
+              "end": 1.55,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Dost thou understand me, man?",
+          "start": 2.01,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Dost",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.591064453125
+            },
+            {
+              "text": " thou",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " understand",
+              "start": 2.27,
+              "end": 2.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me,",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.94140625
+            },
+            {
+              "text": " man?",
+              "start": 3.15,
+              "end": 3.15,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leer",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "informed",
+          "start": 0.75,
+          "end": 1.23
+        },
+        {
+          "raw": "them.",
+          "start": 1.23,
+          "end": 1.55
+        },
+        {
+          "raw": "Dost",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "thou",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "understand",
+          "start": 2.27,
+          "end": 2.71
+        },
+        {
+          "raw": "me,",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "raw": "man?",
+          "start": 3.15,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Inform'd",
+        "them!",
+        "Dost",
+        "thou",
+        "understand",
+        "me,",
+        "man?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leer",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "leer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "informed",
+          "start": 0.75,
+          "end": 1.23,
+          "key": "informed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 1.23,
+          "end": 1.55,
+          "key": "them",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "dost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 2.27,
+          "end": 2.71,
+          "key": "understand",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man?",
+          "start": 3.15,
+          "end": 3.15,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.0,
+          "end": 0.615
+        },
+        {
+          "text": "Inform'd",
+          "start": 0.615,
+          "end": 0.922
+        },
+        {
+          "text": "them!",
+          "start": 1.23,
+          "end": 1.55
+        },
+        {
+          "text": "Dost",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "thou",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "understand",
+          "start": 2.27,
+          "end": 2.71
+        },
+        {
+          "text": "me,",
+          "start": 2.71,
+          "end": 2.91
+        },
+        {
+          "text": "man?",
+          "start": 3.15,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11597621440887451
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0616d52f31b3a7f7919d361f544b47c54d747e216e072c04b34207567eb8a96d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

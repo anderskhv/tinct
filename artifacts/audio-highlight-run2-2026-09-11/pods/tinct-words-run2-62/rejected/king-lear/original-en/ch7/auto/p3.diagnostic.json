@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "e36efa7be11923409864ad4ecfe6de8243a5ced0cdc4391f4ee99aedd418b257",
+  "attempts": [
+    {
+      "asr_seconds": 0.0840282179415226,
+      "alignment_seconds": 0.00011472031474113464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oswald. Where may we set our horses?",
+        "hotwords": "Oswald, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oswald, Where may we set our horses?",
+          "start": 0.48,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " Where",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.007770538330078125
+            },
+            {
+              "text": " may",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " we",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " set",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.962890625
+            },
+            {
+              "text": " our",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " horses?",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "Where",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "may",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "we",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "set",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "our",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "horses?",
+          "start": 1.88,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "Where",
+        "may",
+        "we",
+        "set",
+        "our",
+        "horses?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.48,
+          "end": 0.8,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "set",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "our",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "horses?",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "horses",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "Where",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "may",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "we",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "set",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "our",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "horses?",
+          "start": 1.88,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08418511226773262
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a3fb0e501c560c60896bc1dfaf58f6d5fb353efef86be5585be64a855e63aa4",
+  "selected_reasons": []
+}

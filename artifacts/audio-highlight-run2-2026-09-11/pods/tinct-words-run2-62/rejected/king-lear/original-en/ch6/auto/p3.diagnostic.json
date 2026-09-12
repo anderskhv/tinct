@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4f532bdb990cdebd4181d9d3de6f9a94974ee3310e03e34997e7753ef8080874",
+  "attempts": [
+    {
+      "asr_seconds": 0.07478681579232216,
+      "alignment_seconds": 9.230896830558777e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edmund. How comes that?",
+        "hotwords": "Edmund, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edmund, How comes that?",
+          "start": 0.08,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " Edmund,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " How",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.0225830078125
+            },
+            {
+              "text": " comes",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.290283203125
+            },
+            {
+              "text": " that?",
+              "start": 1.46,
+              "end": 1.76,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edmund,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "How",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "comes",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "that?",
+          "start": 1.46,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "Edmund.",
+        "How",
+        "comes",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edmund,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "edmund",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "comes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.46,
+          "end": 1.76,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edmund.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "How",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "comes",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "that?",
+          "start": 1.46,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07491117715835571
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78c5de761e5958f3c24db1803d36cab1c291daed27c3f735e592820f90c39ff7",
+  "selected_reasons": []
+}

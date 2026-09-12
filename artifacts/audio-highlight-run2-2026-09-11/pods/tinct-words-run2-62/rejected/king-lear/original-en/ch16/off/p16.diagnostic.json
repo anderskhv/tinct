@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "c0cf6a416fc58cd5bea9a8830c413aa75563224e3d4ed869341b7568bc4c50ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.07536092028021812,
+      "alignment_seconds": 0.00010333210229873657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Gloucester in servants.",
+          "start": 0.08,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Gloucester",
+              "start": 0.62,
+              "end": 1.1,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " in",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.767578125
+            },
+            {
+              "text": " servants.",
+              "start": 1.28,
+              "end": 1.64,
+              "probability": 0.54296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Gloucester",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "raw": "in",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "servants.",
+          "start": 1.28,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Gloucester",
+        "and",
+        "Servants."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gloucester",
+          "start": 0.62,
+          "end": 1.1,
+          "key": "gloucester",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "servants.",
+          "start": 1.28,
+          "end": 1.64,
+          "key": "servants",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Gloucester",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.19
+        },
+        {
+          "text": "Servants.",
+          "start": 1.28,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07549795880913734
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "97788ee0d17137b95f5d239c09044882a8cf69335ea2f875629efe1cb019c2c6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

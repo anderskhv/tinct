@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "0aa91bada7324e46ae4965b8fb7bf9bb1556f864a32eea0e1b7afa5fa19b2817",
+  "attempts": [
+    {
+      "asr_seconds": 0.07654588669538498,
+      "alignment_seconds": 7.359310984611511e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Goneril.",
+        "hotwords": "Enter, Goneril"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Goneril.",
+          "start": 0.02,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Goneril.",
+              "start": 0.68,
+              "end": 1.3,
+              "probability": 0.518310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Goneril.",
+          "start": 0.68,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Goneril."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Goneril.",
+          "start": 0.68,
+          "end": 1.3,
+          "key": "goneril",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Goneril.",
+          "start": 0.68,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07664457708597183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be1df2af799d593bed3d7687420b840281a9123618ebc0849099b93c23200b57",
+  "selected_reasons": []
+}

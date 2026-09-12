@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "e0ff00c79276a8469a0d6734af098d4982b40e9c9232094532fd4baf75ca3cb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.08318491280078888,
+      "alignment_seconds": 9.714066982269287e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Say, how is that?",
+        "hotwords": "Lear, Say"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Say, how is that?",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " Say,",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.00577545166015625
+            },
+            {
+              "text": " how",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.42724609375
+            },
+            {
+              "text": " is",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " that?",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Say,",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "how",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "is",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "that?",
+          "start": 1.41,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Say,",
+        "how",
+        "is",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Say,",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Say,",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "how",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "is",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "that?",
+          "start": 1.41,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08331894502043724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "924a70695bba2c8ebcdea983e04c37c4f7e683019f3fe11726deb11549019199",
+  "selected_reasons": []
+}

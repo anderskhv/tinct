@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "f91b9e9e8b7645b092f2666323da0f71a17f047f0ccb6fe57f937d377db427d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.06221764162182808,
+      "alignment_seconds": 9.235739707946777e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " dies.",
+          "start": 0.05,
+          "end": 0.69,
+          "words": [
+            {
+              "text": " dies.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.68896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "dies.",
+          "start": 0.05,
+          "end": 0.69
+        }
+      ],
+      "expected_tokens": [
+        "[_Dies._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "dies.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "dies",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Dies._]",
+          "start": 0.05,
+          "end": 0.69
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06234116107225418
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "65f20f6cc2485ef70e389c8119681b840dc13b045835925e5e741d1a1ebaa87f",
+  "selected_reasons": []
+}

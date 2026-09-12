@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "19ef6eea8452dce0f69b065d420624a0c394883c3dff745d83f1162b42b436f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.17128649726510048,
+      "alignment_seconds": 0.00024656951427459717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent with you Goodman boy if you please come I'll flesh ye come on young master",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Kent",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.865234375
+            },
+            {
+              "text": " with",
+              "start": 0.59,
+              "end": 1.13,
+              "probability": 0.1517333984375
+            },
+            {
+              "text": " you",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Goodman",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " boy",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " if",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " you",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " please",
+              "start": 2.25,
+              "end": 2.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " come",
+              "start": 2.59,
+              "end": 3.29,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " I'll",
+              "start": 3.29,
+              "end": 3.55,
+              "probability": 0.811767578125
+            },
+            {
+              "text": " flesh",
+              "start": 3.55,
+              "end": 3.77,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " ye",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " come",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.7734375
+            },
+            {
+              "text": " on",
+              "start": 4.37,
+              "end": 4.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " young",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " master",
+              "start": 4.77,
+              "end": 5.23,
+              "probability": 0.94482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "with",
+          "start": 0.59,
+          "end": 1.13
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "Goodman",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "raw": "boy",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "raw": "if",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "you",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "please",
+          "start": 2.25,
+          "end": 2.59
+        },
+        {
+          "raw": "come",
+          "start": 2.59,
+          "end": 3.29
+        },
+        {
+          "raw": "I'll",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "raw": "flesh",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "raw": "ye",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "come",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "raw": "on",
+          "start": 4.37,
+          "end": 4.63
+        },
+        {
+          "raw": "young",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "master",
+          "start": 4.77,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "With",
+        "you,",
+        "goodman",
+        "boy,",
+        "if",
+        "you",
+        "please:",
+        "come,",
+        "I'll",
+        "flesh",
+        "ye;",
+        "come",
+        "on,",
+        "young",
+        "master."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.59,
+          "end": 1.13,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Goodman",
+          "start": 1.35,
+          "end": 1.65,
+          "key": "goodman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "boy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 2.25,
+          "end": 2.59,
+          "key": "please",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.59,
+          "end": 3.29,
+          "key": "come",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.29,
+          "end": 3.55,
+          "key": "ill",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "flesh",
+          "start": 3.55,
+          "end": 3.77,
+          "key": "flesh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "ye",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.03,
+          "end": 4.37,
+          "key": "come",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.37,
+          "end": 4.63,
+          "key": "on",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 4.63,
+          "end": 4.77,
+          "key": "young",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 4.77,
+          "end": 5.23,
+          "key": "master",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "With",
+          "start": 0.59,
+          "end": 1.13
+        },
+        {
+          "text": "you,",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "goodman",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "text": "boy,",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "text": "if",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "you",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "please:",
+          "start": 2.25,
+          "end": 2.59
+        },
+        {
+          "text": "come,",
+          "start": 2.59,
+          "end": 3.29
+        },
+        {
+          "text": "I'll",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "text": "flesh",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "text": "ye;",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "come",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "text": "on,",
+          "start": 4.37,
+          "end": 4.63
+        },
+        {
+          "text": "young",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "master.",
+          "start": 4.77,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17163189500570297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2958d8b3406acad0da764416538ab706798678eab48c0590d6d61a51ab72c1dc",
+  "selected_reasons": []
+}

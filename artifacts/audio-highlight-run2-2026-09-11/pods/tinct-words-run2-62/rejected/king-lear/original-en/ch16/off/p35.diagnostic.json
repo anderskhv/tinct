@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "29f0eb6a62a0016b13b6ccc98ca7de9d912f559cd3c3635c25c7fee612e06128",
+  "attempts": [
+    {
+      "asr_seconds": 0.06802254915237427,
+      "alignment_seconds": 8.553266525268555e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Regan and Falls.",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Regan",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6490478515625
+            },
+            {
+              "text": " and",
+              "start": 0.81,
+              "end": 1.17,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " Falls.",
+              "start": 1.17,
+              "end": 1.53,
+              "probability": 0.388916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 1.17
+        },
+        {
+          "raw": "Falls.",
+          "start": 1.17,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "And",
+        "false."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 1.17,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Falls.",
+          "start": 1.17,
+          "end": 1.53,
+          "key": "falls",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "And",
+          "start": 0.81,
+          "end": 1.17
+        },
+        {
+          "text": "false.",
+          "start": 1.17,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.06813598051667213
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "199c0d9c4e106936bc982ebf4c2e1cf99fce2f9d25e3c0052f3465dfffd3bdaf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

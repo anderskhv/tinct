@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "99397d044ff0fbab3d9d8bebf4e747eab10d1d139953c519d6ff202524432b0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.06806071847677231,
+      "alignment_seconds": 8.102133870124817e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Come, boy.",
+        "hotwords": "Lear, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Come, boy.",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.62158203125
+            },
+            {
+              "text": " Come,",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.4375
+            },
+            {
+              "text": " boy.",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.0175018310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Come,",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "boy.",
+          "start": 1.26,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Come,",
+        "boy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "boy",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Come,",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "boy.",
+          "start": 1.26,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06816506385803223
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "239a2bb1844809740e76e738bce7b1e61aa954610eac305b89f8d7556bd9ba5e",
+  "selected_reasons": []
+}

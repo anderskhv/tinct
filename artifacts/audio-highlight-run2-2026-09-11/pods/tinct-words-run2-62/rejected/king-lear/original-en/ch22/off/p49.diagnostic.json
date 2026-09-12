@@ -1,0 +1,697 @@
+{
+  "complete": true,
+  "signature": "51d632c63f07915dbca1771991846a42e13d50f9ac524ff925859de4ec60a82c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16928400844335556,
+      "alignment_seconds": 0.0003470182418823242,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, O ruined peace of nature, This great world shall so wear out to naught.",
+          "start": 0.02,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " O",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " ruined",
+              "start": 1.56,
+              "end": 1.88,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " peace",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nature,",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.86328125
+            },
+            {
+              "text": " This",
+              "start": 2.8,
+              "end": 2.88,
+              "probability": 0.32080078125
+            },
+            {
+              "text": " great",
+              "start": 2.88,
+              "end": 3.14,
+              "probability": 0.984375
+            },
+            {
+              "text": " world",
+              "start": 3.14,
+              "end": 3.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " shall",
+              "start": 3.46,
+              "end": 3.64,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " so",
+              "start": 3.64,
+              "end": 3.9,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " wear",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.873046875
+            },
+            {
+              "text": " out",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " to",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " naught.",
+              "start": 4.46,
+              "end": 4.84,
+              "probability": 0.91064453125
+            }
+          ]
+        },
+        {
+          "text": " Dost thou know me?",
+          "start": 5.36,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " Dost",
+              "start": 5.36,
+              "end": 5.44,
+              "probability": 0.910400390625
+            },
+            {
+              "text": " thou",
+              "start": 5.44,
+              "end": 5.72,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " know",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me?",
+              "start": 5.9,
+              "end": 6.18,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "O",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "ruined",
+          "start": 1.56,
+          "end": 1.88
+        },
+        {
+          "raw": "peace",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "nature,",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "This",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "raw": "great",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "raw": "world",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "raw": "shall",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "raw": "so",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "raw": "wear",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "out",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "to",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "naught.",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "raw": "Dost",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "raw": "thou",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "raw": "know",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "me?",
+          "start": 5.9,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "O",
+        "ruin'd",
+        "piece",
+        "of",
+        "nature,",
+        "this",
+        "great",
+        "world",
+        "Shall",
+        "so",
+        "wear",
+        "out",
+        "to",
+        "naught.",
+        "Dost",
+        "thou",
+        "know",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          19,
+          4,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ruined",
+          "start": 1.56,
+          "end": 1.88,
+          "key": "ruined",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 1.88,
+          "end": 2.14,
+          "key": "peace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nature,",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "nature",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 2.8,
+          "end": 2.88,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.88,
+          "end": 3.14,
+          "key": "great",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 3.14,
+          "end": 3.46,
+          "key": "world",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.46,
+          "end": 3.64,
+          "key": "shall",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.64,
+          "end": 3.9,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "wear",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "naught.",
+          "start": 4.46,
+          "end": 4.84,
+          "key": "naught",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 5.36,
+          "end": 5.44,
+          "key": "dost",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 5.44,
+          "end": 5.72,
+          "key": "thou",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "know",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 5.9,
+          "end": 6.18,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "O",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "ruin'd",
+          "start": 1.56,
+          "end": 1.85
+        },
+        {
+          "text": "piece",
+          "start": 1.85,
+          "end": 1.995
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "nature,",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "this",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "text": "great",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "text": "world",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "Shall",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "text": "so",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "text": "wear",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "out",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "to",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "text": "naught.",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "text": "Dost",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "text": "thou",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "text": "know",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "me?",
+          "start": 5.9,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.16976520791649818
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ebc5b63855f12959f514839bb1f627f342de1c6e36050b83e6be5fb2e64ee50",
+  "selected_reasons": []
+}

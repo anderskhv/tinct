@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "7bc5b926a23e0e1a83e1e2840f35ecb5b4d0f9228b1c6d2a44f1fb5f951abd30",
+  "attempts": [
+    {
+      "asr_seconds": 0.06666458025574684,
+      "alignment_seconds": 9.51625406742096e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Yes.",
+        "hotwords": "Kent, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Yes.",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.019012451171875
+            },
+            {
+              "text": " Yes.",
+              "start": 0.84,
+              "end": 1.22,
+              "probability": 0.09771728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Yes.",
+          "start": 0.84,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Yes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes.",
+          "start": 0.84,
+          "end": 1.22,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Yes.",
+          "start": 0.84,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06679092347621918
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "494e0ac798bb96687636c8a9d21a9b10dc666bd46313809b5c04f0a150e4aef2",
+  "selected_reasons": []
+}

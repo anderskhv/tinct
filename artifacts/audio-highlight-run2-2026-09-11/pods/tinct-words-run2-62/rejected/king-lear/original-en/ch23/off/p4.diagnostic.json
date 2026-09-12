@@ -1,0 +1,671 @@
+{
+  "complete": true,
+  "signature": "dd1653af7512f5ffffcbf1921581b0578298dde4a7d38451e2c4a2af02b2fb44",
+  "attempts": [
+    {
+      "asr_seconds": 0.18223408609628677,
+      "alignment_seconds": 0.00032878294587135315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cordelia, be better suited. These weeds are memories of those worse are ours. I prithee put them off",
+          "start": 0.0,
+          "end": 6.42,
+          "words": [
+            {
+              "text": " Cordelia,",
+              "start": 0.0,
+              "end": 0.9,
+              "probability": 0.89453125
+            },
+            {
+              "text": " be",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " better",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suited.",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " These",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " weeds",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 3.02,
+              "end": 3.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " memories",
+              "start": 3.26,
+              "end": 3.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " those",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " worse",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.171142578125
+            },
+            {
+              "text": " are",
+              "start": 4.36,
+              "end": 4.56,
+              "probability": 0.42626953125
+            },
+            {
+              "text": " ours.",
+              "start": 4.56,
+              "end": 4.94,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " I",
+              "start": 5.44,
+              "end": 5.5,
+              "probability": 0.962890625
+            },
+            {
+              "text": " prithee",
+              "start": 5.5,
+              "end": 5.8,
+              "probability": 0.6769205729166666
+            },
+            {
+              "text": " put",
+              "start": 5.8,
+              "end": 5.94,
+              "probability": 0.912109375
+            },
+            {
+              "text": " them",
+              "start": 5.94,
+              "end": 6.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " off",
+              "start": 6.04,
+              "end": 6.42,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.0,
+          "end": 0.9
+        },
+        {
+          "raw": "be",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "better",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "suited.",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "raw": "These",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "weeds",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "raw": "are",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "raw": "memories",
+          "start": 3.26,
+          "end": 3.58
+        },
+        {
+          "raw": "of",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "raw": "those",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "worse",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "are",
+          "start": 4.36,
+          "end": 4.56
+        },
+        {
+          "raw": "ours.",
+          "start": 4.56,
+          "end": 4.94
+        },
+        {
+          "raw": "I",
+          "start": 5.44,
+          "end": 5.5
+        },
+        {
+          "raw": "prithee",
+          "start": 5.5,
+          "end": 5.8
+        },
+        {
+          "raw": "put",
+          "start": 5.8,
+          "end": 5.94
+        },
+        {
+          "raw": "them",
+          "start": 5.94,
+          "end": 6.04
+        },
+        {
+          "raw": "off",
+          "start": 6.04,
+          "end": 6.42
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "Be",
+        "better",
+        "suited,",
+        "These",
+        "weeds",
+        "are",
+        "memories",
+        "of",
+        "those",
+        "worser",
+        "hours:",
+        "I",
+        "prythee",
+        "put",
+        "them",
+        "off."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "equal",
+          14,
+          17,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          12,
+          10,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.0,
+          "end": 0.9,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suited.",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "suited",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weeds",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "weeds",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.02,
+          "end": 3.26,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "memories",
+          "start": 3.26,
+          "end": 3.58,
+          "key": "memories",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.58,
+          "end": 3.88,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 3.88,
+          "end": 4.1,
+          "key": "those",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "worse",
+          "start": 4.1,
+          "end": 4.36,
+          "key": "worse",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.36,
+          "end": 4.56,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ours.",
+          "start": 4.56,
+          "end": 4.94,
+          "key": "ours",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.44,
+          "end": 5.5,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "prithee",
+          "start": 5.5,
+          "end": 5.8,
+          "key": "prithee",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 5.8,
+          "end": 5.94,
+          "key": "put",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.94,
+          "end": 6.04,
+          "key": "them",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 6.04,
+          "end": 6.42,
+          "key": "off",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.0,
+          "end": 0.9
+        },
+        {
+          "text": "Be",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "better",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "suited,",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "text": "These",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "weeds",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "text": "are",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "text": "memories",
+          "start": 3.26,
+          "end": 3.58
+        },
+        {
+          "text": "of",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "text": "those",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "text": "worser",
+          "start": 4.1,
+          "end": 4.77
+        },
+        {
+          "text": "hours:",
+          "start": 4.77,
+          "end": 5.105
+        },
+        {
+          "text": "I",
+          "start": 5.44,
+          "end": 5.5
+        },
+        {
+          "text": "prythee",
+          "start": 5.5,
+          "end": 5.65
+        },
+        {
+          "text": "put",
+          "start": 5.8,
+          "end": 5.94
+        },
+        {
+          "text": "them",
+          "start": 5.94,
+          "end": 6.04
+        },
+        {
+          "text": "off.",
+          "start": 6.04,
+          "end": 6.42
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1826852299273014
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "46a72addd589111a78aab7445ce2f47ec04a5d2e46549bdfb395629c08cdd551",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

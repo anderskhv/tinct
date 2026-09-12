@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "de373041ceae981352f756bbe33d18fcc1b4268df66885da905a1a99cbaa67cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.09625972434878349,
+      "alignment_seconds": 0.00023709237575531006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. O lady, lady, shame would have it hid!",
+        "hotwords": "Gloucester, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, O lady, lady, shame would have it hid!",
+          "start": 0.49,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.49,
+              "end": 0.89,
+              "probability": 0.78125
+            },
+            {
+              "text": " O",
+              "start": 1.35,
+              "end": 1.41,
+              "probability": 0.0699462890625
+            },
+            {
+              "text": " lady,",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.10516357421875
+            },
+            {
+              "text": " lady,",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.974609375
+            },
+            {
+              "text": " shame",
+              "start": 2.25,
+              "end": 2.27,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " would",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 2.45,
+              "end": 2.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hid!",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "raw": "O",
+          "start": 1.35,
+          "end": 1.41
+        },
+        {
+          "raw": "lady,",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "lady,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "shame",
+          "start": 2.25,
+          "end": 2.27
+        },
+        {
+          "raw": "would",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "have",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "raw": "it",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "hid!",
+          "start": 2.69,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "O",
+        "lady,",
+        "lady,",
+        "shame",
+        "would",
+        "have",
+        "it",
+        "hid!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.49,
+          "end": 0.89,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.35,
+          "end": 1.41,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 2.25,
+          "end": 2.27,
+          "key": "shame",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.27,
+          "end": 2.45,
+          "key": "would",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.45,
+          "end": 2.59,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hid!",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "hid",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "text": "O",
+          "start": 1.35,
+          "end": 1.41
+        },
+        {
+          "text": "lady,",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "lady,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "shame",
+          "start": 2.25,
+          "end": 2.27
+        },
+        {
+          "text": "would",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "have",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "text": "it",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "hid!",
+          "start": 2.69,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09659598395228386
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27708eb3603d5c02715216a1358738aa745ff79951044d763937ea551f79e065",
+  "selected_reasons": []
+}

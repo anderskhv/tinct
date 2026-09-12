@@ -1,0 +1,812 @@
+{
+  "complete": true,
+  "signature": "5fe9b8ecee2f86455d2f059753516c62a454332ef184bccb6346caa8116b61cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.3265533819794655,
+      "alignment_seconds": 0.00040493160486221313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cordelia. Then be't so, my good lord. [_To the Physician._] How does the King?",
+        "hotwords": "Cordelia, Then, Physician._, How, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cordelia. Then be't so, my good lord. To the Physician. How does the King?",
+          "start": 0.52,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Cordelia.",
+              "start": 0.52,
+              "end": 0.88,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " Then",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " be't",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.022184133529663086
+            },
+            {
+              "text": " so,",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " my",
+              "start": 1.98,
+              "end": 2.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " good",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " lord.",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.814453125
+            },
+            {
+              "text": " To",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " the",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Physician.",
+              "start": 2.92,
+              "end": 3.36,
+              "probability": 0.60223388671875
+            },
+            {
+              "text": " How",
+              "start": 3.96,
+              "end": 4.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " does",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " the",
+              "start": 4.2,
+              "end": 4.36,
+              "probability": 0.98046875
+            },
+            {
+              "text": " King?",
+              "start": 4.36,
+              "end": 4.54,
+              "probability": 0.484130859375
+            }
+          ]
+        },
+        {
+          "text": " Cordelia. Then be't so, my good lord. To the Physician. How does the King?",
+          "start": 4.54,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Cordelia.",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.02465921640396118
+            },
+            {
+              "text": " Then",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.00041937828063964844
+            },
+            {
+              "text": " be't",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.0009150505065917969
+            },
+            {
+              "text": " so,",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.00732421875
+            },
+            {
+              "text": " my",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.001201629638671875
+            },
+            {
+              "text": " good",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.007965087890625
+            },
+            {
+              "text": " lord.",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.0042266845703125
+            },
+            {
+              "text": " To",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.002635955810546875
+            },
+            {
+              "text": " the",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.06292724609375
+            },
+            {
+              "text": " Physician.",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.3613310158252716
+            },
+            {
+              "text": " How",
+              "start": 4.56,
+              "end": 4.6,
+              "probability": 0.001308441162109375
+            },
+            {
+              "text": " does",
+              "start": 4.6,
+              "end": 4.62,
+              "probability": 0.0238037109375
+            },
+            {
+              "text": " the",
+              "start": 4.62,
+              "end": 4.62,
+              "probability": 0.049835205078125
+            },
+            {
+              "text": " King?",
+              "start": 4.62,
+              "end": 4.64,
+              "probability": 0.00047087669372558594
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "raw": "Then",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "be't",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "so,",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "my",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "raw": "good",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "lord.",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "raw": "To",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "Physician.",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "raw": "How",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "raw": "does",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "the",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "raw": "King?",
+          "start": 4.36,
+          "end": 4.54
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "Then",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "be't",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "so,",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "my",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "good",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "lord.",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "To",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "the",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "Physician.",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "How",
+          "start": 4.56,
+          "end": 4.6
+        },
+        {
+          "raw": "does",
+          "start": 4.6,
+          "end": 4.62
+        },
+        {
+          "raw": "the",
+          "start": 4.62,
+          "end": 4.62
+        },
+        {
+          "raw": "King?",
+          "start": 4.62,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "Then",
+        "be't",
+        "so,",
+        "my",
+        "good",
+        "lord.",
+        "[_To",
+        "the",
+        "Physician._]",
+        "How",
+        "does",
+        "the",
+        "King?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "insert",
+          14,
+          14,
+          14,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          14,
+          14,
+          14,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.52,
+          "end": 0.88,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be't",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "bet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.98,
+          "end": 2.04,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.7,
+          "end": 2.8,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Physician.",
+          "start": 2.92,
+          "end": 3.36,
+          "key": "physician",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 3.96,
+          "end": 4.06,
+          "key": "how",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "does",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.2,
+          "end": 4.36,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "King?",
+          "start": 4.36,
+          "end": 4.54,
+          "key": "king",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "cordelia",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "then",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be't",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "bet",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "so",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "my",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "good",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "lord",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Physician.",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "physician",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 4.56,
+          "end": 4.6,
+          "key": "how",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 4.6,
+          "end": 4.62,
+          "key": "does",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.62,
+          "end": 4.62,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "King?",
+          "start": 4.62,
+          "end": 4.64,
+          "key": "king",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "text": "Then",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "be't",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "so,",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "my",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "text": "good",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "lord.",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "text": "[_To",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "the",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "Physician._]",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "text": "How",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "text": "does",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "the",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "text": "King?",
+          "start": 4.36,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 28,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3272117152810097
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "86ad79e373d7adb92e8c1819dae797cfaa59bcf90a8353e258429d205f20538e",
+  "selected_reasons": []
+}

@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "0b90c4b37597332935edb4e892508a8f7fff8998860d456cc1ba44eda0cf29d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.18702804669737816,
+      "alignment_seconds": 0.0002409517765045166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Regan, our troops set forth tomorrow. Stay with us. The ways are dangerous.",
+          "start": 0.05,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6571044921875
+            },
+            {
+              "text": " our",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " troops",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.869140625
+            },
+            {
+              "text": " set",
+              "start": 1.61,
+              "end": 1.91,
+              "probability": 0.978515625
+            },
+            {
+              "text": " forth",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " tomorrow.",
+              "start": 2.13,
+              "end": 2.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Stay",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " with",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " us.",
+              "start": 3.09,
+              "end": 3.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 3.65,
+              "end": 3.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ways",
+              "start": 3.71,
+              "end": 3.91,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " are",
+              "start": 3.91,
+              "end": 4.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dangerous.",
+              "start": 4.15,
+              "end": 4.59,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "our",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "troops",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "set",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "raw": "forth",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "raw": "Stay",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "with",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "us.",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "raw": "The",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "raw": "ways",
+          "start": 3.71,
+          "end": 3.91
+        },
+        {
+          "raw": "are",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "raw": "dangerous.",
+          "start": 4.15,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Our",
+        "troops",
+        "set",
+        "forth",
+        "tomorrow;",
+        "stay",
+        "with",
+        "us;",
+        "The",
+        "ways",
+        "are",
+        "dangerous."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "troops",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "troops",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 1.61,
+          "end": 1.91,
+          "key": "set",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "forth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 2.13,
+          "end": 2.45,
+          "key": "tomorrow",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Stay",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "stay",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 3.09,
+          "end": 3.33,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.65,
+          "end": 3.71,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ways",
+          "start": 3.71,
+          "end": 3.91,
+          "key": "ways",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.91,
+          "end": 4.15,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dangerous.",
+          "start": 4.15,
+          "end": 4.59,
+          "key": "dangerous",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Our",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "troops",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "set",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "text": "forth",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "tomorrow;",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "text": "stay",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "with",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "us;",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "text": "The",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "text": "ways",
+          "start": 3.71,
+          "end": 3.91
+        },
+        {
+          "text": "are",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "text": "dangerous.",
+          "start": 4.15,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1873202994465828
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60cec9550bd9d242b2b2dff3ff0f54564858ce16117968ddfd38bd91007b1068",
+  "selected_reasons": []
+}

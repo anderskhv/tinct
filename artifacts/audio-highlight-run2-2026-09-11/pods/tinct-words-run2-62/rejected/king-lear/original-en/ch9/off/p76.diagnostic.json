@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "50908364b6c8aa0592f8494603559842798c6979286de7e6933c669cee199909",
+  "attempts": [
+    {
+      "asr_seconds": 0.22034641355276108,
+      "alignment_seconds": 0.0002226307988166809,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leer, who stalked my servant.",
+          "start": 0.02,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Leer,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.55511474609375
+            },
+            {
+              "text": " who",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.9609375
+            },
+            {
+              "text": " stalked",
+              "start": 0.92,
+              "end": 1.36,
+              "probability": 0.915283203125
+            },
+            {
+              "text": " my",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " servant.",
+              "start": 1.48,
+              "end": 1.86,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " Regan, I have good hope thou didst not know aunt, who comes here, O heavens.",
+          "start": 2.58,
+          "end": 6.52,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 2.58,
+              "end": 2.84,
+              "probability": 0.673828125
+            },
+            {
+              "text": " I",
+              "start": 2.98,
+              "end": 3.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " have",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hope",
+              "start": 3.36,
+              "end": 3.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thou",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " didst",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " not",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " know",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.669921875
+            },
+            {
+              "text": " aunt,",
+              "start": 4.4,
+              "end": 4.66,
+              "probability": 0.4580078125
+            },
+            {
+              "text": " who",
+              "start": 5.08,
+              "end": 5.16,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " comes",
+              "start": 5.16,
+              "end": 5.38,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " here,",
+              "start": 5.38,
+              "end": 5.74,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " O",
+              "start": 6.16,
+              "end": 6.24,
+              "probability": 0.736328125
+            },
+            {
+              "text": " heavens.",
+              "start": 6.24,
+              "end": 6.52,
+              "probability": 0.88671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leer,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "who",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "stalked",
+          "start": 0.92,
+          "end": 1.36
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "servant.",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "raw": "Regan,",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "raw": "have",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "good",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "hope",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "raw": "thou",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "didst",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "raw": "not",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "know",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "aunt,",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "raw": "who",
+          "start": 5.08,
+          "end": 5.16
+        },
+        {
+          "raw": "comes",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "raw": "here,",
+          "start": 5.38,
+          "end": 5.74
+        },
+        {
+          "raw": "O",
+          "start": 6.16,
+          "end": 6.24
+        },
+        {
+          "raw": "heavens.",
+          "start": 6.24,
+          "end": 6.52
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Who",
+        "stock'd",
+        "my",
+        "servant?",
+        "Regan,",
+        "I",
+        "have",
+        "good",
+        "hope",
+        "Thou",
+        "didst",
+        "not",
+        "know",
+        "on't.",
+        "Who",
+        "comes",
+        "here?",
+        "O",
+        "heavens!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          14,
+          3,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          20,
+          15,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leer,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "leer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.78,
+          "end": 0.92,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stalked",
+          "start": 0.92,
+          "end": 1.36,
+          "key": "stalked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 1.48,
+          "end": 1.86,
+          "key": "servant",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Regan,",
+          "start": 2.58,
+          "end": 2.84,
+          "key": "regan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.06,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 3.36,
+          "end": 3.6,
+          "key": "hope",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.6,
+          "end": 3.8,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "didst",
+          "start": 3.8,
+          "end": 4.06,
+          "key": "didst",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "know",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "aunt,",
+          "start": 4.4,
+          "end": 4.66,
+          "key": "aunt",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 5.08,
+          "end": 5.16,
+          "key": "who",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 5.16,
+          "end": 5.38,
+          "key": "comes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 5.38,
+          "end": 5.74,
+          "key": "here",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 6.16,
+          "end": 6.24,
+          "key": "o",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "heavens.",
+          "start": 6.24,
+          "end": 6.52,
+          "key": "heavens",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.0,
+          "end": 0.39
+        },
+        {
+          "text": "Who",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "stock'd",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "text": "my",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "servant?",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "text": "Regan,",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "text": "I",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "text": "have",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "good",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "hope",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "text": "Thou",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "didst",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "text": "not",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "know",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "on't.",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "text": "Who",
+          "start": 5.08,
+          "end": 5.16
+        },
+        {
+          "text": "comes",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "text": "here?",
+          "start": 5.38,
+          "end": 5.74
+        },
+        {
+          "text": "O",
+          "start": 6.16,
+          "end": 6.24
+        },
+        {
+          "text": "heavens!",
+          "start": 6.24,
+          "end": 6.52
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.22064074501395226
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5cfb9874242b1973b6bd5c937853124996a5b6058f2821b6b94cae39b78ffe0",
+  "selected_reasons": []
+}

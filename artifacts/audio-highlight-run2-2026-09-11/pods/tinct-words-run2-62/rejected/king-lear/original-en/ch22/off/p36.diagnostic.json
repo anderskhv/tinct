@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "b07a6fd36828c853b4b4d02d7dd9a730575f7284b35be7cf825f4ee99bc7189f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08884767070412636,
+      "alignment_seconds": 0.00010020658373832703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Lear, fantastically dressed up with flowers.",
+          "start": 0.18,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.68,
+              "probability": 0.921875
+            },
+            {
+              "text": " Lear,",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.57177734375
+            },
+            {
+              "text": " fantastically",
+              "start": 1.5,
+              "end": 2.02,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " dressed",
+              "start": 2.02,
+              "end": 2.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.96875
+            },
+            {
+              "text": " with",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " flowers.",
+              "start": 2.68,
+              "end": 3.02,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "raw": "Lear,",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "raw": "fantastically",
+          "start": 1.5,
+          "end": 2.02
+        },
+        {
+          "raw": "dressed",
+          "start": 2.02,
+          "end": 2.34
+        },
+        {
+          "raw": "up",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "flowers.",
+          "start": 2.68,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lear,",
+        "fantastically",
+        "dressed",
+        "up",
+        "with",
+        "flowers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lear,",
+          "start": 0.68,
+          "end": 0.96,
+          "key": "lear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fantastically",
+          "start": 1.5,
+          "end": 2.02,
+          "key": "fantastically",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dressed",
+          "start": 2.02,
+          "end": 2.34,
+          "key": "dressed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "flowers.",
+          "start": 2.68,
+          "end": 3.02,
+          "key": "flowers",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "text": "Lear,",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "text": "fantastically",
+          "start": 1.5,
+          "end": 2.02
+        },
+        {
+          "text": "dressed",
+          "start": 2.02,
+          "end": 2.34
+        },
+        {
+          "text": "up",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "with",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "flowers.",
+          "start": 2.68,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08898443356156349
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e51b01465274f50aed0668567dd57f7b12a45dfb24d748edd2131ae06343ab69",
+  "selected_reasons": []
+}

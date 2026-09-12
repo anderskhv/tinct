@@ -1,0 +1,4277 @@
+{
+  "complete": true,
+  "signature": "e0650a4a92685950dada65af2eb2644ab7e8ff6f67d8476430d6d674669f4da9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3088938407599926,
+      "alignment_seconds": 0.0005350597202777863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Physician. Be comforted, good madam, the great rage, You see, is kill'd in him: and yet it is danger To make him even o'er the time he has lost. Desire him to go in; trouble him no more Till further settling.",
+        "hotwords": "Physician, Be, You, Desire, Till"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Physician, Be comforted, good madam, the great rage, You see, is kill'd in him, and yet it is danger To make him even o'er the time he has lost. Desire him to go in, trouble him no more Till further settling.",
+          "start": 0.02,
+          "end": 13.2,
+          "words": [
+            {
+              "text": " Physician,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.913330078125
+            },
+            {
+              "text": " Be",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.0259857177734375
+            },
+            {
+              "text": " comforted,",
+              "start": 1.5,
+              "end": 2.16,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " good",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " madam,",
+              "start": 2.46,
+              "end": 2.96,
+              "probability": 0.828857421875
+            },
+            {
+              "text": " the",
+              "start": 3.2,
+              "end": 3.24,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " great",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " rage,",
+              "start": 3.48,
+              "end": 3.86,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " You",
+              "start": 4.06,
+              "end": 4.14,
+              "probability": 0.00982666015625
+            },
+            {
+              "text": " see,",
+              "start": 4.14,
+              "end": 4.42,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 4.58,
+              "end": 4.74,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " kill'd",
+              "start": 4.74,
+              "end": 5.1,
+              "probability": 0.3453044891357422
+            },
+            {
+              "text": " in",
+              "start": 5.1,
+              "end": 5.16,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " him,",
+              "start": 5.16,
+              "end": 5.4,
+              "probability": 0.951171875
+            },
+            {
+              "text": " and",
+              "start": 5.84,
+              "end": 6.0,
+              "probability": 0.54443359375
+            },
+            {
+              "text": " yet",
+              "start": 6.0,
+              "end": 6.14,
+              "probability": 0.982421875
+            },
+            {
+              "text": " it",
+              "start": 6.14,
+              "end": 6.26,
+              "probability": 0.904296875
+            },
+            {
+              "text": " is",
+              "start": 6.26,
+              "end": 6.42,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " danger",
+              "start": 6.42,
+              "end": 6.68,
+              "probability": 0.908203125
+            },
+            {
+              "text": " To",
+              "start": 6.68,
+              "end": 6.96,
+              "probability": 0.17529296875
+            },
+            {
+              "text": " make",
+              "start": 6.96,
+              "end": 7.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him",
+              "start": 7.12,
+              "end": 7.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " even",
+              "start": 7.32,
+              "end": 7.58,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " o",
+              "start": 7.58,
+              "end": 7.86,
+              "probability": 0.822265625
+            },
+            {
+              "text": "'er",
+              "start": 7.86,
+              "end": 7.94,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " the",
+              "start": 7.94,
+              "end": 8.08,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " time",
+              "start": 8.08,
+              "end": 8.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 8.32,
+              "end": 8.5,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " has",
+              "start": 8.5,
+              "end": 8.62,
+              "probability": 0.587890625
+            },
+            {
+              "text": " lost.",
+              "start": 8.62,
+              "end": 8.98,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Desire",
+              "start": 9.84,
+              "end": 10.04,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " him",
+              "start": 10.04,
+              "end": 10.34,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 10.34,
+              "end": 10.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " go",
+              "start": 10.5,
+              "end": 10.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in,",
+              "start": 10.66,
+              "end": 10.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " trouble",
+              "start": 11.4,
+              "end": 11.48,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " him",
+              "start": 11.48,
+              "end": 11.76,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " no",
+              "start": 11.76,
+              "end": 11.96,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " more",
+              "start": 11.96,
+              "end": 12.3,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Till",
+              "start": 12.3,
+              "end": 12.46,
+              "probability": 0.342041015625
+            },
+            {
+              "text": " further",
+              "start": 12.46,
+              "end": 12.8,
+              "probability": 0.990234375
+            },
+            {
+              "text": " settling.",
+              "start": 12.8,
+              "end": 13.2,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Physician,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Be",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "comforted,",
+          "start": 1.5,
+          "end": 2.16
+        },
+        {
+          "raw": "good",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "madam,",
+          "start": 2.46,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "raw": "great",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "rage,",
+          "start": 3.48,
+          "end": 3.86
+        },
+        {
+          "raw": "You",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "raw": "see,",
+          "start": 4.14,
+          "end": 4.42
+        },
+        {
+          "raw": "is",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "raw": "kill'd",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "raw": "in",
+          "start": 5.1,
+          "end": 5.16
+        },
+        {
+          "raw": "him,",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "raw": "and",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "raw": "yet",
+          "start": 6.0,
+          "end": 6.14
+        },
+        {
+          "raw": "it",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "raw": "is",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "raw": "danger",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "raw": "To",
+          "start": 6.68,
+          "end": 6.96
+        },
+        {
+          "raw": "make",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "raw": "him",
+          "start": 7.12,
+          "end": 7.32
+        },
+        {
+          "raw": "even",
+          "start": 7.32,
+          "end": 7.58
+        },
+        {
+          "raw": "o",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "raw": "'er",
+          "start": 7.86,
+          "end": 7.94
+        },
+        {
+          "raw": "the",
+          "start": 7.94,
+          "end": 8.08
+        },
+        {
+          "raw": "time",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "raw": "he",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "raw": "has",
+          "start": 8.5,
+          "end": 8.62
+        },
+        {
+          "raw": "lost.",
+          "start": 8.62,
+          "end": 8.98
+        },
+        {
+          "raw": "Desire",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "raw": "him",
+          "start": 10.04,
+          "end": 10.34
+        },
+        {
+          "raw": "to",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "raw": "go",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "raw": "in,",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "raw": "trouble",
+          "start": 11.4,
+          "end": 11.48
+        },
+        {
+          "raw": "him",
+          "start": 11.48,
+          "end": 11.76
+        },
+        {
+          "raw": "no",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "raw": "more",
+          "start": 11.96,
+          "end": 12.3
+        },
+        {
+          "raw": "Till",
+          "start": 12.3,
+          "end": 12.46
+        },
+        {
+          "raw": "further",
+          "start": 12.46,
+          "end": 12.8
+        },
+        {
+          "raw": "settling.",
+          "start": 12.8,
+          "end": 13.2
+        }
+      ],
+      "expected_tokens": [
+        "Physician.",
+        "Be",
+        "comforted,",
+        "good",
+        "madam,",
+        "the",
+        "great",
+        "rage,",
+        "You",
+        "see,",
+        "is",
+        "kill'd",
+        "in",
+        "him:",
+        "and",
+        "yet",
+        "it",
+        "is",
+        "danger",
+        "To",
+        "make",
+        "him",
+        "even",
+        "o'er",
+        "the",
+        "time",
+        "he",
+        "has",
+        "lost.",
+        "Desire",
+        "him",
+        "to",
+        "go",
+        "in;",
+        "trouble",
+        "him",
+        "no",
+        "more",
+        "Till",
+        "further",
+        "settling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          41,
+          25,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Physician,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "physician",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comforted,",
+          "start": 1.5,
+          "end": 2.16,
+          "key": "comforted",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 2.46,
+          "end": 2.96,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.24,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rage,",
+          "start": 3.48,
+          "end": 3.86,
+          "key": "rage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.06,
+          "end": 4.14,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "see,",
+          "start": 4.14,
+          "end": 4.42,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.58,
+          "end": 4.74,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "kill'd",
+          "start": 4.74,
+          "end": 5.1,
+          "key": "killd",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.1,
+          "end": 5.16,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 5.16,
+          "end": 5.4,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.84,
+          "end": 6.0,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 6.0,
+          "end": 6.14,
+          "key": "yet",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.14,
+          "end": 6.26,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.26,
+          "end": 6.42,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "danger",
+          "start": 6.42,
+          "end": 6.68,
+          "key": "danger",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 6.68,
+          "end": 6.96,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 6.96,
+          "end": 7.12,
+          "key": "make",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 7.12,
+          "end": 7.32,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 7.32,
+          "end": 7.58,
+          "key": "even",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 7.58,
+          "end": 7.86,
+          "key": "o",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 7.86,
+          "end": 7.94,
+          "key": "er",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.94,
+          "end": 8.08,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 8.08,
+          "end": 8.32,
+          "key": "time",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.32,
+          "end": 8.5,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 8.5,
+          "end": 8.62,
+          "key": "has",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "lost.",
+          "start": 8.62,
+          "end": 8.98,
+          "key": "lost",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Desire",
+          "start": 9.84,
+          "end": 10.04,
+          "key": "desire",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 10.04,
+          "end": 10.34,
+          "key": "him",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.34,
+          "end": 10.5,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 10.5,
+          "end": 10.66,
+          "key": "go",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 10.66,
+          "end": 10.92,
+          "key": "in",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "trouble",
+          "start": 11.4,
+          "end": 11.48,
+          "key": "trouble",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 11.48,
+          "end": 11.76,
+          "key": "him",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 11.76,
+          "end": 11.96,
+          "key": "no",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.96,
+          "end": 12.3,
+          "key": "more",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Till",
+          "start": 12.3,
+          "end": 12.46,
+          "key": "till",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "further",
+          "start": 12.46,
+          "end": 12.8,
+          "key": "further",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "settling.",
+          "start": 12.8,
+          "end": 13.2,
+          "key": "settling",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Physician.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Be",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "comforted,",
+          "start": 1.5,
+          "end": 2.16
+        },
+        {
+          "text": "good",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "madam,",
+          "start": 2.46,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "text": "great",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "rage,",
+          "start": 3.48,
+          "end": 3.86
+        },
+        {
+          "text": "You",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "text": "see,",
+          "start": 4.14,
+          "end": 4.42
+        },
+        {
+          "text": "is",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "text": "kill'd",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "text": "in",
+          "start": 5.1,
+          "end": 5.16
+        },
+        {
+          "text": "him:",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "text": "and",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "text": "yet",
+          "start": 6.0,
+          "end": 6.14
+        },
+        {
+          "text": "it",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "text": "is",
+          "start": 6.26,
+          "end": 6.42
+        },
+        {
+          "text": "danger",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "text": "To",
+          "start": 6.68,
+          "end": 6.96
+        },
+        {
+          "text": "make",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "text": "him",
+          "start": 7.12,
+          "end": 7.32
+        },
+        {
+          "text": "even",
+          "start": 7.32,
+          "end": 7.58
+        },
+        {
+          "text": "o'er",
+          "start": 7.58,
+          "end": 7.76
+        },
+        {
+          "text": "the",
+          "start": 7.94,
+          "end": 8.08
+        },
+        {
+          "text": "time",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "text": "he",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "text": "has",
+          "start": 8.5,
+          "end": 8.62
+        },
+        {
+          "text": "lost.",
+          "start": 8.62,
+          "end": 8.98
+        },
+        {
+          "text": "Desire",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "text": "him",
+          "start": 10.04,
+          "end": 10.34
+        },
+        {
+          "text": "to",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "text": "go",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "text": "in;",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "text": "trouble",
+          "start": 11.4,
+          "end": 11.48
+        },
+        {
+          "text": "him",
+          "start": 11.48,
+          "end": 11.76
+        },
+        {
+          "text": "no",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "text": "more",
+          "start": 11.96,
+          "end": 12.3
+        },
+        {
+          "text": "Till",
+          "start": 12.3,
+          "end": 12.46
+        },
+        {
+          "text": "further",
+          "start": 12.46,
+          "end": 12.8
+        },
+        {
+          "text": "settling.",
+          "start": 12.8,
+          "end": 13.2
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 42,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.3096437565982342
+    },
+    {
+      "asr_seconds": 0.34394966065883636,
+      "alignment_seconds": 0.0005481503903865814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Physician, Be, You, Desire, Till"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Physician, Be Comforted, Good Madam, The Great Rage, You See, Is Killed In Him, And",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Physician,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.913330078125
+            },
+            {
+              "text": " Be",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.0259857177734375
+            },
+            {
+              "text": " Comforted,",
+              "start": 1.5,
+              "end": 2.1,
+              "probability": 0.5135904947916666
+            },
+            {
+              "text": " Good",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " Madam,",
+              "start": 2.48,
+              "end": 2.96,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " The",
+              "start": 3.2,
+              "end": 3.24,
+              "probability": 0.58935546875
+            },
+            {
+              "text": " Great",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " Rage,",
+              "start": 3.48,
+              "end": 3.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " You",
+              "start": 4.06,
+              "end": 4.14,
+              "probability": 0.1494140625
+            },
+            {
+              "text": " See,",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Is",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.7421875
+            },
+            {
+              "text": " Killed",
+              "start": 4.74,
+              "end": 4.96,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " In",
+              "start": 4.96,
+              "end": 5.18,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " Him,",
+              "start": 5.18,
+              "end": 5.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " And",
+              "start": 5.9,
+              "end": 6.0,
+              "probability": 0.9072265625
+            }
+          ]
+        },
+        {
+          "text": " Yet It Is Danger To Make Him Even Over The Time He Has Lost, Desire Him To Go In, Trouble",
+          "start": 6.0,
+          "end": 11.48,
+          "words": [
+            {
+              "text": " Yet",
+              "start": 6.0,
+              "end": 6.14,
+              "probability": 0.953125
+            },
+            {
+              "text": " It",
+              "start": 6.14,
+              "end": 6.26,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Is",
+              "start": 6.26,
+              "end": 6.4,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Danger",
+              "start": 6.4,
+              "end": 6.66,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " To",
+              "start": 6.66,
+              "end": 6.98,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Make",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Him",
+              "start": 7.12,
+              "end": 7.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Even",
+              "start": 7.3,
+              "end": 7.58,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Over",
+              "start": 7.58,
+              "end": 7.86,
+              "probability": 0.60009765625
+            },
+            {
+              "text": " The",
+              "start": 7.86,
+              "end": 8.08,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Time",
+              "start": 8.08,
+              "end": 8.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " He",
+              "start": 8.32,
+              "end": 8.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Has",
+              "start": 8.5,
+              "end": 8.62,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " Lost,",
+              "start": 8.62,
+              "end": 8.92,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Desire",
+              "start": 9.8,
+              "end": 10.06,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Him",
+              "start": 10.06,
+              "end": 10.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " To",
+              "start": 10.34,
+              "end": 10.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Go",
+              "start": 10.5,
+              "end": 10.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " In,",
+              "start": 10.66,
+              "end": 10.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Trouble",
+              "start": 11.44,
+              "end": 11.48,
+              "probability": 0.98095703125
+            }
+          ]
+        },
+        {
+          "text": " Him No More Till Further Settling.",
+          "start": 11.48,
+          "end": 13.32,
+          "words": [
+            {
+              "text": " Him",
+              "start": 11.48,
+              "end": 11.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " No",
+              "start": 11.76,
+              "end": 11.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " More",
+              "start": 11.98,
+              "end": 12.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Till",
+              "start": 12.28,
+              "end": 12.46,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Further",
+              "start": 12.46,
+              "end": 12.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Settling.",
+              "start": 12.82,
+              "end": 13.32,
+              "probability": 0.982177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Physician,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Be",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "Comforted,",
+          "start": 1.5,
+          "end": 2.1
+        },
+        {
+          "raw": "Good",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "Madam,",
+          "start": 2.48,
+          "end": 2.96
+        },
+        {
+          "raw": "The",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "raw": "Great",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "Rage,",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "raw": "You",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "raw": "See,",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "Is",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "Killed",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "raw": "In",
+          "start": 4.96,
+          "end": 5.18
+        },
+        {
+          "raw": "Him,",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "raw": "And",
+          "start": 5.9,
+          "end": 6.0
+        },
+        {
+          "raw": "Yet",
+          "start": 6.0,
+          "end": 6.14
+        },
+        {
+          "raw": "It",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "raw": "Is",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "raw": "Danger",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "raw": "To",
+          "start": 6.66,
+          "end": 6.98
+        },
+        {
+          "raw": "Make",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "Him",
+          "start": 7.12,
+          "end": 7.3
+        },
+        {
+          "raw": "Even",
+          "start": 7.3,
+          "end": 7.58
+        },
+        {
+          "raw": "Over",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "raw": "The",
+          "start": 7.86,
+          "end": 8.08
+        },
+        {
+          "raw": "Time",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "raw": "He",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "raw": "Has",
+          "start": 8.5,
+          "end": 8.62
+        },
+        {
+          "raw": "Lost,",
+          "start": 8.62,
+          "end": 8.92
+        },
+        {
+          "raw": "Desire",
+          "start": 9.8,
+          "end": 10.06
+        },
+        {
+          "raw": "Him",
+          "start": 10.06,
+          "end": 10.34
+        },
+        {
+          "raw": "To",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "raw": "Go",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "raw": "In,",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "raw": "Trouble",
+          "start": 11.44,
+          "end": 11.48
+        },
+        {
+          "raw": "Him",
+          "start": 11.48,
+          "end": 11.76
+        },
+        {
+          "raw": "No",
+          "start": 11.76,
+          "end": 11.98
+        },
+        {
+          "raw": "More",
+          "start": 11.98,
+          "end": 12.28
+        },
+        {
+          "raw": "Till",
+          "start": 12.28,
+          "end": 12.46
+        },
+        {
+          "raw": "Further",
+          "start": 12.46,
+          "end": 12.82
+        },
+        {
+          "raw": "Settling.",
+          "start": 12.82,
+          "end": 13.32
+        }
+      ],
+      "expected_tokens": [
+        "Physician.",
+        "Be",
+        "comforted,",
+        "good",
+        "madam,",
+        "the",
+        "great",
+        "rage,",
+        "You",
+        "see,",
+        "is",
+        "kill'd",
+        "in",
+        "him:",
+        "and",
+        "yet",
+        "it",
+        "is",
+        "danger",
+        "To",
+        "make",
+        "him",
+        "even",
+        "o'er",
+        "the",
+        "time",
+        "he",
+        "has",
+        "lost.",
+        "Desire",
+        "him",
+        "to",
+        "go",
+        "in;",
+        "trouble",
+        "him",
+        "no",
+        "more",
+        "Till",
+        "further",
+        "settling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          23,
+          12,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          41,
+          24,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Physician,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "physician",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Comforted,",
+          "start": 1.5,
+          "end": 2.1,
+          "key": "comforted",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 2.48,
+          "end": 2.96,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.2,
+          "end": 3.24,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Great",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Rage,",
+          "start": 3.48,
+          "end": 3.82,
+          "key": "rage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.06,
+          "end": 4.14,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "See,",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 4.6,
+          "end": 4.74,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Killed",
+          "start": 4.74,
+          "end": 4.96,
+          "key": "killed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.96,
+          "end": 5.18,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Him,",
+          "start": 5.18,
+          "end": 5.4,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.9,
+          "end": 6.0,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 6.0,
+          "end": 6.14,
+          "key": "yet",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 6.14,
+          "end": 6.26,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 6.26,
+          "end": 6.4,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Danger",
+          "start": 6.4,
+          "end": 6.66,
+          "key": "danger",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 6.66,
+          "end": 6.98,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "make",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 7.12,
+          "end": 7.3,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 7.3,
+          "end": 7.58,
+          "key": "even",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Over",
+          "start": 7.58,
+          "end": 7.86,
+          "key": "over",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.86,
+          "end": 8.08,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Time",
+          "start": 8.08,
+          "end": 8.32,
+          "key": "time",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 8.32,
+          "end": 8.5,
+          "key": "he",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Has",
+          "start": 8.5,
+          "end": 8.62,
+          "key": "has",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Lost,",
+          "start": 8.62,
+          "end": 8.92,
+          "key": "lost",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Desire",
+          "start": 9.8,
+          "end": 10.06,
+          "key": "desire",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 10.06,
+          "end": 10.34,
+          "key": "him",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 10.34,
+          "end": 10.5,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 10.5,
+          "end": 10.66,
+          "key": "go",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "In,",
+          "start": 10.66,
+          "end": 10.92,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Trouble",
+          "start": 11.44,
+          "end": 11.48,
+          "key": "trouble",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 11.48,
+          "end": 11.76,
+          "key": "him",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 11.76,
+          "end": 11.98,
+          "key": "no",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "More",
+          "start": 11.98,
+          "end": 12.28,
+          "key": "more",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Till",
+          "start": 12.28,
+          "end": 12.46,
+          "key": "till",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Further",
+          "start": 12.46,
+          "end": 12.82,
+          "key": "further",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Settling.",
+          "start": 12.82,
+          "end": 13.32,
+          "key": "settling",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Physician.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Be",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "comforted,",
+          "start": 1.5,
+          "end": 2.1
+        },
+        {
+          "text": "good",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "madam,",
+          "start": 2.48,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "text": "great",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "rage,",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "text": "You",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "text": "see,",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "text": "is",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "kill'd",
+          "start": 4.74,
+          "end": 4.85
+        },
+        {
+          "text": "in",
+          "start": 4.96,
+          "end": 5.18
+        },
+        {
+          "text": "him:",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "text": "and",
+          "start": 5.9,
+          "end": 6.0
+        },
+        {
+          "text": "yet",
+          "start": 6.0,
+          "end": 6.14
+        },
+        {
+          "text": "it",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "text": "is",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "text": "danger",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "text": "To",
+          "start": 6.66,
+          "end": 6.98
+        },
+        {
+          "text": "make",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "him",
+          "start": 7.12,
+          "end": 7.3
+        },
+        {
+          "text": "even",
+          "start": 7.3,
+          "end": 7.58
+        },
+        {
+          "text": "o'er",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "text": "the",
+          "start": 7.86,
+          "end": 8.08
+        },
+        {
+          "text": "time",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "text": "he",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "text": "has",
+          "start": 8.5,
+          "end": 8.62
+        },
+        {
+          "text": "lost.",
+          "start": 8.62,
+          "end": 8.92
+        },
+        {
+          "text": "Desire",
+          "start": 9.8,
+          "end": 10.06
+        },
+        {
+          "text": "him",
+          "start": 10.06,
+          "end": 10.34
+        },
+        {
+          "text": "to",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "text": "go",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "text": "in;",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "text": "trouble",
+          "start": 11.44,
+          "end": 11.48
+        },
+        {
+          "text": "him",
+          "start": 11.48,
+          "end": 11.76
+        },
+        {
+          "text": "no",
+          "start": 11.76,
+          "end": 11.98
+        },
+        {
+          "text": "more",
+          "start": 11.98,
+          "end": 12.28
+        },
+        {
+          "text": "Till",
+          "start": 12.28,
+          "end": 12.46
+        },
+        {
+          "text": "further",
+          "start": 12.46,
+          "end": 12.82
+        },
+        {
+          "text": "settling.",
+          "start": 12.82,
+          "end": 13.32
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 39
+      },
+      "match_ratio": 0.9512195121951219,
+      "rejection_reasons": [],
+      "seconds": 0.34471345692873
+    },
+    {
+      "asr_seconds": 0.3588551804423332,
+      "alignment_seconds": 0.00040127336978912354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Physician, be comforted, good madam, the great rage you see is killed in him, and yet it",
+          "start": 0.02,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " Physician,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.913330078125
+            },
+            {
+              "text": " be",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " comforted,",
+              "start": 1.48,
+              "end": 2.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " good",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.830078125
+            },
+            {
+              "text": " madam,",
+              "start": 2.46,
+              "end": 2.94,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.24,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " great",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " rage",
+              "start": 3.48,
+              "end": 3.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 3.84,
+              "end": 4.12,
+              "probability": 0.826171875
+            },
+            {
+              "text": " see",
+              "start": 4.12,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 4.42,
+              "end": 4.72,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " killed",
+              "start": 4.72,
+              "end": 4.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him,",
+              "start": 5.18,
+              "end": 5.46,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 5.84,
+              "end": 6.0,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " yet",
+              "start": 6.0,
+              "end": 6.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 6.14,
+              "end": 6.26,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " is danger to make him even o'er the time he has lost.",
+          "start": 6.26,
+          "end": 8.98,
+          "words": [
+            {
+              "text": " is",
+              "start": 6.26,
+              "end": 6.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " danger",
+              "start": 6.4,
+              "end": 6.7,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 6.7,
+              "end": 6.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " make",
+              "start": 6.96,
+              "end": 7.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 7.12,
+              "end": 7.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " even",
+              "start": 7.3,
+              "end": 7.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " o",
+              "start": 7.58,
+              "end": 7.86,
+              "probability": 0.70361328125
+            },
+            {
+              "text": "'er",
+              "start": 7.86,
+              "end": 7.94,
+              "probability": 0.821533203125
+            },
+            {
+              "text": " the",
+              "start": 7.94,
+              "end": 8.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " time",
+              "start": 8.08,
+              "end": 8.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 8.32,
+              "end": 8.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " has",
+              "start": 8.5,
+              "end": 8.62,
+              "probability": 0.861328125
+            },
+            {
+              "text": " lost.",
+              "start": 8.62,
+              "end": 8.98,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Desire him to go in, trouble him no more till further settling.",
+          "start": 9.86,
+          "end": 13.22,
+          "words": [
+            {
+              "text": " Desire",
+              "start": 9.86,
+              "end": 10.04,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " him",
+              "start": 10.04,
+              "end": 10.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 10.34,
+              "end": 10.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " go",
+              "start": 10.5,
+              "end": 10.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in,",
+              "start": 10.66,
+              "end": 10.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trouble",
+              "start": 11.4,
+              "end": 11.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 11.5,
+              "end": 11.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " no",
+              "start": 11.76,
+              "end": 11.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 11.96,
+              "end": 12.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " till",
+              "start": 12.3,
+              "end": 12.46,
+              "probability": 0.826171875
+            },
+            {
+              "text": " further",
+              "start": 12.46,
+              "end": 12.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " settling.",
+              "start": 12.8,
+              "end": 13.22,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Physician,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "be",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "comforted,",
+          "start": 1.48,
+          "end": 2.16
+        },
+        {
+          "raw": "good",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "madam,",
+          "start": 2.46,
+          "end": 2.94
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "raw": "great",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "rage",
+          "start": 3.48,
+          "end": 3.84
+        },
+        {
+          "raw": "you",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "raw": "see",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "raw": "is",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "raw": "killed",
+          "start": 4.72,
+          "end": 4.98
+        },
+        {
+          "raw": "in",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "him,",
+          "start": 5.18,
+          "end": 5.46
+        },
+        {
+          "raw": "and",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "raw": "yet",
+          "start": 6.0,
+          "end": 6.14
+        },
+        {
+          "raw": "it",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "raw": "is",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "raw": "danger",
+          "start": 6.4,
+          "end": 6.7
+        },
+        {
+          "raw": "to",
+          "start": 6.7,
+          "end": 6.96
+        },
+        {
+          "raw": "make",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "raw": "him",
+          "start": 7.12,
+          "end": 7.3
+        },
+        {
+          "raw": "even",
+          "start": 7.3,
+          "end": 7.58
+        },
+        {
+          "raw": "o",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "raw": "'er",
+          "start": 7.86,
+          "end": 7.94
+        },
+        {
+          "raw": "the",
+          "start": 7.94,
+          "end": 8.08
+        },
+        {
+          "raw": "time",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "raw": "he",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "raw": "has",
+          "start": 8.5,
+          "end": 8.62
+        },
+        {
+          "raw": "lost.",
+          "start": 8.62,
+          "end": 8.98
+        },
+        {
+          "raw": "Desire",
+          "start": 9.86,
+          "end": 10.04
+        },
+        {
+          "raw": "him",
+          "start": 10.04,
+          "end": 10.34
+        },
+        {
+          "raw": "to",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "raw": "go",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "raw": "in,",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "raw": "trouble",
+          "start": 11.4,
+          "end": 11.5
+        },
+        {
+          "raw": "him",
+          "start": 11.5,
+          "end": 11.76
+        },
+        {
+          "raw": "no",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "raw": "more",
+          "start": 11.96,
+          "end": 12.3
+        },
+        {
+          "raw": "till",
+          "start": 12.3,
+          "end": 12.46
+        },
+        {
+          "raw": "further",
+          "start": 12.46,
+          "end": 12.8
+        },
+        {
+          "raw": "settling.",
+          "start": 12.8,
+          "end": 13.22
+        }
+      ],
+      "expected_tokens": [
+        "Physician.",
+        "Be",
+        "comforted,",
+        "good",
+        "madam,",
+        "the",
+        "great",
+        "rage,",
+        "You",
+        "see,",
+        "is",
+        "kill'd",
+        "in",
+        "him:",
+        "and",
+        "yet",
+        "it",
+        "is",
+        "danger",
+        "To",
+        "make",
+        "him",
+        "even",
+        "o'er",
+        "the",
+        "time",
+        "he",
+        "has",
+        "lost.",
+        "Desire",
+        "him",
+        "to",
+        "go",
+        "in;",
+        "trouble",
+        "him",
+        "no",
+        "more",
+        "Till",
+        "further",
+        "settling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          23,
+          12,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          41,
+          25,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Physician,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "physician",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comforted,",
+          "start": 1.48,
+          "end": 2.16,
+          "key": "comforted",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 2.46,
+          "end": 2.94,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.24,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rage",
+          "start": 3.48,
+          "end": 3.84,
+          "key": "rage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.84,
+          "end": 4.12,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.12,
+          "end": 4.42,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.42,
+          "end": 4.72,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 4.72,
+          "end": 4.98,
+          "key": "killed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 5.18,
+          "end": 5.46,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.84,
+          "end": 6.0,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 6.0,
+          "end": 6.14,
+          "key": "yet",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.14,
+          "end": 6.26,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.26,
+          "end": 6.4,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "danger",
+          "start": 6.4,
+          "end": 6.7,
+          "key": "danger",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.7,
+          "end": 6.96,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 6.96,
+          "end": 7.12,
+          "key": "make",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 7.12,
+          "end": 7.3,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 7.3,
+          "end": 7.58,
+          "key": "even",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 7.58,
+          "end": 7.86,
+          "key": "o",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 7.86,
+          "end": 7.94,
+          "key": "er",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.94,
+          "end": 8.08,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 8.08,
+          "end": 8.32,
+          "key": "time",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.32,
+          "end": 8.5,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 8.5,
+          "end": 8.62,
+          "key": "has",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "lost.",
+          "start": 8.62,
+          "end": 8.98,
+          "key": "lost",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Desire",
+          "start": 9.86,
+          "end": 10.04,
+          "key": "desire",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 10.04,
+          "end": 10.34,
+          "key": "him",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.34,
+          "end": 10.5,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 10.5,
+          "end": 10.66,
+          "key": "go",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 10.66,
+          "end": 10.92,
+          "key": "in",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "trouble",
+          "start": 11.4,
+          "end": 11.5,
+          "key": "trouble",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 11.5,
+          "end": 11.76,
+          "key": "him",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 11.76,
+          "end": 11.96,
+          "key": "no",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.96,
+          "end": 12.3,
+          "key": "more",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 12.3,
+          "end": 12.46,
+          "key": "till",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "further",
+          "start": 12.46,
+          "end": 12.8,
+          "key": "further",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "settling.",
+          "start": 12.8,
+          "end": 13.22,
+          "key": "settling",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Physician.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Be",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "comforted,",
+          "start": 1.48,
+          "end": 2.16
+        },
+        {
+          "text": "good",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "madam,",
+          "start": 2.46,
+          "end": 2.94
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "text": "great",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "rage,",
+          "start": 3.48,
+          "end": 3.84
+        },
+        {
+          "text": "You",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "text": "see,",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "text": "is",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "text": "kill'd",
+          "start": 4.72,
+          "end": 4.85
+        },
+        {
+          "text": "in",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "text": "him:",
+          "start": 5.18,
+          "end": 5.46
+        },
+        {
+          "text": "and",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "text": "yet",
+          "start": 6.0,
+          "end": 6.14
+        },
+        {
+          "text": "it",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "text": "is",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "text": "danger",
+          "start": 6.4,
+          "end": 6.7
+        },
+        {
+          "text": "To",
+          "start": 6.7,
+          "end": 6.96
+        },
+        {
+          "text": "make",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "text": "him",
+          "start": 7.12,
+          "end": 7.3
+        },
+        {
+          "text": "even",
+          "start": 7.3,
+          "end": 7.58
+        },
+        {
+          "text": "o'er",
+          "start": 7.58,
+          "end": 7.76
+        },
+        {
+          "text": "the",
+          "start": 7.94,
+          "end": 8.08
+        },
+        {
+          "text": "time",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "text": "he",
+          "start": 8.32,
+          "end": 8.5
+        },
+        {
+          "text": "has",
+          "start": 8.5,
+          "end": 8.62
+        },
+        {
+          "text": "lost.",
+          "start": 8.62,
+          "end": 8.98
+        },
+        {
+          "text": "Desire",
+          "start": 9.86,
+          "end": 10.04
+        },
+        {
+          "text": "him",
+          "start": 10.04,
+          "end": 10.34
+        },
+        {
+          "text": "to",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "text": "go",
+          "start": 10.5,
+          "end": 10.66
+        },
+        {
+          "text": "in;",
+          "start": 10.66,
+          "end": 10.92
+        },
+        {
+          "text": "trouble",
+          "start": 11.4,
+          "end": 11.5
+        },
+        {
+          "text": "him",
+          "start": 11.5,
+          "end": 11.76
+        },
+        {
+          "text": "no",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "text": "more",
+          "start": 11.96,
+          "end": 12.3
+        },
+        {
+          "text": "Till",
+          "start": 12.3,
+          "end": 12.46
+        },
+        {
+          "text": "further",
+          "start": 12.46,
+          "end": 12.8
+        },
+        {
+          "text": "settling.",
+          "start": 12.8,
+          "end": 13.22
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 42,
+        "matched_words": 39
+      },
+      "match_ratio": 0.9512195121951219,
+      "rejection_reasons": [],
+      "seconds": 0.3594135642051697
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3395bb8d068eba30e707d4a9a4dfc8023dca66ed0aaac37c0bbd35e2c1ca1d0b",
+  "selected_reasons": []
+}

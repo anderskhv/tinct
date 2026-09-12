@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "0dc80ef24a0aef72a042c6839241950fe38ec336f4441d3a04a2cf3e91b97d74",
+  "attempts": [
+    {
+      "asr_seconds": 0.0823034755885601,
+      "alignment_seconds": 9.942054748535156e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, why good sir?",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.02,
+              "end": 0.98,
+              "probability": 0.8203125
+            },
+            {
+              "text": " why",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " good",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sir?",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.6630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "raw": "why",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "good",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "sir?",
+          "start": 1.66,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Why,",
+        "good",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.02,
+          "end": 0.98,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "Why,",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "good",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "sir?",
+          "start": 1.66,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08243466541171074
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69a778f54176f0a01e539df6dccf95d772cd5f50741ece76e6f70399f2d36ce3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

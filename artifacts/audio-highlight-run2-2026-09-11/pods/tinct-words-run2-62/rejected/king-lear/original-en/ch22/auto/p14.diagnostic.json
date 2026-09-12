@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "24387e36cfacd77ab96bc2d329d45b8a332a8dc369f12d31227818ad5d2c3fef",
+  "attempts": [
+    {
+      "asr_seconds": 0.08628911525011063,
+      "alignment_seconds": 0.0001461021602153778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Now fare ye well, good sir.",
+        "hotwords": "Edgar, Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Now fare ye well, good sir.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Now",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.03228759765625
+            },
+            {
+              "text": " fare",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " ye",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.09503173828125
+            },
+            {
+              "text": " well,",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " good",
+              "start": 1.91,
+              "end": 1.97,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " sir.",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.8310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Now",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "fare",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "ye",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "well,",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "good",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "raw": "sir.",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Now",
+        "fare",
+        "ye",
+        "well,",
+        "good",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fare",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "fare",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "ye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.91,
+          "end": 1.97,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.97,
+          "end": 2.25,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Now",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "fare",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "ye",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "well,",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "good",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "text": "sir.",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08649014681577682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "689ba3be18a16415144b8c3a73f2fa9b5605bfa08f63fd65468fc8c2b8334adb",
+  "selected_reasons": []
+}

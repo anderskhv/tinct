@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "0145f4b6393aa4850ea9c33f691e234d8fc57d399bed0a38b04876dcb2802904",
+  "attempts": [
+    {
+      "asr_seconds": 0.23494983837008476,
+      "alignment_seconds": 0.00020891055464744568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, how now, my noble friend?",
+          "start": 0.0,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " how",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " now,",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " noble",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " friend?",
+              "start": 2.16,
+              "end": 2.52,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " Since I came hither, which I can call but now, I have heard strange news.",
+          "start": 3.22,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " Since",
+              "start": 3.22,
+              "end": 3.36,
+              "probability": 0.892578125
+            },
+            {
+              "text": " I",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " came",
+              "start": 3.52,
+              "end": 3.74,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hither,",
+              "start": 3.74,
+              "end": 4.0,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " which",
+              "start": 4.22,
+              "end": 4.28,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 4.28,
+              "end": 4.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can",
+              "start": 4.44,
+              "end": 4.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " call",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 4.84,
+              "end": 5.02,
+              "probability": 0.822265625
+            },
+            {
+              "text": " now,",
+              "start": 5.02,
+              "end": 5.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 5.56,
+              "end": 5.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 5.64,
+              "end": 5.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heard",
+              "start": 5.76,
+              "end": 5.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " strange",
+              "start": 5.94,
+              "end": 6.34,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " news.",
+              "start": 6.34,
+              "end": 6.74,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "how",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "now,",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "my",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "noble",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "friend?",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "raw": "Since",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "raw": "I",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "came",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "raw": "hither,",
+          "start": 3.74,
+          "end": 4.0
+        },
+        {
+          "raw": "which",
+          "start": 4.22,
+          "end": 4.28
+        },
+        {
+          "raw": "I",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "raw": "can",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "raw": "call",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "but",
+          "start": 4.84,
+          "end": 5.02
+        },
+        {
+          "raw": "now,",
+          "start": 5.02,
+          "end": 5.32
+        },
+        {
+          "raw": "I",
+          "start": 5.56,
+          "end": 5.64
+        },
+        {
+          "raw": "have",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "raw": "heard",
+          "start": 5.76,
+          "end": 5.94
+        },
+        {
+          "raw": "strange",
+          "start": 5.94,
+          "end": 6.34
+        },
+        {
+          "raw": "news.",
+          "start": 6.34,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "How",
+        "now,",
+        "my",
+        "noble",
+        "friend!",
+        "since",
+        "I",
+        "came",
+        "hither,",
+        "Which",
+        "I",
+        "can",
+        "call",
+        "but",
+        "now,",
+        "I",
+        "have",
+        "heard",
+        "strange",
+        "news."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "noble",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friend?",
+          "start": 2.16,
+          "end": 2.52,
+          "key": "friend",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Since",
+          "start": 3.22,
+          "end": 3.36,
+          "key": "since",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 3.52,
+          "end": 3.74,
+          "key": "came",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 3.74,
+          "end": 4.0,
+          "key": "hither",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.22,
+          "end": 4.28,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.28,
+          "end": 4.44,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 4.44,
+          "end": 4.58,
+          "key": "can",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "call",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.84,
+          "end": 5.02,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 5.02,
+          "end": 5.32,
+          "key": "now",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.56,
+          "end": 5.64,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.64,
+          "end": 5.76,
+          "key": "have",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 5.76,
+          "end": 5.94,
+          "key": "heard",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 5.94,
+          "end": 6.34,
+          "key": "strange",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "news.",
+          "start": 6.34,
+          "end": 6.74,
+          "key": "news",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "How",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "now,",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "my",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "noble",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "friend!",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "text": "since",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "text": "I",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "came",
+          "start": 3.52,
+          "end": 3.74
+        },
+        {
+          "text": "hither,",
+          "start": 3.74,
+          "end": 4.0
+        },
+        {
+          "text": "Which",
+          "start": 4.22,
+          "end": 4.28
+        },
+        {
+          "text": "I",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "text": "can",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "text": "call",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "but",
+          "start": 4.84,
+          "end": 5.02
+        },
+        {
+          "text": "now,",
+          "start": 5.02,
+          "end": 5.32
+        },
+        {
+          "text": "I",
+          "start": 5.56,
+          "end": 5.64
+        },
+        {
+          "text": "have",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "text": "heard",
+          "start": 5.76,
+          "end": 5.94
+        },
+        {
+          "text": "strange",
+          "start": 5.94,
+          "end": 6.34
+        },
+        {
+          "text": "news.",
+          "start": 6.34,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2352392040193081
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "42896cea92a74b7c3202ecc34c7e6d51a1fbf68f807449c03fdcc2e03fb56c04",
+  "selected_reasons": []
+}

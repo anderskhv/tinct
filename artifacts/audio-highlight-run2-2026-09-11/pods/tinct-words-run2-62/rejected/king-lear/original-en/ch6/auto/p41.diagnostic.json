@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f19cb2b0198daa13b20e5b7f5d93ebbcc3ecf2fce338d6a90358340d39e7c3b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.10845881327986717,
+      "alignment_seconds": 0.00023511052131652832,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edmund. Yes, madam, he was of that consort.",
+        "hotwords": "Edmund, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edmund, Yes madam, he was of that consort.",
+          "start": 0.02,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Edmund,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " Yes",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.0221099853515625
+            },
+            {
+              "text": " madam,",
+              "start": 1.46,
+              "end": 1.88,
+              "probability": 0.6072998046875
+            },
+            {
+              "text": " he",
+              "start": 2.02,
+              "end": 2.04,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " was",
+              "start": 2.04,
+              "end": 2.12,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 2.12,
+              "end": 2.22,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " that",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " consort.",
+              "start": 2.38,
+              "end": 2.96,
+              "probability": 0.915771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edmund,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Yes",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "madam,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "raw": "he",
+          "start": 2.02,
+          "end": 2.04
+        },
+        {
+          "raw": "was",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "raw": "of",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "raw": "that",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "consort.",
+          "start": 2.38,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "Edmund.",
+        "Yes,",
+        "madam,",
+        "he",
+        "was",
+        "of",
+        "that",
+        "consort."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edmund,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "edmund",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.46,
+          "end": 1.88,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.02,
+          "end": 2.04,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.04,
+          "end": 2.12,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.12,
+          "end": 2.22,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "consort.",
+          "start": 2.38,
+          "end": 2.96,
+          "key": "consort",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edmund.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Yes,",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "madam,",
+          "start": 1.46,
+          "end": 1.88
+        },
+        {
+          "text": "he",
+          "start": 2.02,
+          "end": 2.04
+        },
+        {
+          "text": "was",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "text": "of",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "text": "that",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "consort.",
+          "start": 2.38,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10878374800086021
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a3b9c65251f0efc1eb93dac49863bc2e432b4d52c5da6766579857ec4bece29",
+  "selected_reasons": []
+}

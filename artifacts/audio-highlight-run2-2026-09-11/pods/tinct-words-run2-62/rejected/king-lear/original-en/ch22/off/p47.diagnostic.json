@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "f0a4948bee77166a873f050cc451d05e0c5052c0134bbdfa91c8817085b48146",
+  "attempts": [
+    {
+      "asr_seconds": 0.08777554705739021,
+      "alignment_seconds": 0.00012761354446411133,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, oh, let me kiss that hand.",
+          "start": 0.5,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " oh,",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.904296875
+            },
+            {
+              "text": " let",
+              "start": 1.44,
+              "end": 1.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " kiss",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hand.",
+              "start": 2.0,
+              "end": 2.36,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "oh,",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "let",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "raw": "me",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "kiss",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "that",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "hand.",
+          "start": 2.0,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "O,",
+        "let",
+        "me",
+        "kiss",
+        "that",
+        "hand!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh,",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.44,
+          "end": 1.5,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kiss",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "kiss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 2.0,
+          "end": 2.36,
+          "key": "hand",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "O,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "text": "let",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "text": "me",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "kiss",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "that",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "hand!",
+          "start": 2.0,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.08794524148106575
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "65186466fc3fa993328a3cfb4e6a420bf72ad39a5c6c99d8435a25e18a8ba572",
+  "selected_reasons": []
+}

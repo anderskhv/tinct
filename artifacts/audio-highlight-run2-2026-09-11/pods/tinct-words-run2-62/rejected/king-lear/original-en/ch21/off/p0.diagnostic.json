@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "5a5832fc1bcac3cb827d9524161642e1048cf28e7a399592fdca2e661f4c7193",
+  "attempts": [
+    {
+      "asr_seconds": 0.06542668864130974,
+      "alignment_seconds": 9.952858090400696e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Regan in Oswald.",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Regan",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " in",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.55908203125
+            },
+            {
+              "text": " Oswald.",
+              "start": 1.2,
+              "end": 1.54,
+              "probability": 0.8486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Regan",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "Oswald.",
+          "start": 1.2,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Regan",
+        "and",
+        "Oswald."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Regan",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "regan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oswald.",
+          "start": 1.2,
+          "end": 1.54,
+          "key": "oswald",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Regan",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "and",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "Oswald.",
+          "start": 1.2,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.06555799022316933
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce8b35a3fde4026720d9edf851898d8ee5723eb915a10bebbf77e2f3b11cf4ae",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

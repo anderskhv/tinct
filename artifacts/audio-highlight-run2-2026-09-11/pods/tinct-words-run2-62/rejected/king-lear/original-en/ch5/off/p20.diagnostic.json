@@ -1,0 +1,786 @@
+{
+  "complete": true,
+  "signature": "fd529b8c8fadf072d5e560e4ff246daaae0cd60ffc6906c52890529137cb9cfb",
+  "attempts": [
+    {
+      "asr_seconds": 0.17702680081129074,
+      "alignment_seconds": 0.00021521374583244324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool thy asses are gone about them. The reason why the seven stars are no more than seven is a pretty reason",
+          "start": 0.08,
+          "end": 6.86,
+          "words": [
+            {
+              "text": " Fool",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " thy",
+              "start": 0.66,
+              "end": 1.32,
+              "probability": 0.2056884765625
+            },
+            {
+              "text": " asses",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " are",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " gone",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " about",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " them.",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.4599609375
+            },
+            {
+              "text": " The",
+              "start": 3.12,
+              "end": 3.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " reason",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " why",
+              "start": 3.54,
+              "end": 3.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 3.84,
+              "end": 3.98,
+              "probability": 0.984375
+            },
+            {
+              "text": " seven",
+              "start": 3.98,
+              "end": 4.24,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " stars",
+              "start": 4.24,
+              "end": 4.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " are",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 4.84,
+              "end": 5.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 5.0,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 5.2,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seven",
+              "start": 5.4,
+              "end": 5.72,
+              "probability": 0.96875
+            },
+            {
+              "text": " is",
+              "start": 5.72,
+              "end": 6.16,
+              "probability": 0.96875
+            },
+            {
+              "text": " a",
+              "start": 6.16,
+              "end": 6.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pretty",
+              "start": 6.3,
+              "end": 6.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reason",
+              "start": 6.44,
+              "end": 6.86,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "thy",
+          "start": 0.66,
+          "end": 1.32
+        },
+        {
+          "raw": "asses",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "are",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "gone",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "about",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "raw": "them.",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "The",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "raw": "reason",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "why",
+          "start": 3.54,
+          "end": 3.84
+        },
+        {
+          "raw": "the",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "raw": "seven",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "raw": "stars",
+          "start": 4.24,
+          "end": 4.58
+        },
+        {
+          "raw": "are",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "no",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "raw": "more",
+          "start": 5.0,
+          "end": 5.2
+        },
+        {
+          "raw": "than",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "raw": "seven",
+          "start": 5.4,
+          "end": 5.72
+        },
+        {
+          "raw": "is",
+          "start": 5.72,
+          "end": 6.16
+        },
+        {
+          "raw": "a",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "raw": "pretty",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "raw": "reason",
+          "start": 6.44,
+          "end": 6.86
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Thy",
+        "asses",
+        "are",
+        "gone",
+        "about",
+        "'em.",
+        "The",
+        "reason",
+        "why",
+        "the",
+        "seven",
+        "stars",
+        "are",
+        "no",
+        "more",
+        "than",
+        "seven",
+        "is",
+        "a",
+        "pretty",
+        "reason."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          22,
+          7,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 0.66,
+          "end": 1.32,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "asses",
+          "start": 1.32,
+          "end": 1.7,
+          "key": "asses",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "gone",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "about",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.12,
+          "end": 3.3,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 3.3,
+          "end": 3.54,
+          "key": "reason",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 3.54,
+          "end": 3.84,
+          "key": "why",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.84,
+          "end": 3.98,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 3.98,
+          "end": 4.24,
+          "key": "seven",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stars",
+          "start": 4.24,
+          "end": 4.58,
+          "key": "stars",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.84,
+          "end": 5.0,
+          "key": "no",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.0,
+          "end": 5.2,
+          "key": "more",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.2,
+          "end": 5.4,
+          "key": "than",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 5.4,
+          "end": 5.72,
+          "key": "seven",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.72,
+          "end": 6.16,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.16,
+          "end": 6.3,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 6.3,
+          "end": 6.44,
+          "key": "pretty",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 6.44,
+          "end": 6.86,
+          "key": "reason",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Thy",
+          "start": 0.66,
+          "end": 1.32
+        },
+        {
+          "text": "asses",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "are",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "gone",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "about",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "text": "'em.",
+          "start": 2.38,
+          "end": 2.75
+        },
+        {
+          "text": "The",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "text": "reason",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "text": "why",
+          "start": 3.54,
+          "end": 3.84
+        },
+        {
+          "text": "the",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "text": "seven",
+          "start": 3.98,
+          "end": 4.24
+        },
+        {
+          "text": "stars",
+          "start": 4.24,
+          "end": 4.58
+        },
+        {
+          "text": "are",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "no",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "text": "more",
+          "start": 5.0,
+          "end": 5.2
+        },
+        {
+          "text": "than",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "text": "seven",
+          "start": 5.4,
+          "end": 5.72
+        },
+        {
+          "text": "is",
+          "start": 5.72,
+          "end": 6.16
+        },
+        {
+          "text": "a",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "text": "pretty",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "text": "reason.",
+          "start": 6.44,
+          "end": 6.86
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.17732256278395653
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "077c9f06e258cdf6b161d4f3210db8b1e31d3e496a034f5a5e1ba18310343891",
+  "selected_reasons": []
+}

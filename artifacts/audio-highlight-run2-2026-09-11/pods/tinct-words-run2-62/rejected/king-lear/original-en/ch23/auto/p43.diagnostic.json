@@ -1,0 +1,1422 @@
+{
+  "complete": true,
+  "signature": "663e4409c1c5ad68e3a5cd95887f8088ee7e976474a5c8f390c12aec893315cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.10341141000390053,
+      "alignment_seconds": 0.00013804808259010315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gentleman. The arbitrement is like to be bloody. Fare you well, sir.",
+        "hotwords": "Gentleman, The, Fare"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, The arbitrement is like to be bloody. Fare you well, sir.",
+          "start": 0.52,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " The",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.04852294921875
+            },
+            {
+              "text": " arbitrement",
+              "start": 1.46,
+              "end": 1.98,
+              "probability": 0.4110921223958333
+            },
+            {
+              "text": " is",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.986328125
+            },
+            {
+              "text": " like",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " to",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " be",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " bloody.",
+              "start": 2.64,
+              "end": 2.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Fare",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " you",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " well,",
+              "start": 3.76,
+              "end": 3.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sir.",
+              "start": 4.22,
+              "end": 4.24,
+              "probability": 0.84521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "arbitrement",
+          "start": 1.46,
+          "end": 1.98
+        },
+        {
+          "raw": "is",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "like",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "be",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "bloody.",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "raw": "Fare",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "well,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "raw": "sir.",
+          "start": 4.22,
+          "end": 4.24
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "The",
+        "arbitrement",
+        "is",
+        "like",
+        "to",
+        "be",
+        "bloody.",
+        "Fare",
+        "you",
+        "well,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "arbitrement",
+          "start": 1.46,
+          "end": 1.98,
+          "key": "arbitrement",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bloody.",
+          "start": 2.64,
+          "end": 2.94,
+          "key": "bloody",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 3.46,
+          "end": 3.58,
+          "key": "fare",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 3.76,
+          "end": 3.98,
+          "key": "well",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 4.22,
+          "end": 4.24,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "The",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "arbitrement",
+          "start": 1.46,
+          "end": 1.98
+        },
+        {
+          "text": "is",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "like",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "be",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "bloody.",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "text": "Fare",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "text": "you",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "well,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "text": "sir.",
+          "start": 4.22,
+          "end": 4.24
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.10361720249056816
+    },
+    {
+      "asr_seconds": 0.12608585134148598,
+      "alignment_seconds": 0.0001444891095161438,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Gentleman, The, Fare"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, The Arbitrament is like to be bloody.",
+          "start": 0.52,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " The",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.04852294921875
+            },
+            {
+              "text": " Arbitrament",
+              "start": 1.46,
+              "end": 2.02,
+              "probability": 0.63916015625
+            },
+            {
+              "text": " is",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.986328125
+            },
+            {
+              "text": " like",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " to",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " be",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " bloody.",
+              "start": 2.64,
+              "end": 2.94,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Fare you well, sir.",
+          "start": 3.44,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " Fare",
+              "start": 3.44,
+              "end": 3.58,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " you",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.98828125
+            },
+            {
+              "text": " well,",
+              "start": 3.76,
+              "end": 3.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sir.",
+              "start": 4.22,
+              "end": 4.24,
+              "probability": 0.841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "Arbitrament",
+          "start": 1.46,
+          "end": 2.02
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "like",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "be",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "bloody.",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "raw": "Fare",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "well,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "raw": "sir.",
+          "start": 4.22,
+          "end": 4.24
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "The",
+        "arbitrement",
+        "is",
+        "like",
+        "to",
+        "be",
+        "bloody.",
+        "Fare",
+        "you",
+        "well,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Arbitrament",
+          "start": 1.46,
+          "end": 2.02,
+          "key": "arbitrament",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.14,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bloody.",
+          "start": 2.64,
+          "end": 2.94,
+          "key": "bloody",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 3.44,
+          "end": 3.58,
+          "key": "fare",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 3.76,
+          "end": 3.98,
+          "key": "well",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 4.22,
+          "end": 4.24,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "The",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "arbitrement",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "text": "is",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "like",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "be",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "bloody.",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "text": "Fare",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "text": "you",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "well,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "text": "sir.",
+          "start": 4.22,
+          "end": 4.24
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12628069519996643
+    },
+    {
+      "asr_seconds": 0.11858722567558289,
+      "alignment_seconds": 0.00014491379261016846,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, the arbitrament is like to be bloody.",
+          "start": 0.52,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " arbitrament",
+              "start": 1.46,
+              "end": 2.02,
+              "probability": 0.6343180338541666
+            },
+            {
+              "text": " is",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " like",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " to",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " be",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bloody.",
+              "start": 2.64,
+              "end": 2.94,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Fare you well, sir.",
+          "start": 3.46,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " Fare",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " you",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " well,",
+              "start": 3.76,
+              "end": 3.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sir.",
+              "start": 4.22,
+              "end": 4.24,
+              "probability": 0.89453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "arbitrament",
+          "start": 1.46,
+          "end": 2.02
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "like",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "be",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "bloody.",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "raw": "Fare",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "well,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "raw": "sir.",
+          "start": 4.22,
+          "end": 4.24
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "The",
+        "arbitrement",
+        "is",
+        "like",
+        "to",
+        "be",
+        "bloody.",
+        "Fare",
+        "you",
+        "well,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "arbitrament",
+          "start": 1.46,
+          "end": 2.02,
+          "key": "arbitrament",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.14,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bloody.",
+          "start": 2.64,
+          "end": 2.94,
+          "key": "bloody",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 3.46,
+          "end": 3.58,
+          "key": "fare",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 3.76,
+          "end": 3.98,
+          "key": "well",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 4.22,
+          "end": 4.24,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.67
+        },
+        {
+          "text": "The",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "arbitrement",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "text": "is",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "like",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "be",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "bloody.",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "text": "Fare",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "text": "you",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "well,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "text": "sir.",
+          "start": 4.22,
+          "end": 4.24
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11878226697444916
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8eb54385c6b282e2df3a05a94e8d5699805abfb9495b2afdffd2ffe9fc64503b",
+  "selected_reasons": []
+}

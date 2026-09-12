@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "f390029f160843c37f8c91179540dd0370653537a6d3e902bb7dc47b8282602c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10111448913812637,
+      "alignment_seconds": 0.00013761967420578003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Goneril. Farewell, sweet lord, and sister.",
+        "hotwords": "Goneril, Farewell"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Goneril, Farewell, sweet lord, and sister.",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Goneril,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.4200846354166667
+            },
+            {
+              "text": " Farewell,",
+              "start": 1.27,
+              "end": 1.75,
+              "probability": 0.6953125
+            },
+            {
+              "text": " sweet",
+              "start": 2.03,
+              "end": 2.13,
+              "probability": 0.123291015625
+            },
+            {
+              "text": " lord,",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.61,
+              "probability": 0.9765625
+            },
+            {
+              "text": " sister.",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Goneril,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.27,
+          "end": 1.75
+        },
+        {
+          "raw": "sweet",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "raw": "lord,",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.61
+        },
+        {
+          "raw": "sister.",
+          "start": 2.61,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Goneril.",
+        "Farewell,",
+        "sweet",
+        "lord,",
+        "and",
+        "sister."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Goneril,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "goneril",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.27,
+          "end": 1.75,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.03,
+          "end": 2.13,
+          "key": "sweet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.61,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sister.",
+          "start": 2.61,
+          "end": 2.83,
+          "key": "sister",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Goneril.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.27,
+          "end": 1.75
+        },
+        {
+          "text": "sweet",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "text": "lord,",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.61
+        },
+        {
+          "text": "sister.",
+          "start": 2.61,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10130933672189713
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8dae3fd340f75a65f01686a9cd42f0318160ef40486677189202c5e1574d2da7",
+  "selected_reasons": []
+}
