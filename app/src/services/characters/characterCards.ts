@@ -100,6 +100,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   // 2026-09-12.1 — philosophy, political theory and religious works
   'nicomachean-ethics': { editions: EN, revision: '2026-09-12.1' },
   'aristotle-politics': { editions: EN, revision: '2026-09-12.1' },
+  leviathan: { editions: EN, revision: '2026-09-12.1' },
 }
 const supportedEditions = (bookId: string): string[] | undefined => characterReleases[bookId]?.editions
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
