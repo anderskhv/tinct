@@ -1034,9 +1034,12 @@
     {
       "bookId": "beyond-good-and-evil",
       "title": "Beyond Good and Evil",
-      "contentStatus": "in-progress",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -1054,7 +1057,7 @@
         }
       ],
       "existingThreadCandidates": 0,
-      "nextAction": "Lane A authoring claimed: build entity inventory from both English editions, author cards, run editorial checks before validated-package"
+      "nextAction": "Consolidated release queue: integrate versioned asset and verify production"
     },
     {
       "bookId": "kant-groundwork",
