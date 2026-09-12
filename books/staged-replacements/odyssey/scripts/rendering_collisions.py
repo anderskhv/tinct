@@ -134,6 +134,67 @@ def build(books):
     return fwd, back
 
 
+# ---------------------------------------------------------------- ARROW C
+# **Added at Book 7's step 6, and it is the arrow the round-1 reviewer proved
+# was missing.** Three of that round's findings — M-2 (`abode` -> `house`
+# eleven words from Butler's own `house`), M-5 (`sup` -> `eat` beside his own
+# `eat`) and M-10 (`chief persons` -> `chief men` against the candidate's own
+# `chief people`) — are the same defect as `scion` -> `young woman`, and the
+# reviewer states plainly that **every instrument in the package is blind to
+# all three**, in both arrows. It diagnosed why: arrows A and B both gate on
+# Butler's RARITY across the corpus, and `abode` occurs in six paragraphs, so
+# it is not rare enough to be looked at.
+#
+# **Rarity is the wrong gate for this defect, and proximity is the right one.**
+# It does not matter how common `abode` is in seven Books. What matters is that
+# in ONE paragraph Butler wrote `abode` and `house`, and the candidate wrote
+# `house` twice — a discrimination Butler made, lost. Inside a single paragraph
+# the precision is high enough to drop the rarity gate entirely and to take the
+# length gate down from five letters to three, which is what catches `sup` ->
+# `eat` and `persons` -> `men`.
+#
+#   C. one paragraph, one rendering -> a word BUTLER HIMSELF KEEPS in that
+#      same paragraph, for a different word of his.
+#
+# It is also the check that carries the dismissal class the triage leans on:
+# arrow B is deliberately NOT gated on the rendering's side (so that accepted
+# B04-P010 could be caught), and the cost is ~31 rows a Book whose key is an
+# ordinary word of Butler's own. Those are dismissed as a class — and the class
+# is only dismissible because arrow C tests the residue with no frequency gate
+# at all. That is D18's `declare_blind` shape applied to a triage.
+STOP_C = frozenset("""
+the a an and or but of to in on at by for with as is was are were be been being
+it its his her their they them he she we you i that this which who whom not no
+had has have will would shall should may might can could do did done than then
+so such there here when where what all any some one two
+""".split())
+MIN_LEN_C = 3
+
+
+def build_c(books):
+    """Returns sorted rows (book, paragraph, Butler's span, the rendering)."""
+    hits = set()
+    for n, S, C in books:
+        for i, (sp, cp) in enumerate(zip(S, C), 1):
+            a, b = toks(sp), toks(cp)
+            ops = difflib.SequenceMatcher(a=a, b=b, autojunk=False).get_opcodes()
+            kept = set()
+            for tag, i1, i2, j1, j2 in ops:
+                if tag == "equal":
+                    kept |= set(a[i1:i2])
+            for tag, i1, i2, j1, j2 in ops:
+                if tag == "equal" or i2 - i1 > 4 or j2 - j1 > 4:
+                    continue
+                if not [w for w in a[i1:i2]
+                        if len(w) >= MIN_LEN_C and w not in STOP_C]:
+                    continue
+                for w in b[j1:j2]:
+                    if (len(w) >= MIN_LEN_C and w not in STOP_C
+                            and w in kept and w not in a[i1:i2]):
+                        hits.add((n, i, " ".join(a[i1:i2]), w))
+    return sorted(hits)
+
+
 def report(fwd, back, show=True):
     # No cross-Book precondition on either arrow. The audit removed it: it was
     # on both arrows as first written, and it suppressed exactly the instance
@@ -188,6 +249,15 @@ def main():
                                       "so fair a creature as yourself")
         return out
 
+    C = build_c(books)
+    print()
+    print("ARROW C — one paragraph, one rendering \u2190 a word Butler keeps in "
+          "that same paragraph")
+    for n, i, s, w in C:
+        print("  B%d-P%03d  %-30s \u2192 %-14s (Butler's own %r is kept here)"
+              % (n, i, s, w, w))
+    print("  %d rows" % len(C))
+
     verdictA = lambda bs: report(*build(bs), show=False)[0]
     verdictB = lambda bs: report(*build(bs), show=False)[1]
     control("arrow A sees a Butler word rendered two ways across Books",
@@ -203,6 +273,45 @@ def main():
     control("arrow B does NOT move when only arrow A's defect is planted — "
             "the mirror, and the half that was missing",
             books, render_twice(books), verdict=verdictB, expect_same=True)
+    def flatten_a_discrimination(bs):
+        """Arrow C's defect, planted — and the plant is the reviewer's **M-2
+        verbatim**, put into an accepted Book that gets it RIGHT.
+
+        Butler's B04-P001 writes `the abode of Menelaus` and, nine words later,
+        `in his own house`. Accepted Book 4 renders the first `home` and keeps
+        the second `house`, which is exactly the discrimination Book 7 lost at
+        B07-P009. Flatten it: render `abode` as `house` too.
+
+        **Arrows A and B are both blind to this**, and that is arrow C's whole
+        warrant rather than a claim about it: `abode` occurs in six paragraphs
+        across seven Books, so it is over the rarity gate both other arrows
+        run on, and `house` is far too common to be a key. The two
+        independence controls below assert exactly that.
+
+        (M-2, M-5 and M-10 themselves cannot be planted — arrow C already
+        finds all three in the frozen Book 7 candidate. That is the finding;
+        this is the proof the arrow is working rather than printing noise.)"""
+        out = [(n, s, list(c)) for n, s, c in bs]
+        for n, s, c in out:
+            if n == 4:
+                assert "to the home of Menelaus" in c[0], c[0][:140]
+                c[0] = c[0].replace("to the home of Menelaus",
+                                    "to the house of Menelaus")
+        return out
+
+    verdictC = lambda bs: build_c(bs)
+    control("arrow C sees Butler's own word reused as the rendering of another "
+            "in the SAME paragraph \u2014 the M-2/M-5/M-10 class, invisible to "
+            "both other arrows",
+            books, flatten_a_discrimination(books), verdict=verdictC)
+    control("arrow A does NOT move under arrow C's defect \u2014 three checks, "
+            "not one written three times",
+            books, flatten_a_discrimination(books), verdict=verdictA,
+            expect_same=True)
+    control("arrow B does NOT move under arrow C's defect either",
+            books, flatten_a_discrimination(books), verdict=verdictB,
+            expect_same=True)
+
     # And the live row this check exists for, asserted by name rather than
     # left to a reader of 124 rows: Butler's `doubted whether` is rendered
     # `was in two minds` in accepted Book 4, which is Butler's OWN other
