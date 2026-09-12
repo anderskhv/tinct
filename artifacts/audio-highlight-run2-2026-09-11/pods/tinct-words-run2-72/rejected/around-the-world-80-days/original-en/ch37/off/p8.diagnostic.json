@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "be174979b2a0fc30211f541e673aae31f70f801a4757d437b12756e996d1102f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13440602365881205,
+      "alignment_seconds": 0.00022260192781686783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Impossible for tomorrow.",
+          "start": 0.02,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Impossible",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " for",
+              "start": 0.8,
+              "end": 1.32,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " tomorrow.",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Impossible",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "for",
+          "start": 0.8,
+          "end": 1.32
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 1.32,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Impossible—for",
+        "to-morrow.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Impossible",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "impossible",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.8,
+          "end": 1.32,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "tomorrow",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Impossible—for",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "to-morrow.\"",
+          "start": 1.32,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13469682773575187
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8153d7146b87adaf6400d8715b4d5e051e1de08173ee1426d71dff5507d3aec2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

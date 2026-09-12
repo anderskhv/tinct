@@ -1,0 +1,287 @@
+{
+  "complete": true,
+  "signature": "da6b55a42be360fe9329156f49f57f76a978ff5d4d88ce6802c7a11764374e3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2206549821421504,
+      "alignment_seconds": 0.0003617811016738415,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My master gassed pass apart out marriage impossible",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " master",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " gassed",
+              "start": 1.03,
+              "end": 1.67,
+              "probability": 0.540008544921875
+            },
+            {
+              "text": " pass",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.60546875
+            },
+            {
+              "text": " apart",
+              "start": 1.93,
+              "end": 2.19,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " out",
+              "start": 2.19,
+              "end": 2.49,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " marriage",
+              "start": 2.49,
+              "end": 2.97,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " impossible",
+              "start": 2.97,
+              "end": 3.63,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "master",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "gassed",
+          "start": 1.03,
+          "end": 1.67
+        },
+        {
+          "raw": "pass",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "apart",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "raw": "out",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "raw": "marriage",
+          "start": 2.49,
+          "end": 2.97
+        },
+        {
+          "raw": "impossible",
+          "start": 2.97,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "master!\"",
+        "gasped",
+        "Passepartout—\"marriage—impossible—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gassed",
+          "start": 1.03,
+          "end": 1.67,
+          "key": "gassed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "pass",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "apart",
+          "start": 1.93,
+          "end": 2.19,
+          "key": "apart",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.19,
+          "end": 2.49,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "marriage",
+          "start": 2.49,
+          "end": 2.97,
+          "key": "marriage",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 2.97,
+          "end": 3.63,
+          "key": "impossible",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "master!\"",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "gasped",
+          "start": 1.03,
+          "end": 2.33
+        },
+        {
+          "text": "Passepartout—\"marriage—impossible—\"",
+          "start": 2.33,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 8,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2211726880632341
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "de54446ff0a1b1d177c4efdb67d59e37ac4b126e449cfbb37fcdac4f3e9beef0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

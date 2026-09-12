@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "39bccc4f6d0f8529eae426a7e36fb84caa1b2500960fd46a236dbec79f0da374",
+  "attempts": [
+    {
+      "asr_seconds": 0.13458458194509149,
+      "alignment_seconds": 0.00023114122450351715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Impossible.",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " Impossible.",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.470947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Impossible.",
+          "start": 0.02,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Impossible?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Impossible.",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "impossible",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Impossible?\"",
+          "start": 0.02,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1348958727903664
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fbe1edf5710e85918f45c4d5f1c45dbd3ccd3782c7287437cdd44f679d192ed3",
+  "selected_reasons": []
+}

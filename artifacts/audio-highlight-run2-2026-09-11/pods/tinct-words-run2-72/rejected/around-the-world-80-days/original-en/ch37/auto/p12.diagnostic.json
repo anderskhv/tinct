@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "18663b6e6e73230ed9d112b6243357dc0ffd1100d13dfa4e7bee8a9b4424c8e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1689214501529932,
+      "alignment_seconds": 0.00045454176142811775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No—to-day is Saturday.\"",
+        "hotwords": "No—to-day, Saturday"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No—to-day is Saturday.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " No—to",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.019989490509033203
+            },
+            {
+              "text": "-day",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " is",
+              "start": 0.92,
+              "end": 1.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Saturday.",
+              "start": 1.06,
+              "end": 1.38,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No—to",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "-day",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "is",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "raw": "Saturday.",
+          "start": 1.06,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "\"No—to-day",
+        "is",
+        "Saturday.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No—to -day",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "notoday",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.92,
+          "end": 1.06,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Saturday.",
+          "start": 1.06,
+          "end": 1.38,
+          "key": "saturday",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"No—to-day",
+          "heard": "No—to -day",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.02,
+          "end": 0.92
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No—to-day",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "is",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "text": "Saturday.\"",
+          "start": 1.06,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16949445195496082
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59cbeca3958acf8139f43499c855a12c1b2f9ea3a7b6baac34bd97e513305c4d",
+  "selected_reasons": []
+}
